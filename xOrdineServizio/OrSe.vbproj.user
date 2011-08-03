@@ -1,0 +1,22 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PublishUrlHistory>\\Tonymobile\X\|\\Tonymobile\Users\Public\Documents\|\\tonymobile\x\|ftp://ftp.toppolino.it/listing/|ftp://ftp.toppolino.it/orse/</PublishUrlHistory>
+    <InstallUrlHistory>http://www.toppolino.it/listing/</InstallUrlHistory>
+    <SupportUrlHistory>http://www.toppolino.it/listing</SupportUrlHistory>
+    <UpdateUrlHistory>\\Tonymobile\X\|http://www.toppolino.it/listing/|http://www.toppolino.it/orse/</UpdateUrlHistory>
+    <BootstrapperUrlHistory>
+    </BootstrapperUrlHistory>
+    <ApplicationRevision>19</ApplicationRevision>
+    <FallbackCulture>en-US</FallbackCulture>
+    <VerifyUploadedFiles>true</VerifyUploadedFiles>
+    <ReferencePath>C:\Programmi\File comuni\Business Objects\2.7\Managed\</ReferencePath>
+    <ProjectView>ShowAllFiles</ProjectView>
+    <EnableSecurityDebugging>false</EnableSecurityDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <EnableUnmanagedDebugging>true</EnableUnmanagedDebugging>
+  </PropertyGroup>
+</Project>

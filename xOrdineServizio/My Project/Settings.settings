@@ -1,0 +1,65 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
+  <Profiles />
+  <Settings>
+    <Setting Name="GruppoFirmaRiga1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IL COMANDANTE</Value>
+    </Setting>
+    <Setting Name="GruppoFirmaRiga2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">(Mar.Ca.Xxxxx Xxxxx)</Value>
+    </Setting>
+    <Setting Name="comando" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Stazione Carabinieri di Xxxxxxxxxx</Value>
+    </Setting>
+    <Setting Name="comune" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Santa Maria a Monte (PI)</Value>
+    </Setting>
+    <Setting Name="dbAlegatoAConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\dbAlegatoA.mdb&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.OleDb&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\dbAlegatoA.mdb</Value>
+    </Setting>
+    <Setting Name="GruppoFirmaInterinaleRiga1" Type="System.String" Scope="User">
+      <Value Profile="(Default)">IL COMANDANTE int.</Value>
+    </Setting>
+    <Setting Name="GruppoFirmaInterinaleRiga2" Type="System.String" Scope="User">
+      <Value Profile="(Default)">(Mar.Xxxxx Xxxxx)</Value>
+    </Setting>
+    <Setting Name="protocolloOP85" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="prefissoIndirizzoStazioneCC" Type="System.String" Scope="User">
+      <Value Profile="(Default)">AL COMANDO STAZIONE CARABINIERI</Value>
+    </Setting>
+    <Setting Name="regione" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LEGIONE CARABINIERI TOSCANA</Value>
+    </Setting>
+    <Setting Name="versioneDB" Type="System.String" Scope="User">
+      <Value Profile="(Default)">2.20</Value>
+    </Setting>
+    <Setting Name="urlAggiornamenti" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.toppolino.it/listing/orse</Value>
+    </Setting>
+    <Setting Name="linkDownloadNuovaVersione" Type="System.String" Scope="User">
+      <Value Profile="(Default)">http://www.toppolino.it/orse/wp-content/plugins/download-monitor/download.php?id=5</Value>
+    </Setting>
+    <Setting Name="descrizioneParagrafoInterventi" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Paragrafo 9 - Interventi</Value>
+    </Setting>
+    <Setting Name="descrizioneParagrafoInformazioni" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Paragrafo 6 - Informazioni</Value>
+    </Setting>
+    <Setting Name="display_reportPrimaPagina" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="ComandanteTitolare" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLibero" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
