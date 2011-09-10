@@ -174,7 +174,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("2.20")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2.50")>  _
         Public Property versioneDB() As String
             Get
                 Return CType(Me("versioneDB"),String)
@@ -264,6 +264,17 @@ Namespace My
             Get
                 Return CType(Me("altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLibero"),Integer)
             End Get
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property dataUltimaEsportazioneDati() As Date
+            Get
+                Return CType(Me("dataUltimaEsportazioneDati"),Date)
+            End Get
+            Set
+                Me("dataUltimaEsportazioneDati") = value
+            End Set
         End Property
     End Class
 End Namespace

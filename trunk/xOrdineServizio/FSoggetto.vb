@@ -40,7 +40,7 @@ Public Class FSoggetto
         ComboBoxModelliMezzo.setDisplayMember("mezzo")
         ComboBoxModelliMezzo.setValueMember("id")
         ComboBoxModelliMezzo.setTabella(UserControlComboBox.tabellaEnum.ModelliMezzo)
-
+        ComboBoxModelliMezzo.MaxLength(50) 'imposto la lunghezza massima del campo. E' uguale a quella del DB
     End Sub
 
     'modifica soggetto

@@ -141,6 +141,12 @@
     <Compile Include="FAbout.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FDataRange.Designer.vb">
+      <DependentUpon>FDataRange.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FDataRange.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FDownloadLink.Designer.vb">
       <DependentUpon>FDownloadLink.vb</DependentUpon>
     </Compile>
@@ -205,6 +211,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ActionsLibrary.vb" />
+    <Compile Include="FSopralluogo.Designer.vb">
+      <DependentUpon>FSopralluogo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FSopralluogo.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FVedi.Designer.vb">
       <DependentUpon>FVedi.vb</DependentUpon>
     </Compile>
@@ -411,12 +423,20 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dbAlegatoA.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <EmbeddedResource Include="FDataRange.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FDataRange.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FProgressionBar.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FProgressionBar.vb</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FSopralluogo.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FSopralluogo.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FVedi.resx">
       <SubType>Designer</SubType>

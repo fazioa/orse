@@ -353,4 +353,9 @@ Public Class UserControlComboBox
         selezionevoce()
 
     End Sub
+
+
+    Public Sub MaxLength(ByVal i As Integer)
+        TextBox1.MaxLength = i
+    End Sub
 End Class

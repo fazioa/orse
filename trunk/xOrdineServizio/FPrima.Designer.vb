@@ -150,7 +150,7 @@ Partial Class FPrima
         Me.menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferenzeToolStripMenuItem1, Me.StampaToolStripMenuItem, Me.StrumentiToolStripMenuItem, Me.SessioneToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.menu.Location = New System.Drawing.Point(0, 0)
         Me.menu.Name = "menu"
-        Me.menu.Size = New System.Drawing.Size(1192, 24)
+        Me.menu.Size = New System.Drawing.Size(1226, 24)
         Me.menu.TabIndex = 22
         Me.menu.Text = "menu"
         '
@@ -337,7 +337,7 @@ Partial Class FPrima
         'SplitContainer3.Panel2
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.DataGridViewAllegatoA)
-        Me.SplitContainer3.Size = New System.Drawing.Size(1186, 124)
+        Me.SplitContainer3.Size = New System.Drawing.Size(1220, 124)
         Me.SplitContainer3.SplitterDistance = 25
         Me.SplitContainer3.TabIndex = 29
         '
@@ -382,7 +382,7 @@ Partial Class FPrima
         Me.DataGridViewAllegatoA.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridViewAllegatoA.RowHeadersVisible = False
         Me.DataGridViewAllegatoA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewAllegatoA.Size = New System.Drawing.Size(1157, 124)
+        Me.DataGridViewAllegatoA.Size = New System.Drawing.Size(1191, 124)
         Me.DataGridViewAllegatoA.TabIndex = 23
         '
         'nomeOS
@@ -521,7 +521,7 @@ Partial Class FPrima
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.DataGridViewInterventi)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1186, 124)
+        Me.SplitContainer2.Size = New System.Drawing.Size(1220, 124)
         Me.SplitContainer2.SplitterDistance = 25
         Me.SplitContainer2.TabIndex = 30
         '
@@ -566,7 +566,7 @@ Partial Class FPrima
         Me.DataGridViewInterventi.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridViewInterventi.RowHeadersVisible = False
         Me.DataGridViewInterventi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewInterventi.Size = New System.Drawing.Size(1157, 124)
+        Me.DataGridViewInterventi.Size = New System.Drawing.Size(1191, 124)
         Me.DataGridViewInterventi.TabIndex = 19
         '
         'dataoraInizio
@@ -633,14 +633,14 @@ Partial Class FPrima
         Me.TableLayoutPanelRiepilogoInserimenti.Controls.Add(Me.SplitContainer2, 0, 1)
         Me.TableLayoutPanelRiepilogoInserimenti.Controls.Add(Me.SplitContainer3, 0, 2)
         Me.TableLayoutPanelRiepilogoInserimenti.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanelRiepilogoInserimenti.Location = New System.Drawing.Point(0, 254)
+        Me.TableLayoutPanelRiepilogoInserimenti.Location = New System.Drawing.Point(0, 226)
         Me.TableLayoutPanelRiepilogoInserimenti.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanelRiepilogoInserimenti.Name = "TableLayoutPanelRiepilogoInserimenti"
         Me.TableLayoutPanelRiepilogoInserimenti.RowCount = 3
         Me.TableLayoutPanelRiepilogoInserimenti.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanelRiepilogoInserimenti.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanelRiepilogoInserimenti.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanelRiepilogoInserimenti.Size = New System.Drawing.Size(1192, 390)
+        Me.TableLayoutPanelRiepilogoInserimenti.Size = New System.Drawing.Size(1226, 390)
         Me.TableLayoutPanelRiepilogoInserimenti.TabIndex = 26
         '
         'SplitContainer1
@@ -656,7 +656,7 @@ Partial Class FPrima
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridViewInformazioni)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1186, 124)
+        Me.SplitContainer1.Size = New System.Drawing.Size(1220, 124)
         Me.SplitContainer1.SplitterDistance = 25
         Me.SplitContainer1.TabIndex = 31
         '
@@ -701,7 +701,7 @@ Partial Class FPrima
         Me.DataGridViewInformazioni.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridViewInformazioni.RowHeadersVisible = False
         Me.DataGridViewInformazioni.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewInformazioni.Size = New System.Drawing.Size(1157, 124)
+        Me.DataGridViewInformazioni.Size = New System.Drawing.Size(1191, 124)
         Me.DataGridViewInformazioni.TabIndex = 20
         '
         'dataoraFineInfo
@@ -809,7 +809,7 @@ Partial Class FPrima
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1192, 0)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1226, 0)
         Me.FlowLayoutPanel1.TabIndex = 24
         '
         'ButtonVedi
@@ -817,7 +817,7 @@ Partial Class FPrima
         Me.ButtonVedi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ButtonVedi.FlatAppearance.BorderSize = 3
         Me.ButtonVedi.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
-        Me.ButtonVedi.Location = New System.Drawing.Point(3, 142)
+        Me.ButtonVedi.Location = New System.Drawing.Point(921, 51)
         Me.ButtonVedi.Name = "ButtonVedi"
         Me.ButtonVedi.Size = New System.Drawing.Size(300, 85)
         Me.ButtonVedi.TabIndex = 8
@@ -833,7 +833,7 @@ Partial Class FPrima
         Me.TableLayoutPanel2.Controls.Add(Me.FlowLayoutPanel1, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.FlowLayoutPanel2, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 254)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 226)
         Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 3
@@ -841,7 +841,7 @@ Partial Class FPrima
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1192, 0)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1226, 0)
         Me.TableLayoutPanel2.TabIndex = 27
         '
         'FlowLayoutPanelEsterno
@@ -855,7 +855,7 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanelEsterno.Location = New System.Drawing.Point(0, 24)
         Me.FlowLayoutPanelEsterno.Name = "FlowLayoutPanelEsterno"
-        Me.FlowLayoutPanelEsterno.Size = New System.Drawing.Size(1192, 230)
+        Me.FlowLayoutPanelEsterno.Size = New System.Drawing.Size(1226, 139)
         Me.FlowLayoutPanelEsterno.TabIndex = 28
         '
         'btnInformazioni
@@ -929,7 +929,7 @@ Partial Class FPrima
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1209, 616)
+        Me.ClientSize = New System.Drawing.Size(1226, 616)
         Me.Controls.Add(Me.FlowLayoutPanelEsterno)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.menu)
