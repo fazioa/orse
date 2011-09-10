@@ -20,6 +20,15 @@ Public Class ApplicazionePatch
         Return sVersionePartenza
     End Function
 
+    Private Function patch3_creazionetabellasopralluogo()
+        'esegue la creazione della tabella sopralluogo, inserisce il numero versione DB 2.50
+        feActions.esegueSQL("CREATE TABLE sopralluogo  (id COUNTER CONSTRAINT ChiavePrimariaConstraint PRIMARY KEY, idOS INTEGER, tipoReato TEXT(50), oraRichiesta DATETIME,luogo_citta TEXT(50), via TEXT(150), contatti_con TEXT(200),resoconto MEMO,FOREIGN KEY (idOS) REFERENCES ordineServizio(id));")
+
+        Dim versione As dbAlegatoADataSetTableAdapters.versioneTableAdapter = New dbAlegatoADataSetTableAdapters.versioneTableAdapter
+        Dim sVersionePartenza = "2.50"
+        versione.Insert("", sVersionePartenza)
+        Return sVersionePartenza
+    End Function
 
     Public Function doControlloVersioneDB()
         Dim versione As dbAlegatoADataSetTableAdapters.versioneTableAdapter = New dbAlegatoADataSetTableAdapters.versioneTableAdapter
@@ -46,8 +55,9 @@ Public Class ApplicazionePatch
             Case -1
                 patch1_creaTabellaVersione()
                 patch2_aggiornamentoMaxsizeCampoLuogoControllo()
-            Case Is < 2.2
+            Case Is < 2.5
                 patch2_aggiornamentoMaxsizeCampoLuogoControllo()
+                patch3_creazionetabellasopralluogo()
                 '   +patch1
         End Select
     End Sub

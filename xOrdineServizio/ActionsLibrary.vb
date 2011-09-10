@@ -153,11 +153,6 @@ Public Class ActionsLibrary
         form.Visible = True
     End Sub
 
-    '  Public Sub doApriFormAnteprima(ByVal id As Integer, ByVal par As parametriGenerale, ByVal tipo As tipoReport)
-    ' Dim form As System.Windows.Forms.Form
-    '     form = New FanteprimaReport(id, par, tipo)
-    '     form.Visible = True
-   ' End Sub
 
     Public Sub doApriFormOpzioni()
         log.xlogWriteEntry("Apertura preferenze", TraceEventType.Information)
@@ -370,12 +365,12 @@ Public Class ActionsLibrary
         Dim dgv As DataGridView = sender
         dgv.MultiSelect = False
         dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgv.BackgroundColor = Color.White
-        dgv.BorderStyle = BorderStyle.None
+        dgv.BackgroundColor = Color.Silver
+        dgv.BorderStyle = BorderStyle.FixedSingle
         dgv.CellBorderStyle = DataGridViewCellBorderStyle.None
         dgv.GridColor = Color.WhiteSmoke
         dgv.RowHeadersVisible = False
-        dgv.AllowUserToResizeColumns = False
+        dgv.AllowUserToResizeColumns = True
         dgv.AllowUserToResizeRows = False
         dgv.AllowUserToAddRows = False
         dgv.EditMode = DataGridViewEditMode.EditProgrammatically
@@ -417,6 +412,22 @@ Public Class ActionsLibrary
 
 
     Sub toXmlFile()
+
+        'INSERIRE RICERCA PER DATA RANGE - QUERY GIA' FATTA DA PROVARE
+        '            d.Fill(db.QAllegatoA)
+        Dim dInizio As DateTime             '= "#01/06/2010 00:00:00#"
+        Dim dFine As DateTime               '= "#31/12/2010 23:59:59#"
+        Dim dataRange As FDataRange = New FDataRange
+        dataRange.ShowDialog()
+        dInizio = dataRange.getStartDateResult()
+        dFine = dataRange.getEndDateResult
+        'trasformo le date per eseguire la ricerca dalla mezzanotte della data di part alla mezzanotte della data di fine
+
+        dInizio = New Date(dInizio.Year, dInizio.Month, dInizio.Day, 0, 0, 0)
+        dFine = New Date(dFine.Year, dFine.Month, dFine.Day, 23, 59, 59)
+      
+
+
         Dim fDialog As SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
         fDialog.Title = "Salva file OrSe"
         fDialog.Filter = "Orse Files|*.OrSe"
@@ -425,28 +436,32 @@ Public Class ActionsLibrary
         fDialog.FileName = "orseExport.OrSe"
         If (fDialog.ShowDialog() = DialogResult.OK) Then
             Dim os As New OrSe.FillTreeOS
-            '   Dim ordiniServizio As ArrayList = os.fillOS()
-
             Dim writer As New XmlSerializer(GetType(dbAlegatoADataSet.QAllegatoADataTable))
-
             Dim file As New StreamWriter("ordiniServizioAllegatoAData.OrseXML")
             Dim d As New dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
-            d.Fill(db.QAllegatoA)
 
+         
+
+            d.FillByDataRange(db.QAllegatoA, dInizio, dFine)
             writer.Serialize(file, db.QAllegatoA)
             file.Close()
 
             writer = New XmlSerializer(GetType(dbAlegatoADataSet.QInterventiDataTable))
 
             file = New StreamWriter("ordiniServizioInformazioniData.OrseXML")
+
             Dim d2 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
-            d2.Fill(db.QInterventi, paragrafoOS.informazioni)
+            ' d2.Fill(db.QInterventi, paragrafoOS.informazioni)
+
+            d2.FillByDataRange(db.QInterventi, paragrafoOS.informazioni, dInizio, dFine)
+
             writer.Serialize(file, db.QInterventi)
             file.Close()
 
             file = New StreamWriter("ordiniServizioInterventiData.OrseXML")
             Dim d3 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
-            d3.Fill(db.QInterventi, paragrafoOS.interventi)
+            'd3.Fill(db.QInterventi, paragrafoOS.interventi)
+            d3.FillByDataRange(db.QInterventi, paragrafoOS.interventi, dInizio, dFine)
             writer.Serialize(file, db.QInterventi)
             file.Close()
 
@@ -467,10 +482,6 @@ Public Class ActionsLibrary
 
         End If
 
-            'TO DO
-            'esportazione di tutte le tabelle
-            'importazione di tutti i record, eseguendo gli inserimenti dei record in base alle dipendenze, e convertendo gli id
-            'scelta se esportare solo persone o solo interventi. Verrà eseguita l'esportazione anche della tabella ordini di servizio.
     End Sub
 
     Sub fromXmlFile()
@@ -557,7 +568,7 @@ Public Class ActionsLibrary
                             'E' capitato che alcuni inserimenti eseguiti in presenza di bug mancasso il luogo del controllo
                             idControllo = inserimentoControllo(a.Item("dataora"), a.Item("luogo"), idOS)
                             Dim idPersona = inserimentoPersone(a, idOS, idControllo)
-                            inserimentoVoceAllegatoA(a, idControllo, idPersona)
+                            If (idPersona > 0) Then inserimentoVoceAllegatoA(a, idControllo, idPersona)
                         Else
                             log.xlogWriteEntry("Incongruenza dati. Viene ignorato il seguente inserimento: luogo=" & a.Item("luogo") & ", dataora: " & a.Item("dataora") & ". Persona: " & a.Item("cognome") & ", nome: " & a.Item("nome"), TraceEventType.Critical)
                         End If
@@ -586,7 +597,8 @@ Public Class ActionsLibrary
         'se sLuogo è nothing si solleva un eccezione. Allora se è nothing posto la stringa a ""
         If (sLuogo = Nothing) Then sLuogo = ""
         'se il luogo non esiste allora lo inserisco, e poi ne prendo l'ID
-        If (tLuogo.FillByName(dLuogo, sLuogo) <= 0) Then
+        tLuogo.FillByName(dLuogo, sLuogo)
+        If (dLuogo.Count <= 0) Then
             log.xlogWriteEntry("Inserimento luogo controllo:" & sLuogo & ", id:" & idLuogo, TraceEventType.Critical)
             tLuogo.Insert(sLuogo)
             idLuogo = tLuogo.MaxID()
@@ -594,8 +606,8 @@ Public Class ActionsLibrary
         Else
             idLuogo = dLuogo.Item(0).id
         End If
-
-        If (t.Fill_ricercaDoppione(dControllo, d, idLuogo, idOS) > 0) Then
+        t.Fill_ricercaDoppione(dControllo, d, idLuogo, idOS)
+        If (dControllo.Count > 0) Then
             'se c'è già allora restituisco l'id, altrimenti inserisco
             log.xlogWriteEntry("Inserimento controllo - IGNORATO, perchè già esistente, idLuogo: " & idLuogo & ", data: " & d & "idOS:" & idOS, TraceEventType.Critical)
             Return dControllo.Item(0).ID
@@ -615,6 +627,7 @@ Public Class ActionsLibrary
         Dim idPersona As Integer = -1
         Dim dPersona As New dbAlegatoADataSet.personaDataTable
         Dim t As New dbAlegatoADataSetTableAdapters.personaTableAdapter
+
         Dim idLuogoNascita, idLuogoResidenza As Integer
         'trovo gli id delle città di nascita e residenza
         idLuogoNascita = cittaToID(a.Item("cittanascita"))
@@ -622,37 +635,50 @@ Public Class ActionsLibrary
 
         Dim sCognome = IIf(a.Item("cognome") = Nothing, "", a.Item("cognome"))
         Dim sNome = IIf(a.Item("nome") = Nothing, "", a.Item("nome"))
+        Dim bFlagInserimentoPersona As Boolean = True
         Dim dDataNascita As Date
-        If Not (a.Item("datanascita") = Nothing) Then
+
+        If (a.Item("datanascita") = Nothing) Then
+            bFlagInserimentoPersona = False
+        Else
             dDataNascita = a.Item("datanascita")
         End If
 
-        If (t.FillByDati(dPersona, sCognome, sNome, idLuogoNascita, dDataNascita) > 0) Then
-            'prendi id
-            idPersona = dPersona.Item(0).ID
+        If idLuogoNascita < 0 Or sCognome = "" Or sNome = "" Then bFlagInserimentoPersona = False
+
+
+        If Not bFlagInserimentoPersona Then 'se non ci sono dati di identificazione certi, allora ometto la ricerca e l'inserimento
+            log.xlogWriteEntry("Inserimento persona OMESSO per mancanza dati d'identificazione completi", TraceEventType.Critical)
+            idPersona = -1
         Else
-            'inserisce e poi prendi id
-            'fare il validate dei dati. nothing non è consentito
+            t.FillByDati(dPersona, sCognome, sNome, idLuogoNascita, dDataNascita)
+            If (dPersona.Count > 0) Then
+                'prendi id
+                idPersona = dPersona.Item(0).ID
+            Else
+                'inserisce e poi prendi id
+                'fare il validate dei dati. nothing non è consentito
 
-            Dim sResidenzaIndirizzo = IIf(a.Item("residenzaindirizzo") = Nothing, "", a.Item("residenzaindirizzo"))
-            Dim sDocumento = IIf(a.Item("documento") = Nothing, "", a.Item("documento"))
-            Dim sPrecedenti = IIf(a.Item("precedenti") = Nothing, "", a.Item("precedenti"))
-            Dim bPio As Boolean = IIf(a.Item("pio") = Nothing, False, a.Item("pio"))
+                Dim sResidenzaIndirizzo = IIf(a.Item("residenzaindirizzo") = Nothing, "", a.Item("residenzaindirizzo"))
+                Dim sDocumento = IIf(a.Item("documento") = Nothing, "", a.Item("documento"))
+                Dim sPrecedenti = IIf(a.Item("precedenti") = Nothing, "", a.Item("precedenti"))
+                Dim bPio As Boolean = IIf(a.Item("pio") = Nothing, False, a.Item("pio"))
 
 
-            log.xlogWriteEntry("Inserimento persona, Cognome e Nome: " & sCognome & " " & sNome, TraceEventType.Critical)
-            t.Insert(sCognome, sNome, idLuogoNascita, sResidenzaIndirizzo, idLuogoResidenza, sDocumento, sPrecedenti, bPio, dDataNascita)
-            idPersona = t.MaxID
+                log.xlogWriteEntry("Inserimento persona, Cognome e Nome: " & sCognome & " " & sNome, TraceEventType.Critical)
+                t.Insert(sCognome, sNome, idLuogoNascita, sResidenzaIndirizzo, idLuogoResidenza, sDocumento, sPrecedenti, bPio, dDataNascita)
+                idPersona = t.MaxID
+            End If
         End If
         Return idPersona
-
     End Function
 
     Private Function inserimentoVoceAllegatoA(ByVal a As Hashtable, ByVal idControllo As Integer, ByVal idPersona As Integer)
         Dim ds As New dbAlegatoADataSet.allegatoADataTable
         Dim t As New dbAlegatoADataSetTableAdapters.allegatoATableAdapter
 
-        If (t.FillByid_idControllo(ds, idPersona, idControllo) <= 0) Then
+        t.FillByidPersona_idControllo(ds, idControllo, idPersona)
+        If (ds.Count <= 0) Then
             'se sono qui vuol dire che la voce in allegato A non esiste.
             'inserisco 
             Dim iOrdine As Integer = a.Item("ordine")
@@ -667,17 +693,24 @@ Public Class ActionsLibrary
             Dim idMezzo As Integer = mezzoToID(a.Item("mezzo"))
             Return t.Insert(idControllo, iOrdine, idMezzo, sColore, sTarga, idPersona, bContravvenzioni, bPerquisizioni, sPositivoSDI, sNote)
         Else
+            log.xlogWriteEntry("Inserimento riga allegatoA - IGNORATA - idPersona=" & idPersona & " - idControllo= " & idControllo, TraceEventType.Critical)
             Return ds.Item(0).id
         End If
         Return -1
     End Function
 
-    Private Function cittaToID(ByVal sNomeCitta As String) As Integer
+    Private Function cittaToID(ByVal sNomeCitta As String)
         Static Dim dL As New dbAlegatoADataSet.comuneDataTable
         Static Dim ta As New dbAlegatoADataSetTableAdapters.comuneTableAdapter
-
-        ta.FillByComune(dL, sNomeCitta)
-        Return dL.Item(0).id
+        If (Not sNomeCitta Is Nothing) Then
+            ta.FillByComune(dL, sNomeCitta)
+            If (dL.Count > 0) Then
+                Return dL.Item(0).id
+            Else
+                Return -1
+            End If
+        End If
+        Return -1
     End Function
 
     Private Function mezzoToID(ByVal sNomeMezzo As String) As Integer
@@ -711,25 +744,20 @@ Public Class ActionsLibrary
 
             'se dataorainizio e fine sono valorizzati allora proseguo. FAccio questo perchè alcuni inserimenti in passato sono stati fatti male, ed a volte dataorainizio è nullo
             '  If Not (a.Item("dataOraInizio") = Nothing Or a.Item("dataOraFine") = Nothing Or a.Item("iParagrafo") = Nothing) Then
-            Dim dataOraInizio As Date = a.Item("dataOraInizio")
-            Dim dataOraFine As Date = a.Item("dataOraFine")
+            Dim dataOraInizio As DateTime = a.Item("dataOraInizio")
+            Dim dataOraFine As DateTime = a.Item("dataOraFine")
 
             Dim tipointervento As String = a.Item("tipointervento")
             Dim resoconto As String = a.Item("resoconto")
             Dim iParagrafo As Integer = a.Item("iParagrafo")
 
-            'Dim sInizio As String = "#" & dataOraInizio.ToString("yyyy-MM-ddTHH:mm:ss") & "#"
-            ' Dim sInizio As String = "#" & dataOraInizio.ToString("MM-dd-yyyy HH:mm:ss") & "#"
-            '     Dim sFine As String = "#" & dataOraFine.ToString("yyyy-MM-ddTHH:mm:ss") & "#"
-            '    dataOraFine = sFine.Replace(".", ":")
-            ' dataOraInizio = date.Parse(sInizio.Replace(".", ":"))
 
             'controllo doppione
             Dim c As Integer = -1
-            'c = tQInterventi.FillRicercaDoppione(dQI, dataOraInizio.ToString, dataOraFine.ToString, iParagrafo, idOS)
-            'Dim sOraInizio As String = dataOraInizio.Hour & "." & dataOraInizio.Minute & "." & dataOraInizio.Second
-            'Dim sOraFine As String = dataOraFine.Hour & "." & dataOraFine.Minute & "." & dataOraFine.Second
+
+
             c = tQInterventi.FillRicercaDoppione(dQI, resoconto, idOS)
+
             If (c <= 0) Then
                 Dim i As Integer
                 log.xlogWriteEntry("Inserimento intervento/informazione. idOS:" & idOS & ", inizio: " & dataOraInizio & ", fine:" & dataOraFine, TraceEventType.Critical)
@@ -892,5 +920,15 @@ Public Class ActionsLibrary
         Dim updateSW As UpdateSoftware = New UpdateSoftware
         updateSW.ripristinaDBBackup()
     End Sub
+
+
+    ''STILI PER DATAGRID, PER IL RAGGRUPPAMENTO IN BASE AI CONTROLLI
+    'Dim stile1 As DataGridViewCellStyle
+    '    stile1 = DataGridView1.DefaultCellStyle()
+    '    stile1.BackColor = Color.Azure
+
+    'Dim stile2 As DataGridViewCellStyle
+    '    stile2 = DataGridView1.DefaultCellStyle()
+    '    stile2.BackColor = Color.WhiteSmoke
 
 End Class

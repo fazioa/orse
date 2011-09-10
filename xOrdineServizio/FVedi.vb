@@ -34,6 +34,11 @@ Public Class FVedi
         iId = iIdOS
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
+        'a volte capita che la disposizione delle colonne sballi da sola. Forse un bug. La reimposto manualmente per sicurezza
+        'Me.SuspendLayout()
+        'Me.DataGridViewAllegatoA.Columns.Clear()
+        'Me.DataGridViewAllegatoA.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cLuogoControllo, Me.cOra, Me.cognome, Me.nome, Me.DataGridViewTextBoxColumn13, Me.cittanascita, Me.DataGridViewTextBoxColumn7, Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn18, Me.cID, Me.nomeOS})
+        'Me.ResumeLayout()
     End Sub
     Private Sub checkIntervalliVuoti(ByVal dgv As DataGridView, ByVal tabella As paragrafoOS)
         Try
@@ -269,4 +274,66 @@ Public Class FVedi
             bEliminare = True
         End If
     End Sub
+
+   
+
+    Private Sub datagridviewSetup(ByVal sender As System.Object)
+        Dim dgv As DataGridView = sender
+        dgv.MultiSelect = False
+        dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgv.ColumnHeadersVisible = True
+        dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        dgv.RowHeadersVisible = False
+        dgv.AllowUserToResizeColumns = True
+        dgv.AllowUserToResizeRows = False
+        dgv.AllowUserToAddRows = False
+        dgv.ReadOnly = True
+        '----------------
+        dgv.BackgroundColor = Color.Silver
+        dgv.BorderStyle = BorderStyle.FixedSingle
+        dgv.CellBorderStyle = DataGridViewCellBorderStyle.None
+        dgv.GridColor = Color.WhiteSmoke
+        dgv.DefaultCellStyle.BackColor = Color.FloralWhite
+    End Sub
+
+    Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles DataGridViewInterventi.CellPainting, DataGridViewInformazioni.CellPainting
+        Dim dgv As DataGridView = sender
+        datagridviewSetup(dgv)
+        Dim stile As DataGridViewCellStyle = New DataGridViewCellStyle()
+        stile.BackColor() = Color.Lavender
+        dgv.AlternatingRowsDefaultCellStyle() = stile
+
+    End Sub
+
+    Private Sub AllegatoADataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles DataGridViewAllegatoA.CellPainting
+        'colora Righe AllegatoA Raggruppandole per appartenenza allo stesso controllo
+
+        Dim dgv As DataGridView = sender
+        datagridviewSetup(dgv)
+
+        Dim bFlag As Boolean = False
+        Dim iIdcontrollo, iIDControlloTmp As Integer
+        iIdcontrollo = dgv.Item("idControllo", 0).Value
+        iIDControlloTmp = iIdcontrollo
+
+        For i As Integer = 1 To dgv.RowCount - 1
+            '---CAMBIO LO STILE RIGA IN BASE AL CONTROLLO
+            'se il controllo cambia allora cambio stile
+            iIdcontrollo = dgv.Item("idControllo", i).Value
+            If (iIdcontrollo <> iIDControlloTmp) Then bFlag = Not bFlag
+
+            If (bFlag) Then
+                dgv.Rows(i).DefaultCellStyle.BackColor = Color.Lavender
+            Else
+                '  dgv.Rows(i).DefaultCellStyle.BackColor = Color.FloralWhite 'DEFAULT
+            End If
+            iIDControlloTmp = iIdcontrollo
+
+        Next
+
+
+    End Sub
+
 End Class

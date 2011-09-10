@@ -451,9 +451,9 @@ Partial Class FSoggetto
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.FlowLayoutPanel1)
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 189)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 180)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(190, 136)
+        Me.GroupBox1.Size = New System.Drawing.Size(190, 139)
         Me.GroupBox1.TabIndex = 153
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Accompagnatore"
@@ -465,7 +465,7 @@ Partial Class FSoggetto
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 16)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(184, 117)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(184, 120)
         Me.FlowLayoutPanel1.TabIndex = 0
         '
         'btnAPiedi
@@ -482,9 +482,9 @@ Partial Class FSoggetto
         '
         Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.FlowLayoutPanel2)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 331)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 325)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(190, 168)
+        Me.GroupBox2.Size = New System.Drawing.Size(190, 174)
         Me.GroupBox2.TabIndex = 154
         Me.GroupBox2.TabStop = False
         '
@@ -495,7 +495,7 @@ Partial Class FSoggetto
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 16)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(184, 149)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(184, 155)
         Me.FlowLayoutPanel2.TabIndex = 0
         '
         'GroupBoxResidenza
@@ -540,6 +540,7 @@ Partial Class FSoggetto
         Me.tbIndirizzo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "residenzaindirizzo", True))
         Me.tbIndirizzo.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbIndirizzo.Location = New System.Drawing.Point(520, 12)
+        Me.tbIndirizzo.MaxLength = 50
         Me.tbIndirizzo.Name = "tbIndirizzo"
         Me.tbIndirizzo.Size = New System.Drawing.Size(271, 41)
         Me.tbIndirizzo.TabIndex = 90
@@ -815,7 +816,6 @@ Partial Class FSoggetto
         Me.Name = "FSoggetto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Soggetti"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PersonaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

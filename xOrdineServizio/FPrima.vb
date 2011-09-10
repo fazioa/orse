@@ -290,26 +290,11 @@ Public Class FPrima
         feActions.doApriFormAllegatoA(DbAlegatoADataSet_Unico, parametri)
     End Sub
 
-    Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs)
+    Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles DataGridViewInterventi.CellPainting, DataGridViewInformazioni.CellPainting, DataGridViewAllegatoA.CellPainting
         feActions.personalizzaGrid(sender)
     End Sub
 
 
-    'Private Sub InterventiDataGrid_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
-    '    Dim dgv As DataGridView = sender
-    '    If e.ColumnIndex = dgv.Columns("cDettaglioInterventi").Index() Then
-    '        'non passo il dataset fillato perchè nel datagrid uso una query e non la tabella di cui avrò bisogno nel form
-    '        feActions.doApriDettaglioIntervento(DataGridViewInterventi, e)
-    '    End If
-    'End Sub
-
-    ' Private Sub SoggettiDataGridView_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles QAllegatoADataGridView.CellClick
-    '    Dim dgv As DataGridView = sender
-    '    Dim coord As System.Drawing.Point = dgv.CurrentCellAddress
-    '    If coord.X = dgv.Columns("cDettaglio").Index() And coord.Y = dgv.Rows(e.RowIndex).Index Then
-    '        apriDettaglioSoggetto(dgv)
-    '    End If
-    'End Sub
     Private Sub apriDettaglioSoggetto(ByRef dgv As DataGridView)
         Dim v As Integer = dgv.CurrentRow.Cells("cID").Value
         parametri.nomeLuogoControllo = dgv.CurrentRow.Cells("cLuogoControllo").Value
