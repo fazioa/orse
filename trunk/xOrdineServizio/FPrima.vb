@@ -515,5 +515,9 @@ Public Class FPrima
     End Sub
 
 
+    Private Sub Button1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        log.xlogWriteEntry("Apertura sopralluogo", TraceEventType.Information)
+        feActions.doApriFormSopralluogo(parametri.idOS)
+    End Sub
 End Class
 

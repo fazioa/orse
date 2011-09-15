@@ -6,6 +6,7 @@ Public Class FVedi
     Dim iDeleted As Integer = -1
 
     Private Sub FVedi_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DbAlegatoADataSet.sopralluogo' table. You can move, or remove it, as needed.
         QInterventi_informazioniBindigSource.Filter = "iParagrafo=" & paragrafoOS.informazioni
         QInterventiBindingSource.Filter = "iParagrafo=" & paragrafoOS.interventi
 
@@ -16,6 +17,7 @@ Public Class FVedi
     Private Sub Fill()
         dataGridFillByOS(tipoDato.allegatoA, iId)
         dataGridFillByOS(tipoDato.interventi, iId)
+        dataGridFillByOS(tipoDato.sopralluoghi, iId)
     End Sub
 
     Public Sub dataGridFillByOS(ByVal datagridFPrima As tipoDato, ByVal xiOS As Integer)
@@ -26,6 +28,8 @@ Public Class FVedi
                 Case tipoDato.interventi
                     'la tabella Interventi contiene anche le informazioni, il filtro è a livello di datagrid
                     Me.QInterventiTableAdapter.FillByOSOrderByDataInizio(Me.DbAlegatoADataSet.QInterventi, xiOS)
+                Case tipoDato.sopralluoghi
+                    Me.SopralluogoTableAdapter.FillByOS(Me.DbAlegatoADataSet.sopralluogo, xiOS)
             End Select
         End If
     End Sub
@@ -183,6 +187,10 @@ Public Class FVedi
             aggiornamentoDataGrid(tipoDato.allegatoA)
         End If
 
+        If (Not DataGridViewSopralluogo.DataBindings.IsSynchronized) Then
+            log.xlogWriteEntry("Aggiornamento DataGrid Sopralluogo", TraceEventType.Information)
+            aggiornamentoDataGrid(tipoDato.sopralluoghi)
+        End If
     End Sub
 
     Dim flagCheckIntervalliEseguito As Boolean = False
@@ -298,7 +306,7 @@ Public Class FVedi
         dgv.DefaultCellStyle.BackColor = Color.FloralWhite
     End Sub
 
-    Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles DataGridViewInterventi.CellPainting, DataGridViewInformazioni.CellPainting
+    Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles DataGridViewInterventi.CellPainting, DataGridViewInformazioni.CellPainting, DataGridViewSopralluogo.CellPainting
         Dim dgv As DataGridView = sender
         datagridviewSetup(dgv)
         Dim stile As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -336,4 +344,33 @@ Public Class FVedi
 
     End Sub
 
+    Private Sub SopralluogoDataGridView_UserDeletingRow(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowCancelEventArgs) Handles DataGridViewSopralluogo.UserDeletingRow
+        'sub eseguita PRIMA della cancellazione
+        bEliminare = False
+        iDeleted = DataGridViewSopralluogo.Item(DataGridViewSopralluogo.Columns("id").Index(), DataGridViewSopralluogo.SelectedRows(0).Index()).Value()
+        log.xlogWriteEntry("Cancellazione sopralluogo ", TraceEventType.Critical)
+
+        If (MsgBox("Eliminare riga?", MsgBoxStyle.OkCancel, "Cancellazione riga") = MsgBoxResult.Ok) Then
+            bEliminare = True
+        End If
+
+
+
+    End Sub
+
+    Private Sub DataGridViewSopralluogo_UserDeletedRow(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowEventArgs) Handles DataGridViewSopralluogo.UserDeletedRow
+        Try
+            If (bEliminare) Then
+                Me.SopralluogoTableAdapter.FillById(Me.DbAlegatoADataSet.sopralluogo, iDeleted)
+                Me.DbAlegatoADataSet.sopralluogo.Rows(0).Delete()
+                Me.SopralluogoTableAdapter.Update(Me.DbAlegatoADataSet.sopralluogo)
+            End If
+            log.xlogWriteEntry("Cancellazione sopralluogo - UserDeletedRow - Eliminato=" + bEliminare.ToString, TraceEventType.Critical)
+        Catch ex As Exception
+            log.xlogWriteException(ex, TraceEventType.Error, "Errore cancellazione sopralluogo")
+        End Try
+        log.xlogWriteEntry("Aggiornamento DataGrid Sopralluogo", TraceEventType.Information)
+        aggiornamentoDataGrid(tipoDato.sopralluoghi)
+
+    End Sub
 End Class

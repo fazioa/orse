@@ -454,7 +454,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Resources\repubblica.png" />
-    <None Include="Resources\repubblica.bmp" />
     <None Include="Resources\logo_finale.jpg" />
     <EmbeddedResource Include="Resources\btnReport\printAllegatoA.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -493,8 +492,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>UserControl1.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="Resources\repubblica.tif">
-    </None>
     <None Include="xOrdineServizio_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
