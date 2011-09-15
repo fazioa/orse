@@ -9,6 +9,7 @@ Public Enum tipoDato
     allegatoA = 1
     interventi = 2
     informazioni = 3
+    sopralluoghi = 4
 End Enum
 
 
@@ -270,6 +271,14 @@ Public Class ActionsLibrary
         form.Show()
     End Sub
 
+    Public Sub doApriFormSopralluogo(ByRef idOS As Integer)
+        log.xlogWriteEntry("Apertura dettaglio soggetto", TraceEventType.Information)
+        'db = db
+        Dim form As System.Windows.Forms.Form
+        form = New FSopralluogo(idOS, -1) 'passo -1 perchè il parametro non mi serve, in questo caso
+        form.Show()
+    End Sub
+
     'legge il valore corrente dall'item indicato
     Public Function leggiCampoDB(ByVal databinding As BindingSource, ByVal nomeItem As String)
         Dim drv As DataRowView = databinding.Current
@@ -355,7 +364,7 @@ Public Class ActionsLibrary
 
     Public Sub wordAttivaDocumento(ByVal oWord As Microsoft.Office.Interop.Word.Application)
         log.xlogWriteEntry("Word - attiva documento", TraceEventType.Critical)
-        oWord.ActiveDocument.PrintPreview()
+        'oWord.ActiveDocument.PrintPreview()
         oWord.ActiveDocument.Saved = False
         oWord.Activate()
         oWord = Nothing
