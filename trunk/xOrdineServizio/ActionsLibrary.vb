@@ -257,6 +257,15 @@ Public Class ActionsLibrary
         form = New FSoggetto(db, parametri, v)
         form.Show()
     End Sub
+
+    Public Sub doApriDettaglioSopralluogo(ByRef db As dbAlegatoADataSet, ByVal v As Integer)
+        log.xlogWriteEntry("Apertura dettaglio soggetto", TraceEventType.Information)
+        db = db
+        Dim form As System.Windows.Forms.Form
+        form = New FSopralluogo(-1, v, "")
+        form.Show()
+    End Sub
+
     Public Sub doApriFormRicerca()
         Dim form As System.Windows.Forms.Form
         form = New FRicerca()

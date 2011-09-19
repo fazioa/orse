@@ -154,6 +154,12 @@ Public Class FVedi
         feActions.doApriDettaglioSoggetto(DbAlegatoADataSet, parametri, v)
     End Sub
 
+    Private Sub apriDettaglioSopralluogo(ByRef dgv As DataGridView)
+        Dim v As Integer = dgv.CurrentRow.Cells("id").Value
+        ' parametri.nomeLuogoControllo = dgv.CurrentRow.Cells("cLuogoControllo").Value
+        ' parametri.dataoraControllo = dgv.CurrentRow.Cells("cOra").Value
+        feActions.doApriDettaglioSopralluogo(DbAlegatoADataSet, v)
+    End Sub
 
 
     Private Sub aggiornamentoDataGrid(ByVal datagridFPrima As tipoDato)
@@ -372,5 +378,10 @@ Public Class FVedi
         log.xlogWriteEntry("Aggiornamento DataGrid Sopralluogo", TraceEventType.Information)
         aggiornamentoDataGrid(tipoDato.sopralluoghi)
 
+    End Sub
+
+    Private Sub DataGridViewSopralluogo_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewSopralluogo.CellDoubleClick
+        Dim dgv As DataGridView = sender
+        apriDettaglioSopralluogo(dgv)
     End Sub
 End Class

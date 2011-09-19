@@ -1,5 +1,6 @@
 Public Class FSopralluogo
     Dim log As New XOrseLog
+    Dim feActions As New OrSe.ActionsLibrary
 
     Private Sub btnSalvaChiudi_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvaChiudi.Click
         salva()
@@ -30,6 +31,16 @@ Public Class FSopralluogo
         If (idSopralluogo >= 0) Then
             log.xlogWriteEntry("Apertura form sopralluogo per modifica", TraceEventType.Information)
             Me.SopralluogoTableAdapter.FillById(Me.DbAlegatoADataSet.sopralluogo, idSopralluogo)
+
+            Dim tipoR As String = feActions.leggiCampoDB(SopralluogoBindingSource, "tipoReato")
+
+            If (tipoR = "Furto in abitazione") Then
+                RadioButtonTipoFurtoAbitazione.Checked = True
+            Else
+                RadioButtonTipoAltro.Checked = True
+                TextBoxTipoAltro.Text = tipoR
+            End If
+
         End If
 
     End Sub
@@ -37,15 +48,22 @@ Public Class FSopralluogo
     Private idSopralluogo As Integer = -1
     Private nomiOperatori As String
     Public Sub New(ByVal idOS As Integer, ByVal idS As Integer, ByVal nomiOp As String)
+        
+
         nomiOperatori = nomiOp
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
         'inizializzo datetimepicker, perchè altrimenti danno DBNull
 
+        'se idOS=-1 allora sono in modalità modifica
+        '  If (idOS < 0) Then
+
+        ' End If
 
         'se l'id è maggiore di zero allora sto modificando, altrimenti inserisco un nuovo elemento
         If (idS >= 0) Then
             idSopralluogo = idS
+
         Else
             Me.SopralluogoBindingSource.AddNew()
             log.xlogWriteEntry("Apertura form sopralluogo - nuovo sopralluogo", TraceEventType.Information)
@@ -66,7 +84,6 @@ Public Class FSopralluogo
     Private Sub ButtonGeneraReport_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonGeneraReport.Click
         'salva il verbale di sopralluovo
         salva()
-        Dim feActions As New OrSe.ActionsLibrary
         Try
             log.xlogWriteEntry("Word - Preparazione per generazione verbale di sopralluogo", TraceEventType.Critical)
 
