@@ -271,11 +271,11 @@ Public Class ActionsLibrary
         form.Show()
     End Sub
 
-    Public Sub doApriFormSopralluogo(ByRef idOS As Integer)
+    Public Sub doApriFormSopralluogo(ByRef idOS As Integer, ByVal nomiOperatori As String)
         log.xlogWriteEntry("Apertura dettaglio soggetto", TraceEventType.Information)
         'db = db
         Dim form As System.Windows.Forms.Form
-        form = New FSopralluogo(idOS, -1) 'passo -1 perchè il parametro non mi serve, in questo caso
+        form = New FSopralluogo(idOS, -1, nomiOperatori) 'passo -1 perchè il parametro idS non mi serve, in questo caso
         form.Show()
     End Sub
 
@@ -324,7 +324,7 @@ Public Class ActionsLibrary
         oWord.Selection.TypeParagraph()
     End Sub
 
-    Public Function wordInizializzaDocumento(ByVal sParteNomeFile As String)
+    Public Function wordInizializzaDocumentoOP85(ByVal sParteNomeFile As String)
         Try
             log.xlogWriteEntry("Word - Inizializza documento OP85", TraceEventType.Critical)
 
@@ -356,6 +356,43 @@ Public Class ActionsLibrary
             Return oWord
         Catch ex As Exception
             log.xlogWriteException(ex, TraceEventType.Error, "Word - Inizializza documento OP85 - Errore")
+            Return Nothing
+        End Try
+
+
+    End Function
+    Public Function wordInizializzaDocumentoVerbaleSopralluogo()
+        Try
+            log.xlogWriteEntry("Word - Inizializza verbale sopralluogo", TraceEventType.Critical)
+
+            Dim oWord As Microsoft.Office.Interop.Word.Application = CreateObject("Word.Application")
+            Dim oDoc As Microsoft.Office.Interop.Word.Application
+            Dim strDocumentName As String = ""
+            oWord.Visible = True
+
+            Dim sPath As String = Application.StartupPath & "\Resources\automazione\"
+
+            strDocumentName = "verbaleSopralluogo.doc"
+            Try
+                If Dir(sPath & strDocumentName) = "" Then
+                    Dim n As String = sPath & strDocumentName
+                    log.xlogWriteEntry("Word - Utilizza modello .dot - Scrive file word" & n, TraceEventType.Critical)
+
+                    oWord.Documents.Add(sPath & "verbaleSopralluogo.dot").SaveAs(FileName:=n)
+                Else
+                    'Se il file esiste allora fare qualcosa, magari aprire la maschera per la scelta del percorso
+                    'oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=sPath & strDocumentName)
+                    oWord.Documents.Add(sPath & "verbaleSopralluogo.dot")
+                End If
+            Catch ex As Exception
+                log.xlogWriteEntry("Word - Gestione eccezione - Probabilmente il SO è windows seven. Impossibile scrivere sul percorso di default.", TraceEventType.Critical)
+                oWord.Documents.Add(sPath & "verbaleSopralluogo.dot")
+            End Try
+            oWord.Caption = "Verbale di sopralluogo"
+            oDoc = Nothing
+            Return oWord
+        Catch ex As Exception
+            log.xlogWriteException(ex, TraceEventType.Error, "Word - Inizializza verbale di sopralluogo - Errore")
             Return Nothing
         End Try
 

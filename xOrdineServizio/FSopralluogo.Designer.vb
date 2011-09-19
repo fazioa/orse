@@ -25,6 +25,8 @@ Partial Class FSopralluogo
         Me.RadioButtonTipoAltro = New System.Windows.Forms.RadioButton
         Me.RadioButtonTipoFurtoAbitazione = New System.Windows.Forms.RadioButton
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
+        Me.SopralluogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
         Me.Label1 = New System.Windows.Forms.Label
         Me.TextBox2 = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
@@ -42,15 +44,14 @@ Partial Class FSopralluogo
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
         Me.btnAnnulla = New System.Windows.Forms.Button
         Me.btnSalvaChiudi = New System.Windows.Forms.Button
-        Me.SopralluogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
+        Me.ButtonGeneraReport = New System.Windows.Forms.Button
         Me.SopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
         Me.GroupBox1.SuspendLayout()
+        CType(Me.SopralluogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
-        CType(Me.SopralluogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -108,6 +109,16 @@ Partial Class FSopralluogo
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(220, 32)
         Me.DateTimePicker1.TabIndex = 1
+        '
+        'SopralluogoBindingSource
+        '
+        Me.SopralluogoBindingSource.DataMember = "sopralluogo"
+        Me.SopralluogoBindingSource.DataSource = Me.DbAlegatoADataSet
+        '
+        'DbAlegatoADataSet
+        '
+        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label1
         '
@@ -235,6 +246,7 @@ Partial Class FSopralluogo
         Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.RichTextBox2.Location = New System.Drawing.Point(19, 357)
         Me.RichTextBox2.Name = "RichTextBox2"
+        Me.RichTextBox2.ReadOnly = True
         Me.RichTextBox2.Size = New System.Drawing.Size(188, 134)
         Me.RichTextBox2.TabIndex = 13
         Me.RichTextBox2.Text = "descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora" & _
@@ -259,9 +271,9 @@ Partial Class FSopralluogo
         '
         Me.GroupBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.FlowLayoutPanel2)
-        Me.GroupBox3.Location = New System.Drawing.Point(728, 492)
+        Me.GroupBox3.Location = New System.Drawing.Point(557, 492)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(372, 115)
+        Me.GroupBox3.Size = New System.Drawing.Size(543, 115)
         Me.GroupBox3.TabIndex = 155
         Me.GroupBox3.TabStop = False
         '
@@ -269,10 +281,11 @@ Partial Class FSopralluogo
         '
         Me.FlowLayoutPanel2.Controls.Add(Me.btnAnnulla)
         Me.FlowLayoutPanel2.Controls.Add(Me.btnSalvaChiudi)
+        Me.FlowLayoutPanel2.Controls.Add(Me.ButtonGeneraReport)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 16)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(366, 96)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(537, 96)
         Me.FlowLayoutPanel2.TabIndex = 0
         '
         'btnAnnulla
@@ -295,15 +308,15 @@ Partial Class FSopralluogo
         Me.btnSalvaChiudi.Text = "&Salva e Chiudi"
         Me.btnSalvaChiudi.UseVisualStyleBackColor = True
         '
-        'SopralluogoBindingSource
+        'ButtonGeneraReport
         '
-        Me.SopralluogoBindingSource.DataMember = "sopralluogo"
-        Me.SopralluogoBindingSource.DataSource = Me.DbAlegatoADataSet
-        '
-        'DbAlegatoADataSet
-        '
-        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.ButtonGeneraReport.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
+        Me.ButtonGeneraReport.Location = New System.Drawing.Point(359, 3)
+        Me.ButtonGeneraReport.Name = "ButtonGeneraReport"
+        Me.ButtonGeneraReport.Size = New System.Drawing.Size(172, 84)
+        Me.ButtonGeneraReport.TabIndex = 204
+        Me.ButtonGeneraReport.Text = "Salva e &Genera report"
+        Me.ButtonGeneraReport.UseVisualStyleBackColor = True
         '
         'SopralluogoTableAdapter
         '
@@ -330,12 +343,12 @@ Partial Class FSopralluogo
         Me.Text = "Inserimento Sopralluogo"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.SopralluogoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.FlowLayoutPanel2.ResumeLayout(False)
-        CType(Me.SopralluogoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -365,4 +378,5 @@ Partial Class FSopralluogo
     Friend WithEvents DbAlegatoADataSet As OrSe.dbAlegatoADataSet
     Friend WithEvents SopralluogoBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents SopralluogoTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
+    Friend WithEvents ButtonGeneraReport As System.Windows.Forms.Button
 End Class

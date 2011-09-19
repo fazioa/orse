@@ -23,18 +23,18 @@ Partial Class FPrima
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FPrima))
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.menu = New System.Windows.Forms.MenuStrip
         Me.PreferenzeToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem
         Me.StampaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -64,19 +64,39 @@ Partial Class FPrima
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel3 = New OrSe.verticalLabel
         Me.DataGridViewAllegatoA = New System.Windows.Forms.DataGridView
+        Me.nomeOS = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cOra = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cLuogoControllo = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cognome = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.nome = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cittanascita = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cID = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbAlegatoADataSet_Unico = New OrSe.dbAlegatoADataSet
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel1 = New OrSe.verticalLabel
         Me.DataGridViewInterventi = New System.Windows.Forms.DataGridView
         Me.dataoraInizio = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.dataOraFine = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.tipointervento = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.resoconto = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.iddgvInterventi = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableLayoutPanelRiepilogoInserimenti = New System.Windows.Forms.TableLayoutPanel
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel4 = New OrSe.verticalLabel
         Me.DataGridViewInformazioni = New System.Windows.Forms.DataGridView
+        Me.dataoraFineInfo = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.iddgvInfo = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.QInterventi_informazioniBindigSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
         Me.btnAlegatoA = New System.Windows.Forms.Button
         Me.btnIntervento = New System.Windows.Forms.Button
@@ -86,29 +106,9 @@ Partial Class FPrima
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
         Me.FlowLayoutPanelEsterno = New System.Windows.Forms.FlowLayoutPanel
         Me.btnInformazioni = New System.Windows.Forms.Button
+        Me.Button1 = New System.Windows.Forms.Button
         Me.CachedreportAllegatoA1 = New OrSe.CachedreportAllegatoA
         Me.CachedreportInterventi1 = New OrSe.CachedreportInterventi
-        Me.Button1 = New System.Windows.Forms.Button
-        Me.VerticalLabel4 = New OrSe.verticalLabel
-        Me.dataoraFineInfo = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.iddgvInfo = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.QInterventi_informazioniBindigSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet_Unico = New OrSe.dbAlegatoADataSet
-        Me.VerticalLabel1 = New OrSe.verticalLabel
-        Me.iddgvInterventi = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.VerticalLabel3 = New OrSe.verticalLabel
-        Me.nomeOS = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cOra = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cLuogoControllo = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn10 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cognome = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.nome = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn13 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn18 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cID = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.VerticalLabel2 = New OrSe.verticalLabel
         Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter
@@ -125,21 +125,21 @@ Partial Class FPrima
         Me.SplitContainer3.Panel2.SuspendLayout()
         Me.SplitContainer3.SuspendLayout()
         CType(Me.DataGridViewAllegatoA, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer2.Panel1.SuspendLayout()
         Me.SplitContainer2.Panel2.SuspendLayout()
         Me.SplitContainer2.SuspendLayout()
         CType(Me.DataGridViewInterventi, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanelRiepilogoInserimenti.SuspendLayout()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.DataGridViewInformazioni, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanelEsterno.SuspendLayout()
-        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -342,6 +342,16 @@ Partial Class FPrima
         Me.SplitContainer3.SplitterDistance = 26
         Me.SplitContainer3.TabIndex = 29
         '
+        'VerticalLabel3
+        '
+        Me.VerticalLabel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel3.Location = New System.Drawing.Point(2, 0)
+        Me.VerticalLabel3.Name = "VerticalLabel3"
+        Me.VerticalLabel3.Size = New System.Drawing.Size(24, 124)
+        Me.VerticalLabel3.TabIndex = 27
+        Me.VerticalLabel3.Text = "Allegato A"
+        '
         'DataGridViewAllegatoA
         '
         Me.DataGridViewAllegatoA.AllowUserToAddRows = False
@@ -376,6 +386,81 @@ Partial Class FPrima
         Me.DataGridViewAllegatoA.Size = New System.Drawing.Size(1258, 124)
         Me.DataGridViewAllegatoA.TabIndex = 23
         '
+        'nomeOS
+        '
+        Me.nomeOS.DataPropertyName = "nomeOS"
+        Me.nomeOS.HeaderText = "nomeOS"
+        Me.nomeOS.Name = "nomeOS"
+        Me.nomeOS.ReadOnly = True
+        Me.nomeOS.Visible = False
+        '
+        'cOra
+        '
+        Me.cOra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.cOra.DataPropertyName = "dataora"
+        DataGridViewCellStyle1.Format = "g"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.cOra.DefaultCellStyle = DataGridViewCellStyle1
+        Me.cOra.HeaderText = "Data e ora"
+        Me.cOra.Name = "cOra"
+        Me.cOra.ReadOnly = True
+        Me.cOra.Width = 5
+        '
+        'cLuogoControllo
+        '
+        Me.cLuogoControllo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.cLuogoControllo.DataPropertyName = "luogo"
+        Me.cLuogoControllo.FillWeight = 80.0!
+        Me.cLuogoControllo.HeaderText = "Luogo"
+        Me.cLuogoControllo.Name = "cLuogoControllo"
+        Me.cLuogoControllo.ReadOnly = True
+        Me.cLuogoControllo.Width = 5
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "mezzo"
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
+        Me.DataGridViewTextBoxColumn7.FillWeight = 70.0!
+        Me.DataGridViewTextBoxColumn7.HeaderText = "Mezzo"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Width = 5
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "targa"
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle3
+        Me.DataGridViewTextBoxColumn10.HeaderText = "Targa"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        Me.DataGridViewTextBoxColumn10.Width = 5
+        '
+        'cognome
+        '
+        Me.cognome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.cognome.DataPropertyName = "cognome"
+        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cognome.DefaultCellStyle = DataGridViewCellStyle4
+        Me.cognome.HeaderText = "Cognome"
+        Me.cognome.Name = "cognome"
+        Me.cognome.ReadOnly = True
+        Me.cognome.Width = 5
+        '
+        'nome
+        '
+        Me.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.nome.DataPropertyName = "nome"
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nome.DefaultCellStyle = DataGridViewCellStyle5
+        Me.nome.HeaderText = "Nome"
+        Me.nome.Name = "nome"
+        Me.nome.ReadOnly = True
+        Me.nome.Width = 5
+        '
         'cittanascita
         '
         Me.cittanascita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -384,6 +469,45 @@ Partial Class FPrima
         Me.cittanascita.HeaderText = "Citta Nascita"
         Me.cittanascita.Name = "cittanascita"
         Me.cittanascita.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "datanascita"
+        DataGridViewCellStyle6.Format = "d"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle6
+        Me.DataGridViewTextBoxColumn13.HeaderText = "Data Nascita"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        Me.DataGridViewTextBoxColumn13.Width = 5
+        '
+        'DataGridViewTextBoxColumn18
+        '
+        Me.DataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn18.DataPropertyName = "positivoSDI"
+        Me.DataGridViewTextBoxColumn18.HeaderText = "SDI pos."
+        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
+        Me.DataGridViewTextBoxColumn18.ReadOnly = True
+        Me.DataGridViewTextBoxColumn18.Width = 5
+        '
+        'cID
+        '
+        Me.cID.DataPropertyName = "id"
+        Me.cID.HeaderText = "id"
+        Me.cID.Name = "cID"
+        Me.cID.ReadOnly = True
+        Me.cID.Visible = False
+        '
+        'QAllegatoABindingSource
+        '
+        Me.QAllegatoABindingSource.DataMember = "QAllegatoA"
+        Me.QAllegatoABindingSource.DataSource = Me.DbAlegatoADataSet_Unico
+        '
+        'DbAlegatoADataSet_Unico
+        '
+        Me.DbAlegatoADataSet_Unico.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet_Unico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'SplitContainer2
         '
@@ -401,6 +525,16 @@ Partial Class FPrima
         Me.SplitContainer2.Size = New System.Drawing.Size(1288, 124)
         Me.SplitContainer2.SplitterDistance = 26
         Me.SplitContainer2.TabIndex = 30
+        '
+        'VerticalLabel1
+        '
+        Me.VerticalLabel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel1.Location = New System.Drawing.Point(2, 0)
+        Me.VerticalLabel1.Name = "VerticalLabel1"
+        Me.VerticalLabel1.Size = New System.Drawing.Size(24, 124)
+        Me.VerticalLabel1.TabIndex = 26
+        Me.VerticalLabel1.Text = "Par.9 Interv."
         '
         'DataGridViewInterventi
         '
@@ -476,6 +610,21 @@ Partial Class FPrima
         Me.resoconto.Name = "resoconto"
         Me.resoconto.ReadOnly = True
         '
+        'iddgvInterventi
+        '
+        Me.iddgvInterventi.DataPropertyName = "id"
+        Me.iddgvInterventi.HeaderText = "id"
+        Me.iddgvInterventi.Name = "iddgvInterventi"
+        Me.iddgvInterventi.ReadOnly = True
+        Me.iddgvInterventi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
+        Me.iddgvInterventi.Visible = False
+        '
+        'QInterventiBindingSource
+        '
+        Me.QInterventiBindingSource.DataMember = "QInterventi"
+        Me.QInterventiBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
+        Me.QInterventiBindingSource.Filter = ""
+        '
         'TableLayoutPanelRiepilogoInserimenti
         '
         Me.TableLayoutPanelRiepilogoInserimenti.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
@@ -512,6 +661,16 @@ Partial Class FPrima
         Me.SplitContainer1.SplitterDistance = 26
         Me.SplitContainer1.TabIndex = 31
         '
+        'VerticalLabel4
+        '
+        Me.VerticalLabel4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel4.Location = New System.Drawing.Point(2, 0)
+        Me.VerticalLabel4.Name = "VerticalLabel4"
+        Me.VerticalLabel4.Size = New System.Drawing.Size(24, 124)
+        Me.VerticalLabel4.TabIndex = 27
+        Me.VerticalLabel4.Text = "Par.6 Info"
+        '
         'DataGridViewInformazioni
         '
         Me.DataGridViewInformazioni.AllowUserToAddRows = False
@@ -546,6 +705,18 @@ Partial Class FPrima
         Me.DataGridViewInformazioni.Size = New System.Drawing.Size(1258, 124)
         Me.DataGridViewInformazioni.TabIndex = 20
         '
+        'dataoraFineInfo
+        '
+        Me.dataoraFineInfo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.dataoraFineInfo.DataPropertyName = "dataOraFine"
+        DataGridViewCellStyle12.Format = "t"
+        DataGridViewCellStyle12.NullValue = Nothing
+        Me.dataoraFineInfo.DefaultCellStyle = DataGridViewCellStyle12
+        Me.dataoraFineInfo.HeaderText = "Fine"
+        Me.dataoraFineInfo.Name = "dataoraFineInfo"
+        Me.dataoraFineInfo.ReadOnly = True
+        Me.dataoraFineInfo.Width = 5
+        '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
@@ -564,6 +735,20 @@ Partial Class FPrima
         Me.DataGridViewTextBoxColumn4.HeaderText = "Resoconto"
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        '
+        'iddgvInfo
+        '
+        Me.iddgvInfo.DataPropertyName = "id"
+        Me.iddgvInfo.HeaderText = "id"
+        Me.iddgvInfo.Name = "iddgvInfo"
+        Me.iddgvInfo.ReadOnly = True
+        Me.iddgvInfo.Visible = False
+        '
+        'QInterventi_informazioniBindigSource
+        '
+        Me.QInterventi_informazioniBindigSource.DataMember = "QInterventi"
+        Me.QInterventi_informazioniBindigSource.DataSource = Me.DbAlegatoADataSet_Unico
+        Me.QInterventi_informazioniBindigSource.Filter = ""
         '
         'FlowLayoutPanel2
         '
@@ -703,191 +888,6 @@ Partial Class FPrima
         Me.Button1.UseCompatibleTextRendering = True
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'VerticalLabel4
-        '
-        Me.VerticalLabel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel4.Location = New System.Drawing.Point(2, 0)
-        Me.VerticalLabel4.Name = "VerticalLabel4"
-        Me.VerticalLabel4.Size = New System.Drawing.Size(24, 124)
-        Me.VerticalLabel4.TabIndex = 27
-        Me.VerticalLabel4.Text = "Par.6 Info"
-        '
-        'dataoraFineInfo
-        '
-        Me.dataoraFineInfo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.dataoraFineInfo.DataPropertyName = "dataOraFine"
-        DataGridViewCellStyle12.Format = "t"
-        DataGridViewCellStyle12.NullValue = Nothing
-        Me.dataoraFineInfo.DefaultCellStyle = DataGridViewCellStyle12
-        Me.dataoraFineInfo.HeaderText = "Fine"
-        Me.dataoraFineInfo.Name = "dataoraFineInfo"
-        Me.dataoraFineInfo.ReadOnly = True
-        Me.dataoraFineInfo.Width = 5
-        '
-        'iddgvInfo
-        '
-        Me.iddgvInfo.DataPropertyName = "id"
-        Me.iddgvInfo.HeaderText = "id"
-        Me.iddgvInfo.Name = "iddgvInfo"
-        Me.iddgvInfo.ReadOnly = True
-        Me.iddgvInfo.Visible = False
-        '
-        'QInterventi_informazioniBindigSource
-        '
-        Me.QInterventi_informazioniBindigSource.DataMember = "QInterventi"
-        Me.QInterventi_informazioniBindigSource.DataSource = Me.DbAlegatoADataSet_Unico
-        Me.QInterventi_informazioniBindigSource.Filter = ""
-        '
-        'DbAlegatoADataSet_Unico
-        '
-        Me.DbAlegatoADataSet_Unico.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet_Unico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'VerticalLabel1
-        '
-        Me.VerticalLabel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel1.Location = New System.Drawing.Point(2, 0)
-        Me.VerticalLabel1.Name = "VerticalLabel1"
-        Me.VerticalLabel1.Size = New System.Drawing.Size(24, 124)
-        Me.VerticalLabel1.TabIndex = 26
-        Me.VerticalLabel1.Text = "Par.9 Interv."
-        '
-        'iddgvInterventi
-        '
-        Me.iddgvInterventi.DataPropertyName = "id"
-        Me.iddgvInterventi.HeaderText = "id"
-        Me.iddgvInterventi.Name = "iddgvInterventi"
-        Me.iddgvInterventi.ReadOnly = True
-        Me.iddgvInterventi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable
-        Me.iddgvInterventi.Visible = False
-        '
-        'QInterventiBindingSource
-        '
-        Me.QInterventiBindingSource.DataMember = "QInterventi"
-        Me.QInterventiBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        Me.QInterventiBindingSource.Filter = ""
-        '
-        'VerticalLabel3
-        '
-        Me.VerticalLabel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel3.Location = New System.Drawing.Point(2, 0)
-        Me.VerticalLabel3.Name = "VerticalLabel3"
-        Me.VerticalLabel3.Size = New System.Drawing.Size(24, 124)
-        Me.VerticalLabel3.TabIndex = 27
-        Me.VerticalLabel3.Text = "Allegato A"
-        '
-        'nomeOS
-        '
-        Me.nomeOS.DataPropertyName = "nomeOS"
-        Me.nomeOS.HeaderText = "nomeOS"
-        Me.nomeOS.Name = "nomeOS"
-        Me.nomeOS.ReadOnly = True
-        Me.nomeOS.Visible = False
-        '
-        'cOra
-        '
-        Me.cOra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.cOra.DataPropertyName = "dataora"
-        DataGridViewCellStyle1.Format = "g"
-        DataGridViewCellStyle1.NullValue = Nothing
-        Me.cOra.DefaultCellStyle = DataGridViewCellStyle1
-        Me.cOra.HeaderText = "Data e ora"
-        Me.cOra.Name = "cOra"
-        Me.cOra.ReadOnly = True
-        Me.cOra.Width = 5
-        '
-        'cLuogoControllo
-        '
-        Me.cLuogoControllo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.cLuogoControllo.DataPropertyName = "luogo"
-        Me.cLuogoControllo.FillWeight = 80.0!
-        Me.cLuogoControllo.HeaderText = "Luogo"
-        Me.cLuogoControllo.Name = "cLuogoControllo"
-        Me.cLuogoControllo.ReadOnly = True
-        Me.cLuogoControllo.Width = 5
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "mezzo"
-        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle2
-        Me.DataGridViewTextBoxColumn7.FillWeight = 70.0!
-        Me.DataGridViewTextBoxColumn7.HeaderText = "Mezzo"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Width = 5
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "targa"
-        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle3
-        Me.DataGridViewTextBoxColumn10.HeaderText = "Targa"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        Me.DataGridViewTextBoxColumn10.Width = 5
-        '
-        'cognome
-        '
-        Me.cognome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.cognome.DataPropertyName = "cognome"
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cognome.DefaultCellStyle = DataGridViewCellStyle4
-        Me.cognome.HeaderText = "Cognome"
-        Me.cognome.Name = "cognome"
-        Me.cognome.ReadOnly = True
-        Me.cognome.Width = 5
-        '
-        'nome
-        '
-        Me.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.nome.DataPropertyName = "nome"
-        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nome.DefaultCellStyle = DataGridViewCellStyle5
-        Me.nome.HeaderText = "Nome"
-        Me.nome.Name = "nome"
-        Me.nome.ReadOnly = True
-        Me.nome.Width = 5
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "datanascita"
-        DataGridViewCellStyle6.Format = "d"
-        DataGridViewCellStyle6.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle6
-        Me.DataGridViewTextBoxColumn13.HeaderText = "Data Nascita"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        Me.DataGridViewTextBoxColumn13.Width = 5
-        '
-        'DataGridViewTextBoxColumn18
-        '
-        Me.DataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn18.DataPropertyName = "positivoSDI"
-        Me.DataGridViewTextBoxColumn18.HeaderText = "SDI pos."
-        Me.DataGridViewTextBoxColumn18.Name = "DataGridViewTextBoxColumn18"
-        Me.DataGridViewTextBoxColumn18.ReadOnly = True
-        Me.DataGridViewTextBoxColumn18.Width = 5
-        '
-        'cID
-        '
-        Me.cID.DataPropertyName = "id"
-        Me.cID.HeaderText = "id"
-        Me.cID.Name = "cID"
-        Me.cID.ReadOnly = True
-        Me.cID.Visible = False
-        '
-        'QAllegatoABindingSource
-        '
-        Me.QAllegatoABindingSource.DataMember = "QAllegatoA"
-        Me.QAllegatoABindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
         'VerticalLabel2
         '
         Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
@@ -962,23 +962,23 @@ Partial Class FPrima
         Me.SplitContainer3.Panel2.ResumeLayout(False)
         Me.SplitContainer3.ResumeLayout(False)
         CType(Me.DataGridViewAllegatoA, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
         Me.SplitContainer2.ResumeLayout(False)
         CType(Me.DataGridViewInterventi, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanelRiepilogoInserimenti.ResumeLayout(False)
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.DataGridViewInformazioni, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.FlowLayoutPanelEsterno.ResumeLayout(False)
         Me.FlowLayoutPanelEsterno.PerformLayout()
-        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

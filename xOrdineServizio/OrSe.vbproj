@@ -453,6 +453,9 @@
     <Content Include="Resources\automazione\op85.dot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\automazione\verbaleSopralluogo.dot">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Resources\repubblica.png" />
     <None Include="Resources\logo_finale.jpg" />
     <EmbeddedResource Include="Resources\btnReport\printAllegatoA.png">
