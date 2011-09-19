@@ -172,7 +172,13 @@ Public Class op85
         Dim feActions As New OrSe.ActionsLibrary
         Try
             log.xlogWriteEntry("Word - Preparazione per generazione OP85", TraceEventType.Critical)
-            Dim oWord As Microsoft.Office.Interop.Word.Application = feActions.wordInizializzaDocumento(listaPersoneOP85.Item(0).cognome)
+            Dim oWord As Microsoft.Office.Interop.Word.Application = feActions.wordInizializzaDocumentoOP85(listaPersoneOP85.Item(0).cognome)
+
+            feActions.wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
+            feActions.wordScriviSegnalibro(oWord, "comando", My.Settings.comando)
+            feActions.wordScriviSegnalibro(oWord, "comune", My.Settings.comune)
+
+
 
             feActions.wordScriviSegnalibro(oWord, "protocollo", parametri.protocollo)
             feActions.wordScriviSegnalibro(oWord, "protocolloinformatico", parametri.protocolloInformatico)
