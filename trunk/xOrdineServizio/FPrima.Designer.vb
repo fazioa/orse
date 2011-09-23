@@ -64,7 +64,6 @@ Partial Class FPrima
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer
-        Me.VerticalLabel3 = New OrSe.verticalLabel
         Me.DataGridViewAllegatoA = New System.Windows.Forms.DataGridView
         Me.nomeOS = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cOra = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -80,7 +79,6 @@ Partial Class FPrima
         Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbAlegatoADataSet_Unico = New OrSe.dbAlegatoADataSet
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
-        Me.VerticalLabel1 = New OrSe.verticalLabel
         Me.DataGridViewInterventi = New System.Windows.Forms.DataGridView
         Me.dataoraInizio = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.dataOraFine = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -90,7 +88,6 @@ Partial Class FPrima
         Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableLayoutPanelRiepilogoInserimenti = New System.Windows.Forms.TableLayoutPanel
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
-        Me.VerticalLabel4 = New OrSe.verticalLabel
         Me.DataGridViewInformazioni = New System.Windows.Forms.DataGridView
         Me.dataoraFineInfo = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -109,7 +106,6 @@ Partial Class FPrima
         Me.Button1 = New System.Windows.Forms.Button
         Me.CachedreportAllegatoA1 = New OrSe.CachedreportAllegatoA
         Me.CachedreportInterventi1 = New OrSe.CachedreportInterventi
-        Me.VerticalLabel2 = New OrSe.verticalLabel
         Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter
         Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -120,6 +116,11 @@ Partial Class FPrima
         Me.QInterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
         Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter
         Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
+        Me.VerticalLabel4 = New OrSe.verticalLabel
+        Me.VerticalLabel1 = New OrSe.verticalLabel
+        Me.VerticalLabel3 = New OrSe.verticalLabel
+        Me.VerticalLabel2 = New OrSe.verticalLabel
         Me.menu.SuspendLayout()
         Me.SplitContainer3.Panel1.SuspendLayout()
         Me.SplitContainer3.Panel2.SuspendLayout()
@@ -143,6 +144,7 @@ Partial Class FPrima
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanel3.SuspendLayout()
         Me.SuspendLayout()
         '
         'menu
@@ -151,7 +153,7 @@ Partial Class FPrima
         Me.menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferenzeToolStripMenuItem1, Me.StampaToolStripMenuItem, Me.StrumentiToolStripMenuItem, Me.SessioneToolStripMenuItem, Me.HelpToolStripMenuItem})
         Me.menu.Location = New System.Drawing.Point(0, 0)
         Me.menu.Name = "menu"
-        Me.menu.Size = New System.Drawing.Size(1294, 24)
+        Me.menu.Size = New System.Drawing.Size(1134, 24)
         Me.menu.TabIndex = 22
         Me.menu.Text = "menu"
         '
@@ -328,7 +330,7 @@ Partial Class FPrima
         'SplitContainer3
         '
         Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer3.Location = New System.Drawing.Point(3, 263)
+        Me.SplitContainer3.Location = New System.Drawing.Point(3, 241)
         Me.SplitContainer3.Name = "SplitContainer3"
         '
         'SplitContainer3.Panel1
@@ -338,19 +340,9 @@ Partial Class FPrima
         'SplitContainer3.Panel2
         '
         Me.SplitContainer3.Panel2.Controls.Add(Me.DataGridViewAllegatoA)
-        Me.SplitContainer3.Size = New System.Drawing.Size(1288, 124)
-        Me.SplitContainer3.SplitterDistance = 26
+        Me.SplitContainer3.Size = New System.Drawing.Size(1128, 113)
+        Me.SplitContainer3.SplitterDistance = 25
         Me.SplitContainer3.TabIndex = 29
-        '
-        'VerticalLabel3
-        '
-        Me.VerticalLabel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel3.Location = New System.Drawing.Point(2, 0)
-        Me.VerticalLabel3.Name = "VerticalLabel3"
-        Me.VerticalLabel3.Size = New System.Drawing.Size(24, 124)
-        Me.VerticalLabel3.TabIndex = 27
-        Me.VerticalLabel3.Text = "Allegato A"
         '
         'DataGridViewAllegatoA
         '
@@ -383,7 +375,7 @@ Partial Class FPrima
         Me.DataGridViewAllegatoA.RowHeadersDefaultCellStyle = DataGridViewCellStyle8
         Me.DataGridViewAllegatoA.RowHeadersVisible = False
         Me.DataGridViewAllegatoA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewAllegatoA.Size = New System.Drawing.Size(1258, 124)
+        Me.DataGridViewAllegatoA.Size = New System.Drawing.Size(1099, 113)
         Me.DataGridViewAllegatoA.TabIndex = 23
         '
         'nomeOS
@@ -512,7 +504,7 @@ Partial Class FPrima
         'SplitContainer2
         '
         Me.SplitContainer2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer2.Location = New System.Drawing.Point(3, 133)
+        Me.SplitContainer2.Location = New System.Drawing.Point(3, 122)
         Me.SplitContainer2.Name = "SplitContainer2"
         '
         'SplitContainer2.Panel1
@@ -522,19 +514,9 @@ Partial Class FPrima
         'SplitContainer2.Panel2
         '
         Me.SplitContainer2.Panel2.Controls.Add(Me.DataGridViewInterventi)
-        Me.SplitContainer2.Size = New System.Drawing.Size(1288, 124)
-        Me.SplitContainer2.SplitterDistance = 26
+        Me.SplitContainer2.Size = New System.Drawing.Size(1128, 113)
+        Me.SplitContainer2.SplitterDistance = 25
         Me.SplitContainer2.TabIndex = 30
-        '
-        'VerticalLabel1
-        '
-        Me.VerticalLabel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel1.Location = New System.Drawing.Point(2, 0)
-        Me.VerticalLabel1.Name = "VerticalLabel1"
-        Me.VerticalLabel1.Size = New System.Drawing.Size(24, 124)
-        Me.VerticalLabel1.TabIndex = 26
-        Me.VerticalLabel1.Text = "Par.9 Interv."
         '
         'DataGridViewInterventi
         '
@@ -567,7 +549,7 @@ Partial Class FPrima
         Me.DataGridViewInterventi.RowHeadersDefaultCellStyle = DataGridViewCellStyle11
         Me.DataGridViewInterventi.RowHeadersVisible = False
         Me.DataGridViewInterventi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewInterventi.Size = New System.Drawing.Size(1258, 124)
+        Me.DataGridViewInterventi.Size = New System.Drawing.Size(1099, 113)
         Me.DataGridViewInterventi.TabIndex = 19
         '
         'dataoraInizio
@@ -634,14 +616,14 @@ Partial Class FPrima
         Me.TableLayoutPanelRiepilogoInserimenti.Controls.Add(Me.SplitContainer2, 0, 1)
         Me.TableLayoutPanelRiepilogoInserimenti.Controls.Add(Me.SplitContainer3, 0, 2)
         Me.TableLayoutPanelRiepilogoInserimenti.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanelRiepilogoInserimenti.Location = New System.Drawing.Point(0, 254)
+        Me.TableLayoutPanelRiepilogoInserimenti.Location = New System.Drawing.Point(0, 259)
         Me.TableLayoutPanelRiepilogoInserimenti.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanelRiepilogoInserimenti.Name = "TableLayoutPanelRiepilogoInserimenti"
         Me.TableLayoutPanelRiepilogoInserimenti.RowCount = 3
         Me.TableLayoutPanelRiepilogoInserimenti.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanelRiepilogoInserimenti.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
         Me.TableLayoutPanelRiepilogoInserimenti.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333!))
-        Me.TableLayoutPanelRiepilogoInserimenti.Size = New System.Drawing.Size(1294, 390)
+        Me.TableLayoutPanelRiepilogoInserimenti.Size = New System.Drawing.Size(1134, 357)
         Me.TableLayoutPanelRiepilogoInserimenti.TabIndex = 26
         '
         'SplitContainer1
@@ -657,19 +639,9 @@ Partial Class FPrima
         'SplitContainer1.Panel2
         '
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridViewInformazioni)
-        Me.SplitContainer1.Size = New System.Drawing.Size(1288, 124)
-        Me.SplitContainer1.SplitterDistance = 26
+        Me.SplitContainer1.Size = New System.Drawing.Size(1128, 113)
+        Me.SplitContainer1.SplitterDistance = 25
         Me.SplitContainer1.TabIndex = 31
-        '
-        'VerticalLabel4
-        '
-        Me.VerticalLabel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel4.Location = New System.Drawing.Point(2, 0)
-        Me.VerticalLabel4.Name = "VerticalLabel4"
-        Me.VerticalLabel4.Size = New System.Drawing.Size(24, 124)
-        Me.VerticalLabel4.TabIndex = 27
-        Me.VerticalLabel4.Text = "Par.6 Info"
         '
         'DataGridViewInformazioni
         '
@@ -702,7 +674,7 @@ Partial Class FPrima
         Me.DataGridViewInformazioni.RowHeadersDefaultCellStyle = DataGridViewCellStyle14
         Me.DataGridViewInformazioni.RowHeadersVisible = False
         Me.DataGridViewInformazioni.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridViewInformazioni.Size = New System.Drawing.Size(1258, 124)
+        Me.DataGridViewInformazioni.Size = New System.Drawing.Size(1099, 113)
         Me.DataGridViewInformazioni.TabIndex = 20
         '
         'dataoraFineInfo
@@ -765,7 +737,7 @@ Partial Class FPrima
         Me.btnAlegatoA.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
         Me.btnAlegatoA.Image = Global.OrSe.My.Resources.Resources.db_addBlu
         Me.btnAlegatoA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAlegatoA.Location = New System.Drawing.Point(3, 51)
+        Me.btnAlegatoA.Location = New System.Drawing.Point(3, 3)
         Me.btnAlegatoA.Name = "btnAlegatoA"
         Me.btnAlegatoA.Size = New System.Drawing.Size(300, 85)
         Me.btnAlegatoA.TabIndex = 6
@@ -779,7 +751,7 @@ Partial Class FPrima
         Me.btnIntervento.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
         Me.btnIntervento.Image = Global.OrSe.My.Resources.Resources.db_addVerde
         Me.btnIntervento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnIntervento.Location = New System.Drawing.Point(309, 51)
+        Me.btnIntervento.Location = New System.Drawing.Point(309, 3)
         Me.btnIntervento.Name = "btnIntervento"
         Me.btnIntervento.Size = New System.Drawing.Size(300, 85)
         Me.btnIntervento.TabIndex = 0
@@ -790,8 +762,6 @@ Partial Class FPrima
         '
         'textBoxInfoOS
         '
-        Me.textBoxInfoOS.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.textBoxInfoOS.BackColor = System.Drawing.SystemColors.Control
         Me.textBoxInfoOS.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.textBoxInfoOS.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -810,7 +780,7 @@ Partial Class FPrima
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1294, 0)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1134, 0)
         Me.FlowLayoutPanel1.TabIndex = 24
         '
         'ButtonVedi
@@ -818,7 +788,7 @@ Partial Class FPrima
         Me.ButtonVedi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.ButtonVedi.FlatAppearance.BorderSize = 3
         Me.ButtonVedi.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
-        Me.ButtonVedi.Location = New System.Drawing.Point(3, 142)
+        Me.ButtonVedi.Location = New System.Drawing.Point(309, 94)
         Me.ButtonVedi.Name = "ButtonVedi"
         Me.ButtonVedi.Size = New System.Drawing.Size(300, 85)
         Me.ButtonVedi.TabIndex = 8
@@ -834,7 +804,7 @@ Partial Class FPrima
         Me.TableLayoutPanel2.Controls.Add(Me.FlowLayoutPanel1, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.FlowLayoutPanel2, 0, 1)
         Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 254)
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 259)
         Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
         Me.TableLayoutPanel2.RowCount = 3
@@ -842,22 +812,21 @@ Partial Class FPrima
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle)
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1294, 0)
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1134, 0)
         Me.TableLayoutPanel2.TabIndex = 27
         '
         'FlowLayoutPanelEsterno
         '
         Me.FlowLayoutPanelEsterno.AutoSize = True
-        Me.FlowLayoutPanelEsterno.Controls.Add(Me.textBoxInfoOS)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnAlegatoA)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnIntervento)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnInformazioni)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.Button1)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.ButtonVedi)
-        Me.FlowLayoutPanelEsterno.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanelEsterno.Location = New System.Drawing.Point(0, 24)
+        Me.FlowLayoutPanelEsterno.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanelEsterno.Location = New System.Drawing.Point(0, 77)
         Me.FlowLayoutPanelEsterno.Name = "FlowLayoutPanelEsterno"
-        Me.FlowLayoutPanelEsterno.Size = New System.Drawing.Size(1294, 230)
+        Me.FlowLayoutPanelEsterno.Size = New System.Drawing.Size(1134, 182)
         Me.FlowLayoutPanelEsterno.TabIndex = 28
         '
         'btnInformazioni
@@ -865,7 +834,7 @@ Partial Class FPrima
         Me.btnInformazioni.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
         Me.btnInformazioni.Image = Global.OrSe.My.Resources.Resources.pulsanteSoleVerde
         Me.btnInformazioni.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnInformazioni.Location = New System.Drawing.Point(615, 51)
+        Me.btnInformazioni.Location = New System.Drawing.Point(615, 3)
         Me.btnInformazioni.Name = "btnInformazioni"
         Me.btnInformazioni.Size = New System.Drawing.Size(300, 85)
         Me.btnInformazioni.TabIndex = 7
@@ -879,7 +848,7 @@ Partial Class FPrima
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
         Me.Button1.Image = Global.OrSe.My.Resources.Resources.pulsanteSoleGrigio
         Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(921, 51)
+        Me.Button1.Location = New System.Drawing.Point(3, 94)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(300, 85)
         Me.Button1.TabIndex = 9
@@ -887,15 +856,6 @@ Partial Class FPrima
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.Button1.UseCompatibleTextRendering = True
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'VerticalLabel2
-        '
-        Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel2.Location = New System.Drawing.Point(3, 0)
-        Me.VerticalLabel2.Name = "VerticalLabel2"
-        Me.VerticalLabel2.Size = New System.Drawing.Size(24, 114)
-        Me.VerticalLabel2.TabIndex = 26
-        Me.VerticalLabel2.Text = "Interventi"
         '
         'InterventiBindingSource
         '
@@ -940,13 +900,62 @@ Partial Class FPrima
         '
         Me.ModelliMezzoTableAdapter.ClearBeforeFill = True
         '
+        'FlowLayoutPanel3
+        '
+        Me.FlowLayoutPanel3.Controls.Add(Me.textBoxInfoOS)
+        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(0, 24)
+        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(1134, 53)
+        Me.FlowLayoutPanel3.TabIndex = 29
+        '
+        'VerticalLabel4
+        '
+        Me.VerticalLabel4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel4.Location = New System.Drawing.Point(1, 0)
+        Me.VerticalLabel4.Name = "VerticalLabel4"
+        Me.VerticalLabel4.Size = New System.Drawing.Size(24, 113)
+        Me.VerticalLabel4.TabIndex = 27
+        Me.VerticalLabel4.Text = "Par.6 Info"
+        '
+        'VerticalLabel1
+        '
+        Me.VerticalLabel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel1.Location = New System.Drawing.Point(1, 0)
+        Me.VerticalLabel1.Name = "VerticalLabel1"
+        Me.VerticalLabel1.Size = New System.Drawing.Size(24, 113)
+        Me.VerticalLabel1.TabIndex = 26
+        Me.VerticalLabel1.Text = "Par.9 Interv."
+        '
+        'VerticalLabel3
+        '
+        Me.VerticalLabel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel3.Location = New System.Drawing.Point(1, 0)
+        Me.VerticalLabel3.Name = "VerticalLabel3"
+        Me.VerticalLabel3.Size = New System.Drawing.Size(24, 113)
+        Me.VerticalLabel3.TabIndex = 27
+        Me.VerticalLabel3.Text = "Allegato A"
+        '
+        'VerticalLabel2
+        '
+        Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel2.Location = New System.Drawing.Point(3, 0)
+        Me.VerticalLabel2.Name = "VerticalLabel2"
+        Me.VerticalLabel2.Size = New System.Drawing.Size(24, 114)
+        Me.VerticalLabel2.TabIndex = 26
+        Me.VerticalLabel2.Text = "Interventi"
+        '
         'FPrima
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1311, 616)
+        Me.ClientSize = New System.Drawing.Size(1134, 616)
         Me.Controls.Add(Me.FlowLayoutPanelEsterno)
+        Me.Controls.Add(Me.FlowLayoutPanel3)
         Me.Controls.Add(Me.TableLayoutPanel2)
         Me.Controls.Add(Me.menu)
         Me.Controls.Add(Me.TableLayoutPanelRiepilogoInserimenti)
@@ -978,10 +987,11 @@ Partial Class FPrima
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.FlowLayoutPanelEsterno.ResumeLayout(False)
-        Me.FlowLayoutPanelEsterno.PerformLayout()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.FlowLayoutPanel3.ResumeLayout(False)
+        Me.FlowLayoutPanel3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1097,5 +1107,6 @@ Partial Class FPrima
     Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cID As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents FlowLayoutPanel3 As System.Windows.Forms.FlowLayoutPanel
 
 End Class

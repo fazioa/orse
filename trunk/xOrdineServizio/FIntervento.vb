@@ -5,7 +5,7 @@ Public Class FIntervento
     Dim xsOS As String
     dim xIdOS as integer
     Dim bNuovoIntervento As Boolean = False
-    Dim dlInizio, dlFine As Date
+    Dim dlInizio, dlFine As New Date
     Dim xlTipo As paragrafoOS
     Dim log As New XOrseLog
     Dim xidIntervento As Integer
@@ -20,9 +20,11 @@ Public Class FIntervento
     End Sub
 
     Private Sub sharedNew(ByVal dInizio As Date, ByVal dFine As Date, ByVal idOS As Integer, ByVal tipo As paragrafoOS)
+
+        xlTipo = tipo
         dlInizio = dInizio
         dlFine = dFine
-        xlTipo = tipo
+
         'esegue qui se è un nuovo intervento
         InitializeComponent()
 
@@ -64,10 +66,25 @@ Public Class FIntervento
 
         If bNuovoIntervento Then
 
-            DateTimePickerOraInizio.Value = My.Computer.Clock.LocalTime
-            DateTimePickerOraFine.Value = My.Computer.Clock.LocalTime
-            Timer1.Start()
-            Me.GroupBoxOraFine.Enabled = False 'gruppo disabilitato
+            If (dlInizio = Nothing Or dlFine = Nothing) Then
+                DateTimePickerOraInizio.Value = My.Computer.Clock.LocalTime
+                DateTimePickerOraFine.Value = My.Computer.Clock.LocalTime
+                'ora fine automatica
+                Timer1.Start()
+                Me.GroupBoxOraFine.Enabled = False 'gruppo disabilitato
+            Else
+                'caso dell'inserimento dell'intervento cliccando su un intervallo di tempo libero
+
+                DateTimePickerOraInizio.Value = dlInizio
+                DateTimePickerOraFine.Value = dlFine
+                'imposto la data di fine a 'manuale'
+                'ho copiato il codice da altre parti del file. Non è una bella soluzione ma risolvo così e non perdo tempo
+                Me.LabelOraFine.Text = "Fine"
+                Me.btnAutoOraFine.Visible = False
+                Me.GroupBoxOraFine.Enabled = True 'gruppo abilitato
+            End If
+
+          
 
             'il salvataggio automatico funziona solo se si tratta di un nuovo intervento/informazione
             'imposto l'intervallo per il salvataggio automatico al valore delle impostazioni (in secondi)
@@ -130,6 +147,11 @@ Public Class FIntervento
         End If
     End Sub
 
+    Private Sub modalitaOraFineAutomaticaDisable()
+
+    End Sub
+
+
     Private Sub btnChiudi_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnChiudi.Click
         salva()
         Me.Close()
@@ -148,9 +170,7 @@ Public Class FIntervento
         Catch ex As DBConcurrencyException
             log.xlogWriteEntry("Inserimento intervento - Salvataggio automatico - Eseguo comando SQL Update", TraceEventType.Critical)
             feActions.esegueSQL("UPDATE interventi SET dataOraInizio=#" & DateTimePickerOraInizio.Value & "#, dataOraFine=#" & DateTimePickerOraFine.Value & "#, tipointervento='" & tbTipoServizio.Text & "', resoconto='" & tbResoconto.Text & "' WHERE id=" & xidIntervento)
-
         End Try
-
     End Sub
 
 
