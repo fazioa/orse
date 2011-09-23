@@ -64,5 +64,8 @@
     <Setting Name="dataUltimaEsportazioneDati" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="intervalloSalvataggioAutomatico" Type="System.String" Scope="User">
+      <Value Profile="(Default)">5</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

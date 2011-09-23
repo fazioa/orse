@@ -190,7 +190,7 @@ Public Class FPrima
                 If (differenceInMinutes > 0) Then
                     'operazione da fare per segnalare la presenza di intervalli utilizzabili
                     '===================================================
-                    dgv.Rows(i).DividerHeight() = My.Settings.altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLibero
+                    dgv.Rows(i).DividerHeight() = My.Settings.altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLiberi
                 End If
             Next
             dgv.DataSource = ds
@@ -321,7 +321,7 @@ Public Class FPrima
         Dim dgv As DataGridView = sender
         Dim pMousecoord As System.Drawing.Point = Control.MousePosition
         Dim a As System.Windows.Forms.AccessibleObject = dgv.Rows(e.RowIndex).AccessibilityObject
-        If (pMousecoord.Y <= a.Bounds.Bottom - My.Settings.altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLibero) Then
+        If (pMousecoord.Y <= a.Bounds.Bottom - My.Settings.altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLiberi) Then
             'modifica cella. controllo le coordinate per filtrare i click sulla riga di divisione delle celle
             feActions.doApriDettaglioIntervento(sender, e, nomeColonnaId)
         End If

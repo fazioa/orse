@@ -3,14 +3,22 @@ Imports System.Windows.Forms
 Public Class opzioni
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
+        'layout prima pagina
         If (RadioButton_layoutRiepilogoInserimentiS.Checked) Then
             FPrima.TableLayoutPanelRiepilogoInserimenti.Visible = True
             FPrima.ButtonVedi.Visible = False
         Else
             FPrima.TableLayoutPanelRiepilogoInserimenti.Visible = False
             FPrima.ButtonVedi.Visible = True
-
         End If
+
+        'salvataggio automatico
+        If (CheckBoxSalvataggioAutomatico.Checked = False) Then
+            My.Settings.intervalloSalvataggioAutomatico = -1
+        Else
+            My.Settings.intervalloSalvataggioAutomatico = tbIntervalloSalvataggioAutomatico.Text
+        End If
+
 
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
@@ -54,6 +62,8 @@ Public Class opzioni
             RadioButton_layoutRiepilogoInserimentiN.Checked = True
         End If
 
+        'salvataggio automatico
+         tbIntervalloSalvataggioAutomatico.Text=My.Settings.intervalloSalvataggioAutomatico
 
     End Sub
 
@@ -81,4 +91,5 @@ Public Class opzioni
 
         End If
     End Sub
+
 End Class
