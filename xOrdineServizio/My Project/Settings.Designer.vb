@@ -260,9 +260,9 @@ Namespace My
         <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
-        Public ReadOnly Property altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLibero() As Integer
+        Public ReadOnly Property altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLiberi() As Integer
             Get
-                Return CType(Me("altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLibero"),Integer)
+                Return CType(Me("altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLiberi"),Integer)
             End Get
         End Property
         
@@ -274,6 +274,18 @@ Namespace My
             End Get
             Set
                 Me("dataUltimaEsportazioneDati") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+        Public Property intervalloSalvataggioAutomatico() As String
+            Get
+                Return CType(Me("intervalloSalvataggioAutomatico"),String)
+            End Get
+            Set
+                Me("intervalloSalvataggioAutomatico") = value
             End Set
         End Property
     End Class

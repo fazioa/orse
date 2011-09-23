@@ -3,13 +3,18 @@ Public Class FIntervento
 
     Dim xdDataIntervento As Date
     Dim xsOS As String
+    dim xIdOS as integer
     Dim bNuovoIntervento As Boolean = False
     Dim dlInizio, dlFine As Date
-    Dim lTipo As paragrafoOS
+    Dim xlTipo As paragrafoOS
+    Dim log As New XOrseLog
+    Dim xidIntervento As Integer
+    'modifica
+    ' Public Sub New(ByVal idOS As Integer, ByVal tipo As paragrafoOS)
+    ''      sharedNew(Nothing, Nothing, idOS, tipo)
+    ' End Sub
 
-    Public Sub New(ByVal idOS As Integer, ByVal tipo As paragrafoOS)
-        sharedNew(Nothing, Nothing, idOS, tipo)
-    End Sub
+    'nuovo inserimento
     Public Sub New(ByVal dInizio As Date, ByVal dFine As Date, ByVal idOS As Integer, ByVal tipo As paragrafoOS)
         sharedNew(dInizio, dFine, idOS, tipo)
     End Sub
@@ -17,13 +22,15 @@ Public Class FIntervento
     Private Sub sharedNew(ByVal dInizio As Date, ByVal dFine As Date, ByVal idOS As Integer, ByVal tipo As paragrafoOS)
         dlInizio = dInizio
         dlFine = dFine
-        lTipo = tipo
+        xlTipo = tipo
         'esegue qui se è un nuovo intervento
         InitializeComponent()
 
         Me.OrdineServizioTableAdapter.FillByID(Me.DbAlegatoADataSet.ordineServizio, idOS)
         Me.InterventiBindingSource.AddNew()
         feActions.scriviCampoDB(InterventiBindingSource, "idOrdineServizio", idOS)
+        'salvo l'id dell'OS
+        xIdOS = idOS
 
         Select Case tipo
             Case paragrafoOS.informazioni
@@ -43,24 +50,32 @@ Public Class FIntervento
 
     End Sub
 
-    'coincidevano le firme. Aggiungo z solo per differenziarle, non ho voglia di escogitare altro
+    'Modifica. Coincidevano le firme. Aggiungo z solo per differenziarle, non ho voglia di escogitare altro
     Public Sub New(ByVal id As Integer, ByVal z As Boolean)
         InitializeComponent()
+        xidIntervento = id
         feActions = New OrSe.ActionsLibrary()
         Me.InterventiTableAdapter.FillByID(DbAlegatoADataSet.interventi, id)
+
     End Sub
 
     Private Sub FIntervento_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         feActions = New OrSe.ActionsLibrary()
+
         If bNuovoIntervento Then
-            If (Not dlInizio = Nothing And Not dlFine = Nothing) Then
-                DateTimePickerOraInizio.Value = dlInizio
-                DateTimePickerOraFine.Value = dlFine
-            Else
-                DateTimePickerOraInizio.Value = My.Computer.Clock.LocalTime
-                Timer1.Start()
-                Me.GroupBoxOraFine.Enabled = False 'gruppo disabilitato
+
+            DateTimePickerOraInizio.Value = My.Computer.Clock.LocalTime
+            DateTimePickerOraFine.Value = My.Computer.Clock.LocalTime
+            Timer1.Start()
+            Me.GroupBoxOraFine.Enabled = False 'gruppo disabilitato
+
+            'il salvataggio automatico funziona solo se si tratta di un nuovo intervento/informazione
+            'imposto l'intervallo per il salvataggio automatico al valore delle impostazioni (in secondi)
+            If (Integer.Parse(My.Settings.intervalloSalvataggioAutomatico) > 0) Then
+                TimerSalvataggioAutomatico.Interval = My.Settings.intervalloSalvataggioAutomatico * 1000
+                TimerSalvataggioAutomatico.Start()
             End If
+
         Else
             'esegue qui se NON è un nuovo intervento
             'leggo l'id l'ordine di servizio
@@ -75,10 +90,10 @@ Public Class FIntervento
             'cambia il testo del label
             Me.LabelOraFine.Text = "Fine"
             Me.btnAutoOraFine.Visible = False
-            Me.GroupBoxOraFine.Enabled = True 'gruppo disabilitato
+            Me.GroupBoxOraFine.Enabled = True 'gruppo abilitato
         End If
 
-        Select Case lTipo
+        Select Case xlTipo
             Case paragrafoOS.informazioni
                 Me.Text = "Par.6 - Informazioni"
                 LabelTipoIntervento.Text = "Sintesi Informazione"
@@ -116,17 +131,68 @@ Public Class FIntervento
     End Sub
 
     Private Sub btnChiudi_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnChiudi.Click
-
-        Me.InterventiBindingSource.EndEdit()
-        Me.InterventiTableAdapter.Update(Me.DbAlegatoADataSet.interventi)
+        salva()
         Me.Close()
     End Sub
 
+
+    Private Sub salva()
+        Try
+            ' Me.InterventiTableAdapter.Insert(DateTimePickerOraInizio.Value, DateTimePickerOraFine.Value, tbTipoServizio.Text, tbResoconto.Text, xIdOS, xlTipo)
+            Me.Validate()
+            Me.InterventiBindingSource.EndEdit()
+            Me.InterventiTableAdapter.Update(Me.DbAlegatoADataSet.interventi)
+            log.xlogWriteEntry("Inserimento intervento - Salvataggio dati", TraceEventType.Critical)
+            'leggo l'id dell'intervento e lo salvo. Mi servirà nei salvataggi intermedi, quando l'update solleverà l'eccezione. Allora nella sezione Catch eseguirà l comando SQL update. Conviene fare così, per evitare altri problemi col binding. Cursore che si sposta etc...
+            xidIntervento = Me.InterventiTableAdapter.MaxId
+        Catch ex As DBConcurrencyException
+            log.xlogWriteEntry("Inserimento intervento - Salvataggio automatico - Eseguo comando SQL Update", TraceEventType.Critical)
+            feActions.esegueSQL("UPDATE interventi SET dataOraInizio=#" & DateTimePickerOraInizio.Value & "#, dataOraFine=#" & DateTimePickerOraFine.Value & "#, tipointervento='" & tbTipoServizio.Text & "', resoconto='" & tbResoconto.Text & "' WHERE id=" & xidIntervento)
+
+        End Try
+
+    End Sub
+
+
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        If (MsgBox("Chiudere la finetra? Tutte le modifiche verrano perse. Sei sicuro?", MsgBoxStyle.YesNo, "Chiudi Finestra")=MsgBoxResult.Yes) Then
+        If (MsgBox("Chiudere la finetra? Tutte le modifiche verrano perse. Sei sicuro?", MsgBoxStyle.YesNo, "Chiudi Finestra") = MsgBoxResult.Yes) Then
             Me.Close()
 
         End If
     End Sub
 
+
+
+
+    Dim contenutoCambiato As Boolean = False
+    Private Sub setChanged(ByVal contenutoCamb As Boolean)
+        log.xlogWriteEntry("Inserimento intervento - Contenuto cambiato=" & contenutoCamb.ToString, TraceEventType.Information)
+        contenutoCambiato = contenutoCamb
+        'se il contenuto del form è cambiato allora setto il flag e aggiungo un asterisco al titolo
+        'altrimenti tolgo l'asterisco
+        If (contenutoCambiato) Then
+            'se l'asterisco c'è già allora non ne aggiungo altri
+            If (Me.Text.Substring(0, 1) <> "*") Then Me.Text = "*" & Me.Text
+        Else
+            If (Me.Text.Substring(0, 1) = "*") Then Me.Text = Me.Text.Substring(1)
+        End If
+    End Sub
+
+    Private Sub DateTimePickerOraInizio_ValueChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles DateTimePickerOraInizio.ValueChanged
+        setChanged(True)
+    End Sub
+
+
+    Private Sub tbTipoServizio_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbTipoServizio.TextChanged, tbResoconto.TextChanged
+        setChanged(True)
+    End Sub
+
+    Private Sub TimerSalvataggioAutomatico_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerSalvataggioAutomatico.Tick
+        If (Not (tbTipoServizio.Text = "" And tbResoconto.Text = "") And contenutoCambiato = True) Then
+            log.xlogWriteEntry("Inserimento intervento - Salvataggio automatico", TraceEventType.Critical)
+            salva()
+            setChanged(False)
+        End If
+
+    End Sub
 End Class

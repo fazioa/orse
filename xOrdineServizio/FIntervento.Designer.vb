@@ -23,7 +23,6 @@ Partial Class FIntervento
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FIntervento))
         Me.GroupBoxOraIntervento = New System.Windows.Forms.GroupBox
         Me.DateTimePickerOraInizio = New System.Windows.Forms.DateTimePicker
         Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -39,33 +38,19 @@ Partial Class FIntervento
         Me.LabelResoconto = New System.Windows.Forms.Label
         Me.tbResoconto = New System.Windows.Forms.TextBox
         Me.btnChiudi = New System.Windows.Forms.Button
-        Me.InterventiBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
-        Me.BindingNavigatorAddNewItem = New System.Windows.Forms.ToolStripButton
-        Me.BindingNavigatorCountItem = New System.Windows.Forms.ToolStripLabel
-        Me.BindingNavigatorMoveLastItem = New System.Windows.Forms.ToolStripButton
-        Me.BindingNavigatorMoveFirstItem = New System.Windows.Forms.ToolStripButton
-        Me.BindingNavigatorMovePreviousItem = New System.Windows.Forms.ToolStripButton
-        Me.BindingNavigatorSeparator = New System.Windows.Forms.ToolStripSeparator
-        Me.BindingNavigatorPositionItem = New System.Windows.Forms.ToolStripTextBox
-        Me.BindingNavigatorSeparator1 = New System.Windows.Forms.ToolStripSeparator
-        Me.BindingNavigatorMoveNextItem = New System.Windows.Forms.ToolStripButton
-        Me.BindingNavigatorSeparator2 = New System.Windows.Forms.ToolStripSeparator
-        Me.BindingNavigatorDeleteItem = New System.Windows.Forms.ToolStripButton
-        Me.InterventiBindingNavigatorSaveItem = New System.Windows.Forms.ToolStripButton
         Me.Label5 = New System.Windows.Forms.Label
         Me.labelOS = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
         Me.LabelData = New System.Windows.Forms.Label
+        Me.Button1 = New System.Windows.Forms.Button
+        Me.TimerSalvataggioAutomatico = New System.Windows.Forms.Timer(Me.components)
         Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
-        Me.Button1 = New System.Windows.Forms.Button
         Me.GroupBoxOraIntervento.SuspendLayout()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxOraFine.SuspendLayout()
-        CType(Me.InterventiBindingNavigator, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.InterventiBindingNavigator.SuspendLayout()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -123,6 +108,7 @@ Partial Class FIntervento
         '
         'Timer1
         '
+        Me.Timer1.Interval = 5000
         '
         'GroupBoxOraFine
         '
@@ -209,118 +195,6 @@ Partial Class FIntervento
         Me.btnChiudi.Text = "&Salva e Chiudi"
         Me.btnChiudi.UseVisualStyleBackColor = True
         '
-        'InterventiBindingNavigator
-        '
-        Me.InterventiBindingNavigator.AddNewItem = Me.BindingNavigatorAddNewItem
-        Me.InterventiBindingNavigator.BindingSource = Me.InterventiBindingSource
-        Me.InterventiBindingNavigator.CountItem = Me.BindingNavigatorCountItem
-        Me.InterventiBindingNavigator.DeleteItem = Me.BindingNavigatorMoveLastItem
-        Me.InterventiBindingNavigator.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.BindingNavigatorMoveFirstItem, Me.BindingNavigatorMovePreviousItem, Me.BindingNavigatorSeparator, Me.BindingNavigatorPositionItem, Me.BindingNavigatorCountItem, Me.BindingNavigatorSeparator1, Me.BindingNavigatorMoveNextItem, Me.BindingNavigatorMoveLastItem, Me.BindingNavigatorSeparator2, Me.BindingNavigatorAddNewItem, Me.BindingNavigatorDeleteItem, Me.InterventiBindingNavigatorSaveItem})
-        Me.InterventiBindingNavigator.Location = New System.Drawing.Point(0, 0)
-        Me.InterventiBindingNavigator.MoveFirstItem = Me.BindingNavigatorMoveFirstItem
-        Me.InterventiBindingNavigator.MoveLastItem = Me.BindingNavigatorMoveLastItem
-        Me.InterventiBindingNavigator.MoveNextItem = Me.BindingNavigatorMoveNextItem
-        Me.InterventiBindingNavigator.MovePreviousItem = Me.BindingNavigatorMovePreviousItem
-        Me.InterventiBindingNavigator.Name = "InterventiBindingNavigator"
-        Me.InterventiBindingNavigator.PositionItem = Me.BindingNavigatorPositionItem
-        Me.InterventiBindingNavigator.Size = New System.Drawing.Size(1134, 25)
-        Me.InterventiBindingNavigator.TabIndex = 17
-        Me.InterventiBindingNavigator.Text = "BindingNavigator1"
-        Me.InterventiBindingNavigator.Visible = False
-        '
-        'BindingNavigatorAddNewItem
-        '
-        Me.BindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorAddNewItem.Image = CType(resources.GetObject("BindingNavigatorAddNewItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorAddNewItem.Name = "BindingNavigatorAddNewItem"
-        Me.BindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorAddNewItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorAddNewItem.Text = "Aggiungi nuovo"
-        '
-        'BindingNavigatorCountItem
-        '
-        Me.BindingNavigatorCountItem.Name = "BindingNavigatorCountItem"
-        Me.BindingNavigatorCountItem.Size = New System.Drawing.Size(35, 22)
-        Me.BindingNavigatorCountItem.Text = "of {0}"
-        Me.BindingNavigatorCountItem.ToolTipText = "Numero totale di elementi"
-        '
-        'BindingNavigatorMoveLastItem
-        '
-        Me.BindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveLastItem.Image = CType(resources.GetObject("BindingNavigatorMoveLastItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveLastItem.Name = "BindingNavigatorMoveLastItem"
-        Me.BindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveLastItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveLastItem.Text = "Sposta in ultima posizione"
-        '
-        'BindingNavigatorMoveFirstItem
-        '
-        Me.BindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveFirstItem.Image = CType(resources.GetObject("BindingNavigatorMoveFirstItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveFirstItem.Name = "BindingNavigatorMoveFirstItem"
-        Me.BindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveFirstItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveFirstItem.Text = "Sposta in prima posizione"
-        '
-        'BindingNavigatorMovePreviousItem
-        '
-        Me.BindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMovePreviousItem.Image = CType(resources.GetObject("BindingNavigatorMovePreviousItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMovePreviousItem.Name = "BindingNavigatorMovePreviousItem"
-        Me.BindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMovePreviousItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMovePreviousItem.Text = "Sposta indietro"
-        '
-        'BindingNavigatorSeparator
-        '
-        Me.BindingNavigatorSeparator.Name = "BindingNavigatorSeparator"
-        Me.BindingNavigatorSeparator.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorPositionItem
-        '
-        Me.BindingNavigatorPositionItem.AccessibleName = "Posizione"
-        Me.BindingNavigatorPositionItem.AutoSize = False
-        Me.BindingNavigatorPositionItem.Name = "BindingNavigatorPositionItem"
-        Me.BindingNavigatorPositionItem.Size = New System.Drawing.Size(50, 21)
-        Me.BindingNavigatorPositionItem.Text = "0"
-        Me.BindingNavigatorPositionItem.ToolTipText = "Posizione corrente"
-        '
-        'BindingNavigatorSeparator1
-        '
-        Me.BindingNavigatorSeparator1.Name = "BindingNavigatorSeparator1"
-        Me.BindingNavigatorSeparator1.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorMoveNextItem
-        '
-        Me.BindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorMoveNextItem.Image = CType(resources.GetObject("BindingNavigatorMoveNextItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorMoveNextItem.Name = "BindingNavigatorMoveNextItem"
-        Me.BindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorMoveNextItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorMoveNextItem.Text = "Sposta avanti"
-        '
-        'BindingNavigatorSeparator2
-        '
-        Me.BindingNavigatorSeparator2.Name = "BindingNavigatorSeparator2"
-        Me.BindingNavigatorSeparator2.Size = New System.Drawing.Size(6, 25)
-        '
-        'BindingNavigatorDeleteItem
-        '
-        Me.BindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.BindingNavigatorDeleteItem.Image = CType(resources.GetObject("BindingNavigatorDeleteItem.Image"), System.Drawing.Image)
-        Me.BindingNavigatorDeleteItem.Name = "BindingNavigatorDeleteItem"
-        Me.BindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = True
-        Me.BindingNavigatorDeleteItem.Size = New System.Drawing.Size(23, 22)
-        Me.BindingNavigatorDeleteItem.Text = "Elimina"
-        '
-        'InterventiBindingNavigatorSaveItem
-        '
-        Me.InterventiBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.InterventiBindingNavigatorSaveItem.Image = CType(resources.GetObject("InterventiBindingNavigatorSaveItem.Image"), System.Drawing.Image)
-        Me.InterventiBindingNavigatorSaveItem.Name = "InterventiBindingNavigatorSaveItem"
-        Me.InterventiBindingNavigatorSaveItem.Size = New System.Drawing.Size(23, 22)
-        Me.InterventiBindingNavigatorSaveItem.Text = "Salva dati"
-        '
         'Label5
         '
         Me.Label5.AutoSize = True
@@ -362,6 +236,21 @@ Partial Class FIntervento
         Me.LabelData.TabIndex = 21
         Me.LabelData.Text = "LabelData"
         '
+        'Button1
+        '
+        Me.Button1.CausesValidation = False
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Button1.Location = New System.Drawing.Point(696, 340)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(199, 56)
+        Me.Button1.TabIndex = 24
+        Me.Button1.Text = "&Chiudi"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'TimerSalvataggioAutomatico
+        '
+        Me.TimerSalvataggioAutomatico.Interval = 5000
+        '
         'InterventiTableAdapter
         '
         Me.InterventiTableAdapter.ClearBeforeFill = True
@@ -375,17 +264,6 @@ Partial Class FIntervento
         '
         Me.OrdineServizioTableAdapter.ClearBeforeFill = True
         '
-        'Button1
-        '
-        Me.Button1.CausesValidation = False
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(696, 340)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(199, 56)
-        Me.Button1.TabIndex = 24
-        Me.Button1.Text = "&Chiudi"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'FIntervento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -397,7 +275,6 @@ Partial Class FIntervento
         Me.Controls.Add(Me.labelOS)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.btnAutoOraFine)
-        Me.Controls.Add(Me.InterventiBindingNavigator)
         Me.Controls.Add(Me.btnChiudi)
         Me.Controls.Add(Me.LabelResoconto)
         Me.Controls.Add(Me.tbResoconto)
@@ -415,9 +292,6 @@ Partial Class FIntervento
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxOraFine.ResumeLayout(False)
         Me.GroupBoxOraFine.PerformLayout()
-        CType(Me.InterventiBindingNavigator, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.InterventiBindingNavigator.ResumeLayout(False)
-        Me.InterventiBindingNavigator.PerformLayout()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -437,19 +311,6 @@ Partial Class FIntervento
     Friend WithEvents DbAlegatoADataSet As OrSe.dbAlegatoADataSet
     Friend WithEvents InterventiBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents InterventiTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter
-    Friend WithEvents InterventiBindingNavigator As System.Windows.Forms.BindingNavigator
-    Friend WithEvents BindingNavigatorAddNewItem As System.Windows.Forms.ToolStripButton
-    Friend WithEvents BindingNavigatorCountItem As System.Windows.Forms.ToolStripLabel
-    Friend WithEvents BindingNavigatorDeleteItem As System.Windows.Forms.ToolStripButton
-    Friend WithEvents BindingNavigatorMoveFirstItem As System.Windows.Forms.ToolStripButton
-    Friend WithEvents BindingNavigatorMovePreviousItem As System.Windows.Forms.ToolStripButton
-    Friend WithEvents BindingNavigatorSeparator As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents BindingNavigatorPositionItem As System.Windows.Forms.ToolStripTextBox
-    Friend WithEvents BindingNavigatorSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents BindingNavigatorMoveNextItem As System.Windows.Forms.ToolStripButton
-    Friend WithEvents BindingNavigatorMoveLastItem As System.Windows.Forms.ToolStripButton
-    Friend WithEvents BindingNavigatorSeparator2 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents InterventiBindingNavigatorSaveItem As System.Windows.Forms.ToolStripButton
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents labelOS As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
@@ -459,4 +320,5 @@ Partial Class FIntervento
     Friend WithEvents OrdineServizioBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents OrdineServizioTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents TimerSalvataggioAutomatico As System.Windows.Forms.Timer
 End Class

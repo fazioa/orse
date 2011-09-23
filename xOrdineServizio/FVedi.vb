@@ -64,7 +64,7 @@ Public Class FVedi
                     'operazione da fare per segnalare la presenza di intervalli utilizzabili
                     '===================================================
                     log.xlogWriteEntry("Rilevato intervallo libero (in datagrid interventi o informazioni)", TraceEventType.Information)
-                    dgv.Rows(i).DividerHeight() = My.Settings.altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLibero
+                    dgv.Rows(i).DividerHeight() = My.Settings.altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLiberi
                 End If
             Next
             dgv.DataSource = ds
@@ -125,11 +125,16 @@ Public Class FVedi
     Private Sub DataGridClickAperturaDettaglio(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs, ByVal nomeColonnaId As String)
         Dim dgv As DataGridView = sender
         Dim pMousecoord As System.Drawing.Point = Control.MousePosition
-        Dim a As System.Windows.Forms.AccessibleObject = dgv.Rows(e.RowIndex).AccessibilityObject
-        If (pMousecoord.Y <= a.Bounds.Bottom - My.Settings.altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLibero) Then
-            'modifica cella. controllo le coordinate per filtrare i click sulla riga di divisione delle celle
-            feActions.doApriDettaglioIntervento(sender, e, nomeColonnaId)
-        End If
+        Try
+            Dim a As System.Windows.Forms.AccessibleObject = dgv.Rows(e.RowIndex).AccessibilityObject
+            If (pMousecoord.Y <= a.Bounds.Bottom - My.Settings.altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLiberi) Then
+                '  modifica cella. controllo le coordinate per filtrare i click sulla riga di divisione delle celle
+                feActions.doApriDettaglioIntervento(sender, e, nomeColonnaId)
+            End If
+        Catch ex As Exception
+
+        End Try
+
     End Sub
 
     Private Sub DataGridViewInterventi_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewInterventi.CellDoubleClick
@@ -329,24 +334,25 @@ Public Class FVedi
 
         Dim bFlag As Boolean = False
         Dim iIdcontrollo, iIDControlloTmp As Integer
-        iIdcontrollo = dgv.Item("idControllo", 0).Value
-        iIDControlloTmp = iIdcontrollo
-
-        For i As Integer = 1 To dgv.RowCount - 1
-            '---CAMBIO LO STILE RIGA IN BASE AL CONTROLLO
-            'se il controllo cambia allora cambio stile
-            iIdcontrollo = dgv.Item("idControllo", i).Value
-            If (iIdcontrollo <> iIDControlloTmp) Then bFlag = Not bFlag
-
-            If (bFlag) Then
-                dgv.Rows(i).DefaultCellStyle.BackColor = Color.Lavender
-            Else
-                '  dgv.Rows(i).DefaultCellStyle.BackColor = Color.FloralWhite 'DEFAULT
-            End If
+        If (dgv.RowCount > 0) Then
+            iIdcontrollo = dgv.Item("idControllo", 0).Value
             iIDControlloTmp = iIdcontrollo
 
-        Next
+            For i As Integer = 1 To dgv.RowCount - 1
+                '---CAMBIO LO STILE RIGA IN BASE AL CONTROLLO
+                'se il controllo cambia allora cambio stile
+                iIdcontrollo = dgv.Item("idControllo", i).Value
+                If (iIdcontrollo <> iIDControlloTmp) Then bFlag = Not bFlag
 
+                If (bFlag) Then
+                    dgv.Rows(i).DefaultCellStyle.BackColor = Color.Lavender
+                Else
+                    '  dgv.Rows(i).DefaultCellStyle.BackColor = Color.FloralWhite 'DEFAULT
+                End If
+                iIDControlloTmp = iIdcontrollo
+
+            Next
+        End If
 
     End Sub
 
