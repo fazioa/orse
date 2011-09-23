@@ -58,7 +58,7 @@
     <Setting Name="ComandanteTitolare" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLibero" Type="System.Int32" Scope="Application">
+    <Setting Name="altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLiberi" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="dataUltimaEsportazioneDati" Type="System.DateTime" Scope="User">

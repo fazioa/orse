@@ -75,37 +75,15 @@ Public Class FVedi
 
     Private Sub interventiDataGrid_RowDividerDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowDividerDoubleClickEventArgs) Handles DataGridViewInterventi.RowDividerDoubleClick
 
-        Dim messageBoxVB As New System.Text.StringBuilder()
-        messageBoxVB.AppendFormat("{0} = {1}", "RowIndex", e.RowIndex)
-        messageBoxVB.AppendLine()
-        messageBoxVB.AppendFormat("{0} = {1}", "Handled", e.Handled)
-        messageBoxVB.AppendLine()
-        messageBoxVB.AppendFormat("{0} = {1}", "Button", e.Button)
-        messageBoxVB.AppendLine()
-        messageBoxVB.AppendFormat("{0} = {1}", "Clicks", e.Clicks)
-        messageBoxVB.AppendLine()
-        messageBoxVB.AppendFormat("{0} = {1}", "X", e.X)
-        messageBoxVB.AppendLine()
-        messageBoxVB.AppendFormat("{0} = {1}", "Y", e.Y)
-        messageBoxVB.AppendLine()
-        messageBoxVB.AppendFormat("{0} = {1}", "Delta", e.Delta)
-        messageBoxVB.AppendLine()
-        messageBoxVB.AppendFormat("{0} = {1}", "Location", e.Location)
-        messageBoxVB.AppendLine()
-        MessageBox.Show(messageBoxVB.ToString(), "RowDividerDoubleClick Event")
-
-
-
-
         Dim dFine, dInizio As Date
         Dim dgv As DataGridView = sender
         Dim iRiga = e.RowIndex
         If (iRiga >= 0) Then
-            dFine = FormatDateTime(dgv.Item("dataoraFine", iRiga).Value, DateFormat.GeneralDate)
-            dInizio = FormatDateTime(dgv.Item("dataoraInizio", iRiga + 1).Value, DateFormat.GeneralDate)
+            dInizio = FormatDateTime(dgv.Item("dataoraFine", iRiga).Value, DateFormat.GeneralDate)
+            dFine = FormatDateTime(dgv.Item("dataoraInizio", iRiga + 1).Value, DateFormat.GeneralDate)
             log.xlogWriteEntry("Apertura 'intervento' su intervallo libero: " & dInizio.ToString & " - " & dFine.ToString, TraceEventType.Information)
             'inizio e fine sono relativi devono essere invertiti, perchè devono rappresentare inizio e fine del nuovo intervento
-            feActions.doApriFormInterventoInformazioni(dFine, dInizio, iId, paragrafoOS.interventi)
+            feActions.doApriFormInterventoInformazioni(dInizio, dFine, iId, paragrafoOS.interventi)
         End If
     End Sub
     Private Sub informazioniDataGrid_RowDividerDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowDividerDoubleClickEventArgs) Handles DataGridViewInformazioni.RowDividerDoubleClick
@@ -303,10 +281,10 @@ Public Class FVedi
         dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         dgv.ColumnHeadersVisible = True
         dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        'dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         dgv.RowHeadersVisible = False
         dgv.AllowUserToResizeColumns = True
-        dgv.AllowUserToResizeRows = False
+        dgv.AllowUserToResizeRows = True
         dgv.AllowUserToAddRows = False
         dgv.ReadOnly = True
         '----------------

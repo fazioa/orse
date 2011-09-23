@@ -25,8 +25,6 @@ Partial Class FIntervento
         Me.components = New System.ComponentModel.Container
         Me.GroupBoxOraIntervento = New System.Windows.Forms.GroupBox
         Me.DateTimePickerOraInizio = New System.Windows.Forms.DateTimePicker
-        Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
         Me.Label1 = New System.Windows.Forms.Label
         Me.LabelOraFine = New System.Windows.Forms.Label
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -44,13 +42,15 @@ Partial Class FIntervento
         Me.LabelData = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
         Me.TimerSalvataggioAutomatico = New System.Windows.Forms.Timer(Me.components)
+        Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
         Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
         Me.GroupBoxOraIntervento.SuspendLayout()
+        Me.GroupBoxOraFine.SuspendLayout()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBoxOraFine.SuspendLayout()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -67,6 +67,7 @@ Partial Class FIntervento
         'DateTimePickerOraInizio
         '
         Me.DateTimePickerOraInizio.CausesValidation = False
+        Me.DateTimePickerOraInizio.Cursor = System.Windows.Forms.Cursors.Default
         Me.DateTimePickerOraInizio.CustomFormat = "HH.mm"
         Me.DateTimePickerOraInizio.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.InterventiBindingSource, "dataoraInizio", True, System.Windows.Forms.DataSourceUpdateMode.OnValidation, Nothing, "G"))
         Me.DateTimePickerOraInizio.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!)
@@ -75,16 +76,6 @@ Partial Class FIntervento
         Me.DateTimePickerOraInizio.Name = "DateTimePickerOraInizio"
         Me.DateTimePickerOraInizio.Size = New System.Drawing.Size(144, 49)
         Me.DateTimePickerOraInizio.TabIndex = 24
-        '
-        'InterventiBindingSource
-        '
-        Me.InterventiBindingSource.DataMember = "interventi"
-        Me.InterventiBindingSource.DataSource = Me.DbAlegatoADataSet
-        '
-        'DbAlegatoADataSet
-        '
-        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'Label1
         '
@@ -251,6 +242,16 @@ Partial Class FIntervento
         '
         Me.TimerSalvataggioAutomatico.Interval = 5000
         '
+        'InterventiBindingSource
+        '
+        Me.InterventiBindingSource.DataMember = "interventi"
+        Me.InterventiBindingSource.DataSource = Me.DbAlegatoADataSet
+        '
+        'DbAlegatoADataSet
+        '
+        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'InterventiTableAdapter
         '
         Me.InterventiTableAdapter.ClearBeforeFill = True
@@ -288,10 +289,10 @@ Partial Class FIntervento
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBoxOraIntervento.ResumeLayout(False)
         Me.GroupBoxOraIntervento.PerformLayout()
-        CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxOraFine.ResumeLayout(False)
         Me.GroupBoxOraFine.PerformLayout()
+        CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
