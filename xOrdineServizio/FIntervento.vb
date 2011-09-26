@@ -147,11 +147,6 @@ Public Class FIntervento
         End If
     End Sub
 
-    Private Sub modalitaOraFineAutomaticaDisable()
-
-    End Sub
-
-
     Private Sub btnChiudi_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnChiudi.Click
         salva()
         Me.Close()
