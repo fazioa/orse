@@ -24,19 +24,19 @@ Partial Class FSopralluogo
         Me.TextBoxTipoAltro = New System.Windows.Forms.TextBox
         Me.RadioButtonTipoAltro = New System.Windows.Forms.RadioButton
         Me.RadioButtonTipoFurtoAbitazione = New System.Windows.Forms.RadioButton
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
+        Me.DateTimePickerOraVerbale = New System.Windows.Forms.DateTimePicker
         Me.SopralluogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
         Me.Label1 = New System.Windows.Forms.Label
-        Me.TextBox2 = New System.Windows.Forms.TextBox
+        Me.TextBoxLuogo = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label3 = New System.Windows.Forms.Label
-        Me.TextBox3 = New System.Windows.Forms.TextBox
+        Me.TextBoxVia = New System.Windows.Forms.TextBox
         Me.Label4 = New System.Windows.Forms.Label
-        Me.TextBox4 = New System.Windows.Forms.TextBox
+        Me.TextBoxContatti = New System.Windows.Forms.TextBox
         Me.Label5 = New System.Windows.Forms.Label
-        Me.DateTimePicker2 = New System.Windows.Forms.DateTimePicker
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox
+        Me.DateTimePickerOraRichiesta = New System.Windows.Forms.DateTimePicker
+        Me.RichTextBoxResoconto = New System.Windows.Forms.RichTextBox
         Me.Label6 = New System.Windows.Forms.Label
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
@@ -46,6 +46,7 @@ Partial Class FSopralluogo
         Me.btnSalvaChiudi = New System.Windows.Forms.Button
         Me.ButtonGeneraReport = New System.Windows.Forms.Button
         Me.SopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
+        Me.TimerSalvataggioAutomatico = New System.Windows.Forms.Timer(Me.components)
         Me.GroupBox1.SuspendLayout()
         CType(Me.SopralluogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -99,16 +100,16 @@ Partial Class FSopralluogo
         Me.RadioButtonTipoFurtoAbitazione.Text = "Furto in abitazione"
         Me.RadioButtonTipoFurtoAbitazione.UseVisualStyleBackColor = True
         '
-        'DateTimePicker1
+        'DateTimePickerOraVerbale
         '
-        Me.DateTimePicker1.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.DateTimePicker1.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SopralluogoBindingSource, "oraRedazione", True))
-        Me.DateTimePicker1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.DateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DateTimePicker1.Location = New System.Drawing.Point(253, 31)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(220, 32)
-        Me.DateTimePicker1.TabIndex = 1
+        Me.DateTimePickerOraVerbale.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.DateTimePickerOraVerbale.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SopralluogoBindingSource, "oraRedazione", True))
+        Me.DateTimePickerOraVerbale.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.DateTimePickerOraVerbale.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DateTimePickerOraVerbale.Location = New System.Drawing.Point(253, 31)
+        Me.DateTimePickerOraVerbale.Name = "DateTimePickerOraVerbale"
+        Me.DateTimePickerOraVerbale.Size = New System.Drawing.Size(220, 32)
+        Me.DateTimePickerOraVerbale.TabIndex = 1
         '
         'SopralluogoBindingSource
         '
@@ -130,17 +131,18 @@ Partial Class FSopralluogo
         Me.Label1.TabIndex = 2
         Me.Label1.Text = "Ora redazione verbale:"
         '
-        'TextBox2
+        'TextBoxLuogo
         '
-        Me.TextBox2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.TextBoxLuogo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "luogo_citta", True))
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.TextBox2.Location = New System.Drawing.Point(213, 183)
-        Me.TextBox2.MaxLength = 50
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(873, 32)
-        Me.TextBox2.TabIndex = 3
+        Me.TextBoxLuogo.CausesValidation = False
+        Me.TextBoxLuogo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "luogo_citta", True))
+        Me.TextBoxLuogo.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.TextBoxLuogo.Location = New System.Drawing.Point(213, 183)
+        Me.TextBoxLuogo.MaxLength = 50
+        Me.TextBoxLuogo.Name = "TextBoxLuogo"
+        Me.TextBoxLuogo.Size = New System.Drawing.Size(873, 32)
+        Me.TextBoxLuogo.TabIndex = 3
         '
         'Label2
         '
@@ -162,17 +164,18 @@ Partial Class FSopralluogo
         Me.Label3.TabIndex = 6
         Me.Label3.Text = "via/presso:"
         '
-        'TextBox3
+        'TextBoxVia
         '
-        Me.TextBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.TextBoxVia.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "via", True))
-        Me.TextBox3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.TextBox3.Location = New System.Drawing.Point(213, 221)
-        Me.TextBox3.MaxLength = 150
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(873, 32)
-        Me.TextBox3.TabIndex = 5
+        Me.TextBoxVia.CausesValidation = False
+        Me.TextBoxVia.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "via", True))
+        Me.TextBoxVia.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.TextBoxVia.Location = New System.Drawing.Point(213, 221)
+        Me.TextBoxVia.MaxLength = 150
+        Me.TextBoxVia.Name = "TextBoxVia"
+        Me.TextBoxVia.Size = New System.Drawing.Size(873, 32)
+        Me.TextBoxVia.TabIndex = 5
         '
         'Label4
         '
@@ -184,17 +187,18 @@ Partial Class FSopralluogo
         Me.Label4.TabIndex = 8
         Me.Label4.Text = "pressi contatti con:"
         '
-        'TextBox4
+        'TextBoxContatti
         '
-        Me.TextBox4.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+        Me.TextBoxContatti.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "contatti_con", True))
-        Me.TextBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.TextBox4.Location = New System.Drawing.Point(213, 259)
-        Me.TextBox4.MaxLength = 200
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(873, 32)
-        Me.TextBox4.TabIndex = 7
+        Me.TextBoxContatti.CausesValidation = False
+        Me.TextBoxContatti.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "contatti_con", True))
+        Me.TextBoxContatti.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.TextBoxContatti.Location = New System.Drawing.Point(213, 259)
+        Me.TextBoxContatti.MaxLength = 200
+        Me.TextBoxContatti.Name = "TextBoxContatti"
+        Me.TextBoxContatti.Size = New System.Drawing.Size(873, 32)
+        Me.TextBoxContatti.TabIndex = 7
         '
         'Label5
         '
@@ -206,29 +210,30 @@ Partial Class FSopralluogo
         Me.Label5.TabIndex = 10
         Me.Label5.Text = "Ora richiesta intervento:"
         '
-        'DateTimePicker2
+        'DateTimePickerOraRichiesta
         '
-        Me.DateTimePicker2.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.DateTimePicker2.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SopralluogoBindingSource, "oraRichiesta", True))
-        Me.DateTimePicker2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.DateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time
-        Me.DateTimePicker2.Location = New System.Drawing.Point(253, 69)
-        Me.DateTimePicker2.Name = "DateTimePicker2"
-        Me.DateTimePicker2.Size = New System.Drawing.Size(220, 32)
-        Me.DateTimePicker2.TabIndex = 9
+        Me.DateTimePickerOraRichiesta.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.DateTimePickerOraRichiesta.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SopralluogoBindingSource, "oraRichiesta", True))
+        Me.DateTimePickerOraRichiesta.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.DateTimePickerOraRichiesta.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DateTimePickerOraRichiesta.Location = New System.Drawing.Point(253, 69)
+        Me.DateTimePickerOraRichiesta.Name = "DateTimePickerOraRichiesta"
+        Me.DateTimePickerOraRichiesta.Size = New System.Drawing.Size(220, 32)
+        Me.DateTimePickerOraRichiesta.TabIndex = 9
         '
-        'RichTextBox1
+        'RichTextBoxResoconto
         '
-        Me.RichTextBox1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.RichTextBoxResoconto.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RichTextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "resoconto", True))
-        Me.RichTextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.RichTextBox1.Location = New System.Drawing.Point(213, 326)
-        Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(873, 165)
-        Me.RichTextBox1.TabIndex = 11
-        Me.RichTextBox1.Text = ""
+        Me.RichTextBoxResoconto.CausesValidation = False
+        Me.RichTextBoxResoconto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "resoconto", True))
+        Me.RichTextBoxResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.RichTextBoxResoconto.Location = New System.Drawing.Point(213, 326)
+        Me.RichTextBoxResoconto.Name = "RichTextBoxResoconto"
+        Me.RichTextBoxResoconto.Size = New System.Drawing.Size(873, 165)
+        Me.RichTextBoxResoconto.TabIndex = 11
+        Me.RichTextBoxResoconto.Text = ""
         '
         'Label6
         '
@@ -255,9 +260,9 @@ Partial Class FSopralluogo
         '
         'GroupBox2
         '
-        Me.GroupBox2.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox2.Controls.Add(Me.DateTimePickerOraVerbale)
         Me.GroupBox2.Controls.Add(Me.Label1)
-        Me.GroupBox2.Controls.Add(Me.DateTimePicker2)
+        Me.GroupBox2.Controls.Add(Me.DateTimePickerOraRichiesta)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.GroupBox2.Location = New System.Drawing.Point(245, 12)
@@ -322,6 +327,9 @@ Partial Class FSopralluogo
         '
         Me.SopralluogoTableAdapter.ClearBeforeFill = True
         '
+        'TimerSalvataggioAutomatico
+        '
+        '
         'FSopralluogo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -331,16 +339,16 @@ Partial Class FSopralluogo
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.RichTextBox2)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.RichTextBox1)
+        Me.Controls.Add(Me.RichTextBoxResoconto)
         Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.TextBox4)
+        Me.Controls.Add(Me.TextBoxContatti)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.TextBox3)
+        Me.Controls.Add(Me.TextBoxVia)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.TextBox2)
+        Me.Controls.Add(Me.TextBoxLuogo)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FSopralluogo"
-        Me.Text = "Inserimento Sopralluogo"
+        Me.Text = "Sopralluogo"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.SopralluogoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -357,17 +365,17 @@ Partial Class FSopralluogo
     Friend WithEvents TextBoxTipoAltro As System.Windows.Forms.TextBox
     Friend WithEvents RadioButtonTipoAltro As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButtonTipoFurtoAbitazione As System.Windows.Forms.RadioButton
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents DateTimePickerOraVerbale As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxLuogo As System.Windows.Forms.TextBox
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxVia As System.Windows.Forms.TextBox
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
+    Friend WithEvents TextBoxContatti As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker2 As System.Windows.Forms.DateTimePicker
-    Friend WithEvents RichTextBox1 As System.Windows.Forms.RichTextBox
+    Friend WithEvents DateTimePickerOraRichiesta As System.Windows.Forms.DateTimePicker
+    Friend WithEvents RichTextBoxResoconto As System.Windows.Forms.RichTextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox2 As System.Windows.Forms.RichTextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
@@ -379,4 +387,5 @@ Partial Class FSopralluogo
     Friend WithEvents SopralluogoBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents SopralluogoTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
     Friend WithEvents ButtonGeneraReport As System.Windows.Forms.Button
+    Friend WithEvents TimerSalvataggioAutomatico As System.Windows.Forms.Timer
 End Class

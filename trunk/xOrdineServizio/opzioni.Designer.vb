@@ -500,10 +500,12 @@ Partial Class opzioni
         'RadioButton_layoutRiepilogoInserimentiN
         '
         Me.RadioButton_layoutRiepilogoInserimentiN.AutoSize = True
+        Me.RadioButton_layoutRiepilogoInserimentiN.Checked = True
         Me.RadioButton_layoutRiepilogoInserimentiN.Location = New System.Drawing.Point(253, 43)
         Me.RadioButton_layoutRiepilogoInserimentiN.Name = "RadioButton_layoutRiepilogoInserimentiN"
         Me.RadioButton_layoutRiepilogoInserimentiN.Size = New System.Drawing.Size(146, 17)
         Me.RadioButton_layoutRiepilogoInserimentiN.TabIndex = 2
+        Me.RadioButton_layoutRiepilogoInserimentiN.TabStop = True
         Me.RadioButton_layoutRiepilogoInserimentiN.Text = "No (usa finestra separata)"
         Me.RadioButton_layoutRiepilogoInserimentiN.UseVisualStyleBackColor = True
         '
