@@ -141,7 +141,7 @@ Public Class FVedi
         Dim v As Integer = dgv.CurrentRow.Cells("id").Value
         ' parametri.nomeLuogoControllo = dgv.CurrentRow.Cells("cLuogoControllo").Value
         ' parametri.dataoraControllo = dgv.CurrentRow.Cells("cOra").Value
-        feActions.doApriDettaglioSopralluogo(DbAlegatoADataSet, v)
+        feActions.doApriDettaglioSopralluogo(v)
     End Sub
 
 

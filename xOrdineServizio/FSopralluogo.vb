@@ -15,37 +15,21 @@ Public Class FSopralluogo
     Private Sub salva()
         Dim sTipoReato As String
 
-        'quando assegno un valore a drv.item, tutti i campi del binding vengono riportati allo stato dell'ultimo salvataggio, perdo quidi tutte le modifiche.
-        'le ripristino salvandole prima di usare l'oogeto drv
-        'Dim xoraRichiesta As Date = DateTimePickerOraRichiesta.Value
-        'Dim xoraRedazione As Date = DateTimePickerOraVerbale.Value
-        'Dim sLuogo As String = TextBoxLuogo.Text
-        'Dim sVia As String = TextBoxVia.Text
-        'Dim sContatti As String = TextBoxContatti.Text
-        'Dim sResoconto As String = RichTextBoxResoconto.Text
-
+        'quando assegno un valore a drv.item, tutti i campi del binding vengono riportati allo stato dell'ultimo salvataggio, perdo quindi tutte le modifiche.
+        ' ho risolto inserendo il flag saved
+        If (RadioButtonTipoFurtoAbitazione.Checked) Then
+            sTipoReato = "Furto in abitazione"
+        Else
+            sTipoReato = TextBoxTipoAltro.Text
+        End If
         Try
             Dim drv As DataRowView = SopralluogoBindingSource.Current()
             If (Not bSaved) Then
-
-                If (RadioButtonTipoFurtoAbitazione.Checked) Then
-                    sTipoReato = "Furto in abitazione"
-                    drv.Item("tipoReato") = sTipoReato
-                Else
-                    sTipoReato = TextBoxTipoAltro.Text
-                    drv.Item("tipoReato") = sTipoReato
-                End If
-
+                drv.Item("tipoReato") = sTipoReato
                 drv.Item("oraRedazione") = DateTimePickerOraVerbale.Value
                 drv.Item("oraRichiesta") = DateTimePickerOraRichiesta.Value
             End If
-            'ripristino i nuovi valori
-            'DateTimePickerOraRichiesta.Value = xoraRichiesta
-            'DateTimePickerOraVerbale.Value = xoraRedazione
-            'TextBoxLuogo.Text = sLuogo
-            'TextBoxVia.Text = sVia
-            'TextBoxContatti.Text = sContatti
-            'RichTextBoxResoconto.Text = sResoconto
+          
 
             Me.Validate()
             Me.SopralluogoBindingSource.EndEdit()
@@ -57,7 +41,7 @@ Public Class FSopralluogo
             log.xlogWriteEntry("Inserimento sopralluogo - Salvataggio dati", TraceEventType.Critical)
         Catch ex As DBConcurrencyException
             log.xlogWriteEntry("Inserimento sopralluogo - Salvataggio automatico - Eseguo comando SQL Update", TraceEventType.Critical)
-            feActions.esegueSQL("UPDATE sopralluogo SET idOS=" & xIdOS & ", tipoReato='" & sTipoReato & "', oraRichiesta=#" & DateTimePickerOraRichiesta.Value & "#, oraRedazione=#" & DateTimePickerOraVerbale.Value & "#, luogo_citta='" & TextBoxLuogo.Text & "', via='" & TextBoxVia.Text & "', contatti_con='" & TextBoxContatti.Text & "', resoconto='" & RichTextBoxResoconto.Text & "' WHERE id=" & idSopralluogo)
+            feActions.esegueSQL("UPDATE sopralluogo SET idOS=" & xIdOS & ", tipoReato='" & sTipoReato & "', oraRichiesta=#" & DateTimePickerOraRichiesta.Value & "#, oraRedazione=#" & DateTimePickerOraVerbale.Value & "#, luogo_citta='" & TextBoxLuogo.Text & "', via='" & TextBoxVia.Text & "', contatti_con='" & TextBoxContatti.Text & "', resoconto='" & TextBoxResoconto.Text & "' WHERE id=" & idSopralluogo)
         End Try
 
     End Sub
@@ -174,12 +158,12 @@ Public Class FSopralluogo
         setChanged(True)
     End Sub
 
-    Private Sub TextBoxTipoAltro_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBoxTipoAltro.TextChanged, TextBoxVia.TextChanged, TextBoxLuogo.TextChanged, TextBoxContatti.TextChanged, RichTextBoxResoconto.TextChanged, DateTimePickerOraVerbale.ValueChanged, DateTimePickerOraRichiesta.ValueChanged
+    Private Sub TextBoxTipoAltro_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBoxTipoAltro.TextChanged, TextBoxVia.TextChanged, TextBoxLuogo.TextChanged, TextBoxContatti.TextChanged, DateTimePickerOraVerbale.ValueChanged, DateTimePickerOraRichiesta.ValueChanged, TextBoxResoconto.TextChanged
         setChanged(True)
     End Sub
 
     Private Sub TimerSalvataggioAutomatico_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TimerSalvataggioAutomatico.Tick
-        If (Not (TextBoxContatti.Text = "" And TextBoxLuogo.Text = "" And TextBoxVia.Text = "" And RichTextBoxResoconto.Text = "" And TextBoxTipoAltro.Text = "") And contenutoCambiato = True) Then
+        If (Not (TextBoxContatti.Text = "" And TextBoxLuogo.Text = "" And TextBoxVia.Text = "" And TextBoxResoconto.Text = "" And TextBoxTipoAltro.Text = "") And contenutoCambiato = True) Then
             log.xlogWriteEntry("Inserimento sopralluogo - Salvataggio automatico", TraceEventType.Critical)
             salva()
             setChanged(False)

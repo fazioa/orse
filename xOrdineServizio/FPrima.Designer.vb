@@ -64,6 +64,7 @@ Partial Class FPrima
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel3 = New OrSe.verticalLabel
         Me.DataGridViewAllegatoA = New System.Windows.Forms.DataGridView
         Me.nomeOS = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cOra = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -79,6 +80,7 @@ Partial Class FPrima
         Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbAlegatoADataSet_Unico = New OrSe.dbAlegatoADataSet
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel1 = New OrSe.verticalLabel
         Me.DataGridViewInterventi = New System.Windows.Forms.DataGridView
         Me.dataoraInizio = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.dataOraFine = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -88,6 +90,7 @@ Partial Class FPrima
         Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableLayoutPanelRiepilogoInserimenti = New System.Windows.Forms.TableLayoutPanel
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel4 = New OrSe.verticalLabel
         Me.DataGridViewInformazioni = New System.Windows.Forms.DataGridView
         Me.dataoraFineInfo = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -103,7 +106,7 @@ Partial Class FPrima
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
         Me.FlowLayoutPanelEsterno = New System.Windows.Forms.FlowLayoutPanel
         Me.btnInformazioni = New System.Windows.Forms.Button
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.btnSopralluogo = New System.Windows.Forms.Button
         Me.CachedreportAllegatoA1 = New OrSe.CachedreportAllegatoA
         Me.CachedreportInterventi1 = New OrSe.CachedreportInterventi
         Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -117,9 +120,6 @@ Partial Class FPrima
         Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter
         Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
-        Me.VerticalLabel4 = New OrSe.verticalLabel
-        Me.VerticalLabel1 = New OrSe.verticalLabel
-        Me.VerticalLabel3 = New OrSe.verticalLabel
         Me.VerticalLabel2 = New OrSe.verticalLabel
         Me.menu.SuspendLayout()
         Me.SplitContainer3.Panel1.SuspendLayout()
@@ -344,6 +344,16 @@ Partial Class FPrima
         Me.SplitContainer3.SplitterDistance = 25
         Me.SplitContainer3.TabIndex = 29
         '
+        'VerticalLabel3
+        '
+        Me.VerticalLabel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel3.Location = New System.Drawing.Point(1, 0)
+        Me.VerticalLabel3.Name = "VerticalLabel3"
+        Me.VerticalLabel3.Size = New System.Drawing.Size(24, 113)
+        Me.VerticalLabel3.TabIndex = 27
+        Me.VerticalLabel3.Text = "Allegato A"
+        '
         'DataGridViewAllegatoA
         '
         Me.DataGridViewAllegatoA.AllowUserToAddRows = False
@@ -518,6 +528,16 @@ Partial Class FPrima
         Me.SplitContainer2.SplitterDistance = 25
         Me.SplitContainer2.TabIndex = 30
         '
+        'VerticalLabel1
+        '
+        Me.VerticalLabel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel1.Location = New System.Drawing.Point(1, 0)
+        Me.VerticalLabel1.Name = "VerticalLabel1"
+        Me.VerticalLabel1.Size = New System.Drawing.Size(24, 113)
+        Me.VerticalLabel1.TabIndex = 26
+        Me.VerticalLabel1.Text = "Par.9 Interv."
+        '
         'DataGridViewInterventi
         '
         Me.DataGridViewInterventi.AllowUserToAddRows = False
@@ -642,6 +662,16 @@ Partial Class FPrima
         Me.SplitContainer1.Size = New System.Drawing.Size(1128, 113)
         Me.SplitContainer1.SplitterDistance = 25
         Me.SplitContainer1.TabIndex = 31
+        '
+        'VerticalLabel4
+        '
+        Me.VerticalLabel4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel4.Location = New System.Drawing.Point(1, 0)
+        Me.VerticalLabel4.Name = "VerticalLabel4"
+        Me.VerticalLabel4.Size = New System.Drawing.Size(24, 113)
+        Me.VerticalLabel4.TabIndex = 27
+        Me.VerticalLabel4.Text = "Par.6 Info"
         '
         'DataGridViewInformazioni
         '
@@ -821,7 +851,7 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnAlegatoA)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnIntervento)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnInformazioni)
-        Me.FlowLayoutPanelEsterno.Controls.Add(Me.Button1)
+        Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnSopralluogo)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.ButtonVedi)
         Me.FlowLayoutPanelEsterno.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanelEsterno.Location = New System.Drawing.Point(0, 77)
@@ -843,19 +873,19 @@ Partial Class FPrima
         Me.btnInformazioni.UseCompatibleTextRendering = True
         Me.btnInformazioni.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnSopralluogo
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
-        Me.Button1.Image = Global.OrSe.My.Resources.Resources.pulsanteSoleGrigio
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(3, 94)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(300, 85)
-        Me.Button1.TabIndex = 9
-        Me.Button1.Text = "S&opralluogo..."
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        Me.Button1.UseCompatibleTextRendering = True
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSopralluogo.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
+        Me.btnSopralluogo.Image = Global.OrSe.My.Resources.Resources.pulsanteSoleGrigio
+        Me.btnSopralluogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSopralluogo.Location = New System.Drawing.Point(3, 94)
+        Me.btnSopralluogo.Name = "btnSopralluogo"
+        Me.btnSopralluogo.Size = New System.Drawing.Size(300, 85)
+        Me.btnSopralluogo.TabIndex = 9
+        Me.btnSopralluogo.Text = "S&opralluogo..."
+        Me.btnSopralluogo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnSopralluogo.UseCompatibleTextRendering = True
+        Me.btnSopralluogo.UseVisualStyleBackColor = True
         '
         'InterventiBindingSource
         '
@@ -908,36 +938,6 @@ Partial Class FPrima
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(1134, 53)
         Me.FlowLayoutPanel3.TabIndex = 29
-        '
-        'VerticalLabel4
-        '
-        Me.VerticalLabel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel4.Location = New System.Drawing.Point(1, 0)
-        Me.VerticalLabel4.Name = "VerticalLabel4"
-        Me.VerticalLabel4.Size = New System.Drawing.Size(24, 113)
-        Me.VerticalLabel4.TabIndex = 27
-        Me.VerticalLabel4.Text = "Par.6 Info"
-        '
-        'VerticalLabel1
-        '
-        Me.VerticalLabel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel1.Location = New System.Drawing.Point(1, 0)
-        Me.VerticalLabel1.Name = "VerticalLabel1"
-        Me.VerticalLabel1.Size = New System.Drawing.Size(24, 113)
-        Me.VerticalLabel1.TabIndex = 26
-        Me.VerticalLabel1.Text = "Par.9 Interv."
-        '
-        'VerticalLabel3
-        '
-        Me.VerticalLabel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel3.Location = New System.Drawing.Point(1, 0)
-        Me.VerticalLabel3.Name = "VerticalLabel3"
-        Me.VerticalLabel3.Size = New System.Drawing.Size(24, 113)
-        Me.VerticalLabel3.TabIndex = 27
-        Me.VerticalLabel3.Text = "Allegato A"
         '
         'VerticalLabel2
         '
@@ -1106,7 +1106,7 @@ Partial Class FPrima
     Friend WithEvents DataGridViewTextBoxColumn13 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn18 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cID As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnSopralluogo As System.Windows.Forms.Button
     Friend WithEvents FlowLayoutPanel3 As System.Windows.Forms.FlowLayoutPanel
 
 End Class
