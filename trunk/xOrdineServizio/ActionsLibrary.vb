@@ -258,9 +258,9 @@ Public Class ActionsLibrary
         form.Show()
     End Sub
 
-    Public Sub doApriDettaglioSopralluogo(ByRef db As dbAlegatoADataSet, ByVal v As Integer)
+    Public Sub doApriDettaglioSopralluogo(ByVal v As Integer)
         log.xlogWriteEntry("Apertura dettaglio soggetto", TraceEventType.Information)
-        db = db
+        'db = db
         Dim form As System.Windows.Forms.Form
         form = New FSopralluogo(-1, v, "")
         form.Show()

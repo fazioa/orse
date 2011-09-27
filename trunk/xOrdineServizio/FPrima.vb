@@ -337,6 +337,7 @@ Public Class FPrima
         btnAlegatoA.Enabled = b
         btnIntervento.Enabled = b
         btnInformazioni.Enabled = b
+        btnSopralluogo.Enabled = b
     End Sub
 
     Private Sub PreferenzeToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PreferenzeToolStripMenuItem1.Click
@@ -515,7 +516,7 @@ Public Class FPrima
     End Sub
 
 
-    Private Sub Button1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub Button1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSopralluogo.Click
         log.xlogWriteEntry("Apertura sopralluogo", TraceEventType.Information)
         feActions.doApriFormSopralluogo(parametri.idOS, parametri.nomeOperatore)
     End Sub

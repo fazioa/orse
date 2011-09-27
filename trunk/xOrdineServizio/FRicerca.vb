@@ -44,20 +44,18 @@ Public Class FRicerca
     Private Sub cerca()
         Me.QAllegatoATableAdapter.FillByCampoRicerca(Me.DbAlegatoADataSet.QAllegatoA, tbCampoRicerca.Text.Trim)
         Me.QInterventiTableAdapter.FillByCampoRicerca(Me.DbAlegatoADataSet.QInterventi, tbCampoRicerca.Text.Trim)
+        Me.QSopralluogoTableAdapter.FillByCampoRicerca(Me.DbAlegatoADataSet.QSopralluogo, tbCampoRicerca.Text.Trim)
     End Sub
 
 
     Private Sub tbCampoRicerca_PreviewKeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PreviewKeyDownEventArgs) Handles tbCampoRicerca.PreviewKeyDown
-
         If (e.KeyCode = 13) Then
             cerca()
         End If
-
     End Sub
 
 
     Public Sub New()
-
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
 
@@ -65,5 +63,13 @@ Public Class FRicerca
         QInterventi_informazioniBindigSource.Filter = "iParagrafo=" & paragrafoOS.informazioni
         QInterventiBindingSource.Filter = "iParagrafo=" & paragrafoOS.interventi
 
+    End Sub
+
+    Private Sub SopralluogoDataGrid_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles SopralluogoDataGrid.CellClick
+        Dim dgv As DataGridView = sender
+        Dim coord As System.Drawing.Point = dgv.CurrentCellAddress
+        If coord.X = dgv.Columns("cDettaglioSopralluogo").Index() Then
+            feActions.doApriDettaglioSopralluogo(dgv.CurrentRow.Cells("sopralluogo_id").Value)
+        End If
     End Sub
 End Class

@@ -36,7 +36,6 @@ Partial Class FSopralluogo
         Me.TextBoxContatti = New System.Windows.Forms.TextBox
         Me.Label5 = New System.Windows.Forms.Label
         Me.DateTimePickerOraRichiesta = New System.Windows.Forms.DateTimePicker
-        Me.RichTextBoxResoconto = New System.Windows.Forms.RichTextBox
         Me.Label6 = New System.Windows.Forms.Label
         Me.RichTextBox2 = New System.Windows.Forms.RichTextBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
@@ -47,6 +46,7 @@ Partial Class FSopralluogo
         Me.ButtonGeneraReport = New System.Windows.Forms.Button
         Me.SopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
         Me.TimerSalvataggioAutomatico = New System.Windows.Forms.Timer(Me.components)
+        Me.TextBoxResoconto = New System.Windows.Forms.TextBox
         Me.GroupBox1.SuspendLayout()
         CType(Me.SopralluogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -221,20 +221,6 @@ Partial Class FSopralluogo
         Me.DateTimePickerOraRichiesta.Size = New System.Drawing.Size(220, 32)
         Me.DateTimePickerOraRichiesta.TabIndex = 9
         '
-        'RichTextBoxResoconto
-        '
-        Me.RichTextBoxResoconto.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.RichTextBoxResoconto.CausesValidation = False
-        Me.RichTextBoxResoconto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "resoconto", True))
-        Me.RichTextBoxResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.RichTextBoxResoconto.Location = New System.Drawing.Point(213, 326)
-        Me.RichTextBoxResoconto.Name = "RichTextBoxResoconto"
-        Me.RichTextBoxResoconto.Size = New System.Drawing.Size(873, 165)
-        Me.RichTextBoxResoconto.TabIndex = 11
-        Me.RichTextBoxResoconto.Text = ""
-        '
         'Label6
         '
         Me.Label6.AutoSize = True
@@ -330,16 +316,30 @@ Partial Class FSopralluogo
         'TimerSalvataggioAutomatico
         '
         '
+        'TextBoxResoconto
+        '
+        Me.TextBoxResoconto.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.TextBoxResoconto.CausesValidation = False
+        Me.TextBoxResoconto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "resoconto", True))
+        Me.TextBoxResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.TextBoxResoconto.Location = New System.Drawing.Point(213, 326)
+        Me.TextBoxResoconto.Multiline = True
+        Me.TextBoxResoconto.Name = "TextBoxResoconto"
+        Me.TextBoxResoconto.Size = New System.Drawing.Size(873, 160)
+        Me.TextBoxResoconto.TabIndex = 3
+        '
         'FSopralluogo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1098, 619)
+        Me.Controls.Add(Me.TextBoxResoconto)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.RichTextBox2)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.RichTextBoxResoconto)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TextBoxContatti)
         Me.Controls.Add(Me.Label3)
@@ -375,7 +375,6 @@ Partial Class FSopralluogo
     Friend WithEvents TextBoxContatti As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents DateTimePickerOraRichiesta As System.Windows.Forms.DateTimePicker
-    Friend WithEvents RichTextBoxResoconto As System.Windows.Forms.RichTextBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents RichTextBox2 As System.Windows.Forms.RichTextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
@@ -388,4 +387,5 @@ Partial Class FSopralluogo
     Friend WithEvents SopralluogoTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
     Friend WithEvents ButtonGeneraReport As System.Windows.Forms.Button
     Friend WithEvents TimerSalvataggioAutomatico As System.Windows.Forms.Timer
+    Friend WithEvents TextBoxResoconto As System.Windows.Forms.TextBox
 End Class
