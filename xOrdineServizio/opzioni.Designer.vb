@@ -66,13 +66,16 @@ Partial Class opzioni
         Me.Label14 = New System.Windows.Forms.Label
         Me.tbIntervalloSalvataggioAutomatico = New System.Windows.Forms.TextBox
         Me.CheckBoxSalvataggioAutomatico = New System.Windows.Forms.CheckBox
+        Me.TabControl1 = New System.Windows.Forms.TabControl
+        Me.TabPageIntestazioni = New System.Windows.Forms.TabPage
+        Me.TabPageFirma = New System.Windows.Forms.TabPage
+        Me.TabPageVarie = New System.Windows.Forms.TabPage
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
-        Me.FlowLayoutPanel2.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox6.SuspendLayout()
         Me.GroupBox7.SuspendLayout()
@@ -80,6 +83,10 @@ Partial Class opzioni
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
+        Me.TabControl1.SuspendLayout()
+        Me.TabPageIntestazioni.SuspendLayout()
+        Me.TabPageFirma.SuspendLayout()
+        Me.TabPageVarie.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -90,7 +97,7 @@ Partial Class opzioni
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(497, 547)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(550, 272)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -118,16 +125,17 @@ Partial Class opzioni
         '
         'GroupBox1
         '
-        Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.RadioButtonInterinale)
         Me.GroupBox1.Controls.Add(Me.GroupBox2)
         Me.GroupBox1.Controls.Add(Me.TextBox2)
         Me.GroupBox1.Controls.Add(Me.TextBox1)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 173)
+        Me.GroupBox1.Location = New System.Drawing.Point(9, 3)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(610, 79)
+        Me.GroupBox1.Size = New System.Drawing.Size(680, 79)
         Me.GroupBox1.TabIndex = 1
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Gruppo firma comandante interinale"
@@ -211,15 +219,16 @@ Partial Class opzioni
         '
         'GroupBox3
         '
-        Me.GroupBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.GroupBox4)
         Me.GroupBox3.Controls.Add(Me.TextBox3)
         Me.GroupBox3.Controls.Add(Me.TextBox4)
         Me.GroupBox3.Controls.Add(Me.Label7)
         Me.GroupBox3.Controls.Add(Me.Label8)
-        Me.GroupBox3.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox3.Location = New System.Drawing.Point(6, 6)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(610, 79)
+        Me.GroupBox3.Size = New System.Drawing.Size(681, 79)
         Me.GroupBox3.TabIndex = 4
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Gruppo intestazione"
@@ -293,30 +302,27 @@ Partial Class opzioni
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.FlowLayoutPanel2)
-        Me.FlowLayoutPanel1.Controls.Add(Me.FlowLayoutPanel3)
-        Me.FlowLayoutPanel1.Controls.Add(Me.GroupBox10)
+        Me.FlowLayoutPanel1.Controls.Add(Me.GroupBox1)
+        Me.FlowLayoutPanel1.Controls.Add(Me.GroupBox5)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 3)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(655, 588)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(694, 278)
         Me.FlowLayoutPanel1.TabIndex = 5
         '
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.AutoSize = True
-        Me.FlowLayoutPanel2.Controls.Add(Me.GroupBox3)
-        Me.FlowLayoutPanel2.Controls.Add(Me.GroupBox5)
-        Me.FlowLayoutPanel2.Controls.Add(Me.GroupBox1)
-        Me.FlowLayoutPanel2.Controls.Add(Me.GroupBox7)
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 3)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(616, 340)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(0, 79)
         Me.FlowLayoutPanel2.TabIndex = 0
         '
         'GroupBox5
         '
-        Me.GroupBox5.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox5.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox5.Controls.Add(Me.GroupBox6)
         Me.GroupBox5.Controls.Add(Me.RadioButtonTitolare)
         Me.GroupBox5.Controls.Add(Me.TextBox5)
@@ -325,7 +331,7 @@ Partial Class opzioni
         Me.GroupBox5.Controls.Add(Me.Label12)
         Me.GroupBox5.Location = New System.Drawing.Point(3, 88)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(610, 79)
+        Me.GroupBox5.Size = New System.Drawing.Size(686, 79)
         Me.GroupBox5.TabIndex = 4
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Gruppo firma comandante"
@@ -414,9 +420,9 @@ Partial Class opzioni
         Me.GroupBox7.Controls.Add(Me.Label13)
         Me.GroupBox7.Controls.Add(Me.TextBox8)
         Me.GroupBox7.Controls.Add(Me.Label16)
-        Me.GroupBox7.Location = New System.Drawing.Point(3, 258)
+        Me.GroupBox7.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(610, 79)
+        Me.GroupBox7.Size = New System.Drawing.Size(689, 79)
         Me.GroupBox7.TabIndex = 5
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Dati vari"
@@ -478,10 +484,13 @@ Partial Class opzioni
         '
         'FlowLayoutPanel3
         '
+        Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox7)
         Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox9)
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(3, 349)
+        Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox10)
+        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(618, 80)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(700, 284)
         Me.FlowLayoutPanel3.TabIndex = 1
         '
         'GroupBox9
@@ -490,9 +499,9 @@ Partial Class opzioni
         Me.GroupBox9.Controls.Add(Me.RadioButton_layoutRiepilogoInserimentiN)
         Me.GroupBox9.Controls.Add(Me.RadioButton_layoutRiepilogoInserimentiS)
         Me.GroupBox9.Controls.Add(Me.Label18)
-        Me.GroupBox9.Location = New System.Drawing.Point(3, 3)
+        Me.GroupBox9.Location = New System.Drawing.Point(3, 88)
         Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(610, 72)
+        Me.GroupBox9.Size = New System.Drawing.Size(689, 72)
         Me.GroupBox9.TabIndex = 6
         Me.GroupBox9.TabStop = False
         Me.GroupBox9.Text = "Layout"
@@ -533,9 +542,9 @@ Partial Class opzioni
         Me.GroupBox10.Controls.Add(Me.Label14)
         Me.GroupBox10.Controls.Add(Me.tbIntervalloSalvataggioAutomatico)
         Me.GroupBox10.Controls.Add(Me.CheckBoxSalvataggioAutomatico)
-        Me.GroupBox10.Location = New System.Drawing.Point(3, 435)
+        Me.GroupBox10.Location = New System.Drawing.Point(3, 166)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(618, 100)
+        Me.GroupBox10.Size = New System.Drawing.Size(689, 56)
         Me.GroupBox10.TabIndex = 6
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Opzioni generali"
@@ -551,11 +560,12 @@ Partial Class opzioni
         '
         'tbIntervalloSalvataggioAutomatico
         '
+        Me.tbIntervalloSalvataggioAutomatico.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "intervalloSalvataggioAutomatico", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
         Me.tbIntervalloSalvataggioAutomatico.Location = New System.Drawing.Point(168, 16)
         Me.tbIntervalloSalvataggioAutomatico.Name = "tbIntervalloSalvataggioAutomatico"
         Me.tbIntervalloSalvataggioAutomatico.Size = New System.Drawing.Size(39, 20)
         Me.tbIntervalloSalvataggioAutomatico.TabIndex = 1
-        Me.tbIntervalloSalvataggioAutomatico.Text = "5"
+        Me.tbIntervalloSalvataggioAutomatico.Text = Global.OrSe.My.MySettings.Default.intervalloSalvataggioAutomatico
         Me.tbIntervalloSalvataggioAutomatico.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'CheckBoxSalvataggioAutomatico
@@ -570,15 +580,61 @@ Partial Class opzioni
         Me.CheckBoxSalvataggioAutomatico.Text = "Salvataggio automatico ogni"
         Me.CheckBoxSalvataggioAutomatico.UseVisualStyleBackColor = True
         '
+        'TabControl1
+        '
+        Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
+        Me.TabControl1.Controls.Add(Me.TabPageIntestazioni)
+        Me.TabControl1.Controls.Add(Me.TabPageFirma)
+        Me.TabControl1.Controls.Add(Me.TabPageVarie)
+        Me.TabControl1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TabControl1.HotTrack = True
+        Me.TabControl1.Location = New System.Drawing.Point(0, 0)
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(708, 313)
+        Me.TabControl1.TabIndex = 7
+        '
+        'TabPageIntestazioni
+        '
+        Me.TabPageIntestazioni.Controls.Add(Me.GroupBox3)
+        Me.TabPageIntestazioni.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageIntestazioni.Name = "TabPageIntestazioni"
+        Me.TabPageIntestazioni.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageIntestazioni.Size = New System.Drawing.Size(700, 284)
+        Me.TabPageIntestazioni.TabIndex = 0
+        Me.TabPageIntestazioni.Text = "Intestazioni"
+        Me.TabPageIntestazioni.UseVisualStyleBackColor = True
+        '
+        'TabPageFirma
+        '
+        Me.TabPageFirma.Controls.Add(Me.FlowLayoutPanel1)
+        Me.TabPageFirma.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageFirma.Name = "TabPageFirma"
+        Me.TabPageFirma.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPageFirma.Size = New System.Drawing.Size(700, 284)
+        Me.TabPageFirma.TabIndex = 1
+        Me.TabPageFirma.Text = "Firma"
+        Me.TabPageFirma.UseVisualStyleBackColor = True
+        '
+        'TabPageVarie
+        '
+        Me.TabPageVarie.Controls.Add(Me.FlowLayoutPanel3)
+        Me.TabPageVarie.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageVarie.Name = "TabPageVarie"
+        Me.TabPageVarie.Size = New System.Drawing.Size(700, 284)
+        Me.TabPageVarie.TabIndex = 2
+        Me.TabPageVarie.Text = "Varie"
+        Me.TabPageVarie.UseVisualStyleBackColor = True
+        '
         'opzioni
         '
         Me.AcceptButton = Me.OK_Button
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(655, 588)
+        Me.ClientSize = New System.Drawing.Size(708, 313)
         Me.Controls.Add(Me.TableLayoutPanel1)
-        Me.Controls.Add(Me.FlowLayoutPanel1)
+        Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -597,7 +653,6 @@ Partial Class opzioni
         Me.GroupBox4.PerformLayout()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
-        Me.FlowLayoutPanel2.ResumeLayout(False)
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.GroupBox6.ResumeLayout(False)
@@ -611,6 +666,10 @@ Partial Class opzioni
         Me.GroupBox9.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox10.PerformLayout()
+        Me.TabControl1.ResumeLayout(False)
+        Me.TabPageIntestazioni.ResumeLayout(False)
+        Me.TabPageFirma.ResumeLayout(False)
+        Me.TabPageVarie.ResumeLayout(False)
         Me.ResumeLayout(False)
 
     End Sub
@@ -661,5 +720,9 @@ Partial Class opzioni
     Friend WithEvents tbIntervalloSalvataggioAutomatico As System.Windows.Forms.TextBox
     Friend WithEvents CheckBoxSalvataggioAutomatico As System.Windows.Forms.CheckBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
+    Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
+    Friend WithEvents TabPageIntestazioni As System.Windows.Forms.TabPage
+    Friend WithEvents TabPageFirma As System.Windows.Forms.TabPage
+    Friend WithEvents TabPageVarie As System.Windows.Forms.TabPage
 
 End Class

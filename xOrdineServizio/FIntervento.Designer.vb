@@ -25,6 +25,8 @@ Partial Class FIntervento
         Me.components = New System.ComponentModel.Container
         Me.GroupBoxOraIntervento = New System.Windows.Forms.GroupBox
         Me.DateTimePickerOraInizio = New System.Windows.Forms.DateTimePicker
+        Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
         Me.Label1 = New System.Windows.Forms.Label
         Me.LabelOraFine = New System.Windows.Forms.Label
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
@@ -42,15 +44,13 @@ Partial Class FIntervento
         Me.LabelData = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
         Me.TimerSalvataggioAutomatico = New System.Windows.Forms.Timer(Me.components)
-        Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
         Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
         Me.GroupBoxOraIntervento.SuspendLayout()
-        Me.GroupBoxOraFine.SuspendLayout()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBoxOraFine.SuspendLayout()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -60,7 +60,7 @@ Partial Class FIntervento
         Me.GroupBoxOraIntervento.Controls.Add(Me.Label1)
         Me.GroupBoxOraIntervento.Location = New System.Drawing.Point(12, 53)
         Me.GroupBoxOraIntervento.Name = "GroupBoxOraIntervento"
-        Me.GroupBoxOraIntervento.Size = New System.Drawing.Size(228, 134)
+        Me.GroupBoxOraIntervento.Size = New System.Drawing.Size(218, 117)
         Me.GroupBoxOraIntervento.TabIndex = 9
         Me.GroupBoxOraIntervento.TabStop = False
         '
@@ -77,6 +77,16 @@ Partial Class FIntervento
         Me.DateTimePickerOraInizio.Size = New System.Drawing.Size(144, 49)
         Me.DateTimePickerOraInizio.TabIndex = 24
         '
+        'InterventiBindingSource
+        '
+        Me.InterventiBindingSource.DataMember = "interventi"
+        Me.InterventiBindingSource.DataSource = Me.DbAlegatoADataSet
+        '
+        'DbAlegatoADataSet
+        '
+        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -91,7 +101,7 @@ Partial Class FIntervento
         '
         Me.LabelOraFine.AutoSize = True
         Me.LabelOraFine.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelOraFine.Location = New System.Drawing.Point(6, 17)
+        Me.LabelOraFine.Location = New System.Drawing.Point(6, 16)
         Me.LabelOraFine.Name = "LabelOraFine"
         Me.LabelOraFine.Size = New System.Drawing.Size(207, 31)
         Me.LabelOraFine.TabIndex = 7
@@ -106,9 +116,9 @@ Partial Class FIntervento
         Me.GroupBoxOraFine.Controls.Add(Me.DateTimePickerOraFine)
         Me.GroupBoxOraFine.Controls.Add(Me.LabelOraFine)
         Me.GroupBoxOraFine.Enabled = False
-        Me.GroupBoxOraFine.Location = New System.Drawing.Point(246, 53)
+        Me.GroupBoxOraFine.Location = New System.Drawing.Point(236, 53)
         Me.GroupBoxOraFine.Name = "GroupBoxOraFine"
-        Me.GroupBoxOraFine.Size = New System.Drawing.Size(228, 134)
+        Me.GroupBoxOraFine.Size = New System.Drawing.Size(218, 117)
         Me.GroupBoxOraFine.TabIndex = 10
         Me.GroupBoxOraFine.TabStop = False
         '
@@ -126,7 +136,7 @@ Partial Class FIntervento
         '
         'btnAutoOraFine
         '
-        Me.btnAutoOraFine.Location = New System.Drawing.Point(440, 53)
+        Me.btnAutoOraFine.Location = New System.Drawing.Point(420, 53)
         Me.btnAutoOraFine.Name = "btnAutoOraFine"
         Me.btnAutoOraFine.Size = New System.Drawing.Size(75, 23)
         Me.btnAutoOraFine.TabIndex = 11
@@ -139,16 +149,16 @@ Partial Class FIntervento
         Me.tbTipoServizio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.InterventiBindingSource, "tipointervento", True))
         Me.tbTipoServizio.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTipoServizio.ForeColor = System.Drawing.Color.YellowGreen
-        Me.tbTipoServizio.Location = New System.Drawing.Point(18, 221)
+        Me.tbTipoServizio.Location = New System.Drawing.Point(18, 207)
         Me.tbTipoServizio.Name = "tbTipoServizio"
-        Me.tbTipoServizio.Size = New System.Drawing.Size(625, 47)
+        Me.tbTipoServizio.Size = New System.Drawing.Size(1002, 47)
         Me.tbTipoServizio.TabIndex = 1
         '
         'LabelTipoIntervento
         '
         Me.LabelTipoIntervento.AutoSize = True
         Me.LabelTipoIntervento.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelTipoIntervento.Location = New System.Drawing.Point(12, 187)
+        Me.LabelTipoIntervento.Location = New System.Drawing.Point(12, 173)
         Me.LabelTipoIntervento.Name = "LabelTipoIntervento"
         Me.LabelTipoIntervento.Size = New System.Drawing.Size(196, 31)
         Me.LabelTipoIntervento.TabIndex = 7
@@ -158,7 +168,7 @@ Partial Class FIntervento
         '
         Me.LabelResoconto.AutoSize = True
         Me.LabelResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LabelResoconto.Location = New System.Drawing.Point(12, 271)
+        Me.LabelResoconto.Location = New System.Drawing.Point(12, 257)
         Me.LabelResoconto.Name = "LabelResoconto"
         Me.LabelResoconto.Size = New System.Drawing.Size(145, 31)
         Me.LabelResoconto.TabIndex = 13
@@ -166,20 +176,22 @@ Partial Class FIntervento
         '
         'tbResoconto
         '
+        Me.tbResoconto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.tbResoconto.CausesValidation = False
         Me.tbResoconto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.InterventiBindingSource, "resoconto", True))
         Me.tbResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbResoconto.Location = New System.Drawing.Point(18, 305)
+        Me.tbResoconto.Location = New System.Drawing.Point(18, 291)
         Me.tbResoconto.Multiline = True
         Me.tbResoconto.Name = "tbResoconto"
-        Me.tbResoconto.Size = New System.Drawing.Size(672, 210)
+        Me.tbResoconto.Size = New System.Drawing.Size(797, 199)
         Me.tbResoconto.TabIndex = 2
         '
         'btnChiudi
         '
         Me.btnChiudi.CausesValidation = False
         Me.btnChiudi.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnChiudi.Location = New System.Drawing.Point(696, 402)
+        Me.btnChiudi.Location = New System.Drawing.Point(821, 381)
         Me.btnChiudi.Name = "btnChiudi"
         Me.btnChiudi.Size = New System.Drawing.Size(199, 109)
         Me.btnChiudi.TabIndex = 4
@@ -231,7 +243,7 @@ Partial Class FIntervento
         '
         Me.Button1.CausesValidation = False
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(696, 340)
+        Me.Button1.Location = New System.Drawing.Point(821, 319)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(199, 56)
         Me.Button1.TabIndex = 24
@@ -241,16 +253,6 @@ Partial Class FIntervento
         'TimerSalvataggioAutomatico
         '
         Me.TimerSalvataggioAutomatico.Interval = 5000
-        '
-        'InterventiBindingSource
-        '
-        Me.InterventiBindingSource.DataMember = "interventi"
-        Me.InterventiBindingSource.DataSource = Me.DbAlegatoADataSet
-        '
-        'DbAlegatoADataSet
-        '
-        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'InterventiTableAdapter
         '
@@ -269,7 +271,7 @@ Partial Class FIntervento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(969, 567)
+        Me.ClientSize = New System.Drawing.Size(1032, 502)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.LabelData)
@@ -286,13 +288,12 @@ Partial Class FIntervento
         Me.Name = "FIntervento"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FIntervento"
-        Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.GroupBoxOraIntervento.ResumeLayout(False)
         Me.GroupBoxOraIntervento.PerformLayout()
-        Me.GroupBoxOraFine.ResumeLayout(False)
-        Me.GroupBoxOraFine.PerformLayout()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBoxOraFine.ResumeLayout(False)
+        Me.GroupBoxOraFine.PerformLayout()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
