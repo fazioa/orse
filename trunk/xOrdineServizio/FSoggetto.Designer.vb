@@ -203,7 +203,7 @@ Partial Class FSoggetto
         '
         DocumentoLabel.AutoSize = True
         DocumentoLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DocumentoLabel.Location = New System.Drawing.Point(10, 17)
+        DocumentoLabel.Location = New System.Drawing.Point(5, 17)
         DocumentoLabel.Name = "DocumentoLabel"
         DocumentoLabel.Size = New System.Drawing.Size(161, 31)
         DocumentoLabel.TabIndex = 29
@@ -330,16 +330,16 @@ Partial Class FSoggetto
         Me.tbNome.Location = New System.Drawing.Point(464, 11)
         Me.tbNome.Name = "tbNome"
         Me.tbNome.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.tbNome.Size = New System.Drawing.Size(217, 41)
+        Me.tbNome.Size = New System.Drawing.Size(337, 41)
         Me.tbNome.TabIndex = 50
         '
         'tbDocumento
         '
         Me.tbDocumento.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "documento", True))
         Me.tbDocumento.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbDocumento.Location = New System.Drawing.Point(181, 13)
+        Me.tbDocumento.Location = New System.Drawing.Point(172, 13)
         Me.tbDocumento.Name = "tbDocumento"
-        Me.tbDocumento.Size = New System.Drawing.Size(216, 41)
+        Me.tbDocumento.Size = New System.Drawing.Size(270, 41)
         Me.tbDocumento.TabIndex = 100
         Me.tbDocumento.Text = " "
         '
@@ -370,7 +370,7 @@ Partial Class FSoggetto
         Me.tbPrecedenti.MaxLength = 536870910
         Me.tbPrecedenti.Multiline = True
         Me.tbPrecedenti.Name = "tbPrecedenti"
-        Me.tbPrecedenti.Size = New System.Drawing.Size(395, 85)
+        Me.tbPrecedenti.Size = New System.Drawing.Size(335, 85)
         Me.tbPrecedenti.TabIndex = 140
         Me.tbPrecedenti.Text = " "
         '
@@ -381,7 +381,7 @@ Partial Class FSoggetto
         Me.tbNote.Location = New System.Drawing.Point(94, 19)
         Me.tbNote.Multiline = True
         Me.tbNote.Name = "tbNote"
-        Me.tbNote.Size = New System.Drawing.Size(303, 52)
+        Me.tbNote.Size = New System.Drawing.Size(346, 58)
         Me.tbNote.TabIndex = 150
         Me.tbNote.Text = " "
         '
@@ -506,7 +506,7 @@ Partial Class FSoggetto
         Me.GroupBoxResidenza.Controls.Add(Label1)
         Me.GroupBoxResidenza.Location = New System.Drawing.Point(12, 253)
         Me.GroupBoxResidenza.Name = "GroupBoxResidenza"
-        Me.GroupBoxResidenza.Size = New System.Drawing.Size(822, 59)
+        Me.GroupBoxResidenza.Size = New System.Drawing.Size(809, 59)
         Me.GroupBoxResidenza.TabIndex = 2
         Me.GroupBoxResidenza.TabStop = False
         Me.GroupBoxResidenza.Text = "Residenza"
@@ -542,7 +542,7 @@ Partial Class FSoggetto
         Me.tbIndirizzo.Location = New System.Drawing.Point(520, 12)
         Me.tbIndirizzo.MaxLength = 50
         Me.tbIndirizzo.Name = "tbIndirizzo"
-        Me.tbIndirizzo.Size = New System.Drawing.Size(271, 41)
+        Me.tbIndirizzo.Size = New System.Drawing.Size(281, 41)
         Me.tbIndirizzo.TabIndex = 90
         Me.tbIndirizzo.Text = " "
         '
@@ -558,7 +558,7 @@ Partial Class FSoggetto
         Me.GroupBoxDatiAnagrafici.Controls.Add(CognomeLabel)
         Me.GroupBoxDatiAnagrafici.Location = New System.Drawing.Point(12, 153)
         Me.GroupBoxDatiAnagrafici.Name = "GroupBoxDatiAnagrafici"
-        Me.GroupBoxDatiAnagrafici.Size = New System.Drawing.Size(822, 100)
+        Me.GroupBoxDatiAnagrafici.Size = New System.Drawing.Size(809, 100)
         Me.GroupBoxDatiAnagrafici.TabIndex = 1
         Me.GroupBoxDatiAnagrafici.TabStop = False
         Me.GroupBoxDatiAnagrafici.Text = "Dati anagrafici"
@@ -581,9 +581,9 @@ Partial Class FSoggetto
         Me.ComboBoxComuneNascita.DisplayMember = "citta"
         Me.ComboBoxComuneNascita.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!)
         Me.ComboBoxComuneNascita.FormattingEnabled = True
-        Me.ComboBoxComuneNascita.Location = New System.Drawing.Point(464, 59)
+        Me.ComboBoxComuneNascita.Location = New System.Drawing.Point(464, 54)
         Me.ComboBoxComuneNascita.Name = "ComboBoxComuneNascita"
-        Me.ComboBoxComuneNascita.Size = New System.Drawing.Size(305, 41)
+        Me.ComboBoxComuneNascita.Size = New System.Drawing.Size(337, 41)
         Me.ComboBoxComuneNascita.TabIndex = 70
         Me.ComboBoxComuneNascita.ValueMember = "id"
         '
@@ -602,7 +602,7 @@ Partial Class FSoggetto
         Me.GroupBoxMezzo.Controls.Add(Me.tbTarga)
         Me.GroupBoxMezzo.Location = New System.Drawing.Point(12, 96)
         Me.GroupBoxMezzo.Name = "GroupBoxMezzo"
-        Me.GroupBoxMezzo.Size = New System.Drawing.Size(822, 57)
+        Me.GroupBoxMezzo.Size = New System.Drawing.Size(809, 57)
         Me.GroupBoxMezzo.TabIndex = 0
         Me.GroupBoxMezzo.TabStop = False
         Me.GroupBoxMezzo.Text = "Mezzo"
@@ -628,9 +628,9 @@ Partial Class FSoggetto
         Me.GroupBox6.Controls.Add(PrecedentiLabel)
         Me.GroupBox6.Controls.Add(PositivoSDILabel)
         Me.GroupBox6.Controls.Add(Me.PositivoSDIComboBox)
-        Me.GroupBox6.Location = New System.Drawing.Point(421, 318)
+        Me.GroupBox6.Location = New System.Drawing.Point(466, 312)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(413, 182)
+        Me.GroupBox6.Size = New System.Drawing.Size(355, 188)
         Me.GroupBox6.TabIndex = 4
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Interesse Operativo"
@@ -641,7 +641,7 @@ Partial Class FSoggetto
         Me.GroupBox7.Controls.Add(DocumentoLabel)
         Me.GroupBox7.Location = New System.Drawing.Point(12, 312)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(403, 64)
+        Me.GroupBox7.Size = New System.Drawing.Size(448, 64)
         Me.GroupBox7.TabIndex = 3
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Identificazione"
@@ -652,7 +652,7 @@ Partial Class FSoggetto
         Me.GroupBox8.Controls.Add(Me.tbNote)
         Me.GroupBox8.Location = New System.Drawing.Point(12, 410)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(403, 80)
+        Me.GroupBox8.Size = New System.Drawing.Size(448, 89)
         Me.GroupBox8.TabIndex = 6
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Note - Informazioni che non verranno incluse nei report"
@@ -665,7 +665,7 @@ Partial Class FSoggetto
         Me.Panel1.Controls.Add(Me.ContravvenzioniCheckBox)
         Me.Panel1.Location = New System.Drawing.Point(12, 376)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(403, 34)
+        Me.Panel1.Size = New System.Drawing.Size(448, 34)
         Me.Panel1.TabIndex = 5
         '
         'GroupBox9
@@ -733,7 +733,7 @@ Partial Class FSoggetto
         Me.FlowLayoutPanel4.Controls.Add(Me.GroupBox1)
         Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Right
         Me.FlowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp
-        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(851, 0)
+        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(827, 0)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
         Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 502)
         Me.FlowLayoutPanel4.TabIndex = 160
@@ -797,7 +797,7 @@ Partial Class FSoggetto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1056, 502)
+        Me.ClientSize = New System.Drawing.Size(1032, 502)
         Me.Controls.Add(Me.LabelOperatori)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.LabelControllo)

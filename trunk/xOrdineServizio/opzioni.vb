@@ -63,7 +63,10 @@ Public Class opzioni
         End If
 
         'salvataggio automatico
-         tbIntervalloSalvataggioAutomatico.Text=My.Settings.intervalloSalvataggioAutomatico
+        If Integer.Parse(My.Settings.intervalloSalvataggioAutomatico) <= 0 Then
+            tbIntervalloSalvataggioAutomatico.Enabled = False
+        End If
+        ' tbIntervalloSalvataggioAutomatico.Text = My.Settings.intervalloSalvataggioAutomatico
 
     End Sub
 
@@ -92,4 +95,12 @@ Public Class opzioni
         End If
     End Sub
 
+    Private Sub CheckBoxSalvataggioAutomatico_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBoxSalvataggioAutomatico.CheckedChanged
+        Dim cb As CheckBox = sender
+        If cb.Checked Then
+            tbIntervalloSalvataggioAutomatico.Enabled = True
+        Else
+            tbIntervalloSalvataggioAutomatico.Enabled = False
+        End If
+    End Sub
 End Class

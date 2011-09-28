@@ -164,7 +164,12 @@ Public Class FIntervento
             xidIntervento = Me.InterventiTableAdapter.MaxId
         Catch ex As DBConcurrencyException
             log.xlogWriteEntry("Inserimento intervento - Salvataggio automatico - Eseguo comando SQL Update", TraceEventType.Critical)
-            feActions.esegueSQL("UPDATE interventi SET dataOraInizio=#" & DateTimePickerOraInizio.Value & "#, dataOraFine=#" & DateTimePickerOraFine.Value & "#, tipointervento='" & tbTipoServizio.Text & "', resoconto='" & tbResoconto.Text & "' WHERE id=" & xidIntervento)
+            Try
+                feActions.esegueSQL("UPDATE interventi SET dataOraInizio=#" & DateTimePickerOraInizio.Value & "#, dataOraFine=#" & DateTimePickerOraFine.Value & "#, tipointervento='" & tbTipoServizio.Text & "', resoconto='" & tbResoconto.Text & "' WHERE id=" & xidIntervento)
+            Catch exc As Exception
+                log.xlogWriteEntry("Inserimento intervento - Errore Salvataggio automatico - " & exc.Message, TraceEventType.Critical)
+            End Try
+
         End Try
     End Sub
 

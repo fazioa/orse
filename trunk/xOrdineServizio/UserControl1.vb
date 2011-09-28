@@ -121,13 +121,6 @@ Public Class UserControlComboBox
         End If
     End Sub
 
-    ' Public Sub setDataSource(ByRef DataSource As System.Windows.Forms.BindingSource)
-    '     Me.ListBox1.DataSource = DataSource
-    '   BindingSource = DataSource
-    ' Me.ListBox1.DataSource = LuoghicontrolloBindingSource
-    ' BindingSource = LuoghicontrolloBindingSource
-    ' End Sub
-
 
     Public Sub setSelectedValue(ByRef binding As System.Windows.Forms.BindingSource, ByVal sCampo As String)
         Me.ListBox1.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", binding, sCampo, True))
@@ -259,8 +252,8 @@ Public Class UserControlComboBox
             If (TextBox1.Text.Trim.Length > 0 And Me.FindStringExact() < 0) Then
                 log.xlogWriteEntry("Inserimento """ & Me.Text & """ nella tabella """ & DbAlegatoADataSet.luoghicontrollo.ToString & """", TraceEventType.Critical)
                 'inserisce il valore in tabella e poi lo seleziona nella listbox1
-                Me.ins(CurrentString)
-                Me.fill(CurrentString)
+                Me.ins(CurrentString.Trim)
+                Me.fill(CurrentString.Trim)
                 ' ListBox1.SelectedIndex = Me.FindStringExact()
                 iSelectedID = ListBox1.SelectedValue
                 Return 1
@@ -300,7 +293,6 @@ Public Class UserControlComboBox
                         'la scrittura in textbox1 causa l'apparizione della listbox e della textbox2. Le nascondo
                         ListBox1_visible(False)
                     End If
-
                 Else
                     Try
 
@@ -321,13 +313,13 @@ Public Class UserControlComboBox
     End Function
 
     Public Function getSelectedText()
-        Return TextBox1.Text
+        Return TextBox1.Text.Trim
         'Return ListBox1.SelectedItem.Item(Me.ListBox1.DisplayMember)
     End Function
 
     'funzione usata quando viene inserito un nuovo valore nel DB
     Shadows Function Text()
-        Return TextBox1.Text
+        Return TextBox1.Text.Trim
     End Function
 
     'evento attivato con addhandler

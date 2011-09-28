@@ -102,13 +102,15 @@ Partial Class FSopralluogo
         '
         'DateTimePickerOraVerbale
         '
+        Me.DateTimePickerOraVerbale.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DateTimePickerOraVerbale.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.DateTimePickerOraVerbale.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SopralluogoBindingSource, "oraRedazione", True))
         Me.DateTimePickerOraVerbale.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.DateTimePickerOraVerbale.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.DateTimePickerOraVerbale.Location = New System.Drawing.Point(253, 31)
         Me.DateTimePickerOraVerbale.Name = "DateTimePickerOraVerbale"
-        Me.DateTimePickerOraVerbale.Size = New System.Drawing.Size(220, 32)
+        Me.DateTimePickerOraVerbale.Size = New System.Drawing.Size(132, 32)
         Me.DateTimePickerOraVerbale.TabIndex = 1
         '
         'SopralluogoBindingSource
@@ -141,7 +143,7 @@ Partial Class FSopralluogo
         Me.TextBoxLuogo.Location = New System.Drawing.Point(213, 183)
         Me.TextBoxLuogo.MaxLength = 50
         Me.TextBoxLuogo.Name = "TextBoxLuogo"
-        Me.TextBoxLuogo.Size = New System.Drawing.Size(873, 32)
+        Me.TextBoxLuogo.Size = New System.Drawing.Size(807, 32)
         Me.TextBoxLuogo.TabIndex = 3
         '
         'Label2
@@ -174,7 +176,7 @@ Partial Class FSopralluogo
         Me.TextBoxVia.Location = New System.Drawing.Point(213, 221)
         Me.TextBoxVia.MaxLength = 150
         Me.TextBoxVia.Name = "TextBoxVia"
-        Me.TextBoxVia.Size = New System.Drawing.Size(873, 32)
+        Me.TextBoxVia.Size = New System.Drawing.Size(807, 32)
         Me.TextBoxVia.TabIndex = 5
         '
         'Label4
@@ -197,7 +199,7 @@ Partial Class FSopralluogo
         Me.TextBoxContatti.Location = New System.Drawing.Point(213, 259)
         Me.TextBoxContatti.MaxLength = 200
         Me.TextBoxContatti.Name = "TextBoxContatti"
-        Me.TextBoxContatti.Size = New System.Drawing.Size(873, 32)
+        Me.TextBoxContatti.Size = New System.Drawing.Size(807, 32)
         Me.TextBoxContatti.TabIndex = 7
         '
         'Label5
@@ -212,20 +214,22 @@ Partial Class FSopralluogo
         '
         'DateTimePickerOraRichiesta
         '
+        Me.DateTimePickerOraRichiesta.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DateTimePickerOraRichiesta.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.DateTimePickerOraRichiesta.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SopralluogoBindingSource, "oraRichiesta", True))
         Me.DateTimePickerOraRichiesta.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.DateTimePickerOraRichiesta.Format = System.Windows.Forms.DateTimePickerFormat.Time
         Me.DateTimePickerOraRichiesta.Location = New System.Drawing.Point(253, 69)
         Me.DateTimePickerOraRichiesta.Name = "DateTimePickerOraRichiesta"
-        Me.DateTimePickerOraRichiesta.Size = New System.Drawing.Size(220, 32)
+        Me.DateTimePickerOraRichiesta.Size = New System.Drawing.Size(132, 32)
         Me.DateTimePickerOraRichiesta.TabIndex = 9
         '
         'Label6
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.Label6.Location = New System.Drawing.Point(14, 326)
+        Me.Label6.Location = New System.Drawing.Point(14, 300)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(113, 26)
         Me.Label6.TabIndex = 12
@@ -235,10 +239,10 @@ Partial Class FSopralluogo
         '
         Me.RichTextBox2.BackColor = System.Drawing.SystemColors.Control
         Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox2.Location = New System.Drawing.Point(19, 357)
+        Me.RichTextBox2.Location = New System.Drawing.Point(19, 329)
         Me.RichTextBox2.Name = "RichTextBox2"
         Me.RichTextBox2.ReadOnly = True
-        Me.RichTextBox2.Size = New System.Drawing.Size(188, 134)
+        Me.RichTextBox2.Size = New System.Drawing.Size(188, 88)
         Me.RichTextBox2.TabIndex = 13
         Me.RichTextBox2.Text = "descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora" & _
             " presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini?" & _
@@ -253,7 +257,7 @@ Partial Class FSopralluogo
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.GroupBox2.Location = New System.Drawing.Point(245, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(488, 151)
+        Me.GroupBox2.Size = New System.Drawing.Size(391, 151)
         Me.GroupBox2.TabIndex = 14
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Orari"
@@ -262,9 +266,9 @@ Partial Class FSopralluogo
         '
         Me.GroupBox3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox3.Controls.Add(Me.FlowLayoutPanel2)
-        Me.GroupBox3.Location = New System.Drawing.Point(557, 492)
+        Me.GroupBox3.Location = New System.Drawing.Point(471, 375)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(543, 115)
+        Me.GroupBox3.Size = New System.Drawing.Size(549, 115)
         Me.GroupBox3.TabIndex = 155
         Me.GroupBox3.TabStop = False
         '
@@ -276,7 +280,7 @@ Partial Class FSopralluogo
         Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel2.Location = New System.Drawing.Point(3, 16)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(537, 96)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(543, 96)
         Me.FlowLayoutPanel2.TabIndex = 0
         '
         'btnAnnulla
@@ -323,18 +327,18 @@ Partial Class FSopralluogo
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxResoconto.CausesValidation = False
         Me.TextBoxResoconto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "resoconto", True))
-        Me.TextBoxResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.TextBoxResoconto.Location = New System.Drawing.Point(213, 326)
+        Me.TextBoxResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.TextBoxResoconto.Location = New System.Drawing.Point(213, 297)
         Me.TextBoxResoconto.Multiline = True
         Me.TextBoxResoconto.Name = "TextBoxResoconto"
-        Me.TextBoxResoconto.Size = New System.Drawing.Size(873, 160)
+        Me.TextBoxResoconto.Size = New System.Drawing.Size(807, 72)
         Me.TextBoxResoconto.TabIndex = 3
         '
         'FSopralluogo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1098, 619)
+        Me.ClientSize = New System.Drawing.Size(1032, 502)
         Me.Controls.Add(Me.TextBoxResoconto)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
@@ -348,6 +352,7 @@ Partial Class FSopralluogo
         Me.Controls.Add(Me.TextBoxLuogo)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "FSopralluogo"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sopralluogo"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

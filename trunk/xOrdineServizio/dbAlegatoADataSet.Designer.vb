@@ -17397,13 +17397,11 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        [ordineServizio.id], nome, data, idOperatori, [sopralluogo.id], idO"& _ 
-                "S, tipoReato, oraRedazione, oraRichiesta, luogo_citta, via, contatti_con, resoco"& _ 
-                "nto"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QSopralluogo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (nome & ' ' & tipoReato & ' ' & "& _ 
-                "luogo_citta & ' ' & via & ' ' & contatti_con & ' ' & resoconto LIKE '%' & pCampo"& _ 
-                "Ricerca) & ' '"
+            Me._commandCollection(1).CommandText = "SELECT     *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QSopralluogo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        nome & ' ' & tipoReato &"& _ 
+                " ' ' & luogo_citta & ' ' & via & ' ' & contatti_con & ' ' & resoconto LIKE '%' &"& _ 
+                " pCampoRicerca & '%'"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pCampoRicerca", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pCampoRicerca ", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17431,12 +17429,12 @@ Namespace dbAlegatoADataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByCampoRicerca(ByVal dataTable As dbAlegatoADataSet.QSopralluogoDataTable, ByVal pCampoRicerca As String) As Integer
+        Public Overloads Overridable Function FillByCampoRicerca(ByVal dataTable As dbAlegatoADataSet.QSopralluogoDataTable, ByVal pCampoRicerca_ As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(1)
-            If (pCampoRicerca Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("pCampoRicerca")
+            If (pCampoRicerca_ Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("pCampoRicerca_")
             Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(pCampoRicerca,String)
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(pCampoRicerca_,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear

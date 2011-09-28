@@ -184,8 +184,6 @@ Public Class FPrima
                         dFine = FormatDateTime(dgv.Item("dataoraFine", i).Value, DateFormat.GeneralDate)
                         dInizio = FormatDateTime(dgv.Item("dataoraInizio", i + 1).Value, DateFormat.GeneralDate)
                 End Select
-
-
                 Dim differenceInMinutes As Long = DateDiff(DateInterval.Minute, dFine, dInizio)
                 If (differenceInMinutes > 0) Then
                     'operazione da fare per segnalare la presenza di intervalli utilizzabili
@@ -211,24 +209,10 @@ Public Class FPrima
                 Case tipoDato.allegatoA
                     Me.QAllegatoATableAdapter.FillByOS(Me.DbAlegatoADataSet_Unico.QAllegatoA, xiOS)
                 Case tipoDato.interventi
-                    'Me.QInterventiTableAdapter.FillByOSOrderByDataInizio(Me.DbAlegatoADataSet_Unico.QInterventi, xiOS, paragrafoOS.informazioni)
                     Me.QInterventiTableAdapter.FillByOSOrderByDataInizio(Me.DbAlegatoADataSet_Unico.QInterventi, xiOS)
-                    '    Case datagrid.informazioni
-                    '       Me.QInterventiTableAdapter.FillByOSOrderByDataInizio(Me.DbAlegatoADataSet_Unico.QInterventi, xiOS)
-                    'Me.QInterventiTableAdapter.FillByOSOrderByDataInizio(Me.DbAlegatoADataSet_Unico.QInterventi, xiOS, paragrafoOS.informazioni)
             End Select
         End If
     End Sub
-
-    'Private Sub dataGridFillByData(ByVal datagridFPrima As datagrid, ByVal dData As DateTime)
-    '    log.xlogWriteEntry("Fill Datagrid View by Data", TraceEventType.Information)
-    '    Select Case datagridFPrima
-    '        Case datagrid.allegatoA
-    '            Me.QAllegatoATableAdapter.FillByData(Me.DbAlegatoADataSet_Unico.QAllegatoA, dData.Date)
-    '        Case datagrid.interventi
-    '            Me.QInterventiTableAdapter.FillByData(Me.DbAlegatoADataSet_Unico.QInterventi, dData.Date, paragrafoOS.interventi)
-    '    End Select
-    'End Sub
 
     Private Sub datagridFillAll(ByVal datagridFPrima As tipoDato, ByVal iPar As paragrafoOS)
         ' If (Me.rTutti.Checked) Then
@@ -243,10 +227,6 @@ Public Class FPrima
             abilitaPulsanteOP85(True)
         End If
         '=================================0
-        '    Else
-        '  If (Me.rData.Checked) Then Me.dataGridFillByData(datagridFPrima, parametri.dataOS)
-        '    End If
-        '     End If
         checkIntervalliVuoti(DataGridViewInterventi, paragrafoOS.interventi)
         checkIntervalliVuoti(DataGridViewInformazioni, paragrafoOS.informazioni)
     End Sub
@@ -256,20 +236,6 @@ Public Class FPrima
         datagridFillAll(tipoDato.interventi, paragrafoOS.interventi)
         datagridFillAll(tipoDato.informazioni, paragrafoOS.informazioni)
     End Sub
-
-    'Private Sub dataGridFill(ByVal datagridFPrima As datagrid)
-    '    log.xlogWriteEntry("Fill Datagrid View", TraceEventType.Information)
-    '    Select Case datagridFPrima
-    '        Case datagrid.allegatoA
-    '            Me.QAllegatoATableAdapter.Fill(Me.DbAlegatoADataSet_Unico.QAllegatoA)
-    '        Case datagrid.interventi
-    '            Me.QInterventiTableAdapter.Fill(Me.DbAlegatoADataSet_Unico.QInterventi, paragrafoOS.interventi)
-    '        Case datagrid.informazioni
-    '            Me.QInterventiTableAdapter.Fill(Me.DbAlegatoADataSet_Unico.QInterventi, paragrafoOS.informazioni)
-    '    End Select
-
-    'End Sub
-
     Private Sub rData_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim r As RadioButton = sender
         If r.Checked Then datagridAggiornaTuttiConFillAll()
