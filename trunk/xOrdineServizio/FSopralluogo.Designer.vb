@@ -332,7 +332,7 @@ Partial Class FSopralluogo
         Me.TextBoxResoconto.Multiline = True
         Me.TextBoxResoconto.Name = "TextBoxResoconto"
         Me.TextBoxResoconto.Size = New System.Drawing.Size(807, 72)
-        Me.TextBoxResoconto.TabIndex = 3
+        Me.TextBoxResoconto.TabIndex = 8
         '
         'FSopralluogo
         '
