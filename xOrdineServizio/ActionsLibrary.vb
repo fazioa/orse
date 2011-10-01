@@ -985,5 +985,9 @@ Public Class ActionsLibrary
     'Dim stile2 As DataGridViewCellStyle
     '    stile2 = DataGridView1.DefaultCellStyle()
     '    stile2.BackColor = Color.WhiteSmoke
+    Sub setStandardFormSize(ByVal f As Form)
+        f.Size = New Size(My.Settings.formWidth, My.Settings.formHeight)
+        f.StartPosition = f.StartPosition.CenterScreen
+    End Sub
 
 End Class

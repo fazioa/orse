@@ -17,6 +17,7 @@ Public Class FanteprimaReport
     Public Sub New(ByVal tOS As Integer, ByVal sNomeOS As String, ByVal tipo As tipoReport)
         ' Chiamata richiesta da Progettazione Windows Form.
         InitializeComponent()
+        feActions.setStandardFormSize(Me)
         ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
         iOrdineServizio = tOS
         sOrdineServizio = sNomeOS

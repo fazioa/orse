@@ -47,6 +47,7 @@ Public Class FPrima
         Dim nIdOS = OrdineServizioTableAdapter.FillByID(DbAlegatoADataSet_Unico.ordineServizio, parametri.idOS)
         If nIdOS = 1 Then log.xlogWriteEntry("Ordine di servizio id nr." & parametri.idOS & " selezionato (" & parametri.nomeOS & " del " & parametri.dataOS & ")", TraceEventType.Information)
         textBoxInfoOS.Text = "Ordine di servizio: " + parametri.nomeOS + " del " + FormatDateTime(parametri.dataOS, DateFormat.ShortDate)
+        feActions.setStandardFormSize(Me)
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load

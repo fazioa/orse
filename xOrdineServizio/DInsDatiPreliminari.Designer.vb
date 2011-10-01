@@ -43,6 +43,8 @@ Partial Class DInsDatiPreliminari
         Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
         Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.QInterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
+        Me.QSopralluogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.QSopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
         Label2 = New System.Windows.Forms.Label
         Label1 = New System.Windows.Forms.Label
         OperatoriLabel = New System.Windows.Forms.Label
@@ -54,6 +56,7 @@ Partial Class DInsDatiPreliminari
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QSopralluogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label2
@@ -225,6 +228,15 @@ Partial Class DInsDatiPreliminari
         '
         Me.QInterventiTableAdapter.ClearBeforeFill = True
         '
+        'QSopralluogoBindingSource
+        '
+        Me.QSopralluogoBindingSource.DataMember = "QSopralluogo"
+        Me.QSopralluogoBindingSource.DataSource = Me.DbAlegatoADataSet
+        '
+        'QSopralluogoTableAdapter
+        '
+        Me.QSopralluogoTableAdapter.ClearBeforeFill = True
+        '
         'DInsDatiPreliminari
         '
         Me.AcceptButton = Me.OK_Button
@@ -255,6 +267,7 @@ Partial Class DInsDatiPreliminari
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QSopralluogoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -279,5 +292,7 @@ Partial Class DInsDatiPreliminari
     Friend WithEvents QAllegatoATableAdapter As OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
     Friend WithEvents QInterventiBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents QInterventiTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
+    Friend WithEvents QSopralluogoBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents QSopralluogoTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
 
 End Class

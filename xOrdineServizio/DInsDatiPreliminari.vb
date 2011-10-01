@@ -186,30 +186,57 @@ Public Class DInsDatiPreliminari
     End Function
 
 
+    Function fillTreeNodeSopralluogo(ByVal treeOS As TreeView, ByVal treeNodes As TreeNode, ByVal binding As BindingSource) As TreeNode
+        Dim iCount As Integer = binding.Count
+        Dim bEsc As Boolean = True
+        Dim drv As DataRowView
+
+        Dim iteratore As IEnumerator = binding.GetEnumerator()
+        iteratore.Reset()
+        bEsc = Not iteratore.MoveNext()
+        Dim i = (-1)
+        While (Not bEsc)
+            ' Dim p As parametriPersona = New parametriPersona
+            drv = iteratore.Current
+            If (drv IsNot Nothing) Then
+                i = i + 1
+                'Se arrivo a fine lista metto la boolean a true
+                If (binding.Position = iCount - 1) Then bEsc = True
+                treeNodes.Nodes.Add(feActions.troncaStringa(feActions.valoreDrv(drv, "tiporeato"), 30) & " - " & feActions.troncaStringa(feActions.valoreDrv(drv, "luogo_citta"), 30) & " - " & feActions.troncaStringa(feActions.valoreDrv(drv, "via"), 30))
+            End If
+            bEsc = Not iteratore.MoveNext()
+        End While
+        fillTreeNodeSopralluogo = treeNodes
+    End Function
+
 
     Private Sub TreeViewOS_AfterSelect(ByVal sender As System.Object, ByVal e As System.Windows.Forms.TreeViewEventArgs) Handles TreeViewOS.AfterSelect
         Dim tv As TreeView = sender
         'Popolamento TREVIEW
-        Dim id As Integer
-        If (Integer.TryParse(tv.SelectedNode.Name, id)) Then
-            QOrdineServizioTableAdapter.FillById(DbAlegatoADataSet.QOrdineServizio, id)
+        Dim idOS As Integer
+        If (Integer.TryParse(tv.SelectedNode.Name, idOS)) Then
+            QOrdineServizioTableAdapter.FillById(DbAlegatoADataSet.QOrdineServizio, idOS)
             OSMaskedTextBox.Text = feActions.leggiCampoDB(QOrdineServizioBindingSource, "nome")
             DateTimePicker1.Value = feActions.leggiCampoDB(QOrdineServizioBindingSource, "data")
 
             If Not (tv.SelectedNode.Nodes.Find("p", False).Length > 0 And tv.SelectedNode.Nodes.Find("i", False).Length > 0 And tv.SelectedNode.Nodes.Find("f", False).Length > 0) Then
                 'non viene eseguito se già sono presenti le chiavi P e I
 
-                Dim nrP = QAllegatoATableAdapter.FillByOS(DbAlegatoADataSet.QAllegatoA, id)
+                Dim nrP = QAllegatoATableAdapter.FillByOS(DbAlegatoADataSet.QAllegatoA, idOS)
                 TreeViewOS.SelectedNode.Nodes.Add("p", "Persone: " & nrP)
                 fillTreeNodePersona(TreeViewOS, TreeViewOS.SelectedNode.Nodes("p"), QAllegatoABindingSource)
 
-                Dim nrI = QInterventiTableAdapter.FillByOS(DbAlegatoADataSet.QInterventi, id, paragrafoOS.interventi)
+                Dim nrI = QInterventiTableAdapter.FillByOS(DbAlegatoADataSet.QInterventi, idOS, paragrafoOS.interventi)
                 TreeViewOS.SelectedNode.Nodes.Add("i", "Interventi: " & nrI)
                 fillTreeNodeInterventi_Informazioni(TreeViewOS, TreeViewOS.SelectedNode.Nodes("i"), QInterventiBindingSource, paragrafoOS.interventi)
 
-                Dim nrInf = QInterventiTableAdapter.FillByOS(DbAlegatoADataSet.QInterventi, id, paragrafoOS.informazioni)
+                Dim nrInf = QInterventiTableAdapter.FillByOS(DbAlegatoADataSet.QInterventi, idOS, paragrafoOS.informazioni)
                 TreeViewOS.SelectedNode.Nodes.Add("f", "Informazioni: " & nrInf)
                 fillTreeNodeInterventi_Informazioni(TreeViewOS, TreeViewOS.SelectedNode.Nodes("f"), QInterventiBindingSource, paragrafoOS.informazioni)
+
+                Dim nrSopr = QSopralluogoTableAdapter.FillByOS(DbAlegatoADataSet.QSopralluogo, idOS)
+                TreeViewOS.SelectedNode.Nodes.Add("s", "Sopralluogo: " & nrSopr)
+                fillTreeNodeSopralluogo(TreeViewOS, TreeViewOS.SelectedNode.Nodes("s"), QSopralluogoBindingSource)
             End If
 
         End If
