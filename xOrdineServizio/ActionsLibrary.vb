@@ -10,6 +10,7 @@ Public Enum tipoDato
     interventi = 2
     informazioni = 3
     sopralluoghi = 4
+    rubrica = 5
 End Enum
 
 
@@ -266,6 +267,14 @@ Public Class ActionsLibrary
         form.Show()
     End Sub
 
+
+    Public Sub doApriDettaglioRubrica(ByVal v As Integer)
+        log.xlogWriteEntry("Apertura dettaglio rubrica", TraceEventType.Information)
+        Dim form As System.Windows.Forms.Form
+        form = New FRubrica(-1, v)
+        form.Show()
+    End Sub
+
     Public Sub doApriFormRicerca()
         Dim form As System.Windows.Forms.Form
         form = New FRicerca()
@@ -281,10 +290,17 @@ Public Class ActionsLibrary
     End Sub
 
     Public Sub doApriFormSopralluogo(ByRef idOS As Integer, ByVal nomiOperatori As String)
-        log.xlogWriteEntry("Apertura dettaglio soggetto", TraceEventType.Information)
+        log.xlogWriteEntry("Apertura sopralluogo", TraceEventType.Information)
         'db = db
         Dim form As System.Windows.Forms.Form
         form = New FSopralluogo(idOS, -1, nomiOperatori) 'passo -1 perchè il parametro idS non mi serve, in questo caso
+        form.Show()
+    End Sub
+
+    Public Sub doApriFormRubrica(ByRef idOS As Integer)
+        log.xlogWriteEntry("Apertura rubrica", TraceEventType.Information)
+        Dim form As System.Windows.Forms.Form
+        form = New FRubrica(idOS, -1) 'passo -1 perchè il parametro non mi serve, in questo caso
         form.Show()
     End Sub
 
@@ -467,9 +483,6 @@ Public Class ActionsLibrary
 
 
     Sub toXmlFile()
-
-        'INSERIRE RICERCA PER DATA RANGE - QUERY GIA' FATTA DA PROVARE
-        '            d.Fill(db.QAllegatoA)
         Dim dInizio As DateTime             '= "#01/06/2010 00:00:00#"
         Dim dFine As DateTime               '= "#31/12/2010 23:59:59#"
         Dim dataRange As FDataRange = New FDataRange
@@ -492,44 +505,58 @@ Public Class ActionsLibrary
         If (fDialog.ShowDialog() = DialogResult.OK) Then
             Dim os As New OrSe.FillTreeOS
             Dim writer As New XmlSerializer(GetType(dbAlegatoADataSet.QAllegatoADataTable))
+
+            'AllegatoA
             Dim file As New StreamWriter("ordiniServizioAllegatoAData.OrseXML")
             Dim d As New dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
-
-         
-
             d.FillByDataRange(db.QAllegatoA, dInizio, dFine)
             writer.Serialize(file, db.QAllegatoA)
             file.Close()
-
             writer = New XmlSerializer(GetType(dbAlegatoADataSet.QInterventiDataTable))
 
+            'Informazioni
             file = New StreamWriter("ordiniServizioInformazioniData.OrseXML")
-
             Dim d2 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
-            ' d2.Fill(db.QInterventi, paragrafoOS.informazioni)
-
             d2.FillByDataRange(db.QInterventi, paragrafoOS.informazioni, dInizio, dFine)
-
             writer.Serialize(file, db.QInterventi)
             file.Close()
 
+            'Interventi
             file = New StreamWriter("ordiniServizioInterventiData.OrseXML")
             Dim d3 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
-            'd3.Fill(db.QInterventi, paragrafoOS.interventi)
             d3.FillByDataRange(db.QInterventi, paragrafoOS.interventi, dInizio, dFine)
             writer.Serialize(file, db.QInterventi)
             file.Close()
+
+            'Sopralluogo
+            file = New StreamWriter("ordiniServizioSopralluogoData.OrseXML")
+            Dim d4 As New dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
+            d4.FillByDataRange(db.QSopralluogo, dInizio, dFine)
+            writer.Serialize(file, db.QSopralluogo)
+            file.Close()
+
+            'Rubrica
+            file = New StreamWriter("ordiniServizioRubricaData.OrseXML")
+            Dim d5 As New dbAlegatoADataSetTableAdapters.QRubricaTableAdapter
+            d5.FillByDataRange(db.QRubrica, dInizio, dFine)
+            writer.Serialize(file, db.QRubrica)
+            file.Close()
+
 
             Try
                 Using zip As Ionic.Zip.ZipFile = New Ionic.Zip.ZipFile
                     zip.AddFile("ordiniServizioAllegatoAData.OrseXML", "")
                     zip.AddFile("ordiniServizioInformazioniData.OrseXML", "")
                     zip.AddFile("ordiniServizioInterventiData.OrseXML", "")
+                    zip.AddFile("ordiniServizioSopralluogoData.OrseXML", "")
+                    zip.AddFile("ordiniServizioRubricaData.OrseXML", "")
                     zip.Save(fDialog.FileName)
                 End Using
                 System.IO.File.Delete("ordiniServizioAllegatoAData.OrseXML")
                 System.IO.File.Delete("ordiniServizioInformazioniData.OrseXML")
                 System.IO.File.Delete("ordiniServizioInterventiData.OrseXML")
+                System.IO.File.Delete("ordiniServizioSopralluogoData.OrseXML")
+                System.IO.File.Delete("ordiniServizioRubricaData.OrseXML")
 
             Catch ex1 As Exception
                 Throw New eccezione(ex1.ToString)
@@ -555,6 +582,8 @@ Public Class ActionsLibrary
                         System.IO.File.Delete("ordiniServizioAllegatoAData.OrseXML")
                         System.IO.File.Delete("ordiniServizioInformazioniData.OrseXML")
                         System.IO.File.Delete("ordiniServizioInterventiData.OrseXML")
+                        System.IO.File.Delete("ordiniServizioSopralluogoData.OrseXML")
+                        System.IO.File.Delete("ordiniServizioRubricaData.OrseXML")
 
                         e.Extract()
                         Select Case s
@@ -567,6 +596,15 @@ Public Class ActionsLibrary
                             Case "ordiniServizioInterventiData.OrseXML"
                                 inserisci(tipoDato.interventi, s)
                                 System.IO.File.Delete("ordiniServizioInterventiData.OrseXML")
+
+                            Case "ordiniServizioSopralluogoData.OrseXML"
+                                inserisci(tipoDato.sopralluoghi, s)
+                                System.IO.File.Delete("ordiniServizioSopralluogoData.OrseXML")
+
+                            Case "ordiniServizioRubricaData.OrseXML"
+                                inserisci(tipoDato.rubrica, s)
+                                System.IO.File.Delete("ordiniServizioRubricaData.OrseXML")
+
                         End Select
                     Next
                 End Using
@@ -594,6 +632,10 @@ Public Class ActionsLibrary
                     orseNodeList = Obj.GetElementsByTagName("QInterventi")
                 Case tipoDato.informazioni
                     orseNodeList = Obj.GetElementsByTagName("QInterventi")
+                Case tipoDato.sopralluoghi
+                    orseNodeList = Obj.GetElementsByTagName("QSopralluogo")
+                Case tipoDato.rubrica
+                    orseNodeList = Obj.GetElementsByTagName("QRubrica")
             End Select
 
             'leggo tutti i dati del libro
@@ -631,6 +673,10 @@ Public Class ActionsLibrary
                         inserimentoInterventiInformazioni(a, idOS)
                     Case tipoDato.interventi
                         inserimentoInterventiInformazioni(a, idOS)
+                    Case tipoDato.sopralluoghi
+                        '       inserimentoSopralluogo(a, idOS)
+                    Case tipoDato.rubrica
+                        '  inserimentoRubrica(a, idOS)
                 End Select
                 a.Clear()
             Next

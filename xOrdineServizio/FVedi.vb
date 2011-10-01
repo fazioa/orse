@@ -6,10 +6,8 @@ Public Class FVedi
     Dim iDeleted As Integer = -1
 
     Private Sub FVedi_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DbAlegatoADataSet.sopralluogo' table. You can move, or remove it, as needed.
         QInterventi_informazioniBindigSource.Filter = "iParagrafo=" & paragrafoOS.informazioni
         QInterventiBindingSource.Filter = "iParagrafo=" & paragrafoOS.interventi
-
         Fill()
 
     End Sub
@@ -18,18 +16,21 @@ Public Class FVedi
         dataGridFillByOS(tipoDato.allegatoA, iId)
         dataGridFillByOS(tipoDato.interventi, iId)
         dataGridFillByOS(tipoDato.sopralluoghi, iId)
+        dataGridFillByOS(tipoDato.rubrica, iId)
     End Sub
 
-    Public Sub dataGridFillByOS(ByVal datagridFPrima As tipoDato, ByVal xiOS As Integer)
-        If (Not xiOS = Nothing) Then
+    Public Sub dataGridFillByOS(ByVal datagridFPrima As tipoDato, ByVal xidOS As Integer)
+        If (Not xidOS = Nothing) Then
             Select Case datagridFPrima
                 Case tipoDato.allegatoA
-                    Me.QAllegatoATableAdapter.FillByOS(Me.DbAlegatoADataSet.QAllegatoA, xiOS)
+                    Me.QAllegatoATableAdapter.FillByOS(Me.DbAlegatoADataSet.QAllegatoA, xidOS)
                 Case tipoDato.interventi
                     'la tabella Interventi contiene anche le informazioni, il filtro è a livello di datagrid
-                    Me.QInterventiTableAdapter.FillByOSOrderByDataInizio(Me.DbAlegatoADataSet.QInterventi, xiOS)
+                    Me.QInterventiTableAdapter.FillByOSOrderByDataInizio(Me.DbAlegatoADataSet.QInterventi, xidOS)
                 Case tipoDato.sopralluoghi
-                    Me.SopralluogoTableAdapter.FillByOS(Me.DbAlegatoADataSet.sopralluogo, xiOS)
+                    Me.SopralluogoTableAdapter.FillByOS(Me.DbAlegatoADataSet.sopralluogo, xidOS)
+                Case tipoDato.rubrica
+                    Me.RubricaTableAdapter.FillByOS(Me.DbAlegatoADataSet.rubrica, xidOS)
             End Select
         End If
     End Sub
@@ -145,7 +146,12 @@ Public Class FVedi
         feActions.doApriDettaglioSopralluogo(v)
     End Sub
 
-
+    Private Sub apriDettaglioRubrica(ByRef dgv As DataGridView)
+        Dim v As Integer = dgv.CurrentRow.Cells("idRubrica").Value
+        ' parametri.nomeLuogoControllo = dgv.CurrentRow.Cells("cLuogoControllo").Value
+        ' parametri.dataoraControllo = dgv.CurrentRow.Cells("cOra").Value
+        feActions.doApriDettaglioRubrica(v)
+    End Sub
     Private Sub aggiornamentoDataGrid(ByVal datagridFPrima As tipoDato)
         Me.datagridFillAll(datagridFPrima, iId)
 
@@ -180,6 +186,11 @@ Public Class FVedi
         If (Not DataGridViewSopralluogo.DataBindings.IsSynchronized) Then
             log.xlogWriteEntry("Aggiornamento DataGrid Sopralluogo", TraceEventType.Information)
             aggiornamentoDataGrid(tipoDato.sopralluoghi)
+        End If
+
+        If (Not DataGridViewRubrica.DataBindings.IsSynchronized) Then
+            log.xlogWriteEntry("Aggiornamento DataGrid Rubrica", TraceEventType.Information)
+            aggiornamentoDataGrid(tipoDato.rubrica)
         End If
     End Sub
 
@@ -296,7 +307,7 @@ Public Class FVedi
         dgv.DefaultCellStyle.BackColor = Color.FloralWhite
     End Sub
 
-    Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles DataGridViewInterventi.CellPainting, DataGridViewInformazioni.CellPainting, DataGridViewSopralluogo.CellPainting
+    Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles DataGridViewInterventi.CellPainting, DataGridViewInformazioni.CellPainting, DataGridViewSopralluogo.CellPainting, DataGridViewRubrica.CellPainting
         Dim dgv As DataGridView = sender
         datagridviewSetup(dgv)
         Dim stile As DataGridViewCellStyle = New DataGridViewCellStyle()
@@ -368,5 +379,37 @@ Public Class FVedi
     Private Sub DataGridViewSopralluogo_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewSopralluogo.CellDoubleClick
         Dim dgv As DataGridView = sender
         apriDettaglioSopralluogo(dgv)
+    End Sub
+
+    Private Sub DataGridViewRubrica_CellContentDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridViewRubrica.CellContentDoubleClick
+        Dim dgv As DataGridView = sender
+        apriDettaglioRubrica(dgv)
+    End Sub
+
+
+    Private Sub DataGridViewRubrica_UserDeletedRow(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowEventArgs) Handles DataGridViewRubrica.UserDeletedRow
+        Try
+            If (bEliminare) Then
+                Me.RubricaTableAdapter.FillById(Me.DbAlegatoADataSet.rubrica, iDeleted)
+                Me.DbAlegatoADataSet.rubrica.Rows(0).Delete()
+                Me.RubricaTableAdapter.Update(Me.DbAlegatoADataSet.rubrica)
+            End If
+            log.xlogWriteEntry("Cancellazione voce rubrica - UserDeletedRow - Eliminato=" + bEliminare.ToString, TraceEventType.Critical)
+        Catch ex As Exception
+            log.xlogWriteException(ex, TraceEventType.Error, "Errore cancellazione voce rubrica")
+        End Try
+        log.xlogWriteEntry("Aggiornamento DataGrid rubrica", TraceEventType.Information)
+        aggiornamentoDataGrid(tipoDato.rubrica)
+    End Sub
+
+    Private Sub DataGridViewRubrica_UserDeletingRow(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowCancelEventArgs) Handles DataGridViewRubrica.UserDeletingRow
+        'sub eseguita PRIMA della cancellazione
+        bEliminare = False
+        iDeleted = DataGridViewRubrica.Item(DataGridViewRubrica.Columns("idRubrica").Index(), DataGridViewRubrica.SelectedRows(0).Index()).Value()
+        log.xlogWriteEntry("Cancellazione voce rubrica ", TraceEventType.Critical)
+        If (MsgBox("Eliminare riga?", MsgBoxStyle.OkCancel, "Cancellazione riga") = MsgBoxResult.Ok) Then
+            bEliminare = True
+        End If
+
     End Sub
 End Class

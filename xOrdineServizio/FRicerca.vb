@@ -45,6 +45,7 @@ Public Class FRicerca
         Me.QAllegatoATableAdapter.FillByCampoRicerca(Me.DbAlegatoADataSet.QAllegatoA, tbCampoRicerca.Text.Trim)
         Me.QInterventiTableAdapter.FillByCampoRicerca(Me.DbAlegatoADataSet.QInterventi, tbCampoRicerca.Text.Trim)
         Me.QSopralluogoTableAdapter.FillByCampoRicerca(Me.DbAlegatoADataSet.QSopralluogo, tbCampoRicerca.Text.Trim)
+        Me.RubricaTableAdapter.FillByCampoRicerca(DbAlegatoADataSet.rubrica, tbCampoRicerca.Text.Trim)
     End Sub
 
 
@@ -72,4 +73,13 @@ Public Class FRicerca
             feActions.doApriDettaglioSopralluogo(dgv.CurrentRow.Cells("sopralluogo_id").Value)
         End If
     End Sub
+
+    Private Sub DataGridView3_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView3.CellClick
+        Dim dgv As DataGridView = sender
+        Dim coord As System.Drawing.Point = dgv.CurrentCellAddress
+        If coord.X = dgv.Columns("cDettaglioRubrica").Index() Then
+            feActions.doApriDettaglioRubrica(dgv.CurrentRow.Cells("idRubrica").Value)
+        End If
+    End Sub
+
 End Class

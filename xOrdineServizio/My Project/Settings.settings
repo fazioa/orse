@@ -38,7 +38,7 @@
       <Value Profile="(Default)">LEGIONE CARABINIERI TOSCANA</Value>
     </Setting>
     <Setting Name="versioneDB" Type="System.String" Scope="User">
-      <Value Profile="(Default)">2.51</Value>
+      <Value Profile="(Default)">2.60</Value>
     </Setting>
     <Setting Name="urlAggiornamenti" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://www.toppolino.it/listing/orse</Value>
