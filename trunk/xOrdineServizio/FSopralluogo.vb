@@ -80,7 +80,7 @@ Public Class FSopralluogo
         nomiOperatori = nomiOp
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
-
+        feActions.setStandardFormSize(Me)
         'se l'id è maggiore di zero allora sto modificando, altrimenti inserisco un nuovo elemento
         If (idS >= 0) Then
             idSopralluogo = idS

@@ -67,5 +67,11 @@
     <Setting Name="intervalloSalvataggioAutomatico" Type="System.String" Scope="User">
       <Value Profile="(Default)">5</Value>
     </Setting>
+    <Setting Name="formHeight" Type="System.String" Scope="User">
+      <Value Profile="(Default)">576</Value>
+    </Setting>
+    <Setting Name="formWidth" Type="System.String" Scope="User">
+      <Value Profile="(Default)">1040</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

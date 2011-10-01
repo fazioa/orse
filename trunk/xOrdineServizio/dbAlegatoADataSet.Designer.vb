@@ -13865,14 +13865,14 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIdControllo", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(6) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT     cittanascita, cittaresidenza, cognome, colore, contravvenzioni, datana"& _ 
-                "scita, dataora, documento, id, idControllo, idLuogo, idLuogoNascita, idMezzo, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)& _ 
-                "                      idPersona, luogo, mezzo, nome, operatori, ordine, perquisi"& _ 
-                "zione, positivoSDI, precedenti, residenzaindirizzo, targa, dataOS, nomeOS, [NOTE"& _ 
-                "], "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                      idOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         QAllegatoA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (idOS = pOS)"& _ 
-                ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY dataora DESC, ordine"
+            Me._commandCollection(6).CommandText = "SELECT        cittanascita, cittaresidenza, cognome, colore, contravvenzioni, dat"& _ 
+                "anascita, dataora, documento, id, idControllo, idLuogo, idLuogoNascita, idMezzo,"& _ 
+                " idPersona, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         luogo, mezzo, nome, operatori, ordine, pe"& _ 
+                "rquisizione, positivoSDI, precedenti, residenzaindirizzo, targa, dataOS, nomeOS,"& _ 
+                " [NOTE], idOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QAllegatoA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idOS = pOS)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY d"& _ 
+                "ataora, ordine"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pOS", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(7) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(7).Connection = Me.Connection
             Me._commandCollection(7).CommandText = "SELECT id, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzion"& _ 
@@ -14047,13 +14047,9 @@ Namespace dbAlegatoADataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByOS(ByVal dataTable As dbAlegatoADataSet.QAllegatoADataTable, ByVal pOS As String) As Integer
+        Public Overloads Overridable Function FillByOS(ByVal dataTable As dbAlegatoADataSet.QAllegatoADataTable, ByVal pOS As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
-            If (pOS Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("pOS")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(pOS,String)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(pOS,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -14064,13 +14060,9 @@ Namespace dbAlegatoADataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
-        Public Overloads Overridable Function GetDataByOS(ByVal pOS As String) As dbAlegatoADataSet.QAllegatoADataTable
+        Public Overloads Overridable Function GetDataByOS(ByVal pOS As Integer) As dbAlegatoADataSet.QAllegatoADataTable
             Me.Adapter.SelectCommand = Me.CommandCollection(6)
-            If (pOS Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("pOS")
-            Else
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(pOS,String)
-            End If
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(pOS,Integer)
             Dim dataTable As dbAlegatoADataSet.QAllegatoADataTable = New dbAlegatoADataSet.QAllegatoADataTable
             Me.Adapter.Fill(dataTable)
             Return dataTable
@@ -17388,7 +17380,7 @@ Namespace dbAlegatoADataSetTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(2) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [ordineServizio.id], nome, data, idOperatori, [sopralluogo.id], idOS, tipo"& _ 
@@ -17402,6 +17394,11 @@ Namespace dbAlegatoADataSetTableAdapters
                 " pCampoRicerca & '%'"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pCampoRicerca ", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" FROM QSopralluogo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  idOS=pIdOS"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIdOS", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17435,6 +17432,23 @@ Namespace dbAlegatoADataSetTableAdapters
                 Throw New Global.System.ArgumentNullException("pCampoRicerca_")
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(pCampoRicerca_,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByOS(ByVal dataTable As dbAlegatoADataSet.QSopralluogoDataTable, ByVal pIdOS As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (pIdOS Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("pIdOS")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(pIdOS,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear

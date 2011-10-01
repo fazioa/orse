@@ -882,7 +882,7 @@ Partial Class FPrima
         Me.btnSopralluogo.Name = "btnSopralluogo"
         Me.btnSopralluogo.Size = New System.Drawing.Size(300, 85)
         Me.btnSopralluogo.TabIndex = 9
-        Me.btnSopralluogo.Text = "S&opralluogo..."
+        Me.btnSopralluogo.Text = "So&pralluogo..."
         Me.btnSopralluogo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSopralluogo.UseCompatibleTextRendering = True
         Me.btnSopralluogo.UseVisualStyleBackColor = True

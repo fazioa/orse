@@ -38,6 +38,7 @@ Public Class FVedi
         iId = iIdOS
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
+        feActions.setStandardFormSize(Me)
         'a volte capita che la disposizione delle colonne sballi da sola. Forse un bug. La reimposto manualmente per sicurezza
         'Me.SuspendLayout()
         'Me.DataGridViewAllegatoA.Columns.Clear()

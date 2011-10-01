@@ -288,6 +288,30 @@ Namespace My
                 Me("intervalloSalvataggioAutomatico") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("576")>  _
+        Public Property formHeight() As String
+            Get
+                Return CType(Me("formHeight"),String)
+            End Get
+            Set
+                Me("formHeight") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1040")>  _
+        Public Property formWidth() As String
+            Get
+                Return CType(Me("formWidth"),String)
+            End Get
+            Set
+                Me("formWidth") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

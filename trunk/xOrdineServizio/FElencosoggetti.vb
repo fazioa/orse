@@ -2,6 +2,8 @@ Imports System.Windows.Forms
 
 Public Class FElencosoggetti
     Dim bTutti As Boolean
+    Dim feActions As OrSe.ActionsLibrary
+
     Private iResult As Integer
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
@@ -56,5 +58,14 @@ Public Class FElencosoggetti
 
     Private Sub bntAnnulla_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bntAnnulla.Click
         Me.DialogResult = Windows.Forms.DialogResult.Cancel
+    End Sub
+
+    Public Sub New()
+
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+        feActions.setStandardFormSize(Me)
+        ' Add any initialization after the InitializeComponent() call.
+
     End Sub
 End Class

@@ -47,6 +47,7 @@ Public Class FSoggetto
     Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo, ByVal n As Integer)
         DbDataSet = DataSet
         InitializeComponent()
+        feActions.setStandardFormSize(Me)
         'inizializza lo user controll con i parametri richiesti
         UserControlInit()
 
@@ -351,13 +352,15 @@ Public Class FSoggetto
         Static Dim sChiaveRicercaComuni As String
         Dim iLenght = cb.Text.Length
         Dim iSelLenght = cb.SelectionLength
+
         cb.DroppedDown = True
+
         If (Not cb.SelectionStart = 0) Then
             sChiaveRicercaComuni = cb.Text.Substring(0, iLenght - iSelLenght)
             'la variabile booleana semaforo permette di non effettuare ulteriori interrogazioni se già ne è in esecuzione una
             If (bSemaforo2) Then
                 bSemaforo2 = False
-                Me.QComuneTableAdapter.FillByComune(dataset.QComune, sChiaveRicercaComuni.Trim)
+                Dim n = Me.QComuneTableAdapter.FillByComune(dataset.QComune, sChiaveRicercaComuni.Trim)
                 bSemaforo2 = True
             End If
 
@@ -431,13 +434,13 @@ Public Class FSoggetto
                     Try
                         risputente = objcomm.ExecuteNonQuery()
                         If risputente = 1 Then
-                            log.xlogWriteEntry("Aggiornamento priotità Comune: " & id, TraceEventType.Information)
+                            log.xlogWriteEntry("Aggiornamento priorità Comune: " & id, TraceEventType.Information)
                         End If
                     Catch es As Exception
-                        log.xlogWriteEntry("Errore aggiornamento priotità Comune: " & id & " - " & es.Message, TraceEventType.Error)
+                        log.xlogWriteEntry("Errore aggiornamento priorità Comune: " & id & " - " & es.Message, TraceEventType.Error)
                     End Try
                 Catch ex As Exception
-                    log.xlogWriteEntry("Errore aggiornamento priotità Comune - " & ex.Message, TraceEventType.Error)
+                    log.xlogWriteEntry("Errore aggiornamento priorità Comune - " & ex.Message, TraceEventType.Error)
                 End Try
             Else
                 Me.PrioritaComuneTableAdapter.Insert(id, feActions.getTimeStamp)

@@ -451,7 +451,7 @@ Partial Class FSoggetto
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.FlowLayoutPanel1)
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 180)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 210)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(190, 139)
         Me.GroupBox1.TabIndex = 153
@@ -482,7 +482,7 @@ Partial Class FSoggetto
         '
         Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.FlowLayoutPanel2)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 325)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 355)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(190, 174)
         Me.GroupBox2.TabIndex = 154
@@ -733,9 +733,9 @@ Partial Class FSoggetto
         Me.FlowLayoutPanel4.Controls.Add(Me.GroupBox1)
         Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Right
         Me.FlowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp
-        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(827, 0)
+        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(819, 0)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 502)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 532)
         Me.FlowLayoutPanel4.TabIndex = 160
         '
         'LabelControllo
@@ -797,7 +797,7 @@ Partial Class FSoggetto
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1032, 502)
+        Me.ClientSize = New System.Drawing.Size(1024, 532)
         Me.Controls.Add(Me.LabelOperatori)
         Me.Controls.Add(Me.GroupBox9)
         Me.Controls.Add(Me.LabelControllo)

@@ -58,7 +58,7 @@ Public Class FRicerca
     Public Sub New()
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
-
+        feActions.setStandardFormSize(Me)
         ' Add any initialization after the InitializeComponent() call.
         QInterventi_informazioniBindigSource.Filter = "iParagrafo=" & paragrafoOS.informazioni
         QInterventiBindingSource.Filter = "iParagrafo=" & paragrafoOS.interventi

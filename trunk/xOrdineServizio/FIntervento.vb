@@ -27,6 +27,7 @@ Public Class FIntervento
 
         'esegue qui se è un nuovo intervento
         InitializeComponent()
+        feActions.setStandardFormSize(Me)
 
         Me.OrdineServizioTableAdapter.FillByID(Me.DbAlegatoADataSet.ordineServizio, idOS)
         Me.InterventiBindingSource.AddNew()
@@ -55,6 +56,7 @@ Public Class FIntervento
     'Modifica. Coincidevano le firme. Aggiungo z solo per differenziarle, non ho voglia di escogitare altro
     Public Sub New(ByVal id As Integer, ByVal z As Boolean)
         InitializeComponent()
+        feActions.setStandardFormSize(Me)
         xidIntervento = id
         feActions = New OrSe.ActionsLibrary()
         Me.InterventiTableAdapter.FillByID(DbAlegatoADataSet.interventi, id)
