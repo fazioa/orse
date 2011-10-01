@@ -62,6 +62,10 @@ Partial Public Class dbAlegatoADataSet
     
     Private tableQSopralluogo As QSopralluogoDataTable
     
+    Private tablerubrica As rubricaDataTable
+    
+    Private tableQRubrica As QRubricaDataTable
+    
     Private relationcontrolloallegatoA As Global.System.Data.DataRelation
     
     Private relationmezzoallegatoA As Global.System.Data.DataRelation
@@ -83,6 +87,8 @@ Partial Public Class dbAlegatoADataSet
     Private relationluoghicontrollocontrollo As Global.System.Data.DataRelation
     
     Private relationRel_E650AEEB_A74A_44AC As Global.System.Data.DataRelation
+    
+    Private relationRel_84EF88A6_1469_475D As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -164,6 +170,12 @@ Partial Public Class dbAlegatoADataSet
             End If
             If (Not (ds.Tables("QSopralluogo")) Is Nothing) Then
                 MyBase.Tables.Add(New QSopralluogoDataTable(ds.Tables("QSopralluogo")))
+            End If
+            If (Not (ds.Tables("rubrica")) Is Nothing) Then
+                MyBase.Tables.Add(New rubricaDataTable(ds.Tables("rubrica")))
+            End If
+            If (Not (ds.Tables("QRubrica")) Is Nothing) Then
+                MyBase.Tables.Add(New QRubricaDataTable(ds.Tables("QRubrica")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -345,6 +357,24 @@ Partial Public Class dbAlegatoADataSet
     End Property
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property rubrica() As rubricaDataTable
+        Get
+            Return Me.tablerubrica
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property QRubrica() As QRubricaDataTable
+        Get
+            Return Me.tableQRubrica
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -456,6 +486,12 @@ Partial Public Class dbAlegatoADataSet
             End If
             If (Not (ds.Tables("QSopralluogo")) Is Nothing) Then
                 MyBase.Tables.Add(New QSopralluogoDataTable(ds.Tables("QSopralluogo")))
+            End If
+            If (Not (ds.Tables("rubrica")) Is Nothing) Then
+                MyBase.Tables.Add(New rubricaDataTable(ds.Tables("rubrica")))
+            End If
+            If (Not (ds.Tables("QRubrica")) Is Nothing) Then
+                MyBase.Tables.Add(New QRubricaDataTable(ds.Tables("QRubrica")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -594,6 +630,18 @@ Partial Public Class dbAlegatoADataSet
                 Me.tableQSopralluogo.InitVars
             End If
         End If
+        Me.tablerubrica = CType(MyBase.Tables("rubrica"),rubricaDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tablerubrica) Is Nothing) Then
+                Me.tablerubrica.InitVars
+            End If
+        End If
+        Me.tableQRubrica = CType(MyBase.Tables("QRubrica"),QRubricaDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tableQRubrica) Is Nothing) Then
+                Me.tableQRubrica.InitVars
+            End If
+        End If
         Me.relationcontrolloallegatoA = Me.Relations("controlloallegatoA")
         Me.relationmezzoallegatoA = Me.Relations("mezzoallegatoA")
         Me.relationpersonaallegatoA = Me.Relations("personaallegatoA")
@@ -605,6 +653,7 @@ Partial Public Class dbAlegatoADataSet
         Me.relationcomuneprioritaComune = Me.Relations("comuneprioritaComune")
         Me.relationluoghicontrollocontrollo = Me.Relations("luoghicontrollocontrollo")
         Me.relationRel_E650AEEB_A74A_44AC = Me.Relations("Rel_E650AEEB_A74A_44AC")
+        Me.relationRel_84EF88A6_1469_475D = Me.Relations("Rel_84EF88A6_1469_475D")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -650,6 +699,10 @@ Partial Public Class dbAlegatoADataSet
         MyBase.Tables.Add(Me.tablesopralluogo)
         Me.tableQSopralluogo = New QSopralluogoDataTable
         MyBase.Tables.Add(Me.tableQSopralluogo)
+        Me.tablerubrica = New rubricaDataTable
+        MyBase.Tables.Add(Me.tablerubrica)
+        Me.tableQRubrica = New QRubricaDataTable
+        MyBase.Tables.Add(Me.tableQRubrica)
         Me.relationcontrolloallegatoA = New Global.System.Data.DataRelation("controlloallegatoA", New Global.System.Data.DataColumn() {Me.tablecontrollo.IDColumn}, New Global.System.Data.DataColumn() {Me.tableallegatoA.idControlloColumn}, false)
         Me.Relations.Add(Me.relationcontrolloallegatoA)
         Me.relationmezzoallegatoA = New Global.System.Data.DataRelation("mezzoallegatoA", New Global.System.Data.DataColumn() {Me.tablemodelliMezzo.idColumn}, New Global.System.Data.DataColumn() {Me.tableallegatoA.idMezzoColumn}, false)
@@ -672,6 +725,8 @@ Partial Public Class dbAlegatoADataSet
         Me.Relations.Add(Me.relationluoghicontrollocontrollo)
         Me.relationRel_E650AEEB_A74A_44AC = New Global.System.Data.DataRelation("Rel_E650AEEB_A74A_44AC", New Global.System.Data.DataColumn() {Me.tableordineServizio.IDColumn}, New Global.System.Data.DataColumn() {Me.tablesopralluogo.idOSColumn}, false)
         Me.Relations.Add(Me.relationRel_E650AEEB_A74A_44AC)
+        Me.relationRel_84EF88A6_1469_475D = New Global.System.Data.DataRelation("Rel_84EF88A6_1469_475D", New Global.System.Data.DataColumn() {Me.tableordineServizio.IDColumn}, New Global.System.Data.DataColumn() {Me.tablerubrica.idOSColumn}, false)
+        Me.Relations.Add(Me.relationRel_84EF88A6_1469_475D)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -761,6 +816,16 @@ Partial Public Class dbAlegatoADataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
     Private Function ShouldSerializeQSopralluogo() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializerubrica() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+    Private Function ShouldSerializeQRubrica() As Boolean
         Return false
     End Function
     
@@ -855,6 +920,10 @@ Partial Public Class dbAlegatoADataSet
     Public Delegate Sub sopralluogoRowChangeEventHandler(ByVal sender As Object, ByVal e As sopralluogoRowChangeEvent)
     
     Public Delegate Sub QSopralluogoRowChangeEventHandler(ByVal sender As Object, ByVal e As QSopralluogoRowChangeEvent)
+    
+    Public Delegate Sub rubricaRowChangeEventHandler(ByVal sender As Object, ByVal e As rubricaRowChangeEvent)
+    
+    Public Delegate Sub QRubricaRowChangeEventHandler(ByVal sender As Object, ByVal e As QRubricaRowChangeEvent)
     
     '''<summary>
     '''Represents the strongly named DataTable class.
@@ -6623,6 +6692,587 @@ Partial Public Class dbAlegatoADataSet
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class rubricaDataTable
+        Inherits Global.System.Data.DataTable
+        Implements Global.System.Collections.IEnumerable
+        
+        Private columnid As Global.System.Data.DataColumn
+        
+        Private columnidOS As Global.System.Data.DataColumn
+        
+        Private columntesto As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "rubrica"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property idColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnid
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property idOSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnidOS
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property testoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntesto
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As rubricaRow
+            Get
+                Return CType(Me.Rows(index),rubricaRow)
+            End Get
+        End Property
+        
+        Public Event rubricaRowChanging As rubricaRowChangeEventHandler
+        
+        Public Event rubricaRowChanged As rubricaRowChangeEventHandler
+        
+        Public Event rubricaRowDeleting As rubricaRowChangeEventHandler
+        
+        Public Event rubricaRowDeleted As rubricaRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddrubricaRow(ByVal row As rubricaRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddrubricaRow(ByVal parentordineServizioRowByRel_84EF88A6_1469_475D As ordineServizioRow, ByVal testo As String) As rubricaRow
+            Dim rowrubricaRow As rubricaRow = CType(Me.NewRow,rubricaRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, testo}
+            If (Not (parentordineServizioRowByRel_84EF88A6_1469_475D) Is Nothing) Then
+                columnValuesArray(1) = parentordineServizioRowByRel_84EF88A6_1469_475D(0)
+            End If
+            rowrubricaRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowrubricaRow)
+            Return rowrubricaRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function FindByid(ByVal id As Integer) As rubricaRow
+            Return CType(Me.Rows.Find(New Object() {id}),rubricaRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
+            Return Me.Rows.GetEnumerator
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As rubricaDataTable = CType(MyBase.Clone,rubricaDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New rubricaDataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnid = MyBase.Columns("id")
+            Me.columnidOS = MyBase.Columns("idOS")
+            Me.columntesto = MyBase.Columns("testo")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnid = New Global.System.Data.DataColumn("id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnid)
+            Me.columnidOS = New Global.System.Data.DataColumn("idOS", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidOS)
+            Me.columntesto = New Global.System.Data.DataColumn("testo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntesto)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
+            Me.columnid.AutoIncrement = true
+            Me.columnid.AllowDBNull = false
+            Me.columnid.Unique = true
+            Me.columntesto.MaxLength = 536870910
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewrubricaRow() As rubricaRow
+            Return CType(Me.NewRow,rubricaRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New rubricaRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(rubricaRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.rubricaRowChangedEvent) Is Nothing) Then
+                RaiseEvent rubricaRowChanged(Me, New rubricaRowChangeEvent(CType(e.Row,rubricaRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.rubricaRowChangingEvent) Is Nothing) Then
+                RaiseEvent rubricaRowChanging(Me, New rubricaRowChangeEvent(CType(e.Row,rubricaRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.rubricaRowDeletedEvent) Is Nothing) Then
+                RaiseEvent rubricaRowDeleted(Me, New rubricaRowChangeEvent(CType(e.Row,rubricaRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.rubricaRowDeletingEvent) Is Nothing) Then
+                RaiseEvent rubricaRowDeleting(Me, New rubricaRowChangeEvent(CType(e.Row,rubricaRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoverubricaRow(ByVal row As rubricaRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As dbAlegatoADataSet = New dbAlegatoADataSet
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "rubricaDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class QRubricaDataTable
+        Inherits Global.System.Data.DataTable
+        Implements Global.System.Collections.IEnumerable
+        
+        Private columnordineServizio_id As Global.System.Data.DataColumn
+        
+        Private columnnome As Global.System.Data.DataColumn
+        
+        Private columndata As Global.System.Data.DataColumn
+        
+        Private columnidOperatori As Global.System.Data.DataColumn
+        
+        Private columnrubrica_id As Global.System.Data.DataColumn
+        
+        Private columnidOS As Global.System.Data.DataColumn
+        
+        Private columntesto As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "QRubrica"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property ordineServizio_idColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnordineServizio_id
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nomeColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnome
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property dataColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columndata
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property idOperatoriColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnidOperatori
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property rubrica_idColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnrubrica_id
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property idOSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnidOS
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property testoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntesto
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As QRubricaRow
+            Get
+                Return CType(Me.Rows(index),QRubricaRow)
+            End Get
+        End Property
+        
+        Public Event QRubricaRowChanging As QRubricaRowChangeEventHandler
+        
+        Public Event QRubricaRowChanged As QRubricaRowChangeEventHandler
+        
+        Public Event QRubricaRowDeleting As QRubricaRowChangeEventHandler
+        
+        Public Event QRubricaRowDeleted As QRubricaRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Sub AddQRubricaRow(ByVal row As QRubricaRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overloads Function AddQRubricaRow(ByVal nome As String, ByVal data As Date, ByVal idOperatori As Integer, ByVal idOS As Integer, ByVal testo As String) As QRubricaRow
+            Dim rowQRubricaRow As QRubricaRow = CType(Me.NewRow,QRubricaRow)
+            Dim columnValuesArray() As Object = New Object() {Nothing, nome, data, idOperatori, Nothing, idOS, testo}
+            rowQRubricaRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowQRubricaRow)
+            Return rowQRubricaRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overridable Function GetEnumerator() As Global.System.Collections.IEnumerator Implements Global.System.Collections.IEnumerable.GetEnumerator
+            Return Me.Rows.GetEnumerator
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As QRubricaDataTable = CType(MyBase.Clone,QRubricaDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New QRubricaDataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub InitVars()
+            Me.columnordineServizio_id = MyBase.Columns("ordineServizio_id")
+            Me.columnnome = MyBase.Columns("nome")
+            Me.columndata = MyBase.Columns("data")
+            Me.columnidOperatori = MyBase.Columns("idOperatori")
+            Me.columnrubrica_id = MyBase.Columns("rubrica_id")
+            Me.columnidOS = MyBase.Columns("idOS")
+            Me.columntesto = MyBase.Columns("testo")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitClass()
+            Me.columnordineServizio_id = New Global.System.Data.DataColumn("ordineServizio_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnordineServizio_id)
+            Me.columnnome = New Global.System.Data.DataColumn("nome", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnome)
+            Me.columndata = New Global.System.Data.DataColumn("data", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndata)
+            Me.columnidOperatori = New Global.System.Data.DataColumn("idOperatori", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidOperatori)
+            Me.columnrubrica_id = New Global.System.Data.DataColumn("rubrica_id", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnrubrica_id)
+            Me.columnidOS = New Global.System.Data.DataColumn("idOS", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidOS)
+            Me.columntesto = New Global.System.Data.DataColumn("testo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntesto)
+            Me.columnordineServizio_id.AutoIncrement = true
+            Me.columnnome.MaxLength = 50
+            Me.columnrubrica_id.AutoIncrement = true
+            Me.columntesto.MaxLength = 536870910
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function NewQRubricaRow() As QRubricaRow
+            Return CType(Me.NewRow,QRubricaRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New QRubricaRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(QRubricaRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.QRubricaRowChangedEvent) Is Nothing) Then
+                RaiseEvent QRubricaRowChanged(Me, New QRubricaRowChangeEvent(CType(e.Row,QRubricaRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.QRubricaRowChangingEvent) Is Nothing) Then
+                RaiseEvent QRubricaRowChanging(Me, New QRubricaRowChangeEvent(CType(e.Row,QRubricaRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.QRubricaRowDeletedEvent) Is Nothing) Then
+                RaiseEvent QRubricaRowDeleted(Me, New QRubricaRowChangeEvent(CType(e.Row,QRubricaRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.QRubricaRowDeletingEvent) Is Nothing) Then
+                RaiseEvent QRubricaRowDeleting(Me, New QRubricaRowChangeEvent(CType(e.Row,QRubricaRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub RemoveQRubricaRow(ByVal row As QRubricaRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence
+            Dim ds As dbAlegatoADataSet = New dbAlegatoADataSet
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "QRubricaDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -8799,6 +9449,15 @@ Partial Public Class dbAlegatoADataSet
                 Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Rel_E650AEEB_A74A_44AC")),sopralluogoRow())
             End If
         End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function GetrubricaRows() As rubricaRow()
+            If (Me.Table.ChildRelations("Rel_84EF88A6_1469_475D") Is Nothing) Then
+                Return New rubricaRow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("Rel_84EF88A6_1469_475D")),rubricaRow())
+            End If
+        End Function
     End Class
     
     '''<summary>
@@ -9972,6 +10631,274 @@ Partial Public Class dbAlegatoADataSet
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class rubricaRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tablerubrica As rubricaDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tablerubrica = CType(Me.Table,rubricaDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property id() As Integer
+            Get
+                Return CType(Me(Me.tablerubrica.idColumn),Integer)
+            End Get
+            Set
+                Me(Me.tablerubrica.idColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property idOS() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tablerubrica.idOSColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'idOS' in table 'rubrica' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerubrica.idOSColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property testo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tablerubrica.testoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'testo' in table 'rubrica' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tablerubrica.testoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ordineServizioRow() As ordineServizioRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("Rel_84EF88A6_1469_475D")),ordineServizioRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("Rel_84EF88A6_1469_475D"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsidOSNull() As Boolean
+            Return Me.IsNull(Me.tablerubrica.idOSColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetidOSNull()
+            Me(Me.tablerubrica.idOSColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IstestoNull() As Boolean
+            Return Me.IsNull(Me.tablerubrica.testoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SettestoNull()
+            Me(Me.tablerubrica.testoColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Partial Public Class QRubricaRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tableQRubrica As QRubricaDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tableQRubrica = CType(Me.Table,QRubricaDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ordineServizio_id() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableQRubrica.ordineServizio_idColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'ordineServizio_id' in table 'QRubrica' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableQRubrica.ordineServizio_idColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property nome() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableQRubrica.nomeColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'nome' in table 'QRubrica' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableQRubrica.nomeColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property data() As Date
+            Get
+                Try 
+                    Return CType(Me(Me.tableQRubrica.dataColumn),Date)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'data' in table 'QRubrica' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableQRubrica.dataColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property idOperatori() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableQRubrica.idOperatoriColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'idOperatori' in table 'QRubrica' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableQRubrica.idOperatoriColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property rubrica_id() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableQRubrica.rubrica_idColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'rubrica_id' in table 'QRubrica' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableQRubrica.rubrica_idColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property idOS() As Integer
+            Get
+                Try 
+                    Return CType(Me(Me.tableQRubrica.idOSColumn),Integer)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'idOS' in table 'QRubrica' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableQRubrica.idOSColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property testo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableQRubrica.testoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'testo' in table 'QRubrica' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableQRubrica.testoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsordineServizio_idNull() As Boolean
+            Return Me.IsNull(Me.tableQRubrica.ordineServizio_idColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetordineServizio_idNull()
+            Me(Me.tableQRubrica.ordineServizio_idColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsnomeNull() As Boolean
+            Return Me.IsNull(Me.tableQRubrica.nomeColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetnomeNull()
+            Me(Me.tableQRubrica.nomeColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsdataNull() As Boolean
+            Return Me.IsNull(Me.tableQRubrica.dataColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetdataNull()
+            Me(Me.tableQRubrica.dataColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsidOperatoriNull() As Boolean
+            Return Me.IsNull(Me.tableQRubrica.idOperatoriColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetidOperatoriNull()
+            Me(Me.tableQRubrica.idOperatoriColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function Isrubrica_idNull() As Boolean
+            Return Me.IsNull(Me.tableQRubrica.rubrica_idColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub Setrubrica_idNull()
+            Me(Me.tableQRubrica.rubrica_idColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsidOSNull() As Boolean
+            Return Me.IsNull(Me.tableQRubrica.idOSColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetidOSNull()
+            Me(Me.tableQRubrica.idOSColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IstestoNull() As Boolean
+            Return Me.IsNull(Me.tableQRubrica.testoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SettestoNull()
+            Me(Me.tableQRubrica.testoColumn) = Global.System.Convert.DBNull
+        End Sub
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
@@ -10552,6 +11479,72 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property Row() As QSopralluogoRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class rubricaRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As rubricaRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As rubricaRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As rubricaRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0")>  _
+    Public Class QRubricaRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As QRubricaRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New(ByVal row As QRubricaRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property Row() As QRubricaRow
             Get
                 Return Me.eventRow
             End Get
@@ -17380,7 +18373,7 @@ Namespace dbAlegatoADataSetTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(2) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(3) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT [ordineServizio.id], nome, data, idOperatori, [sopralluogo.id], idOS, tipo"& _ 
@@ -17396,9 +18389,17 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pCampoRicerca ", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" FROM QSopralluogo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  idOS=pIdOS"
+            Me._commandCollection(2).CommandText = "SELECT [ordineServizio.id], nome, data, idOperatori, [sopralluogo.id], idOS, tipo"& _ 
+                "Reato, oraRedazione, oraRichiesta, luogo_citta, via, contatti_con, resoconto FRO"& _ 
+                "M QSopralluogo WHERE  (data BETWEEN pDataInizio AND pDataFine)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIdOS", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pDataInizio", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pDataFine", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&" FROM QSopralluogo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE  idOS=pIdOS"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIdOS", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -17443,12 +18444,539 @@ Namespace dbAlegatoADataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByOS(ByVal dataTable As dbAlegatoADataSet.QSopralluogoDataTable, ByVal pIdOS As String) As Integer
+        Public Overloads Overridable Function FillByDataRange(ByVal dataTable As dbAlegatoADataSet.QSopralluogoDataTable, ByVal pDataInizio As String, ByVal pDataFine As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (pDataInizio Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("pDataInizio")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(pDataInizio,String)
+            End If
+            If (pDataFine Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("pDataFine")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(pDataFine,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByOS(ByVal dataTable As dbAlegatoADataSet.QSopralluogoDataTable, ByVal pIdOS As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (pIdOS Is Nothing) Then
                 Throw New Global.System.ArgumentNullException("pIdOS")
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(pIdOS,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class rubricaTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
+        
+        Private _connection As Global.System.Data.OleDb.OleDbConnection
+        
+        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "rubrica"
+            tableMapping.ColumnMappings.Add("id", "id")
+            tableMapping.ColumnMappings.Add("idOS", "idOS")
+            tableMapping.ColumnMappings.Add("testo", "testo")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `rubrica` WHERE ((`id` = ?) AND ((? = 1 AND `idOS` IS NULL) OR (`idOS"& _ 
+                "` = ?)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_idOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idOS", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_idOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idOS", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `rubrica` (`idOS`, `testo`) VALUES (?, ?)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("testo", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "testo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `rubrica` SET `idOS` = ?, `testo` = ? WHERE ((`id` = ?) AND ((? = 1 AND `i"& _ 
+                "dOS` IS NULL) OR (`idOS` = ?)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("testo", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "testo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_idOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idOS", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_idOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idOS", Global.System.Data.DataRowVersion.Original, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OleDb.OleDbConnection
+            Me._connection.ConnectionString = Global.OrSe.My.MySettings.Default.dbAlegatoAConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(3) {}
+            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT id, idOS, testo FROM rubrica"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT id, idOS, testo FROM rubrica WHERE testo LIKE ""%"" & pTestoRicerca & ""%"""
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pTestoRicerca ", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand
+            Me._commandCollection(2).Connection = Me.Connection
+            Me._commandCollection(2).CommandText = "SELECT id, idOS, testo FROM rubrica WHERE id=pIdRubrica"
+            Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIdRubrica", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand
+            Me._commandCollection(3).Connection = Me.Connection
+            Me._commandCollection(3).CommandText = "SELECT id, idOS, testo FROM rubrica WHERE idOS=pIdOS"
+            Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIdOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As dbAlegatoADataSet.rubricaDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As dbAlegatoADataSet.rubricaDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As dbAlegatoADataSet.rubricaDataTable = New dbAlegatoADataSet.rubricaDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByCampoRicerca(ByVal dataTable As dbAlegatoADataSet.rubricaDataTable, ByVal pTestoRicerca_ As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (pTestoRicerca_ Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("pTestoRicerca_")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(pTestoRicerca_,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillById(ByVal dataTable As dbAlegatoADataSet.rubricaDataTable, ByVal pIdRubrica As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(pIdRubrica,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByOS(ByVal dataTable As dbAlegatoADataSet.rubricaDataTable, ByVal pIdOS As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            Me.Adapter.SelectCommand.Parameters(0).Value = CType(pIdOS,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As dbAlegatoADataSet.rubricaDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As dbAlegatoADataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "rubrica")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_id As Integer, ByVal Original_idOS As Global.System.Nullable(Of Integer)) As Integer
+            Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id,Integer)
+            If (Original_idOS.HasValue = true) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_idOS.Value,Integer)
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal idOS As Global.System.Nullable(Of Integer), ByVal testo As String) As Integer
+            If (idOS.HasValue = true) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(idOS.Value,Integer)
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (testo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(testo,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal idOS As Global.System.Nullable(Of Integer), ByVal testo As String, ByVal Original_id As Integer, ByVal Original_idOS As Global.System.Nullable(Of Integer)) As Integer
+            If (idOS.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(idOS.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            End If
+            If (testo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(testo,String)
+            End If
+            Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_id,Integer)
+            If (Original_idOS.HasValue = true) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_idOS.Value,Integer)
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+    End Class
+    
+    '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "2.0.0.0"),  _
+     Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class QRubricaTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
+        
+        Private _connection As Global.System.Data.OleDb.OleDbConnection
+        
+        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "QRubrica"
+            tableMapping.ColumnMappings.Add("ordineServizio.id", "ordineServizio_id")
+            tableMapping.ColumnMappings.Add("nome", "nome")
+            tableMapping.ColumnMappings.Add("data", "data")
+            tableMapping.ColumnMappings.Add("idOperatori", "idOperatori")
+            tableMapping.ColumnMappings.Add("rubrica.id", "rubrica_id")
+            tableMapping.ColumnMappings.Add("idOS", "idOS")
+            tableMapping.ColumnMappings.Add("testo", "testo")
+            Me._adapter.TableMappings.Add(tableMapping)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OleDb.OleDbConnection
+            Me._connection.ConnectionString = Global.OrSe.My.MySettings.Default.dbAlegatoAConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
+            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT [ordineServizio.id], nome, data, idOperatori, [rubrica.id], idOS, testo FR"& _ 
+                "OM QRubrica"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT [ordineServizio.id], nome, data, idOperatori, [rubrica.id], idOS, testo FR"& _ 
+                "OM QRubrica WHERE (data BETWEEN pDataInizio AND pDataFine)"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pDataInizio", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pDataFine", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As dbAlegatoADataSet.QRubricaDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As dbAlegatoADataSet.QRubricaDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As dbAlegatoADataSet.QRubricaDataTable = New dbAlegatoADataSet.QRubricaDataTable
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByDataRange(ByVal dataTable As dbAlegatoADataSet.QRubricaDataTable, ByVal pDataInizio As String, ByVal pDataFine As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (pDataInizio Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("pDataInizio")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(pDataInizio,String)
+            End If
+            If (pDataFine Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("pDataFine")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(pDataFine,String)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear

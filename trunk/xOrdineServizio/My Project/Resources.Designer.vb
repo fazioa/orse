@@ -234,6 +234,13 @@ Namespace My.Resources
             End Get
         End Property
         
+        Friend ReadOnly Property rubricaPng() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("rubricaPng", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
         Friend ReadOnly Property sagomaOFF() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("sagomaOFF", resourceCulture)

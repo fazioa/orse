@@ -197,6 +197,12 @@
     <Compile Include="FRicerca.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FRubrica.Designer.vb">
+      <DependentUpon>FRubrica.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FRubrica.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FSoggetto.Designer.vb">
       <DependentUpon>FSoggetto.vb</DependentUpon>
     </Compile>
@@ -423,7 +429,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dbAlegatoA.mdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="FDataRange.resx">
       <SubType>Designer</SubType>
@@ -433,6 +438,10 @@
       <SubType>Designer</SubType>
       <DependentUpon>FProgressionBar.vb</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRubrica.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FRubrica.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FSopralluogo.resx">
       <SubType>Designer</SubType>
@@ -456,6 +465,7 @@
     <Content Include="Resources\automazione\verbaleSopralluogo.dot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="Resources\btnPrima\rubrica.png" />
     <None Include="Resources\repubblica.png" />
     <None Include="Resources\logo_finale.jpg" />
     <EmbeddedResource Include="Resources\btnReport\printAllegatoA.png">

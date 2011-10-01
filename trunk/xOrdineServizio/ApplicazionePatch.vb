@@ -2,36 +2,34 @@ Public Class ApplicazionePatch
     Dim feActions As New OrSe.ActionsLibrary
     Dim log As New XOrseLog
 
-    Private Function patch1_creaTabellaVersione()
+    Private Sub patch1_creaTabellaVersione()
         'crea tabella ed inserisce il numero versione DB 2.00
         feActions.esegueSQL("CREATE TABLE versione (id COUNTER CONSTRAINT ChiavePrimariaConstraint PRIMARY KEY, numeroversione CHAR, about CHAR );")
         Dim versione As dbAlegatoADataSetTableAdapters.versioneTableAdapter = New dbAlegatoADataSetTableAdapters.versioneTableAdapter
-        Dim sVersionePartenza = "2.00"
-        versione.Insert("", sVersionePartenza)
-        Return sVersionePartenza
-    End Function
+        aggiornaNumeroVersione(2)
+    End Sub
 
-    Private Function patch2_aggiornamentoMaxsizeCampoLuogoControllo()
+    Private Sub patch2_aggiornamentoMaxsizeCampoLuogoControllo()
         'esegue update del campo luogo controllo, passando da 50 caratteri massimi a 150, inserisce il numero versione DB 2.10
         feActions.esegueSQL("ALTER TABLE luoghicontrollo ALTER COLUMN luogo TEXT(150);")
-        Dim versione As dbAlegatoADataSetTableAdapters.versioneTableAdapter = New dbAlegatoADataSetTableAdapters.versioneTableAdapter
-        Dim sVersionePartenza = "2.20"
-        versione.Insert("", sVersionePartenza)
-        Return sVersionePartenza
-    End Function
+        aggiornaNumeroVersione(2.2)
+    End Sub
 
-    Private Function patch3_creazionetabellasopralluogo()
+    Private Sub patch3_creazionetabellasopralluogo()
         'esegue la creazione della tabella sopralluogo, inserisce il numero versione DB 2.50
         feActions.esegueSQL("CREATE TABLE sopralluogo  (id COUNTER CONSTRAINT ChiavePrimariaConstraint PRIMARY KEY, idOS INTEGER, tipoReato TEXT(50),oraRedazione DATETIME, oraRichiesta DATETIME,luogo_citta TEXT(50), via TEXT(150), contatti_con TEXT(200),resoconto MEMO,FOREIGN KEY (idOS) REFERENCES ordineServizio(id));")
         ' feActions.esegueSQL("CREATE VIEW QSopralluogo AS SELECT (id , idOS , tipoReato,oraRedazione , oraRichiesta ,luogo_citta , via , contatti_con ,resoconto, ordineServizio.nome) FROM ordineServizio, sopralluogo WHERE ordineServizio.id=sopralluogo.id;")
         feActions.esegueSQL("CREATE VIEW QSopralluogo AS SELECT * FROM ordineServizio, sopralluogo WHERE ordineServizio.id=sopralluogo.id;")
+        aggiornaNumeroVersione(2.4)
+    End Sub
 
-        Dim versione As dbAlegatoADataSetTableAdapters.versioneTableAdapter = New dbAlegatoADataSetTableAdapters.versioneTableAdapter
 
-        Dim sVersionePartenza = "2.51"
-        versione.Insert("", sVersionePartenza)
-        Return sVersionePartenza
-    End Function
+    Private Sub patch4_creazionetabellaRubrica()
+        'creo la tabella per la rubrica
+        feActions.esegueSQL("CREATE TABLE rubrica  (id COUNTER CONSTRAINT ChiavePrimariaConstraint PRIMARY KEY, idOS INTEGER,testo MEMO,FOREIGN KEY (idOS) REFERENCES ordineServizio(id));")
+        feActions.esegueSQL("CREATE VIEW QRubrica AS SELECT * FROM ordineServizio, rubrica WHERE ordineServizio.id=rubrica.id;")
+        aggiornaNumeroVersione(2.6)
+    End Sub
 
     Public Function doControlloVersioneDB()
         Dim versione As dbAlegatoADataSetTableAdapters.versioneTableAdapter = New dbAlegatoADataSetTableAdapters.versioneTableAdapter
@@ -58,11 +56,19 @@ Public Class ApplicazionePatch
             Case -1
                 patch1_creaTabellaVersione()
                 patch2_aggiornamentoMaxsizeCampoLuogoControllo()
-            Case Is < 2.51
-                patch2_aggiornamentoMaxsizeCampoLuogoControllo()
-                patch3_creazionetabellasopralluogo()
+            Case Is < 2.6
+                patch2_aggiornamentoMaxsizeCampoLuogoControllo() '2.20
+                patch3_creazionetabellasopralluogo() '2.40
+                patch4_creazionetabellaRubrica() '2.60
+                'Case Is < 2.6
                 '   +patch1
         End Select
+    End Sub
+    Private Sub aggiornaNumeroVersione(ByVal iNuovoNumeroVersione As Integer)
+        'aggiorna il numero di versione memorizzato dentro il DB
+        ' Dim sVersionePartenza = iNuovoNumeroVersione
+        Dim versione As dbAlegatoADataSetTableAdapters.versioneTableAdapter = New dbAlegatoADataSetTableAdapters.versioneTableAdapter
+        versione.Insert("", iNuovoNumeroVersione)
     End Sub
 
 
