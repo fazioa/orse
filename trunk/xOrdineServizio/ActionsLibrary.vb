@@ -504,17 +504,19 @@ Public Class ActionsLibrary
         fDialog.FileName = "orseExport.OrSe"
         If (fDialog.ShowDialog() = DialogResult.OK) Then
             Dim os As New OrSe.FillTreeOS
-            Dim writer As New XmlSerializer(GetType(dbAlegatoADataSet.QAllegatoADataTable))
+
 
             'AllegatoA
+            Dim writer As New XmlSerializer(GetType(dbAlegatoADataSet.QAllegatoADataTable))
             Dim file As New StreamWriter("ordiniServizioAllegatoAData.OrseXML")
             Dim d As New dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
             d.FillByDataRange(db.QAllegatoA, dInizio, dFine)
             writer.Serialize(file, db.QAllegatoA)
             file.Close()
-            writer = New XmlSerializer(GetType(dbAlegatoADataSet.QInterventiDataTable))
+
 
             'Informazioni
+            writer = New XmlSerializer(GetType(dbAlegatoADataSet.QInterventiDataTable))
             file = New StreamWriter("ordiniServizioInformazioniData.OrseXML")
             Dim d2 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
             d2.FillByDataRange(db.QInterventi, paragrafoOS.informazioni, dInizio, dFine)
@@ -529,6 +531,7 @@ Public Class ActionsLibrary
             file.Close()
 
             'Sopralluogo
+            writer = New XmlSerializer(GetType(dbAlegatoADataSet.QSopralluogoDataTable))
             file = New StreamWriter("ordiniServizioSopralluogoData.OrseXML")
             Dim d4 As New dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
             d4.FillByDataRange(db.QSopralluogo, dInizio, dFine)
@@ -536,6 +539,7 @@ Public Class ActionsLibrary
             file.Close()
 
             'Rubrica
+            writer = New XmlSerializer(GetType(dbAlegatoADataSet.QRubricaDataTable))
             file = New StreamWriter("ordiniServizioRubricaData.OrseXML")
             Dim d5 As New dbAlegatoADataSetTableAdapters.QRubricaTableAdapter
             d5.FillByDataRange(db.QRubrica, dInizio, dFine)
@@ -649,7 +653,12 @@ Public Class ActionsLibrary
 
             For Each orseNode In orseNodeList
                 For Each campo In orseNode.ChildNodes()
-                    a.Add(campo.Name, campo.InnerText)
+                    Try
+                        a.Add(campo.Name, campo.InnerText)
+                    Catch ex As Exception
+                        log.xlogWriteEntry("Errore lettura dati da file XML " & nomeFile, TraceEventType.Error)
+                    End Try
+
                 Next
                 'se l'op non esiste allora viene inserito, altrimento la funz restituisce l'id
                 pb.PerformStep()
@@ -674,7 +683,7 @@ Public Class ActionsLibrary
                     Case tipoDato.interventi
                         inserimentoInterventiInformazioni(a, idOS)
                     Case tipoDato.sopralluoghi
-                        '       inserimentoSopralluogo(a, idOS)
+                        inserimentoSopralluogo(a, idOS)
                     Case tipoDato.rubrica
                         '  inserimentoRubrica(a, idOS)
                 End Select
@@ -878,6 +887,8 @@ Public Class ActionsLibrary
         Return -1
     End Function
 
+
+
     'la funzione inserisce la stringa f nella tabella operatori, solo se tale stringa non è già presente
     Public Function inserimentoOperatori(ByVal s As String) As Integer
         Dim id As Integer = -1
@@ -897,6 +908,50 @@ Public Class ActionsLibrary
             End If
         End If
         Return id
+    End Function
+
+    Public Function inserimentoSopralluogo(ByVal a As System.Collections.Hashtable, ByVal idOS As Integer) As Integer
+        If Not (a.Item("oraRedazione") = Nothing Or a.Item("oraRichiesta") = Nothing) Then
+
+            Dim dQS As New dbAlegatoADataSet.QSopralluogoDataTable
+            Dim tQSopralluogo As New dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
+
+            'se oraRedazione e oraRichiesta sono valorizzati allora proseguo. 
+
+            Dim dataOraRichiesta As DateTime = a.Item("oraRedazione")
+            Dim dataOraRedazione As DateTime = a.Item("oraRichiesta")
+
+            Dim sTipoReato As String = a.Item("tipoReato")
+            Dim sLuogo_citta As String = a.Item("luogo_citta")
+            Dim sVia As Integer = a.Item("via")
+            Dim sContatti_con As Integer = a.Item("contatti_con")
+            Dim sResoconto As Integer = a.Item("resoconto")
+
+
+            'controllo doppione
+            Dim c As Integer = -1
+
+            'cerco il doppione solo confrontando idOS e oraRichiesa
+            c = tQSopralluogo.FillByRicercaDoppione(dQS, idOS, "#" & dataOraRichiesta & "#")
+
+
+            If (c <= 0) Then
+                Dim i As Integer
+                log.xlogWriteEntry("Inserimento sopralluogo. idOS:" & idOS & ", dataOraRichiesta: " & dataOraRichiesta, TraceEventType.Critical)
+                Dim d As New dbAlegatoADataSet.QSopralluogoDataTable
+                Dim tSopralluogo As New dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
+
+                i = tSopralluogo.Insert(idOS, sTipoReato, dataOraRichiesta, sLuogo_citta, sVia, sContatti_con, sResoconto, dataOraRedazione)
+                Return i
+            Else
+                log.xlogWriteEntry("Inserimento sopralluogo IGNORATO, perchè già presente. idOS:" & idOS & ", inizio: " & dataOraRichiesta, TraceEventType.Critical)
+                Return -1
+            End If
+        Else
+            'se dataOraInizio o dataOraFine è nullo allora ignoro l'inserimento
+            log.xlogWriteEntry("Incongruenza dati sopralluogo. L'inserimento viene ignorato.", TraceEventType.Critical)
+        End If
+        Return -1
     End Function
 
     Private Function inserimentoOS(ByVal nomeOS As String, ByVal dataOS As String, ByVal idOperatori As Integer)
@@ -928,15 +983,21 @@ Public Class ActionsLibrary
         If bDomanda1 Then bDomanda2 = MsgBox("ATTENZIONE, tutti i dati contenuti nel database verranno cancellati definitivamente! (escluso elenco Comuni e Stati)", MsgBoxStyle.OkCancel Or MsgBoxStyle.DefaultButton2, "Cancellazione database") = MsgBoxResult.Ok
 
         If bDomanda1 And bDomanda2 Then
-            cancellaTabellaOrdineServizio()
+
             cancellaTabellaAllegatoA()
             cancellaTabellaControllo()
-            cancellaTabellaMezzo()
-            cancellaTabellaOperatore()
             cancellaTabellaPersone()
+            cancellaTabellaMezzo()
+
+
             cancellaTabellaInterventi()
+            cancellaTabellaSopralluogo()
+            cancellaTabellaRubrica()
+
             cancellaTabellaLuoghiControllo()
             cancellaTabellaPrioritaComune()
+            cancellaTabellaOrdineServizio()
+            cancellaTabellaOperatore()
             'inserisce lo stato di logout, l'applicazione esce dallordine di servizio corrente
             appStateLogin = False
         End If
@@ -952,6 +1013,19 @@ Public Class ActionsLibrary
         tabellaInterventi.DeleteAll()
         tabellaInterventi.Update(db)
     End Sub
+
+    Private Sub cancellaTabellaSopralluogo()
+        Dim tabellaSopralluogo As dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter = New dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter()
+        tabellaSopralluogo.Deleteall()
+        tabellaSopralluogo.Update(db)
+    End Sub
+
+    Private Sub cancellaTabellaRubrica()
+        Dim tabellaRubrica As dbAlegatoADataSetTableAdapters.rubricaTableAdapter = New dbAlegatoADataSetTableAdapters.rubricaTableAdapter()
+        tabellaRubrica.Deleteall()
+        tabellaRubrica.Update(db)
+    End Sub
+
     Private Sub cancellaTabellaPersone()
         Dim tabellaPersone As dbAlegatoADataSetTableAdapters.personaTableAdapter = New dbAlegatoADataSetTableAdapters.personaTableAdapter()
         tabellaPersone.DeleteAll()

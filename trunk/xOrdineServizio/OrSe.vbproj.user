@@ -10,7 +10,7 @@
     <FallbackCulture>en-US</FallbackCulture>
     <VerifyUploadedFiles>true</VerifyUploadedFiles>
     <ReferencePath>C:\Program Files\Common Files\Business Objects\2.7\Managed\C:\Programmi\File comuni\Business Objects\2.7\Managed\</ReferencePath>
-    <ProjectView>ShowAllFiles</ProjectView>
+    <ProjectView>ProjectFiles</ProjectView>
     <EnableSecurityDebugging>false</EnableSecurityDebugging>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
