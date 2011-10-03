@@ -41,7 +41,7 @@ Public Class FSopralluogo
             log.xlogWriteEntry("Inserimento sopralluogo - Salvataggio dati", TraceEventType.Critical)
         Catch ex As DBConcurrencyException
             log.xlogWriteEntry("Inserimento sopralluogo - Salvataggio automatico - Eseguo comando SQL Update", TraceEventType.Critical)
-            feActions.esegueSQL("UPDATE sopralluogo SET idOS=" & xIdOS & ", tipoReato='" & sTipoReato & "', oraRichiesta=#" & DateTimePickerOraRichiesta.Value & "#, oraRedazione=#" & DateTimePickerOraVerbale.Value & "#, luogo_citta='" & TextBoxLuogo.Text & "', via='" & TextBoxVia.Text & "', contatti_con='" & TextBoxContatti.Text & "', resoconto='" & TextBoxResoconto.Text & "' WHERE id=" & idSopralluogo)
+            feActions.esegueSQL("UPDATE sopralluogo SET idOS=" & xIdOS & ", tipoReato='" & sTipoReato & "', oraRichiesta=#" & DateTimePickerOraRichiesta.Value & "#, oraRedazione=#" & DateTimePickerOraVerbale.Value & "#, luogo_citta='" & TextBoxLuogo.Text & "', via='" & TextBoxVia.Text & "', contatti_con='" & TextBoxContatti.Text & "', resoconto='" & TextBoxResoconto.Text & "' WHERE idSopralluogo=" & idSopralluogo)
         End Try
 
     End Sub
