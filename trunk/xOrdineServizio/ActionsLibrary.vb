@@ -655,6 +655,7 @@ Public Class ActionsLibrary
                 For Each campo In orseNode.ChildNodes()
                     Try
                         a.Add(campo.Name, campo.InnerText)
+                        log.xlogWriteEntry(campo.Name & " - " & campo.InnerText, TraceEventType.Information)
                     Catch ex As Exception
                         log.xlogWriteEntry("Errore lettura dati da file XML " & nomeFile, TraceEventType.Error)
                     End Try
@@ -685,7 +686,7 @@ Public Class ActionsLibrary
                     Case tipoDato.sopralluoghi
                         inserimentoSopralluogo(a, idOS)
                     Case tipoDato.rubrica
-                        '  inserimentoRubrica(a, idOS)
+                        inserimentoRubrica(a, idOS)
                 End Select
                 a.Clear()
             Next
@@ -950,6 +951,38 @@ Public Class ActionsLibrary
         Else
             'se dataOraInizio o dataOraFine è nullo allora ignoro l'inserimento
             log.xlogWriteEntry("Incongruenza dati sopralluogo. L'inserimento viene ignorato.", TraceEventType.Critical)
+        End If
+        Return -1
+    End Function
+
+    Public Function inserimentoRubrica(ByVal a As System.Collections.Hashtable, ByVal idOS As Integer) As Integer
+        If Not (a.Item("testo") = Nothing) Then
+
+            Dim dR As New dbAlegatoADataSet.rubricaDataTable
+            Dim tRubrica As New dbAlegatoADataSetTableAdapters.rubricaTableAdapter
+
+            Dim sTesto As String = a.Item("testo")
+
+            'controllo doppione
+            Dim c As Integer = -1
+
+            'cerco il doppione solo confrontando idOS e oraRichiesa
+            c = tRubrica.FillByRicercaDoppione(dR, idOS, sTesto)
+
+
+            If (c <= 0) Then
+                Dim i As Integer
+                log.xlogWriteEntry("Inserimento voce rubrica. idOS:" & idOS, TraceEventType.Critical)
+                Dim tSopralluogo As New dbAlegatoADataSetTableAdapters.rubricaTableAdapter
+                i = tSopralluogo.Insert(idOS, sTesto)
+                Return i
+            Else
+                log.xlogWriteEntry("Inserimento voce rubrica IGNORATO, perchè già presente. idOS:" & idOS, TraceEventType.Critical)
+                Return -1
+            End If
+        Else
+            'se ci sono errori allora ignoro l'inserimento
+            log.xlogWriteEntry("Incongruenza dati rubrica. L'inserimento viene ignorato.", TraceEventType.Critical)
         End If
         Return -1
     End Function

@@ -19,7 +19,7 @@ Public Class ApplicazionePatch
         'esegue la creazione della tabella sopralluogo, inserisce il numero versione DB 2.50
         feActions.esegueSQL("CREATE TABLE sopralluogo  (idSopralluogo COUNTER CONSTRAINT ChiavePrimariaConstraint PRIMARY KEY, idOS INTEGER, tipoReato TEXT(50),oraRedazione DATETIME, oraRichiesta DATETIME,luogo_citta TEXT(50), via TEXT(150), contatti_con TEXT(200),resoconto MEMO,FOREIGN KEY (idOS) REFERENCES ordineServizio(id));")
         ' feActions.esegueSQL("CREATE VIEW QSopralluogo AS SELECT (id , idOS , tipoReato,oraRedazione , oraRichiesta ,luogo_citta , via , contatti_con ,resoconto, ordineServizio.nome) FROM ordineServizio, sopralluogo WHERE ordineServizio.id=sopralluogo.id;")
-        feActions.esegueSQL("CREATE VIEW QSopralluogo AS SELECT * FROM QOrdineServizio, sopralluogo  WHERE QOrdineServizio.id=idOS;")
+        feActions.esegueSQL("CREATE VIEW QSopralluogo AS SELECT *, nome AS nomeOS FROM QOrdineServizio, sopralluogo  WHERE QOrdineServizio.id=idOS;")
         aggiornaNumeroVersione("2.40")
     End Sub
 
@@ -27,7 +27,7 @@ Public Class ApplicazionePatch
     Private Sub patch4_creazionetabellaRubrica()
         'creo la tabella per la rubrica
         feActions.esegueSQL("CREATE TABLE rubrica  (idRubrica COUNTER CONSTRAINT ChiavePrimariaConstraint PRIMARY KEY, idOS INTEGER,testo MEMO,FOREIGN KEY (idOS) REFERENCES ordineServizio(id));")
-        feActions.esegueSQL("CREATE VIEW QRubrica AS SELECT * FROM QOrdineServizio, rubrica WHERE QOrdineServizio.id=idOS;")
+        feActions.esegueSQL("CREATE VIEW QRubrica AS SELECT * , nome AS nomeOS FROM QOrdineServizio, rubrica WHERE QOrdineServizio.id=idOS;")
         aggiornaNumeroVersione("2.60")
     End Sub
 
