@@ -6586,8 +6586,6 @@ Partial Public Class dbAlegatoADataSet
         Inherits Global.System.Data.DataTable
         Implements Global.System.Collections.IEnumerable
         
-        Private columnnome As Global.System.Data.DataColumn
-        
         Private columndata As Global.System.Data.DataColumn
         
         Private columnidOS As Global.System.Data.DataColumn
@@ -6599,6 +6597,8 @@ Partial Public Class dbAlegatoADataSet
         Private columnidRubrica As Global.System.Data.DataColumn
         
         Private columnoperatori As Global.System.Data.DataColumn
+        
+        Private columnnomeOS As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -6631,13 +6631,6 @@ Partial Public Class dbAlegatoADataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property nomeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnnome
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property dataColumn() As Global.System.Data.DataColumn
@@ -6681,6 +6674,13 @@ Partial Public Class dbAlegatoADataSet
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nomeOSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnomeOS
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -6710,9 +6710,9 @@ Partial Public Class dbAlegatoADataSet
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddQRubricaRow(ByVal nome As String, ByVal data As Date, ByVal idOS As Integer, ByVal testo As String, ByVal operatori As String) As QRubricaRow
+        Public Overloads Function AddQRubricaRow(ByVal data As Date, ByVal idOS As Integer, ByVal testo As String, ByVal operatori As String, ByVal nomeOS As String) As QRubricaRow
             Dim rowQRubricaRow As QRubricaRow = CType(Me.NewRow,QRubricaRow)
-            Dim columnValuesArray() As Object = New Object() {nome, data, idOS, testo, Nothing, Nothing, operatori}
+            Dim columnValuesArray() As Object = New Object() {data, idOS, testo, Nothing, Nothing, operatori, nomeOS}
             rowQRubricaRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowQRubricaRow)
             Return rowQRubricaRow
@@ -6737,19 +6737,17 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub InitVars()
-            Me.columnnome = MyBase.Columns("nome")
             Me.columndata = MyBase.Columns("data")
             Me.columnidOS = MyBase.Columns("idOS")
             Me.columntesto = MyBase.Columns("testo")
             Me.columnID = MyBase.Columns("ID")
             Me.columnidRubrica = MyBase.Columns("idRubrica")
             Me.columnoperatori = MyBase.Columns("operatori")
+            Me.columnnomeOS = MyBase.Columns("nomeOS")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
-            Me.columnnome = New Global.System.Data.DataColumn("nome", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnnome)
             Me.columndata = New Global.System.Data.DataColumn("data", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndata)
             Me.columnidOS = New Global.System.Data.DataColumn("idOS", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
@@ -6762,11 +6760,13 @@ Partial Public Class dbAlegatoADataSet
             MyBase.Columns.Add(Me.columnidRubrica)
             Me.columnoperatori = New Global.System.Data.DataColumn("operatori", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnoperatori)
-            Me.columnnome.MaxLength = 50
+            Me.columnnomeOS = New Global.System.Data.DataColumn("nomeOS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnomeOS)
             Me.columntesto.MaxLength = 536870910
             Me.columnID.AutoIncrement = true
             Me.columnidRubrica.AutoIncrement = true
             Me.columnoperatori.MaxLength = 255
+            Me.columnnomeOS.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -6897,8 +6897,6 @@ Partial Public Class dbAlegatoADataSet
         Inherits Global.System.Data.DataTable
         Implements Global.System.Collections.IEnumerable
         
-        Private columnnome As Global.System.Data.DataColumn
-        
         Private columndata As Global.System.Data.DataColumn
         
         Private columnidSopralluogo As Global.System.Data.DataColumn
@@ -6922,6 +6920,8 @@ Partial Public Class dbAlegatoADataSet
         Private columnoperatori As Global.System.Data.DataColumn
         
         Private columnID As Global.System.Data.DataColumn
+        
+        Private columnnomeOS As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub New()
@@ -6954,13 +6954,6 @@ Partial Public Class dbAlegatoADataSet
             MyBase.New(info, context)
             Me.InitVars
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public ReadOnly Property nomeColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnnome
-            End Get
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public ReadOnly Property dataColumn() As Global.System.Data.DataColumn
@@ -7046,6 +7039,13 @@ Partial Public Class dbAlegatoADataSet
             End Get
         End Property
         
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public ReadOnly Property nomeOSColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnnomeOS
+            End Get
+        End Property
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -7075,9 +7075,9 @@ Partial Public Class dbAlegatoADataSet
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Overloads Function AddQSopralluogoRow(ByVal nome As String, ByVal data As Date, ByVal idOS As Integer, ByVal tipoReato As String, ByVal oraRedazione As Date, ByVal oraRichiesta As Date, ByVal luogo_citta As String, ByVal via As String, ByVal contatti_con As String, ByVal resoconto As String, ByVal operatori As String) As QSopralluogoRow
+        Public Overloads Function AddQSopralluogoRow(ByVal data As Date, ByVal idOS As Integer, ByVal tipoReato As String, ByVal oraRedazione As Date, ByVal oraRichiesta As Date, ByVal luogo_citta As String, ByVal via As String, ByVal contatti_con As String, ByVal resoconto As String, ByVal operatori As String, ByVal nomeOS As String) As QSopralluogoRow
             Dim rowQSopralluogoRow As QSopralluogoRow = CType(Me.NewRow,QSopralluogoRow)
-            Dim columnValuesArray() As Object = New Object() {nome, data, Nothing, idOS, tipoReato, oraRedazione, oraRichiesta, luogo_citta, via, contatti_con, resoconto, operatori, Nothing}
+            Dim columnValuesArray() As Object = New Object() {data, Nothing, idOS, tipoReato, oraRedazione, oraRichiesta, luogo_citta, via, contatti_con, resoconto, operatori, Nothing, nomeOS}
             rowQSopralluogoRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowQSopralluogoRow)
             Return rowQSopralluogoRow
@@ -7102,7 +7102,6 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Friend Sub InitVars()
-            Me.columnnome = MyBase.Columns("nome")
             Me.columndata = MyBase.Columns("data")
             Me.columnidSopralluogo = MyBase.Columns("idSopralluogo")
             Me.columnidOS = MyBase.Columns("idOS")
@@ -7115,12 +7114,11 @@ Partial Public Class dbAlegatoADataSet
             Me.columnresoconto = MyBase.Columns("resoconto")
             Me.columnoperatori = MyBase.Columns("operatori")
             Me.columnID = MyBase.Columns("ID")
+            Me.columnnomeOS = MyBase.Columns("nomeOS")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitClass()
-            Me.columnnome = New Global.System.Data.DataColumn("nome", GetType(String), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnnome)
             Me.columndata = New Global.System.Data.DataColumn("data", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columndata)
             Me.columnidSopralluogo = New Global.System.Data.DataColumn("idSopralluogo", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
@@ -7145,7 +7143,8 @@ Partial Public Class dbAlegatoADataSet
             MyBase.Columns.Add(Me.columnoperatori)
             Me.columnID = New Global.System.Data.DataColumn("ID", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnID)
-            Me.columnnome.MaxLength = 50
+            Me.columnnomeOS = New Global.System.Data.DataColumn("nomeOS", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnnomeOS)
             Me.columnidSopralluogo.AutoIncrement = true
             Me.columntipoReato.MaxLength = 50
             Me.columnluogo_citta.MaxLength = 50
@@ -7154,6 +7153,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnresoconto.MaxLength = 536870910
             Me.columnoperatori.MaxLength = 255
             Me.columnID.AutoIncrement = true
+            Me.columnnomeOS.MaxLength = 50
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
@@ -10404,20 +10404,6 @@ Partial Public Class dbAlegatoADataSet
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property nome() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableQRubrica.nomeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'nome' in table 'QRubrica' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableQRubrica.nomeColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property data() As Date
             Get
                 Try 
@@ -10502,14 +10488,18 @@ Partial Public Class dbAlegatoADataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsnomeNull() As Boolean
-            Return Me.IsNull(Me.tableQRubrica.nomeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetnomeNull()
-            Me(Me.tableQRubrica.nomeColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property nomeOS() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableQRubrica.nomeOSColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'nomeOS' in table 'QRubrica' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableQRubrica.nomeOSColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsdataNull() As Boolean
@@ -10570,6 +10560,16 @@ Partial Public Class dbAlegatoADataSet
         Public Sub SetoperatoriNull()
             Me(Me.tableQRubrica.operatoriColumn) = Global.System.Convert.DBNull
         End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsnomeOSNull() As Boolean
+            Return Me.IsNull(Me.tableQRubrica.nomeOSColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetnomeOSNull()
+            Me(Me.tableQRubrica.nomeOSColumn) = Global.System.Convert.DBNull
+        End Sub
     End Class
     
     '''<summary>
@@ -10586,20 +10586,6 @@ Partial Public Class dbAlegatoADataSet
             MyBase.New(rb)
             Me.tableQSopralluogo = CType(Me.Table,QSopralluogoDataTable)
         End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Property nome() As String
-            Get
-                Try 
-                    Return CType(Me(Me.tableQSopralluogo.nomeColumn),String)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'nome' in table 'QSopralluogo' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableQSopralluogo.nomeColumn) = value
-            End Set
-        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property data() As Date
@@ -10770,14 +10756,18 @@ Partial Public Class dbAlegatoADataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Function IsnomeNull() As Boolean
-            Return Me.IsNull(Me.tableQSopralluogo.nomeColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
-        Public Sub SetnomeNull()
-            Me(Me.tableQSopralluogo.nomeColumn) = Global.System.Convert.DBNull
-        End Sub
+        Public Property nomeOS() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableQSopralluogo.nomeOSColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'nomeOS' in table 'QSopralluogo' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableQSopralluogo.nomeOSColumn) = value
+            End Set
+        End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Function IsdataNull() As Boolean
@@ -10897,6 +10887,16 @@ Partial Public Class dbAlegatoADataSet
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Sub SetIDNull()
             Me(Me.tableQSopralluogo.IDColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Function IsnomeOSNull() As Boolean
+            Return Me.IsNull(Me.tableQSopralluogo.nomeOSColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Sub SetnomeOSNull()
+            Me(Me.tableQSopralluogo.nomeOSColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -18431,7 +18431,7 @@ Namespace dbAlegatoADataSetTableAdapters
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(4) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(5) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT idOS, testo, idRubrica FROM rubrica"
@@ -18455,6 +18455,12 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(4).CommandText = "SELECT idOS, testo, idRubrica FROM rubrica WHERE (idOS = pIdOS)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIdOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand
+            Me._commandCollection(5).Connection = Me.Connection
+            Me._commandCollection(5).CommandText = "SELECT idOS, testo, idRubrica FROM rubrica WHERE idOS=pIdOS AND testo= pTesto"
+            Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIdOS", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pTesto", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -18515,6 +18521,28 @@ Namespace dbAlegatoADataSetTableAdapters
         Public Overloads Overridable Function FillByOS(ByVal dataTable As dbAlegatoADataSet.rubricaDataTable, ByVal pIdOS As Integer) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(pIdOS,Integer)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillByRicercaDoppione(ByVal dataTable As dbAlegatoADataSet.rubricaDataTable, ByVal pIdOS As String, ByVal pTesto As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
+            If (pIdOS Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("pIdOS")
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(pIdOS,String)
+            End If
+            If (pTesto Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("pTesto")
+            Else
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(pTesto,String)
+            End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
             End If
@@ -18753,13 +18781,13 @@ Namespace dbAlegatoADataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "QRubrica"
-            tableMapping.ColumnMappings.Add("nome", "nome")
             tableMapping.ColumnMappings.Add("data", "data")
             tableMapping.ColumnMappings.Add("idOS", "idOS")
             tableMapping.ColumnMappings.Add("testo", "testo")
             tableMapping.ColumnMappings.Add("ID", "ID")
             tableMapping.ColumnMappings.Add("idRubrica", "idRubrica")
             tableMapping.ColumnMappings.Add("operatori", "operatori")
+            tableMapping.ColumnMappings.Add("nomeOS", "nomeOS")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -18774,12 +18802,12 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT nome, data, idOS, testo, ID, idRubrica, operatori FROM QRubrica"
+            Me._commandCollection(0).CommandText = "SELECT data, idOS, testo, ID, idRubrica, operatori, nomeOS FROM QRubrica"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT nome, data, idOS, testo, ID, idRubrica, operatori FROM QRubrica WHERE (dat"& _ 
-                "a BETWEEN pDataInizio AND pDataFine)"
+            Me._commandCollection(1).CommandText = "SELECT data, idOS, testo, ID, idRubrica, operatori, nomeOS FROM QRubrica WHERE (d"& _ 
+                "ata BETWEEN pDataInizio AND pDataFine)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pDataInizio", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pDataFine", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -18922,7 +18950,6 @@ Namespace dbAlegatoADataSetTableAdapters
             Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping
             tableMapping.SourceTable = "Table"
             tableMapping.DataSetTable = "QSopralluogo"
-            tableMapping.ColumnMappings.Add("nome", "nome")
             tableMapping.ColumnMappings.Add("data", "data")
             tableMapping.ColumnMappings.Add("idSopralluogo", "idSopralluogo")
             tableMapping.ColumnMappings.Add("idOS", "idOS")
@@ -18935,6 +18962,7 @@ Namespace dbAlegatoADataSetTableAdapters
             tableMapping.ColumnMappings.Add("resoconto", "resoconto")
             tableMapping.ColumnMappings.Add("operatori", "operatori")
             tableMapping.ColumnMappings.Add("ID", "ID")
+            tableMapping.ColumnMappings.Add("nomeOS", "nomeOS")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -18949,37 +18977,37 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(4) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT nome, data, idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, lu"& _ 
-                "ogo_citta, via, contatti_con, resoconto, operatori, ID FROM QSopralluogo"
+            Me._commandCollection(0).CommandText = "SELECT data, idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, luogo_ci"& _ 
+                "tta, via, contatti_con, resoconto, operatori, ID, nomeOS FROM QSopralluogo"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT nome, data, idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, lu"& _ 
-                "ogo_citta, via, contatti_con, resoconto, operatori, ID FROM QSopralluogo WHERE ("& _ 
-                "pCampoRicerca LIKE nome & ' ' & data & ' ' & tipoReato & ' ' & luogo_citta & ' '"& _ 
-                " & via & ' ' & contatti_con & ' ' & resoconto)"
+            Me._commandCollection(1).CommandText = "SELECT data, idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, luogo_ci"& _ 
+                "tta, via, contatti_con, resoconto, operatori, ID, nomeOS FROM QSopralluogo WHERE"& _ 
+                " (pCampoRicerca LIKE nome & ' ' & data & ' ' & tipoReato & ' ' & luogo_citta & '"& _ 
+                " ' & via & ' ' & contatti_con & ' ' & resoconto)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pCampoRicerca", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT nome, data, idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, lu"& _ 
-                "ogo_citta, via, contatti_con, resoconto, operatori, ID FROM QSopralluogo WHERE ("& _ 
-                "oraRichiesta BETWEEN pDataInizio AND pDataFine)"
+            Me._commandCollection(2).CommandText = "SELECT data, idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, luogo_ci"& _ 
+                "tta, via, contatti_con, resoconto, operatori, ID, nomeOS FROM QSopralluogo WHERE"& _ 
+                " (oraRichiesta BETWEEN pDataInizio AND pDataFine)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pDataInizio", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pDataFine", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT nome, data, idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, lu"& _ 
-                "ogo_citta, via, contatti_con, resoconto, operatori, ID FROM QSopralluogo WHERE ("& _ 
-                "idOS = pIdOS)"
+            Me._commandCollection(3).CommandText = "SELECT data, idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, luogo_ci"& _ 
+                "tta, via, contatti_con, resoconto, operatori, ID, nomeOS FROM QSopralluogo WHERE"& _ 
+                " (idOS = pIdOS)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIdOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT nome, data, idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, lu"& _ 
-                "ogo_citta, via, contatti_con, resoconto, operatori, ID FROM QSopralluogo WHERE ("& _ 
-                "idOS = pIdOS) AND (oraRichiesta = pOraRichiesta)"
+            Me._commandCollection(4).CommandText = "SELECT data, idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, luogo_ci"& _ 
+                "tta, via, contatti_con, resoconto, operatori, ID, nomeOS FROM QSopralluogo WHERE"& _ 
+                " (idOS = pIdOS) AND (oraRichiesta = pOraRichiesta)"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIdOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pOraRichiesta", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
