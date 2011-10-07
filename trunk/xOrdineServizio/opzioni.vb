@@ -6,10 +6,10 @@ Public Class opzioni
         'layout prima pagina
         If (RadioButton_layoutRiepilogoInserimentiS.Checked) Then
             FPrima.TableLayoutPanelRiepilogoInserimenti.Visible = True
-            FPrima.ButtonVedi.Visible = False
+            FPrima.BtnVedi.Visible = False
         Else
             FPrima.TableLayoutPanelRiepilogoInserimenti.Visible = False
-            FPrima.ButtonVedi.Visible = True
+            FPrima.BtnVedi.Visible = True
         End If
 
         'salvataggio automatico

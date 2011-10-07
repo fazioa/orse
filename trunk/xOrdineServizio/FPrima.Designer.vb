@@ -101,7 +101,7 @@ Partial Class FPrima
         Me.btnIntervento = New System.Windows.Forms.Button
         Me.textBoxInfoOS = New System.Windows.Forms.TextBox
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
-        Me.ButtonVedi = New System.Windows.Forms.Button
+        Me.BtnVedi = New System.Windows.Forms.Button
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
         Me.FlowLayoutPanelEsterno = New System.Windows.Forms.FlowLayoutPanel
         Me.btnInformazioni = New System.Windows.Forms.Button
@@ -152,125 +152,125 @@ Partial Class FPrima
         'PreferenzeToolStripMenuItem1
         '
         Me.PreferenzeToolStripMenuItem1.Name = "PreferenzeToolStripMenuItem1"
-        Me.PreferenzeToolStripMenuItem1.Size = New System.Drawing.Size(74, 20)
+        Me.PreferenzeToolStripMenuItem1.Size = New System.Drawing.Size(72, 20)
         Me.PreferenzeToolStripMenuItem1.Text = "Preferenze"
         '
         'StampaToolStripMenuItem
         '
         Me.StampaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.informazioniToolStripMenuItem, Me.AllegatoAToolStripMenuItem, Me.OP85ToolStripMenuItem})
         Me.StampaToolStripMenuItem.Name = "StampaToolStripMenuItem"
-        Me.StampaToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.StampaToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
         Me.StampaToolStripMenuItem.Text = "Stampa..."
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
         Me.ToolStripMenuItem1.Text = "Interventi..."
         '
         'informazioniToolStripMenuItem
         '
         Me.informazioniToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem"
-        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.informazioniToolStripMenuItem.Text = "Informazioni..."
         '
         'AllegatoAToolStripMenuItem
         '
         Me.AllegatoAToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printAllegatoA
         Me.AllegatoAToolStripMenuItem.Name = "AllegatoAToolStripMenuItem"
-        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.AllegatoAToolStripMenuItem.Text = "Allegato A..."
         '
         'OP85ToolStripMenuItem
         '
         Me.OP85ToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
         Me.OP85ToolStripMenuItem.Name = "OP85ToolStripMenuItem"
-        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.OP85ToolStripMenuItem.Text = "OP85..."
         '
         'StrumentiToolStripMenuItem
         '
         Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CercaToolStripMenuItem, Me.ToolStripSeparator2, Me.ExportToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ToolStripSeparator3, Me.CancellaToolStripMenuItem, Me.CercaAggiornamentiToolStripMenuItem, Me.ToolStripMenuItemLOG, Me.FinestraDiTestToolStripMenuItem, Me.ToolStripSeparator1, Me.EseguiBackupDBToolStripMenuItem, Me.RipristinaBackupDBToolStripMenuItem})
         Me.StrumentiToolStripMenuItem.Name = "StrumentiToolStripMenuItem"
-        Me.StrumentiToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
+        Me.StrumentiToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
         Me.StrumentiToolStripMenuItem.Text = "Strumenti..."
         '
         'CercaToolStripMenuItem
         '
         Me.CercaToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.DBFind
         Me.CercaToolStripMenuItem.Name = "CercaToolStripMenuItem"
-        Me.CercaToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.CercaToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.CercaToolStripMenuItem.Text = "Cerca..."
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(210, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(208, 6)
         '
         'ExportToolStripMenuItem
         '
         Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.ExportToolStripMenuItem.Text = "export..."
         Me.ExportToolStripMenuItem.Visible = False
         '
         'ImportToolStripMenuItem
         '
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.ImportToolStripMenuItem.Text = "import..."
         Me.ImportToolStripMenuItem.Visible = False
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(210, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(208, 6)
         Me.ToolStripSeparator3.Visible = False
         '
         'CancellaToolStripMenuItem
         '
         Me.CancellaToolStripMenuItem.Name = "CancellaToolStripMenuItem"
-        Me.CancellaToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.CancellaToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.CancellaToolStripMenuItem.Text = "Cancella..."
         '
         'CercaAggiornamentiToolStripMenuItem
         '
         Me.CercaAggiornamentiToolStripMenuItem.Name = "CercaAggiornamentiToolStripMenuItem"
-        Me.CercaAggiornamentiToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.CercaAggiornamentiToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.CercaAggiornamentiToolStripMenuItem.Text = "Controlla aggiornamenti..."
         '
         'ToolStripMenuItemLOG
         '
         Me.ToolStripMenuItemLOG.CheckOnClick = True
         Me.ToolStripMenuItemLOG.Name = "ToolStripMenuItemLOG"
-        Me.ToolStripMenuItemLOG.Size = New System.Drawing.Size(213, 22)
+        Me.ToolStripMenuItemLOG.Size = New System.Drawing.Size(211, 22)
         Me.ToolStripMenuItemLOG.Text = "Finestra log"
         Me.ToolStripMenuItemLOG.Visible = False
         '
         'FinestraDiTestToolStripMenuItem
         '
         Me.FinestraDiTestToolStripMenuItem.Name = "FinestraDiTestToolStripMenuItem"
-        Me.FinestraDiTestToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.FinestraDiTestToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.FinestraDiTestToolStripMenuItem.Text = "finestra di test"
         Me.FinestraDiTestToolStripMenuItem.Visible = False
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(210, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(208, 6)
         '
         'EseguiBackupDBToolStripMenuItem
         '
         Me.EseguiBackupDBToolStripMenuItem.Name = "EseguiBackupDBToolStripMenuItem"
-        Me.EseguiBackupDBToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.EseguiBackupDBToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.EseguiBackupDBToolStripMenuItem.Text = "Esegui backup DB"
         '
         'RipristinaBackupDBToolStripMenuItem
         '
         Me.RipristinaBackupDBToolStripMenuItem.Name = "RipristinaBackupDBToolStripMenuItem"
-        Me.RipristinaBackupDBToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.RipristinaBackupDBToolStripMenuItem.Size = New System.Drawing.Size(211, 22)
         Me.RipristinaBackupDBToolStripMenuItem.Text = "Ripristina backup DB"
         '
         'SessioneToolStripMenuItem
@@ -283,20 +283,20 @@ Partial Class FPrima
         'LogoutToolStripMenuItem1
         '
         Me.LogoutToolStripMenuItem1.Name = "LogoutToolStripMenuItem1"
-        Me.LogoutToolStripMenuItem1.Size = New System.Drawing.Size(121, 22)
+        Me.LogoutToolStripMenuItem1.Size = New System.Drawing.Size(130, 22)
         Me.LogoutToolStripMenuItem1.Text = "Logout..."
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VersioneToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(40, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
         'VersioneToolStripMenuItem
         '
         Me.VersioneToolStripMenuItem.Name = "VersioneToolStripMenuItem"
-        Me.VersioneToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.VersioneToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.VersioneToolStripMenuItem.Text = "About OrSe"
         '
         'PreferenzeToolStripMenuItem
@@ -309,7 +309,7 @@ Partial Class FPrima
         'OpzioniToolStripMenuItem
         '
         Me.OpzioniToolStripMenuItem.Name = "OpzioniToolStripMenuItem"
-        Me.OpzioniToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.OpzioniToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.OpzioniToolStripMenuItem.Text = "Opzioni..."
         '
         'ImageList1
@@ -571,7 +571,7 @@ Partial Class FPrima
         Me.dataoraInizio.HeaderText = "Inizio"
         Me.dataoraInizio.Name = "dataoraInizio"
         Me.dataoraInizio.ReadOnly = True
-        Me.dataoraInizio.Width = 56
+        Me.dataoraInizio.Width = 54
         '
         'dataOraFine
         '
@@ -593,7 +593,7 @@ Partial Class FPrima
         Me.tipointervento.HeaderText = "Tipo Intervento"
         Me.tipointervento.Name = "tipointervento"
         Me.tipointervento.ReadOnly = True
-        Me.tipointervento.Width = 104
+        Me.tipointervento.Width = 102
         '
         'resoconto
         '
@@ -719,7 +719,7 @@ Partial Class FPrima
         Me.DataGridViewTextBoxColumn3.HeaderText = "Tipo Intervento"
         Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
         Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        Me.DataGridViewTextBoxColumn3.Width = 104
+        Me.DataGridViewTextBoxColumn3.Width = 102
         '
         'DataGridViewTextBoxColumn4
         '
@@ -805,17 +805,17 @@ Partial Class FPrima
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1008, 0)
         Me.FlowLayoutPanel1.TabIndex = 24
         '
-        'ButtonVedi
+        'BtnVedi
         '
-        Me.ButtonVedi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.ButtonVedi.FlatAppearance.BorderSize = 3
-        Me.ButtonVedi.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
-        Me.ButtonVedi.Location = New System.Drawing.Point(615, 94)
-        Me.ButtonVedi.Name = "ButtonVedi"
-        Me.ButtonVedi.Size = New System.Drawing.Size(300, 85)
-        Me.ButtonVedi.TabIndex = 8
-        Me.ButtonVedi.Text = "V&edi..."
-        Me.ButtonVedi.UseVisualStyleBackColor = True
+        Me.BtnVedi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.BtnVedi.FlatAppearance.BorderSize = 3
+        Me.BtnVedi.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
+        Me.BtnVedi.Location = New System.Drawing.Point(615, 94)
+        Me.BtnVedi.Name = "BtnVedi"
+        Me.BtnVedi.Size = New System.Drawing.Size(300, 85)
+        Me.BtnVedi.TabIndex = 8
+        Me.BtnVedi.Text = "V&edi..."
+        Me.BtnVedi.UseVisualStyleBackColor = True
         '
         'TableLayoutPanel2
         '
@@ -845,7 +845,7 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnInformazioni)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnSopralluogo)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnRubrica)
-        Me.FlowLayoutPanelEsterno.Controls.Add(Me.ButtonVedi)
+        Me.FlowLayoutPanelEsterno.Controls.Add(Me.BtnVedi)
         Me.FlowLayoutPanelEsterno.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanelEsterno.Location = New System.Drawing.Point(0, 77)
         Me.FlowLayoutPanelEsterno.Name = "FlowLayoutPanelEsterno"
@@ -1119,7 +1119,7 @@ Partial Class FPrima
     Friend WithEvents btnAlegatoA As System.Windows.Forms.Button
     Friend WithEvents textBoxInfoOS As System.Windows.Forms.TextBox
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents ButtonVedi As System.Windows.Forms.Button
+    Friend WithEvents BtnVedi As System.Windows.Forms.Button
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents FlowLayoutPanelEsterno As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents btnInformazioni As System.Windows.Forms.Button

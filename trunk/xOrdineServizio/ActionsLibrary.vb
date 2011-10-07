@@ -924,9 +924,9 @@ Public Class ActionsLibrary
 
             Dim sTipoReato As String = a.Item("tipoReato")
             Dim sLuogo_citta As String = a.Item("luogo_citta")
-            Dim sVia As Integer = a.Item("via")
-            Dim sContatti_con As Integer = a.Item("contatti_con")
-            Dim sResoconto As Integer = a.Item("resoconto")
+            Dim sVia As String = a.Item("via")
+            Dim sContatti_con As String = a.Item("contatti_con")
+            Dim sResoconto As String = a.Item("resoconto")
 
 
             'controllo doppione

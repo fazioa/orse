@@ -233,7 +233,7 @@ Public Class DInsDatiPreliminari
                 Dim nrInf = QInterventiTableAdapter.FillByOS(DbAlegatoADataSet.QInterventi, idOS, paragrafoOS.informazioni)
                 TreeViewOS.SelectedNode.Nodes.Add("f", "Informazioni: " & nrInf)
                 fillTreeNodeInterventi_Informazioni(TreeViewOS, TreeViewOS.SelectedNode.Nodes("f"), QInterventiBindingSource, paragrafoOS.informazioni)
-
+                QSopralluogoTableAdapter.FillByOS(DbAlegatoADataSet.QSopralluogo, idOS)
                 Dim nrSopr = QSopralluogoTableAdapter.FillByOS(DbAlegatoADataSet.QSopralluogo, idOS)
                 TreeViewOS.SelectedNode.Nodes.Add("s", "Sopralluogo: " & nrSopr)
                 fillTreeNodeSopralluogo(TreeViewOS, TreeViewOS.SelectedNode.Nodes("s"), QSopralluogoBindingSource)
