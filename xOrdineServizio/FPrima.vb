@@ -32,11 +32,11 @@ Public Class FPrima
         'se il parametro è a true allora visualizzo i report in prima pagina, altrimenti metto tutto a visible=false
         If (My.MySettings.Default.display_reportPrimaPagina = True) Then
             TableLayoutPanelRiepilogoInserimenti.Visible = True
-            ButtonVedi.Visible = False
+            BtnVedi.Visible = False
 
         Else
             TableLayoutPanelRiepilogoInserimenti.Visible = False
-            ButtonVedi.Visible = True
+            BtnVedi.Visible = True
 
         End If
 
@@ -306,7 +306,8 @@ Public Class FPrima
         btnInformazioni.Enabled = b
         btnSopralluogo.Enabled = b
         btnRubrica.Enabled = b
-
+        BtnVedi.Enabled = b
+        textBoxInfoOS.Text = ""
     End Sub
 
     Private Sub PreferenzeToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PreferenzeToolStripMenuItem1.Click
@@ -459,8 +460,8 @@ Public Class FPrima
     End Sub
 
 
-    
-    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ButtonVedi.Click
+
+    Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnVedi.Click
         Dim form As System.Windows.Forms.Form
         form = New FVedi(parametri.idOS)
         form.Visible = True
