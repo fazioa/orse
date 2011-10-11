@@ -491,4 +491,5 @@ Public Class FSoggetto
         If (Not bFlagBloccoCheckPersona) Then checkPersona()
 
     End Sub
+
 End Class

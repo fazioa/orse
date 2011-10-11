@@ -22,9 +22,9 @@ Partial Class UserControlComboBox
         Me.components = New System.ComponentModel.Container
         Me.TextBox1 = New System.Windows.Forms.TextBox
         Me.LuoghicontrolloBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OperatoreBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbAlegatoADataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
+        Me.OperatoreBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter
         Me.LuoghicontrolloTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.luoghicontrolloTableAdapter
         Me.ControlloBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -33,9 +33,9 @@ Partial Class UserControlComboBox
         Me.ControlloTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.controlloTableAdapter
         Me.ModelliMezzoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         CType(Me.LuoghicontrolloBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ControlloBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModelliMezzoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -50,16 +50,12 @@ Partial Class UserControlComboBox
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(419, 41)
         Me.TextBox1.TabIndex = 0
+        Me.TextBox1.WordWrap = False
         '
         'LuoghicontrolloBindingSource
         '
         Me.LuoghicontrolloBindingSource.DataMember = "luoghicontrollo"
         Me.LuoghicontrolloBindingSource.DataSource = Me.DbAlegatoADataSetBindingSource
-        '
-        'OperatoreBindingSource
-        '
-        Me.OperatoreBindingSource.DataMember = "operatore"
-        Me.OperatoreBindingSource.DataSource = Me.DbAlegatoADataSetBindingSource
         '
         'DbAlegatoADataSetBindingSource
         '
@@ -70,6 +66,11 @@ Partial Class UserControlComboBox
         '
         Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
         Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'OperatoreBindingSource
+        '
+        Me.OperatoreBindingSource.DataMember = "operatore"
+        Me.OperatoreBindingSource.DataSource = Me.DbAlegatoADataSetBindingSource
         '
         'ModelliMezzoTableAdapter
         '
@@ -109,11 +110,11 @@ Partial Class UserControlComboBox
         Me.CausesValidation = False
         Me.Controls.Add(Me.TextBox1)
         Me.Name = "UserControlComboBox"
-        Me.Size = New System.Drawing.Size(419, 86)
+        Me.Size = New System.Drawing.Size(419, 46)
         CType(Me.LuoghicontrolloBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbAlegatoADataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ControlloBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ModelliMezzoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

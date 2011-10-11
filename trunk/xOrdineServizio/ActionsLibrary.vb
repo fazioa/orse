@@ -655,7 +655,7 @@ Public Class ActionsLibrary
                 For Each campo In orseNode.ChildNodes()
                     Try
                         a.Add(campo.Name, campo.InnerText)
-                        log.xlogWriteEntry(campo.Name & " - " & campo.InnerText, TraceEventType.Information)
+                        'log.xlogWriteEntry(campo.Name & " - " & campo.InnerText, TraceEventType.Information)
                     Catch ex As Exception
                         log.xlogWriteEntry("Errore lettura dati da file XML " & nomeFile, TraceEventType.Error)
                     End Try
