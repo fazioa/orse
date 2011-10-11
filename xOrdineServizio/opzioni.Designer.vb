@@ -307,7 +307,7 @@ Partial Class opzioni
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 3)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(694, 278)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(694, 272)
         Me.FlowLayoutPanel1.TabIndex = 5
         '
         'FlowLayoutPanel2
@@ -490,7 +490,7 @@ Partial Class opzioni
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(700, 284)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(700, 278)
         Me.FlowLayoutPanel3.TabIndex = 1
         '
         'GroupBox9
@@ -552,7 +552,7 @@ Partial Class opzioni
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(205, 20)
+        Me.Label14.Location = New System.Drawing.Point(210, 20)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(44, 13)
         Me.Label14.TabIndex = 2
@@ -561,7 +561,7 @@ Partial Class opzioni
         'tbIntervalloSalvataggioAutomatico
         '
         Me.tbIntervalloSalvataggioAutomatico.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "intervalloSalvataggioAutomatico", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.tbIntervalloSalvataggioAutomatico.Location = New System.Drawing.Point(168, 16)
+        Me.tbIntervalloSalvataggioAutomatico.Location = New System.Drawing.Point(170, 16)
         Me.tbIntervalloSalvataggioAutomatico.Name = "tbIntervalloSalvataggioAutomatico"
         Me.tbIntervalloSalvataggioAutomatico.Size = New System.Drawing.Size(39, 20)
         Me.tbIntervalloSalvataggioAutomatico.TabIndex = 1
@@ -590,6 +590,7 @@ Partial Class opzioni
         Me.TabControl1.HotTrack = True
         Me.TabControl1.Location = New System.Drawing.Point(0, 0)
         Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.Padding = New System.Drawing.Point(20, 6)
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(708, 313)
         Me.TabControl1.TabIndex = 7
@@ -597,10 +598,10 @@ Partial Class opzioni
         'TabPageIntestazioni
         '
         Me.TabPageIntestazioni.Controls.Add(Me.GroupBox3)
-        Me.TabPageIntestazioni.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageIntestazioni.Location = New System.Drawing.Point(4, 31)
         Me.TabPageIntestazioni.Name = "TabPageIntestazioni"
         Me.TabPageIntestazioni.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageIntestazioni.Size = New System.Drawing.Size(700, 284)
+        Me.TabPageIntestazioni.Size = New System.Drawing.Size(700, 278)
         Me.TabPageIntestazioni.TabIndex = 0
         Me.TabPageIntestazioni.Text = "Intestazioni"
         Me.TabPageIntestazioni.UseVisualStyleBackColor = True
@@ -608,10 +609,10 @@ Partial Class opzioni
         'TabPageFirma
         '
         Me.TabPageFirma.Controls.Add(Me.FlowLayoutPanel1)
-        Me.TabPageFirma.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageFirma.Location = New System.Drawing.Point(4, 31)
         Me.TabPageFirma.Name = "TabPageFirma"
         Me.TabPageFirma.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageFirma.Size = New System.Drawing.Size(700, 284)
+        Me.TabPageFirma.Size = New System.Drawing.Size(700, 278)
         Me.TabPageFirma.TabIndex = 1
         Me.TabPageFirma.Text = "Firma"
         Me.TabPageFirma.UseVisualStyleBackColor = True
@@ -619,9 +620,9 @@ Partial Class opzioni
         'TabPageVarie
         '
         Me.TabPageVarie.Controls.Add(Me.FlowLayoutPanel3)
-        Me.TabPageVarie.Location = New System.Drawing.Point(4, 25)
+        Me.TabPageVarie.Location = New System.Drawing.Point(4, 31)
         Me.TabPageVarie.Name = "TabPageVarie"
-        Me.TabPageVarie.Size = New System.Drawing.Size(700, 284)
+        Me.TabPageVarie.Size = New System.Drawing.Size(700, 278)
         Me.TabPageVarie.TabIndex = 2
         Me.TabPageVarie.Text = "Varie"
         Me.TabPageVarie.UseVisualStyleBackColor = True
