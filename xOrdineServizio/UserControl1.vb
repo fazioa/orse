@@ -56,7 +56,7 @@ Public Class UserControlComboBox
         End Select
         'riattivo l'evento
         frm.ListBox1_AbilitaEventiListBox(True)
-        frm.visibleMy(True)
+        '   frm.visibleMy(True)
     End Sub
 
     Private Sub TextBox1_PreviewKeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PreviewKeyDownEventArgs) Handles TextBox1.PreviewKeyDown
@@ -70,8 +70,8 @@ Public Class UserControlComboBox
             'seleziono il primo elemento
             If (frm.ListBox1.Items.Count > 0) Then
                 frm.ListBox1.SelectedIndex = 0
-            Else
-                frm.visibleMy(False)
+                'Else
+                '   frm.visibleMy(False)
             End If
 
 
@@ -85,12 +85,14 @@ Public Class UserControlComboBox
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         CurrentString = TextBox1.Text
         fill(CurrentString)
+        ' frm.ListBox1_AbilitaEventiListBox(False)
         frm.visibleMy(True)
-
-        '==================
-        TextBox1_EventoTextChanged(False)
         TextBox1.Focus()
-        TextBox1_EventoTextChanged(True)
+        ' frm.ListBox1_AbilitaEventiListBox(True)
+        '==================
+        ' TextBox1_EventoTextChanged(False)
+
+        ' TextBox1_EventoTextChanged(True)
         ' End If
     End Sub
 
@@ -182,10 +184,10 @@ Public Class UserControlComboBox
     Private Sub TextBox1_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.Leave
         ' se il fuoco non è andato alla listbox1 allora la nasconde
         'se il fuoco non è andato alla listbox1 allora controllo se è stato selezionato un valore, altrimenti inseriso un nuovo valore
-        If (Not frm.ListBox1.Focus) Then
-            frm.visibleMy(False)
-            If (Not frm.bVoceSelezionata) Then InsNuovoValore()
-        End If
+        'If (Not frm.ListBox1.Focus) Then
+        ' frm.visibleMy(False)
+        ' If (Not frm.bVoceSelezionata) Then InsNuovoValore()
+        ' End If
 
     End Sub
 
@@ -262,17 +264,6 @@ Partial Class frmList
         ' Me.ListBox1.Size = New System.Drawing.Size(20, 20)
 
         Me.Controls.Add(Me.ListBox1)
-
-        ' Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
-        'Me.TextBox2.BorderStyle = Windows.Forms.BorderStyle.None
-        ''Me.TextBox2.BackColor = Color.Transparent
-        'Me.TextBox2.Location = New System.Drawing.Point(0, 0)
-        'Me.TextBox2.Name = "TextBox2"
-        ''  Me.TextBox2.Size = New System.Drawing.Size(20, 20)
-        'Me.TextBox2.TabIndex = 0
-        'Me.Controls.Add(Me.TextBox2)
-        ''TextBox2.Visible = True
-        '       TextBox2.Enabled = False
 
         'abilito l'evento
         ListBox1_AbilitaEventiListBox(True)
@@ -353,10 +344,15 @@ Partial Class frmList
     End Sub
 
     Private Sub FrmList_Deactivate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Deactivate
-        visibleMy(False)
+        'problema: quando il form viene disattivato, il textbox non ha ancora il focus, quindi il form viene sempre nascosto.
+
+        If (Not Textbox1.Focused) Then
+            visibleMy(False)
+        End If
         'quando la list box perde il fuoco, il focus dovrebbe andare sull'elemento successivo a textbox1
         '        selezionevoce()
-        Textbox1.Focus()
+
+
 
     End Sub
 
@@ -378,7 +374,6 @@ Partial Class frmList
             Textbox1.SelectionStart = 0
             Textbox1.SelectionLength = Textbox1.Text.Length
             Textbox1.Focus()
-
         End If
 
         'riprende evento textchanged
@@ -409,9 +404,9 @@ Partial Class frmList
         Me.Width = Textbox1.Width
 
         Me.Visible = stato
-        If (stato) Then
-            Me.ListBox1.SelectedIndex = -1
-        End If
+        'If (stato) Then
+        'Me.ListBox1.SelectedIndex = -1
+        'End If
     End Sub
 
     Public Function getSelectedID() As Integer
