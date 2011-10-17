@@ -30,46 +30,86 @@ Partial Class FRicerca
         Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
+        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
         Me.SplitContainer5 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel7 = New OrSe.verticalLabel
         Me.DataGridView3 = New System.Windows.Forms.DataGridView
+        Me.IdOSDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cTestoRubrica = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cDettaglioRubrica = New System.Windows.Forms.DataGridViewLinkColumn
+        Me.RubricaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
         Me.SplitContainer4 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel5 = New OrSe.verticalLabel
         Me.SopralluogoDataGrid = New System.Windows.Forms.DataGridView
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.sopralluogo_id = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.tipoReato = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.oraRichiesta = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.luogo_citta = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.via = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.contatti_con = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cDettaglioSopralluogo = New System.Windows.Forms.DataGridViewLinkColumn
+        Me.QSopralluogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel2 = New OrSe.verticalLabel
         Me.InformazioniDataGrid = New System.Windows.Forms.DataGridView
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IddgvInformazioni = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cDettaglioInformazioni = New System.Windows.Forms.DataGridViewLinkColumn
+        Me.QInterventi_informazioniBindigSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel1 = New OrSe.verticalLabel
         Me.interventiDataGrid = New System.Windows.Forms.DataGridView
         Me.nomeOS = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.dataoraInizio = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.dataOraFine = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.tipointervento = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IddgvInterventi = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IParagrafoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ResocontoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IdOSDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cDettaglioInterventi = New System.Windows.Forms.DataGridViewLinkColumn
+        Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel3 = New OrSe.verticalLabel
         Me.QAllegatoADataGridView = New System.Windows.Forms.DataGridView
+        Me.cID = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IdOSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.OrdineDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DataOSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.NomeOSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cLuogoControllo = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cOra = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.CognomeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.nome = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DatanascitaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cittanascita = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.CittaresidenzaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ResidenzaindirizzoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.MezzoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.TargaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ColoreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DocumentoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.PositivoSDIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.PrecedentiDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ContravvenzioniDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn
+        Me.PerquisizioneDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn
+        Me.OperatoriDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IdControlloDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IdPersonaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IdMezzoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.NOTEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IdLuogoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.IdLuogoNascitaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cDettaglio = New System.Windows.Forms.DataGridViewLinkColumn
+        Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.tbCampoRicerca = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Button1 = New System.Windows.Forms.Button
@@ -104,92 +144,52 @@ Partial Class FRicerca
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn17 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewLinkColumn2 = New System.Windows.Forms.DataGridViewLinkColumn
-        Me.cDettaglioRubrica = New System.Windows.Forms.DataGridViewLinkColumn
-        Me.VerticalLabel7 = New OrSe.verticalLabel
-        Me.VerticalLabel5 = New OrSe.verticalLabel
-        Me.VerticalLabel2 = New OrSe.verticalLabel
-        Me.VerticalLabel1 = New OrSe.verticalLabel
-        Me.VerticalLabel3 = New OrSe.verticalLabel
         Me.VerticalLabel4 = New OrSe.verticalLabel
         Me.VerticalLabel6 = New OrSe.verticalLabel
-        Me.IdOSDataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cTestoRubrica = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.idRubrica = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.RubricaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
-        Me.OraRedazioneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.QSopralluogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.IddgvInformazioni = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn7 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn8 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn9 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.QInterventi_informazioniBindigSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.IddgvInterventi = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.IParagrafoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ResocontoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.IdOSDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.cID = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.IdOSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.OrdineDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataOSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.NomeOSDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cLuogoControllo = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.cOra = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.CognomeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DatanascitaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.CittaresidenzaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ResidenzaindirizzoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.MezzoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.TargaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ColoreDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DocumentoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.PositivoSDIDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.PrecedentiDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ContravvenzioniDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn
-        Me.PerquisizioneDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn
-        Me.OperatoriDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.IdControlloDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.IdPersonaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.IdMezzoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.NOTEDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.IdLuogoDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.IdLuogoNascitaDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
         Me.QInterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
         Me.QSopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
         Me.RubricaTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.rubricaTableAdapter
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.sopralluogo_id = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.tipoReato = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.OraRedazioneDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.oraRichiesta = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.luogo_citta = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.via = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.contatti_con = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.operatori = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.cDettaglioSopralluogo = New System.Windows.Forms.DataGridViewLinkColumn
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SplitContainer5.Panel1.SuspendLayout()
         Me.SplitContainer5.Panel2.SuspendLayout()
         Me.SplitContainer5.SuspendLayout()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RubricaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer4.Panel1.SuspendLayout()
         Me.SplitContainer4.Panel2.SuspendLayout()
         Me.SplitContainer4.SuspendLayout()
         CType(Me.SopralluogoDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QSopralluogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
         Me.SplitContainer1.SuspendLayout()
         CType(Me.InformazioniDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer2.Panel1.SuspendLayout()
         Me.SplitContainer2.Panel2.SuspendLayout()
         Me.SplitContainer2.SuspendLayout()
         CType(Me.interventiDataGrid, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer3.Panel1.SuspendLayout()
         Me.SplitContainer3.Panel2.SuspendLayout()
         Me.SplitContainer3.SuspendLayout()
         CType(Me.QAllegatoADataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.RubricaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QSopralluogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -235,11 +235,21 @@ Partial Class FRicerca
         Me.SplitContainer5.SplitterDistance = 35
         Me.SplitContainer5.TabIndex = 33
         '
+        'VerticalLabel7
+        '
+        Me.VerticalLabel7.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VerticalLabel7.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel7.Location = New System.Drawing.Point(0, 0)
+        Me.VerticalLabel7.Name = "VerticalLabel7"
+        Me.VerticalLabel7.Size = New System.Drawing.Size(35, 68)
+        Me.VerticalLabel7.TabIndex = 26
+        Me.VerticalLabel7.Text = "Rubrica"
+        '
         'DataGridView3
         '
         Me.DataGridView3.AllowUserToAddRows = False
         Me.DataGridView3.AutoGenerateColumns = False
-        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdOSDataGridViewTextBoxColumn3, Me.cTestoRubrica, Me.idRubrica, Me.cDettaglioRubrica})
+        Me.DataGridView3.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.IdOSDataGridViewTextBoxColumn3, Me.cTestoRubrica, Me.cDettaglioRubrica})
         Me.DataGridView3.DataSource = Me.RubricaBindingSource
         Me.DataGridView3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.DataGridView3.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
@@ -258,6 +268,43 @@ Partial Class FRicerca
         Me.DataGridView3.Size = New System.Drawing.Size(894, 68)
         Me.DataGridView3.TabIndex = 20
         '
+        'IdOSDataGridViewTextBoxColumn3
+        '
+        Me.IdOSDataGridViewTextBoxColumn3.DataPropertyName = "idOS"
+        Me.IdOSDataGridViewTextBoxColumn3.HeaderText = "idOS"
+        Me.IdOSDataGridViewTextBoxColumn3.Name = "IdOSDataGridViewTextBoxColumn3"
+        Me.IdOSDataGridViewTextBoxColumn3.ReadOnly = True
+        Me.IdOSDataGridViewTextBoxColumn3.Visible = False
+        '
+        'cTestoRubrica
+        '
+        Me.cTestoRubrica.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.cTestoRubrica.DataPropertyName = "testo"
+        Me.cTestoRubrica.HeaderText = "testo"
+        Me.cTestoRubrica.Name = "cTestoRubrica"
+        Me.cTestoRubrica.ReadOnly = True
+        '
+        'cDettaglioRubrica
+        '
+        Me.cDettaglioRubrica.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.cDettaglioRubrica.HeaderText = "dettaglio"
+        Me.cDettaglioRubrica.Name = "cDettaglioRubrica"
+        Me.cDettaglioRubrica.ReadOnly = True
+        Me.cDettaglioRubrica.Text = "dettaglio"
+        Me.cDettaglioRubrica.ToolTipText = "Apre finestra dettaglio"
+        Me.cDettaglioRubrica.UseColumnTextForLinkValue = True
+        Me.cDettaglioRubrica.Width = 53
+        '
+        'RubricaBindingSource
+        '
+        Me.RubricaBindingSource.DataMember = "rubrica"
+        Me.RubricaBindingSource.DataSource = Me.DbAlegatoADataSet
+        '
+        'DbAlegatoADataSet
+        '
+        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'SplitContainer4
         '
         Me.SplitContainer4.Dock = System.Windows.Forms.DockStyle.Fill
@@ -275,11 +322,21 @@ Partial Class FRicerca
         Me.SplitContainer4.SplitterDistance = 35
         Me.SplitContainer4.TabIndex = 32
         '
+        'VerticalLabel5
+        '
+        Me.VerticalLabel5.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VerticalLabel5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel5.Location = New System.Drawing.Point(0, 0)
+        Me.VerticalLabel5.Name = "VerticalLabel5"
+        Me.VerticalLabel5.Size = New System.Drawing.Size(35, 66)
+        Me.VerticalLabel5.TabIndex = 26
+        Me.VerticalLabel5.Text = "Sopralluogo"
+        '
         'SopralluogoDataGrid
         '
         Me.SopralluogoDataGrid.AllowUserToAddRows = False
         Me.SopralluogoDataGrid.AutoGenerateColumns = False
-        Me.SopralluogoDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.sopralluogo_id, Me.tipoReato, Me.OraRedazioneDataGridViewTextBoxColumn, Me.oraRichiesta, Me.luogo_citta, Me.via, Me.contatti_con, Me.cDettaglioSopralluogo})
+        Me.SopralluogoDataGrid.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn6, Me.sopralluogo_id, Me.tipoReato, Me.OraRedazioneDataGridViewTextBoxColumn, Me.oraRichiesta, Me.luogo_citta, Me.via, Me.contatti_con, Me.operatori, Me.cDettaglioSopralluogo})
         Me.SopralluogoDataGrid.DataSource = Me.QSopralluogoBindingSource
         Me.SopralluogoDataGrid.Dock = System.Windows.Forms.DockStyle.Fill
         Me.SopralluogoDataGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
@@ -298,75 +355,10 @@ Partial Class FRicerca
         Me.SopralluogoDataGrid.Size = New System.Drawing.Size(894, 66)
         Me.SopralluogoDataGrid.TabIndex = 20
         '
-        'DataGridViewTextBoxColumn6
+        'QSopralluogoBindingSource
         '
-        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn6.DataPropertyName = "nome"
-        Me.DataGridViewTextBoxColumn6.HeaderText = "nome"
-        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
-        Me.DataGridViewTextBoxColumn6.ReadOnly = True
-        Me.DataGridViewTextBoxColumn6.Width = 5
-        '
-        'sopralluogo_id
-        '
-        Me.sopralluogo_id.DataPropertyName = "sopralluogo_id"
-        Me.sopralluogo_id.HeaderText = "sopralluogo_id"
-        Me.sopralluogo_id.Name = "sopralluogo_id"
-        Me.sopralluogo_id.ReadOnly = True
-        Me.sopralluogo_id.Visible = False
-        '
-        'tipoReato
-        '
-        Me.tipoReato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.tipoReato.DataPropertyName = "tipoReato"
-        Me.tipoReato.HeaderText = "Tipo reato"
-        Me.tipoReato.Name = "tipoReato"
-        Me.tipoReato.ReadOnly = True
-        Me.tipoReato.Width = 80
-        '
-        'oraRichiesta
-        '
-        Me.oraRichiesta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.oraRichiesta.DataPropertyName = "oraRichiesta"
-        Me.oraRichiesta.HeaderText = "Ora Richiesta"
-        Me.oraRichiesta.Name = "oraRichiesta"
-        Me.oraRichiesta.ReadOnly = True
-        Me.oraRichiesta.Width = 5
-        '
-        'luogo_citta
-        '
-        Me.luogo_citta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.luogo_citta.DataPropertyName = "luogo_citta"
-        Me.luogo_citta.HeaderText = "luogo_citta"
-        Me.luogo_citta.Name = "luogo_citta"
-        Me.luogo_citta.ReadOnly = True
-        '
-        'via
-        '
-        Me.via.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.via.DataPropertyName = "via"
-        Me.via.HeaderText = "via"
-        Me.via.Name = "via"
-        Me.via.ReadOnly = True
-        '
-        'contatti_con
-        '
-        Me.contatti_con.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.contatti_con.DataPropertyName = "contatti_con"
-        Me.contatti_con.HeaderText = "contatti_con"
-        Me.contatti_con.Name = "contatti_con"
-        Me.contatti_con.ReadOnly = True
-        '
-        'cDettaglioSopralluogo
-        '
-        Me.cDettaglioSopralluogo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.cDettaglioSopralluogo.HeaderText = "dettaglio"
-        Me.cDettaglioSopralluogo.Name = "cDettaglioSopralluogo"
-        Me.cDettaglioSopralluogo.ReadOnly = True
-        Me.cDettaglioSopralluogo.Text = "dettaglio"
-        Me.cDettaglioSopralluogo.ToolTipText = "Apre finestra dettaglio"
-        Me.cDettaglioSopralluogo.UseColumnTextForLinkValue = True
-        Me.cDettaglioSopralluogo.Width = 53
+        Me.QSopralluogoBindingSource.DataMember = "QSopralluogo"
+        Me.QSopralluogoBindingSource.DataSource = Me.DbAlegatoADataSet
         '
         'SplitContainer1
         '
@@ -384,6 +376,16 @@ Partial Class FRicerca
         Me.SplitContainer1.Size = New System.Drawing.Size(933, 66)
         Me.SplitContainer1.SplitterDistance = 35
         Me.SplitContainer1.TabIndex = 31
+        '
+        'VerticalLabel2
+        '
+        Me.VerticalLabel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel2.Location = New System.Drawing.Point(0, 0)
+        Me.VerticalLabel2.Name = "VerticalLabel2"
+        Me.VerticalLabel2.Size = New System.Drawing.Size(35, 66)
+        Me.VerticalLabel2.TabIndex = 26
+        Me.VerticalLabel2.Text = "Informazioni"
         '
         'InformazioniDataGrid
         '
@@ -451,6 +453,38 @@ Partial Class FRicerca
         Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         Me.DataGridViewTextBoxColumn4.ReadOnly = True
         '
+        'IddgvInformazioni
+        '
+        Me.IddgvInformazioni.DataPropertyName = "id"
+        Me.IddgvInformazioni.HeaderText = "id"
+        Me.IddgvInformazioni.Name = "IddgvInformazioni"
+        Me.IddgvInformazioni.ReadOnly = True
+        Me.IddgvInformazioni.Visible = False
+        '
+        'DataGridViewTextBoxColumn7
+        '
+        Me.DataGridViewTextBoxColumn7.DataPropertyName = "iParagrafo"
+        Me.DataGridViewTextBoxColumn7.HeaderText = "iParagrafo"
+        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
+        Me.DataGridViewTextBoxColumn7.ReadOnly = True
+        Me.DataGridViewTextBoxColumn7.Visible = False
+        '
+        'DataGridViewTextBoxColumn8
+        '
+        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn8.DataPropertyName = "resoconto"
+        Me.DataGridViewTextBoxColumn8.HeaderText = "resoconto"
+        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
+        Me.DataGridViewTextBoxColumn8.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn9
+        '
+        Me.DataGridViewTextBoxColumn9.DataPropertyName = "idOS"
+        Me.DataGridViewTextBoxColumn9.HeaderText = "idOS"
+        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
+        Me.DataGridViewTextBoxColumn9.ReadOnly = True
+        Me.DataGridViewTextBoxColumn9.Visible = False
+        '
         'cDettaglioInformazioni
         '
         Me.cDettaglioInformazioni.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
@@ -461,6 +495,12 @@ Partial Class FRicerca
         Me.cDettaglioInformazioni.ToolTipText = "Apre finestra dettaglio."
         Me.cDettaglioInformazioni.UseColumnTextForLinkValue = True
         Me.cDettaglioInformazioni.Width = 5
+        '
+        'QInterventi_informazioniBindigSource
+        '
+        Me.QInterventi_informazioniBindigSource.DataMember = "QInterventi"
+        Me.QInterventi_informazioniBindigSource.DataSource = Me.DbAlegatoADataSet
+        Me.QInterventi_informazioniBindigSource.Filter = ""
         '
         'SplitContainer2
         '
@@ -478,6 +518,16 @@ Partial Class FRicerca
         Me.SplitContainer2.Size = New System.Drawing.Size(933, 66)
         Me.SplitContainer2.SplitterDistance = 35
         Me.SplitContainer2.TabIndex = 30
+        '
+        'VerticalLabel1
+        '
+        Me.VerticalLabel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VerticalLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel1.Location = New System.Drawing.Point(0, 0)
+        Me.VerticalLabel1.Name = "VerticalLabel1"
+        Me.VerticalLabel1.Size = New System.Drawing.Size(35, 66)
+        Me.VerticalLabel1.TabIndex = 26
+        Me.VerticalLabel1.Text = "Interventi"
         '
         'interventiDataGrid
         '
@@ -545,564 +595,6 @@ Partial Class FRicerca
         Me.tipointervento.Name = "tipointervento"
         Me.tipointervento.ReadOnly = True
         '
-        'cDettaglioInterventi
-        '
-        Me.cDettaglioInterventi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.cDettaglioInterventi.HeaderText = "dettaglio"
-        Me.cDettaglioInterventi.Name = "cDettaglioInterventi"
-        Me.cDettaglioInterventi.ReadOnly = True
-        Me.cDettaglioInterventi.Text = "dettaglio"
-        Me.cDettaglioInterventi.ToolTipText = "Apre finestra dettaglio."
-        Me.cDettaglioInterventi.UseColumnTextForLinkValue = True
-        Me.cDettaglioInterventi.Width = 5
-        '
-        'SplitContainer3
-        '
-        Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.SplitContainer3.Location = New System.Drawing.Point(13, 85)
-        Me.SplitContainer3.Name = "SplitContainer3"
-        '
-        'SplitContainer3.Panel1
-        '
-        Me.SplitContainer3.Panel1.Controls.Add(Me.VerticalLabel3)
-        '
-        'SplitContainer3.Panel2
-        '
-        Me.SplitContainer3.Panel2.Controls.Add(Me.QAllegatoADataGridView)
-        Me.SplitContainer3.Size = New System.Drawing.Size(933, 66)
-        Me.SplitContainer3.SplitterDistance = 35
-        Me.SplitContainer3.TabIndex = 29
-        '
-        'QAllegatoADataGridView
-        '
-        Me.QAllegatoADataGridView.AllowUserToAddRows = False
-        Me.QAllegatoADataGridView.AutoGenerateColumns = False
-        Me.QAllegatoADataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cID, Me.IdOSDataGridViewTextBoxColumn, Me.OrdineDataGridViewTextBoxColumn, Me.DataOSDataGridViewTextBoxColumn, Me.NomeOSDataGridViewTextBoxColumn, Me.cLuogoControllo, Me.cOra, Me.CognomeDataGridViewTextBoxColumn, Me.nome, Me.DatanascitaDataGridViewTextBoxColumn, Me.cittanascita, Me.CittaresidenzaDataGridViewTextBoxColumn, Me.ResidenzaindirizzoDataGridViewTextBoxColumn, Me.MezzoDataGridViewTextBoxColumn, Me.TargaDataGridViewTextBoxColumn, Me.ColoreDataGridViewTextBoxColumn, Me.DocumentoDataGridViewTextBoxColumn, Me.PositivoSDIDataGridViewTextBoxColumn, Me.PrecedentiDataGridViewTextBoxColumn, Me.ContravvenzioniDataGridViewCheckBoxColumn, Me.PerquisizioneDataGridViewCheckBoxColumn, Me.OperatoriDataGridViewTextBoxColumn, Me.IdControlloDataGridViewTextBoxColumn, Me.IdPersonaDataGridViewTextBoxColumn, Me.IdMezzoDataGridViewTextBoxColumn, Me.NOTEDataGridViewTextBoxColumn, Me.IdLuogoDataGridViewTextBoxColumn, Me.IdLuogoNascitaDataGridViewTextBoxColumn, Me.cDettaglio})
-        Me.QAllegatoADataGridView.DataSource = Me.QAllegatoABindingSource
-        Me.QAllegatoADataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.QAllegatoADataGridView.Location = New System.Drawing.Point(0, 0)
-        Me.QAllegatoADataGridView.Name = "QAllegatoADataGridView"
-        Me.QAllegatoADataGridView.ReadOnly = True
-        Me.QAllegatoADataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.QAllegatoADataGridView.Size = New System.Drawing.Size(894, 66)
-        Me.QAllegatoADataGridView.TabIndex = 23
-        '
-        'nome
-        '
-        Me.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.nome.DataPropertyName = "nome"
-        Me.nome.HeaderText = "nome"
-        Me.nome.Name = "nome"
-        Me.nome.ReadOnly = True
-        '
-        'cittanascita
-        '
-        Me.cittanascita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.cittanascita.DataPropertyName = "cittanascita"
-        Me.cittanascita.FillWeight = 50.0!
-        Me.cittanascita.HeaderText = "cittanascita"
-        Me.cittanascita.Name = "cittanascita"
-        Me.cittanascita.ReadOnly = True
-        Me.cittanascita.Visible = False
-        '
-        'cDettaglio
-        '
-        Me.cDettaglio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.DeepSkyBlue
-        Me.cDettaglio.DefaultCellStyle = DataGridViewCellStyle13
-        Me.cDettaglio.HeaderText = "dettaglio"
-        Me.cDettaglio.Name = "cDettaglio"
-        Me.cDettaglio.ReadOnly = True
-        Me.cDettaglio.Text = "dettaglio"
-        Me.cDettaglio.ToolTipText = "Apre la finestra di dettagli del soggetto"
-        Me.cDettaglio.UseColumnTextForLinkValue = True
-        Me.cDettaglio.Width = 53
-        '
-        'tbCampoRicerca
-        '
-        Me.tbCampoRicerca.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.tbCampoRicerca.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbCampoRicerca.Location = New System.Drawing.Point(3, 53)
-        Me.tbCampoRicerca.Name = "tbCampoRicerca"
-        Me.tbCampoRicerca.Size = New System.Drawing.Size(884, 38)
-        Me.tbCampoRicerca.TabIndex = 29
-        '
-        'Label1
-        '
-        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(3, 19)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(107, 31)
-        Me.Label1.TabIndex = 30
-        Me.Label1.Text = "Ricerca"
-        '
-        'Button1
-        '
-        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.Button1.Location = New System.Drawing.Point(893, 53)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(112, 44)
-        Me.Button1.TabIndex = 31
-        Me.Button1.Text = "Cerca"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'IdDataGridViewTextBoxColumn
-        '
-        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
-        Me.IdDataGridViewTextBoxColumn.HeaderText = "id"
-        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
-        '
-        'DataOraInizioDataGridViewTextBoxColumn
-        '
-        Me.DataOraInizioDataGridViewTextBoxColumn.DataPropertyName = "dataOraInizio"
-        Me.DataOraInizioDataGridViewTextBoxColumn.HeaderText = "dataOraInizio"
-        Me.DataOraInizioDataGridViewTextBoxColumn.Name = "DataOraInizioDataGridViewTextBoxColumn"
-        '
-        'DataOraFineDataGridViewTextBoxColumn
-        '
-        Me.DataOraFineDataGridViewTextBoxColumn.DataPropertyName = "dataOraFine"
-        Me.DataOraFineDataGridViewTextBoxColumn.HeaderText = "dataOraFine"
-        Me.DataOraFineDataGridViewTextBoxColumn.Name = "DataOraFineDataGridViewTextBoxColumn"
-        '
-        'TipointerventoDataGridViewTextBoxColumn
-        '
-        Me.TipointerventoDataGridViewTextBoxColumn.DataPropertyName = "tipointervento"
-        Me.TipointerventoDataGridViewTextBoxColumn.HeaderText = "tipointervento"
-        Me.TipointerventoDataGridViewTextBoxColumn.Name = "TipointerventoDataGridViewTextBoxColumn"
-        '
-        'ResocontoDataGridViewTextBoxColumn1
-        '
-        Me.ResocontoDataGridViewTextBoxColumn1.DataPropertyName = "resoconto"
-        Me.ResocontoDataGridViewTextBoxColumn1.HeaderText = "resoconto"
-        Me.ResocontoDataGridViewTextBoxColumn1.Name = "ResocontoDataGridViewTextBoxColumn1"
-        '
-        'IdOSDataGridViewTextBoxColumn2
-        '
-        Me.IdOSDataGridViewTextBoxColumn2.DataPropertyName = "idOS"
-        Me.IdOSDataGridViewTextBoxColumn2.HeaderText = "idOS"
-        Me.IdOSDataGridViewTextBoxColumn2.Name = "IdOSDataGridViewTextBoxColumn2"
-        '
-        'DataODDataGridViewTextBoxColumn1
-        '
-        Me.DataODDataGridViewTextBoxColumn1.DataPropertyName = "dataOD"
-        Me.DataODDataGridViewTextBoxColumn1.HeaderText = "dataOD"
-        Me.DataODDataGridViewTextBoxColumn1.Name = "DataODDataGridViewTextBoxColumn1"
-        '
-        'IParagrafoDataGridViewTextBoxColumn1
-        '
-        Me.IParagrafoDataGridViewTextBoxColumn1.DataPropertyName = "iParagrafo"
-        Me.IParagrafoDataGridViewTextBoxColumn1.HeaderText = "iParagrafo"
-        Me.IParagrafoDataGridViewTextBoxColumn1.Name = "IParagrafoDataGridViewTextBoxColumn1"
-        '
-        'NomeOSDataGridViewTextBoxColumn1
-        '
-        Me.NomeOSDataGridViewTextBoxColumn1.DataPropertyName = "nomeOS"
-        Me.NomeOSDataGridViewTextBoxColumn1.HeaderText = "nomeOS"
-        Me.NomeOSDataGridViewTextBoxColumn1.Name = "NomeOSDataGridViewTextBoxColumn1"
-        '
-        'OperatoriDataGridViewTextBoxColumn1
-        '
-        Me.OperatoriDataGridViewTextBoxColumn1.DataPropertyName = "operatori"
-        Me.OperatoriDataGridViewTextBoxColumn1.HeaderText = "operatori"
-        Me.OperatoriDataGridViewTextBoxColumn1.Name = "OperatoriDataGridViewTextBoxColumn1"
-        '
-        'TableLayoutPanel2
-        '
-        Me.TableLayoutPanel2.ColumnCount = 2
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.375!))
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.625!))
-        Me.TableLayoutPanel2.Controls.Add(Me.Button1, 1, 1)
-        Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 0)
-        Me.TableLayoutPanel2.Controls.Add(Me.tbCampoRicerca, 0, 1)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
-        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 2
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1008, 100)
-        Me.TableLayoutPanel2.TabIndex = 32
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.AllowUserToAddRows = False
-        Me.DataGridView1.AutoGenerateColumns = False
-        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn29, Me.DataGridViewLinkColumn1})
-        Me.DataGridView1.DataSource = Me.QInterventi_informazioniBindigSource
-        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.ReadOnly = True
-        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle17
-        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(752, 170)
-        Me.DataGridView1.TabIndex = 20
-        '
-        'DataGridViewTextBoxColumn22
-        '
-        Me.DataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn22.DataPropertyName = "nomeOS"
-        Me.DataGridViewTextBoxColumn22.HeaderText = "nomeOS"
-        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
-        Me.DataGridViewTextBoxColumn22.ReadOnly = True
-        Me.DataGridViewTextBoxColumn22.Width = 5
-        '
-        'DataGridViewTextBoxColumn23
-        '
-        Me.DataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn23.DataPropertyName = "dataoraInizio"
-        DataGridViewCellStyle14.Format = "g"
-        DataGridViewCellStyle14.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn23.DefaultCellStyle = DataGridViewCellStyle14
-        Me.DataGridViewTextBoxColumn23.HeaderText = "dataoraInizio"
-        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
-        Me.DataGridViewTextBoxColumn23.ReadOnly = True
-        Me.DataGridViewTextBoxColumn23.Width = 5
-        '
-        'DataGridViewTextBoxColumn24
-        '
-        Me.DataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn24.DataPropertyName = "dataOraFine"
-        DataGridViewCellStyle15.Format = "t"
-        DataGridViewCellStyle15.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle15
-        Me.DataGridViewTextBoxColumn24.HeaderText = "dataOraFine"
-        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
-        Me.DataGridViewTextBoxColumn24.ReadOnly = True
-        Me.DataGridViewTextBoxColumn24.Width = 5
-        '
-        'DataGridViewTextBoxColumn25
-        '
-        Me.DataGridViewTextBoxColumn25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn25.DataPropertyName = "tipointervento"
-        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn25.DefaultCellStyle = DataGridViewCellStyle16
-        Me.DataGridViewTextBoxColumn25.HeaderText = "tipointervento"
-        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
-        Me.DataGridViewTextBoxColumn25.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn26
-        '
-        Me.DataGridViewTextBoxColumn26.DataPropertyName = "id"
-        Me.DataGridViewTextBoxColumn26.HeaderText = "id"
-        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
-        Me.DataGridViewTextBoxColumn26.ReadOnly = True
-        Me.DataGridViewTextBoxColumn26.Visible = False
-        '
-        'DataGridViewTextBoxColumn27
-        '
-        Me.DataGridViewTextBoxColumn27.DataPropertyName = "iParagrafo"
-        Me.DataGridViewTextBoxColumn27.HeaderText = "iParagrafo"
-        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
-        Me.DataGridViewTextBoxColumn27.ReadOnly = True
-        Me.DataGridViewTextBoxColumn27.Visible = False
-        '
-        'DataGridViewTextBoxColumn28
-        '
-        Me.DataGridViewTextBoxColumn28.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn28.DataPropertyName = "resoconto"
-        Me.DataGridViewTextBoxColumn28.HeaderText = "resoconto"
-        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
-        Me.DataGridViewTextBoxColumn28.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn29
-        '
-        Me.DataGridViewTextBoxColumn29.DataPropertyName = "idOS"
-        Me.DataGridViewTextBoxColumn29.HeaderText = "idOS"
-        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
-        Me.DataGridViewTextBoxColumn29.ReadOnly = True
-        Me.DataGridViewTextBoxColumn29.Visible = False
-        '
-        'DataGridViewLinkColumn1
-        '
-        Me.DataGridViewLinkColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewLinkColumn1.HeaderText = "linkDettaglio"
-        Me.DataGridViewLinkColumn1.Name = "DataGridViewLinkColumn1"
-        Me.DataGridViewLinkColumn1.ReadOnly = True
-        Me.DataGridViewLinkColumn1.Text = "dettaglio"
-        Me.DataGridViewLinkColumn1.ToolTipText = "Apre finestra dettaglio."
-        Me.DataGridViewLinkColumn1.UseColumnTextForLinkValue = True
-        Me.DataGridViewLinkColumn1.Width = 5
-        '
-        'DataGridView2
-        '
-        Me.DataGridView2.AllowUserToAddRows = False
-        Me.DataGridView2.AutoGenerateColumns = False
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewLinkColumn2})
-        Me.DataGridView2.DataSource = Me.QSopralluogoBindingSource
-        Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
-        Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.ReadOnly = True
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.DataGridView2.RowHeadersDefaultCellStyle = DataGridViewCellStyle18
-        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView2.Size = New System.Drawing.Size(935, 83)
-        Me.DataGridView2.TabIndex = 20
-        '
-        'DataGridViewTextBoxColumn10
-        '
-        Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn10.DataPropertyName = "nome"
-        Me.DataGridViewTextBoxColumn10.HeaderText = "nome"
-        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
-        Me.DataGridViewTextBoxColumn10.ReadOnly = True
-        Me.DataGridViewTextBoxColumn10.Width = 5
-        '
-        'DataGridViewTextBoxColumn11
-        '
-        Me.DataGridViewTextBoxColumn11.DataPropertyName = "sopralluogo_id"
-        Me.DataGridViewTextBoxColumn11.HeaderText = "sopralluogo_id"
-        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
-        Me.DataGridViewTextBoxColumn11.ReadOnly = True
-        Me.DataGridViewTextBoxColumn11.Visible = False
-        '
-        'DataGridViewTextBoxColumn12
-        '
-        Me.DataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
-        Me.DataGridViewTextBoxColumn12.DataPropertyName = "tipoReato"
-        Me.DataGridViewTextBoxColumn12.HeaderText = "Tipo reato"
-        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
-        Me.DataGridViewTextBoxColumn12.ReadOnly = True
-        Me.DataGridViewTextBoxColumn12.Width = 80
-        '
-        'DataGridViewTextBoxColumn13
-        '
-        Me.DataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn13.DataPropertyName = "oraRedazione"
-        Me.DataGridViewTextBoxColumn13.HeaderText = "Ora Verbale"
-        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
-        Me.DataGridViewTextBoxColumn13.ReadOnly = True
-        Me.DataGridViewTextBoxColumn13.Width = 5
-        '
-        'DataGridViewTextBoxColumn14
-        '
-        Me.DataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.DataGridViewTextBoxColumn14.DataPropertyName = "oraRichiesta"
-        Me.DataGridViewTextBoxColumn14.HeaderText = "Ora Richiesta"
-        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
-        Me.DataGridViewTextBoxColumn14.ReadOnly = True
-        Me.DataGridViewTextBoxColumn14.Width = 5
-        '
-        'DataGridViewTextBoxColumn15
-        '
-        Me.DataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn15.DataPropertyName = "luogo_citta"
-        Me.DataGridViewTextBoxColumn15.HeaderText = "luogo_citta"
-        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
-        Me.DataGridViewTextBoxColumn15.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn16
-        '
-        Me.DataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn16.DataPropertyName = "via"
-        Me.DataGridViewTextBoxColumn16.HeaderText = "via"
-        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
-        Me.DataGridViewTextBoxColumn16.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn17
-        '
-        Me.DataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn17.DataPropertyName = "contatti_con"
-        Me.DataGridViewTextBoxColumn17.HeaderText = "contatti_con"
-        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
-        Me.DataGridViewTextBoxColumn17.ReadOnly = True
-        '
-        'DataGridViewLinkColumn2
-        '
-        Me.DataGridViewLinkColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.DataGridViewLinkColumn2.HeaderText = "dettaglio"
-        Me.DataGridViewLinkColumn2.Name = "DataGridViewLinkColumn2"
-        Me.DataGridViewLinkColumn2.ReadOnly = True
-        Me.DataGridViewLinkColumn2.Text = "dettaglio"
-        Me.DataGridViewLinkColumn2.ToolTipText = "Apre finestra dettaglio"
-        Me.DataGridViewLinkColumn2.UseColumnTextForLinkValue = True
-        Me.DataGridViewLinkColumn2.Width = 53
-        '
-        'cDettaglioRubrica
-        '
-        Me.cDettaglioRubrica.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
-        Me.cDettaglioRubrica.HeaderText = "dettaglio"
-        Me.cDettaglioRubrica.Name = "cDettaglioRubrica"
-        Me.cDettaglioRubrica.ReadOnly = True
-        Me.cDettaglioRubrica.Text = "dettaglio"
-        Me.cDettaglioRubrica.ToolTipText = "Apre finestra dettaglio"
-        Me.cDettaglioRubrica.UseColumnTextForLinkValue = True
-        Me.cDettaglioRubrica.Width = 53
-        '
-        'VerticalLabel7
-        '
-        Me.VerticalLabel7.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.VerticalLabel7.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel7.Location = New System.Drawing.Point(0, 0)
-        Me.VerticalLabel7.Name = "VerticalLabel7"
-        Me.VerticalLabel7.Size = New System.Drawing.Size(35, 68)
-        Me.VerticalLabel7.TabIndex = 26
-        Me.VerticalLabel7.Text = "Rubrica"
-        '
-        'VerticalLabel5
-        '
-        Me.VerticalLabel5.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.VerticalLabel5.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel5.Location = New System.Drawing.Point(0, 0)
-        Me.VerticalLabel5.Name = "VerticalLabel5"
-        Me.VerticalLabel5.Size = New System.Drawing.Size(35, 66)
-        Me.VerticalLabel5.TabIndex = 26
-        Me.VerticalLabel5.Text = "Sopralluogo"
-        '
-        'VerticalLabel2
-        '
-        Me.VerticalLabel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel2.Location = New System.Drawing.Point(0, 0)
-        Me.VerticalLabel2.Name = "VerticalLabel2"
-        Me.VerticalLabel2.Size = New System.Drawing.Size(35, 66)
-        Me.VerticalLabel2.TabIndex = 26
-        Me.VerticalLabel2.Text = "Informazioni"
-        '
-        'VerticalLabel1
-        '
-        Me.VerticalLabel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.VerticalLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel1.Location = New System.Drawing.Point(0, 0)
-        Me.VerticalLabel1.Name = "VerticalLabel1"
-        Me.VerticalLabel1.Size = New System.Drawing.Size(35, 66)
-        Me.VerticalLabel1.TabIndex = 26
-        Me.VerticalLabel1.Text = "Interventi"
-        '
-        'VerticalLabel3
-        '
-        Me.VerticalLabel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.VerticalLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel3.Location = New System.Drawing.Point(0, 0)
-        Me.VerticalLabel3.Name = "VerticalLabel3"
-        Me.VerticalLabel3.Size = New System.Drawing.Size(35, 66)
-        Me.VerticalLabel3.TabIndex = 27
-        Me.VerticalLabel3.Text = "Allegato A"
-        '
-        'VerticalLabel4
-        '
-        Me.VerticalLabel4.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.VerticalLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel4.Location = New System.Drawing.Point(0, 0)
-        Me.VerticalLabel4.Name = "VerticalLabel4"
-        Me.VerticalLabel4.Size = New System.Drawing.Size(30, 170)
-        Me.VerticalLabel4.TabIndex = 26
-        Me.VerticalLabel4.Text = "Informazioni"
-        '
-        'VerticalLabel6
-        '
-        Me.VerticalLabel6.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.VerticalLabel6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel6.Location = New System.Drawing.Point(0, 0)
-        Me.VerticalLabel6.Name = "VerticalLabel6"
-        Me.VerticalLabel6.Size = New System.Drawing.Size(37, 83)
-        Me.VerticalLabel6.TabIndex = 26
-        Me.VerticalLabel6.Text = "Sopralluogo"
-        '
-        'IdOSDataGridViewTextBoxColumn3
-        '
-        Me.IdOSDataGridViewTextBoxColumn3.DataPropertyName = "idOS"
-        Me.IdOSDataGridViewTextBoxColumn3.HeaderText = "idOS"
-        Me.IdOSDataGridViewTextBoxColumn3.Name = "IdOSDataGridViewTextBoxColumn3"
-        Me.IdOSDataGridViewTextBoxColumn3.ReadOnly = True
-        Me.IdOSDataGridViewTextBoxColumn3.Visible = False
-        '
-        'cTestoRubrica
-        '
-        Me.cTestoRubrica.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.cTestoRubrica.DataPropertyName = "testo"
-        Me.cTestoRubrica.HeaderText = "testo"
-        Me.cTestoRubrica.Name = "cTestoRubrica"
-        Me.cTestoRubrica.ReadOnly = True
-        '
-        'idRubrica
-        '
-        Me.idRubrica.DataPropertyName = "id"
-        Me.idRubrica.HeaderText = "id"
-        Me.idRubrica.Name = "idRubrica"
-        Me.idRubrica.ReadOnly = True
-        Me.idRubrica.Visible = False
-        '
-        'RubricaBindingSource
-        '
-        Me.RubricaBindingSource.DataMember = "rubrica"
-        Me.RubricaBindingSource.DataSource = Me.DbAlegatoADataSet
-        '
-        'DbAlegatoADataSet
-        '
-        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'OraRedazioneDataGridViewTextBoxColumn
-        '
-        Me.OraRedazioneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
-        Me.OraRedazioneDataGridViewTextBoxColumn.DataPropertyName = "oraRedazione"
-        Me.OraRedazioneDataGridViewTextBoxColumn.HeaderText = "Ora Verbale"
-        Me.OraRedazioneDataGridViewTextBoxColumn.Name = "OraRedazioneDataGridViewTextBoxColumn"
-        Me.OraRedazioneDataGridViewTextBoxColumn.ReadOnly = True
-        Me.OraRedazioneDataGridViewTextBoxColumn.Width = 5
-        '
-        'QSopralluogoBindingSource
-        '
-        Me.QSopralluogoBindingSource.DataMember = "QSopralluogo"
-        Me.QSopralluogoBindingSource.DataSource = Me.DbAlegatoADataSet
-        '
-        'IddgvInformazioni
-        '
-        Me.IddgvInformazioni.DataPropertyName = "id"
-        Me.IddgvInformazioni.HeaderText = "id"
-        Me.IddgvInformazioni.Name = "IddgvInformazioni"
-        Me.IddgvInformazioni.ReadOnly = True
-        Me.IddgvInformazioni.Visible = False
-        '
-        'DataGridViewTextBoxColumn7
-        '
-        Me.DataGridViewTextBoxColumn7.DataPropertyName = "iParagrafo"
-        Me.DataGridViewTextBoxColumn7.HeaderText = "iParagrafo"
-        Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
-        Me.DataGridViewTextBoxColumn7.ReadOnly = True
-        Me.DataGridViewTextBoxColumn7.Visible = False
-        '
-        'DataGridViewTextBoxColumn8
-        '
-        Me.DataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn8.DataPropertyName = "resoconto"
-        Me.DataGridViewTextBoxColumn8.HeaderText = "resoconto"
-        Me.DataGridViewTextBoxColumn8.Name = "DataGridViewTextBoxColumn8"
-        Me.DataGridViewTextBoxColumn8.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn9
-        '
-        Me.DataGridViewTextBoxColumn9.DataPropertyName = "idOS"
-        Me.DataGridViewTextBoxColumn9.HeaderText = "idOS"
-        Me.DataGridViewTextBoxColumn9.Name = "DataGridViewTextBoxColumn9"
-        Me.DataGridViewTextBoxColumn9.ReadOnly = True
-        Me.DataGridViewTextBoxColumn9.Visible = False
-        '
-        'QInterventi_informazioniBindigSource
-        '
-        Me.QInterventi_informazioniBindigSource.DataMember = "QInterventi"
-        Me.QInterventi_informazioniBindigSource.DataSource = Me.DbAlegatoADataSet
-        Me.QInterventi_informazioniBindigSource.Filter = ""
-        '
         'IddgvInterventi
         '
         Me.IddgvInterventi.DataPropertyName = "id"
@@ -1135,10 +627,62 @@ Partial Class FRicerca
         Me.IdOSDataGridViewTextBoxColumn1.ReadOnly = True
         Me.IdOSDataGridViewTextBoxColumn1.Visible = False
         '
+        'cDettaglioInterventi
+        '
+        Me.cDettaglioInterventi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.cDettaglioInterventi.HeaderText = "dettaglio"
+        Me.cDettaglioInterventi.Name = "cDettaglioInterventi"
+        Me.cDettaglioInterventi.ReadOnly = True
+        Me.cDettaglioInterventi.Text = "dettaglio"
+        Me.cDettaglioInterventi.ToolTipText = "Apre finestra dettaglio."
+        Me.cDettaglioInterventi.UseColumnTextForLinkValue = True
+        Me.cDettaglioInterventi.Width = 5
+        '
         'QInterventiBindingSource
         '
         Me.QInterventiBindingSource.DataMember = "QInterventi"
         Me.QInterventiBindingSource.DataSource = Me.DbAlegatoADataSet
+        '
+        'SplitContainer3
+        '
+        Me.SplitContainer3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.SplitContainer3.Location = New System.Drawing.Point(13, 85)
+        Me.SplitContainer3.Name = "SplitContainer3"
+        '
+        'SplitContainer3.Panel1
+        '
+        Me.SplitContainer3.Panel1.Controls.Add(Me.VerticalLabel3)
+        '
+        'SplitContainer3.Panel2
+        '
+        Me.SplitContainer3.Panel2.Controls.Add(Me.QAllegatoADataGridView)
+        Me.SplitContainer3.Size = New System.Drawing.Size(933, 66)
+        Me.SplitContainer3.SplitterDistance = 35
+        Me.SplitContainer3.TabIndex = 29
+        '
+        'VerticalLabel3
+        '
+        Me.VerticalLabel3.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VerticalLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel3.Location = New System.Drawing.Point(0, 0)
+        Me.VerticalLabel3.Name = "VerticalLabel3"
+        Me.VerticalLabel3.Size = New System.Drawing.Size(35, 66)
+        Me.VerticalLabel3.TabIndex = 27
+        Me.VerticalLabel3.Text = "Allegato A"
+        '
+        'QAllegatoADataGridView
+        '
+        Me.QAllegatoADataGridView.AllowUserToAddRows = False
+        Me.QAllegatoADataGridView.AutoGenerateColumns = False
+        Me.QAllegatoADataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.cID, Me.IdOSDataGridViewTextBoxColumn, Me.OrdineDataGridViewTextBoxColumn, Me.DataOSDataGridViewTextBoxColumn, Me.NomeOSDataGridViewTextBoxColumn, Me.cLuogoControllo, Me.cOra, Me.CognomeDataGridViewTextBoxColumn, Me.nome, Me.DatanascitaDataGridViewTextBoxColumn, Me.cittanascita, Me.CittaresidenzaDataGridViewTextBoxColumn, Me.ResidenzaindirizzoDataGridViewTextBoxColumn, Me.MezzoDataGridViewTextBoxColumn, Me.TargaDataGridViewTextBoxColumn, Me.ColoreDataGridViewTextBoxColumn, Me.DocumentoDataGridViewTextBoxColumn, Me.PositivoSDIDataGridViewTextBoxColumn, Me.PrecedentiDataGridViewTextBoxColumn, Me.ContravvenzioniDataGridViewCheckBoxColumn, Me.PerquisizioneDataGridViewCheckBoxColumn, Me.OperatoriDataGridViewTextBoxColumn, Me.IdControlloDataGridViewTextBoxColumn, Me.IdPersonaDataGridViewTextBoxColumn, Me.IdMezzoDataGridViewTextBoxColumn, Me.NOTEDataGridViewTextBoxColumn, Me.IdLuogoDataGridViewTextBoxColumn, Me.IdLuogoNascitaDataGridViewTextBoxColumn, Me.cDettaglio})
+        Me.QAllegatoADataGridView.DataSource = Me.QAllegatoABindingSource
+        Me.QAllegatoADataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.QAllegatoADataGridView.Location = New System.Drawing.Point(0, 0)
+        Me.QAllegatoADataGridView.Name = "QAllegatoADataGridView"
+        Me.QAllegatoADataGridView.ReadOnly = True
+        Me.QAllegatoADataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.QAllegatoADataGridView.Size = New System.Drawing.Size(894, 66)
+        Me.QAllegatoADataGridView.TabIndex = 23
         '
         'cID
         '
@@ -1209,6 +753,14 @@ Partial Class FRicerca
         Me.CognomeDataGridViewTextBoxColumn.Name = "CognomeDataGridViewTextBoxColumn"
         Me.CognomeDataGridViewTextBoxColumn.ReadOnly = True
         '
+        'nome
+        '
+        Me.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.nome.DataPropertyName = "nome"
+        Me.nome.HeaderText = "nome"
+        Me.nome.Name = "nome"
+        Me.nome.ReadOnly = True
+        '
         'DatanascitaDataGridViewTextBoxColumn
         '
         Me.DatanascitaDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
@@ -1220,6 +772,16 @@ Partial Class FRicerca
         Me.DatanascitaDataGridViewTextBoxColumn.Name = "DatanascitaDataGridViewTextBoxColumn"
         Me.DatanascitaDataGridViewTextBoxColumn.ReadOnly = True
         Me.DatanascitaDataGridViewTextBoxColumn.Visible = False
+        '
+        'cittanascita
+        '
+        Me.cittanascita.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.cittanascita.DataPropertyName = "cittanascita"
+        Me.cittanascita.FillWeight = 50.0!
+        Me.cittanascita.HeaderText = "cittanascita"
+        Me.cittanascita.Name = "cittanascita"
+        Me.cittanascita.ReadOnly = True
+        Me.cittanascita.Visible = False
         '
         'CittaresidenzaDataGridViewTextBoxColumn
         '
@@ -1366,10 +928,352 @@ Partial Class FRicerca
         Me.IdLuogoNascitaDataGridViewTextBoxColumn.ReadOnly = True
         Me.IdLuogoNascitaDataGridViewTextBoxColumn.Visible = False
         '
+        'cDettaglio
+        '
+        Me.cDettaglio.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        DataGridViewCellStyle13.ForeColor = System.Drawing.Color.DeepSkyBlue
+        Me.cDettaglio.DefaultCellStyle = DataGridViewCellStyle13
+        Me.cDettaglio.HeaderText = "dettaglio"
+        Me.cDettaglio.Name = "cDettaglio"
+        Me.cDettaglio.ReadOnly = True
+        Me.cDettaglio.Text = "dettaglio"
+        Me.cDettaglio.ToolTipText = "Apre la finestra di dettagli del soggetto"
+        Me.cDettaglio.UseColumnTextForLinkValue = True
+        Me.cDettaglio.Width = 53
+        '
         'QAllegatoABindingSource
         '
         Me.QAllegatoABindingSource.DataMember = "QAllegatoA"
         Me.QAllegatoABindingSource.DataSource = Me.DbAlegatoADataSet
+        '
+        'tbCampoRicerca
+        '
+        Me.tbCampoRicerca.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.tbCampoRicerca.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.tbCampoRicerca.Location = New System.Drawing.Point(3, 53)
+        Me.tbCampoRicerca.Name = "tbCampoRicerca"
+        Me.tbCampoRicerca.Size = New System.Drawing.Size(884, 38)
+        Me.tbCampoRicerca.TabIndex = 29
+        '
+        'Label1
+        '
+        Me.Label1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(3, 19)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(107, 31)
+        Me.Label1.TabIndex = 30
+        Me.Label1.Text = "Ricerca"
+        '
+        'Button1
+        '
+        Me.Button1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.Button1.Location = New System.Drawing.Point(893, 53)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(112, 44)
+        Me.Button1.TabIndex = 31
+        Me.Button1.Text = "Cerca"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'IdDataGridViewTextBoxColumn
+        '
+        Me.IdDataGridViewTextBoxColumn.DataPropertyName = "id"
+        Me.IdDataGridViewTextBoxColumn.HeaderText = "id"
+        Me.IdDataGridViewTextBoxColumn.Name = "IdDataGridViewTextBoxColumn"
+        '
+        'DataOraInizioDataGridViewTextBoxColumn
+        '
+        Me.DataOraInizioDataGridViewTextBoxColumn.DataPropertyName = "dataOraInizio"
+        Me.DataOraInizioDataGridViewTextBoxColumn.HeaderText = "dataOraInizio"
+        Me.DataOraInizioDataGridViewTextBoxColumn.Name = "DataOraInizioDataGridViewTextBoxColumn"
+        '
+        'DataOraFineDataGridViewTextBoxColumn
+        '
+        Me.DataOraFineDataGridViewTextBoxColumn.DataPropertyName = "dataOraFine"
+        Me.DataOraFineDataGridViewTextBoxColumn.HeaderText = "dataOraFine"
+        Me.DataOraFineDataGridViewTextBoxColumn.Name = "DataOraFineDataGridViewTextBoxColumn"
+        '
+        'TipointerventoDataGridViewTextBoxColumn
+        '
+        Me.TipointerventoDataGridViewTextBoxColumn.DataPropertyName = "tipointervento"
+        Me.TipointerventoDataGridViewTextBoxColumn.HeaderText = "tipointervento"
+        Me.TipointerventoDataGridViewTextBoxColumn.Name = "TipointerventoDataGridViewTextBoxColumn"
+        '
+        'ResocontoDataGridViewTextBoxColumn1
+        '
+        Me.ResocontoDataGridViewTextBoxColumn1.DataPropertyName = "resoconto"
+        Me.ResocontoDataGridViewTextBoxColumn1.HeaderText = "resoconto"
+        Me.ResocontoDataGridViewTextBoxColumn1.Name = "ResocontoDataGridViewTextBoxColumn1"
+        '
+        'IdOSDataGridViewTextBoxColumn2
+        '
+        Me.IdOSDataGridViewTextBoxColumn2.DataPropertyName = "idOS"
+        Me.IdOSDataGridViewTextBoxColumn2.HeaderText = "idOS"
+        Me.IdOSDataGridViewTextBoxColumn2.Name = "IdOSDataGridViewTextBoxColumn2"
+        '
+        'DataODDataGridViewTextBoxColumn1
+        '
+        Me.DataODDataGridViewTextBoxColumn1.DataPropertyName = "dataOD"
+        Me.DataODDataGridViewTextBoxColumn1.HeaderText = "dataOD"
+        Me.DataODDataGridViewTextBoxColumn1.Name = "DataODDataGridViewTextBoxColumn1"
+        '
+        'IParagrafoDataGridViewTextBoxColumn1
+        '
+        Me.IParagrafoDataGridViewTextBoxColumn1.DataPropertyName = "iParagrafo"
+        Me.IParagrafoDataGridViewTextBoxColumn1.HeaderText = "iParagrafo"
+        Me.IParagrafoDataGridViewTextBoxColumn1.Name = "IParagrafoDataGridViewTextBoxColumn1"
+        '
+        'NomeOSDataGridViewTextBoxColumn1
+        '
+        Me.NomeOSDataGridViewTextBoxColumn1.DataPropertyName = "nomeOS"
+        Me.NomeOSDataGridViewTextBoxColumn1.HeaderText = "nomeOS"
+        Me.NomeOSDataGridViewTextBoxColumn1.Name = "NomeOSDataGridViewTextBoxColumn1"
+        '
+        'OperatoriDataGridViewTextBoxColumn1
+        '
+        Me.OperatoriDataGridViewTextBoxColumn1.DataPropertyName = "operatori"
+        Me.OperatoriDataGridViewTextBoxColumn1.HeaderText = "operatori"
+        Me.OperatoriDataGridViewTextBoxColumn1.Name = "OperatoriDataGridViewTextBoxColumn1"
+        '
+        'TableLayoutPanel2
+        '
+        Me.TableLayoutPanel2.ColumnCount = 2
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 88.375!))
+        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 11.625!))
+        Me.TableLayoutPanel2.Controls.Add(Me.Button1, 1, 1)
+        Me.TableLayoutPanel2.Controls.Add(Me.Label1, 0, 0)
+        Me.TableLayoutPanel2.Controls.Add(Me.tbCampoRicerca, 0, 1)
+        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top
+        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 0)
+        Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
+        Me.TableLayoutPanel2.RowCount = 2
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
+        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1008, 100)
+        Me.TableLayoutPanel2.TabIndex = 32
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.AllowUserToAddRows = False
+        Me.DataGridView1.AutoGenerateColumns = False
+        Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn22, Me.DataGridViewTextBoxColumn23, Me.DataGridViewTextBoxColumn24, Me.DataGridViewTextBoxColumn25, Me.DataGridViewTextBoxColumn26, Me.DataGridViewTextBoxColumn27, Me.DataGridViewTextBoxColumn28, Me.DataGridViewTextBoxColumn29, Me.DataGridViewLinkColumn1})
+        Me.DataGridView1.DataSource = Me.QInterventi_informazioniBindigSource
+        Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.ReadOnly = True
+        DataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle17.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView1.RowHeadersDefaultCellStyle = DataGridViewCellStyle17
+        Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView1.Size = New System.Drawing.Size(752, 170)
+        Me.DataGridView1.TabIndex = 20
+        '
+        'DataGridViewTextBoxColumn22
+        '
+        Me.DataGridViewTextBoxColumn22.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn22.DataPropertyName = "nomeOS"
+        Me.DataGridViewTextBoxColumn22.HeaderText = "nomeOS"
+        Me.DataGridViewTextBoxColumn22.Name = "DataGridViewTextBoxColumn22"
+        Me.DataGridViewTextBoxColumn22.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn23
+        '
+        Me.DataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn23.DataPropertyName = "dataoraInizio"
+        DataGridViewCellStyle14.Format = "g"
+        DataGridViewCellStyle14.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn23.DefaultCellStyle = DataGridViewCellStyle14
+        Me.DataGridViewTextBoxColumn23.HeaderText = "dataoraInizio"
+        Me.DataGridViewTextBoxColumn23.Name = "DataGridViewTextBoxColumn23"
+        Me.DataGridViewTextBoxColumn23.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn24
+        '
+        Me.DataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn24.DataPropertyName = "dataOraFine"
+        DataGridViewCellStyle15.Format = "t"
+        DataGridViewCellStyle15.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn24.DefaultCellStyle = DataGridViewCellStyle15
+        Me.DataGridViewTextBoxColumn24.HeaderText = "dataOraFine"
+        Me.DataGridViewTextBoxColumn24.Name = "DataGridViewTextBoxColumn24"
+        Me.DataGridViewTextBoxColumn24.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn25
+        '
+        Me.DataGridViewTextBoxColumn25.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn25.DataPropertyName = "tipointervento"
+        DataGridViewCellStyle16.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn25.DefaultCellStyle = DataGridViewCellStyle16
+        Me.DataGridViewTextBoxColumn25.HeaderText = "tipointervento"
+        Me.DataGridViewTextBoxColumn25.Name = "DataGridViewTextBoxColumn25"
+        Me.DataGridViewTextBoxColumn25.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn26
+        '
+        Me.DataGridViewTextBoxColumn26.DataPropertyName = "id"
+        Me.DataGridViewTextBoxColumn26.HeaderText = "id"
+        Me.DataGridViewTextBoxColumn26.Name = "DataGridViewTextBoxColumn26"
+        Me.DataGridViewTextBoxColumn26.ReadOnly = True
+        Me.DataGridViewTextBoxColumn26.Visible = False
+        '
+        'DataGridViewTextBoxColumn27
+        '
+        Me.DataGridViewTextBoxColumn27.DataPropertyName = "iParagrafo"
+        Me.DataGridViewTextBoxColumn27.HeaderText = "iParagrafo"
+        Me.DataGridViewTextBoxColumn27.Name = "DataGridViewTextBoxColumn27"
+        Me.DataGridViewTextBoxColumn27.ReadOnly = True
+        Me.DataGridViewTextBoxColumn27.Visible = False
+        '
+        'DataGridViewTextBoxColumn28
+        '
+        Me.DataGridViewTextBoxColumn28.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn28.DataPropertyName = "resoconto"
+        Me.DataGridViewTextBoxColumn28.HeaderText = "resoconto"
+        Me.DataGridViewTextBoxColumn28.Name = "DataGridViewTextBoxColumn28"
+        Me.DataGridViewTextBoxColumn28.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn29
+        '
+        Me.DataGridViewTextBoxColumn29.DataPropertyName = "idOS"
+        Me.DataGridViewTextBoxColumn29.HeaderText = "idOS"
+        Me.DataGridViewTextBoxColumn29.Name = "DataGridViewTextBoxColumn29"
+        Me.DataGridViewTextBoxColumn29.ReadOnly = True
+        Me.DataGridViewTextBoxColumn29.Visible = False
+        '
+        'DataGridViewLinkColumn1
+        '
+        Me.DataGridViewLinkColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewLinkColumn1.HeaderText = "linkDettaglio"
+        Me.DataGridViewLinkColumn1.Name = "DataGridViewLinkColumn1"
+        Me.DataGridViewLinkColumn1.ReadOnly = True
+        Me.DataGridViewLinkColumn1.Text = "dettaglio"
+        Me.DataGridViewLinkColumn1.ToolTipText = "Apre finestra dettaglio."
+        Me.DataGridViewLinkColumn1.UseColumnTextForLinkValue = True
+        '
+        'DataGridView2
+        '
+        Me.DataGridView2.AllowUserToAddRows = False
+        Me.DataGridView2.AutoGenerateColumns = False
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn10, Me.DataGridViewTextBoxColumn11, Me.DataGridViewTextBoxColumn12, Me.DataGridViewTextBoxColumn13, Me.DataGridViewTextBoxColumn14, Me.DataGridViewTextBoxColumn15, Me.DataGridViewTextBoxColumn16, Me.DataGridViewTextBoxColumn17, Me.DataGridViewLinkColumn2})
+        Me.DataGridView2.DataSource = Me.QSopralluogoBindingSource
+        Me.DataGridView2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.DataGridView2.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically
+        Me.DataGridView2.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.ReadOnly = True
+        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.DataGridView2.RowHeadersDefaultCellStyle = DataGridViewCellStyle18
+        Me.DataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.DataGridView2.Size = New System.Drawing.Size(935, 83)
+        Me.DataGridView2.TabIndex = 20
+        '
+        'DataGridViewTextBoxColumn10
+        '
+        Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn10.DataPropertyName = "nome"
+        Me.DataGridViewTextBoxColumn10.HeaderText = "nome"
+        Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
+        Me.DataGridViewTextBoxColumn10.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn11
+        '
+        Me.DataGridViewTextBoxColumn11.DataPropertyName = "sopralluogo_id"
+        Me.DataGridViewTextBoxColumn11.HeaderText = "sopralluogo_id"
+        Me.DataGridViewTextBoxColumn11.Name = "DataGridViewTextBoxColumn11"
+        Me.DataGridViewTextBoxColumn11.ReadOnly = True
+        Me.DataGridViewTextBoxColumn11.Visible = False
+        '
+        'DataGridViewTextBoxColumn12
+        '
+        Me.DataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.DataGridViewTextBoxColumn12.DataPropertyName = "tipoReato"
+        Me.DataGridViewTextBoxColumn12.HeaderText = "Tipo reato"
+        Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
+        Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn13
+        '
+        Me.DataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn13.DataPropertyName = "oraRedazione"
+        Me.DataGridViewTextBoxColumn13.HeaderText = "Ora Verbale"
+        Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
+        Me.DataGridViewTextBoxColumn13.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn14
+        '
+        Me.DataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn14.DataPropertyName = "oraRichiesta"
+        Me.DataGridViewTextBoxColumn14.HeaderText = "Ora Richiesta"
+        Me.DataGridViewTextBoxColumn14.Name = "DataGridViewTextBoxColumn14"
+        Me.DataGridViewTextBoxColumn14.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn15
+        '
+        Me.DataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn15.DataPropertyName = "luogo_citta"
+        Me.DataGridViewTextBoxColumn15.HeaderText = "luogo_citta"
+        Me.DataGridViewTextBoxColumn15.Name = "DataGridViewTextBoxColumn15"
+        Me.DataGridViewTextBoxColumn15.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn16
+        '
+        Me.DataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn16.DataPropertyName = "via"
+        Me.DataGridViewTextBoxColumn16.HeaderText = "via"
+        Me.DataGridViewTextBoxColumn16.Name = "DataGridViewTextBoxColumn16"
+        Me.DataGridViewTextBoxColumn16.ReadOnly = True
+        '
+        'DataGridViewTextBoxColumn17
+        '
+        Me.DataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn17.DataPropertyName = "contatti_con"
+        Me.DataGridViewTextBoxColumn17.HeaderText = "contatti_con"
+        Me.DataGridViewTextBoxColumn17.Name = "DataGridViewTextBoxColumn17"
+        Me.DataGridViewTextBoxColumn17.ReadOnly = True
+        '
+        'DataGridViewLinkColumn2
+        '
+        Me.DataGridViewLinkColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DataGridViewLinkColumn2.HeaderText = "dettaglio"
+        Me.DataGridViewLinkColumn2.Name = "DataGridViewLinkColumn2"
+        Me.DataGridViewLinkColumn2.ReadOnly = True
+        Me.DataGridViewLinkColumn2.Text = "dettaglio"
+        Me.DataGridViewLinkColumn2.ToolTipText = "Apre finestra dettaglio"
+        Me.DataGridViewLinkColumn2.UseColumnTextForLinkValue = True
+        '
+        'VerticalLabel4
+        '
+        Me.VerticalLabel4.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VerticalLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel4.Location = New System.Drawing.Point(0, 0)
+        Me.VerticalLabel4.Name = "VerticalLabel4"
+        Me.VerticalLabel4.Size = New System.Drawing.Size(30, 170)
+        Me.VerticalLabel4.TabIndex = 26
+        Me.VerticalLabel4.Text = "Informazioni"
+        '
+        'VerticalLabel6
+        '
+        Me.VerticalLabel6.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.VerticalLabel6.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel6.Location = New System.Drawing.Point(0, 0)
+        Me.VerticalLabel6.Name = "VerticalLabel6"
+        Me.VerticalLabel6.Size = New System.Drawing.Size(37, 83)
+        Me.VerticalLabel6.TabIndex = 26
+        Me.VerticalLabel6.Text = "Sopralluogo"
         '
         'QAllegatoATableAdapter
         '
@@ -1387,6 +1291,93 @@ Partial Class FRicerca
         '
         Me.RubricaTableAdapter.ClearBeforeFill = True
         '
+        'DataGridViewTextBoxColumn6
+        '
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.DataGridViewTextBoxColumn6.DataPropertyName = "nome"
+        Me.DataGridViewTextBoxColumn6.HeaderText = "nome"
+        Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
+        Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 5
+        '
+        'sopralluogo_id
+        '
+        Me.sopralluogo_id.DataPropertyName = "sopralluogo_id"
+        Me.sopralluogo_id.HeaderText = "sopralluogo_id"
+        Me.sopralluogo_id.Name = "sopralluogo_id"
+        Me.sopralluogo_id.ReadOnly = True
+        Me.sopralluogo_id.Visible = False
+        '
+        'tipoReato
+        '
+        Me.tipoReato.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader
+        Me.tipoReato.DataPropertyName = "tipoReato"
+        Me.tipoReato.HeaderText = "Tipo reato"
+        Me.tipoReato.Name = "tipoReato"
+        Me.tipoReato.ReadOnly = True
+        Me.tipoReato.Width = 80
+        '
+        'OraRedazioneDataGridViewTextBoxColumn
+        '
+        Me.OraRedazioneDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.OraRedazioneDataGridViewTextBoxColumn.DataPropertyName = "oraRedazione"
+        Me.OraRedazioneDataGridViewTextBoxColumn.HeaderText = "Ora Verbale"
+        Me.OraRedazioneDataGridViewTextBoxColumn.Name = "OraRedazioneDataGridViewTextBoxColumn"
+        Me.OraRedazioneDataGridViewTextBoxColumn.ReadOnly = True
+        Me.OraRedazioneDataGridViewTextBoxColumn.Width = 5
+        '
+        'oraRichiesta
+        '
+        Me.oraRichiesta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
+        Me.oraRichiesta.DataPropertyName = "oraRichiesta"
+        Me.oraRichiesta.HeaderText = "Ora Richiesta"
+        Me.oraRichiesta.Name = "oraRichiesta"
+        Me.oraRichiesta.ReadOnly = True
+        Me.oraRichiesta.Width = 5
+        '
+        'luogo_citta
+        '
+        Me.luogo_citta.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.luogo_citta.DataPropertyName = "luogo_citta"
+        Me.luogo_citta.HeaderText = "luogo_citta"
+        Me.luogo_citta.Name = "luogo_citta"
+        Me.luogo_citta.ReadOnly = True
+        '
+        'via
+        '
+        Me.via.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.via.DataPropertyName = "via"
+        Me.via.HeaderText = "via"
+        Me.via.Name = "via"
+        Me.via.ReadOnly = True
+        '
+        'contatti_con
+        '
+        Me.contatti_con.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.contatti_con.DataPropertyName = "contatti_con"
+        Me.contatti_con.HeaderText = "contatti_con"
+        Me.contatti_con.Name = "contatti_con"
+        Me.contatti_con.ReadOnly = True
+        '
+        'operatori
+        '
+        Me.operatori.DataPropertyName = "operatori"
+        Me.operatori.HeaderText = "operatori"
+        Me.operatori.Name = "operatori"
+        Me.operatori.ReadOnly = True
+        Me.operatori.Visible = False
+        '
+        'cDettaglioSopralluogo
+        '
+        Me.cDettaglioSopralluogo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.cDettaglioSopralluogo.HeaderText = "dettaglio"
+        Me.cDettaglioSopralluogo.Name = "cDettaglioSopralluogo"
+        Me.cDettaglioSopralluogo.ReadOnly = True
+        Me.cDettaglioSopralluogo.Text = "dettaglio"
+        Me.cDettaglioSopralluogo.ToolTipText = "Apre finestra dettaglio"
+        Me.cDettaglioSopralluogo.UseColumnTextForLinkValue = True
+        Me.cDettaglioSopralluogo.Width = 53
+        '
         'FRicerca
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1402,32 +1393,32 @@ Partial Class FRicerca
         Me.SplitContainer5.Panel2.ResumeLayout(False)
         Me.SplitContainer5.ResumeLayout(False)
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RubricaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer4.Panel1.ResumeLayout(False)
         Me.SplitContainer4.Panel2.ResumeLayout(False)
         Me.SplitContainer4.ResumeLayout(False)
         CType(Me.SopralluogoDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QSopralluogoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel2.ResumeLayout(False)
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.InformazioniDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer2.Panel1.ResumeLayout(False)
         Me.SplitContainer2.Panel2.ResumeLayout(False)
         Me.SplitContainer2.ResumeLayout(False)
         CType(Me.interventiDataGrid, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer3.Panel1.ResumeLayout(False)
         Me.SplitContainer3.Panel2.ResumeLayout(False)
         Me.SplitContainer3.ResumeLayout(False)
         CType(Me.QAllegatoADataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.RubricaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QSopralluogoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1528,15 +1519,6 @@ Partial Class FRicerca
     Friend WithEvents ResocontoDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents IdOSDataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cDettaglioInterventi As System.Windows.Forms.DataGridViewLinkColumn
-    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents sopralluogo_id As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents tipoReato As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents OraRedazioneDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents oraRichiesta As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents luogo_citta As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents via As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents contatti_con As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents cDettaglioSopralluogo As System.Windows.Forms.DataGridViewLinkColumn
     Friend WithEvents VerticalLabel6 As OrSe.verticalLabel
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridViewTextBoxColumn10 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -1557,4 +1539,14 @@ Partial Class FRicerca
     Friend WithEvents cTestoRubrica As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents idRubrica As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cDettaglioRubrica As System.Windows.Forms.DataGridViewLinkColumn
+    Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents sopralluogo_id As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents tipoReato As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents OraRedazioneDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents oraRichiesta As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents luogo_citta As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents via As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents contatti_con As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents operatori As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents cDettaglioSopralluogo As System.Windows.Forms.DataGridViewLinkColumn
 End Class

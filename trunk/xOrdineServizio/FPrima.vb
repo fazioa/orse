@@ -463,7 +463,7 @@ Public Class FPrima
 
     Private Sub Button1_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles BtnVedi.Click
         Dim form As System.Windows.Forms.Form
-        form = New FVedi(parametri.idOS)
+        form = New FVedi(parametri)
         form.Visible = True
     End Sub
 

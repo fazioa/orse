@@ -70,7 +70,7 @@ Public Class FRicerca
         Dim dgv As DataGridView = sender
         Dim coord As System.Drawing.Point = dgv.CurrentCellAddress
         If coord.X = dgv.Columns("cDettaglioSopralluogo").Index() Then
-            feActions.doApriDettaglioSopralluogo(dgv.CurrentRow.Cells("sopralluogo_id").Value)
+            feActions.doApriDettaglioSopralluogo(dgv.CurrentRow.Cells("sopralluogo_id").Value, dgv.CurrentRow.Cells("operatori").Value)
         End If
     End Sub
 
