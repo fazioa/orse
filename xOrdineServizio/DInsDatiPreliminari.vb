@@ -21,6 +21,7 @@ Public Class DInsDatiPreliminari
             Else
                 'altrimenti lo inserisco
                 Try
+                    inserimentoValoreOperatori(OperatoriComboBox)
                     'inserisco con insert perchè il metodo .addnew() da errore al secondo inserimento
                     OrdineServizioTableAdapter.Insert(OSMaskedTextBox.Text, DateTimePicker1.Value.Date, OperatoriComboBox.SelectedValue)
                     parametri.idOS = Me.OrdineServizioTableAdapter.MaxID()
@@ -106,9 +107,9 @@ Public Class DInsDatiPreliminari
     End Function
 
     Private Sub OperatoriComboBox_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OperatoriComboBox.Leave
-        inserimentoValore(sender)
+        '  inserimentoValoreOperatori(sender)
     End Sub
-    Private Function inserimentoValore(ByVal sender As System.Object) As Integer
+    Private Function inserimentoValoreOperatori(ByVal sender As System.Object) As Integer
         Return feActions.doComboInsNuovoValore(sender, OperatoreTableAdapter, DbAlegatoADataSet.operatore)
     End Function
 
@@ -245,4 +246,5 @@ Public Class DInsDatiPreliminari
     Private Sub OperatoriComboBox_Validating(ByVal sender As System.Object, ByVal e As System.ComponentModel.CancelEventArgs)
         'inserimentoValore(sender)
     End Sub
+
 End Class

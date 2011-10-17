@@ -495,5 +495,7 @@ Public Class FPrima
         log.xlogWriteEntry("Apertura rubrica", TraceEventType.Information)
         feActions.doApriFormRubrica(parametri.idOS)
     End Sub
+
+
 End Class
 

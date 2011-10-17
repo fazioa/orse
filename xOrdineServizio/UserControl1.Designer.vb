@@ -32,6 +32,7 @@ Partial Class UserControlComboBox
         Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter
         Me.ControlloTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.controlloTableAdapter
         Me.ModelliMezzoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.LuoghicontrolloBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -102,6 +103,10 @@ Partial Class UserControlComboBox
         Me.ModelliMezzoBindingSource.DataMember = "modelliMezzo"
         Me.ModelliMezzoBindingSource.DataSource = Me.DbAlegatoADataSet
         '
+        'Timer1
+        '
+        Me.Timer1.Interval = 1000
+        '
         'UserControlComboBox
         '
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None
@@ -133,4 +138,5 @@ Partial Class UserControlComboBox
     Friend WithEvents ControlloBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents ControlloTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.controlloTableAdapter
     Friend WithEvents ModelliMezzoBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 End Class

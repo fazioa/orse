@@ -1,6 +1,6 @@
 Public Class FSoggetto
     Dim parametri As New parametriControllo
-
+    Dim log As New XOrseLog
     Dim xiOrdine As Integer
     Dim bNuovoSoggetto As Boolean = False
     Dim feActions As New OrSe.ActionsLibrary
@@ -154,42 +154,46 @@ Public Class FSoggetto
 
 
     Private Sub btnSalvaChiudi_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvaChiudi.Click
-        Me.Validate()
-        'creazione persona
-        Me.PersonaBindingSource.EndEdit()
-        Me.PersonaTableAdapter.Update(Me.DbDataSet.persona)
+        Try
+            Me.Validate()
+            'creazione persona
+            Me.PersonaBindingSource.EndEdit()
+            Me.PersonaTableAdapter.Update(Me.DbDataSet.persona)
 
-        Dim drv As DataRowView = Me.AllegatoABindingSource.Current()
-        If (bNuovoSoggetto) Then
+            Dim drv As DataRowView = Me.AllegatoABindingSource.Current()
+            If (bNuovoSoggetto) Then
 
-            'se ho inserito una persona in i.o. allora non devo recuperare l'id dell'ultima persona inserita
-            Dim idpersona As Integer
-            If (Not bPersonaInteresseOperativo) Then
-                'recupero l'id persona. E' l'ultima persona inserita
-                idpersona = Me.PersonaTableAdapter.MaxID()
+                'se ho inserito una persona in i.o. allora non devo recuperare l'id dell'ultima persona inserita
+                Dim idpersona As Integer
+                If (Not bPersonaInteresseOperativo) Then
+                    'recupero l'id persona. E' l'ultima persona inserita
+                    idpersona = Me.PersonaTableAdapter.MaxID()
+                Else
+                    Dim dataRowPersona As DataRowView
+                    dataRowPersona = PersonaBindingSource.Current()
+                    idpersona = dataRowPersona.Item("id")
+                End If
+
+                drv.Item("idpersona") = idpersona
+                'memorizzo l'id del controllo nella riga dell'allegatoA
+
+                If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
+                drv.Item("idControllo") = parametri.idControllo
+
+                'memorizzo l'ordine di inserimento della persona nel controllo
+                drv.Item("ordine") = Me.xiOrdine
             Else
-                Dim dataRowPersona As DataRowView
-                dataRowPersona = PersonaBindingSource.Current()
-                idpersona = dataRowPersona.Item("id")
+                If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
+
             End If
+            'update modifiche riga allegato A
+            Me.AllegatoABindingSource.EndEdit()
+            Me.AllegatoATableAdapter.Update(Me.DbDataSet.allegatoA)
 
-            drv.Item("idpersona") = idpersona
-            'memorizzo l'id del controllo nella riga dell'allegatoA
-
-            If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
-            drv.Item("idControllo") = parametri.idControllo
-
-            'memorizzo l'ordine di inserimento della persona nel controllo
-            drv.Item("ordine") = Me.xiOrdine
-        Else
-            If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
-
-        End If
-        'update modifiche riga allegato A
-        Me.AllegatoABindingSource.EndEdit()
-        Me.AllegatoATableAdapter.Update(Me.DbDataSet.allegatoA)
-
-        Me.Close()
+            Me.Close()
+        Catch ex As Exception
+            log.xlogWriteEntry("Errore inserimento soggetto. " & ex.Message, TraceEventType.Error)
+        End Try
     End Sub
 
 
