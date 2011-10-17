@@ -35,8 +35,9 @@ Public Class FVedi
         End If
     End Sub
 
-    Public Sub New(ByVal iIdOS As Integer)
-        iId = iIdOS
+    Public Sub New(ByVal parametriOS As parametriControllo)
+        iId = parametriOS.idOS
+        parametri = parametriOS
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
         feActions.setStandardFormSize(Me)
@@ -143,7 +144,7 @@ Public Class FVedi
         Dim v As Integer = dgv.CurrentRow.Cells("id").Value
         ' parametri.nomeLuogoControllo = dgv.CurrentRow.Cells("cLuogoControllo").Value
         ' parametri.dataoraControllo = dgv.CurrentRow.Cells("cOra").Value
-        feActions.doApriDettaglioSopralluogo(v)
+        feActions.doApriDettaglioSopralluogo(v, parametri.nomeOperatore)
     End Sub
 
     Private Sub apriDettaglioRubrica(ByRef dgv As DataGridView)

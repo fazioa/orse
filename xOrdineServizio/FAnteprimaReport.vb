@@ -6,7 +6,7 @@ Public Class FanteprimaReport
     Dim iOrdineServizio As Integer
     Dim sOrdineServizio As String
     Dim tiIDControllo As Integer
-    Dim feActions As OrSe.ActionsLibrary
+    Dim feActions As New OrSe.ActionsLibrary
     Dim esitoSDI As tipoEsitoSDI
     Dim _tipo As tipoReport
     'classe che pu‡Ú contenere diversi parametri
@@ -146,6 +146,8 @@ Public Class FanteprimaReport
             sFileSuffisso = "_AllegatoA"
         ElseIf (tipoReport = OrSe.tipoReport.interventi) Then
             sFileSuffisso = "_Interventi"
+        ElseIf (tipoReport = OrSe.tipoReport.informazioni) Then
+            sFileSuffisso = "_Informazioni"
         ElseIf (tipoReport = OrSe.tipoReport.op85) Then
             sFileSuffisso = "_OP85"
             sOrdineServizio = parametri.protocollo
