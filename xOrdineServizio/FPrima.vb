@@ -65,7 +65,6 @@ Public Class FPrima
 
         ToolStripSeparator3.Visible = True
         ToolStripMenuItemLOG.Visible = True
-        FinestraDiTestToolStripMenuItem.Visible = True
 
         '#ElseIf  Then
 

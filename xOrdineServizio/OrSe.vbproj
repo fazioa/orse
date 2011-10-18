@@ -128,6 +128,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="DInsDatiPreliminari.Designer.vb">
       <DependentUpon>DInsDatiPreliminari.vb</DependentUpon>
@@ -168,6 +169,7 @@
     </Compile>
     <Compile Include="dbAlegatoADataSet.vb">
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="FElencosoggetti.Designer.vb">
       <DependentUpon>FElencosoggetti.vb</DependentUpon>
@@ -385,13 +387,16 @@
   <ItemGroup>
     <None Include="dbAlegatoADataSet.xsc">
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Compile Include="dbAlegatoADataSet.xsd">
+    <Content Include="dbAlegatoADataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>dbAlegatoADataSet.Designer.vb</LastGenOutput>
-    </Compile>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="dbAlegatoADataSet.xss">
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -422,7 +427,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dbAlegatoA.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="FDataRange.resx">
       <SubType>Designer</SubType>
