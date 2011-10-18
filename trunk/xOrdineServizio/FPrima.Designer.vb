@@ -50,7 +50,6 @@ Partial Class FPrima
         Me.CancellaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CercaAggiornamentiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripMenuItemLOG = New System.Windows.Forms.ToolStripMenuItem
-        Me.FinestraDiTestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator
         Me.EseguiBackupDBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.RipristinaBackupDBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
@@ -63,6 +62,7 @@ Partial Class FPrima
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog
         Me.SplitContainer3 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel3 = New OrSe.verticalLabel
         Me.DataGridViewAllegatoA = New System.Windows.Forms.DataGridView
         Me.nomeOS = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.cOra = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -78,6 +78,7 @@ Partial Class FPrima
         Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbAlegatoADataSet_Unico = New OrSe.dbAlegatoADataSet
         Me.SplitContainer2 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel1 = New OrSe.verticalLabel
         Me.DataGridViewInterventi = New System.Windows.Forms.DataGridView
         Me.dataoraInizio = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.dataOraFine = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -87,6 +88,7 @@ Partial Class FPrima
         Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TableLayoutPanelRiepilogoInserimenti = New System.Windows.Forms.TableLayoutPanel
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer
+        Me.VerticalLabel4 = New OrSe.verticalLabel
         Me.DataGridViewInformazioni = New System.Windows.Forms.DataGridView
         Me.dataoraFineInfo = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
@@ -119,9 +121,6 @@ Partial Class FPrima
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
         Me.ButtonRubrica = New System.Windows.Forms.Button
         Me.menu = New System.Windows.Forms.MenuStrip
-        Me.VerticalLabel4 = New OrSe.verticalLabel
-        Me.VerticalLabel1 = New OrSe.verticalLabel
-        Me.VerticalLabel3 = New OrSe.verticalLabel
         Me.VerticalLabel2 = New OrSe.verticalLabel
         Me.SplitContainer3.Panel1.SuspendLayout()
         Me.SplitContainer3.Panel2.SuspendLayout()
@@ -166,33 +165,33 @@ Partial Class FPrima
         '
         Me.ToolStripMenuItem1.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
         Me.ToolStripMenuItem1.Text = "Interventi..."
         '
         'informazioniToolStripMenuItem
         '
         Me.informazioniToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem"
-        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.informazioniToolStripMenuItem.Text = "Informazioni..."
         '
         'AllegatoAToolStripMenuItem
         '
         Me.AllegatoAToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printAllegatoA
         Me.AllegatoAToolStripMenuItem.Name = "AllegatoAToolStripMenuItem"
-        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.AllegatoAToolStripMenuItem.Text = "Allegato A..."
         '
         'OP85ToolStripMenuItem
         '
         Me.OP85ToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
         Me.OP85ToolStripMenuItem.Name = "OP85ToolStripMenuItem"
-        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.OP85ToolStripMenuItem.Text = "OP85..."
         '
         'StrumentiToolStripMenuItem
         '
-        Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CercaToolStripMenuItem, Me.ToolStripSeparator2, Me.ExportToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ToolStripSeparator3, Me.CancellaToolStripMenuItem, Me.CercaAggiornamentiToolStripMenuItem, Me.ToolStripMenuItemLOG, Me.FinestraDiTestToolStripMenuItem, Me.ToolStripSeparator1, Me.EseguiBackupDBToolStripMenuItem, Me.RipristinaBackupDBToolStripMenuItem})
+        Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CercaToolStripMenuItem, Me.ToolStripSeparator2, Me.ExportToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ToolStripSeparator3, Me.CancellaToolStripMenuItem, Me.CercaAggiornamentiToolStripMenuItem, Me.ToolStripMenuItemLOG, Me.ToolStripSeparator1, Me.EseguiBackupDBToolStripMenuItem, Me.RipristinaBackupDBToolStripMenuItem})
         Me.StrumentiToolStripMenuItem.Name = "StrumentiToolStripMenuItem"
         Me.StrumentiToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
         Me.StrumentiToolStripMenuItem.Text = "Strumenti..."
@@ -248,13 +247,6 @@ Partial Class FPrima
         Me.ToolStripMenuItemLOG.Size = New System.Drawing.Size(213, 22)
         Me.ToolStripMenuItemLOG.Text = "Finestra log"
         Me.ToolStripMenuItemLOG.Visible = False
-        '
-        'FinestraDiTestToolStripMenuItem
-        '
-        Me.FinestraDiTestToolStripMenuItem.Name = "FinestraDiTestToolStripMenuItem"
-        Me.FinestraDiTestToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.FinestraDiTestToolStripMenuItem.Text = "finestra di test"
-        Me.FinestraDiTestToolStripMenuItem.Visible = False
         '
         'ToolStripSeparator1
         '
@@ -335,6 +327,16 @@ Partial Class FPrima
         Me.SplitContainer3.Size = New System.Drawing.Size(1002, 79)
         Me.SplitContainer3.SplitterDistance = 25
         Me.SplitContainer3.TabIndex = 29
+        '
+        'VerticalLabel3
+        '
+        Me.VerticalLabel3.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel3.Location = New System.Drawing.Point(1, 0)
+        Me.VerticalLabel3.Name = "VerticalLabel3"
+        Me.VerticalLabel3.Size = New System.Drawing.Size(24, 79)
+        Me.VerticalLabel3.TabIndex = 27
+        Me.VerticalLabel3.Text = "Allegato A"
         '
         'DataGridViewAllegatoA
         '
@@ -510,6 +512,16 @@ Partial Class FPrima
         Me.SplitContainer2.SplitterDistance = 25
         Me.SplitContainer2.TabIndex = 30
         '
+        'VerticalLabel1
+        '
+        Me.VerticalLabel1.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel1.Location = New System.Drawing.Point(1, 0)
+        Me.VerticalLabel1.Name = "VerticalLabel1"
+        Me.VerticalLabel1.Size = New System.Drawing.Size(24, 78)
+        Me.VerticalLabel1.TabIndex = 26
+        Me.VerticalLabel1.Text = "Par.9 Interv."
+        '
         'DataGridViewInterventi
         '
         Me.DataGridViewInterventi.AllowUserToAddRows = False
@@ -634,6 +646,16 @@ Partial Class FPrima
         Me.SplitContainer1.Size = New System.Drawing.Size(1002, 78)
         Me.SplitContainer1.SplitterDistance = 25
         Me.SplitContainer1.TabIndex = 31
+        '
+        'VerticalLabel4
+        '
+        Me.VerticalLabel4.Dock = System.Windows.Forms.DockStyle.Right
+        Me.VerticalLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel4.Location = New System.Drawing.Point(1, 0)
+        Me.VerticalLabel4.Name = "VerticalLabel4"
+        Me.VerticalLabel4.Size = New System.Drawing.Size(24, 78)
+        Me.VerticalLabel4.TabIndex = 27
+        Me.VerticalLabel4.Text = "Par.6 Info"
         '
         'DataGridViewInformazioni
         '
@@ -938,36 +960,6 @@ Partial Class FPrima
         Me.menu.TabIndex = 22
         Me.menu.Text = "menu"
         '
-        'VerticalLabel4
-        '
-        Me.VerticalLabel4.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel4.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel4.Location = New System.Drawing.Point(1, 0)
-        Me.VerticalLabel4.Name = "VerticalLabel4"
-        Me.VerticalLabel4.Size = New System.Drawing.Size(24, 78)
-        Me.VerticalLabel4.TabIndex = 27
-        Me.VerticalLabel4.Text = "Par.6 Info"
-        '
-        'VerticalLabel1
-        '
-        Me.VerticalLabel1.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel1.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel1.Location = New System.Drawing.Point(1, 0)
-        Me.VerticalLabel1.Name = "VerticalLabel1"
-        Me.VerticalLabel1.Size = New System.Drawing.Size(24, 78)
-        Me.VerticalLabel1.TabIndex = 26
-        Me.VerticalLabel1.Text = "Par.9 Interv."
-        '
-        'VerticalLabel3
-        '
-        Me.VerticalLabel3.Dock = System.Windows.Forms.DockStyle.Right
-        Me.VerticalLabel3.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel3.Location = New System.Drawing.Point(1, 0)
-        Me.VerticalLabel3.Name = "VerticalLabel3"
-        Me.VerticalLabel3.Size = New System.Drawing.Size(24, 79)
-        Me.VerticalLabel3.TabIndex = 27
-        Me.VerticalLabel3.Text = "Allegato A"
-        '
         'VerticalLabel2
         '
         Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
@@ -1088,7 +1080,6 @@ Partial Class FPrima
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
-    Friend WithEvents FinestraDiTestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SplitContainer3 As System.Windows.Forms.SplitContainer
     Friend WithEvents VerticalLabel3 As OrSe.verticalLabel
     Friend WithEvents DataGridViewAllegatoA As System.Windows.Forms.DataGridView
