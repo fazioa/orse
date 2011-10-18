@@ -30,7 +30,7 @@ Public Class DInserimentoLuogoControllo
     End Sub
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         Try
-            If (cbLuogoControllo.getSelectedText.Trim.Length > 0) Then
+            If (cbLuogoControllo.getSelectedText.Trim.Length > 0 And cbLuogoControllo.getSelectedID <> 0) Then
                 'inserisce la riga nella tabella controllo
                 ControlloTableAdapter.Insert(DateTimePickerOra.Value, cbLuogoControllo.getSelectedID, parametri.idOS)
                 'leggo l'indice della riga inserita

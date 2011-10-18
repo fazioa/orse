@@ -47,7 +47,7 @@ Public Class UserControlComboBox
         'se aggiorno il dataset vuol dire che non è stata selezionata alcuna voce
         'bVoceSelezionata = False
         'disabilito l'evento del listobox
-        frm.ListBox1_AbilitaEventiListBox(False)
+        ' frm.ListBox1_AbilitaEventiListBox(False)
         Select Case tabella
             Case tabellaEnum.LuogoControllo
                 Me.LuoghicontrolloTableAdapter.FillByName(DbAlegatoADataSet.luoghicontrollo, parametro)
@@ -55,9 +55,10 @@ Public Class UserControlComboBox
                 ModelliMezzoTableAdapter.FillByMezzo(DbAlegatoADataSet.modelliMezzo, parametro)
         End Select
         'riattivo l'evento
-        '  frm.ListBox1_AbilitaEventiListBox(True)
-        '   frm.visibleMy(True)
+        'frm.ListBox1_AbilitaEventiListBox(True)
+        'frm.visibleMy(True)
     End Sub
+
 
     Private Sub TextBox1_PreviewKeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.PreviewKeyDownEventArgs) Handles TextBox1.PreviewKeyDown
         If e.KeyCode = Keys.Down Then
@@ -73,7 +74,6 @@ Public Class UserControlComboBox
             Else
                 frm.visibleMy(False)
             End If
-
         ElseIf e.KeyCode = Keys.Enter Then
             'tasto invio
             InsNuovoValore()
@@ -84,13 +84,21 @@ Public Class UserControlComboBox
 
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         CurrentString = TextBox1.Text
-        fill(CurrentString)
-        'disattiva evento deactivate
-        frm.EventoDeactivateAbilitato(False)
-        TextBox1.Focus()
-        frm.EventoDeactivateAbilitato(True)
-        '==================
-
+        If CurrentString <> "" Then
+            fill(CurrentString)
+            If (frm.ListBox1.Items.Count > 0) Then
+                frm.visibleMy(True)
+            Else
+                frm.visibleMy(False)
+            End If
+            'disattiva evento deactivate
+            frm.EventoDeactivateAbilitato(False)
+            TextBox1.Focus()
+            frm.EventoDeactivateAbilitato(True)
+            '==================
+        Else
+            frm.visibleMy(False)
+        End If
     End Sub
 
     Public Sub TextBox1_AbilitazioneEventoTextChanged(ByVal attivato As Boolean)
@@ -179,7 +187,6 @@ Public Class UserControlComboBox
 
 
     Private Sub TextBox1_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles TextBox1.Leave
-
         ' se il fuoco non è andato alla listbox1 allora la nasconde
         'se il fuoco non è andato alla listbox1 allora controllo se è stato selezionato un valore, altrimenti inseriso un nuovo valore
         If (Not frm.ListBox1.Focused) Then
@@ -211,6 +218,7 @@ Public Class UserControlComboBox
             frm.visibleMy(False)
         End If
     End Sub
+
 End Class
 
 
@@ -277,7 +285,7 @@ Partial Class frmList
         Me.Controls.Add(Me.ListBox1)
 
         'abilito l'evento
-        ListBox1_AbilitaEventiListBox(True)
+        '   ListBox1_AbilitaEventiListBox(True)
 
         Me.ResumeLayout()
         Me.PerformLayout()
@@ -348,15 +356,15 @@ Partial Class frmList
     End Sub
 
 
-    Private Sub BindingSource_ListChanged(ByVal sender As System.Object, ByVal e As System.ComponentModel.ListChangedEventArgs) Handles BindingSource.ListChanged
-        iCount = Me.BindingSource.Count
-        iCount = ListBox1.Items.Count
-        If iCount <= 0 Then
-            Me.visibleMy(False)
-        Else
-            Me.visibleMy(True)
-        End If
-    End Sub
+    ' Private Sub BindingSource_ListChanged(ByVal sender As System.Object, ByVal e As System.ComponentModel.ListChangedEventArgs) Handles BindingSource.ListChanged
+    '    iCount = Me.BindingSource.Count
+    '    iCount = ListBox1.Items.Count
+    '    If iCount <= 0 Then
+    '        Me.visibleMy(False)
+    '    Else
+    '        Me.visibleMy(True)
+    '    End If
+    'End Sub
 
     Private Sub selezionevoce()
         'sospende evento textchanged

@@ -40,10 +40,26 @@ Public Class FSopralluogo
             idSopralluogo = SopralluogoTableAdapter.MaxID
             log.xlogWriteEntry("Inserimento sopralluogo - Salvataggio dati", TraceEventType.Critical)
         Catch ex As DBConcurrencyException
-            log.xlogWriteEntry("Inserimento sopralluogo - Salvataggio automatico - Eseguo comando SQL Update", TraceEventType.Critical)
-            feActions.esegueSQL("UPDATE sopralluogo SET idOS=" & xIdOS & ", tipoReato='" & sTipoReato & "', oraRichiesta=#" & DateTimePickerOraRichiesta.Value & "#, oraRedazione=#" & DateTimePickerOraVerbale.Value & "#, luogo_citta='" & TextBoxLuogo.Text & "', via='" & TextBoxVia.Text & "', contatti_con='" & TextBoxContatti.Text & "', resoconto='" & TextBoxResoconto.Text & "' WHERE idSopralluogo=" & idSopralluogo)
+            Try
+                sTipoReato = sTipoReato.Replace("'", "''")
+                Dim sLuogo As String = TextBoxLuogo.Text.Replace("'", "''")
+                Dim sVia As String = TextBoxVia.Text.Replace("'", "''")
+                Dim sContatti As String = TextBoxContatti.Text.Replace("'", "''")
+                Dim sResoconto As String = TextBoxResoconto.Text.Replace("'", "''")
+
+                log.xlogWriteEntry("Inserimento sopralluogo - Salvataggio automatico - Eseguo comando SQL Update", TraceEventType.Critical)
+                Dim i = feActions.esegueSQL("UPDATE sopralluogo SET idOS=" & xIdOS & ", tipoReato='" & sTipoReato & "', oraRichiesta=#" & DateTimePickerOraRichiesta.Value & "#, oraRedazione=#" & DateTimePickerOraVerbale.Value & "#, luogo_citta='" & sLuogo & "', via='" & sVia & "', contatti_con='" & sContatti & "', resoconto='" & sResoconto & "' WHERE idSopralluogo=" & idSopralluogo)
+                log.xlogWriteEntry("Numero righe modificate: " & i, TraceEventType.Information)
+                If i = 0 Then MsgBox("Contenuto non salvato!", MsgBoxStyle.Critical, "ATTENZIONE")
+            Catch exc As Exception
+                log.xlogWriteEntry("Inserimento sopralluogo - Errore Salvataggio automatico - " & exc.Message, TraceEventType.Critical)
+                MsgBox("Contenuto non salvato!" & ex.Message, MsgBoxStyle.Critical, "ATTENZIONE")
+            End Try
         End Try
 
+
+
+    
     End Sub
 
 
@@ -140,7 +156,7 @@ Public Class FSopralluogo
     Dim contenutoCambiato As Boolean = False
 
     Private Sub setChanged(ByVal contenutoCamb As Boolean)
-        log.xlogWriteEntry("Inserimento sopralluogo - Contenuto cambiato=" & contenutoCamb.ToString, TraceEventType.Information)
+        '  log.xlogWriteEntry("Inserimento sopralluogo - Contenuto cambiato=" & contenutoCamb.ToString, TraceEventType.Information)
         contenutoCambiato = contenutoCamb
         'se il contenuto del form è cambiato allora setto il flag e aggiungo un asterisco al titolo
         'altrimenti tolgo l'asterisco
