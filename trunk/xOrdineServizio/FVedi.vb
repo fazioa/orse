@@ -148,7 +148,7 @@ Public Class FVedi
     End Sub
 
     Private Sub apriDettaglioRubrica(ByRef dgv As DataGridView)
-        Dim v As Integer = dgv.CurrentRow.Cells("idRubrica").Value
+        Dim v As Integer = dgv.CurrentRow.Cells("idR").Value
         ' parametri.nomeLuogoControllo = dgv.CurrentRow.Cells("cLuogoControllo").Value
         ' parametri.dataoraControllo = dgv.CurrentRow.Cells("cOra").Value
         feActions.doApriDettaglioRubrica(v)
