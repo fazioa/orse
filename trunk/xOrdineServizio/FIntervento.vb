@@ -167,9 +167,14 @@ Public Class FIntervento
         Catch ex As DBConcurrencyException
             log.xlogWriteEntry("Inserimento intervento - Salvataggio automatico - Eseguo comando SQL Update", TraceEventType.Critical)
             Try
-                feActions.esegueSQL("UPDATE interventi SET dataOraInizio=#" & DateTimePickerOraInizio.Value & "#, dataOraFine=#" & DateTimePickerOraFine.Value & "#, tipointervento='" & tbTipoServizio.Text & "', resoconto='" & tbResoconto.Text & "' WHERE id=" & xidIntervento)
+                Dim sTipoServizio As String = tbTipoServizio.Text.Replace("'", "''")
+                Dim sResoconto As String = tbResoconto.Text.Replace("'", "''")
+                Dim i = feActions.esegueSQL("UPDATE interventi SET dataOraInizio=#" & DateTimePickerOraInizio.Value & "#, dataOraFine=#" & DateTimePickerOraFine.Value & "#, tipointervento='" & sTipoServizio & "', resoconto='" & sResoconto & "' WHERE id=" & xidIntervento)
+                log.xlogWriteEntry("Numero righe modificate: " & i, TraceEventType.Information)
+                If i = 0 Then MsgBox("Contenuto non salvato!", MsgBoxStyle.Critical, "ATTENZIONE")
             Catch exc As Exception
                 log.xlogWriteEntry("Inserimento intervento - Errore Salvataggio automatico - " & exc.Message, TraceEventType.Critical)
+                MsgBox("Contenuto non salvato!" & ex.Message, MsgBoxStyle.Critical, "ATTENZIONE")
             End Try
 
         End Try
@@ -188,7 +193,7 @@ Public Class FIntervento
 
     Dim contenutoCambiato As Boolean = False
     Private Sub setChanged(ByVal contenutoCamb As Boolean)
-        log.xlogWriteEntry("Inserimento intervento - Contenuto cambiato=" & contenutoCamb.ToString, TraceEventType.Information)
+        'log.xlogWriteEntry("Inserimento intervento - Contenuto cambiato=" & contenutoCamb.ToString, TraceEventType.Information)
         contenutoCambiato = contenutoCamb
         'se il contenuto del form è cambiato allora setto il flag e aggiungo un asterisco al titolo
         'altrimenti tolgo l'asterisco

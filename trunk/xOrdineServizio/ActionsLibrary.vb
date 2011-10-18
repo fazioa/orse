@@ -1102,8 +1102,8 @@ Public Class ActionsLibrary
         Dim objcomm As New OleDb.OleDbCommand(sComandoSQL, objconn)
         objconn.Open()
         log.xlogWriteEntry("Esegue comando SQL: " & sComandoSQL, TraceEventType.Information)
-        Dim risputente = objcomm.ExecuteNonQuery()
-        Return risputente
+        Dim nrRighe = objcomm.ExecuteNonQuery()
+        Return nrRighe
     End Function
 
 
