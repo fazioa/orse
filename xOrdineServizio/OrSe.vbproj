@@ -168,7 +168,6 @@
     </Compile>
     <Compile Include="dbAlegatoADataSet.vb">
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
     <Compile Include="FElencosoggetti.Designer.vb">
       <DependentUpon>FElencosoggetti.vb</DependentUpon>
@@ -185,11 +184,9 @@
     </Compile>
     <Compile Include="FProgressionBar.Designer.vb">
       <DependentUpon>FProgressionBar.vb</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="FProgressionBar.vb">
       <SubType>Form</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="FRicerca.Designer.vb">
       <DependentUpon>FRicerca.vb</DependentUpon>
@@ -388,17 +385,13 @@
   <ItemGroup>
     <None Include="dbAlegatoADataSet.xsc">
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="dbAlegatoADataSet.xsd">
+    <Compile Include="dbAlegatoADataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
       <LastGenOutput>dbAlegatoADataSet.Designer.vb</LastGenOutput>
-    </None>
+    </Compile>
     <None Include="dbAlegatoADataSet.xss">
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
@@ -438,7 +431,6 @@
     <EmbeddedResource Include="FProgressionBar.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FProgressionBar.vb</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="FRubrica.resx">
       <SubType>Designer</SubType>
@@ -466,7 +458,9 @@
     <Content Include="Resources\automazione\verbaleSopralluogo.dot">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="Resources\btnPrima\rubrica.png" />
+    <EmbeddedResource Include="Resources\btnPrima\rubrica.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Resources\repubblica.png" />
     <None Include="Resources\logo_finale.jpg" />
     <EmbeddedResource Include="Resources\btnReport\printAllegatoA.png">
