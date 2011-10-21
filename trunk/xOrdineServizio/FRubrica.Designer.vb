@@ -67,7 +67,7 @@ Partial Class FRubrica
         Me.tbRubrica.Multiline = True
         Me.tbRubrica.Name = "tbRubrica"
         Me.tbRubrica.Size = New System.Drawing.Size(870, 574)
-        Me.tbRubrica.TabIndex = 27
+        Me.tbRubrica.TabIndex = 0
         '
         'RubricaBindingSource
         '

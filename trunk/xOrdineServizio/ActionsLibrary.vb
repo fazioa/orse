@@ -282,7 +282,7 @@ Public Class ActionsLibrary
     End Sub
 
     Public Sub doApriDettaglioIntervento(ByVal dgv As DataGridView, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs, ByVal nomeColonnaId As String)
-        log.xlogWriteEntry("Apertura dettaglio intervento/Informazione", TraceEventType.Information)
+        log.xlogWriteEntry("Apertura form dettaglio intervento/Informazione", TraceEventType.Information)
         Dim form As System.Windows.Forms.Form
         'il parametro boolean non serve a niente, messo solo per differenziare le firme del costruttore
         form = New FIntervento(dgv.Rows(e.RowIndex).Cells(nomeColonnaId).Value, True)
@@ -290,7 +290,7 @@ Public Class ActionsLibrary
     End Sub
 
     Public Sub doApriFormSopralluogo(ByRef idOS As Integer, ByVal nomiOperatori As String)
-        log.xlogWriteEntry("Apertura sopralluogo", TraceEventType.Information)
+        log.xlogWriteEntry("Apertura form sopralluogo", TraceEventType.Information)
         'db = db
         Dim form As System.Windows.Forms.Form
         form = New FSopralluogo(idOS, -1, nomiOperatori) 'passo -1 perchè il parametro idS non mi serve, in questo caso
@@ -298,7 +298,7 @@ Public Class ActionsLibrary
     End Sub
 
     Public Sub doApriFormRubrica(ByRef idOS As Integer)
-        log.xlogWriteEntry("Apertura rubrica", TraceEventType.Information)
+        log.xlogWriteEntry("Apertura form rubrica", TraceEventType.Information)
         Dim form As System.Windows.Forms.Form
         form = New FRubrica(idOS, -1) 'passo -1 perchè il parametro non mi serve, in questo caso
         form.Show()
@@ -1129,18 +1129,9 @@ Public Class ActionsLibrary
         updateSW.ripristinaDBBackup()
     End Sub
 
-
-    ''STILI PER DATAGRID, PER IL RAGGRUPPAMENTO IN BASE AI CONTROLLI
-    'Dim stile1 As DataGridViewCellStyle
-    '    stile1 = DataGridView1.DefaultCellStyle()
-    '    stile1.BackColor = Color.Azure
-
-    'Dim stile2 As DataGridViewCellStyle
-    '    stile2 = DataGridView1.DefaultCellStyle()
-    '    stile2.BackColor = Color.WhiteSmoke
     Sub setStandardFormSize(ByVal f As Form)
         f.Size = New Size(My.Settings.formWidth, My.Settings.formHeight)
-        f.StartPosition = f.StartPosition.CenterScreen
+        f.StartPosition = FormStartPosition.CenterScreen
     End Sub
 
 End Class

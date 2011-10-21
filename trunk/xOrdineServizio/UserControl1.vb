@@ -37,9 +37,12 @@ Public Class UserControlComboBox
             Case tabellaEnum.LuogoControllo
                 frm.ListBox1.DataSource = LuoghicontrolloBindingSource
                 frm.BindingSource = LuoghicontrolloBindingSource
+                TextBox1.MaxLength = DbAlegatoADataSet.luoghicontrollo.luogoColumn.MaxLength
+
             Case tabellaEnum.ModelliMezzo
                 frm.ListBox1.DataSource = ModelliMezzoBindingSource
                 frm.BindingSource = ModelliMezzoBindingSource
+                TextBox1.MaxLength = DbAlegatoADataSet.modelliMezzo.mezzoColumn.MaxLength
         End Select
     End Sub
 

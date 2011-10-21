@@ -338,6 +338,7 @@ Partial Class FSoggetto
         Me.tbDocumento.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "documento", True))
         Me.tbDocumento.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbDocumento.Location = New System.Drawing.Point(172, 13)
+        Me.tbDocumento.MaxLength = 50
         Me.tbDocumento.Name = "tbDocumento"
         Me.tbDocumento.Size = New System.Drawing.Size(270, 41)
         Me.tbDocumento.TabIndex = 100

@@ -78,7 +78,7 @@ Public Class FRicerca
         Dim dgv As DataGridView = sender
         Dim coord As System.Drawing.Point = dgv.CurrentCellAddress
         If coord.X = dgv.Columns("cDettaglioRubrica").Index() Then
-            feActions.doApriDettaglioRubrica(dgv.CurrentRow.Cells("idRubrica").Value)
+            feActions.doApriDettaglioRubrica(dgv.CurrentRow.Cells("idRub").Value)
         End If
     End Sub
 

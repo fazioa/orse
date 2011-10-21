@@ -26,7 +26,7 @@ Public Class FIntervento
         dlFine = dFine
 
         'esegue qui se è un nuovo intervento
-        InitializeComponent()
+        myInitializeComponent()
         feActions.setStandardFormSize(Me)
 
         Me.OrdineServizioTableAdapter.FillByID(Me.DbAlegatoADataSet.ordineServizio, idOS)
@@ -52,10 +52,14 @@ Public Class FIntervento
         bNuovoIntervento = True
 
     End Sub
-
+    Sub myInitializeComponent()
+        InitializeComponent()
+        tbTipoServizio.MaxLength = DbAlegatoADataSet.interventi.tipointerventoColumn.MaxLength
+        tbResoconto.MaxLength = DbAlegatoADataSet.interventi.resocontoColumn.MaxLength
+    End Sub
     'Modifica. Coincidevano le firme. Aggiungo z solo per differenziarle, non ho voglia di escogitare altro
     Public Sub New(ByVal id As Integer, ByVal z As Boolean)
-        InitializeComponent()
+        myInitializeComponent()
         feActions.setStandardFormSize(Me)
         xidIntervento = id
         feActions = New OrSe.ActionsLibrary()
@@ -86,7 +90,7 @@ Public Class FIntervento
                 Me.GroupBoxOraFine.Enabled = True 'gruppo abilitato
             End If
 
-          
+
 
             'il salvataggio automatico funziona solo se si tratta di un nuovo intervento/informazione
             'imposto l'intervallo per il salvataggio automatico al valore delle impostazioni (in secondi)
@@ -223,5 +227,5 @@ Public Class FIntervento
 
     End Sub
 
-   
+
 End Class

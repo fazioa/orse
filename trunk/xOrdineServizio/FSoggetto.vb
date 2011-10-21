@@ -41,6 +41,18 @@ Public Class FSoggetto
         ComboBoxModelliMezzo.setValueMember("id")
         ComboBoxModelliMezzo.setTabella(UserControlComboBox.tabellaEnum.ModelliMezzo)
         ComboBoxModelliMezzo.MaxLength(50) 'imposto la lunghezza massima del campo. E' uguale a quella del DB
+
+        tbTarga.MaxLength = DbDataSet2.modelliMezzo.mezzoColumn.MaxLength
+        tbColore.MaxLength = DbDataSet2.allegatoA.coloreColumn.MaxLength
+        tbCognome.MaxLength = DbDataSet2.persona.cognomeColumn.MaxLength
+        tbNome.MaxLength = DbDataSet2.persona.nomeColumn.MaxLength
+        tbIndirizzo.MaxLength = DbDataSet2.persona.residenzaindirizzoColumn.MaxLength
+        tbDocumento.MaxLength = DbDataSet2.persona.documentoColumn.MaxLength
+        tbPrecedenti.MaxLength = DbDataSet2.persona.precedentiColumn.MaxLength
+        tbNote.MaxLength = DbDataSet2.allegatoA.NOTEColumn.MaxLength
+
+
+
     End Sub
 
     'modifica soggetto
@@ -189,10 +201,10 @@ Public Class FSoggetto
             'update modifiche riga allegato A
             Me.AllegatoABindingSource.EndEdit()
             Me.AllegatoATableAdapter.Update(Me.DbDataSet.allegatoA)
-
             Me.Close()
         Catch ex As Exception
             log.xlogWriteEntry("Errore inserimento soggetto. " & ex.Message, TraceEventType.Error)
+            MsgBox("Errore inserimento soggetto. " & ex.Message, MsgBoxStyle.Critical, "Errore")
         End Try
     End Sub
 
