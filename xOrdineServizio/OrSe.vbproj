@@ -427,7 +427,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="dbAlegatoA.mdb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="FDataRange.resx">
       <SubType>Designer</SubType>
