@@ -84,6 +84,9 @@ Public Class DInsDatiPreliminari
         Dim drv As DataRowView
 
         pb.Maximum(QOrdineServizioBindingSource.Count)
+        Dim log As New XOrseLog
+        log.xlogWriteEntry("Aggiornamento albero (TreeView ordini di servizio)", TraceEventType.Information)
+
         While (bEsc)
             drv = iteratore.Current
             FillTreeOS(drv.Item("id"), drv.Item("nome") & " del " & FormatDateTime(drv.Item("data"), DateFormat.ShortDate) & " - " & drv.Item("operatori"))
@@ -116,8 +119,6 @@ Public Class DInsDatiPreliminari
     Sub FillTreeOS(ByVal idOS As Integer, ByVal nomeNodo As String)
         'crea il nodo e poi lo riempie con il contenuro dei nomi dell'allegato A
         TreeViewOS.Nodes.Add(idOS, nomeNodo)
-        Dim log As New XOrseLog
-        log.xlogWriteEntry("Aggiornamento albero (TreeView ordini di servizio:" & idOS & ", " & nomeNodo, TraceEventType.Information)
     End Sub
 
     Function fillTreeNodePersona(ByVal treeOS As TreeView, ByVal treeNodes As TreeNode, ByVal binding As BindingSource) As TreeNode

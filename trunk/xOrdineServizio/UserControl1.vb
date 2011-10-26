@@ -70,7 +70,7 @@ Public Class UserControlComboBox
             frm.ListBox1.Focus()
             'seleziono il primo elemento
             If (frm.ListBox1.Items.Count > 0) Then
-                frm.ListBox1.SelectedIndex = 0
+                ' frm.ListBox1.SelectedIndex = 0
                 If (Not frm.ListBox1.Visible) Then
                     frm.visibleMy(True)
                 End If
@@ -86,12 +86,19 @@ Public Class UserControlComboBox
     End Sub
 
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
-        CurrentString = TextBox1.Text
+        CurrentString = TextBox1.Text.Trim
+        log.xlogWriteEntry(CurrentString.Length, TraceEventType.Information)
         If CurrentString <> "" Then
             fill(CurrentString)
+
             If (frm.ListBox1.Items.Count > 0) Then
-                frm.visibleMy(True)
+                If Not frm.ListBox1.Visible Then
+                    frm.visibleMy(True)
+                End If
+                frm.ListBox1.SetSelected(0, False)
             Else
+                'azzero il flag voceSelezionata
+                frm.bVoceSelezionata = False
                 frm.visibleMy(False)
             End If
             'disattiva evento deactivate
@@ -120,8 +127,6 @@ Public Class UserControlComboBox
                 'inserisce il valore in tabella e poi lo seleziona nella listbox1
                 Me.ins(CurrentString.Trim)
                 Me.fill(CurrentString.Trim)
-
-                'frm.ListBox1.SelectedIndex = Me.FindStringExact()
                 iSelectedID = frm.getSelectedID()
                 Return 1
             End If
@@ -195,6 +200,7 @@ Public Class UserControlComboBox
         If (Not frm.ListBox1.Focused) Then
             frm.visibleMy(False)
             If (Not frm.bVoceSelezionata) Then InsNuovoValore()
+
         End If
 
     End Sub
@@ -383,7 +389,10 @@ Partial Class frmList
             bVoceSelezionata = True
             'carattere NERO
             Textbox1.ForeColor = Color.Black
-            ' ListBox1_visible(True)
+
+            'visto che in passato sono state inserite stringhe lunghe 150 caratteri, eseguo il trim
+            Textbox1.Text = Textbox1.Text.Trim
+
             Textbox1.SelectionStart = 0
             Textbox1.SelectionLength = Textbox1.Text.Length
             Textbox1.Focus()
