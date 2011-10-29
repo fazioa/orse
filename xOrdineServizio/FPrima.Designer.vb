@@ -54,8 +54,6 @@ Partial Class FPrima
         Me.textBoxInfoOS = New System.Windows.Forms.TextBox
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
-        Me.CachedreportAllegatoA1 = New OrSe.CachedreportAllegatoA
-        Me.CachedreportInterventi1 = New OrSe.CachedreportInterventi
         Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter
         Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -71,12 +69,13 @@ Partial Class FPrima
         Me.menu = New System.Windows.Forms.MenuStrip
         Me.VerticalLabel2 = New OrSe.verticalLabel
         Me.BtnVedi = New System.Windows.Forms.Button
-        Me.btnRubrica = New System.Windows.Forms.Button
         Me.btnSopralluogo = New System.Windows.Forms.Button
         Me.btnInformazioni = New System.Windows.Forms.Button
         Me.btnIntervento = New System.Windows.Forms.Button
         Me.btnAlegatoA = New System.Windows.Forms.Button
         Me.FlowLayoutPanelEsterno = New System.Windows.Forms.FlowLayoutPanel
+        Me.btnRubrica = New System.Windows.Forms.Button
+        Me.Button1 = New System.Windows.Forms.Button
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -417,19 +416,6 @@ Partial Class FPrima
         Me.BtnVedi.Text = "V&edi..."
         Me.BtnVedi.UseVisualStyleBackColor = True
         '
-        'btnRubrica
-        '
-        Me.btnRubrica.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
-        Me.btnRubrica.Image = CType(resources.GetObject("btnRubrica.Image"), System.Drawing.Image)
-        Me.btnRubrica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnRubrica.Location = New System.Drawing.Point(309, 94)
-        Me.btnRubrica.Name = "btnRubrica"
-        Me.btnRubrica.Size = New System.Drawing.Size(300, 85)
-        Me.btnRubrica.TabIndex = 10
-        Me.btnRubrica.Text = " &Rubrica..."
-        Me.btnRubrica.UseCompatibleTextRendering = True
-        Me.btnRubrica.UseVisualStyleBackColor = True
-        '
         'btnSopralluogo
         '
         Me.btnSopralluogo.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
@@ -495,11 +481,38 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnSopralluogo)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnRubrica)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.BtnVedi)
+        Me.FlowLayoutPanelEsterno.Controls.Add(Me.Button1)
         Me.FlowLayoutPanelEsterno.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanelEsterno.Location = New System.Drawing.Point(0, 77)
         Me.FlowLayoutPanelEsterno.Name = "FlowLayoutPanelEsterno"
         Me.FlowLayoutPanelEsterno.Size = New System.Drawing.Size(1008, 435)
         Me.FlowLayoutPanelEsterno.TabIndex = 28
+        '
+        'btnRubrica
+        '
+        Me.btnRubrica.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
+        Me.btnRubrica.Image = CType(resources.GetObject("btnRubrica.Image"), System.Drawing.Image)
+        Me.btnRubrica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnRubrica.Location = New System.Drawing.Point(309, 94)
+        Me.btnRubrica.Name = "btnRubrica"
+        Me.btnRubrica.Size = New System.Drawing.Size(300, 85)
+        Me.btnRubrica.TabIndex = 10
+        Me.btnRubrica.Text = " &Rubrica..."
+        Me.btnRubrica.UseCompatibleTextRendering = True
+        Me.btnRubrica.UseVisualStyleBackColor = True
+        '
+        'Button1
+        '
+        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
+        Me.Button1.Image = Global.OrSe.My.Resources.Resources.DBFind
+        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.Button1.Location = New System.Drawing.Point(3, 185)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(300, 85)
+        Me.Button1.TabIndex = 11
+        Me.Button1.Text = " &Cerca..."
+        Me.Button1.UseCompatibleTextRendering = True
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'FPrima
         '
@@ -573,8 +586,6 @@ Partial Class FPrima
     Friend WithEvents PreferenzeToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ComuneTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter
     Friend WithEvents ModelliMezzoTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter
-    Friend WithEvents CachedreportAllegatoA1 As OrSe.CachedreportAllegatoA
-    Friend WithEvents CachedreportInterventi1 As OrSe.CachedreportInterventi
     Friend WithEvents StampaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents informazioniToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AllegatoAToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -611,11 +622,12 @@ Partial Class FPrima
     Friend WithEvents ButtonRubrica As System.Windows.Forms.Button
     Friend WithEvents menu As System.Windows.Forms.MenuStrip
     Friend WithEvents BtnVedi As System.Windows.Forms.Button
-    Friend WithEvents btnRubrica As System.Windows.Forms.Button
     Friend WithEvents btnSopralluogo As System.Windows.Forms.Button
     Friend WithEvents btnInformazioni As System.Windows.Forms.Button
     Friend WithEvents btnIntervento As System.Windows.Forms.Button
     Friend WithEvents btnAlegatoA As System.Windows.Forms.Button
     Friend WithEvents FlowLayoutPanelEsterno As System.Windows.Forms.FlowLayoutPanel
+    Friend WithEvents btnRubrica As System.Windows.Forms.Button
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 
 End Class
