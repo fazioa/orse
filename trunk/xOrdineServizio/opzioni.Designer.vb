@@ -58,10 +58,6 @@ Partial Class opzioni
         Me.TextBox8 = New System.Windows.Forms.TextBox
         Me.Label16 = New System.Windows.Forms.Label
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox
-        Me.RadioButton_layoutRiepilogoInserimentiN = New System.Windows.Forms.RadioButton
-        Me.RadioButton_layoutRiepilogoInserimentiS = New System.Windows.Forms.RadioButton
-        Me.Label18 = New System.Windows.Forms.Label
         Me.GroupBox10 = New System.Windows.Forms.GroupBox
         Me.Label14 = New System.Windows.Forms.Label
         Me.tbIntervalloSalvataggioAutomatico = New System.Windows.Forms.TextBox
@@ -81,7 +77,6 @@ Partial Class opzioni
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPageIntestazioni.SuspendLayout()
@@ -485,7 +480,6 @@ Partial Class opzioni
         'FlowLayoutPanel3
         '
         Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox7)
-        Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox9)
         Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox10)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(0, 0)
@@ -493,56 +487,12 @@ Partial Class opzioni
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(700, 278)
         Me.FlowLayoutPanel3.TabIndex = 1
         '
-        'GroupBox9
-        '
-        Me.GroupBox9.Anchor = CType((System.Windows.Forms.AnchorStyles.Left Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.GroupBox9.Controls.Add(Me.RadioButton_layoutRiepilogoInserimentiN)
-        Me.GroupBox9.Controls.Add(Me.RadioButton_layoutRiepilogoInserimentiS)
-        Me.GroupBox9.Controls.Add(Me.Label18)
-        Me.GroupBox9.Location = New System.Drawing.Point(3, 88)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(689, 72)
-        Me.GroupBox9.TabIndex = 6
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Layout"
-        '
-        'RadioButton_layoutRiepilogoInserimentiN
-        '
-        Me.RadioButton_layoutRiepilogoInserimentiN.AutoSize = True
-        Me.RadioButton_layoutRiepilogoInserimentiN.Checked = True
-        Me.RadioButton_layoutRiepilogoInserimentiN.Location = New System.Drawing.Point(253, 43)
-        Me.RadioButton_layoutRiepilogoInserimentiN.Name = "RadioButton_layoutRiepilogoInserimentiN"
-        Me.RadioButton_layoutRiepilogoInserimentiN.Size = New System.Drawing.Size(146, 17)
-        Me.RadioButton_layoutRiepilogoInserimentiN.TabIndex = 2
-        Me.RadioButton_layoutRiepilogoInserimentiN.TabStop = True
-        Me.RadioButton_layoutRiepilogoInserimentiN.Text = "No (usa finestra separata)"
-        Me.RadioButton_layoutRiepilogoInserimentiN.UseVisualStyleBackColor = True
-        '
-        'RadioButton_layoutRiepilogoInserimentiS
-        '
-        Me.RadioButton_layoutRiepilogoInserimentiS.AutoSize = True
-        Me.RadioButton_layoutRiepilogoInserimentiS.Location = New System.Drawing.Point(253, 20)
-        Me.RadioButton_layoutRiepilogoInserimentiS.Name = "RadioButton_layoutRiepilogoInserimentiS"
-        Me.RadioButton_layoutRiepilogoInserimentiS.Size = New System.Drawing.Size(34, 17)
-        Me.RadioButton_layoutRiepilogoInserimentiS.TabIndex = 1
-        Me.RadioButton_layoutRiepilogoInserimentiS.Text = "Si"
-        Me.RadioButton_layoutRiepilogoInserimentiS.UseVisualStyleBackColor = True
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(23, 22)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(223, 13)
-        Me.Label18.TabIndex = 0
-        Me.Label18.Text = "Inserimenti eseguiti riepilogati  in prima pagina:"
-        '
         'GroupBox10
         '
         Me.GroupBox10.Controls.Add(Me.Label14)
         Me.GroupBox10.Controls.Add(Me.tbIntervalloSalvataggioAutomatico)
         Me.GroupBox10.Controls.Add(Me.CheckBoxSalvataggioAutomatico)
-        Me.GroupBox10.Location = New System.Drawing.Point(3, 166)
+        Me.GroupBox10.Location = New System.Drawing.Point(3, 88)
         Me.GroupBox10.Name = "GroupBox10"
         Me.GroupBox10.Size = New System.Drawing.Size(689, 56)
         Me.GroupBox10.TabIndex = 6
@@ -663,8 +613,6 @@ Partial Class opzioni
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.FlowLayoutPanel3.ResumeLayout(False)
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox10.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
@@ -713,10 +661,6 @@ Partial Class opzioni
     Friend WithEvents TextBox7 As System.Windows.Forms.TextBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents FlowLayoutPanel3 As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label18 As System.Windows.Forms.Label
-    Friend WithEvents RadioButton_layoutRiepilogoInserimentiN As System.Windows.Forms.RadioButton
-    Friend WithEvents RadioButton_layoutRiepilogoInserimentiS As System.Windows.Forms.RadioButton
     Friend WithEvents GroupBox10 As System.Windows.Forms.GroupBox
     Friend WithEvents tbIntervalloSalvataggioAutomatico As System.Windows.Forms.TextBox
     Friend WithEvents CheckBoxSalvataggioAutomatico As System.Windows.Forms.CheckBox

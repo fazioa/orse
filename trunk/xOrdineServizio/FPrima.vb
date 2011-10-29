@@ -1,34 +1,63 @@
+Imports System.Diagnostics
 Public Class FPrima
+
     Dim feActions As New OrSe.ActionsLibrary
     Dim appPatch As New OrSe.ApplicazionePatch
     Dim infoScreen As New InfoScreen
     Dim parametri As New parametriControllo
     Dim log As New XOrseLog
     Dim modalitaVisita As Boolean
+    Dim bFlagExit As Boolean = False
+
     Public Sub New()
 
-        Dim compatta As New CompattaRipristina
-        Try
-            log.xlogWriteEntry("Compatta DB", TraceEventType.Information)
-            compatta.DoAction()
-        Catch ex As Exception
-            log.xlogWriteException(ex, TraceEventType.Warning, "Compatta DB - Errore")
-        End Try
+        'controllo se il file del DB è presente, altrimenti restituisco errore ed esco dall'applicazione
+        Dim pathDB As String = Application.StartupPath
 
-        '======= Controlla la versione del software e si cura di effettuare eventuali modifiche sul DB)
-        Dim versioneDBattuale As Double = appPatch.doControlloVersioneDB()
-        '===========================================================================================
-        If (Double.Parse(My.Settings.versioneDB.Replace(".", ",")) > versioneDBattuale) Then
-            Dim s As New InfoScreen
-            s.aggiornamentoDB(My.Settings.versioneDB)
-            'lanciare aggiornaVersioneDB indicando la vecchia versione rilevata
-            appPatch.aggiornaversioneVersioneDB(versioneDBattuale)
+        Dim sPath = pathDB & "\dbAlegatoA.mdb"
+
+        'elimino il file dbAlegatoA2, nel caso sia presente
+        If Dir(sPath) = "" Then
+            MsgBox("Il file """ & sPath & ", necessario all'applicazione, non sembra essere presente. Controllare che sulla cartella di installazione """ & sPath & """ ci siano i permessi di scrittura. Eventualmente, richiedere assistenza al produttore", MsgBoxStyle.Critical, "ERRORE")
+            bFlagExit = True
+
+            'Codice da inserire in una funzione o evento click del pulsante
+
+            '            For Each p As Process In Process.GetProcesses()
+
+            '            If p.Id = Process.GetCurrentProcess().Id Then
+            'MessageBox.Show("Nome Processo: " & Process.GetCurrentProcess().ProcessName)
+            'p.CloseMainWindow()
+            'p.Close()
+            'End If
+            '  Next
         End If
 
-        ' This call is required by the Windows Form Designer.
-        InitializeComponent()
-        ' Add any initialization after the InitializeComponent() call.
 
+        If Not bFlagExit Then
+            Dim compatta As New CompattaRipristina
+            Try
+                log.xlogWriteEntry("Compatta DB", TraceEventType.Information)
+                compatta.DoAction()
+            Catch ex As Exception
+                log.xlogWriteException(ex, TraceEventType.Warning, "Compatta DB - Errore")
+            End Try
+
+            '======= Controlla la versione del software e si cura di effettuare eventuali modifiche sul DB)
+            Dim versioneDBattuale As Double = appPatch.doControlloVersioneDB()
+            '===========================================================================================
+            If (Double.Parse(My.Settings.versioneDB.Replace(".", ",")) > versioneDBattuale) Then
+                Dim s As New InfoScreen
+                s.aggiornamentoDB(My.Settings.versioneDB)
+                'lanciare aggiornaVersioneDB indicando la vecchia versione rilevata
+                appPatch.aggiornaversioneVersioneDB(versioneDBattuale)
+            End If
+
+
+            ' This call is required by the Windows Form Designer.
+            InitializeComponent()
+            ' Add any initialization after the InitializeComponent() call.
+        End If
     End Sub
 
     Private Sub Form1_myInit()
@@ -40,24 +69,27 @@ Public Class FPrima
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DbAlegatoADataSet_Unico.QOrdineServizio' table. You can move, or remove it, as needed.
-        caricaFinestraDatiOS()
+        If Not bFlagExit Then
+            caricaFinestraDatiOS()
 
-        QInterventi_informazioniBindigSource.Filter = "iParagrafo=" & paragrafoOS.informazioni
-        QInterventiBindingSource.Filter = "iParagrafo=" & paragrafoOS.interventi
+            QInterventi_informazioniBindigSource.Filter = "iParagrafo=" & paragrafoOS.informazioni
+            QInterventiBindingSource.Filter = "iParagrafo=" & paragrafoOS.interventi
 
-        'Beta ======
-        ExportToolStripMenuItem.Visible = True
-        ImportToolStripMenuItem.Visible = True
-        '===========
+            'Beta ======
+            ExportToolStripMenuItem.Visible = True
+            ImportToolStripMenuItem.Visible = True
+            '===========
 #If DEBUG Then
 
-        ToolStripSeparator3.Visible = True
-        ToolStripMenuItemLOG.Visible = True
+            ToolStripSeparator3.Visible = True
+            ToolStripMenuItemLOG.Visible = True
 
-        '#ElseIf  Then
+            '#ElseIf  Then
 
 #End If
+        Else
+            Application.ExitThread()
+        End If
     End Sub
 
     Private Sub caricaFinestraDatiOS()
@@ -76,7 +108,7 @@ Public Class FPrima
         Else
             parametri.idOS = -1
             log.xlogWriteEntry("Form per ins. dati preliminari restituisce Abort, pertanto app. avvia in modalità visita", TraceEventType.Information)
-            setmodalitaVisita(True)
+            setModalitaVisita(True)
         End If
     End Sub
 
@@ -169,7 +201,7 @@ Public Class FPrima
         'passo anche il nome dell'OS per non doverlo rileggere dopo dal DB
         feActions.doApriFormAnteprima(parametri.idOS, parametri.nomeOS, tipoReport.interventi)
     End Sub
-    Private Sub InformazioniToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles InformazioniToolStripMenuItem.Click
+    Private Sub InformazioniToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles informazioniToolStripMenuItem.Click
         'passo anche il nome dell'OS per non doverlo rileggere dopo dal DB
         feActions.doApriFormAnteprima(parametri.idOS, parametri.nomeOS, tipoReport.informazioni)
     End Sub
@@ -284,5 +316,8 @@ Public Class FPrima
     End Sub
 
 
+    Private Sub Button1_Click_3(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        feActions.doApriFormRicerca()
+    End Sub
 End Class
 

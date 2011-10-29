@@ -2,15 +2,15 @@ Imports System.Windows.Forms
 
 Public Class FElencosoggetti
     Dim bTutti As Boolean
-    Dim feActions As OrSe.ActionsLibrary
+    Dim feActions As New OrSe.ActionsLibrary
 
     Private iResult As Integer
-    Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
+    Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
 
-    Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
+    Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()
     End Sub
@@ -61,11 +61,40 @@ Public Class FElencosoggetti
     End Sub
 
     Public Sub New()
-
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
         feActions.setStandardFormSize(Me)
         ' Add any initialization after the InitializeComponent() call.
 
     End Sub
+
+    Private Sub QPersonaDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles QPersonaDataGridView.CellPainting
+        Dim dgv As DataGridView = sender
+        datagridviewSetup(dgv)
+        Dim stile As DataGridViewCellStyle = New DataGridViewCellStyle()
+        stile.BackColor() = Color.Lavender
+        dgv.AlternatingRowsDefaultCellStyle() = stile
+    End Sub
+
+    Private Sub datagridviewSetup(ByVal sender As System.Object)
+        Dim dgv As DataGridView = sender
+        dgv.MultiSelect = False
+        dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgv.ColumnHeadersVisible = True
+        dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        'dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        dgv.RowHeadersVisible = False
+        dgv.AllowUserToResizeColumns = True
+        dgv.AllowUserToResizeRows = True
+        dgv.AllowUserToAddRows = False
+        dgv.ReadOnly = True
+        '----------------
+        dgv.BackgroundColor = Color.Silver
+        dgv.BorderStyle = BorderStyle.FixedSingle
+        dgv.CellBorderStyle = DataGridViewCellBorderStyle.None
+        dgv.GridColor = Color.WhiteSmoke
+        dgv.DefaultCellStyle.BackColor = Color.FloralWhite
+    End Sub
+
 End Class

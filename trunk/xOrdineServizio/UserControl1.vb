@@ -87,10 +87,8 @@ Public Class UserControlComboBox
 
     Private Sub TextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs)
         CurrentString = TextBox1.Text.Trim
-        log.xlogWriteEntry(CurrentString.Length, TraceEventType.Information)
         If CurrentString <> "" Then
             fill(CurrentString)
-
             If (frm.ListBox1.Items.Count > 0) Then
                 If Not frm.ListBox1.Visible Then
                     frm.visibleMy(True)

@@ -44,15 +44,6 @@ Public Class opzioni
             RadioButtonInterinale.Checked = True
         End If
 
-        'Layout
-        If (My.MySettings.Default.display_reportPrimaPagina = True) Then
-            RadioButton_layoutRiepilogoInserimentiS.Checked = True
-            RadioButton_layoutRiepilogoInserimentiN.Checked = False
-        Else
-            RadioButton_layoutRiepilogoInserimentiS.Checked = False
-            RadioButton_layoutRiepilogoInserimentiN.Checked = True
-        End If
-
         'salvataggio automatico
         If Integer.Parse(My.Settings.intervalloSalvataggioAutomatico) <= 0 Then
             tbIntervalloSalvataggioAutomatico.Enabled = False
@@ -76,15 +67,6 @@ Public Class opzioni
     End Sub
 
 
-
-    Private Sub RadioButton_layoutRiepilogoInserimentiN_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton_layoutRiepilogoInserimentiN.CheckedChanged
-        If (RadioButton_layoutRiepilogoInserimentiS.Checked) Then
-            My.MySettings.Default.display_reportPrimaPagina = True
-        Else
-            My.MySettings.Default.display_reportPrimaPagina = False
-
-        End If
-    End Sub
 
     Private Sub CheckBoxSalvataggioAutomatico_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles CheckBoxSalvataggioAutomatico.CheckedChanged
         Dim cb As CheckBox = sender

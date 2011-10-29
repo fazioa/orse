@@ -25,9 +25,6 @@ Partial Class FElencosoggetti
         Me.components = New System.ComponentModel.Container
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.OK_Button = New System.Windows.Forms.Button
-        Me.Cancel_Button = New System.Windows.Forms.Button
         Me.tbNome = New System.Windows.Forms.TextBox
         Me.Label1 = New System.Windows.Forms.Label
         Me.Label2 = New System.Windows.Forms.Label
@@ -44,13 +41,12 @@ Partial Class FElencosoggetti
         Me.btnAdd = New System.Windows.Forms.Button
         Me.bntAnnulla = New System.Windows.Forms.Button
         Me.QPersonaTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QPersonaTableAdapter
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn
         Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.QPersonaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QPersonaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -59,40 +55,6 @@ Partial Class FElencosoggetti
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'TableLayoutPanel1
-        '
-        Me.TableLayoutPanel1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TableLayoutPanel1.ColumnCount = 2
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
-        Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(787, 476)
-        Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
-        Me.TableLayoutPanel1.RowCount = 1
-        Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
-        Me.TableLayoutPanel1.Size = New System.Drawing.Size(146, 29)
-        Me.TableLayoutPanel1.TabIndex = 0
-        '
-        'OK_Button
-        '
-        Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.OK_Button.Location = New System.Drawing.Point(3, 3)
-        Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(67, 23)
-        Me.OK_Button.TabIndex = 0
-        Me.OK_Button.Text = "OK"
-        '
-        'Cancel_Button
-        '
-        Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(76, 3)
-        Me.Cancel_Button.Name = "Cancel_Button"
-        Me.Cancel_Button.Size = New System.Drawing.Size(67, 23)
-        Me.Cancel_Button.TabIndex = 1
-        Me.Cancel_Button.Text = "Annulla"
         '
         'tbNome
         '
@@ -134,8 +96,10 @@ Partial Class FElencosoggetti
         '
         Me.QPersonaDataGridView.AllowUserToAddRows = False
         Me.QPersonaDataGridView.AllowUserToDeleteRows = False
+        Me.QPersonaDataGridView.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.QPersonaDataGridView.AutoGenerateColumns = False
-        Me.QPersonaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ID, Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn12})
+        Me.QPersonaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.ID, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn12})
         Me.QPersonaDataGridView.DataSource = Me.QPersonaBindingSource
         DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
         DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window
@@ -145,13 +109,13 @@ Partial Class FElencosoggetti
         DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
         Me.QPersonaDataGridView.DefaultCellStyle = DataGridViewCellStyle2
-        Me.QPersonaDataGridView.Location = New System.Drawing.Point(3, 3)
+        Me.QPersonaDataGridView.Location = New System.Drawing.Point(3, 58)
         Me.QPersonaDataGridView.MultiSelect = False
         Me.QPersonaDataGridView.Name = "QPersonaDataGridView"
         Me.QPersonaDataGridView.ReadOnly = True
         Me.QPersonaDataGridView.RowTemplate.Height = 32
         Me.QPersonaDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.QPersonaDataGridView.Size = New System.Drawing.Size(927, 286)
+        Me.QPersonaDataGridView.Size = New System.Drawing.Size(1019, 311)
         Me.QPersonaDataGridView.TabIndex = 0
         '
         'QPersonaBindingSource
@@ -168,7 +132,7 @@ Partial Class FElencosoggetti
         '
         Me.gbFiltri.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.gbFiltri.Controls.Add(Me.FlowLayoutPanel1)
-        Me.gbFiltri.Location = New System.Drawing.Point(12, 98)
+        Me.gbFiltri.Location = New System.Drawing.Point(3, 3)
         Me.gbFiltri.Name = "gbFiltri"
         Me.gbFiltri.Size = New System.Drawing.Size(179, 49)
         Me.gbFiltri.TabIndex = 2
@@ -211,12 +175,15 @@ Partial Class FElencosoggetti
         '
         'FlowLayoutPanel2
         '
+        Me.FlowLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FlowLayoutPanel2.Controls.Add(Me.gbFiltri)
         Me.FlowLayoutPanel2.Controls.Add(Me.QPersonaDataGridView)
         Me.FlowLayoutPanel2.Controls.Add(Me.FlowLayoutPanel3)
-        Me.FlowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 153)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 92)
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(945, 364)
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(1022, 444)
         Me.FlowLayoutPanel2.TabIndex = 3
         '
         'FlowLayoutPanel3
@@ -225,15 +192,15 @@ Partial Class FElencosoggetti
         Me.FlowLayoutPanel3.Controls.Add(Me.btnAdd)
         Me.FlowLayoutPanel3.Controls.Add(Me.bntAnnulla)
         Me.FlowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(3, 295)
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(3, 375)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(900, 58)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(1019, 59)
         Me.FlowLayoutPanel3.TabIndex = 7
         '
         'btnAdd
         '
         Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.btnAdd.Location = New System.Drawing.Point(693, 3)
+        Me.btnAdd.Location = New System.Drawing.Point(812, 3)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(204, 52)
         Me.btnAdd.TabIndex = 8
@@ -243,7 +210,7 @@ Partial Class FElencosoggetti
         'bntAnnulla
         '
         Me.bntAnnulla.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.bntAnnulla.Location = New System.Drawing.Point(483, 3)
+        Me.bntAnnulla.Location = New System.Drawing.Point(602, 3)
         Me.bntAnnulla.Name = "bntAnnulla"
         Me.bntAnnulla.Size = New System.Drawing.Size(204, 52)
         Me.bntAnnulla.TabIndex = 9
@@ -254,28 +221,31 @@ Partial Class FElencosoggetti
         '
         Me.QPersonaTableAdapter.ClearBeforeFill = True
         '
+        'DataGridViewTextBoxColumn3
+        '
+        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cognome"
+        Me.DataGridViewTextBoxColumn3.HeaderText = "cognome"
+        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
+        Me.DataGridViewTextBoxColumn3.ReadOnly = True
+        Me.DataGridViewTextBoxColumn3.Width = 76
+        '
+        'DataGridViewTextBoxColumn4
+        '
+        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
+        Me.DataGridViewTextBoxColumn4.DataPropertyName = "nome"
+        Me.DataGridViewTextBoxColumn4.HeaderText = "nome"
+        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
+        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.DataGridViewTextBoxColumn4.Width = 58
+        '
         'ID
         '
         Me.ID.DataPropertyName = "ID"
         Me.ID.HeaderText = "ID"
         Me.ID.Name = "ID"
         Me.ID.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "cognome"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "cognome"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        Me.DataGridViewTextBoxColumn3.ReadOnly = True
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "nome"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "nome"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
-        Me.DataGridViewTextBoxColumn4.ReadOnly = True
+        Me.ID.Visible = False
         '
         'DataGridViewTextBoxColumn5
         '
@@ -287,15 +257,16 @@ Partial Class FElencosoggetti
         Me.DataGridViewTextBoxColumn5.HeaderText = "datanascita"
         Me.DataGridViewTextBoxColumn5.Name = "DataGridViewTextBoxColumn5"
         Me.DataGridViewTextBoxColumn5.ReadOnly = True
-        Me.DataGridViewTextBoxColumn5.Width = 85
+        Me.DataGridViewTextBoxColumn5.Width = 87
         '
         'DataGridViewTextBoxColumn6
         '
-        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.DataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         Me.DataGridViewTextBoxColumn6.DataPropertyName = "cittanascita"
         Me.DataGridViewTextBoxColumn6.HeaderText = "cittanascita"
         Me.DataGridViewTextBoxColumn6.Name = "DataGridViewTextBoxColumn6"
         Me.DataGridViewTextBoxColumn6.ReadOnly = True
+        Me.DataGridViewTextBoxColumn6.Width = 86
         '
         'DataGridViewTextBoxColumn12
         '
@@ -308,19 +279,15 @@ Partial Class FElencosoggetti
         '
         'FElencosoggetti
         '
-        Me.AcceptButton = Me.OK_Button
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.AutoScroll = True
-        Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(945, 517)
+        Me.ClientSize = New System.Drawing.Size(1034, 548)
         Me.Controls.Add(Me.FlowLayoutPanel2)
-        Me.Controls.Add(Me.gbFiltri)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.tbCognome)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.tbNome)
-        Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
         Me.MaximizeBox = False
         Me.MinimizeBox = False
@@ -328,7 +295,6 @@ Partial Class FElencosoggetti
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
         Me.Text = "Persone di interesso operativo"
-        Me.TableLayoutPanel1.ResumeLayout(False)
         CType(Me.QPersonaDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QPersonaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
@@ -341,9 +307,6 @@ Partial Class FElencosoggetti
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents TableLayoutPanel1 As System.Windows.Forms.TableLayoutPanel
-    Friend WithEvents OK_Button As System.Windows.Forms.Button
-    Friend WithEvents Cancel_Button As System.Windows.Forms.Button
     Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn9 As System.Windows.Forms.DataGridViewTextBoxColumn
@@ -365,9 +328,9 @@ Partial Class FElencosoggetti
     Friend WithEvents FlowLayoutPanel3 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents bntAnnulla As System.Windows.Forms.Button
-    Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents ID As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn5 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn12 As System.Windows.Forms.DataGridViewTextBoxColumn
