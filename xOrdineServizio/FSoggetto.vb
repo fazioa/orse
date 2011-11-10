@@ -1,5 +1,5 @@
 Public Class FSoggetto
-    Dim parametri As New parametriControllo
+    Dim parametri As New parametriControllo_e_OS
     Dim log As New XOrseLog
     Dim xiOrdine As Integer
     Dim bNuovoSoggetto As Boolean = False
@@ -10,7 +10,7 @@ Public Class FSoggetto
     Dim bPersonaInteresseOperativo As Boolean = False  'utilizzata per segnalare che non si sta inserendo una nuova persona ma una di inter.operativo
 
     'nuovo soggetto
-    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo, ByVal iOrdine As Integer, ByVal accompagnatore As tipoAccompagnatore)
+    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS, ByVal iOrdine As Integer, ByVal accompagnatore As tipoAccompagnatore)
         Me.parametri = parametri
         ' Chiamata richiesta da Progettazione Windows Form.
         DbDataSet = DataSet
@@ -56,7 +56,7 @@ Public Class FSoggetto
     End Sub
 
     'modifica soggetto
-    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo, ByVal n As Integer)
+    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS, ByVal n As Integer)
         DbDataSet = DataSet
         InitializeComponent()
         feActions.setStandardFormSize(Me)
@@ -190,6 +190,7 @@ Public Class FSoggetto
                 'memorizzo l'id del controllo nella riga dell'allegatoA
 
                 If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
+
                 drv.Item("idControllo") = parametri.idControllo
 
                 'memorizzo l'ordine di inserimento della persona nel controllo
@@ -198,6 +199,7 @@ Public Class FSoggetto
                 If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
 
             End If
+
             'update modifiche riga allegato A
             Me.AllegatoABindingSource.EndEdit()
             Me.AllegatoATableAdapter.Update(Me.DbDataSet.allegatoA)

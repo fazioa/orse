@@ -76,6 +76,8 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno = New System.Windows.Forms.FlowLayoutPanel
         Me.btnRubrica = New System.Windows.Forms.Button
         Me.Button1 = New System.Windows.Forms.Button
+        Me.Button2 = New System.Windows.Forms.Button
+        Me.SopralluogoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,7 +99,7 @@ Partial Class FPrima
         '
         'StampaToolStripMenuItem
         '
-        Me.StampaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.informazioniToolStripMenuItem, Me.AllegatoAToolStripMenuItem, Me.OP85ToolStripMenuItem})
+        Me.StampaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.informazioniToolStripMenuItem, Me.AllegatoAToolStripMenuItem, Me.OP85ToolStripMenuItem, Me.SopralluogoToolStripMenuItem})
         Me.StampaToolStripMenuItem.Name = "StampaToolStripMenuItem"
         Me.StampaToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
         Me.StampaToolStripMenuItem.Text = "Stampa..."
@@ -106,28 +108,28 @@ Partial Class FPrima
         '
         Me.ToolStripMenuItem1.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
         Me.ToolStripMenuItem1.Text = "Interventi..."
         '
         'informazioniToolStripMenuItem
         '
         Me.informazioniToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem"
-        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.informazioniToolStripMenuItem.Text = "Informazioni..."
         '
         'AllegatoAToolStripMenuItem
         '
         Me.AllegatoAToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printAllegatoA
         Me.AllegatoAToolStripMenuItem.Name = "AllegatoAToolStripMenuItem"
-        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.AllegatoAToolStripMenuItem.Text = "Allegato A..."
         '
         'OP85ToolStripMenuItem
         '
         Me.OP85ToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
         Me.OP85ToolStripMenuItem.Name = "OP85ToolStripMenuItem"
-        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.OP85ToolStripMenuItem.Text = "OP85..."
         '
         'StrumentiToolStripMenuItem
@@ -482,6 +484,7 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnRubrica)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.BtnVedi)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.Button1)
+        Me.FlowLayoutPanelEsterno.Controls.Add(Me.Button2)
         Me.FlowLayoutPanelEsterno.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanelEsterno.Location = New System.Drawing.Point(0, 77)
         Me.FlowLayoutPanelEsterno.Name = "FlowLayoutPanelEsterno"
@@ -513,6 +516,23 @@ Partial Class FPrima
         Me.Button1.Text = " &Cerca..."
         Me.Button1.UseCompatibleTextRendering = True
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(309, 185)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(75, 23)
+        Me.Button2.TabIndex = 12
+        Me.Button2.Text = "Button2"
+        Me.Button2.UseVisualStyleBackColor = True
+        Me.Button2.Visible = False
+        '
+        'SopralluogoToolStripMenuItem
+        '
+        Me.SopralluogoToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
+        Me.SopralluogoToolStripMenuItem.Name = "SopralluogoToolStripMenuItem"
+        Me.SopralluogoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SopralluogoToolStripMenuItem.Text = "Sopralluogo..."
         '
         'FPrima
         '
@@ -629,5 +649,7 @@ Partial Class FPrima
     Friend WithEvents FlowLayoutPanelEsterno As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents btnRubrica As System.Windows.Forms.Button
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents SopralluogoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

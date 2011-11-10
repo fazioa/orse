@@ -79,7 +79,7 @@ Public Class UserControlComboBox
             End If
         ElseIf e.KeyCode = Keys.Enter Then
             'tasto invio
-            InsNuovoValore()
+            ' InsNuovoValore()
         ElseIf e.KeyCode = Keys.Escape Then
             frm.visibleMy(False)
         End If

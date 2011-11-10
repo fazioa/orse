@@ -4,7 +4,7 @@ Public Class FPrima
     Dim feActions As New OrSe.ActionsLibrary
     Dim appPatch As New OrSe.ApplicazionePatch
     Dim infoScreen As New InfoScreen
-    Dim parametri As New parametriControllo
+    Dim parametri As New parametriControllo_e_OS
     Dim log As New XOrseLog
     Dim modalitaVisita As Boolean
     Dim bFlagExit As Boolean = False
@@ -316,8 +316,65 @@ Public Class FPrima
     End Sub
 
 
-    Private Sub Button1_Click_3(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub btnRicerca_Click_3(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         feActions.doApriFormRicerca()
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+
+        Dim client As ImapX.ImapClient = New ImapX.ImapClient("imap.gmail.com", 993, True)
+
+        Dim result As Boolean = False
+
+        result = client.Connection()
+        If (result) Then
+
+            log.xlogWriteEntry("@Connected", TraceEventType.Information)
+
+            result = client.LogIn("fazioa", "Chiara4262")
+            If (result) Then
+                log.xlogWriteEntry("@Logged in", TraceEventType.Information)
+            End If
+        End If
+
+
+        'Folder Collection
+        'Dim folders As ImapX.FolderCollection = client.Folders
+
+        'Create folder
+        '  client.CreateFolder("NEW FOLDER")
+        'Message collection 1st option
+        ' Dim messages As ImapX.MessageCollection = client.Folders("INBOX").Search("ALL", True) ' true - means all message parts will be received from server
+        '2nd option
+        ' For Each m As ImapX.Message In client.Folders("INBOX").Messages
+
+        ' m.Process()
+        ' Dim attachments As List(Of ImapX.Attachment) = m.Attachments
+        ' Dim textBody As String = m.TextBody.TextData
+        ' Dim htmlBody As String = m.HtmlBody.TextData
+        ' log.xlogWriteEntry(textBody & " - " & htmlBody, TraceEventType.Information)'
+
+        'Next
+
+
+        Dim msg As ImapX.Message = New ImapX.Message()
+        msg.Subject = "hello yahoo"
+        msg.From.Add(New ImapX.MailAddress("ToninoTest", "test@test.it"))
+        msg.To.Add(New ImapX.MailAddress("provaToFazioa", "fazioa@gmail.com"))
+        msg.HtmlBody.ContentType = "text/html"
+        msg.HtmlBody.TextData = "<strong>it is test message</strong>"
+        Dim atach As ImapX.Attachment = New ImapX.Attachment()
+        'atach.FileName = attachmentPath
+        'msg.Attachments.Add(atach)
+        If (client.Folders("INBOX").AppendMessage(msg, "")) Then
+            log.xlogWriteEntry("message has been appended to INBOX", TraceEventType.Information)
+        End If
+    End Sub
+
+    Private Sub SopralluogoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SopralluogoToolStripMenuItem.Click
+        Dim form As System.Windows.Forms.Form
+        form = New FSopralluogoListaStampa(parametri)
+        form.Visible = True
     End Sub
 End Class
 

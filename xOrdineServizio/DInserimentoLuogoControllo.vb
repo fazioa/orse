@@ -2,13 +2,13 @@ Imports System.Windows.Forms
 
 Public Class DInserimentoLuogoControllo
 
-    Dim parametri As parametriControllo
+    Dim parametri As parametriControllo_e_OS
     Dim feActions As New OrSe.ActionsLibrary
     Dim db As dbAlegatoADataSet
     Dim log As New XOrseLog
 
 
-    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo)
+    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS)
         Me.parametri = parametri
         db = DataSet
         ' Chiamata richiesta da Progettazione Windows Form.

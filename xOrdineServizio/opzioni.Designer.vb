@@ -59,13 +59,16 @@ Partial Class opzioni
         Me.Label16 = New System.Windows.Forms.Label
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
         Me.GroupBox10 = New System.Windows.Forms.GroupBox
+        Me.CheckBoxMaximized = New System.Windows.Forms.CheckBox
         Me.Label14 = New System.Windows.Forms.Label
-        Me.tbIntervalloSalvataggioAutomatico = New System.Windows.Forms.TextBox
         Me.CheckBoxSalvataggioAutomatico = New System.Windows.Forms.CheckBox
+        Me.tbIntervalloSalvataggioAutomatico = New System.Windows.Forms.MaskedTextBox
         Me.TabControl1 = New System.Windows.Forms.TabControl
         Me.TabPageIntestazioni = New System.Windows.Forms.TabPage
         Me.TabPageFirma = New System.Windows.Forms.TabPage
         Me.TabPageVarie = New System.Windows.Forms.TabPage
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox
+        Me.TextBox9 = New System.Windows.Forms.TextBox
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -82,6 +85,7 @@ Partial Class opzioni
         Me.TabPageIntestazioni.SuspendLayout()
         Me.TabPageFirma.SuspendLayout()
         Me.TabPageVarie.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -92,7 +96,7 @@ Partial Class opzioni
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(550, 272)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(555, 383)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -417,7 +421,7 @@ Partial Class opzioni
         Me.GroupBox7.Controls.Add(Me.Label16)
         Me.GroupBox7.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox7.Name = "GroupBox7"
-        Me.GroupBox7.Size = New System.Drawing.Size(689, 79)
+        Me.GroupBox7.Size = New System.Drawing.Size(694, 79)
         Me.GroupBox7.TabIndex = 5
         Me.GroupBox7.TabStop = False
         Me.GroupBox7.Text = "Dati vari"
@@ -480,43 +484,48 @@ Partial Class opzioni
         'FlowLayoutPanel3
         '
         Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox7)
+        Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox9)
         Me.FlowLayoutPanel3.Controls.Add(Me.GroupBox10)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(700, 278)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(705, 389)
         Me.FlowLayoutPanel3.TabIndex = 1
         '
         'GroupBox10
         '
+        Me.GroupBox10.Controls.Add(Me.CheckBoxMaximized)
         Me.GroupBox10.Controls.Add(Me.Label14)
-        Me.GroupBox10.Controls.Add(Me.tbIntervalloSalvataggioAutomatico)
         Me.GroupBox10.Controls.Add(Me.CheckBoxSalvataggioAutomatico)
-        Me.GroupBox10.Location = New System.Drawing.Point(3, 88)
+        Me.GroupBox10.Controls.Add(Me.tbIntervalloSalvataggioAutomatico)
+        Me.GroupBox10.Location = New System.Drawing.Point(3, 194)
         Me.GroupBox10.Name = "GroupBox10"
-        Me.GroupBox10.Size = New System.Drawing.Size(689, 56)
+        Me.GroupBox10.Size = New System.Drawing.Size(694, 84)
         Me.GroupBox10.TabIndex = 6
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Opzioni generali"
         '
+        'CheckBoxMaximized
+        '
+        Me.CheckBoxMaximized.AutoSize = True
+        Me.CheckBoxMaximized.Checked = Global.OrSe.My.MySettings.Default.maximizeForm
+        Me.CheckBoxMaximized.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBoxMaximized.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.OrSe.My.MySettings.Default, "maximizeForm", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CheckBoxMaximized.Location = New System.Drawing.Point(12, 42)
+        Me.CheckBoxMaximized.Name = "CheckBoxMaximized"
+        Me.CheckBoxMaximized.Size = New System.Drawing.Size(139, 17)
+        Me.CheckBoxMaximized.TabIndex = 8
+        Me.CheckBoxMaximized.Text = "Finestre a tutto schermo"
+        Me.CheckBoxMaximized.UseVisualStyleBackColor = True
+        '
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(210, 20)
+        Me.Label14.Location = New System.Drawing.Point(198, 20)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(44, 13)
         Me.Label14.TabIndex = 2
         Me.Label14.Text = "secondi"
-        '
-        'tbIntervalloSalvataggioAutomatico
-        '
-        Me.tbIntervalloSalvataggioAutomatico.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "intervalloSalvataggioAutomatico", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.tbIntervalloSalvataggioAutomatico.Location = New System.Drawing.Point(170, 16)
-        Me.tbIntervalloSalvataggioAutomatico.Name = "tbIntervalloSalvataggioAutomatico"
-        Me.tbIntervalloSalvataggioAutomatico.Size = New System.Drawing.Size(39, 20)
-        Me.tbIntervalloSalvataggioAutomatico.TabIndex = 1
-        Me.tbIntervalloSalvataggioAutomatico.Text = Global.OrSe.My.MySettings.Default.intervalloSalvataggioAutomatico
-        Me.tbIntervalloSalvataggioAutomatico.TextAlign = System.Windows.Forms.HorizontalAlignment.Right
         '
         'CheckBoxSalvataggioAutomatico
         '
@@ -530,6 +539,14 @@ Partial Class opzioni
         Me.CheckBoxSalvataggioAutomatico.Text = "Salvataggio automatico ogni"
         Me.CheckBoxSalvataggioAutomatico.UseVisualStyleBackColor = True
         '
+        'tbIntervalloSalvataggioAutomatico
+        '
+        Me.tbIntervalloSalvataggioAutomatico.Location = New System.Drawing.Point(173, 16)
+        Me.tbIntervalloSalvataggioAutomatico.Mask = "999"
+        Me.tbIntervalloSalvataggioAutomatico.Name = "tbIntervalloSalvataggioAutomatico"
+        Me.tbIntervalloSalvataggioAutomatico.Size = New System.Drawing.Size(23, 20)
+        Me.tbIntervalloSalvataggioAutomatico.TabIndex = 7
+        '
         'TabControl1
         '
         Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
@@ -542,7 +559,7 @@ Partial Class opzioni
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.Padding = New System.Drawing.Point(20, 6)
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(708, 313)
+        Me.TabControl1.Size = New System.Drawing.Size(713, 424)
         Me.TabControl1.TabIndex = 7
         '
         'TabPageIntestazioni
@@ -572,10 +589,31 @@ Partial Class opzioni
         Me.TabPageVarie.Controls.Add(Me.FlowLayoutPanel3)
         Me.TabPageVarie.Location = New System.Drawing.Point(4, 31)
         Me.TabPageVarie.Name = "TabPageVarie"
-        Me.TabPageVarie.Size = New System.Drawing.Size(700, 278)
+        Me.TabPageVarie.Size = New System.Drawing.Size(705, 389)
         Me.TabPageVarie.TabIndex = 2
         Me.TabPageVarie.Text = "Varie"
         Me.TabPageVarie.UseVisualStyleBackColor = True
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.TextBox9)
+        Me.GroupBox9.Location = New System.Drawing.Point(3, 88)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(694, 100)
+        Me.GroupBox9.TabIndex = 7
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Voci rapide sopralluogo - Separare ogni  voce dal con il carattere &&"
+        '
+        'TextBox9
+        '
+        Me.TextBox9.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "sopralluogoListBoxVociRapide", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBox9.Location = New System.Drawing.Point(3, 16)
+        Me.TextBox9.Multiline = True
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(688, 81)
+        Me.TextBox9.TabIndex = 0
+        Me.TextBox9.Text = Global.OrSe.My.MySettings.Default.sopralluogoListBoxVociRapide
         '
         'opzioni
         '
@@ -583,7 +621,7 @@ Partial Class opzioni
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(708, 313)
+        Me.ClientSize = New System.Drawing.Size(713, 424)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -619,6 +657,8 @@ Partial Class opzioni
         Me.TabPageIntestazioni.ResumeLayout(False)
         Me.TabPageFirma.ResumeLayout(False)
         Me.TabPageVarie.ResumeLayout(False)
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub
@@ -662,12 +702,15 @@ Partial Class opzioni
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents FlowLayoutPanel3 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents GroupBox10 As System.Windows.Forms.GroupBox
-    Friend WithEvents tbIntervalloSalvataggioAutomatico As System.Windows.Forms.TextBox
     Friend WithEvents CheckBoxSalvataggioAutomatico As System.Windows.Forms.CheckBox
     Friend WithEvents Label14 As System.Windows.Forms.Label
     Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
     Friend WithEvents TabPageIntestazioni As System.Windows.Forms.TabPage
     Friend WithEvents TabPageFirma As System.Windows.Forms.TabPage
     Friend WithEvents TabPageVarie As System.Windows.Forms.TabPage
+    Friend WithEvents tbIntervalloSalvataggioAutomatico As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents CheckBoxMaximized As System.Windows.Forms.CheckBox
+    Friend WithEvents GroupBox9 As System.Windows.Forms.GroupBox
+    Friend WithEvents TextBox9 As System.Windows.Forms.TextBox
 
 End Class

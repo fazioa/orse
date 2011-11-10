@@ -43,7 +43,7 @@ Public Enum tipoFile
     EXCEL = 3
 End Enum
 
-Public Class parametriGenerale
+Public Class parametriOP85
     'classe che può contenere diverse info, da passare come parametro
     Public nomeClasse As String
     Public protocollo As String
@@ -57,7 +57,7 @@ Public Class parametriGenerale
     End Sub
 
 End Class
-Public Class parametriControllo
+Public Class parametriControllo_e_OS
     'classe che può contenere diverse info, da passare come parametro
     Public idOS As Integer
     Public nomeOS As String
@@ -177,7 +177,7 @@ Public Class ActionsLibrary
     End Function
 
     'inserimento passeggero
-    Public Sub doApriFormAllegatoA(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo, ByVal iOrdine As Integer, ByVal accompagnatore As tipoAccompagnatore)
+    Public Sub doApriFormAllegatoA(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS, ByVal iOrdine As Integer, ByVal accompagnatore As tipoAccompagnatore)
 
         log.xlogWriteEntry("Inserimento Controllo e Allegato A - ", TraceEventType.Information)
         db = DataSet
@@ -190,7 +190,7 @@ Public Class ActionsLibrary
     End Sub
 
     'caso di nuovo controllo
-    Public Sub doApriFormAllegatoA(ByVal DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo)
+    Public Sub doApriFormAllegatoA(ByVal DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS)
         db = DataSet
         log.xlogWriteEntry("Inserimento Controllo e Allegato A", TraceEventType.Information)
 
@@ -251,7 +251,7 @@ Public Class ActionsLibrary
         Return -1
     End Function
 
-    Public Sub doApriDettaglioSoggetto(ByRef db As dbAlegatoADataSet, ByRef parametri As parametriControllo, ByVal v As Integer)
+    Public Sub doApriDettaglioSoggetto(ByRef db As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS, ByVal v As Integer)
         log.xlogWriteEntry("Apertura dettaglio soggetto", TraceEventType.Information)
         db = db
         Dim form As System.Windows.Forms.Form
@@ -386,7 +386,7 @@ Public Class ActionsLibrary
 
 
     End Function
-    Public Function wordInizializzaDocumentoVerbaleSopralluogo()
+    Private Function wordInizializzaDocumentoVerbaleSopralluogo()
         Try
             log.xlogWriteEntry("Word - Inizializza verbale sopralluogo", TraceEventType.Critical)
 
@@ -423,6 +423,34 @@ Public Class ActionsLibrary
 
 
     End Function
+
+    Public Sub wordInizializzaEcompilaVerbaleSopralluogo(ByVal sopralluogoBindingSource As BindingSource, ByVal nomiOperatori As String)
+        Dim oWord As Microsoft.Office.Interop.Word.Application = wordInizializzaDocumentoVerbaleSopralluogo()
+
+        wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
+
+        wordScriviSegnalibro(oWord, "comando", My.Settings.comando)
+        wordScriviSegnalibro(oWord, "tipoReato", leggiCampoDB(sopralluogoBindingSource, "tipoReato"))
+        wordScriviSegnalibro(oWord, "luogo", leggiCampoDB(sopralluogoBindingSource, "luogo_citta"))
+        wordScriviSegnalibro(oWord, "via", leggiCampoDB(sopralluogoBindingSource, "via"))
+        'il segnalibro non permette che esistano più istanze sullo stesso documento. Quindi devo duplicarlo, quando serve scrivere due volte le stesse informazioni.
+        wordScriviSegnalibro(oWord, "luogo2", leggiCampoDB(sopralluogoBindingSource, "luogo_citta"))
+        wordScriviSegnalibro(oWord, "via2", leggiCampoDB(sopralluogoBindingSource, "via"))
+
+        Dim d As Date = leggiCampoDB(sopralluogoBindingSource, "oraRedazione")
+        wordScriviSegnalibro(oWord, "dataRedazione", d.ToShortDateString)
+        wordScriviSegnalibro(oWord, "oraRedazione", d.ToShortTimeString)
+
+        d = leggiCampoDB(sopralluogoBindingSource, "oraRichiesta")
+        wordScriviSegnalibro(oWord, "dataRichiesta", d.ToShortDateString)
+        wordScriviSegnalibro(oWord, "oraRichiesta", d.ToShortTimeString)
+
+        wordScriviSegnalibro(oWord, "nomiOperatori", nomiOperatori)
+
+        wordScriviSegnalibro(oWord, "contatti", leggiCampoDB(sopralluogoBindingSource, "contatti_con"))
+        wordScriviSegnalibro(oWord, "resoconto", leggiCampoDB(sopralluogoBindingSource, "resoconto"))
+
+    End Sub
 
     Public Sub wordAttivaDocumento(ByVal oWord As Microsoft.Office.Interop.Word.Application)
         log.xlogWriteEntry("Word - attiva documento", TraceEventType.Critical)
@@ -493,7 +521,7 @@ Public Class ActionsLibrary
 
         dInizio = New Date(dInizio.Year, dInizio.Month, dInizio.Day, 0, 0, 0)
         dFine = New Date(dFine.Year, dFine.Month, dFine.Day, 23, 59, 59)
-      
+
 
 
         Dim fDialog As SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
@@ -1132,6 +1160,38 @@ Public Class ActionsLibrary
     Sub setStandardFormSize(ByVal f As Form)
         f.Size = New Size(My.Settings.formWidth, My.Settings.formHeight)
         f.StartPosition = FormStartPosition.CenterScreen
+
+        If (My.Settings.maximizeForm) Then
+            f.WindowState = FormWindowState.Maximized
+        End If
     End Sub
 
+
+    Sub genericoDataGridView_CellPainting(ByVal sender As System.Object)
+        Dim dgv As DataGridView = sender
+        datagridviewSetup(dgv)
+        Dim stile As DataGridViewCellStyle = New DataGridViewCellStyle()
+        stile.BackColor() = Color.Lavender
+        dgv.AlternatingRowsDefaultCellStyle() = stile
+    End Sub
+    Sub datagridviewSetup(ByVal sender As System.Object)
+        Dim dgv As DataGridView = sender
+        dgv.MultiSelect = False
+        dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
+        dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        dgv.ColumnHeadersVisible = True
+        dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
+        'dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
+        dgv.RowHeadersVisible = False
+        dgv.AllowUserToResizeColumns = True
+        dgv.AllowUserToResizeRows = True
+        dgv.AllowUserToAddRows = False
+        dgv.ReadOnly = True
+        '----------------
+        dgv.BackgroundColor = Color.Silver
+        dgv.BorderStyle = BorderStyle.FixedSingle
+        dgv.CellBorderStyle = DataGridViewCellBorderStyle.None
+        dgv.GridColor = Color.WhiteSmoke
+        dgv.DefaultCellStyle.BackColor = Color.FloralWhite
+    End Sub
 End Class

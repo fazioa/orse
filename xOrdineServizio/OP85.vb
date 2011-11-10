@@ -3,11 +3,11 @@ Public Class op85
 
     Dim xOS As Integer
     Dim esitoSDI As tipoEsitoSDI = New tipoEsitoSDI()
-    Dim parametri As parametriGenerale
+    Dim parametri As parametriOP85
     'riempio una lista con i dati delle persone, che utilizzerò per compilare il documento word OP85
     Dim listaPersoneOP85 As List(Of OrSe.parametriPersona) = New List(Of OrSe.parametriPersona)()
     Dim log As New XOrseLog
-    Dim parametriContr As parametriControllo
+    Dim parametriContr As parametriControllo_e_OS
 
 
     Private Sub OP85_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
@@ -142,20 +142,20 @@ Public Class op85
 
     End Sub
 
-    Public Sub New(ByVal p As parametriControllo)
+    Public Sub New(ByVal p As parametriControllo_e_OS)
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
         xOS = p.idOS
         parametriContr = p
         'esitoSDI = New tipoEsitoSDI()
         feActions = New OrSe.ActionsLibrary()
-        parametri = New parametriGenerale()
+        parametri = New parametriOP85()
         parametri.nomeClasse = "op85"
 
     End Sub
 
     Private Sub btnAnteprimaOp85_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAnteprimaOp85.Click
-        Dim parametri As parametriGenerale = New parametriGenerale()
+        Dim parametri As parametriOP85 = New parametriOP85()
         parametri.protocollo = tbProt.Text
         parametri.protocolloInformatico = tbProtInf.Text
         '---------- AGGIUNGE I COMANDI DESTINATARI ALLA CLASSE PARAMETRI
@@ -338,7 +338,7 @@ Public Class op85
         'evidenzia le persone che fanno parte dello stesso controllo su strada
         selezionaPersoneStessoControllo(Me.DataGridView1)
     End Sub
-    Sub aggiornaParametriControllo(ByVal drv As DataRowView, ByVal p As parametriControllo)
+    Sub aggiornaParametriControllo(ByVal drv As DataRowView, ByVal p As parametriControllo_e_OS)
         parametriContr.dataoraControllo = feActions.valoreDrv(drv, "dataora")
         parametriContr.nomeLuogoControllo = feActions.valoreDrv(drv, "luogo")
 

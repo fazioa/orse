@@ -1,7 +1,7 @@
 Imports System.Deployment
 Public Class FRicerca
     Dim feActions As New OrSe.ActionsLibrary
-    Dim parametri As New parametriControllo
+    Dim parametri As New parametriControllo_e_OS
 
     Private Sub InterventiDataGrid_CellContentClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles interventiDataGrid.CellClick
         Dim dgv As DataGridView = sender
