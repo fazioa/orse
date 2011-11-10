@@ -1,6 +1,6 @@
 Public Class FVedi
     Dim feActions As New OrSe.ActionsLibrary
-    Dim parametri As New parametriControllo
+    Dim parametri As New parametriControllo_e_OS
     Dim iId As Integer
     Dim log As New XOrseLog
     Dim iDeleted As Integer = -1
@@ -35,7 +35,7 @@ Public Class FVedi
         End If
     End Sub
 
-    Public Sub New(ByVal parametriOS As parametriControllo)
+    Public Sub New(ByVal parametriOS As parametriControllo_e_OS)
         iId = parametriOS.idOS
         parametri = parametriOS
         ' This call is required by the Windows Form Designer.
@@ -287,33 +287,11 @@ Public Class FVedi
 
    
 
-    Private Sub datagridviewSetup(ByVal sender As System.Object)
-        Dim dgv As DataGridView = sender
-        dgv.MultiSelect = False
-        dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect
-        dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        dgv.ColumnHeadersVisible = True
-        dgv.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells
-        'dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
-        dgv.RowHeadersVisible = False
-        dgv.AllowUserToResizeColumns = True
-        dgv.AllowUserToResizeRows = True
-        dgv.AllowUserToAddRows = False
-        dgv.ReadOnly = True
-        '----------------
-        dgv.BackgroundColor = Color.Silver
-        dgv.BorderStyle = BorderStyle.FixedSingle
-        dgv.CellBorderStyle = DataGridViewCellBorderStyle.None
-        dgv.GridColor = Color.WhiteSmoke
-        dgv.DefaultCellStyle.BackColor = Color.FloralWhite
-    End Sub
+
 
     Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles DataGridViewInterventi.CellPainting, DataGridViewInformazioni.CellPainting, DataGridViewSopralluogo.CellPainting, DataGridViewRubrica.CellPainting
-        Dim dgv As DataGridView = sender
-        datagridviewSetup(dgv)
-        Dim stile As DataGridViewCellStyle = New DataGridViewCellStyle()
-        stile.BackColor() = Color.Lavender
-        dgv.AlternatingRowsDefaultCellStyle() = stile
+        feActions.genericoDataGridView_CellPainting(sender)
+
 
     End Sub
 
@@ -321,7 +299,7 @@ Public Class FVedi
         'colora Righe AllegatoA Raggruppandole per appartenenza allo stesso controllo
 
         Dim dgv As DataGridView = sender
-        datagridviewSetup(dgv)
+        feActions.datagridviewSetup(dgv)
 
         Dim bFlag As Boolean = False
         Dim iIdcontrollo, iIDControlloTmp As Integer

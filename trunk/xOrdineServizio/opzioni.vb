@@ -50,6 +50,13 @@ Public Class opzioni
         End If
         ' tbIntervalloSalvataggioAutomatico.Text = My.Settings.intervalloSalvataggioAutomatico
 
+        'finestro a tutto schermo
+        If (My.Settings.maximizeForm) Then
+            CheckBoxMaximized.Enabled = True
+        Else
+            CheckBoxMaximized.Enabled = False
+        End If
+
     End Sub
 
     Private Sub RadioButtonTitolare_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButtonTitolare.CheckedChanged
@@ -72,8 +79,22 @@ Public Class opzioni
         Dim cb As CheckBox = sender
         If cb.Checked Then
             tbIntervalloSalvataggioAutomatico.Enabled = True
+            'se nel file delle impostazioni c'è un valore errato allora pongo il valore a zero
+            If (Integer.Parse(My.Settings.intervalloSalvataggioAutomatico) <= 0) Then
+                My.Settings.intervalloSalvataggioAutomatico = 0
+            End If
+            tbIntervalloSalvataggioAutomatico.Text = My.Settings.intervalloSalvataggioAutomatico
         Else
             tbIntervalloSalvataggioAutomatico.Enabled = False
         End If
+    End Sub
+
+    Public Sub New()
+
+        ' This call is required by the Windows Form Designer.
+        InitializeComponent()
+
+        ' Add any initialization after the InitializeComponent() call.
+
     End Sub
 End Class

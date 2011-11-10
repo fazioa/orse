@@ -10,7 +10,7 @@ Public Class FanteprimaReport
     Dim esitoSDI As tipoEsitoSDI
     Dim _tipo As tipoReport
     'classe che pu‡Ú contenere diversi parametri
-    Dim parametri As parametriGenerale
+    Dim parametri As parametriOP85
     'oggetto REPORT
     Dim cr As New ReportDocument()
 

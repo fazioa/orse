@@ -2,7 +2,7 @@ Imports System.Windows.Forms
 
 Public Class DInsDatiPreliminari
     Dim feActions As OrSe.ActionsLibrary
-    Dim parametri As parametriControllo
+    Dim parametri As parametriControllo_e_OS
     Private iOSID As Integer = -1
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
@@ -98,14 +98,14 @@ Public Class DInsDatiPreliminari
     End Function
 
 
-    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo)
+    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS)
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
         Me.parametri = parametri
 
     End Sub
 
-    Public Function getResultClassParametri() As parametriControllo
+    Public Function getResultClassParametri() As parametriControllo_e_OS
         getResultClassParametri = parametri
     End Function
 

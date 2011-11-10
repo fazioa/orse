@@ -62,7 +62,7 @@
       <Value Profile="(Default)">5</Value>
     </Setting>
     <Setting Name="dataUltimaEsportazioneDati" Type="System.DateTime" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">1900-01-01</Value>
     </Setting>
     <Setting Name="intervalloSalvataggioAutomatico" Type="System.String" Scope="User">
       <Value Profile="(Default)">5</Value>
@@ -72,6 +72,15 @@
     </Setting>
     <Setting Name="formWidth" Type="System.String" Scope="User">
       <Value Profile="(Default)">1040</Value>
+    </Setting>
+    <Setting Name="sopralluogoListBoxVociRapide" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Il danno subito ammonta a € _______. &amp;Danno non coperto da assicurazione. &amp;Danno coperto da assicurazione. &amp;Sul luogo non sono stati trovati elementi utili al prosieguo delle indagini. &amp;Il fatto è avvenuto tra le ore ____ e le ore ____. &amp;La parte lesa viene invitata a recarsi presso il Comando Arma competente per territorio per al fine di formalizzare la denuncia/querela.</Value>
+    </Setting>
+    <Setting Name="maximizeForm" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="sopralluogoPromemoria" Type="System.String" Scope="User">
+      <Value Profile="(Default)">descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini? - coperto da assicurazione?</Value>
     </Setting>
   </Settings>
 </SettingsFile>

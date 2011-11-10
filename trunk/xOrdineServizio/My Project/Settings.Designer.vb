@@ -267,7 +267,8 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("1900-01-01")>  _
         Public Property dataUltimaEsportazioneDati() As Date
             Get
                 Return CType(Me("dataUltimaEsportazioneDati"),Date)
@@ -310,6 +311,48 @@ Namespace My
             End Get
             Set
                 Me("formWidth") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Il danno subito ammonta a € _______. &Danno non coperto da assicurazione. &Danno "& _ 
+            "coperto da assicurazione. &Sul luogo non sono stati trovati elementi utili al pr"& _ 
+            "osieguo delle indagini. &Il fatto è avvenuto tra le ore ____ e le ore ____. &La "& _ 
+            "parte lesa viene invitata a recarsi presso il Comando Arma competente per territ"& _ 
+            "orio per al fine di formalizzare la denuncia/querela.")>  _
+        Public Property sopralluogoListBoxVociRapide() As String
+            Get
+                Return CType(Me("sopralluogoListBoxVociRapide"),String)
+            End Get
+            Set
+                Me("sopralluogoListBoxVociRapide") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+        Public Property maximizeForm() As Boolean
+            Get
+                Return CType(Me("maximizeForm"),Boolean)
+            End Get
+            Set
+                Me("maximizeForm") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora"& _ 
+            " presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini?"& _ 
+            " - coperto da assicurazione?")>  _
+        Public Property sopralluogoPromemoria() As String
+            Get
+                Return CType(Me("sopralluogoPromemoria"),String)
+            End Get
+            Set
+                Me("sopralluogoPromemoria") = value
             End Set
         End Property
     End Class

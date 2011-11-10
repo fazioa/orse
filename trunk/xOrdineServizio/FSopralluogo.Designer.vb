@@ -37,22 +37,27 @@ Partial Class FSopralluogo
         Me.Label5 = New System.Windows.Forms.Label
         Me.DateTimePickerOraRichiesta = New System.Windows.Forms.DateTimePicker
         Me.Label6 = New System.Windows.Forms.Label
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox
+        Me.RichTextBoxPromemoria = New System.Windows.Forms.RichTextBox
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
         Me.btnAnnulla = New System.Windows.Forms.Button
         Me.btnSalvaChiudi = New System.Windows.Forms.Button
         Me.ButtonGeneraReport = New System.Windows.Forms.Button
-        Me.SopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
         Me.TimerSalvataggioAutomatico = New System.Windows.Forms.Timer(Me.components)
         Me.TextBoxResoconto = New System.Windows.Forms.TextBox
+        Me.ListBoxFrasi = New System.Windows.Forms.ListBox
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox
+        Me.SopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
         Me.GroupBox1.SuspendLayout()
         CType(Me.SopralluogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.FlowLayoutPanel2.SuspendLayout()
+        Me.GroupBox4.SuspendLayout()
+        Me.GroupBox5.SuspendLayout()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -63,7 +68,7 @@ Partial Class FSopralluogo
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(227, 151)
+        Me.GroupBox1.Size = New System.Drawing.Size(227, 117)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo reato"
@@ -72,10 +77,10 @@ Partial Class FSopralluogo
         '
         Me.TextBoxTipoAltro.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.TextBoxTipoAltro.Location = New System.Drawing.Point(7, 103)
+        Me.TextBoxTipoAltro.Location = New System.Drawing.Point(85, 67)
         Me.TextBoxTipoAltro.MaxLength = 50
         Me.TextBoxTipoAltro.Name = "TextBoxTipoAltro"
-        Me.TextBoxTipoAltro.Size = New System.Drawing.Size(214, 32)
+        Me.TextBoxTipoAltro.Size = New System.Drawing.Size(136, 32)
         Me.TextBoxTipoAltro.TabIndex = 2
         '
         'RadioButtonTipoAltro
@@ -139,18 +144,18 @@ Partial Class FSopralluogo
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxLuogo.CausesValidation = False
         Me.TextBoxLuogo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "luogo_citta", True))
-        Me.TextBoxLuogo.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.TextBoxLuogo.Location = New System.Drawing.Point(213, 183)
+        Me.TextBoxLuogo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.TextBoxLuogo.Location = New System.Drawing.Point(210, 145)
         Me.TextBoxLuogo.MaxLength = 50
         Me.TextBoxLuogo.Name = "TextBoxLuogo"
-        Me.TextBoxLuogo.Size = New System.Drawing.Size(807, 32)
+        Me.TextBoxLuogo.Size = New System.Drawing.Size(807, 26)
         Me.TextBoxLuogo.TabIndex = 3
         '
         'Label2
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.Label2.Location = New System.Drawing.Point(14, 186)
+        Me.Label2.Location = New System.Drawing.Point(7, 145)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(169, 26)
         Me.Label2.TabIndex = 4
@@ -160,7 +165,7 @@ Partial Class FSopralluogo
         '
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.Label3.Location = New System.Drawing.Point(14, 224)
+        Me.Label3.Location = New System.Drawing.Point(7, 178)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(117, 26)
         Me.Label3.TabIndex = 6
@@ -172,18 +177,18 @@ Partial Class FSopralluogo
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxVia.CausesValidation = False
         Me.TextBoxVia.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "via", True))
-        Me.TextBoxVia.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.TextBoxVia.Location = New System.Drawing.Point(213, 221)
+        Me.TextBoxVia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.TextBoxVia.Location = New System.Drawing.Point(210, 178)
         Me.TextBoxVia.MaxLength = 150
         Me.TextBoxVia.Name = "TextBoxVia"
-        Me.TextBoxVia.Size = New System.Drawing.Size(807, 32)
+        Me.TextBoxVia.Size = New System.Drawing.Size(807, 26)
         Me.TextBoxVia.TabIndex = 5
         '
         'Label4
         '
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.Label4.Location = New System.Drawing.Point(14, 262)
+        Me.Label4.Location = New System.Drawing.Point(7, 210)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(193, 26)
         Me.Label4.TabIndex = 8
@@ -195,11 +200,11 @@ Partial Class FSopralluogo
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxContatti.CausesValidation = False
         Me.TextBoxContatti.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "contatti_con", True))
-        Me.TextBoxContatti.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.TextBoxContatti.Location = New System.Drawing.Point(213, 259)
+        Me.TextBoxContatti.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.TextBoxContatti.Location = New System.Drawing.Point(210, 210)
         Me.TextBoxContatti.MaxLength = 200
         Me.TextBoxContatti.Name = "TextBoxContatti"
-        Me.TextBoxContatti.Size = New System.Drawing.Size(807, 32)
+        Me.TextBoxContatti.Size = New System.Drawing.Size(807, 26)
         Me.TextBoxContatti.TabIndex = 7
         '
         'Label5
@@ -229,22 +234,23 @@ Partial Class FSopralluogo
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.Label6.Location = New System.Drawing.Point(14, 300)
+        Me.Label6.Location = New System.Drawing.Point(7, 242)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(113, 26)
         Me.Label6.TabIndex = 12
         Me.Label6.Text = "resoconto:"
         '
-        'RichTextBox2
+        'RichTextBoxPromemoria
         '
-        Me.RichTextBox2.BackColor = System.Drawing.SystemColors.Control
-        Me.RichTextBox2.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox2.Location = New System.Drawing.Point(19, 329)
-        Me.RichTextBox2.Name = "RichTextBox2"
-        Me.RichTextBox2.ReadOnly = True
-        Me.RichTextBox2.Size = New System.Drawing.Size(188, 88)
-        Me.RichTextBox2.TabIndex = 13
-        Me.RichTextBox2.Text = "descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora" & _
+        Me.RichTextBoxPromemoria.BackColor = System.Drawing.SystemColors.Control
+        Me.RichTextBoxPromemoria.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.RichTextBoxPromemoria.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RichTextBoxPromemoria.Location = New System.Drawing.Point(3, 16)
+        Me.RichTextBoxPromemoria.Name = "RichTextBoxPromemoria"
+        Me.RichTextBoxPromemoria.ReadOnly = True
+        Me.RichTextBoxPromemoria.Size = New System.Drawing.Size(372, 98)
+        Me.RichTextBoxPromemoria.TabIndex = 13
+        Me.RichTextBoxPromemoria.Text = "descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora" & _
             " presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini?" & _
             " - coperto da assicurazione?"
         '
@@ -257,7 +263,7 @@ Partial Class FSopralluogo
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.GroupBox2.Location = New System.Drawing.Point(245, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(391, 151)
+        Me.GroupBox2.Size = New System.Drawing.Size(391, 117)
         Me.GroupBox2.TabIndex = 14
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Orari"
@@ -313,36 +319,69 @@ Partial Class FSopralluogo
         Me.ButtonGeneraReport.Text = "Salva e &Genera report"
         Me.ButtonGeneraReport.UseVisualStyleBackColor = True
         '
-        'SopralluogoTableAdapter
-        '
-        Me.SopralluogoTableAdapter.ClearBeforeFill = True
-        '
         'TimerSalvataggioAutomatico
         '
         '
         'TextBoxResoconto
         '
+        Me.TextBoxResoconto.AllowDrop = True
         Me.TextBoxResoconto.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
                     Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxResoconto.CausesValidation = False
         Me.TextBoxResoconto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "resoconto", True))
-        Me.TextBoxResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.TextBoxResoconto.Location = New System.Drawing.Point(213, 297)
+        Me.TextBoxResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
+        Me.TextBoxResoconto.Location = New System.Drawing.Point(126, 242)
         Me.TextBoxResoconto.Multiline = True
         Me.TextBoxResoconto.Name = "TextBoxResoconto"
-        Me.TextBoxResoconto.Size = New System.Drawing.Size(807, 72)
+        Me.TextBoxResoconto.Size = New System.Drawing.Size(891, 127)
         Me.TextBoxResoconto.TabIndex = 8
+        '
+        'ListBoxFrasi
+        '
+        Me.ListBoxFrasi.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ListBoxFrasi.ForeColor = System.Drawing.Color.Maroon
+        Me.ListBoxFrasi.FormattingEnabled = True
+        Me.ListBoxFrasi.Location = New System.Drawing.Point(3, 16)
+        Me.ListBoxFrasi.Name = "ListBoxFrasi"
+        Me.ListBoxFrasi.Size = New System.Drawing.Size(440, 95)
+        Me.ListBoxFrasi.TabIndex = 156
+        '
+        'GroupBox4
+        '
+        Me.GroupBox4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox4.Controls.Add(Me.ListBoxFrasi)
+        Me.GroupBox4.Location = New System.Drawing.Point(12, 375)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(446, 115)
+        Me.GroupBox4.TabIndex = 157
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Voci rapide - Sel. con doppio click"
+        '
+        'GroupBox5
+        '
+        Me.GroupBox5.Controls.Add(Me.RichTextBoxPromemoria)
+        Me.GroupBox5.Location = New System.Drawing.Point(655, 12)
+        Me.GroupBox5.Name = "GroupBox5"
+        Me.GroupBox5.Size = New System.Drawing.Size(378, 117)
+        Me.GroupBox5.TabIndex = 158
+        Me.GroupBox5.TabStop = False
+        Me.GroupBox5.Text = "Promemoria"
+        '
+        'SopralluogoTableAdapter
+        '
+        Me.SopralluogoTableAdapter.ClearBeforeFill = True
         '
         'FSopralluogo
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1032, 502)
+        Me.Controls.Add(Me.GroupBox5)
+        Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.TextBoxResoconto)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.RichTextBox2)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.TextBoxContatti)
@@ -362,6 +401,8 @@ Partial Class FSopralluogo
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.FlowLayoutPanel2.ResumeLayout(False)
+        Me.GroupBox4.ResumeLayout(False)
+        Me.GroupBox5.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -381,7 +422,7 @@ Partial Class FSopralluogo
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents DateTimePickerOraRichiesta As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents RichTextBox2 As System.Windows.Forms.RichTextBox
+    Friend WithEvents RichTextBoxPromemoria As System.Windows.Forms.RichTextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents FlowLayoutPanel2 As System.Windows.Forms.FlowLayoutPanel
@@ -393,4 +434,7 @@ Partial Class FSopralluogo
     Friend WithEvents ButtonGeneraReport As System.Windows.Forms.Button
     Friend WithEvents TimerSalvataggioAutomatico As System.Windows.Forms.Timer
     Friend WithEvents TextBoxResoconto As System.Windows.Forms.TextBox
+    Friend WithEvents ListBoxFrasi As System.Windows.Forms.ListBox
+    Friend WithEvents GroupBox4 As System.Windows.Forms.GroupBox
+    Friend WithEvents GroupBox5 As System.Windows.Forms.GroupBox
 End Class

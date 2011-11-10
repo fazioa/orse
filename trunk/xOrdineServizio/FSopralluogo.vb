@@ -87,6 +87,17 @@ Public Class FSopralluogo
             End If
         End If
 
+        'leggo le frasi dal file delle impostazioni e le carico nella listbox. Nota: nelle impostazione c'è un'unica stringa divisa da &&
+        Dim sVociRapide As String = My.Settings.sopralluogoListBoxVociRapide
+        Dim ArrayVociRapide As Array = sVociRapide.Split("&")
+
+
+        For i As Integer = 0 To ArrayVociRapide.Length - 1
+            ListBoxFrasi.Items.Add(ArrayVociRapide(i))
+        Next
+
+        'carico il testo del promemoria dalle impostazioni
+        RichTextBoxPromemoria.Text = My.Settings.sopralluogoPromemoria
     End Sub
 
 
@@ -122,30 +133,8 @@ Public Class FSopralluogo
         salva()
         Try
             log.xlogWriteEntry("Word - Preparazione per generazione verbale di sopralluogo", TraceEventType.Critical)
-
-            Dim oWord As Microsoft.Office.Interop.Word.Application = feActions.wordInizializzaDocumentoVerbaleSopralluogo()
-
-            feActions.wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
-            feActions.wordScriviSegnalibro(oWord, "comando", My.Settings.comando)
-            feActions.wordScriviSegnalibro(oWord, "tipoReato", feActions.leggiCampoDB(SopralluogoBindingSource, "tipoReato"))
-            feActions.wordScriviSegnalibro(oWord, "luogo", feActions.leggiCampoDB(SopralluogoBindingSource, "luogo_citta"))
-            feActions.wordScriviSegnalibro(oWord, "via", feActions.leggiCampoDB(SopralluogoBindingSource, "via"))
-            'il segnalibro non permette che esistano più istanze sullo stesso documento. Quindi devo duplicarlo, quando serve scrivere due volte le stesse informazioni.
-            feActions.wordScriviSegnalibro(oWord, "luogo2", feActions.leggiCampoDB(SopralluogoBindingSource, "luogo_citta"))
-            feActions.wordScriviSegnalibro(oWord, "via2", feActions.leggiCampoDB(SopralluogoBindingSource, "via"))
-
-            Dim d As Date = feActions.leggiCampoDB(SopralluogoBindingSource, "oraRedazione")
-            feActions.wordScriviSegnalibro(oWord, "dataRedazione", d.ToShortDateString)
-            feActions.wordScriviSegnalibro(oWord, "oraRedazione", d.ToShortTimeString)
-
-            d = feActions.leggiCampoDB(SopralluogoBindingSource, "oraRichiesta")
-            feActions.wordScriviSegnalibro(oWord, "dataRichiesta", d.ToShortDateString)
-            feActions.wordScriviSegnalibro(oWord, "oraRichiesta", d.ToShortTimeString)
-
-            feActions.wordScriviSegnalibro(oWord, "nomiOperatori", nomiOperatori)
-
-            feActions.wordScriviSegnalibro(oWord, "contatti", feActions.leggiCampoDB(SopralluogoBindingSource, "contatti_con"))
-            feActions.wordScriviSegnalibro(oWord, "resoconto", feActions.leggiCampoDB(SopralluogoBindingSource, "resoconto"))
+            feActions.wordInizializzaEcompilaVerbaleSopralluogo(SopralluogoBindingSource, nomiOperatori)
+        
 
         Catch
 
@@ -185,4 +174,102 @@ Public Class FSopralluogo
             setChanged(False)
         End If
     End Sub
+
+    Private dragBounds As Rectangle
+    Private dragMethod As String
+    Private Sub TextBoxResoconto_DragEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles TextBoxResoconto.DragEnter
+        ' ----- Yes, we accept the items.
+        'If (e.Data.GetDataPresent(ListBoxFrasi. SelectedItems.GetType()) = True) Then
+        If (e.Data.GetDataPresent(String.Empty.GetType) = True) Then
+            e.Effect = DragDropEffects.Move
+        End If
+
+
+    End Sub
+
+    '  Private Sub TextBoxResoconto_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles TextBoxResoconto.DragDrop
+    ' ----- Accept the dropped items.
+    ' For Each oneItem As Object In e.Data.GetData(ListBoxFrasi.SelectedItems.GetType())
+    '     For Each oneItem As Object In e.Data.GetData(String.Empty.GetType)
+    '        TextBoxResoconto.AppendText(oneItem.ToString)
+    '    Next oneItem
+    'End Sub
+
+    ' Drop the text into the TextBox.
+    Private Sub TextBoxResoconto_DragDrop(ByVal sender As Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles TextBoxResoconto.DragDrop
+        TextBoxResoconto.SelectedText = e.Data.GetData(DataFormats.StringFormat)
+    End Sub
+
+    Private Sub ListBox_MouseDown(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBoxFrasi.MouseDown ', ListBox2.MouseDown
+        ' ----- Prepare the draggable content.
+        If (CType(sender, ListBox).SelectedItems.Count = 0) Then Return
+
+        ' ----- Don't start the drag yet. Wait until we move a
+        '       certain amount.
+        dragBounds = New Rectangle(New Point(e.X - (SystemInformation.DragSize.Width / 2), e.Y - (SystemInformation.DragSize.Height / 2)), SystemInformation.DragSize)
+        If (sender Is ListBoxFrasi) Then
+            dragMethod = "1to2"
+        Else
+            dragMethod = "2to1"
+        End If
+    End Sub
+
+    Private Sub ListBox_MouseMove(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBoxFrasi.MouseMove
+        ' ----- Ignore if not dragging from ListBox1.
+        If (dragMethod <> "1to2") Then Return
+
+        ' ----- Have we left the drag boundary?
+        If (dragBounds.Contains(e.X, e.Y) = False) Then
+            ' ----- Start the drag-and-drop operation.
+            If (ListBoxFrasi.DoDragDrop(ListBoxFrasi.SelectedItem.ToString, DragDropEffects.Copy) = DragDropEffects.Copy) Then
+                ' ----- Successful move. Remove the items from
+                '       this list.
+                '  Do While ListBoxFrasi.SelectedItems.Count > 0
+                'ListBoxFrasi.Items.Remove(ListBox1.SelectedItems(0))
+                'Loop
+            End If
+            dragMethod = ""
+        End If
+    End Sub
+
+    Private Sub ListBox1_MouseUp(ByVal sender As Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBoxFrasi.MouseUp ', ListBox2.MouseUp
+        ' ----- End of drag-and-drop.
+        dragMethod = ""
+    End Sub
+
+    Private Sub TextBoxResoconto_DragOver(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DragEventArgs) Handles TextBoxResoconto.DragOver
+        If e.Data.GetDataPresent(DataFormats.StringFormat) Then
+            ' Allow the drop.
+            e.Effect = DragDropEffects.Copy
+
+            ' Optionally move the cursor position so
+            ' the user can see where the drop would happen.
+            TextBoxResoconto.Select(TextBoxCursorPos(TextBoxResoconto, e.X, e.Y), 0)
+
+        Else
+            ' Do not allow the drop.
+            e.Effect = DragDropEffects.None
+        End If
+    End Sub
+
+    Private Const EM_CHARFROMPOS As Int32 = &HD7
+
+    'When a drag moves over the TextBox, the DragOver event handler calls the TextBoxCursorPos function to see where the cursor is over the TextBox and it places the insertion position there.
+    'If the user drops on the TextBox, the program inserts the dropped text at the current insertion position. 
+    Private Declare Function SendMessageLong Lib "user32" Alias "SendMessageA" (ByVal hWnd As IntPtr, ByVal wMsg As Int32, ByVal wParam As Int32, ByVal lParam As Int32) As Long
+    'Function TextBoxCursorPos converts the mouse's coordinates from screen coordinates to the TextBox's coordinate system (both are in pixels). It then sends the EM_CHARFROMPOS message to the TextBox to get the position within the TextBox corresponding to the mouse's position. sends the Text 
+    ' Return the character position under the mouse.
+    Public Function TextBoxCursorPos(ByVal txt As TextBox, ByVal X As Single, ByVal Y As Single) As Long
+        ' Convert screen coordinates into control coordinates.
+        Dim pt As Point = TextBoxResoconto.PointToClient(New Point(X, Y))
+
+        ' Get the character number
+        TextBoxCursorPos = SendMessageLong(txt.Handle, EM_CHARFROMPOS, 0&, CLng(pt.X + pt.Y * &H10000)) And &HFFFF&
+    End Function
+
+    'in caso di doppio click aggiungo la frase in fondo al textbox
+    Private Sub ListBoxFrasi_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBoxFrasi.MouseDoubleClick
+        TextBoxResoconto.AppendText(ListBoxFrasi.SelectedItem.ToString())
+    End Sub
+
 End Class
