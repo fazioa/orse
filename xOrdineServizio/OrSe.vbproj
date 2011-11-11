@@ -187,6 +187,12 @@
     <Compile Include="FIntervento.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FModificaDatiOS.Designer.vb">
+      <DependentUpon>FModificaDatiOS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FModificaDatiOS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FProgressionBar.Designer.vb">
       <DependentUpon>FProgressionBar.vb</DependentUpon>
     </Compile>
@@ -440,6 +446,10 @@
     <EmbeddedResource Include="FDataRange.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FDataRange.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FModificaDatiOS.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>FModificaDatiOS.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FProgressionBar.resx">
       <SubType>Designer</SubType>

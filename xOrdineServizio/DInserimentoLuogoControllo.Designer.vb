@@ -130,6 +130,7 @@ Partial Class DInserimentoLuogoControllo
         'DateTimePickerOra
         '
         Me.DateTimePickerOra.CustomFormat = "HH.mm"
+        Me.DateTimePickerOra.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.ControlloBindingSource, "dataora", True))
         Me.DateTimePickerOra.Font = New System.Drawing.Font("Microsoft Sans Serif", 21.0!)
         Me.DateTimePickerOra.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePickerOra.Location = New System.Drawing.Point(119, 52)
