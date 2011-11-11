@@ -64,7 +64,7 @@ Public Class FPrima
         'posizioni il cursore sull'ordine di servizio corrente
         Dim nIdOS = OrdineServizioTableAdapter.FillByID(DbAlegatoADataSet_Unico.ordineServizio, parametri.idOS)
         If nIdOS = 1 Then log.xlogWriteEntry("Ordine di servizio id nr." & parametri.idOS & " selezionato (" & parametri.nomeOS & " del " & parametri.dataOS & ")", TraceEventType.Information)
-        textBoxInfoOS.Text = "Ordine di servizio: " + parametri.nomeOS + " del " + FormatDateTime(parametri.dataOS, DateFormat.ShortDate)
+        labelInfoOS.Text = "Ordine di servizio: " + parametri.nomeOS + " del " + FormatDateTime(parametri.dataOS, DateFormat.ShortDate)
         feActions.setStandardFormSize(Me)
     End Sub
 
@@ -181,7 +181,7 @@ Public Class FPrima
         btnSopralluogo.Enabled = b
         btnRubrica.Enabled = b
         BtnVedi.Enabled = b
-        textBoxInfoOS.Text = ""
+        labelInfoOS.Text = ""
     End Sub
 
     Private Sub PreferenzeToolStripMenuItem1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PreferenzeToolStripMenuItem1.Click
@@ -376,5 +376,20 @@ Public Class FPrima
         form = New FSopralluogoListaStampa(parametri)
         form.Visible = True
     End Sub
+
+    
+    Private Sub labelInfoOS_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles labelInfoOS.DoubleClick
+        'apertura finestra modifica dati OS
+        log.xlogWriteEntry("Apertura form modifica dati OS", TraceEventType.Information)
+        'db = db
+        Dim form As System.Windows.Forms.Form
+        form = New FModificaDatiOS(parametri.idOS)
+        form.ShowDialog()
+        If (form.DialogResult = Windows.Forms.DialogResult.OK) Then
+            logout()
+        End If
+
+    End Sub
+
 End Class
 

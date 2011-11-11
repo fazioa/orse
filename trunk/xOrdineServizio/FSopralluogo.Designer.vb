@@ -68,7 +68,7 @@ Partial Class FSopralluogo
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.GroupBox1.Location = New System.Drawing.Point(12, 12)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(227, 117)
+        Me.GroupBox1.Size = New System.Drawing.Size(360, 117)
         Me.GroupBox1.TabIndex = 0
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Tipo reato"
@@ -80,7 +80,7 @@ Partial Class FSopralluogo
         Me.TextBoxTipoAltro.Location = New System.Drawing.Point(85, 67)
         Me.TextBoxTipoAltro.MaxLength = 50
         Me.TextBoxTipoAltro.Name = "TextBoxTipoAltro"
-        Me.TextBoxTipoAltro.Size = New System.Drawing.Size(136, 32)
+        Me.TextBoxTipoAltro.Size = New System.Drawing.Size(269, 32)
         Me.TextBoxTipoAltro.TabIndex = 2
         '
         'RadioButtonTipoAltro
@@ -110,12 +110,13 @@ Partial Class FSopralluogo
         Me.DateTimePickerOraVerbale.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DateTimePickerOraVerbale.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.DateTimePickerOraVerbale.CustomFormat = "HH.mm"
         Me.DateTimePickerOraVerbale.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SopralluogoBindingSource, "oraRedazione", True))
         Me.DateTimePickerOraVerbale.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.DateTimePickerOraVerbale.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DateTimePickerOraVerbale.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePickerOraVerbale.Location = New System.Drawing.Point(253, 31)
         Me.DateTimePickerOraVerbale.Name = "DateTimePickerOraVerbale"
-        Me.DateTimePickerOraVerbale.Size = New System.Drawing.Size(132, 32)
+        Me.DateTimePickerOraVerbale.Size = New System.Drawing.Size(92, 32)
         Me.DateTimePickerOraVerbale.TabIndex = 1
         '
         'SopralluogoBindingSource
@@ -132,7 +133,7 @@ Partial Class FSopralluogo
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.Label1.Location = New System.Drawing.Point(15, 33)
+        Me.Label1.Location = New System.Drawing.Point(6, 34)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(232, 26)
         Me.Label1.TabIndex = 2
@@ -222,12 +223,13 @@ Partial Class FSopralluogo
         Me.DateTimePickerOraRichiesta.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
                     Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DateTimePickerOraRichiesta.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
+        Me.DateTimePickerOraRichiesta.CustomFormat = "HH.mm"
         Me.DateTimePickerOraRichiesta.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SopralluogoBindingSource, "oraRichiesta", True))
         Me.DateTimePickerOraRichiesta.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.DateTimePickerOraRichiesta.Format = System.Windows.Forms.DateTimePickerFormat.Time
+        Me.DateTimePickerOraRichiesta.Format = System.Windows.Forms.DateTimePickerFormat.Custom
         Me.DateTimePickerOraRichiesta.Location = New System.Drawing.Point(253, 69)
         Me.DateTimePickerOraRichiesta.Name = "DateTimePickerOraRichiesta"
-        Me.DateTimePickerOraRichiesta.Size = New System.Drawing.Size(132, 32)
+        Me.DateTimePickerOraRichiesta.Size = New System.Drawing.Size(92, 32)
         Me.DateTimePickerOraRichiesta.TabIndex = 9
         '
         'Label6
@@ -248,7 +250,7 @@ Partial Class FSopralluogo
         Me.RichTextBoxPromemoria.Location = New System.Drawing.Point(3, 16)
         Me.RichTextBoxPromemoria.Name = "RichTextBoxPromemoria"
         Me.RichTextBoxPromemoria.ReadOnly = True
-        Me.RichTextBoxPromemoria.Size = New System.Drawing.Size(372, 98)
+        Me.RichTextBoxPromemoria.Size = New System.Drawing.Size(276, 98)
         Me.RichTextBoxPromemoria.TabIndex = 13
         Me.RichTextBoxPromemoria.Text = "descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora" & _
             " presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini?" & _
@@ -261,9 +263,9 @@ Partial Class FSopralluogo
         Me.GroupBox2.Controls.Add(Me.DateTimePickerOraRichiesta)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
-        Me.GroupBox2.Location = New System.Drawing.Point(245, 12)
+        Me.GroupBox2.Location = New System.Drawing.Point(378, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(391, 117)
+        Me.GroupBox2.Size = New System.Drawing.Size(351, 117)
         Me.GroupBox2.TabIndex = 14
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Orari"
@@ -361,9 +363,9 @@ Partial Class FSopralluogo
         'GroupBox5
         '
         Me.GroupBox5.Controls.Add(Me.RichTextBoxPromemoria)
-        Me.GroupBox5.Location = New System.Drawing.Point(655, 12)
+        Me.GroupBox5.Location = New System.Drawing.Point(735, 12)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(378, 117)
+        Me.GroupBox5.Size = New System.Drawing.Size(282, 117)
         Me.GroupBox5.TabIndex = 158
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Promemoria"

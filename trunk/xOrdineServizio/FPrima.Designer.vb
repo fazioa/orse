@@ -27,6 +27,7 @@ Partial Class FPrima
         Me.informazioniToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.AllegatoAToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.OP85ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.SopralluogoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.StrumentiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.CercaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator
@@ -51,7 +52,6 @@ Partial Class FPrima
         Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.QInterventi_informazioniBindigSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
-        Me.textBoxInfoOS = New System.Windows.Forms.TextBox
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
         Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -65,9 +65,9 @@ Partial Class FPrima
         Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter
         Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
+        Me.labelInfoOS = New System.Windows.Forms.Label
         Me.ButtonRubrica = New System.Windows.Forms.Button
         Me.menu = New System.Windows.Forms.MenuStrip
-        Me.VerticalLabel2 = New OrSe.verticalLabel
         Me.BtnVedi = New System.Windows.Forms.Button
         Me.btnSopralluogo = New System.Windows.Forms.Button
         Me.btnInformazioni = New System.Windows.Forms.Button
@@ -77,7 +77,7 @@ Partial Class FPrima
         Me.btnRubrica = New System.Windows.Forms.Button
         Me.Button1 = New System.Windows.Forms.Button
         Me.Button2 = New System.Windows.Forms.Button
-        Me.SopralluogoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
+        Me.VerticalLabel2 = New OrSe.verticalLabel
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -108,29 +108,36 @@ Partial Class FPrima
         '
         Me.ToolStripMenuItem1.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(152, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
         Me.ToolStripMenuItem1.Text = "Interventi..."
         '
         'informazioniToolStripMenuItem
         '
         Me.informazioniToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem"
-        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.informazioniToolStripMenuItem.Text = "Informazioni..."
         '
         'AllegatoAToolStripMenuItem
         '
         Me.AllegatoAToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printAllegatoA
         Me.AllegatoAToolStripMenuItem.Name = "AllegatoAToolStripMenuItem"
-        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.AllegatoAToolStripMenuItem.Text = "Allegato A..."
         '
         'OP85ToolStripMenuItem
         '
         Me.OP85ToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
         Me.OP85ToolStripMenuItem.Name = "OP85ToolStripMenuItem"
-        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.OP85ToolStripMenuItem.Text = "OP85..."
+        '
+        'SopralluogoToolStripMenuItem
+        '
+        Me.SopralluogoToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
+        Me.SopralluogoToolStripMenuItem.Name = "SopralluogoToolStripMenuItem"
+        Me.SopralluogoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.SopralluogoToolStripMenuItem.Text = "Sopralluogo..."
         '
         'StrumentiToolStripMenuItem
         '
@@ -279,18 +286,6 @@ Partial Class FPrima
         Me.FlowLayoutPanel2.Size = New System.Drawing.Size(0, 0)
         Me.FlowLayoutPanel2.TabIndex = 23
         '
-        'textBoxInfoOS
-        '
-        Me.textBoxInfoOS.BackColor = System.Drawing.SystemColors.Control
-        Me.textBoxInfoOS.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.textBoxInfoOS.Font = New System.Drawing.Font("Microsoft Sans Serif", 27.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.textBoxInfoOS.Location = New System.Drawing.Point(3, 3)
-        Me.textBoxInfoOS.Name = "textBoxInfoOS"
-        Me.textBoxInfoOS.ReadOnly = True
-        Me.textBoxInfoOS.Size = New System.Drawing.Size(1174, 42)
-        Me.textBoxInfoOS.TabIndex = 2
-        Me.textBoxInfoOS.Text = "Ordine di servizio:"
-        '
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.AutoSize = True
@@ -367,12 +362,23 @@ Partial Class FPrima
         '
         'FlowLayoutPanel3
         '
-        Me.FlowLayoutPanel3.Controls.Add(Me.textBoxInfoOS)
+        Me.FlowLayoutPanel3.Controls.Add(Me.labelInfoOS)
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(0, 24)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         Me.FlowLayoutPanel3.Size = New System.Drawing.Size(1008, 53)
         Me.FlowLayoutPanel3.TabIndex = 29
+        '
+        'labelInfoOS
+        '
+        Me.labelInfoOS.AutoSize = True
+        Me.labelInfoOS.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
+        Me.labelInfoOS.Location = New System.Drawing.Point(3, 6)
+        Me.labelInfoOS.Margin = New System.Windows.Forms.Padding(3, 6, 3, 3)
+        Me.labelInfoOS.Name = "labelInfoOS"
+        Me.labelInfoOS.Size = New System.Drawing.Size(134, 44)
+        Me.labelInfoOS.TabIndex = 13
+        Me.labelInfoOS.Text = "Label1"
         '
         'ButtonRubrica
         '
@@ -396,15 +402,6 @@ Partial Class FPrima
         Me.menu.Size = New System.Drawing.Size(1008, 24)
         Me.menu.TabIndex = 22
         Me.menu.Text = "menu"
-        '
-        'VerticalLabel2
-        '
-        Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel2.Location = New System.Drawing.Point(3, 0)
-        Me.VerticalLabel2.Name = "VerticalLabel2"
-        Me.VerticalLabel2.Size = New System.Drawing.Size(24, 114)
-        Me.VerticalLabel2.TabIndex = 26
-        Me.VerticalLabel2.Text = "Interventi"
         '
         'BtnVedi
         '
@@ -527,12 +524,14 @@ Partial Class FPrima
         Me.Button2.UseVisualStyleBackColor = True
         Me.Button2.Visible = False
         '
-        'SopralluogoToolStripMenuItem
+        'VerticalLabel2
         '
-        Me.SopralluogoToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
-        Me.SopralluogoToolStripMenuItem.Name = "SopralluogoToolStripMenuItem"
-        Me.SopralluogoToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.SopralluogoToolStripMenuItem.Text = "Sopralluogo..."
+        Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
+        Me.VerticalLabel2.Location = New System.Drawing.Point(3, 0)
+        Me.VerticalLabel2.Name = "VerticalLabel2"
+        Me.VerticalLabel2.Size = New System.Drawing.Size(24, 114)
+        Me.VerticalLabel2.TabIndex = 26
+        Me.VerticalLabel2.Text = "Interventi"
         '
         'FPrima
         '
@@ -635,7 +634,6 @@ Partial Class FPrima
     Friend WithEvents DataGridViewTextBoxColumn11 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents dataoraInizioInfo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents FlowLayoutPanel2 As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents textBoxInfoOS As System.Windows.Forms.TextBox
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents FlowLayoutPanel3 As System.Windows.Forms.FlowLayoutPanel
@@ -651,5 +649,6 @@ Partial Class FPrima
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents SopralluogoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents labelInfoOS As System.Windows.Forms.Label
 
 End Class

@@ -151,7 +151,18 @@ Public Class UserControlComboBox
     Public Sub setSelectedID(ByVal i)
         Select Case tabella
             Case tabellaEnum.LuogoControllo
-                'NON IMPLEMENTATO
+                If (Me.LuoghicontrolloTableAdapter.FillById(Me.DbAlegatoADataSet.luoghicontrollo, i) >= 1) Then
+                    frm.ListBox1.SelectedIndex = 0
+                    Dim drv As DataRowView = frm.ListBox1.SelectedItem
+                    'leggo il valore della voce selezionata
+                    If (Not drv Is Nothing) Then
+                        TextBox1.Text = drv.Item(frm.ListBox1.DisplayMember)
+                        TextBox1.Text = TextBox1.Text.Trim
+                        'la scrittura in textbox1 causa l'apparizione della listbox e della textbox2. Le nascondo
+                        frm.visibleMy(False)
+                    End If
+                End If
+
             Case tabellaEnum.ModelliMezzo
                 If (Me.ModelliMezzoTableAdapter.FillById(Me.DbAlegatoADataSet.modelliMezzo, i) >= 1) Then
                     'seleziono la prima voce del listbox. (il listbox è collegato al binding
@@ -160,6 +171,7 @@ Public Class UserControlComboBox
                     'leggo il valore della voce selezionata
                     If (Not drv Is Nothing) Then
                         TextBox1.Text = drv.Item(frm.ListBox1.DisplayMember)
+                        TextBox1.Text = TextBox1.Text.Trim
                         'la scrittura in textbox1 causa l'apparizione della listbox e della textbox2. Le nascondo
                         frm.visibleMy(False)
                     End If

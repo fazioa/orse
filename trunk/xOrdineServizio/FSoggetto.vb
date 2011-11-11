@@ -510,4 +510,16 @@ Public Class FSoggetto
 
     End Sub
 
+    Private Sub LabelControllo_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LabelControllo.DoubleClick
+        'modifica luogo e ora controllo
+        log.xlogWriteEntry("Apertura form modifica dati controllo", TraceEventType.Information)
+        'db = db
+        Dim form As System.Windows.Forms.Form
+        form = New DInserimentoLuogoControllo(DbDataSet, parametri, True)
+        form.ShowDialog()
+        If form.DialogResult = Windows.Forms.DialogResult.OK Then
+            'aggiorno le informazioni sul controllo 
+            labelOSWrite(parametri.idControllo)
+        End If
+    End Sub
 End Class

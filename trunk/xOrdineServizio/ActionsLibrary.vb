@@ -194,7 +194,7 @@ Public Class ActionsLibrary
         db = DataSet
         log.xlogWriteEntry("Inserimento Controllo e Allegato A", TraceEventType.Information)
 
-        Dim myform As New DInserimentoLuogoControllo(db, parametri)
+        Dim myform As New DInserimentoLuogoControllo(db, parametri, False)
         'Dim myform As New DInserimentoLuogoControllo()
         Dim form As OrSe.FSoggetto
         'caso di nuovo controllo, perchè la località non è ancora stata selezionata
