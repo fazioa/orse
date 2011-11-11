@@ -27,7 +27,6 @@ Partial Class DInsDatiPreliminari
         Me.Cancel_Button = New System.Windows.Forms.Button
         Me.OK_Button = New System.Windows.Forms.Button
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
-        Me.Panel1 = New System.Windows.Forms.Panel
         Me.TreeViewOS = New System.Windows.Forms.TreeView
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
         Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
@@ -45,6 +44,7 @@ Partial Class DInsDatiPreliminari
         Me.QInterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
         Me.QSopralluogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.QSopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
+        Me.Label3 = New System.Windows.Forms.Label
         Label2 = New System.Windows.Forms.Label
         Label1 = New System.Windows.Forms.Label
         OperatoriLabel = New System.Windows.Forms.Label
@@ -123,7 +123,7 @@ Partial Class DInsDatiPreliminari
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.FlowLayoutPanel1.Controls.Add(Me.Panel1)
+        Me.FlowLayoutPanel1.Controls.Add(Me.Label3)
         Me.FlowLayoutPanel1.Controls.Add(Me.TreeViewOS)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
@@ -131,17 +131,9 @@ Partial Class DInsDatiPreliminari
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(667, 308)
         Me.FlowLayoutPanel1.TabIndex = 16
         '
-        'Panel1
-        '
-        Me.Panel1.BackColor = System.Drawing.SystemColors.Window
-        Me.Panel1.Location = New System.Drawing.Point(3, 3)
-        Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(652, 46)
-        Me.Panel1.TabIndex = 8
-        '
         'TreeViewOS
         '
-        Me.TreeViewOS.Location = New System.Drawing.Point(3, 55)
+        Me.TreeViewOS.Location = New System.Drawing.Point(3, 51)
         Me.TreeViewOS.Name = "TreeViewOS"
         Me.TreeViewOS.Size = New System.Drawing.Size(652, 253)
         Me.TreeViewOS.TabIndex = 41
@@ -237,6 +229,17 @@ Partial Class DInsDatiPreliminari
         '
         Me.QSopralluogoTableAdapter.ClearBeforeFill = True
         '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!)
+        Me.Label3.Location = New System.Drawing.Point(3, 6)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(3, 6, 6, 3)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(526, 39)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "OrSe - Gestione ordine di servizio"
+        '
         'DInsDatiPreliminari
         '
         Me.AcceptButton = Me.OK_Button
@@ -261,6 +264,7 @@ Partial Class DInsDatiPreliminari
         Me.Text = "DInsDatiPreliminariNew"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
+        Me.FlowLayoutPanel1.PerformLayout()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QOrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -276,7 +280,6 @@ Partial Class DInsDatiPreliminari
     Friend WithEvents OK_Button As System.Windows.Forms.Button
     Friend WithEvents Cancel_Button As System.Windows.Forms.Button
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
-    Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents OSMaskedTextBox As System.Windows.Forms.MaskedTextBox
     Friend WithEvents OperatoriComboBox As System.Windows.Forms.ComboBox
@@ -294,5 +297,6 @@ Partial Class DInsDatiPreliminari
     Friend WithEvents QInterventiTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
     Friend WithEvents QSopralluogoBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents QSopralluogoTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
+    Friend WithEvents Label3 As System.Windows.Forms.Label
 
 End Class
