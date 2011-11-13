@@ -94,24 +94,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_FD1540E75843F58EED3EB8269E1F6895"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C44DDF8A7F8A8062ADD816B5FF58135E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_9D653F1AAE22A9D38DDCB82634F80842"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C69D943876FFF598468AE24A709A02C1"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -130,7 +112,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_FD1540E75843F58EED3EB8269E1F6895"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C44DDF8A7F8A8062ADD816B5FF58135E"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0C6CCE740DBECA05995B28FAFAFD6945"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_9D653F1AAE22A9D38DDCB82634F80842"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -536,14 +536,14 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Orse"
-        "ProductCode" = "8:{781E8138-5E6D-49FC-AC3F-45C3A1B6D32E}"
-        "PackageCode" = "8:{1A9C0066-3753-4D8F-BC65-4E26F4B0B940}"
+        "ProductCode" = "8:{12D51BD2-8573-414D-A8C5-4C2021AECAEC}"
+        "PackageCode" = "8:{3F7FF951-DC16-47AB-89A4-F21A0BB21A4F}"
         "UpgradeCode" = "8:{5E60EDF5-DF1E-4D69-9A90-1991CCF01906}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.63.0"
+        "ProductVersion" = "8:1.64.0"
         "Manufacturer" = "8:OrSe"
         "ARPHELPTELEPHONE" = "8:3313658556"
         "ARPHELPLINK" = "8:"
