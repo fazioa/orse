@@ -1,3 +1,6 @@
+Imports System.Text
+Imports System.Security.Cryptography
+Imports System.IO
 Namespace My
 
     ' The following events are availble for MyApplication:
@@ -9,7 +12,10 @@ Namespace My
     ' NetworkAvailabilityChanged: Raised when the network connection is connected or disconnected.
     Partial Friend Class MyApplication
 
+
     End Class
+
+
 
 End Namespace
 

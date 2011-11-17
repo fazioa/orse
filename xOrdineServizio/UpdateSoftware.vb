@@ -108,6 +108,7 @@ Public Class UpdateSoftware
         End If
 
         FileCopy(sPathOriginale, sPathBackup)
+        eseguiBackupPreferenze()
     End Sub
 
     Public Sub ripristinaDBBackup()
@@ -148,11 +149,32 @@ Public Class UpdateSoftware
                 FileCopy(sPathBackup, sPathDB)
                 i.ripristinoBackupDB(sPathBackup)
                 log.xlogWriteEntry("E' stato ripristinato il file " & sPathBackup, TraceEventType.Information)
-
             Catch ex As Exception
                 i.erroreRipristinoBackupDB(sPathBackup)
                 log.xlogWriteEntry("Errore nel ripristino del DB", TraceEventType.Information)
             End Try
         End If
+
     End Sub
+
+    Public Sub eseguiBackupPreferenze()
+        'salvataggio preferenze in un file
+        Dim S As New serializzazione
+        Dim hashTablePreferenze As New Hashtable
+        For Each Item As Configuration.SettingsProperty In My.Settings.Properties
+            hashTablePreferenze.Add(Item.Name, My.Settings.PropertyValues.Item(Item.Name).PropertyValue)
+        Next
+        S.salvaHashTable(hashTablePreferenze)
+    End Sub
+
+    Public Sub ripristinaBackupPreferenze()
+        Dim S As New serializzazione
+        Dim hashTablePreferenze As Hashtable = S.loadHashTable
+
+        For Each item As DictionaryEntry In hashTablePreferenze
+            My.Settings.PropertyValues.Item(item.Key).PropertyValue = item.Value
+        Next
+
+    End Sub
+
 End Class

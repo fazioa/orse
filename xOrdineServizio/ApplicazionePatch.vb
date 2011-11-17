@@ -60,7 +60,9 @@ Public Class ApplicazionePatch
                 patch2_aggiornamentoMaxsizeCampoLuogoControllo() '2.20
                 patch3_creazionetabellasopralluogo() '2.40
                 patch4_creazionetabellaRubrica() '2.60
-                'Case Is < 2.6
+            Case Is < 2.7
+                ' Configuration.ConfigurationSettings
+                ' My.Settings.de()
                 '   +patch1
         End Select
     End Sub

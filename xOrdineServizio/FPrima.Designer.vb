@@ -150,70 +150,70 @@ Partial Class FPrima
         '
         Me.CercaToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.DBFind
         Me.CercaToolStripMenuItem.Name = "CercaToolStripMenuItem"
-        Me.CercaToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.CercaToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
         Me.CercaToolStripMenuItem.Text = "Cerca..."
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(210, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(247, 6)
         '
         'ExportToolStripMenuItem
         '
         Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
         Me.ExportToolStripMenuItem.Text = "export..."
         Me.ExportToolStripMenuItem.Visible = False
         '
         'ImportToolStripMenuItem
         '
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
         Me.ImportToolStripMenuItem.Text = "import..."
         Me.ImportToolStripMenuItem.Visible = False
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(210, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(247, 6)
         Me.ToolStripSeparator3.Visible = False
         '
         'CancellaToolStripMenuItem
         '
         Me.CancellaToolStripMenuItem.Name = "CancellaToolStripMenuItem"
-        Me.CancellaToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.CancellaToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
         Me.CancellaToolStripMenuItem.Text = "Cancella..."
         '
         'CercaAggiornamentiToolStripMenuItem
         '
         Me.CercaAggiornamentiToolStripMenuItem.Name = "CercaAggiornamentiToolStripMenuItem"
-        Me.CercaAggiornamentiToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
+        Me.CercaAggiornamentiToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
         Me.CercaAggiornamentiToolStripMenuItem.Text = "Controlla aggiornamenti..."
         '
         'ToolStripMenuItemLOG
         '
         Me.ToolStripMenuItemLOG.CheckOnClick = True
         Me.ToolStripMenuItemLOG.Name = "ToolStripMenuItemLOG"
-        Me.ToolStripMenuItemLOG.Size = New System.Drawing.Size(213, 22)
+        Me.ToolStripMenuItemLOG.Size = New System.Drawing.Size(250, 22)
         Me.ToolStripMenuItemLOG.Text = "Finestra log"
         Me.ToolStripMenuItemLOG.Visible = False
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(210, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(247, 6)
         '
         'EseguiBackupDBToolStripMenuItem
         '
         Me.EseguiBackupDBToolStripMenuItem.Name = "EseguiBackupDBToolStripMenuItem"
-        Me.EseguiBackupDBToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.EseguiBackupDBToolStripMenuItem.Text = "Esegui backup DB"
+        Me.EseguiBackupDBToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.EseguiBackupDBToolStripMenuItem.Text = "Esegui backup DB e preferenze"
         '
         'RipristinaBackupDBToolStripMenuItem
         '
         Me.RipristinaBackupDBToolStripMenuItem.Name = "RipristinaBackupDBToolStripMenuItem"
-        Me.RipristinaBackupDBToolStripMenuItem.Size = New System.Drawing.Size(213, 22)
-        Me.RipristinaBackupDBToolStripMenuItem.Text = "Ripristina backup DB"
+        Me.RipristinaBackupDBToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.RipristinaBackupDBToolStripMenuItem.Text = "Ripristina backup DB e preferenze"
         '
         'SessioneToolStripMenuItem
         '

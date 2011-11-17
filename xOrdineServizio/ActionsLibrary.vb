@@ -1148,13 +1148,17 @@ Public Class ActionsLibrary
             End If
         End If
     End Sub
+
     Sub doDBBackup()
         Dim updateSW As UpdateSoftware = New UpdateSoftware
         updateSW.eseguiDBBackup()
+        updateSW.eseguiBackupPreferenze()
     End Sub
+
     Sub doRipristinaDBBackup()
         Dim updateSW As UpdateSoftware = New UpdateSoftware
         updateSW.ripristinaDBBackup()
+        updateSW.ripristinaBackupPreferenze()
     End Sub
 
     Sub setStandardFormSize(ByVal f As Form)
@@ -1195,3 +1199,5 @@ Public Class ActionsLibrary
         dgv.DefaultCellStyle.BackColor = Color.FloralWhite
     End Sub
 End Class
+
+   
