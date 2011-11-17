@@ -1,4 +1,6 @@
 Imports System.Diagnostics
+Imports System.Threading
+
 Public Class FPrima
 
     Dim feActions As New OrSe.ActionsLibrary
@@ -10,11 +12,24 @@ Public Class FPrima
     Dim bFlagExit As Boolean = False
 
     Public Sub New()
+        ' Subscribe to thread (unhandled) exception events
+        ' Get the your application's application domain.
+        '  Dim currentDomain As AppDomain = AppDomain.CurrentDomain
+
+        ' Define a handler for unhandled exceptions.
+        '  AddHandler currentDomain.UnhandledException, AddressOf Me.MYExnHandler
+
+        '   Dim handler As ThreadExceptionHandler = New ThreadExceptionHandler()
+        '  AddHandler Application.ThreadException, AddressOf handler.Application_ThreadException
 
         'controllo se il file del DB è presente, altrimenti restituisco errore ed esco dall'applicazione
         Dim pathDB As String = Application.StartupPath
 
         Dim sPath = pathDB & "\dbAlegatoA.mdb"
+
+        'SOLLEVO ECCEZIONE PER TEST
+        ' Throw New Exception("operazione non valida.")
+
 
         'elimino il file dbAlegatoA2, nel caso sia presente
         If Dir(sPath) = "" Then
@@ -57,6 +72,7 @@ Public Class FPrima
             ' This call is required by the Windows Form Designer.
             InitializeComponent()
             ' Add any initialization after the InitializeComponent() call.
+
         End If
     End Sub
 
@@ -377,7 +393,7 @@ Public Class FPrima
         form.Visible = True
     End Sub
 
-    
+
     Private Sub labelInfoOS_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles labelInfoOS.DoubleClick
         'apertura finestra modifica dati OS
         log.xlogWriteEntry("Apertura form modifica dati OS", TraceEventType.Information)
@@ -391,5 +407,61 @@ Public Class FPrima
 
     End Sub
 
+    Private Sub MYExnHandler(ByVal sender As Object, ByVal e As UnhandledExceptionEventArgs)
+        Dim EX As Exception
+        EX = e.ExceptionObject
+        Console.WriteLine(EX.StackTrace)
+    End Sub
+
+
 End Class
 
+
+
+Friend Class ThreadExceptionHandler
+    ''
+    '' Handles the thread exception.
+    '''
+    Public Sub Application_ThreadException(ByVal sender As System.Object, ByVal e As ThreadExceptionEventArgs)
+
+        Try
+            ' Exit the program if the user clicks Abort.
+
+            Dim result As DialogResult = ShowThreadExceptionDialog(e.Exception)
+
+            If (result = DialogResult.Abort) Then
+                Application.Exit()
+            End If
+        Catch
+            ' Fatal error, terminate program
+
+            Try
+                MessageBox.Show("Fatal Error", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Stop)
+            Finally
+                Application.Exit()
+            End Try
+        End Try
+    End Sub
+
+    '''
+
+    ''' Creates and displays the error message.
+
+    '''
+
+    Private Function ShowThreadExceptionDialog(ByVal ex As Exception) As DialogResult
+
+        Dim errorMessage As String = _
+            "Unhandled Exception:" _
+            & vbCrLf & vbCrLf & _
+            ex.Message & vbCrLf & vbCrLf & _
+            ex.GetType().ToString() & vbCrLf & vbCrLf & _
+            "Stack Trace:" & vbCrLf & _
+            ex.StackTrace
+
+        Return MessageBox.Show(errorMessage, _
+            "Application Error", _
+            MessageBoxButtons.AbortRetryIgnore, _
+            MessageBoxIcon.Stop)
+    End Function
+End Class

@@ -27,16 +27,12 @@ Partial Class opzioni
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.Label5 = New System.Windows.Forms.Label
         Me.Label4 = New System.Windows.Forms.Label
-        Me.TextBox2 = New System.Windows.Forms.TextBox
-        Me.TextBox1 = New System.Windows.Forms.TextBox
         Me.Label2 = New System.Windows.Forms.Label
         Me.Label1 = New System.Windows.Forms.Label
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.GroupBox4 = New System.Windows.Forms.GroupBox
         Me.Label3 = New System.Windows.Forms.Label
         Me.Label6 = New System.Windows.Forms.Label
-        Me.TextBox3 = New System.Windows.Forms.TextBox
-        Me.TextBox4 = New System.Windows.Forms.TextBox
         Me.Label7 = New System.Windows.Forms.Label
         Me.Label8 = New System.Windows.Forms.Label
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
@@ -46,20 +42,17 @@ Partial Class opzioni
         Me.Label9 = New System.Windows.Forms.Label
         Me.Label10 = New System.Windows.Forms.Label
         Me.RadioButtonTitolare = New System.Windows.Forms.RadioButton
-        Me.TextBox5 = New System.Windows.Forms.TextBox
-        Me.TextBox6 = New System.Windows.Forms.TextBox
         Me.Label11 = New System.Windows.Forms.Label
         Me.Label12 = New System.Windows.Forms.Label
         Me.GroupBox7 = New System.Windows.Forms.GroupBox
         Me.GroupBox8 = New System.Windows.Forms.GroupBox
         Me.Label15 = New System.Windows.Forms.Label
-        Me.TextBox7 = New System.Windows.Forms.TextBox
         Me.Label13 = New System.Windows.Forms.Label
-        Me.TextBox8 = New System.Windows.Forms.TextBox
         Me.Label16 = New System.Windows.Forms.Label
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox
+        Me.TextBox9 = New System.Windows.Forms.TextBox
         Me.GroupBox10 = New System.Windows.Forms.GroupBox
-        Me.CheckBoxMaximized = New System.Windows.Forms.CheckBox
         Me.Label14 = New System.Windows.Forms.Label
         Me.CheckBoxSalvataggioAutomatico = New System.Windows.Forms.CheckBox
         Me.tbIntervalloSalvataggioAutomatico = New System.Windows.Forms.MaskedTextBox
@@ -67,8 +60,15 @@ Partial Class opzioni
         Me.TabPageIntestazioni = New System.Windows.Forms.TabPage
         Me.TabPageFirma = New System.Windows.Forms.TabPage
         Me.TabPageVarie = New System.Windows.Forms.TabPage
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox
-        Me.TextBox9 = New System.Windows.Forms.TextBox
+        Me.TextBox3 = New System.Windows.Forms.TextBox
+        Me.TextBox4 = New System.Windows.Forms.TextBox
+        Me.TextBox2 = New System.Windows.Forms.TextBox
+        Me.TextBox1 = New System.Windows.Forms.TextBox
+        Me.TextBox5 = New System.Windows.Forms.TextBox
+        Me.TextBox6 = New System.Windows.Forms.TextBox
+        Me.TextBox7 = New System.Windows.Forms.TextBox
+        Me.TextBox8 = New System.Windows.Forms.TextBox
+        Me.CheckBoxMaximized = New System.Windows.Forms.CheckBox
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -80,12 +80,12 @@ Partial Class opzioni
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
+        Me.GroupBox9.SuspendLayout()
         Me.GroupBox10.SuspendLayout()
         Me.TabControl1.SuspendLayout()
         Me.TabPageIntestazioni.SuspendLayout()
         Me.TabPageFirma.SuspendLayout()
         Me.TabPageVarie.SuspendLayout()
-        Me.GroupBox9.SuspendLayout()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -96,7 +96,7 @@ Partial Class opzioni
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(555, 383)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(555, 319)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -180,24 +180,6 @@ Partial Class opzioni
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "IL COMANDANTE int."
         '
-        'TextBox2
-        '
-        Me.TextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaInterinaleRiga2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox2.Location = New System.Drawing.Point(85, 46)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox2.TabIndex = 3
-        Me.TextBox2.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaInterinaleRiga2
-        '
-        'TextBox1
-        '
-        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaInterinaleRiga1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox1.Location = New System.Drawing.Point(85, 19)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox1.TabIndex = 2
-        Me.TextBox1.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaInterinaleRiga1
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -262,24 +244,6 @@ Partial Class opzioni
         Me.Label6.TabIndex = 7
         Me.Label6.Text = "REGIONE CARABINIERI TOSCANA"
         '
-        'TextBox3
-        '
-        Me.TextBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "comando", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox3.Location = New System.Drawing.Point(85, 46)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox3.TabIndex = 3
-        Me.TextBox3.Text = Global.OrSe.My.MySettings.Default.comando
-        '
-        'TextBox4
-        '
-        Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "regione", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox4.Location = New System.Drawing.Point(85, 19)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox4.TabIndex = 2
-        Me.TextBox4.Text = Global.OrSe.My.MySettings.Default.regione
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -306,7 +270,7 @@ Partial Class opzioni
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 3)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(694, 272)
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(699, 383)
         Me.FlowLayoutPanel1.TabIndex = 5
         '
         'FlowLayoutPanel2
@@ -375,24 +339,6 @@ Partial Class opzioni
         Me.RadioButtonTitolare.Text = "Titolare"
         Me.RadioButtonTitolare.UseVisualStyleBackColor = True
         '
-        'TextBox5
-        '
-        Me.TextBox5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaRiga2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox5.Location = New System.Drawing.Point(85, 46)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox5.TabIndex = 3
-        Me.TextBox5.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaRiga2
-        '
-        'TextBox6
-        '
-        Me.TextBox6.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaRiga1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox6.Location = New System.Drawing.Point(85, 19)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox6.TabIndex = 2
-        Me.TextBox6.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaRiga1
-        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -445,15 +391,6 @@ Partial Class opzioni
         Me.Label15.TabIndex = 7
         Me.Label15.Text = "Nr. 12/3 di Prot.llo --> Inserire 12/"
         '
-        'TextBox7
-        '
-        Me.TextBox7.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "protocolloOP85", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox7.Location = New System.Drawing.Point(115, 46)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(253, 20)
-        Me.TextBox7.TabIndex = 4
-        Me.TextBox7.Text = Global.OrSe.My.MySettings.Default.protocolloOP85
-        '
         'Label13
         '
         Me.Label13.AutoSize = True
@@ -462,15 +399,6 @@ Partial Class opzioni
         Me.Label13.Size = New System.Drawing.Size(86, 13)
         Me.Label13.TabIndex = 3
         Me.Label13.Text = "Prot.Arma OP85:"
-        '
-        'TextBox8
-        '
-        Me.TextBox8.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "comune", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox8.Location = New System.Drawing.Point(85, 19)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox8.TabIndex = 2
-        Me.TextBox8.Text = Global.OrSe.My.MySettings.Default.comune
         '
         'Label16
         '
@@ -489,8 +417,28 @@ Partial Class opzioni
         Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel3.Location = New System.Drawing.Point(0, 0)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(705, 389)
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(705, 325)
         Me.FlowLayoutPanel3.TabIndex = 1
+        '
+        'GroupBox9
+        '
+        Me.GroupBox9.Controls.Add(Me.TextBox9)
+        Me.GroupBox9.Location = New System.Drawing.Point(3, 88)
+        Me.GroupBox9.Name = "GroupBox9"
+        Me.GroupBox9.Size = New System.Drawing.Size(694, 100)
+        Me.GroupBox9.TabIndex = 7
+        Me.GroupBox9.TabStop = False
+        Me.GroupBox9.Text = "Voci rapide sopralluogo - Separare ogni  voce dal con il carattere &&"
+        '
+        'TextBox9
+        '
+        Me.TextBox9.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "sopralluogoListBoxVociRapide", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox9.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.TextBox9.Location = New System.Drawing.Point(3, 16)
+        Me.TextBox9.Multiline = True
+        Me.TextBox9.Name = "TextBox9"
+        Me.TextBox9.Size = New System.Drawing.Size(688, 81)
+        Me.TextBox9.TabIndex = 0
         '
         'GroupBox10
         '
@@ -504,19 +452,6 @@ Partial Class opzioni
         Me.GroupBox10.TabIndex = 6
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Opzioni generali"
-        '
-        'CheckBoxMaximized
-        '
-        Me.CheckBoxMaximized.AutoSize = True
-        Me.CheckBoxMaximized.Checked = Global.OrSe.My.MySettings.Default.maximizeForm
-        Me.CheckBoxMaximized.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBoxMaximized.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.OrSe.My.MySettings.Default, "maximizeForm", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.CheckBoxMaximized.Location = New System.Drawing.Point(12, 42)
-        Me.CheckBoxMaximized.Name = "CheckBoxMaximized"
-        Me.CheckBoxMaximized.Size = New System.Drawing.Size(139, 17)
-        Me.CheckBoxMaximized.TabIndex = 8
-        Me.CheckBoxMaximized.Text = "Finestre a tutto schermo"
-        Me.CheckBoxMaximized.UseVisualStyleBackColor = True
         '
         'Label14
         '
@@ -559,7 +494,7 @@ Partial Class opzioni
         Me.TabControl1.Name = "TabControl1"
         Me.TabControl1.Padding = New System.Drawing.Point(20, 6)
         Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(713, 424)
+        Me.TabControl1.Size = New System.Drawing.Size(713, 360)
         Me.TabControl1.TabIndex = 7
         '
         'TabPageIntestazioni
@@ -568,7 +503,7 @@ Partial Class opzioni
         Me.TabPageIntestazioni.Location = New System.Drawing.Point(4, 31)
         Me.TabPageIntestazioni.Name = "TabPageIntestazioni"
         Me.TabPageIntestazioni.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageIntestazioni.Size = New System.Drawing.Size(700, 278)
+        Me.TabPageIntestazioni.Size = New System.Drawing.Size(705, 389)
         Me.TabPageIntestazioni.TabIndex = 0
         Me.TabPageIntestazioni.Text = "Intestazioni"
         Me.TabPageIntestazioni.UseVisualStyleBackColor = True
@@ -579,7 +514,7 @@ Partial Class opzioni
         Me.TabPageFirma.Location = New System.Drawing.Point(4, 31)
         Me.TabPageFirma.Name = "TabPageFirma"
         Me.TabPageFirma.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPageFirma.Size = New System.Drawing.Size(700, 278)
+        Me.TabPageFirma.Size = New System.Drawing.Size(705, 389)
         Me.TabPageFirma.TabIndex = 1
         Me.TabPageFirma.Text = "Firma"
         Me.TabPageFirma.UseVisualStyleBackColor = True
@@ -589,31 +524,95 @@ Partial Class opzioni
         Me.TabPageVarie.Controls.Add(Me.FlowLayoutPanel3)
         Me.TabPageVarie.Location = New System.Drawing.Point(4, 31)
         Me.TabPageVarie.Name = "TabPageVarie"
-        Me.TabPageVarie.Size = New System.Drawing.Size(705, 389)
+        Me.TabPageVarie.Size = New System.Drawing.Size(705, 325)
         Me.TabPageVarie.TabIndex = 2
         Me.TabPageVarie.Text = "Varie"
         Me.TabPageVarie.UseVisualStyleBackColor = True
         '
-        'GroupBox9
+        'TextBox3
         '
-        Me.GroupBox9.Controls.Add(Me.TextBox9)
-        Me.GroupBox9.Location = New System.Drawing.Point(3, 88)
-        Me.GroupBox9.Name = "GroupBox9"
-        Me.GroupBox9.Size = New System.Drawing.Size(694, 100)
-        Me.GroupBox9.TabIndex = 7
-        Me.GroupBox9.TabStop = False
-        Me.GroupBox9.Text = "Voci rapide sopralluogo - Separare ogni  voce dal con il carattere &&"
+        Me.TextBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "comando", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox3.Location = New System.Drawing.Point(85, 46)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox3.TabIndex = 3
+        Me.TextBox3.Text = Global.OrSe.My.MySettings.Default.comando
         '
-        'TextBox9
+        'TextBox4
         '
-        Me.TextBox9.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "sopralluogoListBoxVociRapide", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox9.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.TextBox9.Location = New System.Drawing.Point(3, 16)
-        Me.TextBox9.Multiline = True
-        Me.TextBox9.Name = "TextBox9"
-        Me.TextBox9.Size = New System.Drawing.Size(688, 81)
-        Me.TextBox9.TabIndex = 0
-        Me.TextBox9.Text = Global.OrSe.My.MySettings.Default.sopralluogoListBoxVociRapide
+        Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "regione", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox4.Location = New System.Drawing.Point(85, 19)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox4.TabIndex = 2
+        Me.TextBox4.Text = Global.OrSe.My.MySettings.Default.regione
+        '
+        'TextBox2
+        '
+        Me.TextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaInterinaleRiga2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox2.Location = New System.Drawing.Point(85, 46)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox2.TabIndex = 3
+        Me.TextBox2.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaInterinaleRiga2
+        '
+        'TextBox1
+        '
+        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaInterinaleRiga1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox1.Location = New System.Drawing.Point(85, 19)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox1.TabIndex = 2
+        Me.TextBox1.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaInterinaleRiga1
+        '
+        'TextBox5
+        '
+        Me.TextBox5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaRiga2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox5.Location = New System.Drawing.Point(85, 46)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox5.TabIndex = 3
+        Me.TextBox5.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaRiga2
+        '
+        'TextBox6
+        '
+        Me.TextBox6.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaRiga1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox6.Location = New System.Drawing.Point(85, 19)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox6.TabIndex = 2
+        Me.TextBox6.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaRiga1
+        '
+        'TextBox7
+        '
+        Me.TextBox7.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "protocolloOP85", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox7.Location = New System.Drawing.Point(115, 46)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(253, 20)
+        Me.TextBox7.TabIndex = 4
+        Me.TextBox7.Text = Global.OrSe.My.MySettings.Default.protocolloOP85
+        '
+        'TextBox8
+        '
+        Me.TextBox8.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "comune", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox8.Location = New System.Drawing.Point(85, 19)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox8.TabIndex = 2
+        Me.TextBox8.Text = Global.OrSe.My.MySettings.Default.comune
+        '
+        'CheckBoxMaximized
+        '
+        Me.CheckBoxMaximized.AutoSize = True
+        Me.CheckBoxMaximized.Checked = Global.OrSe.My.MySettings.Default.maximizeForm
+        Me.CheckBoxMaximized.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBoxMaximized.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.OrSe.My.MySettings.Default, "maximizeForm", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CheckBoxMaximized.Location = New System.Drawing.Point(12, 42)
+        Me.CheckBoxMaximized.Name = "CheckBoxMaximized"
+        Me.CheckBoxMaximized.Size = New System.Drawing.Size(139, 17)
+        Me.CheckBoxMaximized.TabIndex = 8
+        Me.CheckBoxMaximized.Text = "Finestre a tutto schermo"
+        Me.CheckBoxMaximized.UseVisualStyleBackColor = True
         '
         'opzioni
         '
@@ -621,7 +620,7 @@ Partial Class opzioni
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(713, 424)
+        Me.ClientSize = New System.Drawing.Size(713, 360)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.Controls.Add(Me.TabControl1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
@@ -651,14 +650,14 @@ Partial Class opzioni
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.FlowLayoutPanel3.ResumeLayout(False)
+        Me.GroupBox9.ResumeLayout(False)
+        Me.GroupBox9.PerformLayout()
         Me.GroupBox10.ResumeLayout(False)
         Me.GroupBox10.PerformLayout()
         Me.TabControl1.ResumeLayout(False)
         Me.TabPageIntestazioni.ResumeLayout(False)
         Me.TabPageFirma.ResumeLayout(False)
         Me.TabPageVarie.ResumeLayout(False)
-        Me.GroupBox9.ResumeLayout(False)
-        Me.GroupBox9.PerformLayout()
         Me.ResumeLayout(False)
 
     End Sub

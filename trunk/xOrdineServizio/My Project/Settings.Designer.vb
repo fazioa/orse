@@ -67,8 +67,7 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("(Mar.Ca.Xxxxx Xxxxx)")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property GruppoFirmaRiga2() As String
             Get
                 Return CType(Me("GruppoFirmaRiga2"),String)
@@ -79,8 +78,7 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Stazione Carabinieri di Xxxxxxxxxx")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property comando() As String
             Get
                 Return CType(Me("comando"),String)
@@ -91,8 +89,7 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Santa Maria a Monte (PI)")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property comune() As String
             Get
                 Return CType(Me("comune"),String)
@@ -125,8 +122,7 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("(Mar.Xxxxx Xxxxx)")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property GruppoFirmaInterinaleRiga2() As String
             Get
                 Return CType(Me("GruppoFirmaInterinaleRiga2"),String)
@@ -137,8 +133,7 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property protocolloOP85() As String
             Get
                 Return CType(Me("protocolloOP85"),String)
@@ -161,8 +156,7 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("LEGIONE CARABINIERI TOSCANA")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property regione() As String
             Get
                 Return CType(Me("regione"),String)
@@ -234,20 +228,7 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
-        Public Property display_reportPrimaPagina() As Boolean
-            Get
-                Return CType(Me("display_reportPrimaPagina"),Boolean)
-            End Get
-            Set
-                Me("display_reportPrimaPagina") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property ComandanteTitolare() As Boolean
             Get
                 Return CType(Me("ComandanteTitolare"),Boolean)
@@ -267,8 +248,7 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("1900-01-01")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property dataUltimaEsportazioneDati() As Date
             Get
                 Return CType(Me("dataUltimaEsportazioneDati"),Date)
@@ -279,8 +259,7 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property intervalloSalvataggioAutomatico() As String
             Get
                 Return CType(Me("intervalloSalvataggioAutomatico"),String)
@@ -290,49 +269,26 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("576")>  _
-        Public Property formHeight() As String
+        Public ReadOnly Property formHeight() As String
             Get
                 Return CType(Me("formHeight"),String)
             End Get
-            Set
-                Me("formHeight") = value
-            End Set
         End Property
         
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("1040")>  _
-        Public Property formWidth() As String
+        Public ReadOnly Property formWidth() As String
             Get
                 Return CType(Me("formWidth"),String)
             End Get
-            Set
-                Me("formWidth") = value
-            End Set
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Il danno subito ammonta a € _______. &Danno non coperto da assicurazione. &Danno "& _ 
-            "coperto da assicurazione. &Sul luogo non sono stati trovati elementi utili al pr"& _ 
-            "osieguo delle indagini. &Il fatto è avvenuto tra le ore ____ e le ore ____. &La "& _ 
-            "parte lesa viene invitata a recarsi presso il Comando Arma competente per territ"& _ 
-            "orio per al fine di formalizzare la denuncia/querela.")>  _
-        Public Property sopralluogoListBoxVociRapide() As String
-            Get
-                Return CType(Me("sopralluogoListBoxVociRapide"),String)
-            End Get
-            Set
-                Me("sopralluogoListBoxVociRapide") = value
-            End Set
-        End Property
-        
-        <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("True")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property maximizeForm() As Boolean
             Get
                 Return CType(Me("maximizeForm"),Boolean)
@@ -343,16 +299,24 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora"& _ 
-            " presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini?"& _ 
-            " - coperto da assicurazione?")>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
         Public Property sopralluogoPromemoria() As String
             Get
                 Return CType(Me("sopralluogoPromemoria"),String)
             End Get
             Set
                 Me("sopralluogoPromemoria") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+        Public Property sopralluogoListBoxVociRapide() As String
+            Get
+                Return CType(Me("sopralluogoListBoxVociRapide"),String)
+            End Get
+            Set
+                Me("sopralluogoListBoxVociRapide") = value
             End Set
         End Property
     End Class

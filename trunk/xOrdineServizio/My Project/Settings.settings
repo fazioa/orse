@@ -5,13 +5,13 @@
     <Setting Name="GruppoFirmaRiga1" Type="System.String" Scope="User">
       <Value Profile="(Default)">IL COMANDANTE</Value>
     </Setting>
-    <Setting Name="GruppoFirmaRiga2" Type="System.String" Scope="User">
+    <Setting Name="GruppoFirmaRiga2" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)">(Mar.Ca.Xxxxx Xxxxx)</Value>
     </Setting>
-    <Setting Name="comando" Type="System.String" Scope="User">
+    <Setting Name="comando" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)">Stazione Carabinieri di Xxxxxxxxxx</Value>
     </Setting>
-    <Setting Name="comune" Type="System.String" Scope="User">
+    <Setting Name="comune" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)">Santa Maria a Monte (PI)</Value>
     </Setting>
     <Setting Name="dbAlegatoAConnectionString" Type="(Connection string)" Scope="Application">
@@ -25,16 +25,16 @@
     <Setting Name="GruppoFirmaInterinaleRiga1" Type="System.String" Scope="User">
       <Value Profile="(Default)">IL COMANDANTE int.</Value>
     </Setting>
-    <Setting Name="GruppoFirmaInterinaleRiga2" Type="System.String" Scope="User">
+    <Setting Name="GruppoFirmaInterinaleRiga2" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)">(Mar.Xxxxx Xxxxx)</Value>
     </Setting>
-    <Setting Name="protocolloOP85" Type="System.String" Scope="User">
+    <Setting Name="protocolloOP85" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="prefissoIndirizzoStazioneCC" Type="System.String" Scope="User">
       <Value Profile="(Default)">AL COMANDO STAZIONE CARABINIERI</Value>
     </Setting>
-    <Setting Name="regione" Type="System.String" Scope="User">
+    <Setting Name="regione" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)">LEGIONE CARABINIERI TOSCANA</Value>
     </Setting>
     <Setting Name="versioneDB" Type="System.String" Scope="User">
@@ -52,35 +52,32 @@
     <Setting Name="descrizioneParagrafoInformazioni" Type="System.String" Scope="User">
       <Value Profile="(Default)">Paragrafo 6 - Informazioni</Value>
     </Setting>
-    <Setting Name="display_reportPrimaPagina" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
-    <Setting Name="ComandanteTitolare" Type="System.Boolean" Scope="User">
+    <Setting Name="ComandanteTitolare" GenerateDefaultValueInCode="false" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
     <Setting Name="altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLiberi" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">5</Value>
     </Setting>
-    <Setting Name="dataUltimaEsportazioneDati" Type="System.DateTime" Scope="User">
+    <Setting Name="dataUltimaEsportazioneDati" GenerateDefaultValueInCode="false" Type="System.DateTime" Scope="User">
       <Value Profile="(Default)">1900-01-01</Value>
     </Setting>
-    <Setting Name="intervalloSalvataggioAutomatico" Type="System.String" Scope="User">
+    <Setting Name="intervalloSalvataggioAutomatico" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)">5</Value>
     </Setting>
-    <Setting Name="formHeight" Type="System.String" Scope="User">
+    <Setting Name="formHeight" Type="System.String" Scope="Application">
       <Value Profile="(Default)">576</Value>
     </Setting>
-    <Setting Name="formWidth" Type="System.String" Scope="User">
+    <Setting Name="formWidth" Type="System.String" Scope="Application">
       <Value Profile="(Default)">1040</Value>
     </Setting>
-    <Setting Name="sopralluogoListBoxVociRapide" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Il danno subito ammonta a € _______. &amp;Danno non coperto da assicurazione. &amp;Danno coperto da assicurazione. &amp;Sul luogo non sono stati trovati elementi utili al prosieguo delle indagini. &amp;Il fatto è avvenuto tra le ore ____ e le ore ____. &amp;La parte lesa viene invitata a recarsi presso il Comando Arma competente per territorio per al fine di formalizzare la denuncia/querela.</Value>
-    </Setting>
-    <Setting Name="maximizeForm" Type="System.Boolean" Scope="User">
+    <Setting Name="maximizeForm" GenerateDefaultValueInCode="false" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
     </Setting>
-    <Setting Name="sopralluogoPromemoria" Type="System.String" Scope="User">
+    <Setting Name="sopralluogoPromemoria" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)">descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini? - coperto da assicurazione?</Value>
+    </Setting>
+    <Setting Name="sopralluogoListBoxVociRapide" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Il danno subito ammonta a € _______.&amp;Danno non coperto da assicurazione.&amp;Danno coperto da assicurazione.&amp;Sul luogo non sono stati trovati elementi utili al prosieguo delle indagini.&amp;Il fatto è avvenuto tra le ore ____ e le ore ____.&amp;La parte lesa viene invitata a recarsi presso il Comando Arma competente per territorio per al fine di formalizzare la denuncia/querela.</Value>
     </Setting>
   </Settings>
 </SettingsFile>
