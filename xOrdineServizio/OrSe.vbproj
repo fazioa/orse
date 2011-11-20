@@ -272,32 +272,23 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicazionePatch.vb" />
-    <Compile Include="Resources\reportAllegatoA.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>reportAllegatoA.rpt</DependentUpon>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
-    <Compile Include="Resources\reportInterventi.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>reportInterventi.rpt</DependentUpon>
-      <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Compile>
     <Compile Include="OP85.Designer.vb">
       <DependentUpon>OP85.vb</DependentUpon>
     </Compile>
     <Compile Include="OP85.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Resources\reportOP85.vb">
+    <Compile Include="Resources\reportAllegatoA.vb">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>reportOP85.rpt</DependentUpon>
+      <DependentUpon>reportAllegatoA.rpt</DependentUpon>
       <SubType>Component</SubType>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="Resources\reportInterventi.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reportInterventi.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="serializzazione.vb" />
     <Compile Include="Settings.vb" />
@@ -395,11 +386,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>SplashScreenOrse.vb</DependentUpon>
     </EmbeddedResource>
-    <Content Include="Resources\reportOP85.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>reportOP85.vb</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="dbAlegatoADataSet.xsc">

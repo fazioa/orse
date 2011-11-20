@@ -45,7 +45,6 @@ Partial Class op85
         Me.GroupBox2 = New System.Windows.Forms.GroupBox
         Me.GroupBox3 = New System.Windows.Forms.GroupBox
         Me.cbNote = New System.Windows.Forms.ComboBox
-        Me.CachedreportOP851 = New OrSe.CachedreportOP85
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -288,5 +287,4 @@ Partial Class op85
     Friend WithEvents cbNote As System.Windows.Forms.ComboBox
     Friend WithEvents idControllo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents generalita As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents CachedreportOP851 As OrSe.CachedreportOP85
 End Class
