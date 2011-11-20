@@ -170,11 +170,12 @@ Public Class UpdateSoftware
     Public Sub ripristinaBackupPreferenze()
         Dim S As New serializzazione
         Dim hashTablePreferenze As Hashtable = S.loadHashTable
-
-        For Each item As DictionaryEntry In hashTablePreferenze
-            My.Settings.PropertyValues.Item(item.Key).PropertyValue = item.Value
-        Next
-
+        'esegue la lettura dei parametro solo che la hashtable non è vuota
+        If (Not hashTablePreferenze Is Nothing) Then
+            For Each item As DictionaryEntry In hashTablePreferenze
+                My.Settings.PropertyValues.Item(item.Key).PropertyValue = item.Value
+            Next
+        End If
     End Sub
 
 End Class

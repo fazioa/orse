@@ -77,7 +77,7 @@
       <Value Profile="(Default)">descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini? - coperto da assicurazione?</Value>
     </Setting>
     <Setting Name="sopralluogoListBoxVociRapide" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Il danno subito ammonta a € _______.&amp;Danno non coperto da assicurazione.&amp;Danno coperto da assicurazione.&amp;Sul luogo non sono stati trovati elementi utili al prosieguo delle indagini.&amp;Il fatto è avvenuto tra le ore ____ e le ore ____.&amp;La parte lesa viene invitata a recarsi presso il Comando Arma competente per territorio per al fine di formalizzare la denuncia/querela.</Value>
+      <Value Profile="(Default)">Il danno subito ammonta a € _______.&amp;Danno non coperto da assicurazione.&amp;Danno coperto da assicurazione.&amp;Sul luogo non sono stati trovati elementi utili al prosieguo delle indagini.&amp;Il fatto è avvenuto tra le ore ____ e le ore ____.</Value>
     </Setting>
   </Settings>
 </SettingsFile>

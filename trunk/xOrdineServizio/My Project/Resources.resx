@@ -151,37 +151,25 @@
   <data name="printAllegatoA" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnReport\printAllegatoA.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reportAllegatoA1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reportAllegatoA.vb;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="printInterventi" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnReport\printInterventi.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reportAllegatoA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reportAllegatoA.rpt;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="PDF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnReport\PDF.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reportOP85" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reportOP85.rpt;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="pulsanteSoleVerde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnPIO\pulsanteSoleVerde.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="reportInterventi1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reportInterventi.vb;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
   </data>
   <data name="repubblica" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\repubblica.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="reportInterventi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reportInterventi.rpt;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="reportOP851" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\reportOP85.vb;System.String, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;utf-8</value>
-  </data>
   <data name="rubricaPng" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\btnPrima\rubrica.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="reportAllegatoA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reportAllegatoA.rpt;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="reportInterventi" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\reportInterventi.rpt;System.Byte[], mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>
