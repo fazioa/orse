@@ -22,7 +22,6 @@ Partial Class UserControlComboBox
         Me.components = New System.ComponentModel.Container
         Me.TextBox1 = New System.Windows.Forms.TextBox
         Me.LuoghicontrolloBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSetBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
         Me.OperatoreBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter
@@ -34,7 +33,6 @@ Partial Class UserControlComboBox
         Me.ModelliMezzoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         CType(Me.LuoghicontrolloBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbAlegatoADataSetBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ControlloBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -56,12 +54,7 @@ Partial Class UserControlComboBox
         'LuoghicontrolloBindingSource
         '
         Me.LuoghicontrolloBindingSource.DataMember = "luoghicontrollo"
-        Me.LuoghicontrolloBindingSource.DataSource = Me.DbAlegatoADataSetBindingSource
-        '
-        'DbAlegatoADataSetBindingSource
-        '
-        Me.DbAlegatoADataSetBindingSource.DataSource = Me.DbAlegatoADataSet
-        Me.DbAlegatoADataSetBindingSource.Position = 0
+        Me.LuoghicontrolloBindingSource.DataSource = Me.DbAlegatoADataSet
         '
         'DbAlegatoADataSet
         '
@@ -71,7 +64,7 @@ Partial Class UserControlComboBox
         'OperatoreBindingSource
         '
         Me.OperatoreBindingSource.DataMember = "operatore"
-        Me.OperatoreBindingSource.DataSource = Me.DbAlegatoADataSetBindingSource
+        Me.OperatoreBindingSource.DataSource = Me.DbAlegatoADataSet
         '
         'ModelliMezzoTableAdapter
         '
@@ -117,7 +110,6 @@ Partial Class UserControlComboBox
         Me.Name = "UserControlComboBox"
         Me.Size = New System.Drawing.Size(419, 46)
         CType(Me.LuoghicontrolloBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbAlegatoADataSetBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ControlloBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -130,7 +122,6 @@ Partial Class UserControlComboBox
     Friend WithEvents DbAlegatoADataSet As OrSe.dbAlegatoADataSet
     Friend WithEvents ModelliMezzoTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter
     Friend WithEvents LuoghicontrolloTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.luoghicontrolloTableAdapter
-    Friend WithEvents DbAlegatoADataSetBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents LuoghicontrolloBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents OperatoreBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents OperatoreTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.operatoreTableAdapter

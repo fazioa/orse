@@ -34,7 +34,7 @@ Public Class FSoggetto
 
     End Sub
     Private Sub UserControlInit()
-        '        ComboBoxModelliMezzo.setDataSource(MezzoBindingSource)
+        '       ComboBoxModelliMezzo.setDataSource(MezzoBindingSource)
 
         ComboBoxModelliMezzo.setSelectedValue(AllegatoABindingSource, "idMezzo")
         ComboBoxModelliMezzo.setDisplayMember("mezzo")
@@ -42,14 +42,14 @@ Public Class FSoggetto
         ComboBoxModelliMezzo.setTabella(UserControlComboBox.tabellaEnum.ModelliMezzo)
         ComboBoxModelliMezzo.MaxLength(50) 'imposto la lunghezza massima del campo. E' uguale a quella del DB
 
-        tbTarga.MaxLength = DbDataSet2.modelliMezzo.mezzoColumn.MaxLength
-        tbColore.MaxLength = DbDataSet2.allegatoA.coloreColumn.MaxLength
-        tbCognome.MaxLength = DbDataSet2.persona.cognomeColumn.MaxLength
-        tbNome.MaxLength = DbDataSet2.persona.nomeColumn.MaxLength
-        tbIndirizzo.MaxLength = DbDataSet2.persona.residenzaindirizzoColumn.MaxLength
-        tbDocumento.MaxLength = DbDataSet2.persona.documentoColumn.MaxLength
-        tbPrecedenti.MaxLength = DbDataSet2.persona.precedentiColumn.MaxLength
-        tbNote.MaxLength = DbDataSet2.allegatoA.NOTEColumn.MaxLength
+        tbTarga.MaxLength = DbDataSet.modelliMezzo.mezzoColumn.MaxLength
+        tbColore.MaxLength = DbDataSet.allegatoA.coloreColumn.MaxLength
+        tbCognome.MaxLength = DbDataSet.persona.cognomeColumn.MaxLength
+        tbNome.MaxLength = DbDataSet.persona.nomeColumn.MaxLength
+        tbIndirizzo.MaxLength = DbDataSet.persona.residenzaindirizzoColumn.MaxLength
+        tbDocumento.MaxLength = DbDataSet.persona.documentoColumn.MaxLength
+        tbPrecedenti.MaxLength = DbDataSet.persona.precedentiColumn.MaxLength
+        tbNote.MaxLength = DbDataSet.allegatoA.NOTEColumn.MaxLength
 
 
 
@@ -73,7 +73,7 @@ Public Class FSoggetto
 
         i = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idMezzo")
         If (Not i Is DBNull.Value) Then
-            'Me.modelliMezzoTableAdapter.FillById(Me.DbDataSet.modelliMezzo, i)
+            ' Me.modelliMezzoTableAdapter.FillById(Me.DbDataSet.modelliMezzo, i)
             ComboBoxModelliMezzo.setSelectedID(i)
         End If
 
@@ -196,10 +196,11 @@ Public Class FSoggetto
                 'memorizzo l'ordine di inserimento della persona nel controllo
                 drv.Item("ordine") = Me.xiOrdine
             Else
+                'c'è un bug che non riesco a risolvere. Inspiegabilmente sparisce il mezzo. Lo scrivo forzatamente
                 If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
 
             End If
-
+            drv.EndEdit()
             'update modifiche riga allegato A
             Me.AllegatoABindingSource.EndEdit()
             Me.AllegatoATableAdapter.Update(Me.DbDataSet.allegatoA)
