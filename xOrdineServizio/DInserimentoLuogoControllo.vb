@@ -70,7 +70,7 @@ Public Class DInserimentoLuogoControllo
                     parametri.idControllo = Me.ControlloTableAdapter.MaxID()
                    
                 Else
-                    'QUI se sono in modalit‡Ú modifica
+                    'QUI se sono in modalit‡ modifica
                     Me.Validate()
                     Me.ControlloBindingSource.EndEdit()
                     Me.ControlloTableAdapter.Update(Me.DbAlegatoADataSet.controllo)

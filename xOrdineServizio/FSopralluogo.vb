@@ -269,7 +269,7 @@ Public Class FSopralluogo
 
     'in caso di doppio click aggiungo la frase in fondo al textbox
     Private Sub ListBoxFrasi_MouseDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.MouseEventArgs) Handles ListBoxFrasi.MouseDoubleClick
-        TextBoxResoconto.AppendText(ListBoxFrasi.SelectedItem.ToString())
+        TextBoxResoconto.AppendText(ListBoxFrasi.SelectedItem.ToString() & ControlChars.NewLine)
     End Sub
 
 End Class

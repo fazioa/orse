@@ -1,6 +1,6 @@
 Public Class UserControlComboBox
     Public CurrentString As String
-    Dim iSelectedID As Integer
+    '  Dim iIDMezzoSelezionato As Integer
     Private tabella As tabellaEnum
     Dim log As New XOrseLog
 
@@ -125,7 +125,7 @@ Public Class UserControlComboBox
                 'inserisce il valore in tabella e poi lo seleziona nella listbox1
                 Me.ins(CurrentString.Trim)
                 Me.fill(CurrentString.Trim)
-                iSelectedID = frm.getSelectedID()
+                ' iIDMezzoSelezionato = frm.getSelectedID()
                 Return 1
             End If
         Catch ex As OleDb.OleDbException
@@ -145,10 +145,17 @@ Public Class UserControlComboBox
     End Function
 
     Public Function getSelectedID()
-        Return frm.ListBox1.SelectedValue
+        'Return frm.ListBox1.SelectedValue
+        'Return iIDMezzoSelezionato
+        Return frm.getSelectedID
     End Function
 
+
+
     Public Sub setSelectedID(ByVal i)
+        'salvo l'id selezionato
+        '  iIDMezzoSelezionato = i
+
         Select Case tabella
             Case tabellaEnum.LuogoControllo
                 If (Me.LuoghicontrolloTableAdapter.FillById(Me.DbAlegatoADataSet.luoghicontrollo, i) >= 1) Then
@@ -165,6 +172,7 @@ Public Class UserControlComboBox
 
             Case tabellaEnum.ModelliMezzo
                 If (Me.ModelliMezzoTableAdapter.FillById(Me.DbAlegatoADataSet.modelliMezzo, i) >= 1) Then
+
                     'seleziono la prima voce del listbox. (il listbox è collegato al binding
                     frm.ListBox1.SelectedIndex = 0
                     Dim drv As DataRowView = frm.ListBox1.SelectedItem
@@ -172,6 +180,7 @@ Public Class UserControlComboBox
                     If (Not drv Is Nothing) Then
                         TextBox1.Text = drv.Item(frm.ListBox1.DisplayMember)
                         TextBox1.Text = TextBox1.Text.Trim
+                        frm.setSelectedId(i)
                         'la scrittura in textbox1 causa l'apparizione della listbox e della textbox2. Le nascondo
                         frm.visibleMy(False)
                     End If
@@ -374,6 +383,7 @@ Partial Class frmList
         selezionevoce()
     End Sub
 
+    
 
     ' Private Sub BindingSource_ListChanged(ByVal sender As System.Object, ByVal e As System.ComponentModel.ListChangedEventArgs) Handles BindingSource.ListChanged
     '    iCount = Me.BindingSource.Count
@@ -437,8 +447,13 @@ Partial Class frmList
     End Sub
 
     Public Function getSelectedID() As Integer
-        Return ListBox1.SelectedValue
+        'Return ListBox1.SelectedValue
+        Return iSelectedID
     End Function
+    Public Sub setSelectedId(ByVal i As Integer)
+        iSelectedID = i
+        bVoceSelezionata = True
+    End Sub
 
     Public Sub EventoDeactivateAbilitato(ByVal state As Boolean)
         If state Then
@@ -452,5 +467,6 @@ Partial Class frmList
     Private Sub frmList_Deactivate(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Deactivate
         visibleMy(False)
     End Sub
+
 
 End Class
