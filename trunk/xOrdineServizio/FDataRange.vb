@@ -23,10 +23,23 @@ Public Class FDataRange
 
         ' Add any initialization after the InitializeComponent() call.
         Dim d As New dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
-        '        Dim dAllegatoA As New dbAlegatoADataSet.QAllegatoADataTable
 
-        DateTimePickerInizio.Value = d.ScalarQueryDataOraMinima()
-        DateTimePickerFine.Value = d.ScalarQueryDataOraMassima
+        'imposto nel date di inizio e fine
+        Dim obj As System.Nullable(Of Date) = d.ScalarQueryDataOraMinima()
+        If obj.HasValue Then
+            DateTimePickerInizio.Value = d.ScalarQueryDataOraMinima()
+        Else
+            DateTimePickerInizio.Value = Now
+        End If
+
+        obj = d.ScalarQueryDataOraMassima
+        If obj.HasValue Then
+            DateTimePickerFine.Value = d.ScalarQueryDataOraMassima
+        Else
+            DateTimePickerFine.Value = Now
+        End If
+
+
 
     End Sub
 
@@ -50,7 +63,10 @@ Public Class FDataRange
         Dim cb As RadioButton = sender
         If (cb.Checked) Then
             Dim d As New dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
-            DateTimePickerInizio.Value = d.ScalarQueryDataOraMinima()
+            Dim obj As System.Nullable(Of Date) = d.ScalarQueryDataOraMinima()
+            If obj.HasValue Then
+                DateTimePickerInizio.Value() = obj
+            End If
         End If
     End Sub
 
