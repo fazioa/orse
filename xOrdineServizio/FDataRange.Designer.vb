@@ -29,9 +29,9 @@ Partial Class FDataRange
         Me.Label2 = New System.Windows.Forms.Label
         Me.RichTextBox1 = New System.Windows.Forms.RichTextBox
         Me.GroupBox1 = New System.Windows.Forms.GroupBox
+        Me.RadioButtonUltimoMese = New System.Windows.Forms.RadioButton
         Me.RadioButton2 = New System.Windows.Forms.RadioButton
         Me.RadioButton1 = New System.Windows.Forms.RadioButton
-        Me.RadioButtonUltimoMese = New System.Windows.Forms.RadioButton
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -140,6 +140,16 @@ Partial Class FDataRange
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Data Inizio"
         '
+        'RadioButtonUltimoMese
+        '
+        Me.RadioButtonUltimoMese.AutoSize = True
+        Me.RadioButtonUltimoMese.Location = New System.Drawing.Point(6, 64)
+        Me.RadioButtonUltimoMese.Name = "RadioButtonUltimoMese"
+        Me.RadioButtonUltimoMese.Size = New System.Drawing.Size(82, 17)
+        Me.RadioButtonUltimoMese.TabIndex = 13
+        Me.RadioButtonUltimoMese.Text = "Ultimo mese"
+        Me.RadioButtonUltimoMese.UseVisualStyleBackColor = True
+        '
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
@@ -162,16 +172,6 @@ Partial Class FDataRange
         Me.RadioButton1.Text = "Prima data disponibile"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
-        'RadioButtonUltimoMese
-        '
-        Me.RadioButtonUltimoMese.AutoSize = True
-        Me.RadioButtonUltimoMese.Location = New System.Drawing.Point(6, 64)
-        Me.RadioButtonUltimoMese.Name = "RadioButtonUltimoMese"
-        Me.RadioButtonUltimoMese.Size = New System.Drawing.Size(82, 17)
-        Me.RadioButtonUltimoMese.TabIndex = 13
-        Me.RadioButtonUltimoMese.Text = "Ultimo mese"
-        Me.RadioButtonUltimoMese.UseVisualStyleBackColor = True
-        '
         'FDataRange
         '
         Me.AcceptButton = Me.OK_Button
@@ -193,7 +193,7 @@ Partial Class FDataRange
         Me.Name = "FDataRange"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent
-        Me.Text = "FDataRange"
+        Me.Text = "Esportazione dati - Scelta data"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()

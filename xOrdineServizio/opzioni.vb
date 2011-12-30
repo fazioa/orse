@@ -48,7 +48,6 @@ Public Class opzioni
         If Integer.Parse(My.Settings.intervalloSalvataggioAutomatico) <= 0 Then
             tbIntervalloSalvataggioAutomatico.Enabled = False
         End If
-        ' tbIntervalloSalvataggioAutomatico.Text = My.Settings.intervalloSalvataggioAutomatico
 
         'finestro a tutto schermo
         If (My.Settings.maximizeForm) Then

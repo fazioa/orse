@@ -1,17 +1,36 @@
 Imports System.Diagnostics
 Imports System.Threading
+Imports System.UnhandledExceptionEventArgs
+
 
 Public Class FPrima
+
+
+    ' = new UnhandledExceptionEventHandler(this.GLOBALERRORHANDLER);
+    'Application.ThreadException +=new ThreadExceptionEventHandler(this.THREADERRORHANDLER);
 
     Dim feActions As New OrSe.ActionsLibrary
     Dim appPatch As New OrSe.ApplicazionePatch
     Dim infoScreen As New InfoScreen
     Dim parametri As New parametriControllo_e_OS
-    Dim log As New XOrseLog
+    Dim log_ As New XOrseLog
     Dim modalitaVisita As Boolean
     Dim bFlagExit As Boolean = False
+    Dim log As XOrseLog
+
 
     Public Sub New()
+'// initialize exception handler
+     
+        Try
+            Throw New Exception("1")
+        Catch e As Exception
+            Console.WriteLine("Catch clause caught : " + e.Message)
+        End Try
+
+        Throw New Exception("2")
+
+
         ' Subscribe to thread (unhandled) exception events
         ' Get the your application's application domain.
         '  Dim currentDomain As AppDomain = AppDomain.CurrentDomain
@@ -23,6 +42,7 @@ Public Class FPrima
         '  AddHandler Application.ThreadException, AddressOf handler.Application_ThreadException
 
         'controllo se il file del DB è presente, altrimenti restituisco errore ed esco dall'applicazione
+
         Dim pathDB As String = Application.StartupPath
 
         Dim sPath = pathDB & "\dbAlegatoA.mdb"
@@ -52,10 +72,10 @@ Public Class FPrima
         If Not bFlagExit Then
             Dim compatta As New CompattaRipristina
             Try
-                log.xlogWriteEntry("Compatta DB", TraceEventType.Information)
+                log_.xlogWriteEntry("Compatta DB", TraceEventType.Information)
                 compatta.DoAction()
             Catch ex As Exception
-                log.xlogWriteException(ex, TraceEventType.Warning, "Compatta DB - Errore")
+                log_.xlogWriteException(ex, TraceEventType.Warning, "Compatta DB - Errore")
             End Try
 
             '======= Controlla la versione del software e si cura di effettuare eventuali modifiche sul DB)
@@ -79,7 +99,7 @@ Public Class FPrima
     Private Sub Form1_myInit()
         'posizioni il cursore sull'ordine di servizio corrente
         Dim nIdOS = OrdineServizioTableAdapter.FillByID(DbAlegatoADataSet_Unico.ordineServizio, parametri.idOS)
-        If nIdOS = 1 Then log.xlogWriteEntry("Ordine di servizio id nr." & parametri.idOS & " selezionato (" & parametri.nomeOS & " del " & parametri.dataOS & ")", TraceEventType.Information)
+        If nIdOS = 1 Then log_.xlogWriteEntry("Ordine di servizio id nr." & parametri.idOS & " selezionato (" & parametri.nomeOS & " del " & parametri.dataOS & ")", TraceEventType.Information)
         labelInfoOS.Text = "Ordine di servizio: " + parametri.nomeOS + " del " + FormatDateTime(parametri.dataOS, DateFormat.ShortDate)
         feActions.setStandardFormSize(Me)
     End Sub
@@ -110,30 +130,30 @@ Public Class FPrima
 
     Private Sub caricaFinestraDatiOS()
         Dim myform As New DInsDatiPreliminari(DbAlegatoADataSet_Unico, parametri)
-        log.xlogWriteEntry("Visualizza form per ins. dati preliminari", TraceEventType.Information)
+        log_.xlogWriteEntry("Visualizza form per ins. dati preliminari", TraceEventType.Information)
         myform.ShowDialog()
         While (myform.DialogResult() = Windows.Forms.DialogResult.Cancel)
-            log.xlogWriteEntry("Form per ins. dati preliminari restituisce Cancel", TraceEventType.Information)
+            log_.xlogWriteEntry("Form per ins. dati preliminari restituisce Cancel", TraceEventType.Information)
             myform.ShowDialog()
         End While
         If (myform.DialogResult() <> Windows.Forms.DialogResult.Abort) Then
-            log.xlogWriteEntry("Avvio", TraceEventType.Information)
+            log_.xlogWriteEntry("Avvio", TraceEventType.Information)
             parametri = myform.getResultClassParametri()
             setModalitaVisita(False)
             Form1_myInit()
         Else
             parametri.idOS = -1
-            log.xlogWriteEntry("Form per ins. dati preliminari restituisce Abort, pertanto app. avvia in modalità visita", TraceEventType.Information)
+            log_.xlogWriteEntry("Form per ins. dati preliminari restituisce Abort, pertanto app. avvia in modalità visita", TraceEventType.Information)
             setModalitaVisita(True)
         End If
     End Sub
 
     Private Sub btnIntervento_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnIntervento.Click
-        log.xlogWriteEntry("Apertura intervento", TraceEventType.Information)
+        log_.xlogWriteEntry("Apertura intervento", TraceEventType.Information)
         feActions.doApriFormInterventoInformazioni(parametri.idOS, paragrafoOS.interventi)
     End Sub
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInformazioni.Click
-        log.xlogWriteEntry("Apertura informazioni", TraceEventType.Information)
+        log_.xlogWriteEntry("Apertura informazioni", TraceEventType.Information)
         feActions.doApriFormInterventoInformazioni(parametri.idOS, paragrafoOS.informazioni)
     End Sub
 
@@ -237,7 +257,7 @@ Public Class FPrima
 
 
     Private Sub logout()
-        log.xlogWriteEntry("Logout", TraceEventType.Information)
+        log_.xlogWriteEntry("Logout", TraceEventType.Information)
         DbAlegatoADataSet_Unico.QInterventi.Clear()
         DbAlegatoADataSet_Unico.QAllegatoA.Clear()
         caricaFinestraDatiOS()
@@ -273,11 +293,11 @@ Public Class FPrima
     Private Sub ToolStripMenuItemLOG_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripMenuItemLOG.Click
         Dim voceMenu As ToolStripMenuItem = sender
         If (voceMenu.Checked) Then
-            log.xlogWriteEntry("Visualizza finestra LOG", TraceEventType.Information)
-            log.show()
+            log_.xlogWriteEntry("Visualizza finestra LOG", TraceEventType.Information)
+            log_.show()
         Else
-            log.xlogWriteEntry("Nascondi finestra LOG", TraceEventType.Information)
-            log.hide()
+            log_.xlogWriteEntry("Nascondi finestra LOG", TraceEventType.Information)
+            log_.hide()
         End If
 
     End Sub
@@ -322,12 +342,12 @@ Public Class FPrima
 
 
     Private Sub Button1_Click_2(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSopralluogo.Click
-        log.xlogWriteEntry("Apertura sopralluogo", TraceEventType.Information)
+        log_.xlogWriteEntry("Apertura sopralluogo", TraceEventType.Information)
         feActions.doApriFormSopralluogo(parametri.idOS, parametri.nomeOperatore)
     End Sub
 
     Private Sub ButtonRubrica_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnRubrica.Click, ButtonRubrica.Click
-        log.xlogWriteEntry("Apertura rubrica", TraceEventType.Information)
+        log_.xlogWriteEntry("Apertura rubrica", TraceEventType.Information)
         feActions.doApriFormRubrica(parametri.idOS)
     End Sub
 
@@ -337,54 +357,10 @@ Public Class FPrima
     End Sub
 
     Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-
-        Dim client As ImapX.ImapClient = New ImapX.ImapClient("imap.gmail.com", 993, True)
-
-        Dim result As Boolean = False
-
-        result = client.Connection()
-        If (result) Then
-
-            log.xlogWriteEntry("@Connected", TraceEventType.Information)
-
-            result = client.LogIn("fazioa", "Chiara4262")
-            If (result) Then
-                log.xlogWriteEntry("@Logged in", TraceEventType.Information)
-            End If
-        End If
+        ' Dim ec As New DEccezione
+        '     ec.test("asdfasdfkahsdjkfhasdjklfhasdkljhjklhjkl")
 
 
-        'Folder Collection
-        'Dim folders As ImapX.FolderCollection = client.Folders
-
-        'Create folder
-        '  client.CreateFolder("NEW FOLDER")
-        'Message collection 1st option
-        ' Dim messages As ImapX.MessageCollection = client.Folders("INBOX").Search("ALL", True) ' true - means all message parts will be received from server
-        '2nd option
-        ' For Each m As ImapX.Message In client.Folders("INBOX").Messages
-
-        ' m.Process()
-        ' Dim attachments As List(Of ImapX.Attachment) = m.Attachments
-        ' Dim textBody As String = m.TextBody.TextData
-        ' Dim htmlBody As String = m.HtmlBody.TextData
-        ' log.xlogWriteEntry(textBody & " - " & htmlBody, TraceEventType.Information)'
-
-        'Next
-
-
-        Dim msg As ImapX.Message = New ImapX.Message()
-        msg.Subject = "hello yahoo"
-        msg.From.Add(New ImapX.MailAddress("ToninoTest", "test@test.it"))
-        msg.To.Add(New ImapX.MailAddress("provaToFazioa", "fazioa@gmail.com"))
-        msg.HtmlBody.ContentType = "text/html"
-        msg.HtmlBody.TextData = "<strong>it is test message</strong>"
-        Dim atach As ImapX.Attachment = New ImapX.Attachment()
-        'atach.FileName = attachmentPath
-        'msg.Attachments.Add(atach)
-        If (client.Folders("INBOX").AppendMessage(msg, "")) Then
-            log.xlogWriteEntry("message has been appended to INBOX", TraceEventType.Information)
-        End If
     End Sub
 
     Private Sub SopralluogoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SopralluogoToolStripMenuItem.Click
@@ -396,7 +372,7 @@ Public Class FPrima
 
     Private Sub labelInfoOS_DoubleClick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles labelInfoOS.DoubleClick
         'apertura finestra modifica dati OS
-        log.xlogWriteEntry("Apertura form modifica dati OS", TraceEventType.Information)
+        log_.xlogWriteEntry("Apertura form modifica dati OS", TraceEventType.Information)
         'db = db
         Dim form As System.Windows.Forms.Form
         form = New FModificaDatiOS(parametri.idOS)

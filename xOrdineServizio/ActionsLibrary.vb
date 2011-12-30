@@ -438,11 +438,12 @@ Public Class ActionsLibrary
         wordScriviSegnalibro(oWord, "via2", leggiCampoDB(sopralluogoBindingSource, "via"))
 
         Dim d As Date = leggiCampoDB(sopralluogoBindingSource, "oraRedazione")
-        wordScriviSegnalibro(oWord, "dataRedazione", d.ToShortDateString)
+        wordScriviSegnalibro(oWord, "dataRedazione", FormatDateTime(d, DateFormat.ShortDate))
         wordScriviSegnalibro(oWord, "oraRedazione", d.ToShortTimeString)
 
         d = leggiCampoDB(sopralluogoBindingSource, "oraRichiesta")
-        wordScriviSegnalibro(oWord, "dataRichiesta", d.ToShortDateString)
+        wordScriviSegnalibro(oWord, "dataRichiesta", FormatDateTime(d, DateFormat.ShortDate))
+
         wordScriviSegnalibro(oWord, "oraRichiesta", d.ToShortTimeString)
 
         wordScriviSegnalibro(oWord, "nomiOperatori", nomiOperatori)
@@ -961,7 +962,8 @@ Public Class ActionsLibrary
             Dim c As Integer = -1
 
             'cerco il doppione solo confrontando idOS e oraRichiesa
-            c = tQSopralluogo.FillByRicercaDoppione(dQS, idOS, "#" & dataOraRichiesta & "#")
+            'c = tQSopralluogo.FillByRicercaDoppione(dQS, idOS, "#" & dataOraRichiesta.ToString & "#")
+            c = tQSopralluogo.FillByRicercaDoppione(dQS, idOS, dataOraRichiesta)
 
 
             If (c <= 0) Then
@@ -1198,6 +1200,18 @@ Public Class ActionsLibrary
         dgv.GridColor = Color.WhiteSmoke
         dgv.DefaultCellStyle.BackColor = Color.FloralWhite
     End Sub
+
+    Sub cancellaFile(ByVal sNomeFile As String)
+
+        If Not sNomeFile Then
+            Try
+                System.IO.File.Delete(sNomeFile)
+            Catch ex As Exception
+            End Try
+        End If
+
+    End Sub
+
 End Class
 
    

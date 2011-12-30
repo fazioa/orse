@@ -12,9 +12,22 @@ Namespace My
     ' NetworkAvailabilityChanged: Raised when the network connection is connected or disconnected.
     Partial Friend Class MyApplication
 
+        Private Sub MyApplication_UnhandledException(ByVal sender As Object, ByVal e As Microsoft.VisualBasic.ApplicationServices.UnhandledExceptionEventArgs) Handles Me.UnhandledException
+            'QUI SCRIVIAMO IL CODICE PERSONALIZZATO PER LA GESTIONE DELL'ECCEZIONE NON GESTITA
+            'MsgBox("Errore", MsgBoxStyle.Critical, "Eccezione non gestita")
+
+
+            Dim f As New DEccezione(e.Exception)
+            f.ShowDialog()
+            If (f.DialogResult = DialogResult.Cancel) Then
+                e.ExitApplication = True
+            End If
+
+        End Sub
 
     End Class
 
+    
 
 
 End Namespace

@@ -15,11 +15,6 @@ Public Class eccezione
         MyBase.New(info, context)
     End Sub
 
-
-    Public Sub New()
-
-    End Sub
-
     Public Sub New(ByVal ex As OleDb.OleDbException, ByVal cb As ComboBox)
         MyBase.New(ex.Message)
         Dim sMessaggio As String
@@ -42,7 +37,7 @@ Public Class eccezione
         MyBase.New(ex.Message)
         Dim sMessaggio As String
         sMessaggio = sMsg & " - " & ex.Message
-        sMessaggio = sMessaggio & " - Stacktrace:" & ex.StackTrace.ToString
+        sMessaggio = sMessaggio & " - Stacktrace: " & ex.StackTrace.ToString
         MsgBox(sMessaggio, MsgBoxStyle.Critical, "Errore")
     End Sub
 

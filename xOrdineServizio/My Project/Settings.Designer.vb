@@ -259,7 +259,8 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("5")>  _
         Public Property intervalloSalvataggioAutomatico() As String
             Get
                 Return CType(Me("intervalloSalvataggioAutomatico"),String)
@@ -288,7 +289,8 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("False")>  _
         Public Property maximizeForm() As Boolean
             Get
                 Return CType(Me("maximizeForm"),Boolean)
@@ -299,7 +301,10 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora"& _ 
+            " presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini?"& _ 
+            " - coperto da assicurazione?")>  _
         Public Property sopralluogoPromemoria() As String
             Get
                 Return CType(Me("sopralluogoPromemoria"),String)
@@ -310,7 +315,10 @@ Namespace My
         End Property
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute()>  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Il danno subito ammonta a € _______.&Danno non coperto da assicurazione.&Danno co"& _ 
+            "perto da assicurazione.&Sul luogo non sono stati trovati elementi utili al prosi"& _ 
+            "eguo delle indagini.&Il fatto è avvenuto tra le ore ____ e le ore ____.")>  _
         Public Property sopralluogoListBoxVociRapide() As String
             Get
                 Return CType(Me("sopralluogoListBoxVociRapide"),String)

@@ -6,7 +6,7 @@ Imports System.Runtime.Serialization.Formatters.Binary
     Public Sub salvaHashTable(ByVal preferenze As Hashtable)
 
         Dim path As String = Application.StartupPath
-        Dim sPath = path & "\preferenzeBackup.OrSe"
+        Dim sPath = path & "\preferenzeBackup.TSPref"
         Dim myFileStream As Stream = File.Create(sPath)
         Dim serializer As New BinaryFormatter()
 
@@ -16,11 +16,24 @@ Imports System.Runtime.Serialization.Formatters.Binary
     End Sub
 
     Public Function loadHashTable() As Hashtable
+        'carica le preferenze, solo se il file esiste
         Dim path As String = Application.StartupPath
-        Dim sPath = path & "\preferenzeBackup.OrSe"
+        Dim bFlag As Boolean = False
 
-        'se il file è presente allora lo recupero 
+        Dim sPath = path & "\preferenzeBackup.TSPref"
         If Dir(sPath) <> "" Then
+            bFlag = True
+        End If
+
+        'se il file preferenzeBackup.OrSePref non esiste allora provo con preferenzeBackup.OrSe, che è il nome della versione precedente alla 2.67
+        If Not bFlag Then
+            sPath = path & "\preferenzeBackup.TSPref"
+            If Dir(sPath) <> "" Then
+                bFlag = True
+            End If
+        End If
+        'se il file è presente allora lo recupero 
+        If bFlag Then
             Dim myFileStream As New FileStream(sPath, FileMode.Open)
             Dim serializer As New BinaryFormatter()
 

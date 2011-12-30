@@ -522,7 +522,6 @@ Partial Class FPrima
         Me.Button2.TabIndex = 12
         Me.Button2.Text = "Button2"
         Me.Button2.UseVisualStyleBackColor = True
-        Me.Button2.Visible = False
         '
         'VerticalLabel2
         '
