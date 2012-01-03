@@ -6,7 +6,7 @@ Public Class DEccezione
     'filePath memorizza il nome del file temporaneo (screenshot). Viene tentata la cancellazione periodicamente
     Dim sScreenshotPath As String = ""
 
-    Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
+    Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
@@ -45,7 +45,9 @@ Public Class DEccezione
             End Try
             Dim sBody As String = "Message: " & vbCrLf & excp.Message & vbCrLf & " StackTrace: " & vbCrLf & excp.StackTrace
             smtpMail.inviaEmail(sScreenshotPath, sBody)
+            'dopo l'invio dell'email ebailita il pulsante di chiusura della finestra
 
+            Cancel_Button.Enabled = True
             'la cancellazione del file viene tentata in modo asincrono, con evento sul timer
             ' feActions.cancellaFile(sScreenshotPath)
 

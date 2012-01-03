@@ -35,35 +35,13 @@ Public Class email
                 'INSERISCO GLI ALLEGATI
                 m.Attachments.Add(New Net.Mail.Attachment(screenshootPath))
             End If
-            
-            'INVIO
-            'wire up the event for when the Async send is completed
-            AddHandler x.SendCompleted, AddressOf SmtpClient_OnCompleted
-
-            Dim userState As Object = m
-            x.SendAsync(m, userState)
+ 
+            x.Send(m)
 
         Catch ex As Exception
             MsgBox("Errore invio segnalazione. " & ex.Message, MsgBoxStyle.Exclamation, "Segnalazione errore")
         End Try
 
-
     End Function
-    Public Sub SmtpClient_OnCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
-        'Get the Original MailMessage object
-        Dim mail As Net.Mail.MailMessage = CType(e.UserState, Net.Mail.MailMessage)
-
-        'write out the subject
-        Dim subject As String = mail.Subject
-
-        If e.Cancelled Then
-            Console.WriteLine("Send canceled for mail with subject [{0}].", subject)
-        End If
-        If Not (e.Error Is Nothing) Then
-            Console.WriteLine("Error {1} occurred when sending mail [{0}] ", subject, e.Error.ToString())
-        Else
-            Console.WriteLine("Message [{0}] sent.", subject)
-        End If
-    End Sub 'SmtpClient_OnCompleted
 
 End Class
