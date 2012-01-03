@@ -20,7 +20,6 @@ Public Class FIntervento
     End Sub
 
     Private Sub sharedNew(ByVal dInizio As Date, ByVal dFine As Date, ByVal idOS As Integer, ByVal tipo As paragrafoOS)
-
         xlTipo = tipo
         dlInizio = dInizio
         dlFine = dFine

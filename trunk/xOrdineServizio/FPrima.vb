@@ -20,20 +20,6 @@ Public Class FPrima
 
 
     Public Sub New()
-
-        ' Throw New Exception("2")
-
-
-        ' Subscribe to thread (unhandled) exception events
-        ' Get the your application's application domain.
-        '  Dim currentDomain As AppDomain = AppDomain.CurrentDomain
-
-        ' Define a handler for unhandled exceptions.
-        '  AddHandler currentDomain.UnhandledException, AddressOf Me.MYExnHandler
-
-        '   Dim handler As ThreadExceptionHandler = New ThreadExceptionHandler()
-        '  AddHandler Application.ThreadException, AddressOf handler.Application_ThreadException
-
         'controllo se il file del DB è presente, altrimenti restituisco errore ed esco dall'applicazione
 
         Dim pathDB As String = Application.StartupPath
@@ -381,7 +367,6 @@ Public Class FPrima
         EX = e.ExceptionObject
         Console.WriteLine(EX.StackTrace)
     End Sub
-
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         feActions.cancellaFileTemp()
