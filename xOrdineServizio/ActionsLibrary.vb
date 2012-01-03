@@ -1201,12 +1201,14 @@ Public Class ActionsLibrary
         dgv.DefaultCellStyle.BackColor = Color.FloralWhite
     End Sub
 
-    Sub cancellaFile(ByVal sNomeFile As String)
+    Sub cancellaFileTemp()
 
-        If Not sNomeFile Then
+        If Not String.IsNullOrEmpty(My.Settings.sTempPath) Then
             Try
-                System.IO.File.Delete(sNomeFile)
+                System.IO.Directory.Delete(My.Settings.sTempPath, True)
+                log.xlogWriteEntry("Cancellazione cartella file temporanei", TraceEventType.Information)
             Catch ex As Exception
+                log.xlogWriteEntry("ERRORE cancellazione cartella file temporanei", TraceEventType.Information)
             End Try
         End If
 

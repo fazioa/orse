@@ -35,7 +35,7 @@ Public Class DEccezione
         Dim isAvailable As Boolean = My.Computer.Network.IsAvailable
         If (isAvailable) Then
 
-            Dim imapMail As New email
+            Dim smtpMail As New email
             'esegue ScreenShot ed invia email
 
             Try
@@ -44,7 +44,7 @@ Public Class DEccezione
 
             End Try
             Dim sBody As String = "Message: " & vbCrLf & excp.Message & vbCrLf & " StackTrace: " & vbCrLf & excp.StackTrace
-            imapMail.inviaEmail(sScreenshotPath, sBody)
+            smtpMail.inviaEmail(sScreenshotPath, sBody)
 
             'la cancellazione del file viene tentata in modo asincrono, con evento sul timer
             ' feActions.cancellaFile(sScreenshotPath)
@@ -60,12 +60,12 @@ Public Class DEccezione
         'Set quality to 50
         params.Param(0) = quality
         Try
-            System.IO.Directory.CreateDirectory("./temp")
+            System.IO.Directory.CreateDirectory(My.Settings.sTempPath)
         Catch ex As Exception
 
         End Try
 
-        Dim sFilePath As String = "./temp/screenshot.jpg"
+        Dim sFilePath As String = My.Settings.sTempPath & "/screenshot.jpg"
         ScreenShot.Save(sFilePath, imgCodecs(1), params)
         Return sFilePath
     End Function
@@ -81,8 +81,4 @@ Public Class DEccezione
         Return Nothing
     End Function
 
-
-    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
-        feActions.cancellaFile(sScreenshotPath)
-    End Sub
 End Class

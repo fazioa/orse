@@ -20,15 +20,8 @@ Public Class FPrima
 
 
     Public Sub New()
-'// initialize exception handler
-     
-        Try
-            Throw New Exception("1")
-        Catch e As Exception
-            Console.WriteLine("Catch clause caught : " + e.Message)
-        End Try
 
-        Throw New Exception("2")
+        ' Throw New Exception("2")
 
 
         ' Subscribe to thread (unhandled) exception events
@@ -70,8 +63,8 @@ Public Class FPrima
 
 
         If Not bFlagExit Then
-            Dim compatta As New CompattaRipristina
             Try
+                Dim compatta As New CompattaRipristina
                 log_.xlogWriteEntry("Compatta DB", TraceEventType.Information)
                 compatta.DoAction()
             Catch ex As Exception
@@ -390,6 +383,9 @@ Public Class FPrima
     End Sub
 
 
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        feActions.cancellaFileTemp()
+    End Sub
 End Class
 
 
