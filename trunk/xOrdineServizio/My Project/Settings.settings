@@ -79,5 +79,8 @@
     <Setting Name="sopralluogoListBoxVociRapide" Type="System.String" Scope="User">
       <Value Profile="(Default)">Il danno subito ammonta a € _______.&amp;Danno non coperto da assicurazione.&amp;Danno coperto da assicurazione.&amp;Sul luogo non sono stati trovati elementi utili al prosieguo delle indagini.&amp;Il fatto è avvenuto tra le ore ____ e le ore ____.</Value>
     </Setting>
+    <Setting Name="sTempPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">./temp</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -46,24 +46,9 @@ Partial Class FPrima
         Me.VersioneToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.PreferenzeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
         Me.OpzioniToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem
-        Me.FolderBrowserDialog1 = New System.Windows.Forms.FolderBrowserDialog
-        Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet_Unico = New OrSe.dbAlegatoADataSet
-        Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QInterventi_informazioniBindigSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel
-        Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter
-        Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
-        Me.AllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter
-        Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
-        Me.QInterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
-        Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter
-        Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
         Me.labelInfoOS = New System.Windows.Forms.Label
         Me.ButtonRubrica = New System.Windows.Forms.Button
@@ -77,15 +62,8 @@ Partial Class FPrima
         Me.btnRubrica = New System.Windows.Forms.Button
         Me.Button1 = New System.Windows.Forms.Button
         Me.Button2 = New System.Windows.Forms.Button
-        Me.VerticalLabel2 = New OrSe.verticalLabel
-        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TableLayoutPanel2.SuspendLayout()
-        CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.menu.SuspendLayout()
         Me.FlowLayoutPanelEsterno.SuspendLayout()
@@ -94,125 +72,125 @@ Partial Class FPrima
         'PreferenzeToolStripMenuItem1
         '
         Me.PreferenzeToolStripMenuItem1.Name = "PreferenzeToolStripMenuItem1"
-        Me.PreferenzeToolStripMenuItem1.Size = New System.Drawing.Size(74, 20)
+        Me.PreferenzeToolStripMenuItem1.Size = New System.Drawing.Size(72, 20)
         Me.PreferenzeToolStripMenuItem1.Text = "Preferenze"
         '
         'StampaToolStripMenuItem
         '
         Me.StampaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.informazioniToolStripMenuItem, Me.AllegatoAToolStripMenuItem, Me.OP85ToolStripMenuItem, Me.SopralluogoToolStripMenuItem})
         Me.StampaToolStripMenuItem.Name = "StampaToolStripMenuItem"
-        Me.StampaToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
+        Me.StampaToolStripMenuItem.Size = New System.Drawing.Size(67, 20)
         Me.StampaToolStripMenuItem.Text = "Stampa..."
         '
         'ToolStripMenuItem1
         '
         Me.ToolStripMenuItem1.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(156, 22)
         Me.ToolStripMenuItem1.Text = "Interventi..."
         '
         'informazioniToolStripMenuItem
         '
         Me.informazioniToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem"
-        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.informazioniToolStripMenuItem.Text = "Informazioni..."
         '
         'AllegatoAToolStripMenuItem
         '
         Me.AllegatoAToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printAllegatoA
         Me.AllegatoAToolStripMenuItem.Name = "AllegatoAToolStripMenuItem"
-        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.AllegatoAToolStripMenuItem.Text = "Allegato A..."
         '
         'OP85ToolStripMenuItem
         '
         Me.OP85ToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
         Me.OP85ToolStripMenuItem.Name = "OP85ToolStripMenuItem"
-        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.OP85ToolStripMenuItem.Text = "OP85..."
         '
         'SopralluogoToolStripMenuItem
         '
         Me.SopralluogoToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
         Me.SopralluogoToolStripMenuItem.Name = "SopralluogoToolStripMenuItem"
-        Me.SopralluogoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.SopralluogoToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.SopralluogoToolStripMenuItem.Text = "Sopralluogo..."
         '
         'StrumentiToolStripMenuItem
         '
         Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CercaToolStripMenuItem, Me.ToolStripSeparator2, Me.ExportToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ToolStripSeparator3, Me.CancellaToolStripMenuItem, Me.CercaAggiornamentiToolStripMenuItem, Me.ToolStripMenuItemLOG, Me.ToolStripSeparator1, Me.EseguiBackupDBToolStripMenuItem, Me.RipristinaBackupDBToolStripMenuItem})
         Me.StrumentiToolStripMenuItem.Name = "StrumentiToolStripMenuItem"
-        Me.StrumentiToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
+        Me.StrumentiToolStripMenuItem.Size = New System.Drawing.Size(77, 20)
         Me.StrumentiToolStripMenuItem.Text = "Strumenti..."
         '
         'CercaToolStripMenuItem
         '
         Me.CercaToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.DBFind
         Me.CercaToolStripMenuItem.Name = "CercaToolStripMenuItem"
-        Me.CercaToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.CercaToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.CercaToolStripMenuItem.Text = "Cerca..."
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(247, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(244, 6)
         '
         'ExportToolStripMenuItem
         '
         Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.ExportToolStripMenuItem.Text = "export..."
         Me.ExportToolStripMenuItem.Visible = False
         '
         'ImportToolStripMenuItem
         '
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.ImportToolStripMenuItem.Text = "import..."
         Me.ImportToolStripMenuItem.Visible = False
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(247, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(244, 6)
         Me.ToolStripSeparator3.Visible = False
         '
         'CancellaToolStripMenuItem
         '
         Me.CancellaToolStripMenuItem.Name = "CancellaToolStripMenuItem"
-        Me.CancellaToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.CancellaToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.CancellaToolStripMenuItem.Text = "Cancella..."
         '
         'CercaAggiornamentiToolStripMenuItem
         '
         Me.CercaAggiornamentiToolStripMenuItem.Name = "CercaAggiornamentiToolStripMenuItem"
-        Me.CercaAggiornamentiToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.CercaAggiornamentiToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.CercaAggiornamentiToolStripMenuItem.Text = "Controlla aggiornamenti..."
         '
         'ToolStripMenuItemLOG
         '
         Me.ToolStripMenuItemLOG.CheckOnClick = True
         Me.ToolStripMenuItemLOG.Name = "ToolStripMenuItemLOG"
-        Me.ToolStripMenuItemLOG.Size = New System.Drawing.Size(250, 22)
+        Me.ToolStripMenuItemLOG.Size = New System.Drawing.Size(247, 22)
         Me.ToolStripMenuItemLOG.Text = "Finestra log"
         Me.ToolStripMenuItemLOG.Visible = False
         '
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(247, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(244, 6)
         '
         'EseguiBackupDBToolStripMenuItem
         '
         Me.EseguiBackupDBToolStripMenuItem.Name = "EseguiBackupDBToolStripMenuItem"
-        Me.EseguiBackupDBToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.EseguiBackupDBToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.EseguiBackupDBToolStripMenuItem.Text = "Esegui backup DB e preferenze"
         '
         'RipristinaBackupDBToolStripMenuItem
         '
         Me.RipristinaBackupDBToolStripMenuItem.Name = "RipristinaBackupDBToolStripMenuItem"
-        Me.RipristinaBackupDBToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.RipristinaBackupDBToolStripMenuItem.Size = New System.Drawing.Size(247, 22)
         Me.RipristinaBackupDBToolStripMenuItem.Text = "Ripristina backup DB e preferenze"
         '
         'SessioneToolStripMenuItem
@@ -225,20 +203,20 @@ Partial Class FPrima
         'LogoutToolStripMenuItem1
         '
         Me.LogoutToolStripMenuItem1.Name = "LogoutToolStripMenuItem1"
-        Me.LogoutToolStripMenuItem1.Size = New System.Drawing.Size(121, 22)
+        Me.LogoutToolStripMenuItem1.Size = New System.Drawing.Size(130, 22)
         Me.LogoutToolStripMenuItem1.Text = "Logout..."
         '
         'HelpToolStripMenuItem
         '
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VersioneToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
+        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(40, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
         '
         'VersioneToolStripMenuItem
         '
         Me.VersioneToolStripMenuItem.Name = "VersioneToolStripMenuItem"
-        Me.VersioneToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
+        Me.VersioneToolStripMenuItem.Size = New System.Drawing.Size(141, 22)
         Me.VersioneToolStripMenuItem.Text = "About OrSe"
         '
         'PreferenzeToolStripMenuItem
@@ -251,30 +229,8 @@ Partial Class FPrima
         'OpzioniToolStripMenuItem
         '
         Me.OpzioniToolStripMenuItem.Name = "OpzioniToolStripMenuItem"
-        Me.OpzioniToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
+        Me.OpzioniToolStripMenuItem.Size = New System.Drawing.Size(132, 22)
         Me.OpzioniToolStripMenuItem.Text = "Opzioni..."
-        '
-        'QAllegatoABindingSource
-        '
-        Me.QAllegatoABindingSource.DataMember = "QAllegatoA"
-        Me.QAllegatoABindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'DbAlegatoADataSet_Unico
-        '
-        Me.DbAlegatoADataSet_Unico.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet_Unico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'QInterventiBindingSource
-        '
-        Me.QInterventiBindingSource.DataMember = "QInterventi"
-        Me.QInterventiBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        Me.QInterventiBindingSource.Filter = ""
-        '
-        'QInterventi_informazioniBindigSource
-        '
-        Me.QInterventi_informazioniBindigSource.DataMember = "QInterventi"
-        Me.QInterventi_informazioniBindigSource.DataSource = Me.DbAlegatoADataSet_Unico
-        Me.QInterventi_informazioniBindigSource.Filter = ""
         '
         'FlowLayoutPanel2
         '
@@ -316,49 +272,6 @@ Partial Class FPrima
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1008, 0)
         Me.TableLayoutPanel2.TabIndex = 27
-        '
-        'InterventiBindingSource
-        '
-        Me.InterventiBindingSource.DataMember = "interventi"
-        Me.InterventiBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'InterventiTableAdapter
-        '
-        Me.InterventiTableAdapter.ClearBeforeFill = True
-        '
-        'AllegatoABindingSource
-        '
-        Me.AllegatoABindingSource.DataMember = "allegatoA"
-        Me.AllegatoABindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'QAllegatoATableAdapter
-        '
-        Me.QAllegatoATableAdapter.ClearBeforeFill = True
-        '
-        'AllegatoATableAdapter
-        '
-        Me.AllegatoATableAdapter.ClearBeforeFill = True
-        '
-        'OrdineServizioBindingSource
-        '
-        Me.OrdineServizioBindingSource.DataMember = "ordineServizio"
-        Me.OrdineServizioBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'OrdineServizioTableAdapter
-        '
-        Me.OrdineServizioTableAdapter.ClearBeforeFill = True
-        '
-        'QInterventiTableAdapter
-        '
-        Me.QInterventiTableAdapter.ClearBeforeFill = True
-        '
-        'ComuneTableAdapter
-        '
-        Me.ComuneTableAdapter.ClearBeforeFill = True
-        '
-        'ModelliMezzoTableAdapter
-        '
-        Me.ModelliMezzoTableAdapter.ClearBeforeFill = True
         '
         'FlowLayoutPanel3
         '
@@ -523,14 +436,10 @@ Partial Class FPrima
         Me.Button2.Text = "Button2"
         Me.Button2.UseVisualStyleBackColor = True
         '
-        'VerticalLabel2
+        'Timer1
         '
-        Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel2.Location = New System.Drawing.Point(3, 0)
-        Me.VerticalLabel2.Name = "VerticalLabel2"
-        Me.VerticalLabel2.Size = New System.Drawing.Size(24, 114)
-        Me.VerticalLabel2.TabIndex = 26
-        Me.VerticalLabel2.Text = "Interventi"
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 10000
         '
         'FPrima
         '
@@ -548,15 +457,8 @@ Partial Class FPrima
         Me.Name = "FPrima"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "OrSe"
-        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.FlowLayoutPanel3.PerformLayout()
         Me.menu.ResumeLayout(False)
@@ -621,7 +523,6 @@ Partial Class FPrima
     Friend WithEvents HelpToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VersioneToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents EseguiBackupDBToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents FolderBrowserDialog1 As System.Windows.Forms.FolderBrowserDialog
     Friend WithEvents RipristinaBackupDBToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
@@ -649,5 +550,6 @@ Partial Class FPrima
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents SopralluogoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents labelInfoOS As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
 
 End Class
