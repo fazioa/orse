@@ -6,7 +6,7 @@ Public Class DEccezione
     'filePath memorizza il nome del file temporaneo (screenshot). Viene tentata la cancellazione periodicamente
     Dim sScreenshotPath As String = ""
 
-    Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
+    Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
@@ -33,24 +33,27 @@ Public Class DEccezione
         'Public Sub test(ByVal sTestoEccezione As String)
         'controllo che sia presente la rete
         Dim isAvailable As Boolean = My.Computer.Network.IsAvailable
-        If (isAvailable) Then
+        'esegue ScreenShot
+        Try
+            sScreenshotPath = esegueScreenShot()
+        Catch ex As Exception
 
-            Dim smtpMail As New email
-            'esegue ScreenShot ed invia email
+        End Try
+        'costruisce testo email
+        Dim sBody As String = "Message: " & vbCrLf & excp.Message & vbCrLf & " StackTrace: " & vbCrLf & excp.StackTrace
+        Dim listaSegnalazioniEmail As New emailStore
 
-            Try
-                sScreenshotPath = esegueScreenShot()
-            Catch ex As Exception
+        'inserisco i dati recuperati in una lista che viene serializzata, poi se la rete è disponibile allora tento l'invio
 
-            End Try
-            Dim sBody As String = "Message: " & vbCrLf & excp.Message & vbCrLf & " StackTrace: " & vbCrLf & excp.StackTrace
-            smtpMail.inviaEmail(sScreenshotPath, sBody)
-            'dopo l'invio dell'email ebailita il pulsante di chiusura della finestra
+        listaSegnalazioniEmail.push(sBody, getScreenshotImage)
 
-            Cancel_Button.Enabled = True
-            'la cancellazione del file viene tentata in modo asincrono, con evento sul timer
-            ' feActions.cancellaFile(sScreenshotPath)
-
+        'anche se l'invio non viene eseguito perchè manca la connessione, le segnalazioni verranno inviate periodicamente dalla pagina principale, attraverso il timer, solo se la connessione è disponibile
+        If (ActionsLibrary.ConnessioneInternet) Then
+            Dim imapMail As New email
+            'estrae segnalazione dalla lista
+            Dim obj As emailObj = listaSegnalazioniEmail.pop
+            'invia email
+            imapMail.inviaEmail(obj.screenShot, obj.testoEmail)
         End If
     End Sub
 
@@ -73,6 +76,18 @@ Public Class DEccezione
     End Function
 
 
+
+    Function getScreenshotImage() As Image
+        SendKeys.SendWait("^{PRTSC}")
+        Dim Obj As IDataObject = Clipboard.GetDataObject
+        If (Obj.GetDataPresent(DataFormats.Bitmap)) Then
+            Dim Img As Bitmap = New Bitmap(CType((Obj.GetData("System.Drawing.Bitmap")), Bitmap))
+            Return Img
+        End If
+        Return Nothing
+    End Function
+
+
     Public Shared Function ScreenShot() As Bitmap
         SendKeys.SendWait("^{PRTSC}")
         Dim Obj As IDataObject = Clipboard.GetDataObject
@@ -83,4 +98,8 @@ Public Class DEccezione
         Return Nothing
     End Function
 
+
+    Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
+        feActions.invioPeriodicoSegnalazioni()
+    End Sub
 End Class
