@@ -49,13 +49,6 @@ Public Class opzioni
             tbIntervalloSalvataggioAutomatico.Enabled = False
         End If
 
-        'finestro a tutto schermo
-        If (My.Settings.maximizeForm) Then
-            CheckBoxMaximized.Enabled = True
-        Else
-            CheckBoxMaximized.Enabled = False
-        End If
-
     End Sub
 
     Private Sub RadioButtonTitolare_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButtonTitolare.CheckedChanged

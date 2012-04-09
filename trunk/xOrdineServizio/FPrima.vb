@@ -335,7 +335,7 @@ Public Class FPrima
         feActions.doApriFormRicerca()
     End Sub
 
-    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         ' Dim ec As New DEccezione
         '     ec.test("asdfasdfkahsdjkfhasdjklfhasdkljhjklhjkl")
 
@@ -370,6 +370,7 @@ Public Class FPrima
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         feActions.cancellaFileTemp()
+        feActions.invioPeriodicoSegnalazioni()
     End Sub
 End Class
 

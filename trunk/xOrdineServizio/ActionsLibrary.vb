@@ -1,3 +1,4 @@
+Imports System.Runtime.InteropServices
 'Classe che definisce le azioni da effettuare in seguito ad un comando dato da uno dei form
 
 Imports OrSe
@@ -1213,6 +1214,60 @@ Public Class ActionsLibrary
 
     End Sub
 
+    Shared Function salvaImageToJPG(ByVal img As Image) As String
+        Dim imgCodecs() As Imaging.ImageCodecInfo = Imaging.ImageCodecInfo.GetImageEncoders()
+        Dim params As Imaging.EncoderParameters = New Imaging.EncoderParameters(1)
+        Dim quality As Imaging.EncoderParameter = New Imaging.EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 35)
+        'Set quality to 50
+        params.Param(0) = quality
+        Try
+            System.IO.Directory.Delete(My.Settings.sTempPath, True)
+            System.IO.Directory.CreateDirectory(My.Settings.sTempPath)
+        Catch ex As Exception
+
+        End Try
+
+        Dim sFilePath As String = My.Settings.sTempPath & "\" & Now.Ticks & " screenshot.jpg"
+        img.Save(sFilePath, imgCodecs(1), params)
+        Return sFilePath
+    End Function
+
+
+
+
+    'Imports System.Runtime.InteropServices 
+    <DllImport("wininet.dll")> Private Shared Function InternetGetConnectedState(ByRef Description As Integer, ByVal ReservedValue As Integer) As Boolean
+    End Function
+    Public Shared Function ConnessioneInternet() As Boolean
+        Dim Desc As Integer
+        Return InternetGetConnectedState(Desc, 0)
+    End Function
+
+
+
+    Public Sub invioPeriodicoSegnalazioni()
+        Dim listaSegnalazioniEmail As New emailStore
+
+        Me.cancellaFileTemp()
+        If (ActionsLibrary.ConnessioneInternet) Then
+            Dim obj As emailObj
+            Dim bExitFlag As Boolean = False
+            While Not bExitFlag
+                Dim imapMail As New email
+                'estrae segnalazione dalla lista
+                obj = listaSegnalazioniEmail.pop
+                If Not obj Is Nothing Then
+                    'invia email
+                    imapMail.inviaEmail(obj.screenShot, obj.testoEmail)
+                Else
+                    'se non ci sono più segnalazioni da inviare allora setto il flag ed esco
+                    bExitFlag = True
+                End If
+            End While
+        End If
+    End Sub
+
 End Class
 
-   
+
+

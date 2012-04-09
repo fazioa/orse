@@ -9,7 +9,7 @@ Public Class email
     End Sub
 
 
-    Public Function inviaEmail(ByVal screenshootPath As String, ByVal sBody As String) As Boolean
+    Public Function inviaEmail(ByVal screenshootImage As Image, ByVal sBody As String) As Boolean
         'imposto l'smtp
         Dim x As New System.Net.Mail.SmtpClient("smtp.gmail.com", 587)
         Try
@@ -31,17 +31,39 @@ Public Class email
 
             m.Subject = "Orse " & My.Application.Info.Version.ToString
 
-            If Not screenshootPath = "" Then
-                'INSERISCO GLI ALLEGATI
-                m.Attachments.Add(New Net.Mail.Attachment(screenshootPath))
-            End If
- 
-            x.Send(m)
+            If Not screenshootImage Is Nothing Then
+                'INSERISCO GLI ALLEGATI - Salva su file l'immagine in memoria
+                m.Attachments.Add(New Net.Mail.Attachment(ActionsLibrary.salvaImageToJPG(screenshootImage)))
 
+            End If
+
+            'INVIO
+            'wire up the event for when the Async send is completed
+            AddHandler x.SendCompleted, AddressOf SmtpClient_OnCompleted
+
+            Dim userState As Object = m
+            x.SendAsync(m, userState)
         Catch ex As Exception
             MsgBox("Errore invio segnalazione. " & ex.Message, MsgBoxStyle.Exclamation, "Segnalazione errore")
         End Try
-
     End Function
+    Public Sub SmtpClient_OnCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)
+        'Get the Original MailMessage object
+        Dim mail As Net.Mail.MailMessage = CType(e.UserState, Net.Mail.MailMessage)
 
+        'write out the subject
+        Dim subject As String = mail.Subject
+
+        If e.Cancelled Then
+            Console.WriteLine("Send canceled for mail with subject [{0}].", subject)
+        End If
+        If Not (e.Error Is Nothing) Then
+            Console.WriteLine("Error {1} occurred when sending mail [{0}] ", subject, e.Error.ToString())
+        Else
+            Console.WriteLine("Message [{0}] sent.", subject)
+        End If
+    End Sub 'SmtpClient_OnCompleted
+
+
+   
 End Class

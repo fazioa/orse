@@ -159,7 +159,7 @@ Public Class UpdateSoftware
 
     Public Sub eseguiBackupPreferenze()
         'salvataggio preferenze in un file
-        Dim S As New serializzazione
+        Dim S As New serializzazioneHashTable
         Dim hashTablePreferenze As New Hashtable
         For Each Item As Configuration.SettingsProperty In My.Settings.Properties
             hashTablePreferenze.Add(Item.Name, My.Settings.PropertyValues.Item(Item.Name).PropertyValue)
@@ -168,7 +168,7 @@ Public Class UpdateSoftware
     End Sub
 
     Public Sub ripristinaBackupPreferenze()
-        Dim S As New serializzazione
+        Dim S As New serializzazioneHashTable
         Dim hashTablePreferenze As Hashtable = S.loadHashTable
         'esegue la lettura dei parametro solo che la hashtable non è vuota
         If (Not hashTablePreferenze Is Nothing) Then
