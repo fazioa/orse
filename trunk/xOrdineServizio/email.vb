@@ -33,8 +33,8 @@ Public Class email
 
             If Not screenshootImage Is Nothing Then
                 'INSERISCO GLI ALLEGATI - Salva su file l'immagine in memoria
-                m.Attachments.Add(New Net.Mail.Attachment(ActionsLibrary.salvaImageToJPG(screenshootImage)))
-
+                Dim s As String = ActionsLibrary.salvaImageToJPG(screenshootImage)
+                If Not s Is Nothing Then m.Attachments.Add(New Net.Mail.Attachment(s))
             End If
 
             'INVIO

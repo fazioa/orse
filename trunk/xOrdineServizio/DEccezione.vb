@@ -6,12 +6,12 @@ Public Class DEccezione
     'filePath memorizza il nome del file temporaneo (screenshot). Viene tentata la cancellazione periodicamente
     Dim sScreenshotPath As String = ""
 
-    Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
+    Private Sub Continue_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Continue_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.OK
         Me.Close()
     End Sub
 
-    Private Sub Cancel_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel_Button.Click
+    Private Sub Esci_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Esci_Button.Click
         Me.DialogResult = System.Windows.Forms.DialogResult.Cancel
         Me.Close()
     End Sub
@@ -34,18 +34,20 @@ Public Class DEccezione
         'controllo che sia presente la rete
         Dim isAvailable As Boolean = My.Computer.Network.IsAvailable
         'esegue ScreenShot
-        Try
-            sScreenshotPath = esegueScreenShot()
-        Catch ex As Exception
 
-        End Try
         'costruisce testo email
         Dim sBody As String = "Message: " & vbCrLf & excp.Message & vbCrLf & " StackTrace: " & vbCrLf & excp.StackTrace
         Dim listaSegnalazioniEmail As New emailStore
 
         'inserisco i dati recuperati in una lista che viene serializzata, poi se la rete è disponibile allora tento l'invio
 
-        listaSegnalazioniEmail.push(sBody, getScreenshotImage)
+        'catturo lo screenshot solo se l'utente non nega il consenso
+        Dim img As Image = Nothing
+        If My.Settings.segnalazioneErroreConScreenshot Then
+            img = getScreenshotImage()
+        End If
+        listaSegnalazioniEmail.push(sBody, img)
+
 
         'anche se l'invio non viene eseguito perchè manca la connessione, le segnalazioni verranno inviate periodicamente dalla pagina principale, attraverso il timer, solo se la connessione è disponibile
         If (ActionsLibrary.ConnessioneInternet) Then

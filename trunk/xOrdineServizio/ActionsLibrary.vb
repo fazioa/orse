@@ -1220,16 +1220,25 @@ Public Class ActionsLibrary
         Dim quality As Imaging.EncoderParameter = New Imaging.EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 35)
         'Set quality to 50
         params.Param(0) = quality
+        Dim b_isOk = True
         Try
             System.IO.Directory.Delete(My.Settings.sTempPath, True)
-            System.IO.Directory.CreateDirectory(My.Settings.sTempPath)
         Catch ex As Exception
-
+            b_isOk = False
         End Try
-
-        Dim sFilePath As String = My.Settings.sTempPath & "\" & Now.Ticks & " screenshot.jpg"
-        img.Save(sFilePath, imgCodecs(1), params)
-        Return sFilePath
+        Try
+            System.IO.Directory.CreateDirectory(My.Settings.sTempPath)
+            b_isOk = True
+        Catch ex As Exception
+            b_isOk = False
+        End Try
+        If b_isOk Then
+            Dim sFilePath As String = My.Settings.sTempPath & "\" & Now.Ticks & " screenshot.jpg"
+            img.Save(sFilePath, imgCodecs(1), params)
+            Return sFilePath
+        End If
+        'se arrivo qui vuol dire che c'è stato qualche errore
+        Return Nothing
     End Function
 
 
