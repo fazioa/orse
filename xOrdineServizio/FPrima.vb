@@ -362,11 +362,6 @@ Public Class FPrima
 
     End Sub
 
-    Private Sub MYExnHandler(ByVal sender As Object, ByVal e As UnhandledExceptionEventArgs)
-        Dim EX As Exception
-        EX = e.ExceptionObject
-        Console.WriteLine(EX.StackTrace)
-    End Sub
 
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
         feActions.cancellaFileTemp()
@@ -375,51 +370,3 @@ Public Class FPrima
 End Class
 
 
-
-Friend Class ThreadExceptionHandler
-    ''
-    '' Handles the thread exception.
-    '''
-    Public Sub Application_ThreadException(ByVal sender As System.Object, ByVal e As ThreadExceptionEventArgs)
-
-        Try
-            ' Exit the program if the user clicks Abort.
-
-            Dim result As DialogResult = ShowThreadExceptionDialog(e.Exception)
-
-            If (result = DialogResult.Abort) Then
-                Application.Exit()
-            End If
-        Catch
-            ' Fatal error, terminate program
-
-            Try
-                MessageBox.Show("Fatal Error", "Fatal Error", MessageBoxButtons.OK, MessageBoxIcon.Stop)
-            Finally
-                Application.Exit()
-            End Try
-        End Try
-    End Sub
-
-    '''
-
-    ''' Creates and displays the error message.
-
-    '''
-
-    Private Function ShowThreadExceptionDialog(ByVal ex As Exception) As DialogResult
-
-        Dim errorMessage As String = _
-            "Unhandled Exception:" _
-            & vbCrLf & vbCrLf & _
-            ex.Message & vbCrLf & vbCrLf & _
-            ex.GetType().ToString() & vbCrLf & vbCrLf & _
-            "Stack Trace:" & vbCrLf & _
-            ex.StackTrace
-
-        Return MessageBox.Show(errorMessage, _
-            "Application Error", _
-            MessageBoxButtons.AbortRetryIgnore, _
-            MessageBoxIcon.Stop)
-    End Function
-End Class

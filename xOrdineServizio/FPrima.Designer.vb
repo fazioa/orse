@@ -46,23 +46,9 @@ Partial Class FPrima
         Me.VersioneToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PreferenzeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpzioniToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet_Unico = New OrSe.dbAlegatoADataSet()
-        Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QInterventi_informazioniBindigSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.TableLayoutPanel2 = New System.Windows.Forms.TableLayoutPanel()
-        Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter()
-        Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter()
-        Me.AllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter()
-        Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
-        Me.QInterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter()
-        Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter()
-        Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.labelInfoOS = New System.Windows.Forms.Label()
         Me.ButtonRubrica = New System.Windows.Forms.Button()
@@ -75,19 +61,33 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnRubrica = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.VerticalLabel2 = New OrSe.verticalLabel()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbAlegatoADataSet_Unico = New OrSe.dbAlegatoADataSet()
+        Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.QInterventi_informazioniBindigSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter()
+        Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter()
+        Me.AllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter()
+        Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
+        Me.QInterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter()
+        Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter()
+        Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter()
+        Me.VerticalLabel2 = New OrSe.verticalLabel()
+        Me.TableLayoutPanel2.SuspendLayout()
+        Me.FlowLayoutPanel3.SuspendLayout()
+        Me.menu.SuspendLayout()
+        Me.FlowLayoutPanelEsterno.SuspendLayout()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.TableLayoutPanel2.SuspendLayout()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FlowLayoutPanel3.SuspendLayout()
-        Me.menu.SuspendLayout()
-        Me.FlowLayoutPanelEsterno.SuspendLayout()
         Me.SuspendLayout()
         '
         'PreferenzeToolStripMenuItem1
@@ -253,28 +253,6 @@ Partial Class FPrima
         Me.OpzioniToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
         Me.OpzioniToolStripMenuItem.Text = "Opzioni..."
         '
-        'QAllegatoABindingSource
-        '
-        Me.QAllegatoABindingSource.DataMember = "QAllegatoA"
-        Me.QAllegatoABindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'DbAlegatoADataSet_Unico
-        '
-        Me.DbAlegatoADataSet_Unico.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet_Unico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'QInterventiBindingSource
-        '
-        Me.QInterventiBindingSource.DataMember = "QInterventi"
-        Me.QInterventiBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        Me.QInterventiBindingSource.Filter = ""
-        '
-        'QInterventi_informazioniBindigSource
-        '
-        Me.QInterventi_informazioniBindigSource.DataMember = "QInterventi"
-        Me.QInterventi_informazioniBindigSource.DataSource = Me.DbAlegatoADataSet_Unico
-        Me.QInterventi_informazioniBindigSource.Filter = ""
-        '
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.AutoSize = True
@@ -315,49 +293,6 @@ Partial Class FPrima
         Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
         Me.TableLayoutPanel2.Size = New System.Drawing.Size(1008, 0)
         Me.TableLayoutPanel2.TabIndex = 27
-        '
-        'InterventiBindingSource
-        '
-        Me.InterventiBindingSource.DataMember = "interventi"
-        Me.InterventiBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'InterventiTableAdapter
-        '
-        Me.InterventiTableAdapter.ClearBeforeFill = True
-        '
-        'AllegatoABindingSource
-        '
-        Me.AllegatoABindingSource.DataMember = "allegatoA"
-        Me.AllegatoABindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'QAllegatoATableAdapter
-        '
-        Me.QAllegatoATableAdapter.ClearBeforeFill = True
-        '
-        'AllegatoATableAdapter
-        '
-        Me.AllegatoATableAdapter.ClearBeforeFill = True
-        '
-        'OrdineServizioBindingSource
-        '
-        Me.OrdineServizioBindingSource.DataMember = "ordineServizio"
-        Me.OrdineServizioBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'OrdineServizioTableAdapter
-        '
-        Me.OrdineServizioTableAdapter.ClearBeforeFill = True
-        '
-        'QInterventiTableAdapter
-        '
-        Me.QInterventiTableAdapter.ClearBeforeFill = True
-        '
-        'ComuneTableAdapter
-        '
-        Me.ComuneTableAdapter.ClearBeforeFill = True
-        '
-        'ModelliMezzoTableAdapter
-        '
-        Me.ModelliMezzoTableAdapter.ClearBeforeFill = True
         '
         'FlowLayoutPanel3
         '
@@ -512,6 +447,76 @@ Partial Class FPrima
         Me.Button1.UseCompatibleTextRendering = True
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'Timer1
+        '
+        Me.Timer1.Enabled = True
+        Me.Timer1.Interval = 90000
+        '
+        'QAllegatoABindingSource
+        '
+        Me.QAllegatoABindingSource.DataMember = "QAllegatoA"
+        Me.QAllegatoABindingSource.DataSource = Me.DbAlegatoADataSet_Unico
+        '
+        'DbAlegatoADataSet_Unico
+        '
+        Me.DbAlegatoADataSet_Unico.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet_Unico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'QInterventiBindingSource
+        '
+        Me.QInterventiBindingSource.DataMember = "QInterventi"
+        Me.QInterventiBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
+        Me.QInterventiBindingSource.Filter = ""
+        '
+        'QInterventi_informazioniBindigSource
+        '
+        Me.QInterventi_informazioniBindigSource.DataMember = "QInterventi"
+        Me.QInterventi_informazioniBindigSource.DataSource = Me.DbAlegatoADataSet_Unico
+        Me.QInterventi_informazioniBindigSource.Filter = ""
+        '
+        'InterventiBindingSource
+        '
+        Me.InterventiBindingSource.DataMember = "interventi"
+        Me.InterventiBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
+        '
+        'InterventiTableAdapter
+        '
+        Me.InterventiTableAdapter.ClearBeforeFill = True
+        '
+        'AllegatoABindingSource
+        '
+        Me.AllegatoABindingSource.DataMember = "allegatoA"
+        Me.AllegatoABindingSource.DataSource = Me.DbAlegatoADataSet_Unico
+        '
+        'QAllegatoATableAdapter
+        '
+        Me.QAllegatoATableAdapter.ClearBeforeFill = True
+        '
+        'AllegatoATableAdapter
+        '
+        Me.AllegatoATableAdapter.ClearBeforeFill = True
+        '
+        'OrdineServizioBindingSource
+        '
+        Me.OrdineServizioBindingSource.DataMember = "ordineServizio"
+        Me.OrdineServizioBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
+        '
+        'OrdineServizioTableAdapter
+        '
+        Me.OrdineServizioTableAdapter.ClearBeforeFill = True
+        '
+        'QInterventiTableAdapter
+        '
+        Me.QInterventiTableAdapter.ClearBeforeFill = True
+        '
+        'ComuneTableAdapter
+        '
+        Me.ComuneTableAdapter.ClearBeforeFill = True
+        '
+        'ModelliMezzoTableAdapter
+        '
+        Me.ModelliMezzoTableAdapter.ClearBeforeFill = True
+        '
         'VerticalLabel2
         '
         Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
@@ -520,11 +525,6 @@ Partial Class FPrima
         Me.VerticalLabel2.Size = New System.Drawing.Size(24, 114)
         Me.VerticalLabel2.TabIndex = 26
         Me.VerticalLabel2.Text = "Interventi"
-        '
-        'Timer1
-        '
-        Me.Timer1.Enabled = True
-        Me.Timer1.Interval = 90000
         '
         'FPrima
         '
@@ -542,20 +542,20 @@ Partial Class FPrima
         Me.Name = "FPrima"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "OrSe"
-        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
-        CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.FlowLayoutPanel3.PerformLayout()
         Me.menu.ResumeLayout(False)
         Me.menu.PerformLayout()
         Me.FlowLayoutPanelEsterno.ResumeLayout(False)
+        CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
