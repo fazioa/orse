@@ -22,31 +22,31 @@ Partial Class FElencosoggetti
     'Non modificarla nell'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle
-        Me.tbNome = New System.Windows.Forms.TextBox
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.tbCognome = New System.Windows.Forms.TextBox
-        Me.QPersonaDataGridView = New System.Windows.Forms.DataGridView
+        Me.components = New System.ComponentModel.Container()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Me.tbNome = New System.Windows.Forms.TextBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.tbCognome = New System.Windows.Forms.TextBox()
+        Me.QPersonaDataGridView = New System.Windows.Forms.DataGridView()
+        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.QPersonaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
-        Me.gbFiltri = New System.Windows.Forms.GroupBox
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
-        Me.rTutti = New System.Windows.Forms.RadioButton
-        Me.rIO = New System.Windows.Forms.RadioButton
-        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
-        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
-        Me.btnAdd = New System.Windows.Forms.Button
-        Me.bntAnnulla = New System.Windows.Forms.Button
-        Me.QPersonaTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QPersonaTableAdapter
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.ID = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn5 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn6 = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DataGridViewTextBoxColumn12 = New System.Windows.Forms.DataGridViewTextBoxColumn
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
+        Me.gbFiltri = New System.Windows.Forms.GroupBox()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.rTutti = New System.Windows.Forms.RadioButton()
+        Me.rIO = New System.Windows.Forms.RadioButton()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.bntAnnulla = New System.Windows.Forms.Button()
+        Me.QPersonaTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QPersonaTableAdapter()
         CType(Me.QPersonaDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QPersonaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -118,109 +118,6 @@ Partial Class FElencosoggetti
         Me.QPersonaDataGridView.Size = New System.Drawing.Size(1019, 311)
         Me.QPersonaDataGridView.TabIndex = 0
         '
-        'QPersonaBindingSource
-        '
-        Me.QPersonaBindingSource.DataMember = "QPersona"
-        Me.QPersonaBindingSource.DataSource = Me.DbAlegatoADataSet
-        '
-        'DbAlegatoADataSet
-        '
-        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'gbFiltri
-        '
-        Me.gbFiltri.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.gbFiltri.Controls.Add(Me.FlowLayoutPanel1)
-        Me.gbFiltri.Location = New System.Drawing.Point(3, 3)
-        Me.gbFiltri.Name = "gbFiltri"
-        Me.gbFiltri.Size = New System.Drawing.Size(179, 49)
-        Me.gbFiltri.TabIndex = 2
-        Me.gbFiltri.TabStop = False
-        Me.gbFiltri.Text = "Filtri"
-        '
-        'FlowLayoutPanel1
-        '
-        Me.FlowLayoutPanel1.Controls.Add(Me.rTutti)
-        Me.FlowLayoutPanel1.Controls.Add(Me.rIO)
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 16)
-        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(173, 30)
-        Me.FlowLayoutPanel1.TabIndex = 21
-        '
-        'rTutti
-        '
-        Me.rTutti.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rTutti.AutoSize = True
-        Me.rTutti.Location = New System.Drawing.Point(3, 3)
-        Me.rTutti.Name = "rTutti"
-        Me.rTutti.Size = New System.Drawing.Size(38, 23)
-        Me.rTutti.TabIndex = 0
-        Me.rTutti.Text = "Tutti"
-        Me.rTutti.UseVisualStyleBackColor = True
-        '
-        'rIO
-        '
-        Me.rIO.Appearance = System.Windows.Forms.Appearance.Button
-        Me.rIO.AutoSize = True
-        Me.rIO.Checked = True
-        Me.rIO.Location = New System.Drawing.Point(47, 3)
-        Me.rIO.Name = "rIO"
-        Me.rIO.Size = New System.Drawing.Size(109, 23)
-        Me.rIO.TabIndex = 1
-        Me.rIO.TabStop = True
-        Me.rIO.Text = "Interesse Operativo"
-        Me.rIO.UseVisualStyleBackColor = True
-        '
-        'FlowLayoutPanel2
-        '
-        Me.FlowLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FlowLayoutPanel2.Controls.Add(Me.gbFiltri)
-        Me.FlowLayoutPanel2.Controls.Add(Me.QPersonaDataGridView)
-        Me.FlowLayoutPanel2.Controls.Add(Me.FlowLayoutPanel3)
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 92)
-        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(1022, 444)
-        Me.FlowLayoutPanel2.TabIndex = 3
-        '
-        'FlowLayoutPanel3
-        '
-        Me.FlowLayoutPanel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.FlowLayoutPanel3.Controls.Add(Me.btnAdd)
-        Me.FlowLayoutPanel3.Controls.Add(Me.bntAnnulla)
-        Me.FlowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(3, 375)
-        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(1019, 59)
-        Me.FlowLayoutPanel3.TabIndex = 7
-        '
-        'btnAdd
-        '
-        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.btnAdd.Location = New System.Drawing.Point(812, 3)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(204, 52)
-        Me.btnAdd.TabIndex = 8
-        Me.btnAdd.Text = "Aggiungi selezionato"
-        Me.btnAdd.UseVisualStyleBackColor = True
-        '
-        'bntAnnulla
-        '
-        Me.bntAnnulla.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
-        Me.bntAnnulla.Location = New System.Drawing.Point(602, 3)
-        Me.bntAnnulla.Name = "bntAnnulla"
-        Me.bntAnnulla.Size = New System.Drawing.Size(204, 52)
-        Me.bntAnnulla.TabIndex = 9
-        Me.bntAnnulla.Text = "Annulla"
-        Me.bntAnnulla.UseVisualStyleBackColor = True
-        '
-        'QPersonaTableAdapter
-        '
-        Me.QPersonaTableAdapter.ClearBeforeFill = True
-        '
         'DataGridViewTextBoxColumn3
         '
         Me.DataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
@@ -276,6 +173,109 @@ Partial Class FElencosoggetti
         Me.DataGridViewTextBoxColumn12.HeaderText = "precedenti"
         Me.DataGridViewTextBoxColumn12.Name = "DataGridViewTextBoxColumn12"
         Me.DataGridViewTextBoxColumn12.ReadOnly = True
+        '
+        'QPersonaBindingSource
+        '
+        Me.QPersonaBindingSource.DataMember = "QPersona"
+        Me.QPersonaBindingSource.DataSource = Me.DbAlegatoADataSet
+        '
+        'DbAlegatoADataSet
+        '
+        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'gbFiltri
+        '
+        Me.gbFiltri.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.gbFiltri.Controls.Add(Me.FlowLayoutPanel1)
+        Me.gbFiltri.Location = New System.Drawing.Point(3, 3)
+        Me.gbFiltri.Name = "gbFiltri"
+        Me.gbFiltri.Size = New System.Drawing.Size(179, 49)
+        Me.gbFiltri.TabIndex = 2
+        Me.gbFiltri.TabStop = False
+        Me.gbFiltri.Text = "Filtri"
+        '
+        'FlowLayoutPanel1
+        '
+        Me.FlowLayoutPanel1.Controls.Add(Me.rTutti)
+        Me.FlowLayoutPanel1.Controls.Add(Me.rIO)
+        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(3, 16)
+        Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
+        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(173, 30)
+        Me.FlowLayoutPanel1.TabIndex = 21
+        '
+        'rTutti
+        '
+        Me.rTutti.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rTutti.AutoSize = True
+        Me.rTutti.Checked = True
+        Me.rTutti.Location = New System.Drawing.Point(3, 3)
+        Me.rTutti.Name = "rTutti"
+        Me.rTutti.Size = New System.Drawing.Size(38, 23)
+        Me.rTutti.TabIndex = 0
+        Me.rTutti.TabStop = True
+        Me.rTutti.Text = "Tutti"
+        Me.rTutti.UseVisualStyleBackColor = True
+        '
+        'rIO
+        '
+        Me.rIO.Appearance = System.Windows.Forms.Appearance.Button
+        Me.rIO.AutoSize = True
+        Me.rIO.Location = New System.Drawing.Point(47, 3)
+        Me.rIO.Name = "rIO"
+        Me.rIO.Size = New System.Drawing.Size(109, 23)
+        Me.rIO.TabIndex = 1
+        Me.rIO.Text = "Interesse Operativo"
+        Me.rIO.UseVisualStyleBackColor = True
+        '
+        'FlowLayoutPanel2
+        '
+        Me.FlowLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FlowLayoutPanel2.Controls.Add(Me.gbFiltri)
+        Me.FlowLayoutPanel2.Controls.Add(Me.QPersonaDataGridView)
+        Me.FlowLayoutPanel2.Controls.Add(Me.FlowLayoutPanel3)
+        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 92)
+        Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
+        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(1022, 444)
+        Me.FlowLayoutPanel2.TabIndex = 3
+        '
+        'FlowLayoutPanel3
+        '
+        Me.FlowLayoutPanel3.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FlowLayoutPanel3.Controls.Add(Me.btnAdd)
+        Me.FlowLayoutPanel3.Controls.Add(Me.bntAnnulla)
+        Me.FlowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft
+        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(3, 375)
+        Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
+        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(1019, 59)
+        Me.FlowLayoutPanel3.TabIndex = 7
+        '
+        'btnAdd
+        '
+        Me.btnAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.btnAdd.Location = New System.Drawing.Point(812, 3)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(204, 52)
+        Me.btnAdd.TabIndex = 8
+        Me.btnAdd.Text = "Aggiungi selezionato"
+        Me.btnAdd.UseVisualStyleBackColor = True
+        '
+        'bntAnnulla
+        '
+        Me.bntAnnulla.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!)
+        Me.bntAnnulla.Location = New System.Drawing.Point(602, 3)
+        Me.bntAnnulla.Name = "bntAnnulla"
+        Me.bntAnnulla.Size = New System.Drawing.Size(204, 52)
+        Me.bntAnnulla.TabIndex = 9
+        Me.bntAnnulla.Text = "Annulla"
+        Me.bntAnnulla.UseVisualStyleBackColor = True
+        '
+        'QPersonaTableAdapter
+        '
+        Me.QPersonaTableAdapter.ClearBeforeFill = True
         '
         'FElencosoggetti
         '
