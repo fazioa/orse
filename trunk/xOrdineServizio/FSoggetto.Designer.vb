@@ -19,7 +19,7 @@ Partial Class FSoggetto
     'Non modificarla nell'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim IdMezzoLabel As System.Windows.Forms.Label
         Dim TargaLabel As System.Windows.Forms.Label
         Dim CognomeLabel As System.Windows.Forms.Label
@@ -34,77 +34,77 @@ Partial Class FSoggetto
         Dim PrecedentiLabel As System.Windows.Forms.Label
         Dim NOTELabel As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
-        Me.ColoreLabel = New System.Windows.Forms.Label
-        Me.tbColore = New System.Windows.Forms.TextBox
+        Me.ColoreLabel = New System.Windows.Forms.Label()
+        Me.tbColore = New System.Windows.Forms.TextBox()
         Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbDataSet = New OrSe.dbAlegatoADataSet
-        Me.tbTarga = New System.Windows.Forms.TextBox
-        Me.tbCognome = New System.Windows.Forms.TextBox
+        Me.DbDataSet = New OrSe.dbAlegatoADataSet()
+        Me.tbTarga = New System.Windows.Forms.TextBox()
+        Me.tbCognome = New System.Windows.Forms.TextBox()
         Me.PersonaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.tbNome = New System.Windows.Forms.TextBox
-        Me.tbDocumento = New System.Windows.Forms.TextBox
-        Me.ContravvenzioniCheckBox = New System.Windows.Forms.CheckBox
-        Me.PerquisizioneCheckBox = New System.Windows.Forms.CheckBox
-        Me.tbPrecedenti = New System.Windows.Forms.TextBox
-        Me.tbNote = New System.Windows.Forms.TextBox
-        Me.btnSalvaChiudi = New System.Windows.Forms.Button
-        Me.btnAnnulla = New System.Windows.Forms.Button
-        Me.labelOS = New System.Windows.Forms.Label
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.btnPasseggero = New System.Windows.Forms.Button
-        Me.PositivoSDIComboBox = New System.Windows.Forms.ComboBox
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
-        Me.btnAPiedi = New System.Windows.Forms.Button
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
-        Me.GroupBoxResidenza = New System.Windows.Forms.GroupBox
-        Me.ComboBoxComuneResidenza = New System.Windows.Forms.ComboBox
+        Me.tbNome = New System.Windows.Forms.TextBox()
+        Me.tbDocumento = New System.Windows.Forms.TextBox()
+        Me.ContravvenzioniCheckBox = New System.Windows.Forms.CheckBox()
+        Me.PerquisizioneCheckBox = New System.Windows.Forms.CheckBox()
+        Me.tbPrecedenti = New System.Windows.Forms.TextBox()
+        Me.tbNote = New System.Windows.Forms.TextBox()
+        Me.btnSalvaChiudi = New System.Windows.Forms.Button()
+        Me.btnAnnulla = New System.Windows.Forms.Button()
+        Me.labelOS = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.btnPasseggero = New System.Windows.Forms.Button()
+        Me.PositivoSDIComboBox = New System.Windows.Forms.ComboBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.btnAPiedi = New System.Windows.Forms.Button()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.GroupBoxResidenza = New System.Windows.Forms.GroupBox()
+        Me.ComboBoxComuneResidenza = New System.Windows.Forms.ComboBox()
         Me.ComuneResidenzaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbDataSet2 = New OrSe.dbAlegatoADataSet
-        Me.tbIndirizzo = New System.Windows.Forms.TextBox
-        Me.GroupBoxDatiAnagrafici = New System.Windows.Forms.GroupBox
-        Me.DataNascitaMaskedTextBox = New System.Windows.Forms.MaskedTextBox
-        Me.ComboBoxComuneNascita = New System.Windows.Forms.ComboBox
+        Me.DbDataSet2 = New OrSe.dbAlegatoADataSet()
+        Me.tbIndirizzo = New System.Windows.Forms.TextBox()
+        Me.GroupBoxDatiAnagrafici = New System.Windows.Forms.GroupBox()
+        Me.DataNascitaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.ComboBoxComuneNascita = New System.Windows.Forms.ComboBox()
         Me.ComuneNascitaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GroupBoxMezzo = New System.Windows.Forms.GroupBox
-        Me.ComboBoxModelliMezzo = New OrSe.UserControlComboBox
+        Me.GroupBoxMezzo = New System.Windows.Forms.GroupBox()
+        Me.ComboBoxModelliMezzo = New OrSe.UserControlComboBox()
         Me.MezzoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.GroupBox6 = New System.Windows.Forms.GroupBox
-        Me.GroupBox7 = New System.Windows.Forms.GroupBox
-        Me.GroupBox8 = New System.Windows.Forms.GroupBox
-        Me.Panel1 = New System.Windows.Forms.Panel
-        Me.GroupBox9 = New System.Windows.Forms.GroupBox
-        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel
-        Me.cbPip = New System.Windows.Forms.CheckBox
-        Me.btnAddPIO = New System.Windows.Forms.Button
-        Me.bPIOSel = New System.Windows.Forms.Button
-        Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel
+        Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox7 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox8 = New System.Windows.Forms.GroupBox()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.GroupBox9 = New System.Windows.Forms.GroupBox()
+        Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.cbPip = New System.Windows.Forms.CheckBox()
+        Me.btnAddPIO = New System.Windows.Forms.Button()
+        Me.bPIOSel = New System.Windows.Forms.Button()
+        Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
-        Me.LabelControllo = New System.Windows.Forms.Label
-        Me.LabelOperatori = New System.Windows.Forms.Label
-        Me.modelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter
-        Me.AllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter
-        Me.PersonaTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.personaTableAdapter
-        Me.QComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QComuneTableAdapter
-        Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter
-        Me.PrioritaComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.prioritaComuneTableAdapter
-        Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
+        Me.LabelControllo = New System.Windows.Forms.Label()
+        Me.LabelOperatori = New System.Windows.Forms.Label()
+        Me.modelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter()
+        Me.AllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter()
+        Me.PersonaTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.personaTableAdapter()
+        Me.QComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QComuneTableAdapter()
+        Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter()
+        Me.PrioritaComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.prioritaComuneTableAdapter()
+        Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter()
         Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        IdMezzoLabel = New System.Windows.Forms.Label
-        TargaLabel = New System.Windows.Forms.Label
-        CognomeLabel = New System.Windows.Forms.Label
-        NomeLabel = New System.Windows.Forms.Label
-        IdLuogoNascitaLabel = New System.Windows.Forms.Label
-        DatanascitaLabel = New System.Windows.Forms.Label
-        ResidenzaLabel = New System.Windows.Forms.Label
-        DocumentoLabel = New System.Windows.Forms.Label
-        ContravvenzioniLabel = New System.Windows.Forms.Label
-        PerquisizioneLabel = New System.Windows.Forms.Label
-        PositivoSDILabel = New System.Windows.Forms.Label
-        PrecedentiLabel = New System.Windows.Forms.Label
-        NOTELabel = New System.Windows.Forms.Label
-        Label1 = New System.Windows.Forms.Label
+        IdMezzoLabel = New System.Windows.Forms.Label()
+        TargaLabel = New System.Windows.Forms.Label()
+        CognomeLabel = New System.Windows.Forms.Label()
+        NomeLabel = New System.Windows.Forms.Label()
+        IdLuogoNascitaLabel = New System.Windows.Forms.Label()
+        DatanascitaLabel = New System.Windows.Forms.Label()
+        ResidenzaLabel = New System.Windows.Forms.Label()
+        DocumentoLabel = New System.Windows.Forms.Label()
+        ContravvenzioniLabel = New System.Windows.Forms.Label()
+        PerquisizioneLabel = New System.Windows.Forms.Label()
+        PositivoSDILabel = New System.Windows.Forms.Label()
+        PrecedentiLabel = New System.Windows.Forms.Label()
+        NOTELabel = New System.Windows.Forms.Label()
+        Label1 = New System.Windows.Forms.Label()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PersonaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,6 +141,7 @@ Partial Class FSoggetto
         '
         'TargaLabel
         '
+        TargaLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         TargaLabel.AutoSize = True
         TargaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         TargaLabel.Location = New System.Drawing.Point(326, 15)
@@ -173,7 +174,7 @@ Partial Class FSoggetto
         '
         IdLuogoNascitaLabel.AutoSize = True
         IdLuogoNascitaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        IdLuogoNascitaLabel.Location = New System.Drawing.Point(367, 64)
+        IdLuogoNascitaLabel.Location = New System.Drawing.Point(366, 58)
         IdLuogoNascitaLabel.Name = "IdLuogoNascitaLabel"
         IdLuogoNascitaLabel.Size = New System.Drawing.Size(97, 31)
         IdLuogoNascitaLabel.TabIndex = 23
@@ -183,7 +184,7 @@ Partial Class FSoggetto
         '
         DatanascitaLabel.AutoSize = True
         DatanascitaLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DatanascitaLabel.Location = New System.Drawing.Point(1, 64)
+        DatanascitaLabel.Location = New System.Drawing.Point(1, 58)
         DatanascitaLabel.Name = "DatanascitaLabel"
         DatanascitaLabel.Size = New System.Drawing.Size(174, 31)
         DatanascitaLabel.TabIndex = 25
@@ -271,9 +272,10 @@ Partial Class FSoggetto
         '
         'ColoreLabel
         '
+        Me.ColoreLabel.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ColoreLabel.AutoSize = True
         Me.ColoreLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ColoreLabel.Location = New System.Drawing.Point(585, 16)
+        Me.ColoreLabel.Location = New System.Drawing.Point(575, 16)
         Me.ColoreLabel.Name = "ColoreLabel"
         Me.ColoreLabel.Size = New System.Drawing.Size(102, 31)
         Me.ColoreLabel.TabIndex = 15
@@ -281,9 +283,10 @@ Partial Class FSoggetto
         '
         'tbColore
         '
+        Me.tbColore.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbColore.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AllegatoABindingSource, "colore", True))
         Me.tbColore.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbColore.Location = New System.Drawing.Point(683, 11)
+        Me.tbColore.Location = New System.Drawing.Point(679, 11)
         Me.tbColore.Name = "tbColore"
         Me.tbColore.Size = New System.Drawing.Size(118, 41)
         Me.tbColore.TabIndex = 30
@@ -301,6 +304,7 @@ Partial Class FSoggetto
         '
         'tbTarga
         '
+        Me.tbTarga.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbTarga.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AllegatoABindingSource, "targa", True))
         Me.tbTarga.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbTarga.Location = New System.Drawing.Point(420, 10)
@@ -325,16 +329,20 @@ Partial Class FSoggetto
         '
         'tbNome
         '
+        Me.tbNome.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbNome.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "nome", True))
         Me.tbNome.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNome.Location = New System.Drawing.Point(464, 11)
         Me.tbNome.Name = "tbNome"
         Me.tbNome.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-        Me.tbNome.Size = New System.Drawing.Size(337, 41)
+        Me.tbNome.Size = New System.Drawing.Size(333, 41)
         Me.tbNome.TabIndex = 50
         '
         'tbDocumento
         '
+        Me.tbDocumento.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbDocumento.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "documento", True))
         Me.tbDocumento.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbDocumento.Location = New System.Drawing.Point(172, 13)
@@ -365,24 +373,30 @@ Partial Class FSoggetto
         '
         'tbPrecedenti
         '
+        Me.tbPrecedenti.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbPrecedenti.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "precedenti", True))
         Me.tbPrecedenti.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbPrecedenti.Location = New System.Drawing.Point(12, 90)
         Me.tbPrecedenti.MaxLength = 536870910
         Me.tbPrecedenti.Multiline = True
         Me.tbPrecedenti.Name = "tbPrecedenti"
-        Me.tbPrecedenti.Size = New System.Drawing.Size(335, 85)
+        Me.tbPrecedenti.Size = New System.Drawing.Size(331, 118)
         Me.tbPrecedenti.TabIndex = 140
         Me.tbPrecedenti.Text = " "
         '
         'tbNote
         '
+        Me.tbNote.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbNote.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AllegatoABindingSource, "NOTE", True))
         Me.tbNote.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNote.Location = New System.Drawing.Point(94, 19)
         Me.tbNote.Multiline = True
         Me.tbNote.Name = "tbNote"
-        Me.tbNote.Size = New System.Drawing.Size(346, 58)
+        Me.tbNote.Size = New System.Drawing.Size(346, 91)
         Me.tbNote.TabIndex = 150
         Me.tbNote.Text = " "
         '
@@ -501,13 +515,15 @@ Partial Class FSoggetto
         '
         'GroupBoxResidenza
         '
+        Me.GroupBoxResidenza.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxResidenza.Controls.Add(Me.ComboBoxComuneResidenza)
         Me.GroupBoxResidenza.Controls.Add(ResidenzaLabel)
         Me.GroupBoxResidenza.Controls.Add(Me.tbIndirizzo)
         Me.GroupBoxResidenza.Controls.Add(Label1)
         Me.GroupBoxResidenza.Location = New System.Drawing.Point(12, 253)
         Me.GroupBoxResidenza.Name = "GroupBoxResidenza"
-        Me.GroupBoxResidenza.Size = New System.Drawing.Size(809, 59)
+        Me.GroupBoxResidenza.Size = New System.Drawing.Size(803, 59)
         Me.GroupBoxResidenza.TabIndex = 2
         Me.GroupBoxResidenza.TabStop = False
         Me.GroupBoxResidenza.Text = "Residenza"
@@ -538,17 +554,21 @@ Partial Class FSoggetto
         '
         'tbIndirizzo
         '
+        Me.tbIndirizzo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbIndirizzo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "residenzaindirizzo", True))
         Me.tbIndirizzo.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbIndirizzo.Location = New System.Drawing.Point(520, 12)
         Me.tbIndirizzo.MaxLength = 50
         Me.tbIndirizzo.Name = "tbIndirizzo"
-        Me.tbIndirizzo.Size = New System.Drawing.Size(281, 41)
+        Me.tbIndirizzo.Size = New System.Drawing.Size(277, 41)
         Me.tbIndirizzo.TabIndex = 90
         Me.tbIndirizzo.Text = " "
         '
         'GroupBoxDatiAnagrafici
         '
+        Me.GroupBoxDatiAnagrafici.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxDatiAnagrafici.Controls.Add(Me.DataNascitaMaskedTextBox)
         Me.GroupBoxDatiAnagrafici.Controls.Add(Me.ComboBoxComuneNascita)
         Me.GroupBoxDatiAnagrafici.Controls.Add(DatanascitaLabel)
@@ -559,7 +579,7 @@ Partial Class FSoggetto
         Me.GroupBoxDatiAnagrafici.Controls.Add(CognomeLabel)
         Me.GroupBoxDatiAnagrafici.Location = New System.Drawing.Point(12, 153)
         Me.GroupBoxDatiAnagrafici.Name = "GroupBoxDatiAnagrafici"
-        Me.GroupBoxDatiAnagrafici.Size = New System.Drawing.Size(809, 100)
+        Me.GroupBoxDatiAnagrafici.Size = New System.Drawing.Size(803, 100)
         Me.GroupBoxDatiAnagrafici.TabIndex = 1
         Me.GroupBoxDatiAnagrafici.TabStop = False
         Me.GroupBoxDatiAnagrafici.Text = "Dati anagrafici"
@@ -577,6 +597,8 @@ Partial Class FSoggetto
         '
         'ComboBoxComuneNascita
         '
+        Me.ComboBoxComuneNascita.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBoxComuneNascita.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.PersonaBindingSource, "idLuogoNascita", True))
         Me.ComboBoxComuneNascita.DataSource = Me.ComuneNascitaBindingSource
         Me.ComboBoxComuneNascita.DisplayMember = "citta"
@@ -584,7 +606,7 @@ Partial Class FSoggetto
         Me.ComboBoxComuneNascita.FormattingEnabled = True
         Me.ComboBoxComuneNascita.Location = New System.Drawing.Point(464, 54)
         Me.ComboBoxComuneNascita.Name = "ComboBoxComuneNascita"
-        Me.ComboBoxComuneNascita.Size = New System.Drawing.Size(337, 41)
+        Me.ComboBoxComuneNascita.Size = New System.Drawing.Size(333, 41)
         Me.ComboBoxComuneNascita.TabIndex = 70
         Me.ComboBoxComuneNascita.ValueMember = "id"
         '
@@ -595,6 +617,8 @@ Partial Class FSoggetto
         '
         'GroupBoxMezzo
         '
+        Me.GroupBoxMezzo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxMezzo.Controls.Add(Me.ComboBoxModelliMezzo)
         Me.GroupBoxMezzo.Controls.Add(IdMezzoLabel)
         Me.GroupBoxMezzo.Controls.Add(Me.tbColore)
@@ -603,13 +627,15 @@ Partial Class FSoggetto
         Me.GroupBoxMezzo.Controls.Add(Me.tbTarga)
         Me.GroupBoxMezzo.Location = New System.Drawing.Point(12, 96)
         Me.GroupBoxMezzo.Name = "GroupBoxMezzo"
-        Me.GroupBoxMezzo.Size = New System.Drawing.Size(809, 57)
+        Me.GroupBoxMezzo.Size = New System.Drawing.Size(803, 57)
         Me.GroupBoxMezzo.TabIndex = 0
         Me.GroupBoxMezzo.TabStop = False
         Me.GroupBoxMezzo.Text = "Mezzo"
         '
         'ComboBoxModelliMezzo
         '
+        Me.ComboBoxModelliMezzo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBoxModelliMezzo.AutoValidate = System.Windows.Forms.AutoValidate.Disable
         Me.ComboBoxModelliMezzo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ComboBoxModelliMezzo.CausesValidation = False
@@ -625,19 +651,23 @@ Partial Class FSoggetto
         '
         'GroupBox6
         '
+        Me.GroupBox6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox6.Controls.Add(Me.tbPrecedenti)
         Me.GroupBox6.Controls.Add(PrecedentiLabel)
         Me.GroupBox6.Controls.Add(PositivoSDILabel)
         Me.GroupBox6.Controls.Add(Me.PositivoSDIComboBox)
         Me.GroupBox6.Location = New System.Drawing.Point(466, 312)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(355, 188)
+        Me.GroupBox6.Size = New System.Drawing.Size(349, 214)
         Me.GroupBox6.TabIndex = 4
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Interesse Operativo"
         '
         'GroupBox7
         '
+        Me.GroupBox7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox7.Controls.Add(Me.tbDocumento)
         Me.GroupBox7.Controls.Add(DocumentoLabel)
         Me.GroupBox7.Location = New System.Drawing.Point(12, 312)
@@ -649,17 +679,22 @@ Partial Class FSoggetto
         '
         'GroupBox8
         '
+        Me.GroupBox8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+                    Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox8.Controls.Add(NOTELabel)
         Me.GroupBox8.Controls.Add(Me.tbNote)
         Me.GroupBox8.Location = New System.Drawing.Point(12, 410)
         Me.GroupBox8.Name = "GroupBox8"
-        Me.GroupBox8.Size = New System.Drawing.Size(448, 89)
+        Me.GroupBox8.Size = New System.Drawing.Size(448, 116)
         Me.GroupBox8.TabIndex = 6
         Me.GroupBox8.TabStop = False
         Me.GroupBox8.Text = "Note - Informazioni che non verranno incluse nei report"
         '
         'Panel1
         '
+        Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(ContravvenzioniLabel)
         Me.Panel1.Controls.Add(Me.PerquisizioneCheckBox)
         Me.Panel1.Controls.Add(PerquisizioneLabel)
