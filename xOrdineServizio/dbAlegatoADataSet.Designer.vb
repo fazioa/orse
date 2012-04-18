@@ -14534,7 +14534,7 @@ Namespace dbAlegatoADataSetTableAdapters
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitCommandCollection()
-            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(5) {}
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(6) {}
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT id, mezzo FROM modelliMezzo"
@@ -14545,23 +14545,27 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT id, mezzo FROM modelliMezzo WHERE id=pid"
+            Me._commandCollection(2).CommandText = "SELECT id, mezzo FROM modelliMezzo"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pId", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT TOP 10  id, mezzo FROM modelliMezzo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE mezzo LIKE '%'&pMezzo&'%'"
+            Me._commandCollection(3).CommandText = "SELECT id, mezzo FROM modelliMezzo WHERE id=pid"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pMezzo", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pId", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT id FROM modelliMezzo WHERE mezzo=pMezzo"
+            Me._commandCollection(4).CommandText = "SELECT TOP 10  id, mezzo FROM modelliMezzo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE mezzo LIKE '%'&pMezzo&'%'"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pMezzo", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT MAX(id)  FROM modelliMezzo"
+            Me._commandCollection(5).CommandText = "SELECT id FROM modelliMezzo WHERE mezzo=pMezzo"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pMezzo", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(6) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(6).Connection = Me.Connection
+            Me._commandCollection(6).CommandText = "SELECT MAX(id)  FROM modelliMezzo"
+            Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14592,8 +14596,21 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillById(ByVal dataTable As dbAlegatoADataSet.modelliMezzoDataTable, ByVal pId As Integer) As Integer
+        Public Overloads Overridable Function FillByI(ByVal dataTable As dbAlegatoADataSet.modelliMezzoDataTable) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(2)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillById(ByVal dataTable As dbAlegatoADataSet.modelliMezzoDataTable, ByVal pId As Integer) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(3)
             Me.Adapter.SelectCommand.Parameters(0).Value = CType(pId,Integer)
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear
@@ -14607,7 +14624,7 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByMezzo(ByVal dataTable As dbAlegatoADataSet.modelliMezzoDataTable, ByVal pMezzo As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(3)
+            Me.Adapter.SelectCommand = Me.CommandCollection(4)
             If (pMezzo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -14625,7 +14642,7 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
         Public Overloads Overridable Function FillByMezzo_stringaEsatta(ByVal dataTable As dbAlegatoADataSet.modelliMezzoDataTable, ByVal pMezzo As String) As Integer
-            Me.Adapter.SelectCommand = Me.CommandCollection(4)
+            Me.Adapter.SelectCommand = Me.CommandCollection(5)
             If (pMezzo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -14778,7 +14795,7 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
         Public Overloads Overridable Function MaxID() As Global.System.Nullable(Of Integer)
-            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(5)
+            Dim command As Global.System.Data.OleDb.OleDbCommand = Me.CommandCollection(6)
             Dim previousConnectionState As Global.System.Data.ConnectionState = command.Connection.State
             If ((command.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then

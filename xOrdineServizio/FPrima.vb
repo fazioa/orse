@@ -367,6 +367,10 @@ Public Class FPrima
         feActions.cancellaFileTemp()
         feActions.invioPeriodicoSegnalazioni()
     End Sub
+
+    Private Sub RevisioneTabelleDatiToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RevisioneTabelleDatiToolStripMenuItem.Click
+        ActionsLibrary.doApriFormRevisioneTabelle()
+    End Sub
 End Class
 
 

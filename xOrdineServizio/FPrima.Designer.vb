@@ -77,6 +77,8 @@ Partial Class FPrima
         Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter()
         Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter()
         Me.VerticalLabel2 = New OrSe.verticalLabel()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RevisioneTabelleDatiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.menu.SuspendLayout()
@@ -140,7 +142,7 @@ Partial Class FPrima
         '
         'StrumentiToolStripMenuItem
         '
-        Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CercaToolStripMenuItem, Me.ToolStripSeparator2, Me.ExportToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ToolStripSeparator3, Me.CancellaToolStripMenuItem, Me.CercaAggiornamentiToolStripMenuItem, Me.ToolStripMenuItemLOG, Me.ToolStripSeparator1, Me.EseguiBackupDBToolStripMenuItem, Me.RipristinaBackupDBToolStripMenuItem})
+        Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CercaToolStripMenuItem, Me.ToolStripSeparator2, Me.ExportToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ToolStripSeparator3, Me.CancellaToolStripMenuItem, Me.CercaAggiornamentiToolStripMenuItem, Me.ToolStripMenuItemLOG, Me.ToolStripSeparator1, Me.EseguiBackupDBToolStripMenuItem, Me.RipristinaBackupDBToolStripMenuItem, Me.ToolStripSeparator4, Me.RevisioneTabelleDatiToolStripMenuItem})
         Me.StrumentiToolStripMenuItem.Name = "StrumentiToolStripMenuItem"
         Me.StrumentiToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
         Me.StrumentiToolStripMenuItem.Text = "Strumenti..."
@@ -526,6 +528,17 @@ Partial Class FPrima
         Me.VerticalLabel2.TabIndex = 26
         Me.VerticalLabel2.Text = "Interventi"
         '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(247, 6)
+        '
+        'RevisioneTabelleDatiToolStripMenuItem
+        '
+        Me.RevisioneTabelleDatiToolStripMenuItem.Name = "RevisioneTabelleDatiToolStripMenuItem"
+        Me.RevisioneTabelleDatiToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.RevisioneTabelleDatiToolStripMenuItem.Text = "Revisione tabelle dati..."
+        '
         'FPrima
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -642,5 +655,7 @@ Partial Class FPrima
     Friend WithEvents SopralluogoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents labelInfoOS As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
+    Friend WithEvents RevisioneTabelleDatiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

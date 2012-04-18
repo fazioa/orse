@@ -58,6 +58,7 @@ Public Class DInserimentoLuogoControllo
 
     End Sub
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
+        OK_Button.Focus()
         Try
 
             If (cbLuogoControllo.getSelectedText.Trim.Length > 0 And cbLuogoControllo.getSelectedID <> 0) Then
@@ -68,7 +69,7 @@ Public Class DInserimentoLuogoControllo
                     ControlloTableAdapter.Insert(DateTimePickerOra.Value, cbLuogoControllo.getSelectedID, parametri.idOS)
                     'leggo l'indice della riga inserita
                     parametri.idControllo = Me.ControlloTableAdapter.MaxID()
-                   
+
                 Else
                     'QUI se sono in modalità modifica
                     Me.Validate()

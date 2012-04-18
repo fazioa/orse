@@ -125,6 +125,9 @@ Public Class UserControlComboBox
                 'inserisce il valore in tabella e poi lo seleziona nella listbox1
                 Me.ins(CurrentString.Trim)
                 Me.fill(CurrentString.Trim)
+                frm.selezionevoce()
+                'seleziona il valora appena inserito
+                ' Me.setSelectedID(Me.FindStringExact())
                 ' iIDMezzoSelezionato = frm.getSelectedID()
                 Return 1
             End If
@@ -218,8 +221,12 @@ Public Class UserControlComboBox
         'se il fuoco non è andato alla listbox1 allora controllo se è stato selezionato un valore, altrimenti inseriso un nuovo valore
         If (Not frm.ListBox1.Focused) Then
             frm.visibleMy(False)
-            If (Not frm.bVoceSelezionata) Then InsNuovoValore()
+            If (Not frm.bVoceSelezionata) Then
+                'inserisce un nuovo valore
+                InsNuovoValore()
+                'seleziona valore inserito
 
+            End If
         End If
 
     End Sub
@@ -383,7 +390,7 @@ Partial Class frmList
         selezionevoce()
     End Sub
 
-    
+
 
     ' Private Sub BindingSource_ListChanged(ByVal sender As System.Object, ByVal e As System.ComponentModel.ListChangedEventArgs) Handles BindingSource.ListChanged
     '    iCount = Me.BindingSource.Count
@@ -395,7 +402,7 @@ Partial Class frmList
     '    End If
     'End Sub
 
-    Private Sub selezionevoce()
+    Public Sub selezionevoce()
         'sospende evento textchanged
 
         UserContr.TextBox1_AbilitazioneEventoTextChanged(False)

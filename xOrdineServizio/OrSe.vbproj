@@ -117,6 +117,8 @@
   </ItemGroup>
   <ItemGroup>
     <Import Include="CrystalDecisions.CrystalReports" />
+    <Import Include="Microsoft.SqlServer" />
+    <Import Include="Microsoft.SqlServer.Types" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -207,6 +209,18 @@
       <DependentUpon>FProgressionBar.vb</DependentUpon>
     </Compile>
     <Compile Include="FProgressionBar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRevisioneTabelleDati.Designer.vb">
+      <DependentUpon>FRevisioneTabelleDati.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FRevisioneTabelleDati.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FRevisioneTMP.Designer.vb">
+      <DependentUpon>FRevisioneTMP.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FRevisioneTMP.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FRicerca.Designer.vb">
@@ -350,6 +364,12 @@
     <EmbeddedResource Include="FIntervento.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FIntervento.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRevisioneTabelleDati.resx">
+      <DependentUpon>FRevisioneTabelleDati.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FRevisioneTMP.resx">
+      <DependentUpon>FRevisioneTMP.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FRicerca.resx">
       <SubType>Designer</SubType>
