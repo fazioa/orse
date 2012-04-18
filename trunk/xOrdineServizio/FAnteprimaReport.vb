@@ -171,4 +171,22 @@ Public Class FanteprimaReport
             cr.Close()
         End If
     End Sub
+
+
+ 
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        esporta(_tipo, tipoFile.PDF)
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        esporta(_tipo, tipoFile.WORD)
+    End Sub
+
+  
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        CrystalReportViewer.PrintReport()
+    End Sub
+
+   
 End Class

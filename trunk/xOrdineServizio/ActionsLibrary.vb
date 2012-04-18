@@ -1164,6 +1164,11 @@ Public Class ActionsLibrary
         updateSW.ripristinaBackupPreferenze()
     End Sub
 
+    ''' <summary>
+    ''' Imposta le dimensioni del form in base alle preferenze generali
+    ''' </summary>
+    ''' <param name="f"></param>
+    ''' <remarks></remarks>
     Sub setStandardFormSize(ByVal f As Form)
         f.Size = New Size(My.Settings.formWidth, My.Settings.formHeight)
         f.StartPosition = FormStartPosition.CenterScreen
@@ -1274,6 +1279,11 @@ Public Class ActionsLibrary
                 End If
             End While
         End If
+    End Sub
+
+    Shared Sub doApriFormRevisioneTabelle()
+        Dim f As New FRevisioneTabelleDati
+        f.Show()
     End Sub
 
 End Class
