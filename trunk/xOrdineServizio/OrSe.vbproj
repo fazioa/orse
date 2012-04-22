@@ -368,9 +368,6 @@
     <EmbeddedResource Include="FRevisioneTabelleDati.resx">
       <DependentUpon>FRevisioneTabelleDati.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FRevisioneTMP.resx">
-      <DependentUpon>FRevisioneTMP.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FRicerca.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FRicerca.vb</DependentUpon>
