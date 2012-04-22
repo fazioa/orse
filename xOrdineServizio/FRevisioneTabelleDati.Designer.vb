@@ -27,14 +27,10 @@ Partial Class FRevisioneTabelleDati
         Me.TabControl1 = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.LuoghicontrolloDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.LuoghicontrolloBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.TabPage2 = New System.Windows.Forms.TabPage()
         Me.ModelliMezzoDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ModelliMezzoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LuoghicontrolloTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.luoghicontrolloTableAdapter()
         Me.LuoghicontrolloBindingNavigator = New System.Windows.Forms.BindingNavigator(Me.components)
@@ -53,6 +49,12 @@ Partial Class FRevisioneTabelleDati
         Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnUnisci = New System.Windows.Forms.Button()
+        Me.idLuogo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.luogo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idMezzo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.mezzo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.LuoghicontrolloDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,6 +78,7 @@ Partial Class FRevisioneTabelleDati
         Me.TabControl1.SelectedIndex = 0
         Me.TabControl1.Size = New System.Drawing.Size(779, 372)
         Me.TabControl1.TabIndex = 0
+        Me.TabControl1.Tag = ""
         '
         'TabPage1
         '
@@ -86,6 +89,7 @@ Partial Class FRevisioneTabelleDati
         Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage1.Size = New System.Drawing.Size(771, 346)
         Me.TabPage1.TabIndex = 0
+        Me.TabPage1.Tag = "luoghi"
         Me.TabPage1.Text = "Luoghi controllo"
         Me.TabPage1.UseVisualStyleBackColor = True
         '
@@ -93,26 +97,13 @@ Partial Class FRevisioneTabelleDati
         '
         Me.LuoghicontrolloDataGridView.AutoGenerateColumns = False
         Me.LuoghicontrolloDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.LuoghicontrolloDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
+        Me.LuoghicontrolloDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idLuogo, Me.luogo})
         Me.LuoghicontrolloDataGridView.DataSource = Me.LuoghicontrolloBindingSource
         Me.LuoghicontrolloDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.LuoghicontrolloDataGridView.Location = New System.Drawing.Point(3, 3)
         Me.LuoghicontrolloDataGridView.Name = "LuoghicontrolloDataGridView"
         Me.LuoghicontrolloDataGridView.Size = New System.Drawing.Size(765, 340)
         Me.LuoghicontrolloDataGridView.TabIndex = 0
-        '
-        'DataGridViewTextBoxColumn1
-        '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "id"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
-        '
-        'DataGridViewTextBoxColumn2
-        '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "luogo"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "luogo"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
         '
         'LuoghicontrolloBindingSource
         '
@@ -133,6 +124,7 @@ Partial Class FRevisioneTabelleDati
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(771, 346)
         Me.TabPage2.TabIndex = 1
+        Me.TabPage2.Tag = "mezzi"
         Me.TabPage2.Text = "Mezzi"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
@@ -140,25 +132,13 @@ Partial Class FRevisioneTabelleDati
         '
         Me.ModelliMezzoDataGridView.AutoGenerateColumns = False
         Me.ModelliMezzoDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.ModelliMezzoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4})
+        Me.ModelliMezzoDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idMezzo, Me.mezzo})
         Me.ModelliMezzoDataGridView.DataSource = Me.ModelliMezzoBindingSource
+        Me.ModelliMezzoDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ModelliMezzoDataGridView.Location = New System.Drawing.Point(3, 3)
         Me.ModelliMezzoDataGridView.Name = "ModelliMezzoDataGridView"
         Me.ModelliMezzoDataGridView.Size = New System.Drawing.Size(765, 340)
         Me.ModelliMezzoDataGridView.TabIndex = 0
-        '
-        'DataGridViewTextBoxColumn3
-        '
-        Me.DataGridViewTextBoxColumn3.DataPropertyName = "id"
-        Me.DataGridViewTextBoxColumn3.HeaderText = "id"
-        Me.DataGridViewTextBoxColumn3.Name = "DataGridViewTextBoxColumn3"
-        '
-        'DataGridViewTextBoxColumn4
-        '
-        Me.DataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn4.DataPropertyName = "mezzo"
-        Me.DataGridViewTextBoxColumn4.HeaderText = "mezzo"
-        Me.DataGridViewTextBoxColumn4.Name = "DataGridViewTextBoxColumn4"
         '
         'ModelliMezzoBindingSource
         '
@@ -288,6 +268,8 @@ Partial Class FRevisioneTabelleDati
         'FlowLayoutPanel1
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.Button1)
+        Me.FlowLayoutPanel1.Controls.Add(Me.btnUnisci)
+        Me.FlowLayoutPanel1.Controls.Add(Me.Button2)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 372)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
@@ -303,6 +285,52 @@ Partial Class FRevisioneTabelleDati
         Me.Button1.TabIndex = 0
         Me.Button1.Text = "Elimina voci inutilizzate"
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.AutoSize = True
+        Me.Button2.Location = New System.Drawing.Point(263, 3)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(124, 23)
+        Me.Button2.TabIndex = 1
+        Me.Button2.Text = "Salva tutto"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
+        'btnUnisci
+        '
+        Me.btnUnisci.AutoSize = True
+        Me.btnUnisci.Location = New System.Drawing.Point(133, 3)
+        Me.btnUnisci.Name = "btnUnisci"
+        Me.btnUnisci.Size = New System.Drawing.Size(124, 23)
+        Me.btnUnisci.TabIndex = 2
+        Me.btnUnisci.Text = "Unisci..."
+        Me.btnUnisci.UseVisualStyleBackColor = True
+        '
+        'idLuogo
+        '
+        Me.idLuogo.DataPropertyName = "id"
+        Me.idLuogo.HeaderText = "id"
+        Me.idLuogo.Name = "idLuogo"
+        '
+        'luogo
+        '
+        Me.luogo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.luogo.DataPropertyName = "luogo"
+        Me.luogo.HeaderText = "luogo"
+        Me.luogo.Name = "luogo"
+        '
+        'idMezzo
+        '
+        Me.idMezzo.DataPropertyName = "id"
+        Me.idMezzo.HeaderText = "id"
+        Me.idMezzo.Name = "idMezzo"
+        '
+        'mezzo
+        '
+        Me.mezzo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.mezzo.DataPropertyName = "mezzo"
+        Me.mezzo.HeaderText = "mezzo"
+        Me.mezzo.Name = "mezzo"
         '
         'FRevisioneTabelleDati
         '
@@ -356,8 +384,10 @@ Partial Class FRevisioneTabelleDati
     Friend WithEvents ModelliMezzoDataGridView As System.Windows.Forms.DataGridView
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents Button1 As System.Windows.Forms.Button
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn3 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn4 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnUnisci As System.Windows.Forms.Button
+    Friend WithEvents idLuogo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents luogo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents idMezzo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents mezzo As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
