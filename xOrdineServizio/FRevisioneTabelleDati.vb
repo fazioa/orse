@@ -16,7 +16,7 @@
         ModelliMezzoDataGridView.ReadOnly = False
     End Sub
 
-    Private Sub LuoghicontrolloBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles LuoghicontrolloBindingNavigatorSaveItem.Click
+    Private Sub LuoghicontrolloBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Me.Validate()
         Me.LuoghicontrolloBindingSource.EndEdit()
         Me.LuoghicontrolloTableAdapter.Update(Me.DbAlegatoADataSet.luoghicontrollo)
@@ -34,7 +34,7 @@
     End Sub
 
 
-    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+    Private Sub btnEliminaVoci_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminaVoci.Click
         'query per cancellare voci non utilizzate
 
         Dim iNrMezziEliminati = feActions.esegueSQL("DELETE * FROM modelliMezzo WHERE id NOT IN (SELECT idMezzo FROM allegatoA)")
@@ -45,16 +45,30 @@
         updateDataGridView()
     End Sub
 
-    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+    Private Sub btnSalva_Click(sender As System.Object, e As System.EventArgs) Handles btnSalva.Click
+        Dim bErrFlag As Boolean = False
+
         Me.Validate()
         Me.LuoghicontrolloBindingSource.EndEdit()
-        Me.LuoghicontrolloTableAdapter.Update(Me.DbAlegatoADataSet.luoghicontrollo)
-
         Me.ModelliMezzoBindingSource.EndEdit()
-        Me.ModelliMezzoTableAdapter.Update(Me.DbAlegatoADataSet.modelliMezzo)
+        Try
+
+            Me.LuoghicontrolloTableAdapter.Update(Me.DbAlegatoADataSet.luoghicontrollo)
+        Catch ex As Exception
+            bErrFlag = True
+        End Try
+        Try
+            Me.ModelliMezzoTableAdapter.Update(Me.DbAlegatoADataSet.modelliMezzo)
+        Catch ex As Exception
+            bErrFlag = True
+        End Try
+
+        If bErrFlag Then
+            MsgBox("Impossibile eseguire la cancellazione. E' possibile che esistano informazioni collegate alla voce che si sta tentando di cancellare.", MsgBoxStyle.Exclamation, "Cancellazione")
+        End If
     End Sub
 
-    Private Sub Button3_Click(sender As System.Object, e As System.EventArgs) Handles btnUnisci.Click
+    Private Sub btnUnisci_Click(sender As System.Object, e As System.EventArgs) Handles btnUnisci.Click
         'svolgo l'unione solo sul datagrid selezionato
         Dim sSQL As String = ""
         Dim sSQLDel As String = ""
@@ -111,7 +125,7 @@
         End Select
 
         Dim sNuovaVoceRiunita As String = ""
-          Select TabControl1.SelectedTab.Text
+        Select Case TabControl1.SelectedTab.Text
             Case "Luoghi controllo"
                 sNuovaVoceRiunita = LuoghicontrolloDataGridView.SelectedRows(0).Cells.Item("luogo").Value
             Case "Mezzi"
@@ -123,5 +137,46 @@
             MsgBox("Sono state modificate " & iNrRigheModificate & " righe, ed unite nella voce """ & sNuovaVoceRiunita & """", MsgBoxStyle.Information, "Unione voci")
             feActions.esegueSQL(sSQLDel)
         End If
+    End Sub
+
+    Private Sub LuoghicontrolloDataGridView_CellValueChanged(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LuoghicontrolloDataGridView.CellValueChanged
+        Me.Validate()
+        Me.LuoghicontrolloBindingSource.EndEdit()
+        Me.LuoghicontrolloTableAdapter.Update(Me.DbAlegatoADataSet.luoghicontrollo)
+
+        updateDataGridView()
+    End Sub
+
+    Private Sub ModelliMezzoDataGridView_CellValueChanged(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ModelliMezzoDataGridView.CellValueChanged
+        Me.Validate()
+        Me.ModelliMezzoBindingSource.EndEdit()
+        Me.ModelliMezzoTableAdapter.Update(Me.DbAlegatoADataSet.modelliMezzo)
+
+        updateDataGridView()
+    End Sub
+
+
+    Private Sub UserDeletedRow(sender As System.Object, e As System.Windows.Forms.DataGridViewRowEventArgs) Handles LuoghicontrolloDataGridView.UserDeletedRow, ModelliMezzoDataGridView.UserDeletedRow
+        Dim bErrFlag As Boolean = False
+
+        Me.Validate()
+        Me.LuoghicontrolloBindingSource.EndEdit()
+        Me.ModelliMezzoBindingSource.EndEdit()
+        Try
+
+            Me.LuoghicontrolloTableAdapter.Update(Me.DbAlegatoADataSet.luoghicontrollo)
+        Catch ex As Exception
+            bErrFlag = True
+        End Try
+        Try
+            Me.ModelliMezzoTableAdapter.Update(Me.DbAlegatoADataSet.modelliMezzo)
+        Catch ex As Exception
+            bErrFlag = True
+        End Try
+
+        If bErrFlag Then
+            MsgBox("Impossibile eseguire la cancellazione. E' possibile che esistano informazioni collegate alla voce che si sta tentando di cancellare.", MsgBoxStyle.Exclamation, "Cancellazione")
+        End If
+        updateDataGridView()
     End Sub
 End Class
