@@ -217,12 +217,6 @@
     <Compile Include="FRevisioneTabelleDati.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FRevisioneTMP.Designer.vb">
-      <DependentUpon>FRevisioneTMP.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FRevisioneTMP.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="FRicerca.Designer.vb">
       <DependentUpon>FRicerca.vb</DependentUpon>
     </Compile>

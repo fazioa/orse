@@ -9,11 +9,15 @@
         feActions.setStandardFormSize(Me)
         feActions.datagridviewSetup(LuoghicontrolloDataGridView)
         feActions.datagridviewSetup(ModelliMezzoDataGridView)
+        feActions.datagridviewSetup(OperatoreDataGridView)
 
         LuoghicontrolloDataGridView.MultiSelect = True
         ModelliMezzoDataGridView.MultiSelect = True
+        OperatoreDataGridView.MultiSelect = True
+
         LuoghicontrolloDataGridView.ReadOnly = False
         ModelliMezzoDataGridView.ReadOnly = False
+        OperatoreDataGridView.ReadOnly = False
     End Sub
 
     Private Sub LuoghicontrolloBindingNavigatorSaveItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
@@ -24,6 +28,8 @@
     End Sub
 
     Private Sub FRevisioneTabelleDati_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DbAlegatoADataSet.operatore' table. You can move, or remove it, as needed.
+        Me.OperatoreTableAdapter.Fill(Me.DbAlegatoADataSet.operatore)
         updateDataGridView()
 
     End Sub
@@ -39,13 +45,14 @@
 
         Dim iNrMezziEliminati = feActions.esegueSQL("DELETE * FROM modelliMezzo WHERE id NOT IN (SELECT idMezzo FROM allegatoA)")
         Dim iNrLuoghiEliminati = feActions.esegueSQL("DELETE * FROM luoghicontrollo WHERE id NOT IN (SELECT idLuogo FROM controllo)")
+        Dim iNrOperatoriEliminati = feActions.esegueSQL("DELETE * FROM operatore WHERE id NOT IN (SELECT id FROM ordineServizio)")
         'aggiorna vista
-        MessageBox.Show("Mezzi: " & iNrMezziEliminati & vbCrLf & "Luoghi: " & iNrLuoghiEliminati, "Voci eliminate")
-
+        MessageBox.Show("Mezzi: " & iNrMezziEliminati & vbCrLf & "Luoghi: " & iNrLuoghiEliminati, "Voci eliminate" & vbCrLf & "Operatori: " & iNrOperatoriEliminati)
         updateDataGridView()
+
     End Sub
 
-    Private Sub btnSalva_Click(sender As System.Object, e As System.EventArgs) Handles btnSalva.Click
+    Private Sub btnSalva_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
         Dim bErrFlag As Boolean = False
 
         Me.Validate()
@@ -156,12 +163,13 @@
     End Sub
 
 
-    Private Sub UserDeletedRow(sender As System.Object, e As System.Windows.Forms.DataGridViewRowEventArgs) Handles LuoghicontrolloDataGridView.UserDeletedRow, ModelliMezzoDataGridView.UserDeletedRow
+    Private Sub UserDeletedRow(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowEventArgs) Handles LuoghicontrolloDataGridView.UserDeletedRow, ModelliMezzoDataGridView.UserDeletedRow, OperatoreDataGridView.UserDeletedRow
         Dim bErrFlag As Boolean = False
 
         Me.Validate()
         Me.LuoghicontrolloBindingSource.EndEdit()
         Me.ModelliMezzoBindingSource.EndEdit()
+        Me.OperatoreBindingSource.EndEdit()
         Try
 
             Me.LuoghicontrolloTableAdapter.Update(Me.DbAlegatoADataSet.luoghicontrollo)
@@ -173,10 +181,23 @@
         Catch ex As Exception
             bErrFlag = True
         End Try
+        Try
+            Me.OperatoreTableAdapter.Update(Me.DbAlegatoADataSet.operatore)
+        Catch ex As Exception
+            bErrFlag = True
+        End Try
 
         If bErrFlag Then
             MsgBox("Impossibile eseguire la cancellazione. E' possibile che esistano informazioni collegate alla voce che si sta tentando di cancellare.", MsgBoxStyle.Exclamation, "Cancellazione")
         End If
+        updateDataGridView()
+    End Sub
+
+    Private Sub OperatoreDataGridView_CellValueChanged(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles OperatoreDataGridView.CellValueChanged
+        Me.Validate()
+        Me.OperatoreBindingSource.EndEdit()
+        Me.OperatoreTableAdapter.Update(Me.DbAlegatoADataSet.operatore)
+
         updateDataGridView()
     End Sub
 End Class
