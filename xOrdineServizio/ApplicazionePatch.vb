@@ -31,6 +31,14 @@ Public Class ApplicazionePatch
         aggiornaNumeroVersione("2.60")
     End Sub
 
+    Private Sub patch5_IntegritaReferenzialeOperatori_dataAccessoOperatore()
+        'creo la tabella per la rubrica
+        'esegue update del campo luogo controllo, passando da 50 caratteri massimi a 150, inserisce il numero versione DB 2.10
+        feActions.esegueSQL("ALTER TABLE operatore ADD COLUMN dataOraUltimoUso TEXT(20)")
+        feActions.esegueSQL("ALTER TABLE ordineServizio ADD CONSTRAINT PK_integritaRefenziale FOREIGN KEY (idOperatori) REFERENCES operatore(id)")
+        aggiornaNumeroVersione("2.70")
+    End Sub
+
     Public Function doControlloVersioneDB()
         Dim versione As dbAlegatoADataSetTableAdapters.versioneTableAdapter = New dbAlegatoADataSetTableAdapters.versioneTableAdapter
         Dim sVersione As String
@@ -61,6 +69,7 @@ Public Class ApplicazionePatch
                 patch3_creazionetabellasopralluogo() '2.40
                 patch4_creazionetabellaRubrica() '2.60
             Case Is < 2.7
+                patch5_IntegritaReferenzialeOperatori_dataAccessoOperatore()
                 ' Configuration.ConfigurationSettings
                 ' My.Settings.de()
                 '   +patch1

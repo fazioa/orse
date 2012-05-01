@@ -19,35 +19,35 @@ Partial Class DInsDatiPreliminari
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim Label2 As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
         Dim OperatoriLabel As System.Windows.Forms.Label
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.Cancel_Button = New System.Windows.Forms.Button
-        Me.OK_Button = New System.Windows.Forms.Button
-        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel
-        Me.TreeViewOS = New System.Windows.Forms.TreeView
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
-        Me.OSMaskedTextBox = New System.Windows.Forms.MaskedTextBox
-        Me.OperatoriComboBox = New System.Windows.Forms.ComboBox
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Cancel_Button = New System.Windows.Forms.Button()
+        Me.OK_Button = New System.Windows.Forms.Button()
+        Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TreeViewOS = New System.Windows.Forms.TreeView()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
+        Me.OSMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        Me.OperatoriComboBox = New System.Windows.Forms.ComboBox()
         Me.OperatoreBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.QOrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
-        Me.OperatoreTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.operatoreTableAdapter
-        Me.QOrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QOrdineServizioTableAdapter
+        Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
+        Me.OperatoreTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.operatoreTableAdapter()
+        Me.QOrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QOrdineServizioTableAdapter()
         Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
+        Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter()
         Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QInterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
+        Me.QInterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter()
         Me.QSopralluogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QSopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
-        Me.Label3 = New System.Windows.Forms.Label
-        Label2 = New System.Windows.Forms.Label
-        Label1 = New System.Windows.Forms.Label
-        OperatoriLabel = New System.Windows.Forms.Label
+        Me.QSopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter()
+        Label2 = New System.Windows.Forms.Label()
+        Label1 = New System.Windows.Forms.Label()
+        OperatoriLabel = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -130,6 +130,17 @@ Partial Class DInsDatiPreliminari
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
         Me.FlowLayoutPanel1.Size = New System.Drawing.Size(667, 308)
         Me.FlowLayoutPanel1.TabIndex = 16
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!)
+        Me.Label3.Location = New System.Drawing.Point(3, 6)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(3, 6, 6, 3)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(526, 39)
+        Me.Label3.TabIndex = 0
+        Me.Label3.Text = "OrSe - Gestione ordine di servizio"
         '
         'TreeViewOS
         '
@@ -229,17 +240,6 @@ Partial Class DInsDatiPreliminari
         '
         Me.QSopralluogoTableAdapter.ClearBeforeFill = True
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 25.0!)
-        Me.Label3.Location = New System.Drawing.Point(3, 6)
-        Me.Label3.Margin = New System.Windows.Forms.Padding(3, 6, 6, 3)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(526, 39)
-        Me.Label3.TabIndex = 0
-        Me.Label3.Text = "OrSe - Gestione ordine di servizio"
-        '
         'DInsDatiPreliminari
         '
         Me.AcceptButton = Me.OK_Button
@@ -261,7 +261,7 @@ Partial Class DInsDatiPreliminari
         Me.Name = "DInsDatiPreliminari"
         Me.ShowInTaskbar = False
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DInsDatiPreliminariNew"
+        Me.Text = "OrSe - Gestione Ordine di Servizio - Inserimento dati preliminari"
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
