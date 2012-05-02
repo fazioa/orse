@@ -40,6 +40,8 @@ Partial Class FPrima
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.EseguiBackupDBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RipristinaBackupDBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
+        Me.RevisioneTabelleDatiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SessioneToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -61,6 +63,7 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnRubrica = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DbAlegatoADataSet_Unico = New OrSe.dbAlegatoADataSet()
@@ -77,8 +80,6 @@ Partial Class FPrima
         Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter()
         Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter()
         Me.VerticalLabel2 = New OrSe.verticalLabel()
-        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
-        Me.RevisioneTabelleDatiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.menu.SuspendLayout()
@@ -215,6 +216,17 @@ Partial Class FPrima
         Me.RipristinaBackupDBToolStripMenuItem.Name = "RipristinaBackupDBToolStripMenuItem"
         Me.RipristinaBackupDBToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
         Me.RipristinaBackupDBToolStripMenuItem.Text = "Ripristina backup DB e preferenze"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(247, 6)
+        '
+        'RevisioneTabelleDatiToolStripMenuItem
+        '
+        Me.RevisioneTabelleDatiToolStripMenuItem.Name = "RevisioneTabelleDatiToolStripMenuItem"
+        Me.RevisioneTabelleDatiToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
+        Me.RevisioneTabelleDatiToolStripMenuItem.Text = "Revisione tabelle dati..."
         '
         'SessioneToolStripMenuItem
         '
@@ -417,6 +429,7 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnRubrica)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.BtnVedi)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.Button1)
+        Me.FlowLayoutPanelEsterno.Controls.Add(Me.Button2)
         Me.FlowLayoutPanelEsterno.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanelEsterno.Location = New System.Drawing.Point(0, 77)
         Me.FlowLayoutPanelEsterno.Name = "FlowLayoutPanelEsterno"
@@ -448,6 +461,15 @@ Partial Class FPrima
         Me.Button1.Text = " &Cerca..."
         Me.Button1.UseCompatibleTextRendering = True
         Me.Button1.UseVisualStyleBackColor = True
+        '
+        'Button2
+        '
+        Me.Button2.Location = New System.Drawing.Point(309, 185)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(174, 23)
+        Me.Button2.TabIndex = 12
+        Me.Button2.Text = "Macchina e utente"
+        Me.Button2.UseVisualStyleBackColor = True
         '
         'Timer1
         '
@@ -527,17 +549,6 @@ Partial Class FPrima
         Me.VerticalLabel2.Size = New System.Drawing.Size(24, 114)
         Me.VerticalLabel2.TabIndex = 26
         Me.VerticalLabel2.Text = "Interventi"
-        '
-        'ToolStripSeparator4
-        '
-        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(247, 6)
-        '
-        'RevisioneTabelleDatiToolStripMenuItem
-        '
-        Me.RevisioneTabelleDatiToolStripMenuItem.Name = "RevisioneTabelleDatiToolStripMenuItem"
-        Me.RevisioneTabelleDatiToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
-        Me.RevisioneTabelleDatiToolStripMenuItem.Text = "Revisione tabelle dati..."
         '
         'FPrima
         '
@@ -657,5 +668,6 @@ Partial Class FPrima
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents RevisioneTabelleDatiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 
 End Class
