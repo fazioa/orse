@@ -1,6 +1,8 @@
 Imports System.Diagnostics
 Imports System.Threading
 Imports System.UnhandledExceptionEventArgs
+Imports System.IO
+Imports System.Security.AccessControl
 
 
 Public Class FPrima
@@ -34,17 +36,6 @@ Public Class FPrima
         If Dir(sPath) = "" Then
             MsgBox("Il file """ & sPath & ", necessario all'applicazione, non sembra essere presente. Controllare che sulla cartella di installazione """ & sPath & """ ci siano i permessi di scrittura. Eventualmente, richiedere assistenza al produttore", MsgBoxStyle.Critical, "ERRORE")
             bFlagExit = True
-
-            'Codice da inserire in una funzione o evento click del pulsante
-
-            '            For Each p As Process In Process.GetProcesses()
-
-            '            If p.Id = Process.GetCurrentProcess().Id Then
-            'MessageBox.Show("Nome Processo: " & Process.GetCurrentProcess().ProcessName)
-            'p.CloseMainWindow()
-            'p.Close()
-            'End If
-            '  Next
         End If
 
 
@@ -370,6 +361,41 @@ Public Class FPrima
 
     Private Sub RevisioneTabelleDatiToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RevisioneTabelleDatiToolStripMenuItem.Click
         ActionsLibrary.doApriFormRevisioneTabelle()
+    End Sub
+
+    Private Sub AddDirittiBase(ByVal Path As String, ByVal Account As String)
+        Try
+            Dim dInfo As New DirectoryInfo(Path)
+            Dim dSecurity As DirectorySecurity = dInfo.GetAccessControl
+
+            Dim Rule1 As New FileSystemAccessRule(New System.Security.Principal.NTAccount(Account), _
+            FileSystemRights.Traverse _
+            + FileSystemRights.Read, _
+            AccessControlType.Allow, _
+            PropagationFlags.NoPropagateInherit, _
+            AccessControlType.Allow)
+            Dim Rule2 As New FileSystemAuditRule(New System.Security.Principal.NTAccount(Account), _
+            FileSystemRights.Traverse _
+            + FileSystemRights.Read, _
+            AuditFlags.Success, _
+            PropagationFlags.NoPropagateInherit, _
+            AuditFlags.Success)
+
+            Dim Riuscita1 As Boolean
+            Dim Riuscita2 As Boolean
+
+            dSecurity.ModifyAccessRule(AccessControlModification.Add, Rule1, Riuscita1)
+            dSecurity.ModifyAuditRule(AccessControlModification.Add, Rule2, Riuscita2)
+
+            dInfo.SetAccessControl(dSecurity)
+
+        Catch ex As Exception
+        End Try
+
+    End Sub
+
+    Private Sub userBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        MessageBox.Show(My.User.Name & vbCrLf & My.User.CurrentPrincipal.Identity.Name & vbCrLf & My.Computer.Name & vbCrLf & Application.LocalUserAppDataPath)
     End Sub
 End Class
 
