@@ -28,8 +28,6 @@
     End Sub
 
     Private Sub FRevisioneTabelleDati_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DbAlegatoADataSet.operatore' table. You can move, or remove it, as needed.
-        Me.OperatoreTableAdapter.Fill(Me.DbAlegatoADataSet.operatore)
         updateDataGridView()
 
     End Sub
@@ -37,17 +35,18 @@
     Private Sub updateDataGridView()
         Me.ModelliMezzoTableAdapter.Fill(Me.DbAlegatoADataSet.modelliMezzo)
         Me.LuoghicontrolloTableAdapter.Fill(Me.DbAlegatoADataSet.luoghicontrollo)
+        Me.OperatoreTableAdapter.Fill(Me.DbAlegatoADataSet.operatore)
     End Sub
 
 
     Private Sub btnEliminaVoci_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEliminaVoci.Click
         'query per cancellare voci non utilizzate
 
-        Dim iNrMezziEliminati = feActions.esegueSQL("DELETE * FROM modelliMezzo WHERE id NOT IN (SELECT idMezzo FROM allegatoA)")
-        Dim iNrLuoghiEliminati = feActions.esegueSQL("DELETE * FROM luoghicontrollo WHERE id NOT IN (SELECT idLuogo FROM controllo)")
-        Dim iNrOperatoriEliminati = feActions.esegueSQL("DELETE * FROM operatore WHERE id NOT IN (SELECT id FROM ordineServizio)")
+        Dim iNrMezziEliminati = feActions.esegueSQL("DELETE * FROM modelliMezzo as m WHERE id NOT IN (SELECT idMezzo FROM allegatoA where idmezzo = m.id)")
+        Dim iNrLuoghiEliminati = feActions.esegueSQL("DELETE * FROM luoghicontrollo as m WHERE id NOT IN (SELECT idLuogo FROM controllo WHERE idLuogo=m.id )")
+        Dim iNrOperatoriEliminati = feActions.esegueSQL("DELETE * FROM operatore as m WHERE id NOT IN (SELECT id FROM ordineServizio WHERE id=m.id)")
         'aggiorna vista
-        MessageBox.Show("Mezzi: " & iNrMezziEliminati & vbCrLf & "Luoghi: " & iNrLuoghiEliminati, "Voci eliminate" & vbCrLf & "Operatori: " & iNrOperatoriEliminati)
+        MessageBox.Show("Mezzi: " & iNrMezziEliminati & vbCrLf & "Luoghi: " & iNrLuoghiEliminati & vbCrLf & "Operatori: " & iNrOperatoriEliminati, "Voci eliminate")
         updateDataGridView()
 
     End Sub
@@ -121,7 +120,32 @@
                     sSQL = sSQL & " idMezzo= " & ModelliMezzoDataGridView.SelectedRows(i).Cells.Item("idMezzo").Value
                     sSQLDel = sSQLDel & " id= " & ModelliMezzoDataGridView.SelectedRows(i).Cells.Item("idMezzo").Value
                     i += 1
-                    If i >= LuoghicontrolloDataGridView.SelectedRows.Count Then
+                    If i >= ModelliMezzoDataGridView.SelectedRows.Count Then
+                        bFlag = False
+                    Else
+                        sTmp = " OR "
+                        sSQL = sSQL & sTmp
+                        sSQLDel = sSQLDel & sTmp
+                    End If
+                End While
+
+
+            Case "Operatori"
+                Dim iValorePrimaRiga As Integer = OperatoreDataGridView.SelectedRows(0).Cells.Item("idOperatore").Value
+                'se è selezionata solo una righa allora esci dal ciclo
+                If OperatoreDataGridView.SelectedRows.Count <= 1 Then
+                    bFlag = False
+                Else
+                    sSQL = "UPDATE ordineServizio SET idOperatori=" & iValorePrimaRiga & " WHERE "
+                    sSQLDel = "DELETE * FROM operatore WHERE "
+                End If
+                'nota: il ciclo parte da 1, perchè il val 0 è usato come valore da sostituire a tutte le altre righe
+                Dim sTmp As String = ""
+                While (bFlag)
+                    sSQL = sSQL & " idOperatori= " & OperatoreDataGridView.SelectedRows(i).Cells.Item("idOperatore").Value
+                    sSQLDel = sSQLDel & " id= " & OperatoreDataGridView.SelectedRows(i).Cells.Item("idOperatore").Value
+                    i += 1
+                    If i >= OperatoreDataGridView.SelectedRows.Count Then
                         bFlag = False
                     Else
                         sTmp = " OR "
@@ -137,13 +161,18 @@
                 sNuovaVoceRiunita = LuoghicontrolloDataGridView.SelectedRows(0).Cells.Item("luogo").Value
             Case "Mezzi"
                 sNuovaVoceRiunita = ModelliMezzoDataGridView.SelectedRows(0).Cells.Item("mezzo").Value
+            Case "Operatori"
+                sNuovaVoceRiunita = OperatoreDataGridView.SelectedRows(0).Cells.Item("operatori").Value
         End Select
-        updateDataGridView()
+
         If Not String.IsNullOrEmpty(sSQL) Then
             Dim iNrRigheModificate As Integer = feActions.esegueSQL(sSQL)
             MsgBox("Sono state modificate " & iNrRigheModificate & " righe, ed unite nella voce """ & sNuovaVoceRiunita & """", MsgBoxStyle.Information, "Unione voci")
             feActions.esegueSQL(sSQLDel)
         End If
+
+
+        updateDataGridView()
     End Sub
 
     Private Sub LuoghicontrolloDataGridView_CellValueChanged(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LuoghicontrolloDataGridView.CellValueChanged
@@ -198,6 +227,10 @@
         Me.OperatoreBindingSource.EndEdit()
         Me.OperatoreTableAdapter.Update(Me.DbAlegatoADataSet.operatore)
 
+        updateDataGridView()
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
         updateDataGridView()
     End Sub
 End Class
