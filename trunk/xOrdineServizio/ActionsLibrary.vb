@@ -1196,7 +1196,7 @@ Public Class ActionsLibrary
         'dgv.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells
         dgv.RowHeadersVisible = False
         dgv.AllowUserToResizeColumns = True
-        dgv.AllowUserToResizeRows = True
+        dgv.AllowUserToResizeRows = False
         dgv.AllowUserToAddRows = False
         dgv.ReadOnly = True
         '----------------

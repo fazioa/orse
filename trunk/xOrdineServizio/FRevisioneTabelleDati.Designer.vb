@@ -35,17 +35,18 @@ Partial Class FRevisioneTabelleDati
         Me.idMezzo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.mezzo = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ModelliMezzoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TabPage3 = New System.Windows.Forms.TabPage()
+        Me.OperatoreDataGridView = New System.Windows.Forms.DataGridView()
+        Me.OperatoreBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.LuoghicontrolloTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.luoghicontrolloTableAdapter()
         Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnEliminaVoci = New System.Windows.Forms.Button()
         Me.btnUnisci = New System.Windows.Forms.Button()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
-        Me.OperatoreBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OperatoreTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.operatoreTableAdapter()
-        Me.OperatoreDataGridView = New System.Windows.Forms.DataGridView()
-        Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idOperatore = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.operatori = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TabControl1.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.LuoghicontrolloDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -54,10 +55,10 @@ Partial Class FRevisioneTabelleDati
         Me.TabPage2.SuspendLayout()
         CType(Me.ModelliMezzoDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ModelliMezzoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.FlowLayoutPanel1.SuspendLayout()
         Me.TabPage3.SuspendLayout()
-        CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OperatoreDataGridView, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.FlowLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'TabControl1
@@ -164,6 +165,34 @@ Partial Class FRevisioneTabelleDati
         Me.ModelliMezzoBindingSource.DataMember = "modelliMezzo"
         Me.ModelliMezzoBindingSource.DataSource = Me.DbAlegatoADataSet
         '
+        'TabPage3
+        '
+        Me.TabPage3.Controls.Add(Me.OperatoreDataGridView)
+        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
+        Me.TabPage3.Name = "TabPage3"
+        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
+        Me.TabPage3.Size = New System.Drawing.Size(771, 361)
+        Me.TabPage3.TabIndex = 2
+        Me.TabPage3.Text = "Operatori"
+        Me.TabPage3.UseVisualStyleBackColor = True
+        '
+        'OperatoreDataGridView
+        '
+        Me.OperatoreDataGridView.AutoGenerateColumns = False
+        Me.OperatoreDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.OperatoreDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.idOperatore, Me.operatori})
+        Me.OperatoreDataGridView.DataSource = Me.OperatoreBindingSource
+        Me.OperatoreDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.OperatoreDataGridView.Location = New System.Drawing.Point(3, 3)
+        Me.OperatoreDataGridView.Name = "OperatoreDataGridView"
+        Me.OperatoreDataGridView.Size = New System.Drawing.Size(765, 355)
+        Me.OperatoreDataGridView.TabIndex = 0
+        '
+        'OperatoreBindingSource
+        '
+        Me.OperatoreBindingSource.DataMember = "operatore"
+        Me.OperatoreBindingSource.DataSource = Me.DbAlegatoADataSet
+        '
         'LuoghicontrolloTableAdapter
         '
         Me.LuoghicontrolloTableAdapter.ClearBeforeFill = True
@@ -176,6 +205,7 @@ Partial Class FRevisioneTabelleDati
         '
         Me.FlowLayoutPanel1.Controls.Add(Me.btnEliminaVoci)
         Me.FlowLayoutPanel1.Controls.Add(Me.btnUnisci)
+        Me.FlowLayoutPanel1.Controls.Add(Me.Button1)
         Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 387)
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
@@ -202,50 +232,32 @@ Partial Class FRevisioneTabelleDati
         Me.btnUnisci.Text = "Unisci..."
         Me.btnUnisci.UseVisualStyleBackColor = True
         '
-        'TabPage3
-        '
-        Me.TabPage3.Controls.Add(Me.OperatoreDataGridView)
-        Me.TabPage3.Location = New System.Drawing.Point(4, 22)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(771, 361)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "Operatori"
-        Me.TabPage3.UseVisualStyleBackColor = True
-        '
-        'OperatoreBindingSource
-        '
-        Me.OperatoreBindingSource.DataMember = "operatore"
-        Me.OperatoreBindingSource.DataSource = Me.DbAlegatoADataSet
-        '
         'OperatoreTableAdapter
         '
         Me.OperatoreTableAdapter.ClearBeforeFill = True
         '
-        'OperatoreDataGridView
+        'idOperatore
         '
-        Me.OperatoreDataGridView.AutoGenerateColumns = False
-        Me.OperatoreDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.OperatoreDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.DataGridViewTextBoxColumn2})
-        Me.OperatoreDataGridView.DataSource = Me.OperatoreBindingSource
-        Me.OperatoreDataGridView.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.OperatoreDataGridView.Location = New System.Drawing.Point(3, 3)
-        Me.OperatoreDataGridView.Name = "OperatoreDataGridView"
-        Me.OperatoreDataGridView.Size = New System.Drawing.Size(765, 355)
-        Me.OperatoreDataGridView.TabIndex = 0
+        Me.idOperatore.DataPropertyName = "id"
+        Me.idOperatore.HeaderText = "id"
+        Me.idOperatore.Name = "idOperatore"
         '
-        'DataGridViewTextBoxColumn1
+        'operatori
         '
-        Me.DataGridViewTextBoxColumn1.DataPropertyName = "id"
-        Me.DataGridViewTextBoxColumn1.HeaderText = "id"
-        Me.DataGridViewTextBoxColumn1.Name = "DataGridViewTextBoxColumn1"
+        Me.operatori.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.operatori.DataPropertyName = "operatori"
+        Me.operatori.HeaderText = "operatori"
+        Me.operatori.Name = "operatori"
         '
-        'DataGridViewTextBoxColumn2
+        'Button1
         '
-        Me.DataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.DataGridViewTextBoxColumn2.DataPropertyName = "operatori"
-        Me.DataGridViewTextBoxColumn2.HeaderText = "operatori"
-        Me.DataGridViewTextBoxColumn2.Name = "DataGridViewTextBoxColumn2"
+        Me.Button1.AutoSize = True
+        Me.Button1.Location = New System.Drawing.Point(263, 3)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(124, 23)
+        Me.Button1.TabIndex = 3
+        Me.Button1.Text = "update"
+        Me.Button1.UseVisualStyleBackColor = True
         '
         'FRevisioneTabelleDati
         '
@@ -264,11 +276,11 @@ Partial Class FRevisioneTabelleDati
         Me.TabPage2.ResumeLayout(False)
         CType(Me.ModelliMezzoDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ModelliMezzoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabPage3.ResumeLayout(False)
+        CType(Me.OperatoreDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FlowLayoutPanel1.ResumeLayout(False)
         Me.FlowLayoutPanel1.PerformLayout()
-        Me.TabPage3.ResumeLayout(False)
-        CType(Me.OperatoreBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.OperatoreDataGridView, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -293,6 +305,7 @@ Partial Class FRevisioneTabelleDati
     Friend WithEvents OperatoreBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents OperatoreTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.operatoreTableAdapter
     Friend WithEvents OperatoreDataGridView As System.Windows.Forms.DataGridView
-    Friend WithEvents DataGridViewTextBoxColumn1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents DataGridViewTextBoxColumn2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents idOperatore As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents operatori As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
