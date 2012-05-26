@@ -22,9 +22,13 @@ Public Class FPrima
 
 
     Public Sub New()
+        
+
         'controllo se il file del DB è presente, altrimenti restituisco errore ed esco dall'applicazione
 
         Dim pathDB As String = Application.StartupPath
+
+        'Dim pathDB As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData
 
         Dim sPath = pathDB & "\dbAlegatoA.mdb"
 
@@ -34,11 +38,11 @@ Public Class FPrima
 
         'elimino il file dbAlegatoA2, nel caso sia presente
         If Dir(sPath) = "" Then
-            MsgBox("Il file """ & sPath & ", necessario all'applicazione, non sembra essere presente. Controllare che sulla cartella di installazione """ & sPath & """ ci siano i permessi di scrittura. Eventualmente, richiedere assistenza al produttore", MsgBoxStyle.Critical, "ERRORE")
+            '     MsgBox("Il file """ & sPath & ", necessario all'applicazione, non sembra essere presente.", MsgBoxStyle.Critical, "ERRORE")
             bFlagExit = True
         End If
 
-
+        'se il DB non è raggiungibile allora non viene eseguito InitializeComponent e l'app termina 
         If Not bFlagExit Then
             Try
                 Dim compatta As New CompattaRipristina
@@ -50,19 +54,30 @@ Public Class FPrima
 
             '======= Controlla la versione del software e si cura di effettuare eventuali modifiche sul DB)
             Dim versioneDBattuale As Double = appPatch.doControlloVersioneDB()
+
+            'controllo se il DB è presente
+
+            Dim bDBPresente As Boolean = True
+            If Dir(sPath) = "" Then bDBPresente = False
+            MsgBox("Path: " & sPath & " - Versione DB rilevata: " & versioneDBattuale & " - File DB presente: " & bDBPresente)
+
             '===========================================================================================
-            If (Double.Parse(My.Settings.versioneDB.Replace(".", ",")) > versioneDBattuale) Then
-                Dim s As New InfoScreen
-                s.aggiornamentoDB(My.Settings.versioneDB)
+            If (Double.Parse(My.Settings.versioneDB.Replace(".", ",")) > versioneDBattuale) And bDBPresente Then
+                Dim sInfoScreen As New InfoScreen
+                sInfoScreen.aggiornamentoDB(My.Settings.versioneDB)
                 'lanciare aggiornaVersioneDB indicando la vecchia versione rilevata
                 appPatch.aggiornaversioneVersioneDB(versioneDBattuale)
             End If
 
 
-            ' This call is required by the Windows Form Designer.
-            InitializeComponent()
-            ' Add any initialization after the InitializeComponent() call.
+            If Not bDBPresente Then
+                MsgBox("Errore: DB non presente. " & Dir(sPath), MsgBoxStyle.Critical, "Errore di avvio")
+            Else
 
+                ' This call is required by the Windows Form Designer.
+                InitializeComponent()
+                ' Add any initialization after the InitializeComponent() call.
+            End If
         End If
     End Sub
 
