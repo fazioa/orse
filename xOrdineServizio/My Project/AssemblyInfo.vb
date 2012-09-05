@@ -14,7 +14,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Software per la pattuglia  - Inserimento interventi e soggetti identificati. Stampa report interventi ed allegatoA")> 
 <Assembly: AssemblyCompany("Antonino Fazio")> 
 <Assembly: AssemblyProduct("OrSe")> 
-<Assembly: AssemblyCopyright("Copyright ©  2008-2011")> 
+<Assembly: AssemblyCopyright("Copyright ©  2008-2012")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(True)> 

@@ -66,7 +66,7 @@ Public Class DInserimentoLuogoControllo
                 If Not bFlagModalitaModifica Then
                     ' QUI se sono in modalitò inserimento
                     'inserisce la riga nella tabella controllo
-                    ControlloTableAdapter.Insert(DateTimePickerOra.Value, cbLuogoControllo.getSelectedID, parametri.idOS)
+                    ControlloTableAdapter.Insert(DateTimePickerOra.Value, parametri.idOS, cbLuogoControllo.getSelectedID)
                     'leggo l'indice della riga inserita
                     parametri.idControllo = Me.ControlloTableAdapter.MaxID()
 
@@ -110,4 +110,6 @@ Public Class DInserimentoLuogoControllo
             Me.OK_Button.Enabled = False
         End If
     End Sub
+
+    
 End Class

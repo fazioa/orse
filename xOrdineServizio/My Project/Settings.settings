@@ -14,14 +14,6 @@
     <Setting Name="comune" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)">Santa Maria a Monte (PI)</Value>
     </Setting>
-    <Setting Name="dbAlegatoAConnectionString" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\dbAlegatoA.mdb&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.OleDb&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\dbAlegatoA.mdb</Value>
-    </Setting>
     <Setting Name="GruppoFirmaInterinaleRiga1" Type="System.String" Scope="User">
       <Value Profile="(Default)">IL COMANDANTE int.</Value>
     </Setting>
@@ -84,6 +76,17 @@
     </Setting>
     <Setting Name="segnalazioneErroreConScreenshot" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="dbAlegatoAConnectionString" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\dbAlegatoA.mdb&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.OleDb&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\dbAlegatoA.mdb</Value>
+    </Setting>
+    <Setting Name="tmp" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Dsn=MS Access Database;dbq=C:\Users\tonix\Desktop\OrSeVB2010\xOrdineServizio\dbAlegatoA.mdb;driverid=25;fil=MS Access;maxbuffersize=2048;pagetimeout=5</Value>
     </Setting>
   </Settings>
 </SettingsFile>

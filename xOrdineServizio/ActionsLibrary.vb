@@ -122,7 +122,7 @@ Public Class ActionsLibrary
         db = New dbAlegatoADataSet()
     End Sub
     'restituisce una stringa costituita da anno mese giorno ora minuti secondi
-    Public Function getTimeStamp() As String
+    Public Shared Function getTimeStamp() As String
         Dim d As Date = DateTime.Now
         getTimeStamp = d.Year & Format(d.Month, "d2") & Format(d.Day, "d2") & Format(d.Hour, "d2") & Format(d.Minute, "d2") & Format(d.Second, "d2")
     End Function
@@ -226,7 +226,7 @@ Public Class ActionsLibrary
         Try
             If (sender.Text.Trim.Length > 0 And sender.FindStringExact(sender.Text.Trim) < 0) Then
                 log.xlogWriteEntry("Inserimento """ & sender.Text & """ nella tabella """ & datasetTable.ToString & """", TraceEventType.Critical)
-                tableAdapter.Insert(sender.Text)
+                tableAdapter.Insert(sender.Text, getTimeStamp())
                 Dim sTemp = sender.Text
                 tableAdapter.Fill(datasetTable)
                 sender.Text = sTemp
@@ -807,7 +807,7 @@ Public Class ActionsLibrary
 
 
                 log.xlogWriteEntry("Inserimento persona, Cognome e Nome: " & sCognome & " " & sNome, TraceEventType.Critical)
-                t.Insert(sCognome, sNome, idLuogoNascita, sResidenzaIndirizzo, idLuogoResidenza, sDocumento, sPrecedenti, bPio, dDataNascita)
+                t.Insert(sCognome, sNome, dDataNascita, idLuogoNascita, sResidenzaIndirizzo, idLuogoResidenza, sDocumento, sPrecedenti, bPio)
                 idPersona = t.MaxID
             End If
         End If
@@ -931,7 +931,7 @@ Public Class ActionsLibrary
             id = d.Item(0).id
         Else
             log.xlogWriteEntry("Inserimento """ & s & """ nella tabella """ & d.ToString & """", TraceEventType.Critical)
-            If (t.Insert(s) > 0) Then
+            If (t.Insert(s, ActionsLibrary.getTimeStamp()) > 0) Then
                 id = t.ScalarQuery_lastID()
             Else
                 log.xlogWriteEntry("Errore nell'inserimento degli operatori", TraceEventType.Error)
@@ -1052,6 +1052,7 @@ Public Class ActionsLibrary
             cancellaTabellaControllo()
             cancellaTabellaPersone()
             cancellaTabellaMezzo()
+
 
 
             cancellaTabellaInterventi()

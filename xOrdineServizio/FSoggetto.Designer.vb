@@ -330,7 +330,7 @@ Partial Class FSoggetto
         'tbNome
         '
         Me.tbNome.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbNome.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "nome", True))
         Me.tbNome.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNome.Location = New System.Drawing.Point(464, 11)
@@ -342,7 +342,7 @@ Partial Class FSoggetto
         'tbDocumento
         '
         Me.tbDocumento.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbDocumento.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "documento", True))
         Me.tbDocumento.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbDocumento.Location = New System.Drawing.Point(172, 13)
@@ -374,8 +374,8 @@ Partial Class FSoggetto
         'tbPrecedenti
         '
         Me.tbPrecedenti.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbPrecedenti.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "precedenti", True))
         Me.tbPrecedenti.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbPrecedenti.Location = New System.Drawing.Point(12, 90)
@@ -389,8 +389,8 @@ Partial Class FSoggetto
         'tbNote
         '
         Me.tbNote.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbNote.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.AllegatoABindingSource, "NOTE", True))
         Me.tbNote.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbNote.Location = New System.Drawing.Point(94, 19)
@@ -516,7 +516,7 @@ Partial Class FSoggetto
         'GroupBoxResidenza
         '
         Me.GroupBoxResidenza.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxResidenza.Controls.Add(Me.ComboBoxComuneResidenza)
         Me.GroupBoxResidenza.Controls.Add(ResidenzaLabel)
         Me.GroupBoxResidenza.Controls.Add(Me.tbIndirizzo)
@@ -555,7 +555,7 @@ Partial Class FSoggetto
         'tbIndirizzo
         '
         Me.tbIndirizzo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbIndirizzo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "residenzaindirizzo", True))
         Me.tbIndirizzo.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbIndirizzo.Location = New System.Drawing.Point(520, 12)
@@ -568,7 +568,7 @@ Partial Class FSoggetto
         'GroupBoxDatiAnagrafici
         '
         Me.GroupBoxDatiAnagrafici.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxDatiAnagrafici.Controls.Add(Me.DataNascitaMaskedTextBox)
         Me.GroupBoxDatiAnagrafici.Controls.Add(Me.ComboBoxComuneNascita)
         Me.GroupBoxDatiAnagrafici.Controls.Add(DatanascitaLabel)
@@ -594,11 +594,12 @@ Partial Class FSoggetto
         Me.DataNascitaMaskedTextBox.Name = "DataNascitaMaskedTextBox"
         Me.DataNascitaMaskedTextBox.Size = New System.Drawing.Size(177, 41)
         Me.DataNascitaMaskedTextBox.TabIndex = 60
+        Me.DataNascitaMaskedTextBox.ValidatingType = GetType(Date)
         '
         'ComboBoxComuneNascita
         '
         Me.ComboBoxComuneNascita.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBoxComuneNascita.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.PersonaBindingSource, "idLuogoNascita", True))
         Me.ComboBoxComuneNascita.DataSource = Me.ComuneNascitaBindingSource
         Me.ComboBoxComuneNascita.DisplayMember = "citta"
@@ -618,7 +619,7 @@ Partial Class FSoggetto
         'GroupBoxMezzo
         '
         Me.GroupBoxMezzo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBoxMezzo.Controls.Add(Me.ComboBoxModelliMezzo)
         Me.GroupBoxMezzo.Controls.Add(IdMezzoLabel)
         Me.GroupBoxMezzo.Controls.Add(Me.tbColore)
@@ -635,7 +636,7 @@ Partial Class FSoggetto
         'ComboBoxModelliMezzo
         '
         Me.ComboBoxModelliMezzo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.ComboBoxModelliMezzo.AutoValidate = System.Windows.Forms.AutoValidate.Disable
         Me.ComboBoxModelliMezzo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.ComboBoxModelliMezzo.CausesValidation = False
@@ -652,7 +653,7 @@ Partial Class FSoggetto
         'GroupBox6
         '
         Me.GroupBox6.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox6.Controls.Add(Me.tbPrecedenti)
         Me.GroupBox6.Controls.Add(PrecedentiLabel)
         Me.GroupBox6.Controls.Add(PositivoSDILabel)
@@ -667,7 +668,7 @@ Partial Class FSoggetto
         'GroupBox7
         '
         Me.GroupBox7.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox7.Controls.Add(Me.tbDocumento)
         Me.GroupBox7.Controls.Add(DocumentoLabel)
         Me.GroupBox7.Location = New System.Drawing.Point(12, 312)
@@ -680,8 +681,8 @@ Partial Class FSoggetto
         'GroupBox8
         '
         Me.GroupBox8.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox8.Controls.Add(NOTELabel)
         Me.GroupBox8.Controls.Add(Me.tbNote)
         Me.GroupBox8.Location = New System.Drawing.Point(12, 410)
@@ -694,7 +695,7 @@ Partial Class FSoggetto
         'Panel1
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Panel1.Controls.Add(ContravvenzioniLabel)
         Me.Panel1.Controls.Add(Me.PerquisizioneCheckBox)
         Me.Panel1.Controls.Add(PerquisizioneLabel)

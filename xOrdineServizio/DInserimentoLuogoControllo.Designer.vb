@@ -19,21 +19,21 @@ Partial Class DInserimentoLuogoControllo
     'Non modificarla nell'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim Label3 As System.Windows.Forms.Label
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.Cancel_Button = New System.Windows.Forms.Button
-        Me.OK_Button = New System.Windows.Forms.Button
-        Me.LabelPostoControllo = New System.Windows.Forms.Label
-        Me.Label1 = New System.Windows.Forms.Label
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.Cancel_Button = New System.Windows.Forms.Button()
+        Me.OK_Button = New System.Windows.Forms.Button()
+        Me.LabelPostoControllo = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
         Me.ControlloBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.LuoghicontrolloBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.LuoghicontrolloTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.luoghicontrolloTableAdapter
-        Me.ControlloTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.controlloTableAdapter
-        Me.DateTimePickerOra = New System.Windows.Forms.DateTimePicker
-        Me.cbLuogoControllo = New OrSe.UserControlComboBox
-        Label3 = New System.Windows.Forms.Label
+        Me.LuoghicontrolloTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.luoghicontrolloTableAdapter()
+        Me.ControlloTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.controlloTableAdapter()
+        Me.DateTimePickerOra = New System.Windows.Forms.DateTimePicker()
+        Me.cbLuogoControllo = New OrSe.UserControlComboBox()
+        Label3 = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.ControlloBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -141,7 +141,7 @@ Partial Class DInserimentoLuogoControllo
         'cbLuogoControllo
         '
         Me.cbLuogoControllo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.cbLuogoControllo.AutoValidate = System.Windows.Forms.AutoValidate.Disable
         Me.cbLuogoControllo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
         Me.cbLuogoControllo.CausesValidation = False

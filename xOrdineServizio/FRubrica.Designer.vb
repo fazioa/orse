@@ -19,14 +19,15 @@ Partial Class FRubrica
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.btnChiudi = New System.Windows.Forms.Button
-        Me.btnSalvaChiudi = New System.Windows.Forms.Button
-        Me.tbRubrica = New System.Windows.Forms.TextBox
+        Me.components = New System.ComponentModel.Container()
+        Me.btnChiudi = New System.Windows.Forms.Button()
+        Me.btnSalvaChiudi = New System.Windows.Forms.Button()
+        Me.tbRubrica = New System.Windows.Forms.TextBox()
         Me.RubricaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
-        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox
-        Me.RubricaTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.rubricaTableAdapter
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
+        Me.RichTextBox2 = New System.Windows.Forms.RichTextBox()
+        Me.RubricaTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.rubricaTableAdapter()
+        Me.Label5 = New System.Windows.Forms.Label()
         CType(Me.RubricaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -58,15 +59,15 @@ Partial Class FRubrica
         'tbRubrica
         '
         Me.tbRubrica.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbRubrica.CausesValidation = False
         Me.tbRubrica.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.RubricaBindingSource, "testo", True))
         Me.tbRubrica.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.tbRubrica.Location = New System.Drawing.Point(0, 0)
+        Me.tbRubrica.Location = New System.Drawing.Point(0, 52)
         Me.tbRubrica.Multiline = True
         Me.tbRubrica.Name = "tbRubrica"
-        Me.tbRubrica.Size = New System.Drawing.Size(870, 574)
+        Me.tbRubrica.Size = New System.Drawing.Size(870, 522)
         Me.tbRubrica.TabIndex = 0
         '
         'RubricaBindingSource
@@ -89,17 +90,28 @@ Partial Class FRubrica
         Me.RichTextBox2.Size = New System.Drawing.Size(151, 88)
         Me.RichTextBox2.TabIndex = 29
         Me.RichTextBox2.Text = "Testo libero - Inserire tutti i dati necessari : cognome, nome, nome ditta, respo" & _
-            "nsabile, indirizzi e numeri di telefono - Funzione ricerca full text"
+    "nsabile, indirizzi e numeri di telefono - Funzione ricerca full text"
         '
         'RubricaTableAdapter
         '
         Me.RubricaTableAdapter.ClearBeforeFill = True
+        '
+        'Label5
+        '
+        Me.Label5.AutoSize = True
+        Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label5.Location = New System.Drawing.Point(12, 9)
+        Me.Label5.Name = "Label5"
+        Me.Label5.Size = New System.Drawing.Size(333, 24)
+        Me.Label5.TabIndex = 30
+        Me.Label5.Text = "Rubrica - Inserire le voci in testo libero."
         '
         'FRubrica
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(870, 701)
+        Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.RichTextBox2)
         Me.Controls.Add(Me.tbRubrica)
         Me.Controls.Add(Me.btnChiudi)
@@ -119,4 +131,5 @@ Partial Class FRubrica
     Friend WithEvents DbAlegatoADataSet As OrSe.dbAlegatoADataSet
     Friend WithEvents RubricaBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents RubricaTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.rubricaTableAdapter
+    Friend WithEvents Label5 As System.Windows.Forms.Label
 End Class

@@ -15,7 +15,7 @@ Public Class DInsDatiPreliminari
             Me.DialogResult = System.Windows.Forms.DialogResult.OK
             If (OrdineServizioTableAdapter.ScalarQueryOS(DateTimePicker1.Value.Date, OSMaskedTextBox.Text) > 0) Then
                 'se il record esiste ne prendo l'ID
-                FPrima.OrdineServizioTableAdapter.FillByDataNome(DbAlegatoADataSet.ordineServizio, DateTimePicker1.Value.Date, OSMaskedTextBox.Text)
+                FPrima.OrdineServizioTableAdapter1.FillByDataNome(DbAlegatoADataSet.ordineServizio, DateTimePicker1.Value.Date, OSMaskedTextBox.Text)
                 FPrima.OrdineServizioBindingSource.MoveFirst()
                 parametri.idOS = feActions.leggiCampoDB(OrdineServizioBindingSource, "id")
             Else
