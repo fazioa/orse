@@ -266,7 +266,17 @@ Public Class FSoggetto
     End Sub
 
     Private Sub checkPersona()
-        Dim i As Integer = Me.PersonaTableAdapter.ScalarQueryCountPersona(tbCognome.Text(), tbNome.Text(), ComboBoxComuneNascita.SelectedValue, DataNascitaMaskedTextBox.Text)
+        Dim dNascita As Date
+        'se la data non è valida, allora imposta data a Nothing
+        Try
+            dNascita = DataNascitaMaskedTextBox.Text
+        Catch ex As Exception
+            dNascita = Nothing
+
+        End Try
+
+
+        Dim i As Integer = Me.PersonaTableAdapter.ScalarQueryCountPersona(tbCognome.Text(), tbNome.Text(), ComboBoxComuneNascita.SelectedValue, dNascita)
         If (i > 0) Then
             bPIOSel.BackgroundImage = My.Resources.pulsanteSoleVerde
             bPIOSel.Enabled = True
@@ -446,7 +456,7 @@ Public Class FSoggetto
             If (Me.PrioritaComuneTableAdapter.FillbyId(Me.DbDataSet.prioritaComune, id) > 0) Then
                 Try
                     Dim objconn As New OleDb.OleDbConnection(My.Settings.dbAlegatoAConnectionString)
-                    Dim objcomm As New OleDb.OleDbCommand("UPDATE prioritaComune SET dataOraUltimoUso=" & feActions.getTimeStamp() & " WHERE idComune= " & id, objconn)
+                    Dim objcomm As New OleDb.OleDbCommand("UPDATE prioritaComune SET dataOraUltimoUso=" & ActionsLibrary.getTimeStamp() & " WHERE idComune= " & id, objconn)
                     objconn.Open()
 
                     Dim risputente As Integer
@@ -462,7 +472,7 @@ Public Class FSoggetto
                     log.xlogWriteEntry("Errore aggiornamento priorità Comune - " & ex.Message, TraceEventType.Error)
                 End Try
             Else
-                Me.PrioritaComuneTableAdapter.Insert(id, feActions.getTimeStamp)
+                Me.PrioritaComuneTableAdapter.Insert(id, ActionsLibrary.getTimeStamp)
                 log.xlogWriteEntry("Nuova priotità Comune: " & id, TraceEventType.Information)
             End If
         End If

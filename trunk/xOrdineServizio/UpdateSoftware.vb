@@ -128,7 +128,7 @@ Public Class UpdateSoftware
         'sovrascrive il file del DB
         'faccio una copia del DB attuale
         'sorgente --> destinazione
-        Dim sPatheNomeSalvataggioVecchioDB = pathDB & "\dbAlegatoA" & feActions.getTimeStamp & ".mdb"
+        Dim sPatheNomeSalvataggioVecchioDB = pathDB & "\dbAlegatoA" & ActionsLibrary.getTimeStamp & ".mdb"
         FileCopy(sPathDB, sPatheNomeSalvataggioVecchioDB)
         'messaggio, indica il nome del file di backup
         i.salvataggioBackupVecchioDB(sPatheNomeSalvataggioVecchioDB)

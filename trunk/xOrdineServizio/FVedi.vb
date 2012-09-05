@@ -384,7 +384,7 @@ Public Class FVedi
     Private Sub DataGridViewRubrica_UserDeletingRow(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowCancelEventArgs) Handles DataGridViewRubrica.UserDeletingRow
         'sub eseguita PRIMA della cancellazione
         bEliminare = False
-        iDeleted = DataGridViewRubrica.Item(DataGridViewRubrica.Columns("idRubrica").Index(), DataGridViewRubrica.SelectedRows(0).Index()).Value()
+        iDeleted = DataGridViewRubrica.Item(DataGridViewRubrica.Columns("idRubr").Index(), DataGridViewRubrica.SelectedRows(0).Index()).Value()
         log.xlogWriteEntry("Cancellazione voce rubrica ", TraceEventType.Critical)
         If (MsgBox("Eliminare riga?", MsgBoxStyle.OkCancel, "Cancellazione riga") = MsgBoxResult.Ok) Then
             bEliminare = True

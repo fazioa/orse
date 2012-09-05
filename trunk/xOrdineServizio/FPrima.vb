@@ -83,7 +83,8 @@ Public Class FPrima
 
     Private Sub Form1_myInit()
         'posizioni il cursore sull'ordine di servizio corrente
-        Dim nIdOS = OrdineServizioTableAdapter.FillByID(DbAlegatoADataSet_Unico.ordineServizio, parametri.idOS)
+
+        Dim nIdOS = OrdineServizioTableAdapter1.FillByID(DbAlegatoADataSet1.ordineServizio, parametri.idOS)
         If nIdOS = 1 Then log_.xlogWriteEntry("Ordine di servizio id nr." & parametri.idOS & " selezionato (" & parametri.nomeOS & " del " & parametri.dataOS & ")", TraceEventType.Information)
         labelInfoOS.Text = "Ordine di servizio: " + parametri.nomeOS + " del " + FormatDateTime(parametri.dataOS, DateFormat.ShortDate)
         feActions.setStandardFormSize(Me)
@@ -114,7 +115,7 @@ Public Class FPrima
     End Sub
 
     Private Sub caricaFinestraDatiOS()
-        Dim myform As New DInsDatiPreliminari(DbAlegatoADataSet_Unico, parametri)
+        Dim myform As New DInsDatiPreliminari(DbAlegatoADataSet1, parametri)
         log_.xlogWriteEntry("Visualizza form per ins. dati preliminari", TraceEventType.Information)
         myform.ShowDialog()
         While (myform.DialogResult() = Windows.Forms.DialogResult.Cancel)
@@ -149,7 +150,7 @@ Public Class FPrima
 
     Private Sub btnAlegatoA_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAlegatoA.Click
         ' Dim timestamp As System.DateTime = System.DateTime.Now.ToString
-        feActions.doApriFormAllegatoA(DbAlegatoADataSet_Unico, parametri)
+        feActions.doApriFormAllegatoA(DbAlegatoADataSet1, parametri)
     End Sub
 
     Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs)
@@ -161,7 +162,7 @@ Public Class FPrima
         Dim v As Integer = dgv.CurrentRow.Cells("cID").Value
         parametri.nomeLuogoControllo = dgv.CurrentRow.Cells("cLuogoControllo").Value
         parametri.dataoraControllo = dgv.CurrentRow.Cells("cOra").Value
-        feActions.doApriDettaglioSoggetto(DbAlegatoADataSet_Unico, parametri, v)
+        feActions.doApriDettaglioSoggetto(DbAlegatoADataSet1, parametri, v)
     End Sub
     Private Sub SoggettiDataGridView_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
         Dim dgv As DataGridView = sender
@@ -243,8 +244,8 @@ Public Class FPrima
 
     Private Sub logout()
         log_.xlogWriteEntry("Logout", TraceEventType.Information)
-        DbAlegatoADataSet_Unico.QInterventi.Clear()
-        DbAlegatoADataSet_Unico.QAllegatoA.Clear()
+        DbAlegatoADataSet1.QInterventi.Clear()
+        DbAlegatoADataSet1.QAllegatoA.Clear()
         caricaFinestraDatiOS()
     End Sub
 
@@ -378,36 +379,6 @@ Public Class FPrima
         ActionsLibrary.doApriFormRevisioneTabelle()
     End Sub
 
-    Private Sub AddDirittiBase(ByVal Path As String, ByVal Account As String)
-        Try
-            Dim dInfo As New DirectoryInfo(Path)
-            Dim dSecurity As DirectorySecurity = dInfo.GetAccessControl
-
-            Dim Rule1 As New FileSystemAccessRule(New System.Security.Principal.NTAccount(Account), _
-            FileSystemRights.Traverse _
-            + FileSystemRights.Read, _
-            AccessControlType.Allow, _
-            PropagationFlags.NoPropagateInherit, _
-            AccessControlType.Allow)
-            Dim Rule2 As New FileSystemAuditRule(New System.Security.Principal.NTAccount(Account), _
-            FileSystemRights.Traverse _
-            + FileSystemRights.Read, _
-            AuditFlags.Success, _
-            PropagationFlags.NoPropagateInherit, _
-            AuditFlags.Success)
-
-            Dim Riuscita1 As Boolean
-            Dim Riuscita2 As Boolean
-
-            dSecurity.ModifyAccessRule(AccessControlModification.Add, Rule1, Riuscita1)
-            dSecurity.ModifyAuditRule(AccessControlModification.Add, Rule2, Riuscita2)
-
-            dInfo.SetAccessControl(dSecurity)
-
-        Catch ex As Exception
-        End Try
-
-    End Sub
 
     Private Sub userBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
         MessageBox.Show(My.User.Name & vbCrLf & My.User.CurrentPrincipal.Identity.Name & vbCrLf & My.Computer.Name & vbCrLf & Application.LocalUserAppDataPath)

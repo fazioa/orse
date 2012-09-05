@@ -66,31 +66,25 @@ Partial Class FPrima
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet_Unico = New OrSe.dbAlegatoADataSet()
         Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.QInterventi_informazioniBindigSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter()
         Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter()
-        Me.AllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter()
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
-        Me.QInterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter()
-        Me.ComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter()
-        Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter()
+        Me.OrdineServizioTableAdapter1 = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
+        Me.DbAlegatoADataSet1 = New OrSe.dbAlegatoADataSet()
         Me.VerticalLabel2 = New OrSe.verticalLabel()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.menu.SuspendLayout()
         Me.FlowLayoutPanelEsterno.SuspendLayout()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbAlegatoADataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PreferenzeToolStripMenuItem1
@@ -479,67 +473,37 @@ Partial Class FPrima
         'QAllegatoABindingSource
         '
         Me.QAllegatoABindingSource.DataMember = "QAllegatoA"
-        Me.QAllegatoABindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'DbAlegatoADataSet_Unico
-        '
-        Me.DbAlegatoADataSet_Unico.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet_Unico.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'QInterventiBindingSource
         '
         Me.QInterventiBindingSource.DataMember = "QInterventi"
-        Me.QInterventiBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
         Me.QInterventiBindingSource.Filter = ""
         '
         'QInterventi_informazioniBindigSource
         '
         Me.QInterventi_informazioniBindigSource.DataMember = "QInterventi"
-        Me.QInterventi_informazioniBindigSource.DataSource = Me.DbAlegatoADataSet_Unico
         Me.QInterventi_informazioniBindigSource.Filter = ""
         '
         'InterventiBindingSource
         '
         Me.InterventiBindingSource.DataMember = "interventi"
-        Me.InterventiBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'InterventiTableAdapter
-        '
-        Me.InterventiTableAdapter.ClearBeforeFill = True
         '
         'AllegatoABindingSource
         '
         Me.AllegatoABindingSource.DataMember = "allegatoA"
-        Me.AllegatoABindingSource.DataSource = Me.DbAlegatoADataSet_Unico
-        '
-        'QAllegatoATableAdapter
-        '
-        Me.QAllegatoATableAdapter.ClearBeforeFill = True
-        '
-        'AllegatoATableAdapter
-        '
-        Me.AllegatoATableAdapter.ClearBeforeFill = True
         '
         'OrdineServizioBindingSource
         '
         Me.OrdineServizioBindingSource.DataMember = "ordineServizio"
-        Me.OrdineServizioBindingSource.DataSource = Me.DbAlegatoADataSet_Unico
         '
-        'OrdineServizioTableAdapter
+        'OrdineServizioTableAdapter1
         '
-        Me.OrdineServizioTableAdapter.ClearBeforeFill = True
+        Me.OrdineServizioTableAdapter1.ClearBeforeFill = True
         '
-        'QInterventiTableAdapter
+        'DbAlegatoADataSet1
         '
-        Me.QInterventiTableAdapter.ClearBeforeFill = True
-        '
-        'ComuneTableAdapter
-        '
-        Me.ComuneTableAdapter.ClearBeforeFill = True
-        '
-        'ModelliMezzoTableAdapter
-        '
-        Me.ModelliMezzoTableAdapter.ClearBeforeFill = True
+        Me.DbAlegatoADataSet1.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'VerticalLabel2
         '
@@ -574,12 +538,12 @@ Partial Class FPrima
         Me.menu.PerformLayout()
         Me.FlowLayoutPanelEsterno.ResumeLayout(False)
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbAlegatoADataSet_Unico, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QInterventi_informazioniBindigSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbAlegatoADataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -616,7 +580,7 @@ Partial Class FPrima
     Friend WithEvents DataGridViewTextBoxColumn16 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents cOS As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents OrdineServizioBindingSource As System.Windows.Forms.BindingSource
-    Friend WithEvents OrdineServizioTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
+    ' Friend WithEvents OrdineServizioTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
     Friend WithEvents QInterventiBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents QInterventiTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
     Friend WithEvents PreferenzeToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
@@ -669,5 +633,7 @@ Partial Class FPrima
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents RevisioneTabelleDatiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents OrdineServizioTableAdapter1 As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
+    Friend WithEvents DbAlegatoADataSet1 As OrSe.dbAlegatoADataSet
 
 End Class

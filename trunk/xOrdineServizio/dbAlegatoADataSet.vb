@@ -1,9 +1,5 @@
-﻿Partial Class dbAlegatoADataSet
-  
-End Class
+﻿
 
-Namespace dbAlegatoADataSetTableAdapters
-    
-    Partial Public Class modelliMezzoTableAdapter
-    End Class
-End Namespace
+
+Partial Public Class dbAlegatoADataSet
+End Class
