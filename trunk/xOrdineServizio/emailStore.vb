@@ -77,7 +77,8 @@ Imports System.Runtime.Serialization.Formatters.Binary
     ''' <returns>emailObj</returns>
     ''' <remarks></remarks>
     Public Function pop() As emailObj
-        Dim e As New emailObj
+        'Dim e As New emailObj
+        Dim e As emailObj = Nothing
         load()
         If listaEmail.Count > 0 Then
             e = listaEmail.Pop()
