@@ -1214,6 +1214,8 @@ Public Class ActionsLibrary
             Try
                 System.IO.Directory.Delete(My.Settings.sTempPath, True)
                 log.xlogWriteEntry("Cancellazione cartella file temporanei", TraceEventType.Information)
+            Catch ex As IOException
+                log.xlogWriteEntry("Errore cancellazione cartella file temporanei:" & ex.Message, TraceEventType.Information)
             Catch ex As Exception
             End Try
         End If

@@ -80,10 +80,11 @@ Public Class FSoggetto
 
 
         i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idLuogoNascita")
-        If (Not i Is DBNull.Value) Then Me.QComuneTableAdapter.FillById(Me.DbDataSet.QComune, i)
+
+        If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet.QComune, Integer.Parse(i))
 
         i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idResidenzaComune")
-        If (Not i Is DBNull.Value) Then Me.QComuneTableAdapter.FillById(Me.DbDataSet2.QComune, i)
+        If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet2.QComune, Integer.Parse(i))
 
         parametri.idControllo = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idControllo")
         labelOSWrite(parametri.idControllo)
@@ -136,6 +137,7 @@ Public Class FSoggetto
 
                 Dim drv As DataRowView = AllegatoABindingSource.Current()
                 Dim i = feActions.leggiCampoDB(MezzoBindingSource, "id")
+                If i Is Nothing Then i = DBNull.Value
                 drv.Item("idMezzo") = i
                 ComboBoxModelliMezzo.setSelectedID(i)
                 drv.Item("idControllo") = parametri.idControllo
