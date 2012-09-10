@@ -457,7 +457,7 @@ Public Class ActionsLibrary
     Public Sub wordAttivaDocumento(ByVal oWord As Microsoft.Office.Interop.Word.Application)
         log.xlogWriteEntry("Word - attiva documento", TraceEventType.Critical)
         'oWord.ActiveDocument.PrintPreview()
-        oWord.ActiveDocument.Saved = False
+        'oWord.ActiveDocument.Saved = False
         oWord.Activate()
         oWord = Nothing
     End Sub
