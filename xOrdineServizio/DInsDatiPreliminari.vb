@@ -220,6 +220,7 @@ Public Class DInsDatiPreliminari
             QOrdineServizioTableAdapter.FillById(DbAlegatoADataSet.QOrdineServizio, idOS)
             OSMaskedTextBox.Text = feActions.leggiCampoDB(QOrdineServizioBindingSource, "nome")
             DateTimePicker1.Value = feActions.leggiCampoDB(QOrdineServizioBindingSource, "data")
+            OperatoriComboBox.Text = feActions.leggiCampoDB(QOrdineServizioBindingSource, "operatori")
 
             If Not (tv.SelectedNode.Nodes.Find("p", False).Length > 0 And tv.SelectedNode.Nodes.Find("i", False).Length > 0 And tv.SelectedNode.Nodes.Find("f", False).Length > 0) Then
                 'non viene eseguito se già sono presenti le chiavi P e I

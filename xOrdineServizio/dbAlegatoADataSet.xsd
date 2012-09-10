@@ -111,7 +111,7 @@
               <Mapping SourceColumn="NOTE" DataSetColumn="NOTE" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteAll">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE * FROM allegatoA</CommandText>
@@ -119,7 +119,7 @@
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="allegatoA" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="allegatoA" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT id, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzioni, perquisizione, positivoSDI, [NOTE] FROM allegatoA WHERE id=?</CommandText>
@@ -189,7 +189,7 @@
               <Mapping SourceColumn="citta" DataSetColumn="citta" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteAll">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE * FROM prioritaComune
@@ -198,7 +198,7 @@
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="comune" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByComune" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByComune" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByComune">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="comune" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByComune" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByComune" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByComune">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     TOP 10 citta, id
@@ -212,7 +212,7 @@ ORDER BY citta
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="prioritaComune" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillbyId" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillbyId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillbyId">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="prioritaComune" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillbyId" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillbyId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillbyId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT idComune, dataoraUltimoUso, id FROM prioritaComune WHERE (idComune = ?)
@@ -530,7 +530,7 @@ WHERE     resoconto = ?
               <Mapping SourceColumn="luogo" DataSetColumn="luogo" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="DeleteAll">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE * FROM luoghicontrollo</CommandText>
@@ -538,7 +538,7 @@ WHERE     resoconto = ?
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="luoghicontrollo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="luoghicontrollo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT id, luogo FROM luoghicontrollo WHERE id=?</CommandText>
@@ -548,7 +548,7 @@ WHERE     resoconto = ?
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="luoghicontrollo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByNAme" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByNAme" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByNAme">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="luoghicontrollo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByNAme" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByNAme" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByNAme">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT TOP 10  id, luogo FROM luoghicontrollo WHERE luogo like '%'&amp; ? &amp;'%'
@@ -559,7 +559,7 @@ WHERE     resoconto = ?
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="MaxID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     MAX(id) AS Expr1
@@ -616,7 +616,7 @@ FROM         luoghicontrollo
               <Mapping SourceColumn="mezzo" DataSetColumn="mezzo" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="DeleteAll">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE * FROM modelliMezzo</CommandText>
@@ -624,7 +624,7 @@ FROM         luoghicontrollo
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="modelliMezzo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FillByID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="modelliMezzo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT id, mezzo FROM modelliMezzo WHERE id=?</CommandText>
@@ -634,7 +634,7 @@ FROM         luoghicontrollo
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="modelliMezzo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByMezzo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMezzo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByMezzo">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="modelliMezzo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByMezzo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMezzo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByMezzo">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT TOP 10  id, mezzo FROM modelliMezzo
@@ -646,7 +646,7 @@ WHERE mezzo LIKE '%'&amp; ? &amp;'%'
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="modelliMezzo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByMezzo_stringaEsatta" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMezzo_stringaEsatta" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByMezzo_stringaEsatta">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="modelliMezzo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByMezzo_stringaEsatta" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByMezzo_stringaEsatta" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByMezzo_stringaEsatta">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT id FROM modelliMezzo WHERE mezzo=?
@@ -657,7 +657,7 @@ WHERE mezzo LIKE '%'&amp; ? &amp;'%'
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="MaxID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT MAX(id)  FROM modelliMezzo
@@ -694,7 +694,9 @@ WHERE mezzo LIKE '%'&amp; ? &amp;'%'
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT id, operatori, dataOraUltimoUso FROM operatore</CommandText>
+                    <CommandText>SELECT        id, operatori, dataOraUltimoUso
+FROM            operatore
+ORDER BY dataOraUltimoUso DESC</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -732,8 +734,7 @@ WHERE mezzo LIKE '%'&amp; ? &amp;'%'
               <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="operatore" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByNomeOperatore" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByNomeOperatore" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByNomeOperatore">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT id, operatori FROM operatore WHERE operatori=?
-</CommandText>
+                    <CommandText>SELECT dataOraUltimoUso, id, operatori FROM operatore WHERE (operatori = ?)</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="Param1" ColumnName="operatori" DataSourceName="operatore" DataTypeServer="DbType.StringFixedLength(255)" DbType="String" Direction="Input" ParameterName="operatori" Precision="0" ProviderType="WChar" Scale="0" Size="255" SourceColumn="operatori" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
@@ -1091,7 +1092,7 @@ WHERE     (cognome = ?) AND (nome = ?) AND (idLuogoNascita = ?) AND (datanascita
               <Mapping SourceColumn="dataoraUltimoUso" DataSetColumn="dataoraUltimoUso" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteAll">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE * FROM prioritaComune</CommandText>
@@ -1099,7 +1100,7 @@ WHERE     (cognome = ?) AND (nome = ?) AND (idLuogoNascita = ?) AND (datanascita
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="prioritaComune" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="prioritaComune" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT idComune, dataoraUltimoUso, id FROM prioritaComune WHERE (idComune = ?)
@@ -1306,7 +1307,7 @@ WHERE        (idRubrica = ?)
               <Mapping SourceColumn="resoconto" DataSetColumn="resoconto" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="DeleteAll">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteAll" Modifier="Public" Name="DeleteAll" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteAll">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>DELETE * FROM sopralluogo
@@ -1315,7 +1316,7 @@ WHERE        (idRubrica = ?)
                   </DbCommand>
                 </DeleteCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="sopralluogo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="sopralluogo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByID" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByID" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT * FROM sopralluogo WHERE (idSopralluogo = ?)
@@ -1326,7 +1327,7 @@ WHERE        (idRubrica = ?)
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="sopralluogo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByOS" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByOS" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByOS">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="sopralluogo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByOS" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByOS" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByOS">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT idOS, tipoReato, oraRichiesta, luogo_citta, via, contatti_con, resoconto, oraRedazione, idSopralluogo FROM sopralluogo WHERE (idOS = ?)
@@ -1337,7 +1338,7 @@ WHERE        (idRubrica = ?)
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="MaxID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(idSopralluogo) AS Expr1
@@ -1457,7 +1458,7 @@ ORDER BY numeroversione DESC
               <Mapping SourceColumn="idOS" DataSetColumn="idOS" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QAllegatoA" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByCampoRicerca" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCampoRicerca" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByCampoRicerca">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QAllegatoA" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByCampoRicerca" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCampoRicerca" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByCampoRicerca">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT dataora, luogo, ordine, mezzo, targa, cognome, nome, datanascita, residenzaindirizzo, documento, positivoSDI, precedenti, contravvenzioni, perquisizione, operatori, id, idControllo, idPersona, NOTE, cittanascita, cittaresidenza, colore, idLuogo, idLuogoNascita, idMezzo, dataOS, nomeOS, idOS FROM QAllegatoA WHERE nomeOS &amp; " " &amp; dataOS&amp; " " &amp;luogo &amp; " " &amp; mezzo &amp; " " &amp; colore &amp; " " &amp; targa &amp; " " &amp; cognome &amp; " " &amp; nome &amp; " " &amp; datanascita &amp; " " &amp; cittanascita &amp; " " &amp; cittaresidenza &amp; " " &amp; residenzaindirizzo &amp; " " &amp; documento &amp; " " &amp; precedenti &amp; " " &amp; note&amp; " " &amp; operatori Like '%'&amp; ? &amp;'%' ORDER BY dataora
@@ -1468,7 +1469,7 @@ ORDER BY numeroversione DESC
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QAllegatoA" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByData" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByData">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QAllegatoA" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByData" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByData">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT [NOTE], cittanascita, cittaresidenza, cognome, colore, contravvenzioni, datanascita, dataora, documento, id, idControllo, idLuogo, idLuogoNascita, idMezzo, idPersona, luogo, mezzo, nome, operatori, ordine, perquisizione, positivoSDI, precedenti, residenzaindirizzo, targa, dataOS, nomeOS, idOS FROM QAllegatoA WHERE (dataora LIKE ? &amp; '%') ORDER BY dataora, ordine
@@ -1479,7 +1480,7 @@ ORDER BY numeroversione DESC
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QAllegatoA" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByDataRange" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDataRange" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByDataRange">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QAllegatoA" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByDataRange" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDataRange" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByDataRange">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        id, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzioni, perquisizione, positivoSDI, [NOTE], dataora, idLuogo, luogo, mezzo, operatori, cognome, 
@@ -1631,7 +1632,7 @@ ORDER BY dataoraUltimoUso DESC, citta</CommandText>
               <Mapping SourceColumn="operatori" DataSetColumn="operatori" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByCampoRicerca" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCampoRicerca" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByCampoRicerca">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByCampoRicerca" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByCampoRicerca" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByCampoRicerca">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT id, dataOraInizio, dataOraFine, tipointervento, resoconto, nomeOS, idOS, dataOD, iParagrafo , operatori FROM QInterventi
@@ -1643,7 +1644,7 @@ WHERE dataOraInizio &amp;" "&amp; dataOraFine &amp;" "&amp;  tipointervento &amp
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByData" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByData">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByData" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillByData">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT dataOD, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, tipointervento, nomeOS, operatori FROM QInterventi WHERE (dataOraInizio LIKE ? &amp; '%') AND (iParagrafo = ?)
@@ -1656,7 +1657,7 @@ WHERE dataOraInizio &amp;" "&amp; dataOraFine &amp;" "&amp;  tipointervento &amp
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByDataRange" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDataRange" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillByDataRange">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByDataRange" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByDataRange" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByDataRange">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     id, dataOraInizio, dataOraFine, tipointervento, resoconto, idOS, dataOS, iParagrafo, nomeOD, operatori FROM         QInterventi
@@ -1670,7 +1671,7 @@ WHERE     (iParagrafo =?) AND (dataOD BETWEEN ? AND ?)
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByOS" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByOS" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FillByOS">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByOS" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByOS" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="FillByOS">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT dataOD, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, tipointervento, nomeOS, operatori FROM QInterventi WHERE (idOS = ?) AND (iParagrafo = ?)
@@ -1682,7 +1683,7 @@ WHERE     (iParagrafo =?) AND (dataOD BETWEEN ? AND ?)
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByOSOrderByDataInizio" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByOSOrderByDataInizio" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="FillByOSOrderByDataInizio">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByOSOrderByDataInizio" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByOSOrderByDataInizio" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="FillByOSOrderByDataInizio">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     dataOD, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, tipointervento, nomeOS, operatori
@@ -1696,7 +1697,7 @@ ORDER BY dataOraInizio
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByOSOrderByDataInizio_Paragrafo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByOSOrderByDataInizio_Paragrafo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="FillByOSOrderByDataInizio_Paragrafo">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByOSOrderByDataInizio_Paragrafo" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByOSOrderByDataInizio_Paragrafo" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy5" UserSourceName="FillByOSOrderByDataInizio_Paragrafo">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     dataOD, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, tipointervento, nomeOS, operatori
@@ -1711,7 +1712,7 @@ ORDER BY dataOraInizio
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillRicercaDoppione" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillRicercaDoppione" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillRicercaDoppione">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="QInterventi" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillRicercaDoppione" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillRicercaDoppione" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="FillRicercaDoppione">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     id
@@ -2641,14 +2642,14 @@ WHERE     (dataOS BETWEEN ? AND ?)
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="luoghicontrollocontrollo" msdata:parent="luoghicontrollo" msdata:child="controllo" msdata:parentkey="id" msdata:childkey="idLuogo" msprop:Generator_UserChildTable="controllo" msprop:Generator_ChildPropName="GetcontrolloRows" msprop:Generator_UserParentTable="luoghicontrollo" msprop:Generator_UserRelationName="luoghicontrollocontrollo" msprop:Generator_RelationVarName="relationluoghicontrollocontrollo" msprop:Generator_ParentPropName="luoghicontrolloRow" />
-      <msdata:Relationship name="ordineServiziocontrollo" msdata:parent="ordineServizio" msdata:child="controllo" msdata:parentkey="ID" msdata:childkey="idOs" msprop:Generator_UserChildTable="controllo" msprop:Generator_ChildPropName="GetcontrolloRows" msprop:Generator_UserParentTable="ordineServizio" msprop:Generator_UserRelationName="ordineServiziocontrollo" msprop:Generator_RelationVarName="relationordineServiziocontrollo" msprop:Generator_ParentPropName="ordineServizioRow" />
-      <msdata:Relationship name="ordineServiziointerventi" msdata:parent="ordineServizio" msdata:child="interventi" msdata:parentkey="ID" msdata:childkey="idOrdineservizio" msprop:Generator_UserChildTable="interventi" msprop:Generator_ChildPropName="GetinterventiRows" msprop:Generator_UserParentTable="ordineServizio" msprop:Generator_UserRelationName="ordineServiziointerventi" msprop:Generator_RelationVarName="relationordineServiziointerventi" msprop:Generator_ParentPropName="ordineServizioRow" />
-      <msdata:Relationship name="PK_integritaRefenziale" msdata:parent="operatore" msdata:child="ordineServizio" msdata:parentkey="id" msdata:childkey="idOperatori" msprop:Generator_UserChildTable="ordineServizio" msprop:Generator_ChildPropName="GetordineServizioRows" msprop:Generator_UserParentTable="operatore" msprop:Generator_UserRelationName="PK_integritaRefenziale" msprop:Generator_RelationVarName="relationPK_integritaRefenziale" msprop:Generator_ParentPropName="operatoreRow" />
-      <msdata:Relationship name="comuneprioritaComune" msdata:parent="comune" msdata:child="prioritaComune" msdata:parentkey="id" msdata:childkey="idComune" msprop:Generator_UserChildTable="prioritaComune" msprop:Generator_ChildPropName="GetprioritaComuneRows" msprop:Generator_UserParentTable="comune" msprop:Generator_UserRelationName="comuneprioritaComune" msprop:Generator_RelationVarName="relationcomuneprioritaComune" msprop:Generator_ParentPropName="comuneRow" />
-      <msdata:Relationship name="personaallegatoA" msdata:parent="persona" msdata:child="allegatoA" msdata:parentkey="ID" msdata:childkey="idPersona" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_UserParentTable="persona" msprop:Generator_UserRelationName="personaallegatoA" msprop:Generator_RelationVarName="relationpersonaallegatoA" msprop:Generator_ParentPropName="personaRow" />
-      <msdata:Relationship name="mezzoallegatoA" msdata:parent="modelliMezzo" msdata:child="allegatoA" msdata:parentkey="id" msdata:childkey="idMezzo" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_UserParentTable="modelliMezzo" msprop:Generator_UserRelationName="mezzoallegatoA" msprop:Generator_RelationVarName="relationmezzoallegatoA" msprop:Generator_ParentPropName="modelliMezzoRow" />
-      <msdata:Relationship name="controlloallegatoA" msdata:parent="controllo" msdata:child="allegatoA" msdata:parentkey="ID" msdata:childkey="idControllo" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_UserParentTable="controllo" msprop:Generator_UserRelationName="controlloallegatoA" msprop:Generator_RelationVarName="relationcontrolloallegatoA" msprop:Generator_ParentPropName="controlloRow" />
+      <msdata:Relationship name="luoghicontrollocontrollo" msdata:parent="luoghicontrollo" msdata:child="controllo" msdata:parentkey="id" msdata:childkey="idLuogo" msprop:Generator_UserChildTable="controllo" msprop:Generator_ChildPropName="GetcontrolloRows" msprop:Generator_ParentPropName="luoghicontrolloRow" msprop:Generator_UserRelationName="luoghicontrollocontrollo" msprop:Generator_RelationVarName="relationluoghicontrollocontrollo" msprop:Generator_UserParentTable="luoghicontrollo" />
+      <msdata:Relationship name="ordineServiziocontrollo" msdata:parent="ordineServizio" msdata:child="controllo" msdata:parentkey="ID" msdata:childkey="idOs" msprop:Generator_UserChildTable="controllo" msprop:Generator_ChildPropName="GetcontrolloRows" msprop:Generator_ParentPropName="ordineServizioRow" msprop:Generator_UserRelationName="ordineServiziocontrollo" msprop:Generator_RelationVarName="relationordineServiziocontrollo" msprop:Generator_UserParentTable="ordineServizio" />
+      <msdata:Relationship name="ordineServiziointerventi" msdata:parent="ordineServizio" msdata:child="interventi" msdata:parentkey="ID" msdata:childkey="idOrdineservizio" msprop:Generator_UserChildTable="interventi" msprop:Generator_ChildPropName="GetinterventiRows" msprop:Generator_ParentPropName="ordineServizioRow" msprop:Generator_UserRelationName="ordineServiziointerventi" msprop:Generator_RelationVarName="relationordineServiziointerventi" msprop:Generator_UserParentTable="ordineServizio" />
+      <msdata:Relationship name="PK_integritaRefenziale" msdata:parent="operatore" msdata:child="ordineServizio" msdata:parentkey="id" msdata:childkey="idOperatori" msprop:Generator_UserChildTable="ordineServizio" msprop:Generator_ChildPropName="GetordineServizioRows" msprop:Generator_ParentPropName="operatoreRow" msprop:Generator_UserRelationName="PK_integritaRefenziale" msprop:Generator_RelationVarName="relationPK_integritaRefenziale" msprop:Generator_UserParentTable="operatore" />
+      <msdata:Relationship name="comuneprioritaComune" msdata:parent="comune" msdata:child="prioritaComune" msdata:parentkey="id" msdata:childkey="idComune" msprop:Generator_UserChildTable="prioritaComune" msprop:Generator_ChildPropName="GetprioritaComuneRows" msprop:Generator_ParentPropName="comuneRow" msprop:Generator_UserRelationName="comuneprioritaComune" msprop:Generator_RelationVarName="relationcomuneprioritaComune" msprop:Generator_UserParentTable="comune" />
+      <msdata:Relationship name="personaallegatoA" msdata:parent="persona" msdata:child="allegatoA" msdata:parentkey="ID" msdata:childkey="idPersona" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_ParentPropName="personaRow" msprop:Generator_UserRelationName="personaallegatoA" msprop:Generator_RelationVarName="relationpersonaallegatoA" msprop:Generator_UserParentTable="persona" />
+      <msdata:Relationship name="mezzoallegatoA" msdata:parent="modelliMezzo" msdata:child="allegatoA" msdata:parentkey="id" msdata:childkey="idMezzo" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_ParentPropName="modelliMezzoRow" msprop:Generator_UserRelationName="mezzoallegatoA" msprop:Generator_RelationVarName="relationmezzoallegatoA" msprop:Generator_UserParentTable="modelliMezzo" />
+      <msdata:Relationship name="controlloallegatoA" msdata:parent="controllo" msdata:child="allegatoA" msdata:parentkey="ID" msdata:childkey="idControllo" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_ParentPropName="controlloRow" msprop:Generator_UserRelationName="controlloallegatoA" msprop:Generator_RelationVarName="relationcontrolloallegatoA" msprop:Generator_UserParentTable="controllo" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>
