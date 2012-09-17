@@ -44,13 +44,13 @@ Public Class FPrima
 
         'se il DB non è raggiungibile allora non viene eseguito InitializeComponent e l'app termina 
         If Not bFlagExit Then
-            Try
-                Dim compatta As New CompattaRipristina
-                log_.xlogWriteEntry("Compatta DB", TraceEventType.Information)
-                compatta.DoAction()
-            Catch ex As Exception
-                log_.xlogWriteException(ex, TraceEventType.Warning, "Compatta DB - Errore")
-            End Try
+            'try
+            ' Dim compatta As New CompattaRipristina
+            ' log_.xlogWriteEntry("Compatta DB", TraceEventType.Information)
+            ' compatta.DoAction()
+            ' Catch ex As Exception
+            ' log_.xlogWriteException(ex, TraceEventType.Warning, "Compatta DB - Errore")
+            ' End Try
 
             '======= Controlla la versione del software e si cura di effettuare eventuali modifiche sul DB)
             Dim versioneDBattuale As Double = appPatch.doControlloVersioneDB()
@@ -59,7 +59,7 @@ Public Class FPrima
 
             Dim bDBPresente As Boolean = True
             If Dir(sPath) = "" Then bDBPresente = False
-            MsgBox("Path: " & sPath & " - Versione DB rilevata: " & versioneDBattuale & " - File DB presente: " & bDBPresente)
+
 
             '===========================================================================================
             If (Double.Parse(My.Settings.versioneDB.Replace(".", ",")) > versioneDBattuale) And bDBPresente Then

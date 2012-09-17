@@ -99,14 +99,23 @@ Class XOrseLog
     Public Sub xlogWriteEntry(ByVal sMsg As String, ByVal livello As System.Diagnostics.TraceEventType)
 #If DEBUG Then
         Dim sMessaggio As String = Now.ToLocalTime + " " + sMsg
-        My.Application.Log.WriteEntry(sMessaggio, livello)
+        Try
+            My.Application.Log.WriteEntry(sMessaggio, livello)
+        Catch ex As Exception
+
+        End Try
         LogForm.add(sMessaggio)
 #End If
     End Sub
     Public Sub xlogWriteException(ByVal ex As Exception, ByVal livello As System.Diagnostics.TraceEventType, ByVal addInfo As String)
 #If DEBUG Then
         Dim sMessaggio As String = "Gestione errore: " & addInfo & " - livello: " & livello.ToString & " - messaggio sistema: " & ex.ToString
-        My.Application.Log.WriteException(ex, livello, addInfo)
+        Try
+            My.Application.Log.WriteException(ex, livello, addInfo)
+        Catch exc As Exception
+
+        End Try
+
         LogForm.add(sMessaggio)
 #End If
     End Sub

@@ -338,7 +338,8 @@ Public Class FSoggetto
         PersonaBindingSource.MoveFirst()
 
         Dim i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idResidenzaComune")
-        If (Not i Is DBNull.Value) Then Me.QComuneTableAdapter.FillById(Me.DbDataSet2.QComune, i)
+
+        If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet2.QComune, Integer.Parse(i))
 
         bPersonaInteresseOperativo = True
         'non mi occorre fare altre operazioni. Il binding della persona è già posizionato sull'elemento che mi interessa
