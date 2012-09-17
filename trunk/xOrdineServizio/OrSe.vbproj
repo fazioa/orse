@@ -18,7 +18,8 @@
     <GenerateManifests>false</GenerateManifests>
     <SignManifests>false</SignManifests>
     <SignAssembly>false</SignAssembly>
-    <AssemblyOriginatorKeyFile>xOrdineServizio_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
     <TargetZone>LocalIntranet</TargetZone>
     <ApplicationIcon>Resources\btnPrima\XOrdineServizio.ico</ApplicationIcon>
     <DelaySign>false</DelaySign>
@@ -544,7 +545,6 @@
       <SubType>Designer</SubType>
       <DependentUpon>UserControl1.vb</DependentUpon>
     </EmbeddedResource>
-    <None Include="xOrdineServizio_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{967B4E0D-AD0C-4609-AB67-0FA40C0206D8}" />

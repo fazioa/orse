@@ -34,6 +34,15 @@ Public Class DInsDatiPreliminari
             parametri.idOperatore = OperatoriComboBox.SelectedValue
             parametri.dataOS = DateTimePicker1.Value.Date
             parametri.nomeOS = OSMaskedTextBox.Text
+
+
+            'Aggiornamento timestamp uso della voce operatore
+            Dim dr As DataRowView = OperatoreBindingSource.Current
+
+            ' dr.Item("dataOraUltimoUso") = ActionsLibrary.getTimeStamp
+            'OperatoreTableAdapter.Update(dr.Row)
+            OperatoreTableAdapter.Update(dr.Item("operatori"), ActionsLibrary.getTimeStamp, dr.Item("id"), dr.Item("operatori"), dr.Item("dataoraultimouso"))
+
         End If
     End Sub
 
