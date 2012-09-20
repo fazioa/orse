@@ -54,7 +54,7 @@ Partial Class FPrima
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.labelInfoOS = New System.Windows.Forms.Label()
         Me.ButtonRubrica = New System.Windows.Forms.Button()
-        Me.menu = New System.Windows.Forms.MenuStrip()
+        Me.barramenu = New System.Windows.Forms.MenuStrip()
         Me.BtnVedi = New System.Windows.Forms.Button()
         Me.btnSopralluogo = New System.Windows.Forms.Button()
         Me.btnInformazioni = New System.Windows.Forms.Button()
@@ -75,7 +75,7 @@ Partial Class FPrima
         Me.VerticalLabel2 = New OrSe.verticalLabel()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
-        Me.menu.SuspendLayout()
+        Me.barramenu.SuspendLayout()
         Me.FlowLayoutPanelEsterno.SuspendLayout()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -88,333 +88,236 @@ Partial Class FPrima
         '
         'PreferenzeToolStripMenuItem1
         '
+        resources.ApplyResources(Me.PreferenzeToolStripMenuItem1, "PreferenzeToolStripMenuItem1")
         Me.PreferenzeToolStripMenuItem1.Name = "PreferenzeToolStripMenuItem1"
-        Me.PreferenzeToolStripMenuItem1.Size = New System.Drawing.Size(74, 20)
-        Me.PreferenzeToolStripMenuItem1.Text = "Preferenze"
         '
         'StampaToolStripMenuItem
         '
+        resources.ApplyResources(Me.StampaToolStripMenuItem, "StampaToolStripMenuItem")
         Me.StampaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.informazioniToolStripMenuItem, Me.AllegatoAToolStripMenuItem, Me.OP85ToolStripMenuItem, Me.SopralluogoToolStripMenuItem})
         Me.StampaToolStripMenuItem.Name = "StampaToolStripMenuItem"
-        Me.StampaToolStripMenuItem.Size = New System.Drawing.Size(68, 20)
-        Me.StampaToolStripMenuItem.Text = "Stampa..."
         '
         'ToolStripMenuItem1
         '
+        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
         Me.ToolStripMenuItem1.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
-        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(150, 22)
-        Me.ToolStripMenuItem1.Text = "Interventi..."
         '
         'informazioniToolStripMenuItem
         '
+        resources.ApplyResources(Me.informazioniToolStripMenuItem, "informazioniToolStripMenuItem")
         Me.informazioniToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem"
-        Me.informazioniToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
-        Me.informazioniToolStripMenuItem.Text = "Informazioni..."
         '
         'AllegatoAToolStripMenuItem
         '
+        resources.ApplyResources(Me.AllegatoAToolStripMenuItem, "AllegatoAToolStripMenuItem")
         Me.AllegatoAToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printAllegatoA
         Me.AllegatoAToolStripMenuItem.Name = "AllegatoAToolStripMenuItem"
-        Me.AllegatoAToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
-        Me.AllegatoAToolStripMenuItem.Text = "Allegato A..."
         '
         'OP85ToolStripMenuItem
         '
+        resources.ApplyResources(Me.OP85ToolStripMenuItem, "OP85ToolStripMenuItem")
         Me.OP85ToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
         Me.OP85ToolStripMenuItem.Name = "OP85ToolStripMenuItem"
-        Me.OP85ToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
-        Me.OP85ToolStripMenuItem.Text = "OP85..."
         '
         'SopralluogoToolStripMenuItem
         '
+        resources.ApplyResources(Me.SopralluogoToolStripMenuItem, "SopralluogoToolStripMenuItem")
         Me.SopralluogoToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
         Me.SopralluogoToolStripMenuItem.Name = "SopralluogoToolStripMenuItem"
-        Me.SopralluogoToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
-        Me.SopralluogoToolStripMenuItem.Text = "Sopralluogo..."
         '
         'StrumentiToolStripMenuItem
         '
+        resources.ApplyResources(Me.StrumentiToolStripMenuItem, "StrumentiToolStripMenuItem")
         Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CercaToolStripMenuItem, Me.ToolStripSeparator2, Me.ExportToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ToolStripSeparator3, Me.CancellaToolStripMenuItem, Me.CercaAggiornamentiToolStripMenuItem, Me.ToolStripMenuItemLOG, Me.ToolStripSeparator1, Me.EseguiBackupDBToolStripMenuItem, Me.RipristinaBackupDBToolStripMenuItem, Me.ToolStripSeparator4, Me.RevisioneTabelleDatiToolStripMenuItem})
         Me.StrumentiToolStripMenuItem.Name = "StrumentiToolStripMenuItem"
-        Me.StrumentiToolStripMenuItem.Size = New System.Drawing.Size(80, 20)
-        Me.StrumentiToolStripMenuItem.Text = "Strumenti..."
         '
         'CercaToolStripMenuItem
         '
+        resources.ApplyResources(Me.CercaToolStripMenuItem, "CercaToolStripMenuItem")
         Me.CercaToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.DBFind
         Me.CercaToolStripMenuItem.Name = "CercaToolStripMenuItem"
-        Me.CercaToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
-        Me.CercaToolStripMenuItem.Text = "Cerca..."
         '
         'ToolStripSeparator2
         '
+        resources.ApplyResources(Me.ToolStripSeparator2, "ToolStripSeparator2")
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(247, 6)
         '
         'ExportToolStripMenuItem
         '
+        resources.ApplyResources(Me.ExportToolStripMenuItem, "ExportToolStripMenuItem")
         Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
-        Me.ExportToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
-        Me.ExportToolStripMenuItem.Text = "export..."
-        Me.ExportToolStripMenuItem.Visible = False
         '
         'ImportToolStripMenuItem
         '
+        resources.ApplyResources(Me.ImportToolStripMenuItem, "ImportToolStripMenuItem")
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
-        Me.ImportToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
-        Me.ImportToolStripMenuItem.Text = "import..."
-        Me.ImportToolStripMenuItem.Visible = False
         '
         'ToolStripSeparator3
         '
+        resources.ApplyResources(Me.ToolStripSeparator3, "ToolStripSeparator3")
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(247, 6)
-        Me.ToolStripSeparator3.Visible = False
         '
         'CancellaToolStripMenuItem
         '
+        resources.ApplyResources(Me.CancellaToolStripMenuItem, "CancellaToolStripMenuItem")
         Me.CancellaToolStripMenuItem.Name = "CancellaToolStripMenuItem"
-        Me.CancellaToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
-        Me.CancellaToolStripMenuItem.Text = "Cancella..."
         '
         'CercaAggiornamentiToolStripMenuItem
         '
+        resources.ApplyResources(Me.CercaAggiornamentiToolStripMenuItem, "CercaAggiornamentiToolStripMenuItem")
         Me.CercaAggiornamentiToolStripMenuItem.Name = "CercaAggiornamentiToolStripMenuItem"
-        Me.CercaAggiornamentiToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
-        Me.CercaAggiornamentiToolStripMenuItem.Text = "Controlla aggiornamenti..."
         '
         'ToolStripMenuItemLOG
         '
+        resources.ApplyResources(Me.ToolStripMenuItemLOG, "ToolStripMenuItemLOG")
         Me.ToolStripMenuItemLOG.CheckOnClick = True
         Me.ToolStripMenuItemLOG.Name = "ToolStripMenuItemLOG"
-        Me.ToolStripMenuItemLOG.Size = New System.Drawing.Size(250, 22)
-        Me.ToolStripMenuItemLOG.Text = "Finestra log"
-        Me.ToolStripMenuItemLOG.Visible = False
         '
         'ToolStripSeparator1
         '
+        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(247, 6)
         '
         'EseguiBackupDBToolStripMenuItem
         '
+        resources.ApplyResources(Me.EseguiBackupDBToolStripMenuItem, "EseguiBackupDBToolStripMenuItem")
         Me.EseguiBackupDBToolStripMenuItem.Name = "EseguiBackupDBToolStripMenuItem"
-        Me.EseguiBackupDBToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
-        Me.EseguiBackupDBToolStripMenuItem.Text = "Esegui backup DB e preferenze"
         '
         'RipristinaBackupDBToolStripMenuItem
         '
+        resources.ApplyResources(Me.RipristinaBackupDBToolStripMenuItem, "RipristinaBackupDBToolStripMenuItem")
         Me.RipristinaBackupDBToolStripMenuItem.Name = "RipristinaBackupDBToolStripMenuItem"
-        Me.RipristinaBackupDBToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
-        Me.RipristinaBackupDBToolStripMenuItem.Text = "Ripristina backup DB e preferenze"
         '
         'ToolStripSeparator4
         '
+        resources.ApplyResources(Me.ToolStripSeparator4, "ToolStripSeparator4")
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
-        Me.ToolStripSeparator4.Size = New System.Drawing.Size(247, 6)
         '
         'RevisioneTabelleDatiToolStripMenuItem
         '
+        resources.ApplyResources(Me.RevisioneTabelleDatiToolStripMenuItem, "RevisioneTabelleDatiToolStripMenuItem")
         Me.RevisioneTabelleDatiToolStripMenuItem.Name = "RevisioneTabelleDatiToolStripMenuItem"
-        Me.RevisioneTabelleDatiToolStripMenuItem.Size = New System.Drawing.Size(250, 22)
-        Me.RevisioneTabelleDatiToolStripMenuItem.Text = "Revisione tabelle dati..."
         '
         'SessioneToolStripMenuItem
         '
+        resources.ApplyResources(Me.SessioneToolStripMenuItem, "SessioneToolStripMenuItem")
         Me.SessioneToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem1})
         Me.SessioneToolStripMenuItem.Name = "SessioneToolStripMenuItem"
-        Me.SessioneToolStripMenuItem.Size = New System.Drawing.Size(73, 20)
-        Me.SessioneToolStripMenuItem.Text = "Sessione..."
         '
         'LogoutToolStripMenuItem1
         '
+        resources.ApplyResources(Me.LogoutToolStripMenuItem1, "LogoutToolStripMenuItem1")
         Me.LogoutToolStripMenuItem1.Name = "LogoutToolStripMenuItem1"
-        Me.LogoutToolStripMenuItem1.Size = New System.Drawing.Size(121, 22)
-        Me.LogoutToolStripMenuItem1.Text = "Logout..."
         '
         'HelpToolStripMenuItem
         '
+        resources.ApplyResources(Me.HelpToolStripMenuItem, "HelpToolStripMenuItem")
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VersioneToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
-        Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
-        Me.HelpToolStripMenuItem.Text = "Help"
         '
         'VersioneToolStripMenuItem
         '
+        resources.ApplyResources(Me.VersioneToolStripMenuItem, "VersioneToolStripMenuItem")
         Me.VersioneToolStripMenuItem.Name = "VersioneToolStripMenuItem"
-        Me.VersioneToolStripMenuItem.Size = New System.Drawing.Size(135, 22)
-        Me.VersioneToolStripMenuItem.Text = "About OrSe"
         '
         'PreferenzeToolStripMenuItem
         '
+        resources.ApplyResources(Me.PreferenzeToolStripMenuItem, "PreferenzeToolStripMenuItem")
         Me.PreferenzeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpzioniToolStripMenuItem})
         Me.PreferenzeToolStripMenuItem.Name = "PreferenzeToolStripMenuItem"
-        Me.PreferenzeToolStripMenuItem.Size = New System.Drawing.Size(72, 20)
-        Me.PreferenzeToolStripMenuItem.Text = "Preferenze"
         '
         'OpzioniToolStripMenuItem
         '
+        resources.ApplyResources(Me.OpzioniToolStripMenuItem, "OpzioniToolStripMenuItem")
         Me.OpzioniToolStripMenuItem.Name = "OpzioniToolStripMenuItem"
-        Me.OpzioniToolStripMenuItem.Size = New System.Drawing.Size(124, 22)
-        Me.OpzioniToolStripMenuItem.Text = "Opzioni..."
         '
         'FlowLayoutPanel2
         '
-        Me.FlowLayoutPanel2.AutoSize = True
-        Me.FlowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.FlowLayoutPanel2.Location = New System.Drawing.Point(0, 0)
-        Me.FlowLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
+        resources.ApplyResources(Me.FlowLayoutPanel2, "FlowLayoutPanel2")
         Me.FlowLayoutPanel2.Name = "FlowLayoutPanel2"
-        Me.FlowLayoutPanel2.Size = New System.Drawing.Size(0, 0)
-        Me.FlowLayoutPanel2.TabIndex = 23
         '
         'FlowLayoutPanel1
         '
-        Me.FlowLayoutPanel1.AutoSize = True
-        Me.FlowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.FlowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel1.Location = New System.Drawing.Point(0, 0)
-        Me.FlowLayoutPanel1.Margin = New System.Windows.Forms.Padding(0)
+        resources.ApplyResources(Me.FlowLayoutPanel1, "FlowLayoutPanel1")
         Me.FlowLayoutPanel1.Name = "FlowLayoutPanel1"
-        Me.FlowLayoutPanel1.Size = New System.Drawing.Size(1008, 0)
-        Me.FlowLayoutPanel1.TabIndex = 24
         '
         'TableLayoutPanel2
         '
-        Me.TableLayoutPanel2.AutoSize = True
-        Me.TableLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
-        Me.TableLayoutPanel2.ColumnCount = 1
-        Me.TableLayoutPanel2.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100.0!))
+        resources.ApplyResources(Me.TableLayoutPanel2, "TableLayoutPanel2")
         Me.TableLayoutPanel2.Controls.Add(Me.FlowLayoutPanel1, 0, 2)
         Me.TableLayoutPanel2.Controls.Add(Me.FlowLayoutPanel2, 0, 1)
-        Me.TableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.TableLayoutPanel2.Location = New System.Drawing.Point(0, 512)
-        Me.TableLayoutPanel2.Margin = New System.Windows.Forms.Padding(0)
         Me.TableLayoutPanel2.Name = "TableLayoutPanel2"
-        Me.TableLayoutPanel2.RowCount = 3
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle())
-        Me.TableLayoutPanel2.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20.0!))
-        Me.TableLayoutPanel2.Size = New System.Drawing.Size(1008, 0)
-        Me.TableLayoutPanel2.TabIndex = 27
         '
         'FlowLayoutPanel3
         '
+        resources.ApplyResources(Me.FlowLayoutPanel3, "FlowLayoutPanel3")
         Me.FlowLayoutPanel3.Controls.Add(Me.labelInfoOS)
-        Me.FlowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Top
-        Me.FlowLayoutPanel3.Location = New System.Drawing.Point(0, 24)
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
-        Me.FlowLayoutPanel3.Size = New System.Drawing.Size(1008, 53)
-        Me.FlowLayoutPanel3.TabIndex = 29
         '
         'labelInfoOS
         '
-        Me.labelInfoOS.AutoSize = True
-        Me.labelInfoOS.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
-        Me.labelInfoOS.Location = New System.Drawing.Point(3, 6)
-        Me.labelInfoOS.Margin = New System.Windows.Forms.Padding(3, 6, 3, 3)
+        resources.ApplyResources(Me.labelInfoOS, "labelInfoOS")
         Me.labelInfoOS.Name = "labelInfoOS"
-        Me.labelInfoOS.Size = New System.Drawing.Size(134, 44)
-        Me.labelInfoOS.TabIndex = 13
-        Me.labelInfoOS.Text = "Label1"
         '
         'ButtonRubrica
         '
-        Me.ButtonRubrica.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
-        Me.ButtonRubrica.Image = CType(resources.GetObject("ButtonRubrica.Image"), System.Drawing.Image)
-        Me.ButtonRubrica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.ButtonRubrica.Location = New System.Drawing.Point(309, 94)
+        resources.ApplyResources(Me.ButtonRubrica, "ButtonRubrica")
         Me.ButtonRubrica.Name = "ButtonRubrica"
-        Me.ButtonRubrica.Size = New System.Drawing.Size(300, 85)
-        Me.ButtonRubrica.TabIndex = 10
-        Me.ButtonRubrica.Text = " &Rubrica..."
         Me.ButtonRubrica.UseCompatibleTextRendering = True
         Me.ButtonRubrica.UseVisualStyleBackColor = True
         '
-        'menu
+        'barramenu
         '
-        Me.menu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
-        Me.menu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferenzeToolStripMenuItem1, Me.StampaToolStripMenuItem, Me.StrumentiToolStripMenuItem, Me.SessioneToolStripMenuItem, Me.HelpToolStripMenuItem})
-        Me.menu.Location = New System.Drawing.Point(0, 0)
-        Me.menu.Name = "menu"
-        Me.menu.Size = New System.Drawing.Size(1008, 24)
-        Me.menu.TabIndex = 22
-        Me.menu.Text = "menu"
+        resources.ApplyResources(Me.barramenu, "barramenu")
+        Me.barramenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
+        Me.barramenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferenzeToolStripMenuItem1, Me.StampaToolStripMenuItem, Me.StrumentiToolStripMenuItem, Me.SessioneToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.barramenu.Name = "barramenu"
         '
         'BtnVedi
         '
+        resources.ApplyResources(Me.BtnVedi, "BtnVedi")
         Me.BtnVedi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.BtnVedi.FlatAppearance.BorderSize = 3
-        Me.BtnVedi.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
-        Me.BtnVedi.Location = New System.Drawing.Point(615, 94)
         Me.BtnVedi.Name = "BtnVedi"
-        Me.BtnVedi.Size = New System.Drawing.Size(300, 85)
-        Me.BtnVedi.TabIndex = 8
-        Me.BtnVedi.Text = "V&edi..."
         Me.BtnVedi.UseVisualStyleBackColor = True
         '
         'btnSopralluogo
         '
-        Me.btnSopralluogo.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
+        resources.ApplyResources(Me.btnSopralluogo, "btnSopralluogo")
         Me.btnSopralluogo.Image = Global.OrSe.My.Resources.Resources.pulsanteSoleGrigio
-        Me.btnSopralluogo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnSopralluogo.Location = New System.Drawing.Point(3, 94)
         Me.btnSopralluogo.Name = "btnSopralluogo"
-        Me.btnSopralluogo.Size = New System.Drawing.Size(300, 85)
-        Me.btnSopralluogo.TabIndex = 9
-        Me.btnSopralluogo.Text = "Sopra&lluogo..."
-        Me.btnSopralluogo.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSopralluogo.UseCompatibleTextRendering = True
         Me.btnSopralluogo.UseVisualStyleBackColor = True
         '
         'btnInformazioni
         '
-        Me.btnInformazioni.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
+        resources.ApplyResources(Me.btnInformazioni, "btnInformazioni")
         Me.btnInformazioni.Image = Global.OrSe.My.Resources.Resources.pulsanteSoleVerde
-        Me.btnInformazioni.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnInformazioni.Location = New System.Drawing.Point(615, 3)
         Me.btnInformazioni.Name = "btnInformazioni"
-        Me.btnInformazioni.Size = New System.Drawing.Size(300, 85)
-        Me.btnInformazioni.TabIndex = 7
-        Me.btnInformazioni.Text = "I&nformazioni..."
-        Me.btnInformazioni.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnInformazioni.UseCompatibleTextRendering = True
         Me.btnInformazioni.UseVisualStyleBackColor = True
         '
         'btnIntervento
         '
-        Me.btnIntervento.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
+        resources.ApplyResources(Me.btnIntervento, "btnIntervento")
         Me.btnIntervento.Image = Global.OrSe.My.Resources.Resources.db_addVerde
-        Me.btnIntervento.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnIntervento.Location = New System.Drawing.Point(309, 3)
         Me.btnIntervento.Name = "btnIntervento"
-        Me.btnIntervento.Size = New System.Drawing.Size(300, 85)
-        Me.btnIntervento.TabIndex = 0
-        Me.btnIntervento.Text = "&Intervento..."
-        Me.btnIntervento.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnIntervento.UseCompatibleTextRendering = True
         Me.btnIntervento.UseVisualStyleBackColor = True
         '
         'btnAlegatoA
         '
-        Me.btnAlegatoA.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!)
+        resources.ApplyResources(Me.btnAlegatoA, "btnAlegatoA")
         Me.btnAlegatoA.Image = Global.OrSe.My.Resources.Resources.db_addBlu
-        Me.btnAlegatoA.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnAlegatoA.Location = New System.Drawing.Point(3, 3)
         Me.btnAlegatoA.Name = "btnAlegatoA"
-        Me.btnAlegatoA.Size = New System.Drawing.Size(300, 85)
-        Me.btnAlegatoA.TabIndex = 6
-        Me.btnAlegatoA.Text = "Contr&ollo..."
-        Me.btnAlegatoA.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnAlegatoA.UseCompatibleTextRendering = True
         Me.btnAlegatoA.UseVisualStyleBackColor = True
         '
         'FlowLayoutPanelEsterno
         '
-        Me.FlowLayoutPanelEsterno.AutoSize = True
+        resources.ApplyResources(Me.FlowLayoutPanelEsterno, "FlowLayoutPanelEsterno")
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnAlegatoA)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnIntervento)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnInformazioni)
@@ -422,35 +325,20 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnRubrica)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.BtnVedi)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.Button1)
-        Me.FlowLayoutPanelEsterno.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.FlowLayoutPanelEsterno.Location = New System.Drawing.Point(0, 77)
         Me.FlowLayoutPanelEsterno.Name = "FlowLayoutPanelEsterno"
-        Me.FlowLayoutPanelEsterno.Size = New System.Drawing.Size(1008, 435)
-        Me.FlowLayoutPanelEsterno.TabIndex = 28
         '
         'btnRubrica
         '
-        Me.btnRubrica.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
-        Me.btnRubrica.Image = CType(resources.GetObject("btnRubrica.Image"), System.Drawing.Image)
-        Me.btnRubrica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnRubrica.Location = New System.Drawing.Point(309, 94)
+        resources.ApplyResources(Me.btnRubrica, "btnRubrica")
         Me.btnRubrica.Name = "btnRubrica"
-        Me.btnRubrica.Size = New System.Drawing.Size(300, 85)
-        Me.btnRubrica.TabIndex = 10
-        Me.btnRubrica.Text = " &Rubrica..."
         Me.btnRubrica.UseCompatibleTextRendering = True
         Me.btnRubrica.UseVisualStyleBackColor = True
         '
         'Button1
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 28.0!)
+        resources.ApplyResources(Me.Button1, "Button1")
         Me.Button1.Image = Global.OrSe.My.Resources.Resources.DBFind
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.Button1.Location = New System.Drawing.Point(3, 185)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(300, 85)
-        Me.Button1.TabIndex = 11
-        Me.Button1.Text = " &Cerca..."
         Me.Button1.UseCompatibleTextRendering = True
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -496,35 +384,26 @@ Partial Class FPrima
         '
         'VerticalLabel2
         '
-        Me.VerticalLabel2.Font = New System.Drawing.Font("Microsoft Sans Serif", 17.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte), True)
-        Me.VerticalLabel2.Location = New System.Drawing.Point(3, 0)
+        resources.ApplyResources(Me.VerticalLabel2, "VerticalLabel2")
         Me.VerticalLabel2.Name = "VerticalLabel2"
-        Me.VerticalLabel2.Size = New System.Drawing.Size(24, 114)
-        Me.VerticalLabel2.TabIndex = 26
-        Me.VerticalLabel2.Text = "Interventi"
         '
         'FPrima
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.AutoScroll = True
-        Me.ClientSize = New System.Drawing.Size(1008, 512)
         Me.Controls.Add(Me.FlowLayoutPanelEsterno)
         Me.Controls.Add(Me.FlowLayoutPanel3)
         Me.Controls.Add(Me.TableLayoutPanel2)
-        Me.Controls.Add(Me.menu)
+        Me.Controls.Add(Me.barramenu)
         Me.DoubleBuffered = True
-        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
-        Me.MainMenuStrip = Me.menu
+        Me.MainMenuStrip = Me.barramenu
         Me.Name = "FPrima"
-        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "OrSe"
         Me.TableLayoutPanel2.ResumeLayout(False)
         Me.TableLayoutPanel2.PerformLayout()
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.FlowLayoutPanel3.PerformLayout()
-        Me.menu.ResumeLayout(False)
-        Me.menu.PerformLayout()
+        Me.barramenu.ResumeLayout(False)
+        Me.barramenu.PerformLayout()
         Me.FlowLayoutPanelEsterno.ResumeLayout(False)
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -607,7 +486,7 @@ Partial Class FPrima
     Friend WithEvents TableLayoutPanel2 As System.Windows.Forms.TableLayoutPanel
     Friend WithEvents FlowLayoutPanel3 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents ButtonRubrica As System.Windows.Forms.Button
-    Friend WithEvents menu As System.Windows.Forms.MenuStrip
+    Friend WithEvents barramenu As System.Windows.Forms.MenuStrip
     Friend WithEvents BtnVedi As System.Windows.Forms.Button
     Friend WithEvents btnSopralluogo As System.Windows.Forms.Button
     Friend WithEvents btnInformazioni As System.Windows.Forms.Button
