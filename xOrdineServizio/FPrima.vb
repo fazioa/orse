@@ -102,10 +102,8 @@ Public Class FPrima
             ImportToolStripMenuItem.Visible = True
             '===========
 #If DEBUG Then
-
             ToolStripSeparator3.Visible = True
             ToolStripMenuItemLOG.Visible = True
-
             '#ElseIf  Then
 
 #End If
@@ -380,9 +378,7 @@ Public Class FPrima
     End Sub
 
 
-    Private Sub userBtn_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-        MessageBox.Show(My.User.Name & vbCrLf & My.User.CurrentPrincipal.Identity.Name & vbCrLf & My.Computer.Name & vbCrLf & Application.LocalUserAppDataPath)
-    End Sub
+   
 End Class
 
 

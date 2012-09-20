@@ -37,11 +37,16 @@ Public Class DInsDatiPreliminari
 
 
             'Aggiornamento timestamp uso della voce operatore
+            OperatoreTableAdapter.FillByNomeOperatore(Me.DbAlegatoADataSet.operatore, parametri.nomeOperatore)
             Dim dr As DataRowView = OperatoreBindingSource.Current
 
-            ' dr.Item("dataOraUltimoUso") = ActionsLibrary.getTimeStamp
-            'OperatoreTableAdapter.Update(dr.Row)
-            OperatoreTableAdapter.Update(dr.Item("operatori"), ActionsLibrary.getTimeStamp, dr.Item("id"), dr.Item("operatori"), dr.Item("dataoraultimouso"))
+            Dim d As String
+            Try
+                d = dr.Item("dataoraultimouso")
+            Catch ex As Exception
+                d = ""
+            End Try
+            OperatoreTableAdapter.Update(dr.Item("operatori"), ActionsLibrary.getTimeStamp, dr.Item("id"), dr.Item("operatori"), d)
 
         End If
     End Sub
