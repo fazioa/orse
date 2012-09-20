@@ -63,7 +63,6 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno = New System.Windows.Forms.FlowLayoutPanel()
         Me.btnRubrica = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -423,7 +422,6 @@ Partial Class FPrima
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.btnRubrica)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.BtnVedi)
         Me.FlowLayoutPanelEsterno.Controls.Add(Me.Button1)
-        Me.FlowLayoutPanelEsterno.Controls.Add(Me.Button2)
         Me.FlowLayoutPanelEsterno.Dock = System.Windows.Forms.DockStyle.Fill
         Me.FlowLayoutPanelEsterno.Location = New System.Drawing.Point(0, 77)
         Me.FlowLayoutPanelEsterno.Name = "FlowLayoutPanelEsterno"
@@ -455,15 +453,6 @@ Partial Class FPrima
         Me.Button1.Text = " &Cerca..."
         Me.Button1.UseCompatibleTextRendering = True
         Me.Button1.UseVisualStyleBackColor = True
-        '
-        'Button2
-        '
-        Me.Button2.Location = New System.Drawing.Point(309, 185)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(174, 23)
-        Me.Button2.TabIndex = 12
-        Me.Button2.Text = "Macchina e utente"
-        Me.Button2.UseVisualStyleBackColor = True
         '
         'Timer1
         '
@@ -632,7 +621,6 @@ Partial Class FPrima
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents RevisioneTabelleDatiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents OrdineServizioTableAdapter1 As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
     Friend WithEvents DbAlegatoADataSet1 As OrSe.dbAlegatoADataSet
 
