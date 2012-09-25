@@ -91,6 +91,10 @@ Public Class FPrima
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+
+        Highlighter1.CanExtend(btnAlegatoA)
+
+
         If Not bFlagExit Then
             caricaFinestraDatiOS()
 

@@ -73,6 +73,7 @@ Partial Class FPrima
         Me.OrdineServizioTableAdapter1 = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
         Me.DbAlegatoADataSet1 = New OrSe.dbAlegatoADataSet()
         Me.VerticalLabel2 = New OrSe.verticalLabel()
+        Me.Highlighter1 = New DevComponents.DotNetBar.Validator.Highlighter()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.barramenu.SuspendLayout()
@@ -88,150 +89,150 @@ Partial Class FPrima
         '
         'PreferenzeToolStripMenuItem1
         '
-        resources.ApplyResources(Me.PreferenzeToolStripMenuItem1, "PreferenzeToolStripMenuItem1")
         Me.PreferenzeToolStripMenuItem1.Name = "PreferenzeToolStripMenuItem1"
+        resources.ApplyResources(Me.PreferenzeToolStripMenuItem1, "PreferenzeToolStripMenuItem1")
         '
         'StampaToolStripMenuItem
         '
-        resources.ApplyResources(Me.StampaToolStripMenuItem, "StampaToolStripMenuItem")
         Me.StampaToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem1, Me.informazioniToolStripMenuItem, Me.AllegatoAToolStripMenuItem, Me.OP85ToolStripMenuItem, Me.SopralluogoToolStripMenuItem})
         Me.StampaToolStripMenuItem.Name = "StampaToolStripMenuItem"
+        resources.ApplyResources(Me.StampaToolStripMenuItem, "StampaToolStripMenuItem")
         '
         'ToolStripMenuItem1
         '
-        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
         Me.ToolStripMenuItem1.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        resources.ApplyResources(Me.ToolStripMenuItem1, "ToolStripMenuItem1")
         '
         'informazioniToolStripMenuItem
         '
-        resources.ApplyResources(Me.informazioniToolStripMenuItem, "informazioniToolStripMenuItem")
         Me.informazioniToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printInterventi
         Me.informazioniToolStripMenuItem.Name = "informazioniToolStripMenuItem"
+        resources.ApplyResources(Me.informazioniToolStripMenuItem, "informazioniToolStripMenuItem")
         '
         'AllegatoAToolStripMenuItem
         '
-        resources.ApplyResources(Me.AllegatoAToolStripMenuItem, "AllegatoAToolStripMenuItem")
         Me.AllegatoAToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printAllegatoA
         Me.AllegatoAToolStripMenuItem.Name = "AllegatoAToolStripMenuItem"
+        resources.ApplyResources(Me.AllegatoAToolStripMenuItem, "AllegatoAToolStripMenuItem")
         '
         'OP85ToolStripMenuItem
         '
-        resources.ApplyResources(Me.OP85ToolStripMenuItem, "OP85ToolStripMenuItem")
         Me.OP85ToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
         Me.OP85ToolStripMenuItem.Name = "OP85ToolStripMenuItem"
+        resources.ApplyResources(Me.OP85ToolStripMenuItem, "OP85ToolStripMenuItem")
         '
         'SopralluogoToolStripMenuItem
         '
-        resources.ApplyResources(Me.SopralluogoToolStripMenuItem, "SopralluogoToolStripMenuItem")
         Me.SopralluogoToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.printOP85
         Me.SopralluogoToolStripMenuItem.Name = "SopralluogoToolStripMenuItem"
+        resources.ApplyResources(Me.SopralluogoToolStripMenuItem, "SopralluogoToolStripMenuItem")
         '
         'StrumentiToolStripMenuItem
         '
-        resources.ApplyResources(Me.StrumentiToolStripMenuItem, "StrumentiToolStripMenuItem")
         Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CercaToolStripMenuItem, Me.ToolStripSeparator2, Me.ExportToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ToolStripSeparator3, Me.CancellaToolStripMenuItem, Me.CercaAggiornamentiToolStripMenuItem, Me.ToolStripMenuItemLOG, Me.ToolStripSeparator1, Me.EseguiBackupDBToolStripMenuItem, Me.RipristinaBackupDBToolStripMenuItem, Me.ToolStripSeparator4, Me.RevisioneTabelleDatiToolStripMenuItem})
         Me.StrumentiToolStripMenuItem.Name = "StrumentiToolStripMenuItem"
+        resources.ApplyResources(Me.StrumentiToolStripMenuItem, "StrumentiToolStripMenuItem")
         '
         'CercaToolStripMenuItem
         '
-        resources.ApplyResources(Me.CercaToolStripMenuItem, "CercaToolStripMenuItem")
         Me.CercaToolStripMenuItem.Image = Global.OrSe.My.Resources.Resources.DBFind
         Me.CercaToolStripMenuItem.Name = "CercaToolStripMenuItem"
+        resources.ApplyResources(Me.CercaToolStripMenuItem, "CercaToolStripMenuItem")
         '
         'ToolStripSeparator2
         '
-        resources.ApplyResources(Me.ToolStripSeparator2, "ToolStripSeparator2")
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
+        resources.ApplyResources(Me.ToolStripSeparator2, "ToolStripSeparator2")
         '
         'ExportToolStripMenuItem
         '
-        resources.ApplyResources(Me.ExportToolStripMenuItem, "ExportToolStripMenuItem")
         Me.ExportToolStripMenuItem.Name = "ExportToolStripMenuItem"
+        resources.ApplyResources(Me.ExportToolStripMenuItem, "ExportToolStripMenuItem")
         '
         'ImportToolStripMenuItem
         '
-        resources.ApplyResources(Me.ImportToolStripMenuItem, "ImportToolStripMenuItem")
         Me.ImportToolStripMenuItem.Name = "ImportToolStripMenuItem"
+        resources.ApplyResources(Me.ImportToolStripMenuItem, "ImportToolStripMenuItem")
         '
         'ToolStripSeparator3
         '
-        resources.ApplyResources(Me.ToolStripSeparator3, "ToolStripSeparator3")
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
+        resources.ApplyResources(Me.ToolStripSeparator3, "ToolStripSeparator3")
         '
         'CancellaToolStripMenuItem
         '
-        resources.ApplyResources(Me.CancellaToolStripMenuItem, "CancellaToolStripMenuItem")
         Me.CancellaToolStripMenuItem.Name = "CancellaToolStripMenuItem"
+        resources.ApplyResources(Me.CancellaToolStripMenuItem, "CancellaToolStripMenuItem")
         '
         'CercaAggiornamentiToolStripMenuItem
         '
-        resources.ApplyResources(Me.CercaAggiornamentiToolStripMenuItem, "CercaAggiornamentiToolStripMenuItem")
         Me.CercaAggiornamentiToolStripMenuItem.Name = "CercaAggiornamentiToolStripMenuItem"
+        resources.ApplyResources(Me.CercaAggiornamentiToolStripMenuItem, "CercaAggiornamentiToolStripMenuItem")
         '
         'ToolStripMenuItemLOG
         '
-        resources.ApplyResources(Me.ToolStripMenuItemLOG, "ToolStripMenuItemLOG")
         Me.ToolStripMenuItemLOG.CheckOnClick = True
         Me.ToolStripMenuItemLOG.Name = "ToolStripMenuItemLOG"
+        resources.ApplyResources(Me.ToolStripMenuItemLOG, "ToolStripMenuItemLOG")
         '
         'ToolStripSeparator1
         '
-        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
+        resources.ApplyResources(Me.ToolStripSeparator1, "ToolStripSeparator1")
         '
         'EseguiBackupDBToolStripMenuItem
         '
-        resources.ApplyResources(Me.EseguiBackupDBToolStripMenuItem, "EseguiBackupDBToolStripMenuItem")
         Me.EseguiBackupDBToolStripMenuItem.Name = "EseguiBackupDBToolStripMenuItem"
+        resources.ApplyResources(Me.EseguiBackupDBToolStripMenuItem, "EseguiBackupDBToolStripMenuItem")
         '
         'RipristinaBackupDBToolStripMenuItem
         '
-        resources.ApplyResources(Me.RipristinaBackupDBToolStripMenuItem, "RipristinaBackupDBToolStripMenuItem")
         Me.RipristinaBackupDBToolStripMenuItem.Name = "RipristinaBackupDBToolStripMenuItem"
+        resources.ApplyResources(Me.RipristinaBackupDBToolStripMenuItem, "RipristinaBackupDBToolStripMenuItem")
         '
         'ToolStripSeparator4
         '
-        resources.ApplyResources(Me.ToolStripSeparator4, "ToolStripSeparator4")
         Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        resources.ApplyResources(Me.ToolStripSeparator4, "ToolStripSeparator4")
         '
         'RevisioneTabelleDatiToolStripMenuItem
         '
-        resources.ApplyResources(Me.RevisioneTabelleDatiToolStripMenuItem, "RevisioneTabelleDatiToolStripMenuItem")
         Me.RevisioneTabelleDatiToolStripMenuItem.Name = "RevisioneTabelleDatiToolStripMenuItem"
+        resources.ApplyResources(Me.RevisioneTabelleDatiToolStripMenuItem, "RevisioneTabelleDatiToolStripMenuItem")
         '
         'SessioneToolStripMenuItem
         '
-        resources.ApplyResources(Me.SessioneToolStripMenuItem, "SessioneToolStripMenuItem")
         Me.SessioneToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.LogoutToolStripMenuItem1})
         Me.SessioneToolStripMenuItem.Name = "SessioneToolStripMenuItem"
+        resources.ApplyResources(Me.SessioneToolStripMenuItem, "SessioneToolStripMenuItem")
         '
         'LogoutToolStripMenuItem1
         '
-        resources.ApplyResources(Me.LogoutToolStripMenuItem1, "LogoutToolStripMenuItem1")
         Me.LogoutToolStripMenuItem1.Name = "LogoutToolStripMenuItem1"
+        resources.ApplyResources(Me.LogoutToolStripMenuItem1, "LogoutToolStripMenuItem1")
         '
         'HelpToolStripMenuItem
         '
-        resources.ApplyResources(Me.HelpToolStripMenuItem, "HelpToolStripMenuItem")
         Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VersioneToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
+        resources.ApplyResources(Me.HelpToolStripMenuItem, "HelpToolStripMenuItem")
         '
         'VersioneToolStripMenuItem
         '
-        resources.ApplyResources(Me.VersioneToolStripMenuItem, "VersioneToolStripMenuItem")
         Me.VersioneToolStripMenuItem.Name = "VersioneToolStripMenuItem"
+        resources.ApplyResources(Me.VersioneToolStripMenuItem, "VersioneToolStripMenuItem")
         '
         'PreferenzeToolStripMenuItem
         '
-        resources.ApplyResources(Me.PreferenzeToolStripMenuItem, "PreferenzeToolStripMenuItem")
         Me.PreferenzeToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.OpzioniToolStripMenuItem})
         Me.PreferenzeToolStripMenuItem.Name = "PreferenzeToolStripMenuItem"
+        resources.ApplyResources(Me.PreferenzeToolStripMenuItem, "PreferenzeToolStripMenuItem")
         '
         'OpzioniToolStripMenuItem
         '
-        resources.ApplyResources(Me.OpzioniToolStripMenuItem, "OpzioniToolStripMenuItem")
         Me.OpzioniToolStripMenuItem.Name = "OpzioniToolStripMenuItem"
+        resources.ApplyResources(Me.OpzioniToolStripMenuItem, "OpzioniToolStripMenuItem")
         '
         'FlowLayoutPanel2
         '
@@ -252,8 +253,8 @@ Partial Class FPrima
         '
         'FlowLayoutPanel3
         '
-        resources.ApplyResources(Me.FlowLayoutPanel3, "FlowLayoutPanel3")
         Me.FlowLayoutPanel3.Controls.Add(Me.labelInfoOS)
+        resources.ApplyResources(Me.FlowLayoutPanel3, "FlowLayoutPanel3")
         Me.FlowLayoutPanel3.Name = "FlowLayoutPanel3"
         '
         'labelInfoOS
@@ -270,16 +271,16 @@ Partial Class FPrima
         '
         'barramenu
         '
-        resources.ApplyResources(Me.barramenu, "barramenu")
         Me.barramenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
         Me.barramenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferenzeToolStripMenuItem1, Me.StampaToolStripMenuItem, Me.StrumentiToolStripMenuItem, Me.SessioneToolStripMenuItem, Me.HelpToolStripMenuItem})
+        resources.ApplyResources(Me.barramenu, "barramenu")
         Me.barramenu.Name = "barramenu"
         '
         'BtnVedi
         '
-        resources.ApplyResources(Me.BtnVedi, "BtnVedi")
         Me.BtnVedi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.BtnVedi.FlatAppearance.BorderSize = 3
+        resources.ApplyResources(Me.BtnVedi, "BtnVedi")
         Me.BtnVedi.Name = "BtnVedi"
         Me.BtnVedi.UseVisualStyleBackColor = True
         '
@@ -386,6 +387,10 @@ Partial Class FPrima
         '
         resources.ApplyResources(Me.VerticalLabel2, "VerticalLabel2")
         Me.VerticalLabel2.Name = "VerticalLabel2"
+        '
+        'Highlighter1
+        '
+        Me.Highlighter1.ContainerControl = Me
         '
         'FPrima
         '
@@ -502,5 +507,6 @@ Partial Class FPrima
     Friend WithEvents RevisioneTabelleDatiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OrdineServizioTableAdapter1 As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
     Friend WithEvents DbAlegatoADataSet1 As OrSe.dbAlegatoADataSet
+    Friend WithEvents Highlighter1 As DevComponents.DotNetBar.Validator.Highlighter
 
 End Class

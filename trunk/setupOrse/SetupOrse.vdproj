@@ -153,10 +153,15 @@
                     "Name" = "8:Microsoft Data Access Components 2.8"
                     "ProductCode" = "8:Microsoft.Data.Access.Components.2.8"
                     }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.2.0"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Net.Framework.3.5.SP1"
                     {
-                    "Name" = "8:.NET Framework 2.0"
-                    "ProductCode" = "8:Microsoft.Net.Framework.2.0"
+                    "Name" = "8:.NET Framework 3.5 SP1"
+                    "ProductCode" = "8:Microsoft.Net.Framework.3.5.SP1"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.4.5"
+                    {
+                    "Name" = "8:Windows Installer 4.5"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.4.5"
                     }
                 }
             }
@@ -421,7 +426,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Orse"
         "ProductCode" = "8:{9510B6A3-0C3F-4E19-A018-12916E52C785}"
-        "PackageCode" = "8:{088FB89F-CC19-4621-8C8B-99D37B028368}"
+        "PackageCode" = "8:{ECD1B1DF-8D8F-4F7D-8570-FC51DD162A62}"
         "UpgradeCode" = "8:{5E60EDF5-DF1E-4D69-9A90-1991CCF01906}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
