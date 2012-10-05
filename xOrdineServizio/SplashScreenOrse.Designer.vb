@@ -26,12 +26,12 @@ Partial Class SplashScreenOrse
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.MainLayoutPanel = New System.Windows.Forms.TableLayoutPanel
-        Me.DetailsLayoutPanel = New System.Windows.Forms.TableLayoutPanel
-        Me.Version = New System.Windows.Forms.Label
-        Me.Copyright = New System.Windows.Forms.Label
-        Me.ApplicationTitle = New System.Windows.Forms.Label
+        Me.components = New System.ComponentModel.Container()
+        Me.MainLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.DetailsLayoutPanel = New System.Windows.Forms.TableLayoutPanel()
+        Me.Version = New System.Windows.Forms.Label()
+        Me.Copyright = New System.Windows.Forms.Label()
+        Me.ApplicationTitle = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.MainLayoutPanel.SuspendLayout()
         Me.DetailsLayoutPanel.SuspendLayout()
@@ -51,7 +51,7 @@ Partial Class SplashScreenOrse
         Me.MainLayoutPanel.Name = "MainLayoutPanel"
         Me.MainLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 218.0!))
         Me.MainLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38.0!))
-        Me.MainLayoutPanel.Size = New System.Drawing.Size(492, 299)
+        Me.MainLayoutPanel.Size = New System.Drawing.Size(484, 291)
         Me.MainLayoutPanel.TabIndex = 0
         '
         'DetailsLayoutPanel
@@ -67,7 +67,7 @@ Partial Class SplashScreenOrse
         Me.DetailsLayoutPanel.Name = "DetailsLayoutPanel"
         Me.DetailsLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.0!))
         Me.DetailsLayoutPanel.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.0!))
-        Me.DetailsLayoutPanel.Size = New System.Drawing.Size(243, 75)
+        Me.DetailsLayoutPanel.Size = New System.Drawing.Size(235, 67)
         Me.DetailsLayoutPanel.TabIndex = 1
         '
         'Version
@@ -75,7 +75,7 @@ Partial Class SplashScreenOrse
         Me.Version.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Version.BackColor = System.Drawing.Color.Transparent
         Me.Version.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Version.Location = New System.Drawing.Point(3, 8)
+        Me.Version.Location = New System.Drawing.Point(3, 6)
         Me.Version.Name = "Version"
         Me.Version.Size = New System.Drawing.Size(241, 20)
         Me.Version.TabIndex = 1
@@ -86,9 +86,9 @@ Partial Class SplashScreenOrse
         Me.Copyright.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Copyright.BackColor = System.Drawing.Color.Transparent
         Me.Copyright.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Copyright.Location = New System.Drawing.Point(3, 37)
+        Me.Copyright.Location = New System.Drawing.Point(3, 33)
         Me.Copyright.Name = "Copyright"
-        Me.Copyright.Size = New System.Drawing.Size(241, 38)
+        Me.Copyright.Size = New System.Drawing.Size(241, 34)
         Me.Copyright.TabIndex = 2
         Me.Copyright.Text = "Copyright"
         '
@@ -99,7 +99,7 @@ Partial Class SplashScreenOrse
         Me.ApplicationTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ApplicationTitle.Location = New System.Drawing.Point(246, 3)
         Me.ApplicationTitle.Name = "ApplicationTitle"
-        Me.ApplicationTitle.Size = New System.Drawing.Size(243, 212)
+        Me.ApplicationTitle.Size = New System.Drawing.Size(235, 212)
         Me.ApplicationTitle.TabIndex = 0
         Me.ApplicationTitle.Text = "ApplicationTitle"
         Me.ApplicationTitle.TextAlign = System.Drawing.ContentAlignment.BottomLeft
@@ -112,7 +112,7 @@ Partial Class SplashScreenOrse
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(492, 299)
+        Me.ClientSize = New System.Drawing.Size(484, 291)
         Me.ControlBox = False
         Me.Controls.Add(Me.MainLayoutPanel)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle

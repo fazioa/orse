@@ -393,6 +393,9 @@
   <data name="labelInfoOS.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 28pt</value>
   </data>
+  <data name="labelInfoOS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="labelInfoOS.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 6</value>
   </data>
@@ -504,6 +507,9 @@
   <data name="ButtonRubrica.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="ButtonRubrica.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="ButtonRubrica.Location" type="System.Drawing.Point, System.Drawing">
     <value>309, 94</value>
   </data>
@@ -552,6 +558,9 @@
   <data name="BtnVedi.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 30pt</value>
   </data>
+  <data name="BtnVedi.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="BtnVedi.Location" type="System.Drawing.Point, System.Drawing">
     <value>615, 94</value>
   </data>
@@ -581,6 +590,9 @@
   </data>
   <data name="btnSopralluogo.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="btnSopralluogo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnSopralluogo.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 94</value>
@@ -615,6 +627,9 @@
   <data name="btnInformazioni.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="btnInformazioni.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnInformazioni.Location" type="System.Drawing.Point, System.Drawing">
     <value>615, 3</value>
   </data>
@@ -648,6 +663,9 @@
   <data name="btnIntervento.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="btnIntervento.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnIntervento.Location" type="System.Drawing.Point, System.Drawing">
     <value>309, 3</value>
   </data>
@@ -680,6 +698,9 @@
   </data>
   <data name="btnAlegatoA.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="btnAlegatoA.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnAlegatoA.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 3</value>
@@ -771,6 +792,9 @@
   <data name="btnRubrica.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
+  <data name="btnRubrica.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnRubrica.Location" type="System.Drawing.Point, System.Drawing">
     <value>309, 94</value>
   </data>
@@ -800,6 +824,9 @@
   </data>
   <data name="Button1.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
+  </data>
+  <data name="Button1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="Button1.Location" type="System.Drawing.Point, System.Drawing">
     <value>3, 185</value>
@@ -853,28 +880,28 @@
     <value>412, 17</value>
   </metadata>
   <metadata name="QAllegatoABindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>30, 47</value>
+    <value>612, 17</value>
   </metadata>
   <metadata name="QInterventiBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>214, 12</value>
+    <value>227, 17</value>
   </metadata>
   <metadata name="QInterventi_informazioniBindigSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>241, 41</value>
+    <value>805, 17</value>
   </metadata>
   <metadata name="InterventiBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>850, 41</value>
+    <value>201, 56</value>
   </metadata>
   <metadata name="AllegatoABindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>666, 41</value>
+    <value>17, 56</value>
   </metadata>
   <metadata name="OrdineServizioBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <metadata name="OrdineServizioTableAdapter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>225, 80</value>
+    <value>550, 56</value>
   </metadata>
   <metadata name="DbAlegatoADataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>54, 72</value>
+    <value>383, 56</value>
   </metadata>
   <data name="VerticalLabel2.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 17pt</value>
@@ -897,14 +924,11 @@
   <data name="&gt;&gt;VerticalLabel2.Type" xml:space="preserve">
     <value>OrSe.verticalLabel, OrSe, Version=2.70.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <metadata name="Highlighter1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>436, 80</value>
-  </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>153</value>
+    <value>25</value>
   </metadata>
   <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
     <value>6, 13</value>
@@ -2047,6 +2071,9 @@
         AAAAAB///////////////wAAAAD///////8=
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -2268,12 +2295,6 @@
   </data>
   <data name="&gt;&gt;DbAlegatoADataSet1.Type" xml:space="preserve">
     <value>OrSe.dbAlegatoADataSet, dbAlegatoADataSet.Designer.vb, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
-  <data name="&gt;&gt;Highlighter1.Name" xml:space="preserve">
-    <value>Highlighter1</value>
-  </data>
-  <data name="&gt;&gt;Highlighter1.Type" xml:space="preserve">
-    <value>DevComponents.DotNetBar.Validator.Highlighter, DevComponents.DotNetBar2, Version=10.0.0.3, Culture=neutral, PublicKeyToken=c39c3242a43eee2b</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FPrima</value>

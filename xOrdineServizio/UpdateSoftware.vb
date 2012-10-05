@@ -1,3 +1,5 @@
+'Imports System.Security.AccessControl
+Imports System.IO
 Public Class UpdateSoftware
     Dim log As New XOrseLog
     Dim i As New InfoScreen
@@ -98,17 +100,15 @@ Public Class UpdateSoftware
         saveDialog.FileName = "dbAlegatoA_BACKUP.mdb"
         saveDialog.Title = "Esegui backup del dB"
         saveDialog.ShowDialog()
-        If (DialogResult.OK) Then
+        If (saveDialog.ShowDialog() = DialogResult.OK) Then
             sPathBackup = saveDialog.FileName
-        End If
+            'elimino il file dbAlegatoA2, nel caso sia presente
+            If File.Exists(sPathBackup) <> "" Then
+                Kill(sPathBackup)
+            End If
+            FileCopy(sPathOriginale, sPathBackup)
 
-        'elimino il file dbAlegatoA2, nel caso sia presente
-        If Dir(sPathBackup) <> "" Then
-            Kill(sPathBackup)
         End If
-
-        FileCopy(sPathOriginale, sPathBackup)
-        eseguiBackupPreferenze()
     End Sub
 
     Public Sub ripristinaDBBackup()
@@ -120,41 +120,40 @@ Public Class UpdateSoftware
         openDialog.InitialDirectory = pathDB
         openDialog.Filter = "Microsoft Access Files (*.mdb)|*.mdb|All files (*.*)|*.*"
         openDialog.Title = "Ripristina DB da backup"
-        openDialog.ShowDialog()
-        If (DialogResult.OK) Then
+
+        If (openDialog.ShowDialog() = DialogResult.OK) Then
             sPathBackup = openDialog.FileName
-        End If
 
-        'sovrascrive il file del DB
-        'faccio una copia del DB attuale
-        'sorgente --> destinazione
-        Dim sPatheNomeSalvataggioVecchioDB = pathDB & "\dbAlegatoA" & ActionsLibrary.getTimeStamp & ".mdb"
-        FileCopy(sPathDB, sPatheNomeSalvataggioVecchioDB)
-        'messaggio, indica il nome del file di backup
-        i.salvataggioBackupVecchioDB(sPatheNomeSalvataggioVecchioDB)
-        log.xlogWriteEntry("Backup DB --> " & sPatheNomeSalvataggioVecchioDB, TraceEventType.Information)
+            'sovrascrive il file del DB
+            'faccio una copia del DB attuale
+            'sorgente --> destinazione
+            Dim sPathNomeSalvataggioVecchioDB = pathDB & "\dbAlegatoA" & ActionsLibrary.getTimeStamp & ".mdb"
+            FileCopy(sPathDB, sPathNomeSalvataggioVecchioDB)
+            'messaggio, indica il nome del file di backup
+            i.salvataggioBackupVecchioDB(sPathNomeSalvataggioVecchioDB)
+            log.xlogWriteEntry("Backup DB --> " & sPathNomeSalvataggioVecchioDB, TraceEventType.Information)
 
-        If (sPathBackup.Equals(sPathDB)) Then
+            If (sPathBackup.Equals(sPathDB)) Then
 
-            i.erroreRipristinoBackupDB_sceltoStessoFile()
-            log.xlogWriteEntry("Errore. Ripristino DB non eseguito. Scelto file in uso", TraceEventType.Error)
-        Else
-            'cancello il db in uso
-            If Dir(sPathDB) <> "" Then
-                Kill(sPathDB)
+                i.erroreRipristinoBackupDB_sceltoStessoFile()
+                log.xlogWriteEntry("Errore. Ripristino DB non eseguito. Scelto file in uso", TraceEventType.Error)
+            Else
+                'cancello il db in uso
+                If Dir(sPathDB) <> "" Then
+                    Kill(sPathDB)
+                End If
+
+                Try
+                    'sorgente --> destinazione
+                    FileCopy(sPathBackup, sPathDB)
+                    i.ripristinoBackupDB(sPathBackup)
+                    log.xlogWriteEntry("E' stato ripristinato il file " & sPathBackup, TraceEventType.Information)
+                Catch ex As Exception
+                    i.erroreRipristinoBackupDB(sPathBackup)
+                    log.xlogWriteEntry("Errore nel ripristino del DB", TraceEventType.Information)
+                End Try
             End If
-
-            Try
-                'sorgente --> destinazione
-                FileCopy(sPathBackup, sPathDB)
-                i.ripristinoBackupDB(sPathBackup)
-                log.xlogWriteEntry("E' stato ripristinato il file " & sPathBackup, TraceEventType.Information)
-            Catch ex As Exception
-                i.erroreRipristinoBackupDB(sPathBackup)
-                log.xlogWriteEntry("Errore nel ripristino del DB", TraceEventType.Information)
-            End Try
         End If
-
     End Sub
 
     Public Sub eseguiBackupPreferenze()

@@ -44,7 +44,7 @@ Public Class email
             Dim userState As Object = m
             x.SendAsync(m, userState)
         Catch ex As Exception
-            MsgBox("Errore invio segnalazione. " & ex.Message, MsgBoxStyle.Exclamation, "Segnalazione errore")
+            '  MsgBox("Errore invio segnalazione. " & ex.Message, MsgBoxStyle.Exclamation, "Segnalazione errore")
         End Try
     End Function
     Public Sub SmtpClient_OnCompleted(ByVal sender As Object, ByVal e As System.ComponentModel.AsyncCompletedEventArgs)

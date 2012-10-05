@@ -116,7 +116,6 @@ Public Class DInsDatiPreliminari
         ' This call is required by the Windows Form Designer.
         InitializeComponent()
         Me.parametri = parametri
-
     End Sub
 
     Public Function getResultClassParametri() As parametriControllo_e_OS
@@ -231,7 +230,7 @@ Public Class DInsDatiPreliminari
         'Popolamento TREVIEW
         Dim idOS As Integer
         If (Integer.TryParse(tv.SelectedNode.Name, idOS)) Then
-            QOrdineServizioTableAdapter.FillById(DbAlegatoADataSet.QOrdineServizio, idOS)
+            QOrdineServizioTableAdapter.FillByID(DbAlegatoADataSet.QOrdineServizio, idOS)
             OSMaskedTextBox.Text = feActions.leggiCampoDB(QOrdineServizioBindingSource, "nome")
             DateTimePicker1.Value = feActions.leggiCampoDB(QOrdineServizioBindingSource, "data")
             OperatoriComboBox.Text = feActions.leggiCampoDB(QOrdineServizioBindingSource, "operatori")

@@ -35,10 +35,10 @@ Public Class FPrima
         'SOLLEVO ECCEZIONE PER TEST
         ' Throw New Exception("operazione non valida.")
 
-
+        MsgBox("fprima prima di File.Exists(sPath)... " & File.Exists(sPath) & " - Path: " & sPath & vbCrLf & "connectionString: ")
         'elimino il file dbAlegatoA2, nel caso sia presente
-        If Dir(sPath) = "" Then
-            '     MsgBox("Il file """ & sPath & ", necessario all'applicazione, non sembra essere presente.", MsgBoxStyle.Critical, "ERRORE")
+        If Not File.Exists(sPath) Then
+            MsgBox("Il file """ & sPath & ", necessario all'applicazione, non sembra essere presente.", MsgBoxStyle.Critical, "ERRORE")
             bFlagExit = True
         End If
 
@@ -75,7 +75,9 @@ Public Class FPrima
             Else
 
                 ' This call is required by the Windows Form Designer.
+
                 InitializeComponent()
+
                 ' Add any initialization after the InitializeComponent() call.
             End If
         End If
@@ -91,9 +93,6 @@ Public Class FPrima
     End Sub
 
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-
-        Highlighter1.CanExtend(btnAlegatoA)
-
 
         If Not bFlagExit Then
             caricaFinestraDatiOS()
