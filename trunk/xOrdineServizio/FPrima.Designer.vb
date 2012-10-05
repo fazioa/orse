@@ -73,7 +73,6 @@ Partial Class FPrima
         Me.OrdineServizioTableAdapter1 = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
         Me.DbAlegatoADataSet1 = New OrSe.dbAlegatoADataSet()
         Me.VerticalLabel2 = New OrSe.verticalLabel()
-        Me.Highlighter1 = New DevComponents.DotNetBar.Validator.Highlighter()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.barramenu.SuspendLayout()
@@ -388,10 +387,6 @@ Partial Class FPrima
         resources.ApplyResources(Me.VerticalLabel2, "VerticalLabel2")
         Me.VerticalLabel2.Name = "VerticalLabel2"
         '
-        'Highlighter1
-        '
-        Me.Highlighter1.ContainerControl = Me
-        '
         'FPrima
         '
         resources.ApplyResources(Me, "$this")
@@ -507,6 +502,5 @@ Partial Class FPrima
     Friend WithEvents RevisioneTabelleDatiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OrdineServizioTableAdapter1 As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
     Friend WithEvents DbAlegatoADataSet1 As OrSe.dbAlegatoADataSet
-    Friend WithEvents Highlighter1 As DevComponents.DotNetBar.Validator.Highlighter
 
 End Class
