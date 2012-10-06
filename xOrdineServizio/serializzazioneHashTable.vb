@@ -3,9 +3,9 @@ Imports System.Runtime.Serialization.Formatters.Binary
 <Serializable()> Public Class serializzazioneHashTable
     Dim log As New XOrseLog
 
-    Public Sub salvaHashTable(ByVal preferenze As Hashtable)
+    Public Sub salvaHashTable(ByVal preferenze As Hashtable, path As String)
 
-        Dim path As String = Application.StartupPath
+        '   Dim path As String = Application.StartupPath
         Dim sPath = path & "\preferenzeBackup.TSPref"
         Dim myFileStream As Stream = File.Create(sPath)
         Dim serializer As New BinaryFormatter()
@@ -13,11 +13,12 @@ Imports System.Runtime.Serialization.Formatters.Binary
         log.xlogWriteEntry("Backup Preferenze --> " & sPath, TraceEventType.Information)
         serializer.Serialize(myFileStream, preferenze)
         myFileStream.Close()
+
     End Sub
 
-    Public Function loadHashTable() As Hashtable
+    Public Function loadHashTable(path As String) As Hashtable
         'carica le preferenze, solo se il file esiste
-        Dim path As String = Application.StartupPath
+        ' Dim path As String = Application.StartupPath
         Dim bFlag As Boolean = False
 
         Dim sPath = path & "\preferenzeBackup.TSPref"

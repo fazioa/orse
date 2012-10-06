@@ -23,10 +23,10 @@ Public Class FPrima
 
     Public Sub New()
         
-
+        AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName)
         'controllo se il file del DB è presente, altrimenti restituisco errore ed esco dall'applicazione
 
-        Dim pathDB As String = Application.StartupPath
+        Dim pathDB As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName
 
         'Dim pathDB As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData
 
@@ -35,7 +35,6 @@ Public Class FPrima
         'SOLLEVO ECCEZIONE PER TEST
         ' Throw New Exception("operazione non valida.")
 
-        MsgBox("fprima prima di File.Exists(sPath)... " & File.Exists(sPath) & " - Path: " & sPath & vbCrLf & "connectionString: ")
         'elimino il file dbAlegatoA2, nel caso sia presente
         If Not File.Exists(sPath) Then
             MsgBox("Il file """ & sPath & ", necessario all'applicazione, non sembra essere presente.", MsgBoxStyle.Critical, "ERRORE")

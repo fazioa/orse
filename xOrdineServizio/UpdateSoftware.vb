@@ -5,6 +5,7 @@ Public Class UpdateSoftware
     Dim i As New InfoScreen
     Dim sVersioneAttuale, sVersioneInRete As String
     Dim feActions As ActionsLibrary = New ActionsLibrary
+    Dim sPathDatiSistema As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName
 
     Public Function lookForNewVersion()
         Dim isAvailable As Boolean
@@ -90,29 +91,94 @@ Public Class UpdateSoftware
 
     End Sub
 
-    Public Sub eseguiDBBackup()
-        Dim pathDB As String = Application.StartupPath
-        Dim sPathOriginale = pathDB & "\dbAlegatoA.mdb"
+    Public Sub eseguiBackup()
+        Dim pathDB As String = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
+
         Dim sPathBackup = ""
         '======== finestra di dialogo file
         Dim saveDialog As SaveFileDialog = New SaveFileDialog()
         saveDialog.InitialDirectory = pathDB
         saveDialog.FileName = "dbAlegatoA_BACKUP.mdb"
-        saveDialog.Title = "Esegui backup del dB"
-        saveDialog.ShowDialog()
+        saveDialog.Title = "Esegui backup del dB e delle preferenze"
         If (saveDialog.ShowDialog() = DialogResult.OK) Then
-            sPathBackup = saveDialog.FileName
-            'elimino il file dbAlegatoA2, nel caso sia presente
-            If File.Exists(sPathBackup) <> "" Then
-                Kill(sPathBackup)
-            End If
-            FileCopy(sPathOriginale, sPathBackup)
+            eseguiDBBackup(saveDialog.FileName)
+            Dim sPath = Left(saveDialog.FileName, InStrRev(saveDialog.FileName, "\"))
+            eseguiBackupPreferenze(sPath)
+        End If
+    End Sub
+
+    Public Sub eseguiDBBackup(sPathBackup As String)
+        Dim sPathOriginale = sPathDatiSistema & "\dbAlegatoA.mdb"
+
+        'elimino il file dbAlegatoA2, nel caso sia presente
+        If File.Exists(sPathBackup) Then
+            Kill(sPathBackup)
+        End If
+
+        FileCopy(sPathOriginale, sPathBackup)
+
+
+    End Sub
+
+    Public Sub ripristinaDBBackup(sPathDB As String)
+
+
+        'sovrascrive il file del DB
+        'faccio una copia del DB attuale
+        Dim sNomeDBInUso As String = sPathDatiSistema & "\dbAlegatoA.mdb"
+      
+        If (sPathDB.Equals(sNomeDBInUso)) Then
+
+            i.erroreRipristinoBackupDB_sceltoStessoFile()
+            log.xlogWriteEntry("Errore. Ripristino DB non eseguito. Scelto file in uso", TraceEventType.Error)
+        Else
+            'eseguo backup del DB in uso
+            Dim sPathNomeSalvataggioVecchioDB = sNomeDBInUso & ActionsLibrary.getTimeStamp & ".mdb"
+            FileCopy(sNomeDBInUso, sPathNomeSalvataggioVecchioDB)
+
+            'messaggio, indica il nome del file di backup
+            i.salvataggioBackupVecchioDB(sPathNomeSalvataggioVecchioDB)
+            log.xlogWriteEntry("Backup DB --> " & sPathNomeSalvataggioVecchioDB, TraceEventType.Information)
+
+            'cancello il db in uso
+            Kill(sNomeDBInUso)
+
+            Try
+                'sorgente --> destinazione
+                FileCopy(sPathDB, sNomeDBInUso)
+                i.ripristinoBackupDB(sPathDB)
+                log.xlogWriteEntry("E' stato ripristinato il file " & sPathDB, TraceEventType.Information)
+            Catch ex As Exception
+                i.erroreRipristinoBackupDB(sPathDB)
+                log.xlogWriteEntry("Errore nel ripristino del DB", TraceEventType.Information)
+            End Try
 
         End If
     End Sub
 
-    Public Sub ripristinaDBBackup()
-        Dim pathDB As String = Application.StartupPath
+    Public Sub eseguiBackupPreferenze(sPath As String)
+        'salvataggio preferenze in un file
+        Dim S As New serializzazioneHashTable
+        Dim hashTablePreferenze As New Hashtable
+        For Each Item As Configuration.SettingsProperty In My.Settings.Properties
+            hashTablePreferenze.Add(Item.Name, My.Settings.PropertyValues.Item(Item.Name).PropertyValue)
+        Next
+        S.salvaHashTable(hashTablePreferenze, sPath)
+    End Sub
+
+    Public Sub ripristinaBackupPreferenze(sPath As String)
+        Dim S As New serializzazioneHashTable
+        Dim hashTablePreferenze As Hashtable = S.loadHashTable(sPath)
+        'esegue la lettura dei parametro solo che la hashtable non è vuota
+        If (Not hashTablePreferenze Is Nothing) Then
+            For Each item As DictionaryEntry In hashTablePreferenze
+                My.Settings.PropertyValues.Item(item.Key).PropertyValue = item.Value
+            Next
+        End If
+    End Sub
+
+    Sub ripristinaBackup()
+        Dim pathDB As String = sPathDatiSistema
         Dim sPathBackup = ""
         Dim sPathDB = pathDB & "\dbAlegatoA.mdb"
         '======== finestra di dialogo file
@@ -122,58 +188,10 @@ Public Class UpdateSoftware
         openDialog.Title = "Ripristina DB da backup"
 
         If (openDialog.ShowDialog() = DialogResult.OK) Then
-            sPathBackup = openDialog.FileName
+            ripristinaDBBackup(openDialog.FileName)
 
-            'sovrascrive il file del DB
-            'faccio una copia del DB attuale
-            'sorgente --> destinazione
-            Dim sPathNomeSalvataggioVecchioDB = pathDB & "\dbAlegatoA" & ActionsLibrary.getTimeStamp & ".mdb"
-            FileCopy(sPathDB, sPathNomeSalvataggioVecchioDB)
-            'messaggio, indica il nome del file di backup
-            i.salvataggioBackupVecchioDB(sPathNomeSalvataggioVecchioDB)
-            log.xlogWriteEntry("Backup DB --> " & sPathNomeSalvataggioVecchioDB, TraceEventType.Information)
-
-            If (sPathBackup.Equals(sPathDB)) Then
-
-                i.erroreRipristinoBackupDB_sceltoStessoFile()
-                log.xlogWriteEntry("Errore. Ripristino DB non eseguito. Scelto file in uso", TraceEventType.Error)
-            Else
-                'cancello il db in uso
-                If Dir(sPathDB) <> "" Then
-                    Kill(sPathDB)
-                End If
-
-                Try
-                    'sorgente --> destinazione
-                    FileCopy(sPathBackup, sPathDB)
-                    i.ripristinoBackupDB(sPathBackup)
-                    log.xlogWriteEntry("E' stato ripristinato il file " & sPathBackup, TraceEventType.Information)
-                Catch ex As Exception
-                    i.erroreRipristinoBackupDB(sPathBackup)
-                    log.xlogWriteEntry("Errore nel ripristino del DB", TraceEventType.Information)
-                End Try
-            End If
-        End If
-    End Sub
-
-    Public Sub eseguiBackupPreferenze()
-        'salvataggio preferenze in un file
-        Dim S As New serializzazioneHashTable
-        Dim hashTablePreferenze As New Hashtable
-        For Each Item As Configuration.SettingsProperty In My.Settings.Properties
-            hashTablePreferenze.Add(Item.Name, My.Settings.PropertyValues.Item(Item.Name).PropertyValue)
-        Next
-        S.salvaHashTable(hashTablePreferenze)
-    End Sub
-
-    Public Sub ripristinaBackupPreferenze()
-        Dim S As New serializzazioneHashTable
-        Dim hashTablePreferenze As Hashtable = S.loadHashTable
-        'esegue la lettura dei parametro solo che la hashtable non è vuota
-        If (Not hashTablePreferenze Is Nothing) Then
-            For Each item As DictionaryEntry In hashTablePreferenze
-                My.Settings.PropertyValues.Item(item.Key).PropertyValue = item.Value
-            Next
+            Dim sPath = Left(openDialog.FileName, InStrRev(openDialog.FileName, "\"))
+            ripristinaBackupPreferenze(sPath)
         End If
     End Sub
 
