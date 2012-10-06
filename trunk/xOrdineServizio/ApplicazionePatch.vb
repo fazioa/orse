@@ -67,7 +67,6 @@ Public Class ApplicazionePatch
     End Function
 
     Public Sub aggiornaversioneVersioneDB(ByVal versione As Double)
-
         Select Case versione
             Case -1
                 patch1_creaTabellaVersione()
@@ -89,7 +88,4 @@ Public Class ApplicazionePatch
         Dim tabellaVersione As dbAlegatoADataSetTableAdapters.versioneTableAdapter = New dbAlegatoADataSetTableAdapters.versioneTableAdapter
         tabellaVersione.Insert(sNuovoNumeroVersione, sAbout)
     End Sub
-
-
-
 End Class

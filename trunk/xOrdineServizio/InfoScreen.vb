@@ -36,7 +36,7 @@ Public Class InfoScreen
     End Sub
 
     Public Sub erroreRipristinoBackupDB_sceltoStessoFile()
-        MsgBox("Errore nel ripristino del file. Attenzione, il file scelto è quello già in uso.", MsgBoxStyle.Information, "Ripristino Backup DB")
+        MsgBox("Errore nel ripristino del file. Attenzione, il file scelto è quello in uso.", MsgBoxStyle.Information, "Ripristino Backup DB")
     End Sub
 
 

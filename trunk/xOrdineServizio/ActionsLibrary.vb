@@ -1154,7 +1154,7 @@ Public Class ActionsLibrary
             Dim updateSW As UpdateSoftware = New UpdateSoftware
             Dim b As Boolean = updateSW.lookForNewVersion()
             If b Then
-                updateSW.eseguiDBBackup()
+                updateSW.eseguiBackup()
                 updateSW.upgradeDownload()
             Else
                 InfoScreen.SWattualeAggiornato()
@@ -1164,14 +1164,15 @@ Public Class ActionsLibrary
 
     Sub doDBBackup()
         Dim updateSW As UpdateSoftware = New UpdateSoftware
-        updateSW.eseguiDBBackup()
-        updateSW.eseguiBackupPreferenze()
+        updateSW.eseguiBackup()
+        
     End Sub
 
     Sub doRipristinaDBBackup()
         Dim updateSW As UpdateSoftware = New UpdateSoftware
-        updateSW.ripristinaDBBackup()
-        updateSW.ripristinaBackupPreferenze()
+        updateSW.ripristinaBackup()
+        ' updateSW.ripristinaDBBackup()
+        ' updateSW.ripristinaBackupPreferenze()
     End Sub
 
     ''' <summary>
