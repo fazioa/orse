@@ -67,12 +67,12 @@ Public Class DEccezione
         'Set quality to 50
         params.Param(0) = quality
         Try
-            System.IO.Directory.CreateDirectory(My.Settings.sTempPath)
+            System.IO.Directory.CreateDirectory(My.Settings.pathCartellaDB & My.Settings.sTempDirName) ' inserire \ nella sTempDirName
         Catch ex As Exception
 
         End Try
 
-        Dim sFilePath As String = My.Settings.sTempPath & "/screenshot.jpg"
+        Dim sFilePath As String = My.Settings.pathCartellaDB & My.Settings.sTempDirName & "/screenshot.jpg"
         ScreenShot.Save(sFilePath, imgCodecs(1), params)
         Return sFilePath
     End Function

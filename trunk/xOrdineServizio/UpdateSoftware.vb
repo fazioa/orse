@@ -192,6 +192,12 @@ Public Class UpdateSoftware
 
             Dim sPath = Left(openDialog.FileName, InStrRev(openDialog.FileName, "\"))
             ripristinaBackupPreferenze(sPath)
+
+            'riavvia applicazione
+            MsgBox("L'applicazione verrà riavviata", MsgBoxStyle.Exclamation)
+            System.Diagnostics.Process.Start(My.Application.Info.DirectoryPath & "\" & My.Application.Info.AssemblyName & ".exe")
+            System.Diagnostics.Process.GetCurrentProcess.Kill()
+
         End If
     End Sub
 

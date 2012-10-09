@@ -18,6 +18,7 @@ Public Class eccezione
     Public Sub New(ByVal ex As OleDb.OleDbException, ByVal cb As ComboBox)
         MyBase.New(ex.Message)
         Dim sMessaggio As String
+
         sMessaggio = ex.Message & " - Errore causato in fase di inserimento di valore nel database, proveniente dal combobox: " & cb.Name & " - Tentativo di inserimento valore: " & cb.Text
         sMessaggio = sMessaggio & " - Oggetto che ha causato l'errore: " & ex.Source
         sMessaggio = sMessaggio & " - Stacktrace:" & ex.StackTrace.ToString
@@ -41,12 +42,12 @@ Public Class eccezione
         MsgBox(sMessaggio, MsgBoxStyle.Critical, "Errore")
     End Sub
 
-    Public Sub New(ByVal ex As Exception, ByVal sMsg As String)
-        MyBase.New(ex.Message)
-        Dim sMessaggio As String
-        sMessaggio = sMsg & " - " & ex.Message
-        sMessaggio = sMessaggio & " - Stacktrace:" & ex.StackTrace.ToString
-        MsgBox(sMessaggio, MsgBoxStyle.Critical, "Errore")
-    End Sub
+    'Public Sub New(ByVal ex As Exception, ByVal sMsg As String, sMetodoProvenienza As String)
+    '    MyBase.New(ex.Message)
+    '    Dim sMessaggio As String
+    '    sMessaggio = sMsg & " - " & ex.Message
+    '    sMessaggio = sMessaggio & " - Stacktrace:" & ex.StackTrace.ToString
+    '    MsgBox(sMessaggio, MsgBoxStyle.Critical, "Errore")
+    'End Sub
 
 End Class

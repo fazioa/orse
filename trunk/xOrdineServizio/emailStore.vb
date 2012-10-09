@@ -4,7 +4,7 @@ Imports System.Runtime.Serialization.Formatters.Binary
 <Serializable()> Public Class emailStore
     Dim log As New XOrseLog
     Dim listaEmail As New Stack(Of emailObj)
-    Dim sStoreFileName As String = "\listaSegnalazioni.dat"
+    Dim sStoreFileName As String = My.Settings.pathCartellaDB & "\listaSegnalazioni.dat"
 
     'Public Sub New(ByVal l As List(Of emailObj))
     '   listaEmail = l

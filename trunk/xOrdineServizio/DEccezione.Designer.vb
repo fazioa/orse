@@ -58,6 +58,7 @@ Partial Class DEccezione
         Me.Continue_Button.Size = New System.Drawing.Size(67, 23)
         Me.Continue_Button.TabIndex = 0
         Me.Continue_Button.Text = "Continua"
+        Me.Continue_Button.Visible = False
         '
         'Esci_Button
         '

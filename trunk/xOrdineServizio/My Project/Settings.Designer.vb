@@ -319,13 +319,13 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("./temp")>  _
-        Public Property sTempPath() As String
+         Global.System.Configuration.DefaultSettingValueAttribute("\temp")>  _
+        Public Property sTempDirName() As String
             Get
-                Return CType(Me("sTempPath"),String)
+                Return CType(Me("sTempDirName"),String)
             End Get
             Set
-                Me("sTempPath") = value
+                Me("sTempDirName") = value
             End Set
         End Property
         
@@ -361,6 +361,18 @@ Namespace My
             End Get
             Set
                 Me("tmp") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
+        Public Property pathCartellaDB() As String
+            Get
+                Return CType(Me("pathCartellaDB"),String)
+            End Get
+            Set
+                Me("pathCartellaDB") = value
             End Set
         End Property
     End Class
