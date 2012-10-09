@@ -44,7 +44,7 @@ Public Class DInsDatiPreliminari
             Try
                 d = dr.Item("dataoraultimouso")
             Catch ex As Exception
-                d = ""
+                d = Nothing
             End Try
             OperatoreTableAdapter.Update(dr.Item("operatori"), ActionsLibrary.getTimeStamp, dr.Item("id"), dr.Item("operatori"), d)
 

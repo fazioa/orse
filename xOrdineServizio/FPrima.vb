@@ -22,15 +22,15 @@ Public Class FPrima
 
 
     Public Sub New()
-        
-        AppDomain.CurrentDomain.SetData("DataDirectory", Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName)
-        'controllo se il file del DB è presente, altrimenti restituisco errore ed esco dall'applicazione
-
         Dim pathDB As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName
+        My.Settings.pathCartellaDB = pathDB
 
-        'Dim pathDB As String = My.Computer.FileSystem.SpecialDirectories.CurrentUserApplicationData
+        AppDomain.CurrentDomain.SetData("DataDirectory", pathDB)
+        'controllo se il file del DB è presente, altrimenti restituisco errore ed esco dall'applicazione
+        '        MsgBox(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName, MsgBoxStyle.Information)
 
         Dim sPath = pathDB & "\dbAlegatoA.mdb"
+        Dim a As String = System.Reflection.MethodBase.GetCurrentMethod().Name
 
         'SOLLEVO ECCEZIONE PER TEST
         ' Throw New Exception("operazione non valida.")
@@ -115,6 +115,7 @@ Public Class FPrima
     End Sub
 
     Private Sub caricaFinestraDatiOS()
+
         Dim myform As New DInsDatiPreliminari(DbAlegatoADataSet1, parametri)
         log_.xlogWriteEntry("Visualizza form per ins. dati preliminari", TraceEventType.Information)
         myform.ShowDialog()

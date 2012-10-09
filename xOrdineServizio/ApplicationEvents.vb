@@ -16,7 +16,6 @@ Namespace My
             'QUI SCRIVIAMO IL CODICE PERSONALIZZATO PER LA GESTIONE DELL'ECCEZIONE NON GESTITA
             'MsgBox("Errore", MsgBoxStyle.Critical, "Eccezione non gestita")
 
-
             Dim f As New DEccezione(e.Exception)
             f.ShowDialog()
             If (f.DialogResult = DialogResult.Cancel) Then
