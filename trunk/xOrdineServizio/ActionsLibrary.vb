@@ -1220,9 +1220,9 @@ Public Class ActionsLibrary
 
     Sub cancellaFileTemp()
 
-        If Not String.IsNullOrEmpty(My.Settings.sTempPath) Then
+        If Not String.IsNullOrEmpty(My.Settings.sTempDirName) Then
             Try
-                System.IO.Directory.Delete(My.Settings.sTempPath, True)
+                System.IO.Directory.Delete(My.Settings.sTempDirName, True)
                 log.xlogWriteEntry("Cancellazione cartella file temporanei", TraceEventType.Information)
             Catch ex As IOException
                 log.xlogWriteEntry("Errore cancellazione cartella file temporanei:" & ex.Message, TraceEventType.Information)
@@ -1240,18 +1240,18 @@ Public Class ActionsLibrary
         params.Param(0) = quality
         Dim b_isOk = True
         Try
-            System.IO.Directory.Delete(My.Settings.sTempPath, True)
+            System.IO.Directory.Delete(My.Settings.sTempDirName, True)
         Catch ex As Exception
             b_isOk = False
         End Try
         Try
-            System.IO.Directory.CreateDirectory(My.Settings.sTempPath)
+            System.IO.Directory.CreateDirectory(My.Settings.sTempDirName)
             b_isOk = True
         Catch ex As Exception
             b_isOk = False
         End Try
         If b_isOk Then
-            Dim sFilePath As String = My.Settings.sTempPath & "\" & Now.Ticks & " screenshot.jpg"
+            Dim sFilePath As String = My.Settings.sTempDirName & "\" & Now.Ticks & " screenshot.jpg"
             img.Save(sFilePath, imgCodecs(1), params)
             Return sFilePath
         End If
