@@ -23,7 +23,7 @@ Public Class FPrima
 
     Public Sub New()
         Dim pathDB As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName
-        My.Settings.pathCartellaDB = pathDB
+        My.Settings.pathCartellaScrivibile = pathDB
 
         AppDomain.CurrentDomain.SetData("DataDirectory", pathDB)
         'controllo se il file del DB è presente, altrimenti restituisco errore ed esco dall'applicazione

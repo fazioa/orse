@@ -367,12 +367,12 @@ Namespace My
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("")>  _
-        Public Property pathCartellaDB() As String
+        Public Property pathCartellaScrivibile() As String
             Get
-                Return CType(Me("pathCartellaDB"),String)
+                Return CType(Me("pathCartellaScrivibile"),String)
             End Get
             Set
-                Me("pathCartellaDB") = value
+                Me("pathCartellaScrivibile") = value
             End Set
         End Property
     End Class
