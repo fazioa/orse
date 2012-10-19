@@ -4,7 +4,7 @@ Public Class DInsDatiPreliminari
     Dim feActions As OrSe.ActionsLibrary
     Dim parametri As parametriControllo_e_OS
     Private iOSID As Integer = -1
-
+    Dim log As New XOrseLog
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
         'Me.Validate()
 
@@ -39,15 +39,23 @@ Public Class DInsDatiPreliminari
             'Aggiornamento timestamp uso della voce operatore
             OperatoreTableAdapter.FillByNomeOperatore(Me.DbAlegatoADataSet.operatore, parametri.nomeOperatore)
             Dim dr As DataRowView = OperatoreBindingSource.Current
+            Dim act As New ActionsLibrary
 
-            Dim d As String
+            Dim d As Object
             Try
-                d = dr.Item("dataoraultimouso")
+                d = act.valoreDrv(dr, "dataoraultimouso")
+                '                d = dr.Item("dataoraultimouso")
             Catch ex As Exception
-                d = Nothing
+                '              d = Nothing
             End Try
-            OperatoreTableAdapter.Update(dr.Item("operatori"), ActionsLibrary.getTimeStamp, dr.Item("id"), dr.Item("operatori"), d)
+            Dim sTimeStamp As String = ActionsLibrary.getTimeStamp
 
+            Dim i As Integer = act.esegueSQL("UPDATE operatore SET dataOraUltimoUso=""" & ActionsLibrary.getTimeStamp() & """ WHERE id= " & parametri.idOperatore)
+            If i > 0 Then
+                log.xlogWriteEntry("Eseguito aggiornamento data impiego operatori: " & parametri.nomeOperatore & " - " & sTimeStamp, TraceEventType.Information)
+            Else
+                log.xlogWriteEntry("NON eseguito aggiornamento data impiego operatori: " & parametri.nomeOperatore, TraceEventType.Information)
+            End If
         End If
     End Sub
 

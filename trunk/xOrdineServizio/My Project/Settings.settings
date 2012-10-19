@@ -88,7 +88,7 @@
     <Setting Name="tmp" Type="System.String" Scope="User">
       <Value Profile="(Default)">Dsn=MS Access Database;dbq=C:\Users\tonix\Desktop\OrSeVB2010\xOrdineServizio\dbAlegatoA.mdb;driverid=25;fil=MS Access;maxbuffersize=2048;pagetimeout=5</Value>
     </Setting>
-    <Setting Name="pathCartellaDB" Type="System.String" Scope="User">
+    <Setting Name="pathCartellaScrivibile" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
   </Settings>

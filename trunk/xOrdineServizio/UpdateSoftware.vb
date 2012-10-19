@@ -5,8 +5,7 @@ Public Class UpdateSoftware
     Dim i As New InfoScreen
     Dim sVersioneAttuale, sVersioneInRete As String
     Dim feActions As ActionsLibrary = New ActionsLibrary
-    Dim sPathDatiSistema As String = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName
-
+  
     Public Function lookForNewVersion()
         Dim isAvailable As Boolean
         log.xlogWriteEntry("Controllo disponibilità rete", TraceEventType.Information)
@@ -108,7 +107,7 @@ Public Class UpdateSoftware
     End Sub
 
     Public Sub eseguiDBBackup(sPathBackup As String)
-        Dim sPathOriginale = sPathDatiSistema & "\dbAlegatoA.mdb"
+        Dim sPathOriginale = My.Settings.pathCartellaScrivibile & "\dbAlegatoA.mdb"
 
         'elimino il file dbAlegatoA2, nel caso sia presente
         If File.Exists(sPathBackup) Then
@@ -125,7 +124,7 @@ Public Class UpdateSoftware
 
         'sovrascrive il file del DB
         'faccio una copia del DB attuale
-        Dim sNomeDBInUso As String = sPathDatiSistema & "\dbAlegatoA.mdb"
+        Dim sNomeDBInUso As String = My.Settings.pathCartellaScrivibile & "\dbAlegatoA.mdb"
       
         If (sPathDB.Equals(sNomeDBInUso)) Then
 
@@ -178,12 +177,13 @@ Public Class UpdateSoftware
     End Sub
 
     Sub ripristinaBackup()
-        Dim pathDB As String = sPathDatiSistema
+        '   Dim pathDB As String = My.Settings.pathCartellaScrivibile
         Dim sPathBackup = ""
-        Dim sPathDB = pathDB & "\dbAlegatoA.mdb"
+        'Dim sPathDB = pathDB & "\dbAlegatoA.mdb"
         '======== finestra di dialogo file
         Dim openDialog As OpenFileDialog = New OpenFileDialog
-        openDialog.InitialDirectory = pathDB
+
+        openDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop)
         openDialog.Filter = "Microsoft Access Files (*.mdb)|*.mdb|All files (*.*)|*.*"
         openDialog.Title = "Ripristina DB da backup"
 
