@@ -93,6 +93,7 @@ Public Class FanteprimaReport
         If (_tipo = tipoReport.interventi Or _tipo = tipoReport.informazioni Or _tipo = tipoReport.op85) Then
             cr.SetParameterValue("regione", My.MySettings.Default.regione)
             cr.SetParameterValue("comando", My.MySettings.Default.comando)
+            cr.SetParameterValue("comando2", My.MySettings.Default.comandoSecondaRiga)
             If (_tipo = tipoReport.op85) Then
                 cr.SetParameterValue("comune", My.MySettings.Default.comune)
                 cr.SetParameterValue("protocollo", parametri.protocollo)

@@ -25,6 +25,7 @@ Public Class FSoggetto
         'scrivo ID del controllo
         If (parametri.idControllo <> Nothing) Then
             feActions.scriviCampoDB(AllegatoABindingSource, "idControllo", parametri.idControllo)
+
             labelOSWrite(parametri.idControllo)
         Else
             Me.Close()
@@ -171,6 +172,7 @@ Public Class FSoggetto
         Try
             Me.Validate()
             'creazione persona
+        
             Me.PersonaBindingSource.EndEdit()
             Me.PersonaTableAdapter.Update(Me.DbDataSet.persona)
 

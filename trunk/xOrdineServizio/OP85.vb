@@ -176,6 +176,8 @@ Public Class op85
 
             feActions.wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
             feActions.wordScriviSegnalibro(oWord, "comando", My.Settings.comando)
+            feActions.wordScriviSegnalibro(oWord, "comando2", My.Settings.comandoSecondaRiga)
+
             feActions.wordScriviSegnalibro(oWord, "comune", My.Settings.comune)
 
 

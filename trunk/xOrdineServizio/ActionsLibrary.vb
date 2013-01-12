@@ -169,7 +169,7 @@ Public Class ActionsLibrary
     Public Sub doApriFormOpzioni()
         log.xlogWriteEntry("Apertura preferenze", TraceEventType.Information)
         Dim form As System.Windows.Forms.Form
-        form = New opzioni()
+        form = New FOpzioni()
         form.Visible = True
     End Sub
 
@@ -370,21 +370,22 @@ Public Class ActionsLibrary
 
             Dim sPath As String = Application.StartupPath & "\Resources\automazione\"
 
-            strDocumentName = "op85_" & sParteNomeFile & ".doc"
+            'strDocumentName = "op85_" & sParteNomeFile & ".doc"
             Try
-                If Dir(sPath & strDocumentName) = "" Then
-                    Dim n As String = sPath & strDocumentName
-                    log.xlogWriteEntry("Word - Utilizza modello .dot - Scrive file word" & n, TraceEventType.Critical)
+                'If Dir(sPath & strDocumentName) = "" Then
+                '  Dim n As String = sPath & strDocumentName
+                '  log.xlogWriteEntry("Word - Utilizza modello .dot - Scrive file word" & n, TraceEventType.Critical)
 
-                    oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=n)
-                Else
-                    'Se il file esiste allora fare qualcosa, magari aprire la maschera per la scelta del percorso
-                    'oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=sPath & strDocumentName)
-                    oWord.Documents.Add(sPath & "op85.dot")
-                End If
-            Catch ex As Exception
-                log.xlogWriteEntry("Word - Gestione eccezione - Probabilmente il SO è windows seven. Impossibile scrivere sul percorso di default.", TraceEventType.Critical)
+                ' oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=n)
                 oWord.Documents.Add(sPath & "op85.dot")
+                '    Else
+                '        'Se il file esiste allora fare qualcosa, magari aprire la maschera per la scelta del percorso
+                '        'oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=sPath & strDocumentName)
+                '        oWord.Documents.Add(sPath & "op85.dot")
+                ' End If
+            Catch ex As Exception
+                log.xlogWriteEntry("Word - Errore:" & ex.Message, TraceEventType.Critical)
+                'oWord.Documents.Add(sPath & "op85.dot")
             End Try
             oWord.Caption = "OP85 - Persone di interesse operativo notate sul territorio"
             oDoc = Nothing
@@ -407,21 +408,21 @@ Public Class ActionsLibrary
 
             Dim sPath As String = Application.StartupPath & "\Resources\automazione\"
 
-            strDocumentName = "verbaleSopralluogo.doc"
+            ' strDocumentName = "verbaleSopralluogo.doc"
             Try
-                If Dir(sPath & strDocumentName) = "" Then
-                    Dim n As String = sPath & strDocumentName
-                    log.xlogWriteEntry("Word - Utilizza modello .dot - Scrive file word" & n, TraceEventType.Critical)
+                '      If Dir(sPath & strDocumentName) = "" Then
+                'Dim n As String = sPath & strDocumentName
+                '      log.xlogWriteEntry("Word - Utilizza modello .dot - Scrive file word" & n, TraceEventType.Critical)
 
-                    oWord.Documents.Add(sPath & "verbaleSopralluogo.dot").SaveAs(FileName:=n)
-                Else
-                    'Se il file esiste allora fare qualcosa, magari aprire la maschera per la scelta del percorso
-                    'oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=sPath & strDocumentName)
-                    oWord.Documents.Add(sPath & "verbaleSopralluogo.dot")
-                End If
-            Catch ex As Exception
-                log.xlogWriteEntry("Word - Gestione eccezione - Probabilmente il SO è windows seven. Impossibile scrivere sul percorso di default.", TraceEventType.Critical)
+                'oWord.Documents.Add(sPath & "verbaleSopralluogo.dot").SaveAs(FileName:=n)
+
+                '    Else
+                'Se il file esiste allora fare qualcosa, magari aprire la maschera per la scelta del percorso
+                'oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=sPath & strDocumentName)
                 oWord.Documents.Add(sPath & "verbaleSopralluogo.dot")
+                '    End If
+            Catch ex As Exception
+               log.xlogWriteEntry("Word - Errore:" & ex.Message, TraceEventType.Critical)
             End Try
             oWord.Caption = "Verbale di sopralluogo"
             oDoc = Nothing
@@ -440,6 +441,7 @@ Public Class ActionsLibrary
         wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
 
         wordScriviSegnalibro(oWord, "comando", My.Settings.comando)
+        wordScriviSegnalibro(oWord, "comando2", My.Settings.comandoSecondaRiga)
         wordScriviSegnalibro(oWord, "tipoReato", leggiCampoDB(sopralluogoBindingSource, "tipoReato"))
         wordScriviSegnalibro(oWord, "luogo", leggiCampoDB(sopralluogoBindingSource, "luogo_citta"))
         wordScriviSegnalibro(oWord, "via", leggiCampoDB(sopralluogoBindingSource, "via"))
@@ -525,88 +527,91 @@ Public Class ActionsLibrary
         Dim dInizio As DateTime             '= "#01/06/2010 00:00:00#"
         Dim dFine As DateTime               '= "#31/12/2010 23:59:59#"
         Dim dataRange As FDataRange = New FDataRange
-        dataRange.ShowDialog()
-        dInizio = dataRange.getStartDateResult()
-        dFine = dataRange.getEndDateResult
-        'trasformo le date per eseguire la ricerca dalla mezzanotte della data di part alla mezzanotte della data di fine
-
-        dInizio = New Date(dInizio.Year, dInizio.Month, dInizio.Day, 0, 0, 0)
-        dFine = New Date(dFine.Year, dFine.Month, dFine.Day, 23, 59, 59)
+        If (dataRange.ShowDialog() = DialogResult.OK) Then
 
 
 
-        Dim fDialog As SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
-        fDialog.Title = "Salva file OrSe"
-        fDialog.Filter = "Orse Files|*.OrSe"
-        fDialog.AddExtension = True
-        fDialog.DefaultExt = ".OrSe"
-        fDialog.FileName = "orseExport.OrSe"
-        If (fDialog.ShowDialog() = DialogResult.OK) Then
-            Dim os As New OrSe.FillTreeOS
+            dInizio = dataRange.getStartDateResult()
+            dFine = dataRange.getEndDateResult
+            'trasformo le date per eseguire la ricerca dalla mezzanotte della data di part alla mezzanotte della data di fine
+
+            dInizio = New Date(dInizio.Year, dInizio.Month, dInizio.Day, 0, 0, 0)
+            dFine = New Date(dFine.Year, dFine.Month, dFine.Day, 23, 59, 59)
 
 
-            'AllegatoA
-            Dim writer As New XmlSerializer(GetType(dbAlegatoADataSet.QAllegatoADataTable))
-            Dim file As New StreamWriter("ordiniServizioAllegatoAData.OrseXML")
-            Dim d As New dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
-            d.FillByDataRange(db.QAllegatoA, dInizio, dFine)
-            writer.Serialize(file, db.QAllegatoA)
-            file.Close()
+
+            Dim fDialog As SaveFileDialog = New System.Windows.Forms.SaveFileDialog()
+            fDialog.Title = "Salva file OrSe"
+            fDialog.Filter = "Orse Files|*.OrSe"
+            fDialog.AddExtension = True
+            fDialog.DefaultExt = ".OrSe"
+            fDialog.FileName = "orseExport.OrSe"
+            If (fDialog.ShowDialog() = DialogResult.OK) Then
+                Dim os As New OrSe.FillTreeOS
 
 
-            'Informazioni
-            writer = New XmlSerializer(GetType(dbAlegatoADataSet.QInterventiDataTable))
-            file = New StreamWriter("ordiniServizioInformazioniData.OrseXML")
-            Dim d2 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
-            d2.FillByDataRange(db.QInterventi, paragrafoOS.informazioni, dInizio, dFine)
-            writer.Serialize(file, db.QInterventi)
-            file.Close()
-
-            'Interventi
-            file = New StreamWriter("ordiniServizioInterventiData.OrseXML")
-            Dim d3 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
-            d3.FillByDataRange(db.QInterventi, paragrafoOS.interventi, dInizio, dFine)
-            writer.Serialize(file, db.QInterventi)
-            file.Close()
-
-            'Sopralluogo
-            writer = New XmlSerializer(GetType(dbAlegatoADataSet.QSopralluogoDataTable))
-            file = New StreamWriter("ordiniServizioSopralluogoData.OrseXML")
-            Dim d4 As New dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
-            d4.FillByDataRange(db.QSopralluogo, dInizio, dFine)
-            writer.Serialize(file, db.QSopralluogo)
-            file.Close()
-
-            'Rubrica
-            writer = New XmlSerializer(GetType(dbAlegatoADataSet.QRubricaDataTable))
-            file = New StreamWriter("ordiniServizioRubricaData.OrseXML")
-            Dim d5 As New dbAlegatoADataSetTableAdapters.QRubricaTableAdapter
-            d5.FillByDataRange(db.QRubrica, dInizio, dFine)
-            writer.Serialize(file, db.QRubrica)
-            file.Close()
+                'AllegatoA
+                Dim writer As New XmlSerializer(GetType(dbAlegatoADataSet.QAllegatoADataTable))
+                Dim file As New StreamWriter("ordiniServizioAllegatoAData.OrseXML")
+                Dim d As New dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
+                d.FillByDataRange(db.QAllegatoA, dInizio, dFine)
+                writer.Serialize(file, db.QAllegatoA)
+                file.Close()
 
 
-            Try
-                Using zip As Ionic.Zip.ZipFile = New Ionic.Zip.ZipFile
-                    zip.AddFile("ordiniServizioAllegatoAData.OrseXML", "")
-                    zip.AddFile("ordiniServizioInformazioniData.OrseXML", "")
-                    zip.AddFile("ordiniServizioInterventiData.OrseXML", "")
-                    zip.AddFile("ordiniServizioSopralluogoData.OrseXML", "")
-                    zip.AddFile("ordiniServizioRubricaData.OrseXML", "")
-                    zip.Save(fDialog.FileName)
-                End Using
-                System.IO.File.Delete("ordiniServizioAllegatoAData.OrseXML")
-                System.IO.File.Delete("ordiniServizioInformazioniData.OrseXML")
-                System.IO.File.Delete("ordiniServizioInterventiData.OrseXML")
-                System.IO.File.Delete("ordiniServizioSopralluogoData.OrseXML")
-                System.IO.File.Delete("ordiniServizioRubricaData.OrseXML")
+                'Informazioni
+                writer = New XmlSerializer(GetType(dbAlegatoADataSet.QInterventiDataTable))
+                file = New StreamWriter("ordiniServizioInformazioniData.OrseXML")
+                Dim d2 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
+                d2.FillByDataRange(db.QInterventi, paragrafoOS.informazioni, dInizio, dFine)
+                writer.Serialize(file, db.QInterventi)
+                file.Close()
 
-            Catch ex1 As Exception
-                Throw New eccezione(ex1.ToString)
-            End Try
+                'Interventi
+                file = New StreamWriter("ordiniServizioInterventiData.OrseXML")
+                Dim d3 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
+                d3.FillByDataRange(db.QInterventi, paragrafoOS.interventi, dInizio, dFine)
+                writer.Serialize(file, db.QInterventi)
+                file.Close()
 
+                'Sopralluogo
+                writer = New XmlSerializer(GetType(dbAlegatoADataSet.QSopralluogoDataTable))
+                file = New StreamWriter("ordiniServizioSopralluogoData.OrseXML")
+                Dim d4 As New dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
+                d4.FillByDataRange(db.QSopralluogo, dInizio, dFine)
+                writer.Serialize(file, db.QSopralluogo)
+                file.Close()
+
+                'Rubrica
+                writer = New XmlSerializer(GetType(dbAlegatoADataSet.QRubricaDataTable))
+                file = New StreamWriter("ordiniServizioRubricaData.OrseXML")
+                Dim d5 As New dbAlegatoADataSetTableAdapters.QRubricaTableAdapter
+                d5.FillByDataRange(db.QRubrica, dInizio, dFine)
+                writer.Serialize(file, db.QRubrica)
+                file.Close()
+
+
+                Try
+                    Using zip As Ionic.Zip.ZipFile = New Ionic.Zip.ZipFile
+                        zip.AddFile("ordiniServizioAllegatoAData.OrseXML", "")
+                        zip.AddFile("ordiniServizioInformazioniData.OrseXML", "")
+                        zip.AddFile("ordiniServizioInterventiData.OrseXML", "")
+                        zip.AddFile("ordiniServizioSopralluogoData.OrseXML", "")
+                        zip.AddFile("ordiniServizioRubricaData.OrseXML", "")
+                        zip.Save(fDialog.FileName)
+                    End Using
+                    System.IO.File.Delete("ordiniServizioAllegatoAData.OrseXML")
+                    System.IO.File.Delete("ordiniServizioInformazioniData.OrseXML")
+                    System.IO.File.Delete("ordiniServizioInterventiData.OrseXML")
+                    System.IO.File.Delete("ordiniServizioSopralluogoData.OrseXML")
+                    System.IO.File.Delete("ordiniServizioRubricaData.OrseXML")
+
+                Catch ex1 As Exception
+                    Throw New eccezione(ex1.ToString)
+                End Try
+
+            End If
         End If
-
     End Sub
 
     Sub fromXmlFile()
@@ -1156,8 +1161,6 @@ Public Class ActionsLibrary
             If b Then
                 updateSW.eseguiBackup()
                 updateSW.upgradeDownload()
-            Else
-                InfoScreen.SWattualeAggiornato()
             End If
         End If
     End Sub
@@ -1219,10 +1222,10 @@ Public Class ActionsLibrary
     End Sub
 
     Sub cancellaFileTemp()
-
-        If Not String.IsNullOrEmpty(My.Settings.sTempDirName) Then
+        Dim sPath As String = My.Settings.pathCartellaScrivibile & My.Settings.sTempDirName
+        If Not String.IsNullOrEmpty(sPath) Then
             Try
-                System.IO.Directory.Delete(My.Settings.sTempDirName, True)
+                System.IO.Directory.Delete(sPath, True)
                 log.xlogWriteEntry("Cancellazione cartella file temporanei", TraceEventType.Information)
             Catch ex As IOException
                 log.xlogWriteEntry("Errore cancellazione cartella file temporanei:" & ex.Message, TraceEventType.Information)
@@ -1236,22 +1239,26 @@ Public Class ActionsLibrary
         Dim imgCodecs() As Imaging.ImageCodecInfo = Imaging.ImageCodecInfo.GetImageEncoders()
         Dim params As Imaging.EncoderParameters = New Imaging.EncoderParameters(1)
         Dim quality As Imaging.EncoderParameter = New Imaging.EncoderParameter(System.Drawing.Imaging.Encoder.Quality, 35)
+
+        'cartella scrivibile + cartella file temporanei
+        Dim sPath As String = My.Settings.pathCartellaScrivibile & My.Settings.sTempDirName
+
         'Set quality to 50
         params.Param(0) = quality
         Dim b_isOk = True
         Try
-            System.IO.Directory.Delete(My.Settings.sTempDirName, True)
+            System.IO.Directory.Delete(sPath, True)
         Catch ex As Exception
             b_isOk = False
         End Try
         Try
-            System.IO.Directory.CreateDirectory(My.Settings.sTempDirName)
+            System.IO.Directory.CreateDirectory(sPath)
             b_isOk = True
         Catch ex As Exception
             b_isOk = False
         End Try
         If b_isOk Then
-            Dim sFilePath As String = My.Settings.sTempDirName & "\" & Now.Ticks & " screenshot.jpg"
+            Dim sFilePath As String = sPath & "\" & Now.Ticks & " screenshot.jpg"
             img.Save(sFilePath, imgCodecs(1), params)
             Return sFilePath
         End If
