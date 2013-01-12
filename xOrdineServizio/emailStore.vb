@@ -11,12 +11,10 @@ Imports System.Runtime.Serialization.Formatters.Binary
     'End Sub
 
     Public Sub save()
-        Dim path As String = Application.StartupPath
-        Dim sPath = path & sStoreFileName
-        Dim myFileStream As Stream = File.Create(sPath)
+        Dim myFileStream As Stream = File.Create(sStoreFileName)
         Try
             Dim serializer As New BinaryFormatter()
-            log.xlogWriteEntry("Salvataggio file segnalazioni --> " & sPath, TraceEventType.Information)
+            log.xlogWriteEntry("Salvataggio file segnalazioni --> " & sStoreFileName, TraceEventType.Information)
             serializer.Serialize(myFileStream, listaEmail)
             myFileStream.Close()
         Catch ex As Exception
@@ -29,20 +27,18 @@ Imports System.Runtime.Serialization.Formatters.Binary
     ''' </summary>
     Public Sub load()
         'carica le preferenze, solo se il file esiste
-        Dim path As String = Application.StartupPath
         Dim bFlag As Boolean = False
 
-        Dim sPath = path & sStoreFileName
-        If Dir(sPath) <> "" Then
+        If Dir(sStoreFileName) <> "" Then
             bFlag = True
         End If
 
         'se il file è presente allora lo recupero 
         If bFlag Then
-            Dim myFileStream As New FileStream(sPath, FileMode.Open)
+            Dim myFileStream As New FileStream(sStoreFileName, FileMode.Open)
             Dim serializer As New BinaryFormatter()
 
-            log.xlogWriteEntry("Carico file dati lista segnalazioni --> " & sPath, TraceEventType.Information)
+            log.xlogWriteEntry("Carico file dati lista segnalazioni --> " & sStoreFileName, TraceEventType.Information)
             Try
                 listaEmail = serializer.Deserialize(myFileStream)
             Catch ex As Exception
@@ -50,7 +46,7 @@ Imports System.Runtime.Serialization.Formatters.Binary
             End Try
             myFileStream.Close()
         Else
-            log.xlogWriteEntry("Caricamento file dati lista segnalazioni --> Non possibile, file assente: " & sPath, TraceEventType.Information)
+            log.xlogWriteEntry("Caricamento file dati lista segnalazioni --> Non possibile, file assente: " & sStoreFileName, TraceEventType.Information)
         End If
         'sono qui se il file non esiste
     End Sub

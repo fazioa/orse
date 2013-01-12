@@ -233,9 +233,16 @@ Public Class FVedi
     Private Sub DataGridViewAllegatoA_UserDeletingRow(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowCancelEventArgs) Handles DataGridViewAllegatoA.UserDeletingRow
         Dim sOS, sCognome, sNome As String
         sOS = DataGridViewAllegatoA.Item(DataGridViewAllegatoA.Columns("nomeOS").Index(), DataGridViewAllegatoA.SelectedRows(0).Index()).Value()
-        sCognome = DataGridViewAllegatoA.Item(DataGridViewAllegatoA.Columns("nome").Index(), DataGridViewAllegatoA.SelectedRows(0).Index()).Value()
-        sNome = DataGridViewAllegatoA.Item(DataGridViewAllegatoA.Columns("cognome").Index(), DataGridViewAllegatoA.SelectedRows(0).Index()).Value()
+        Try
+            sCognome = DataGridViewAllegatoA.Item(DataGridViewAllegatoA.Columns("cognome").Index(), DataGridViewAllegatoA.SelectedRows(0).Index()).Value()
+        Catch ex As Exception
 
+        End Try
+        Try
+            sNome = DataGridViewAllegatoA.Item(DataGridViewAllegatoA.Columns("nome").Index(), DataGridViewAllegatoA.SelectedRows(0).Index()).Value()
+        Catch ex As Exception
+
+        End Try
 
         iDeleted = DataGridViewAllegatoA.Item(DataGridViewAllegatoA.Columns("cId").Index(), DataGridViewAllegatoA.SelectedRows(0).Index()).Value()
         'sub eseguita PRIMA della cancellazione

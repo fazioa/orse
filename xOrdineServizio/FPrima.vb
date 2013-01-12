@@ -29,17 +29,23 @@ Public Class FPrima
         'controllo se il file del DB è presente, altrimenti restituisco errore ed esco dall'applicazione
         '        MsgBox(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) & "\" & Application.ProductName, MsgBoxStyle.Information)
 
-        Dim sPath = pathDB & "\dbAlegatoA.mdb"
+        Dim sPathAndDBName = pathDB & "\dbAlegatoA.mdb"
         Dim a As String = System.Reflection.MethodBase.GetCurrentMethod().Name
 
         'SOLLEVO ECCEZIONE PER TEST
         ' Throw New Exception("operazione non valida.")
 
         'elimino il file dbAlegatoA2, nel caso sia presente
-        If Not File.Exists(sPath) Then
-            MsgBox("Il file """ & sPath & ", necessario all'applicazione, non sembra essere presente.", MsgBoxStyle.Critical, "ERRORE")
+        Try
+            If Not File.Exists(sPathAndDBName) Then
+                File.Copy(AppDomain.CurrentDomain.BaseDirectory & My.Settings.nomeDB, sPathAndDBName)
+
+            End If
+        Catch ex As Exception
+            MsgBox("Errore nella preparazione del file del database. " & ex.Message, MsgBoxStyle.Critical, "ERRORE")
             bFlagExit = True
-        End If
+        End Try
+
 
         'se il DB non è raggiungibile allora non viene eseguito InitializeComponent e l'app termina 
         If Not bFlagExit Then
@@ -57,7 +63,7 @@ Public Class FPrima
             'controllo se il DB è presente
 
             Dim bDBPresente As Boolean = True
-            If Dir(sPath) = "" Then bDBPresente = False
+            If Dir(sPathAndDBName) = "" Then bDBPresente = False
 
 
             '===========================================================================================
@@ -70,7 +76,7 @@ Public Class FPrima
 
 
             If Not bDBPresente Then
-                MsgBox("Errore: DB non presente. " & Dir(sPath), MsgBoxStyle.Critical, "Errore di avvio")
+                MsgBox("Errore: DB non presente. " & Dir(sPathAndDBName), MsgBoxStyle.Critical, "Errore di avvio")
             Else
 
                 ' This call is required by the Windows Form Designer.

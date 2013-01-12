@@ -13880,7 +13880,7 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ID", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ID", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT MAX(id) FROM interventi"
+            Me._commandCollection(4).CommandText = "SELECT MAX(id) FROM controllo"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
         End Sub
         

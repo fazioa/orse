@@ -286,10 +286,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="opzioni.Designer.vb">
-      <DependentUpon>opzioni.vb</DependentUpon>
+    <Compile Include="FOpzioni.Designer.vb">
+      <DependentUpon>FOpzioni.vb</DependentUpon>
     </Compile>
-    <Compile Include="opzioni.vb">
+    <Compile Include="FOpzioni.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicazionePatch.vb" />
@@ -396,9 +396,9 @@
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="opzioni.resx">
+    <EmbeddedResource Include="FOpzioni.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>opzioni.vb</DependentUpon>
+      <DependentUpon>FOpzioni.vb</DependentUpon>
     </EmbeddedResource>
     <None Include="Ionic.Zip.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -472,9 +472,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dbAlegatoA.mdb">
+    <None Include="dbAlegatoA._db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <EmbeddedResource Include="DEccezione.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DEccezione.vb</DependentUpon>

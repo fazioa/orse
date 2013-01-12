@@ -46,6 +46,7 @@ Public Class UpdateSoftware
                         Return True
                         'i.versioneDisponibile_domandaAggiornamento(iVersioneAttuale, iVersioneInRete)
                     Else
+                        i.SWattualeAggiornato()
                         Return False
                     End If
                 Else
@@ -140,7 +141,7 @@ Public Class UpdateSoftware
             log.xlogWriteEntry("Backup DB --> " & sPathNomeSalvataggioVecchioDB, TraceEventType.Information)
 
             'cancello il db in uso
-            Kill(sNomeDBInUso)
+            '   Kill(sNomeDBInUso)
 
             Try
                 'sorgente --> destinazione
@@ -171,7 +172,12 @@ Public Class UpdateSoftware
         'esegue la lettura dei parametro solo che la hashtable non è vuota
         If (Not hashTablePreferenze Is Nothing) Then
             For Each item As DictionaryEntry In hashTablePreferenze
-                My.Settings.PropertyValues.Item(item.Key).PropertyValue = item.Value
+                Try
+                    My.Settings.PropertyValues.Item(item.Key).PropertyValue = item.Value
+                Catch ex As Exception
+
+                End Try
+
             Next
         End If
     End Sub

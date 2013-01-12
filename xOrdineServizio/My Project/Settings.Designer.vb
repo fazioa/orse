@@ -375,6 +375,30 @@ Namespace My
                 Me("pathCartellaScrivibile") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("dbAlegatoA._db")>  _
+        Public Property nomeDB() As String
+            Get
+                Return CType(Me("nomeDB"),String)
+            End Get
+            Set
+                Me("nomeDB") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("--")>  _
+        Public Property comandoSecondaRiga() As String
+            Get
+                Return CType(Me("comandoSecondaRiga"),String)
+            End Get
+            Set
+                Me("comandoSecondaRiga") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
