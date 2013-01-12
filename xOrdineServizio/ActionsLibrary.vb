@@ -1306,6 +1306,11 @@ Public Class ActionsLibrary
         f.Show()
     End Sub
 
+    Shared Sub doApriFormRevisioneTabellaComunieStati()
+        Dim f As New FRevisioneTabellaDatiComuni
+        f.Show()
+    End Sub
+
 End Class
 
 
