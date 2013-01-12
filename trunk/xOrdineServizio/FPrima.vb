@@ -388,6 +388,9 @@ Public Class FPrima
 
 
    
+    Private Sub RevisioneTabelleComuniEStariiToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RevisioneTabelleComuniEStariiToolStripMenuItem.Click
+        ActionsLibrary.doApriFormRevisioneTabellaComunieStati()
+    End Sub
 End Class
 
 
