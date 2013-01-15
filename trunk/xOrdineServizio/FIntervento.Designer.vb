@@ -22,31 +22,31 @@ Partial Class FIntervento
     'Non modificarla nell'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.GroupBoxOraIntervento = New System.Windows.Forms.GroupBox
-        Me.DateTimePickerOraInizio = New System.Windows.Forms.DateTimePicker
+        Me.components = New System.ComponentModel.Container()
+        Me.GroupBoxOraIntervento = New System.Windows.Forms.GroupBox()
+        Me.DateTimePickerOraInizio = New System.Windows.Forms.DateTimePicker()
         Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.LabelOraFine = New System.Windows.Forms.Label
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.LabelOraFine = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.GroupBoxOraFine = New System.Windows.Forms.GroupBox
-        Me.DateTimePickerOraFine = New System.Windows.Forms.DateTimePicker
-        Me.btnAutoOraFine = New System.Windows.Forms.Button
-        Me.tbTipoServizio = New System.Windows.Forms.TextBox
-        Me.LabelTipoIntervento = New System.Windows.Forms.Label
-        Me.LabelResoconto = New System.Windows.Forms.Label
-        Me.tbResoconto = New System.Windows.Forms.TextBox
-        Me.btnChiudi = New System.Windows.Forms.Button
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.labelOS = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.LabelData = New System.Windows.Forms.Label
-        Me.Button1 = New System.Windows.Forms.Button
+        Me.GroupBoxOraFine = New System.Windows.Forms.GroupBox()
+        Me.DateTimePickerOraFine = New System.Windows.Forms.DateTimePicker()
+        Me.btnAutoOraFine = New System.Windows.Forms.Button()
+        Me.tbTipoServizio = New System.Windows.Forms.TextBox()
+        Me.LabelTipoIntervento = New System.Windows.Forms.Label()
+        Me.LabelResoconto = New System.Windows.Forms.Label()
+        Me.tbResoconto = New System.Windows.Forms.TextBox()
+        Me.btnChiudi = New System.Windows.Forms.Button()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.labelOS = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.LabelData = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.TimerSalvataggioAutomatico = New System.Windows.Forms.Timer(Me.components)
-        Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter
+        Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter()
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
+        Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
         Me.GroupBoxOraIntervento.SuspendLayout()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -177,13 +177,14 @@ Partial Class FIntervento
         'tbResoconto
         '
         Me.tbResoconto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.tbResoconto.CausesValidation = False
         Me.tbResoconto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.InterventiBindingSource, "resoconto", True))
         Me.tbResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbResoconto.Location = New System.Drawing.Point(18, 291)
         Me.tbResoconto.Multiline = True
         Me.tbResoconto.Name = "tbResoconto"
+        Me.tbResoconto.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
         Me.tbResoconto.Size = New System.Drawing.Size(797, 199)
         Me.tbResoconto.TabIndex = 2
         '
