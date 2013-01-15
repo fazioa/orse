@@ -316,7 +316,7 @@ ORDER BY citta
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT MAX(id) FROM controllo</CommandText>
@@ -475,7 +475,7 @@ WHERE     resoconto = ?
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="MaxID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy6" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT MAX(id) FROM interventi</CommandText>
@@ -559,7 +559,7 @@ WHERE     resoconto = ?
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     MAX(id) AS Expr1
@@ -657,7 +657,7 @@ WHERE mezzo LIKE '%'&amp; ? &amp;'%'
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="MaxID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT MAX(id)  FROM modelliMezzo
@@ -741,7 +741,7 @@ ORDER BY dataOraUltimoUso DESC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQuery_lastID" Modifier="Public" Name="ScalarQuery_lastID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_lastID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQuery_lastID" Modifier="Public" Name="ScalarQuery_lastID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="ScalarQuery_lastID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT  MAX(ID)  FROM operatore
@@ -857,7 +857,7 @@ FROM ordineServizio</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     MAX(ID)
@@ -867,7 +867,7 @@ FROM         ordineServizio</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryOS" Modifier="Public" Name="ScalarQueryOS" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQueryOS">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryOS" Modifier="Public" Name="ScalarQueryOS" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQueryOS">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT COUNT(*) FROM ordineServizio WHERE data LIKE ? &amp;"%" AND nome=?</CommandText>
@@ -1013,7 +1013,7 @@ WHERE     (cognome = ?) AND (nome = ?) AND (idLuogoNascita = ?) AND (datanascita
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT MAX(ID) FROM persona
@@ -1022,7 +1022,7 @@ WHERE     (cognome = ?) AND (nome = ?) AND (idLuogoNascita = ?) AND (datanascita
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryCountPersona" Modifier="Public" Name="ScalarQueryCountPersona" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQueryCountPersona">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryCountPersona" Modifier="Public" Name="ScalarQueryCountPersona" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy4" UserSourceName="ScalarQueryCountPersona">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT     COUNT(*) AS Expr1
@@ -1338,7 +1338,7 @@ WHERE        (idRubrica = ?)
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="MaxID" Modifier="Public" Name="MaxID" QueryType="Scalar" ScalarCallRetval="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy3" UserSourceName="MaxID">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        MAX(idSopralluogo) AS Expr1
@@ -1545,7 +1545,7 @@ ORDER BY dataora, ordine
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryDataOraMassima" Modifier="Public" Name="ScalarQueryDataOraMassima" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="ScalarQueryDataOraMassima">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryDataOraMassima" Modifier="Public" Name="ScalarQueryDataOraMassima" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy7" UserSourceName="ScalarQueryDataOraMassima">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT max(dataora) FROM QAllegatoA
@@ -1554,7 +1554,7 @@ ORDER BY dataora, ordine
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryDataOraMinima" Modifier="Public" Name="ScalarQueryDataOraMinima" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="ScalarQueryDataOraMinima">
+              <DbSource ConnectionRef="dbAlegatoAConnectionString (MySettings)" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="ScalarQueryDataOraMinima" Modifier="Public" Name="ScalarQueryDataOraMinima" QueryType="Scalar" ScalarCallRetval="System.DateTime, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy8" UserSourceName="ScalarQueryDataOraMinima">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT min(dataora) FROM QAllegatoA</CommandText>
@@ -1877,10 +1877,9 @@ WHERE     (dataOS BETWEEN ? AND ? )
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, luogo_citta, via, contatti_con, resoconto, operatori, ID, nomeOS, dataOS
 FROM            QSopralluogo
-WHERE        (? LIKE nomeOS &amp; ' ' &amp; dataOS &amp; ' ' &amp; tipoReato &amp; ' ' &amp; luogo_citta &amp; ' ' &amp; via &amp; ' ' &amp; contatti_con &amp; ' ' &amp; resoconto)
-</CommandText>
+WHERE        (nomeOS &amp; ' ' &amp; dataOS &amp; ' ' &amp; tipoReato &amp; ' ' &amp; luogo_citta &amp; ' ' &amp; via &amp; ' ' &amp; contatti_con &amp; ' ' &amp; resoconto LIKE '%' &amp; ? &amp; '%')</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="AnsiString" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="Param1" ColumnName="" DataSourceName="" DataTypeServer="unknown" DbType="String" Direction="Input" ParameterName="Param1" Precision="0" Scale="0" Size="1024" SourceColumn="" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -2642,14 +2641,14 @@ WHERE     (dataOS BETWEEN ? AND ?)
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="luoghicontrollocontrollo" msdata:parent="luoghicontrollo" msdata:child="controllo" msdata:parentkey="id" msdata:childkey="idLuogo" msprop:Generator_UserChildTable="controllo" msprop:Generator_ChildPropName="GetcontrolloRows" msprop:Generator_UserParentTable="luoghicontrollo" msprop:Generator_UserRelationName="luoghicontrollocontrollo" msprop:Generator_RelationVarName="relationluoghicontrollocontrollo" msprop:Generator_ParentPropName="luoghicontrolloRow" />
-      <msdata:Relationship name="ordineServiziocontrollo" msdata:parent="ordineServizio" msdata:child="controllo" msdata:parentkey="ID" msdata:childkey="idOs" msprop:Generator_UserChildTable="controllo" msprop:Generator_ChildPropName="GetcontrolloRows" msprop:Generator_UserParentTable="ordineServizio" msprop:Generator_UserRelationName="ordineServiziocontrollo" msprop:Generator_RelationVarName="relationordineServiziocontrollo" msprop:Generator_ParentPropName="ordineServizioRow" />
-      <msdata:Relationship name="ordineServiziointerventi" msdata:parent="ordineServizio" msdata:child="interventi" msdata:parentkey="ID" msdata:childkey="idOrdineservizio" msprop:Generator_UserChildTable="interventi" msprop:Generator_ChildPropName="GetinterventiRows" msprop:Generator_UserParentTable="ordineServizio" msprop:Generator_UserRelationName="ordineServiziointerventi" msprop:Generator_RelationVarName="relationordineServiziointerventi" msprop:Generator_ParentPropName="ordineServizioRow" />
-      <msdata:Relationship name="PK_integritaRefenziale" msdata:parent="operatore" msdata:child="ordineServizio" msdata:parentkey="id" msdata:childkey="idOperatori" msprop:Generator_UserChildTable="ordineServizio" msprop:Generator_ChildPropName="GetordineServizioRows" msprop:Generator_UserParentTable="operatore" msprop:Generator_UserRelationName="PK_integritaRefenziale" msprop:Generator_RelationVarName="relationPK_integritaRefenziale" msprop:Generator_ParentPropName="operatoreRow" />
-      <msdata:Relationship name="comuneprioritaComune" msdata:parent="comune" msdata:child="prioritaComune" msdata:parentkey="id" msdata:childkey="idComune" msprop:Generator_UserChildTable="prioritaComune" msprop:Generator_ChildPropName="GetprioritaComuneRows" msprop:Generator_UserParentTable="comune" msprop:Generator_UserRelationName="comuneprioritaComune" msprop:Generator_RelationVarName="relationcomuneprioritaComune" msprop:Generator_ParentPropName="comuneRow" />
-      <msdata:Relationship name="personaallegatoA" msdata:parent="persona" msdata:child="allegatoA" msdata:parentkey="ID" msdata:childkey="idPersona" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_UserParentTable="persona" msprop:Generator_UserRelationName="personaallegatoA" msprop:Generator_RelationVarName="relationpersonaallegatoA" msprop:Generator_ParentPropName="personaRow" />
-      <msdata:Relationship name="mezzoallegatoA" msdata:parent="modelliMezzo" msdata:child="allegatoA" msdata:parentkey="id" msdata:childkey="idMezzo" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_UserParentTable="modelliMezzo" msprop:Generator_UserRelationName="mezzoallegatoA" msprop:Generator_RelationVarName="relationmezzoallegatoA" msprop:Generator_ParentPropName="modelliMezzoRow" />
-      <msdata:Relationship name="controlloallegatoA" msdata:parent="controllo" msdata:child="allegatoA" msdata:parentkey="ID" msdata:childkey="idControllo" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_UserParentTable="controllo" msprop:Generator_UserRelationName="controlloallegatoA" msprop:Generator_RelationVarName="relationcontrolloallegatoA" msprop:Generator_ParentPropName="controlloRow" />
+      <msdata:Relationship name="luoghicontrollocontrollo" msdata:parent="luoghicontrollo" msdata:child="controllo" msdata:parentkey="id" msdata:childkey="idLuogo" msprop:Generator_UserChildTable="controllo" msprop:Generator_ChildPropName="GetcontrolloRows" msprop:Generator_ParentPropName="luoghicontrolloRow" msprop:Generator_UserRelationName="luoghicontrollocontrollo" msprop:Generator_RelationVarName="relationluoghicontrollocontrollo" msprop:Generator_UserParentTable="luoghicontrollo" />
+      <msdata:Relationship name="ordineServiziocontrollo" msdata:parent="ordineServizio" msdata:child="controllo" msdata:parentkey="ID" msdata:childkey="idOs" msprop:Generator_UserChildTable="controllo" msprop:Generator_ChildPropName="GetcontrolloRows" msprop:Generator_ParentPropName="ordineServizioRow" msprop:Generator_UserRelationName="ordineServiziocontrollo" msprop:Generator_RelationVarName="relationordineServiziocontrollo" msprop:Generator_UserParentTable="ordineServizio" />
+      <msdata:Relationship name="ordineServiziointerventi" msdata:parent="ordineServizio" msdata:child="interventi" msdata:parentkey="ID" msdata:childkey="idOrdineservizio" msprop:Generator_UserChildTable="interventi" msprop:Generator_ChildPropName="GetinterventiRows" msprop:Generator_ParentPropName="ordineServizioRow" msprop:Generator_UserRelationName="ordineServiziointerventi" msprop:Generator_RelationVarName="relationordineServiziointerventi" msprop:Generator_UserParentTable="ordineServizio" />
+      <msdata:Relationship name="PK_integritaRefenziale" msdata:parent="operatore" msdata:child="ordineServizio" msdata:parentkey="id" msdata:childkey="idOperatori" msprop:Generator_UserChildTable="ordineServizio" msprop:Generator_ChildPropName="GetordineServizioRows" msprop:Generator_ParentPropName="operatoreRow" msprop:Generator_UserRelationName="PK_integritaRefenziale" msprop:Generator_RelationVarName="relationPK_integritaRefenziale" msprop:Generator_UserParentTable="operatore" />
+      <msdata:Relationship name="comuneprioritaComune" msdata:parent="comune" msdata:child="prioritaComune" msdata:parentkey="id" msdata:childkey="idComune" msprop:Generator_UserChildTable="prioritaComune" msprop:Generator_ChildPropName="GetprioritaComuneRows" msprop:Generator_ParentPropName="comuneRow" msprop:Generator_UserRelationName="comuneprioritaComune" msprop:Generator_RelationVarName="relationcomuneprioritaComune" msprop:Generator_UserParentTable="comune" />
+      <msdata:Relationship name="personaallegatoA" msdata:parent="persona" msdata:child="allegatoA" msdata:parentkey="ID" msdata:childkey="idPersona" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_ParentPropName="personaRow" msprop:Generator_UserRelationName="personaallegatoA" msprop:Generator_RelationVarName="relationpersonaallegatoA" msprop:Generator_UserParentTable="persona" />
+      <msdata:Relationship name="mezzoallegatoA" msdata:parent="modelliMezzo" msdata:child="allegatoA" msdata:parentkey="id" msdata:childkey="idMezzo" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_ParentPropName="modelliMezzoRow" msprop:Generator_UserRelationName="mezzoallegatoA" msprop:Generator_RelationVarName="relationmezzoallegatoA" msprop:Generator_UserParentTable="modelliMezzo" />
+      <msdata:Relationship name="controlloallegatoA" msdata:parent="controllo" msdata:child="allegatoA" msdata:parentkey="ID" msdata:childkey="idControllo" msprop:Generator_UserChildTable="allegatoA" msprop:Generator_ChildPropName="GetallegatoARows" msprop:Generator_ParentPropName="controlloRow" msprop:Generator_UserRelationName="controlloallegatoA" msprop:Generator_RelationVarName="relationcontrolloallegatoA" msprop:Generator_UserParentTable="controllo" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

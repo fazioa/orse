@@ -127,13 +127,11 @@ Public Class FSoggetto
                 End If
                 If (modelliMezzoTableAdapter.FillByMezzo(DbDataSet.modelliMezzo, s) <= 0) Then
                     Me.modelliMezzoTableAdapter.Insert(s)
+                    'rifaccio il fill, per evitare di avere un risultato nullo nella ricerca del valore appena inserito
+                    modelliMezzoTableAdapter.FillByMezzo(DbDataSet.modelliMezzo, s)
                 End If
 
-                '       If (feActions.doComboInsNuovoValore(ComboBoxModelliMezzo, DbDataSet, DbDataSet.modelliMezzo) <= 0) Then
-                'Throw New eccezione("Errore nell'inserimento di un nuovo valore")
-                'End If
-
-
+                
                 'recupero l'id del mezzo e lo metto in bindig. Faccio così perchè la textbox è invisibile
 
                 Dim drv As DataRowView = AllegatoABindingSource.Current()
@@ -267,6 +265,7 @@ Public Class FSoggetto
 
     Private Sub tbCognome_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbCognome.TextChanged
         If (Not bFlagBloccoCheckPersona) Then checkPersona()
+
     End Sub
 
     Private Sub checkPersona()
@@ -413,6 +412,9 @@ Public Class FSoggetto
     Private Sub textboxUpCase_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbCognome.Leave, tbNome.Leave, tbIndirizzo.Leave, tbDocumento.Leave
         Dim tb As TextBox = sender
         tb.Text() = tb.Text().Trim()
+
+        'Aggiorno il Caption del Form
+        Me.Text = tbCognome.Text & " " & tbNome.Text & " - " & My.Settings.nomeFinestraSoggetto.ToString
     End Sub
 
     '  Private Sub ComboBoxModelliMezzo_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs)

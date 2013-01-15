@@ -44,7 +44,7 @@
 
         Dim iNrMezziEliminati = feActions.esegueSQL("DELETE * FROM modelliMezzo as m WHERE id NOT IN (SELECT idMezzo FROM allegatoA where idmezzo = m.id)")
         Dim iNrLuoghiEliminati = feActions.esegueSQL("DELETE * FROM luoghicontrollo as m WHERE id NOT IN (SELECT idLuogo FROM controllo WHERE idLuogo=m.id )")
-        Dim iNrOperatoriEliminati = feActions.esegueSQL("DELETE * FROM operatore as m WHERE id NOT IN (SELECT id FROM ordineServizio WHERE id=m.id)")
+        Dim iNrOperatoriEliminati = feActions.esegueSQL("DELETE * FROM operatore as m WHERE id NOT IN (SELECT idOperatori FROM ordineServizio WHERE idOperatori=m.id)")
         'aggiorna vista
         MessageBox.Show("Mezzi: " & iNrMezziEliminati & vbCrLf & "Luoghi: " & iNrLuoghiEliminati & vbCrLf & "Operatori: " & iNrOperatoriEliminati, "Voci eliminate")
         updateDataGridView()

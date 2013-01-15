@@ -72,8 +72,7 @@ Partial Class FPrima
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrdineServizioTableAdapter1 = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
         Me.DbAlegatoADataSet1 = New OrSe.dbAlegatoADataSet()
-        Me.VerticalLabel2 = New OrSe.verticalLabel()
-        Me.RevisioneTabelleComuniEStariiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ApriCartellaDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.barramenu.SuspendLayout()
@@ -130,7 +129,7 @@ Partial Class FPrima
         '
         'StrumentiToolStripMenuItem
         '
-        Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CercaToolStripMenuItem, Me.ToolStripSeparator2, Me.ExportToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ToolStripSeparator3, Me.CancellaToolStripMenuItem, Me.CercaAggiornamentiToolStripMenuItem, Me.ToolStripMenuItemLOG, Me.ToolStripSeparator1, Me.EseguiBackupDBToolStripMenuItem, Me.RipristinaBackupDBToolStripMenuItem, Me.ToolStripSeparator4, Me.RevisioneTabelleDatiToolStripMenuItem, Me.RevisioneTabelleComuniEStariiToolStripMenuItem})
+        Me.StrumentiToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CercaToolStripMenuItem, Me.ToolStripSeparator2, Me.ExportToolStripMenuItem, Me.ImportToolStripMenuItem, Me.ToolStripSeparator3, Me.CancellaToolStripMenuItem, Me.CercaAggiornamentiToolStripMenuItem, Me.ToolStripMenuItemLOG, Me.ToolStripSeparator1, Me.EseguiBackupDBToolStripMenuItem, Me.RipristinaBackupDBToolStripMenuItem, Me.ToolStripSeparator4, Me.RevisioneTabelleDatiToolStripMenuItem, Me.ApriCartellaDatabaseToolStripMenuItem})
         Me.StrumentiToolStripMenuItem.Name = "StrumentiToolStripMenuItem"
         resources.ApplyResources(Me.StrumentiToolStripMenuItem, "StrumentiToolStripMenuItem")
         '
@@ -383,15 +382,10 @@ Partial Class FPrima
         Me.DbAlegatoADataSet1.DataSetName = "dbAlegatoADataSet"
         Me.DbAlegatoADataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'VerticalLabel2
+        'ApriCartellaDatabaseToolStripMenuItem
         '
-        resources.ApplyResources(Me.VerticalLabel2, "VerticalLabel2")
-        Me.VerticalLabel2.Name = "VerticalLabel2"
-        '
-        'RevisioneTabelleComuniEStariiToolStripMenuItem
-        '
-        Me.RevisioneTabelleComuniEStariiToolStripMenuItem.Name = "RevisioneTabelleComuniEStariiToolStripMenuItem"
-        resources.ApplyResources(Me.RevisioneTabelleComuniEStariiToolStripMenuItem, "RevisioneTabelleComuniEStariiToolStripMenuItem")
+        Me.ApriCartellaDatabaseToolStripMenuItem.Name = "ApriCartellaDatabaseToolStripMenuItem"
+        resources.ApplyResources(Me.ApriCartellaDatabaseToolStripMenuItem, "ApriCartellaDatabaseToolStripMenuItem")
         '
         'FPrima
         '
@@ -508,6 +502,6 @@ Partial Class FPrima
     Friend WithEvents RevisioneTabelleDatiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OrdineServizioTableAdapter1 As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
     Friend WithEvents DbAlegatoADataSet1 As OrSe.dbAlegatoADataSet
-    Friend WithEvents RevisioneTabelleComuniEStariiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ApriCartellaDatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

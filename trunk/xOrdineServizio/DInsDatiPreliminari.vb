@@ -108,7 +108,7 @@ Public Class DInsDatiPreliminari
         pb.Maximum(QOrdineServizioBindingSource.Count)
         Dim log As New XOrseLog
         log.xlogWriteEntry("Aggiornamento albero (TreeView ordini di servizio)", TraceEventType.Information)
-
+        TreeViewOS.Nodes.Clear()
         While (bEsc)
             drv = iteratore.Current
             FillTreeOS(drv.Item("id"), drv.Item("nome") & " del " & FormatDateTime(drv.Item("data"), DateFormat.ShortDate) & " - " & drv.Item("operatori"))
