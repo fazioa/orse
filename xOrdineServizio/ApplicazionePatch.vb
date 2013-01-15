@@ -80,6 +80,8 @@ Public Class ApplicazionePatch
                 ' Configuration.ConfigurationSettings
                 ' My.Settings.de()
                 '   +patch1
+            Case Is < 2.8
+                MsgBox("ATTENZIONE: Questa versione non prevede l'aggiornamento del database, che quindi non potrà essere utilizzato. Cancellarlo ed eseguire nuovamente l'installazione. Continuando, l'applicazione potrebbe non funzionare correttamente. Per mantenere i dati già raccolti usare le funzioni di esportazione ed importazione", MsgBoxStyle.Critical, "DATABASE NON AGGIORNATO")
         End Select
     End Sub
     Private Sub aggiornaNumeroVersione(ByVal sNuovoNumeroVersione As String, sAbout As String)

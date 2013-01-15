@@ -21019,10 +21019,11 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT        idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, luogo_c"& _ 
                 "itta, via, contatti_con, resoconto, operatori, ID, nomeOS, dataOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         "& _ 
-                "   QSopralluogo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (? LIKE nomeOS & ' ' & dataOS & ' ' & tipoReato & "& _ 
-                "' ' & luogo_citta & ' ' & via & ' ' & contatti_con & ' ' & resoconto)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                "   QSopralluogo"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (nomeOS & ' ' & dataOS & ' ' & tipoReato & ' ' & l"& _ 
+                "uogo_citta & ' ' & via & ' ' & contatti_con & ' ' & resoconto LIKE '%' & ? & '%'"& _ 
+                ")"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param1", Global.System.Data.OleDb.OleDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param1", Global.System.Data.OleDb.OleDbType.VarWChar, 1024, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT     idSopralluogo, idOS, tipoReato, oraRedazione, oraRichiesta, luogo_citt"& _ 

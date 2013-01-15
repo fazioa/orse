@@ -1148,7 +1148,13 @@ Public Class ActionsLibrary
         Dim objcomm As New OleDb.OleDbCommand(sComandoSQL, objconn)
         objconn.Open()
         log.xlogWriteEntry("Esegue comando SQL: " & sComandoSQL, TraceEventType.Information)
-        Dim nrRighe = objcomm.ExecuteNonQuery()
+        Dim nrRighe = 0
+        Try
+            nrRighe = objcomm.ExecuteNonQuery()
+        Catch ex As Exception
+
+        End Try
+
         Return nrRighe
     End Function
 
@@ -1306,11 +1312,7 @@ Public Class ActionsLibrary
         f.Show()
     End Sub
 
-    Shared Sub doApriFormRevisioneTabellaComunieStati()
-        Dim f As New FRevisioneTabellaDatiComuni
-        f.Show()
-    End Sub
-
+   
 End Class
 
 

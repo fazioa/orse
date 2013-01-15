@@ -161,16 +161,16 @@
     <value>Sopralluogo...</value>
   </data>
   <data name="CercaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 22</value>
+    <value>250, 22</value>
   </data>
   <data name="CercaToolStripMenuItem.Text" xml:space="preserve">
     <value>Cerca...</value>
   </data>
   <data name="ToolStripSeparator2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 6</value>
+    <value>247, 6</value>
   </data>
   <data name="ExportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 22</value>
+    <value>250, 22</value>
   </data>
   <data name="ExportToolStripMenuItem.Text" xml:space="preserve">
     <value>export...</value>
@@ -180,7 +180,7 @@
     <value>False</value>
   </data>
   <data name="ImportToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 22</value>
+    <value>250, 22</value>
   </data>
   <data name="ImportToolStripMenuItem.Text" xml:space="preserve">
     <value>import...</value>
@@ -189,25 +189,25 @@
     <value>False</value>
   </data>
   <data name="ToolStripSeparator3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 6</value>
+    <value>247, 6</value>
   </data>
   <data name="ToolStripSeparator3.Visible" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
   <data name="CancellaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 22</value>
+    <value>250, 22</value>
   </data>
   <data name="CancellaToolStripMenuItem.Text" xml:space="preserve">
     <value>Cancella...</value>
   </data>
   <data name="CercaAggiornamentiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 22</value>
+    <value>250, 22</value>
   </data>
   <data name="CercaAggiornamentiToolStripMenuItem.Text" xml:space="preserve">
     <value>Controlla aggiornamenti...</value>
   </data>
   <data name="ToolStripMenuItemLOG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 22</value>
+    <value>250, 22</value>
   </data>
   <data name="ToolStripMenuItemLOG.Text" xml:space="preserve">
     <value>Finestra log</value>
@@ -216,34 +216,34 @@
     <value>False</value>
   </data>
   <data name="ToolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 6</value>
+    <value>247, 6</value>
   </data>
   <data name="EseguiBackupDBToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 22</value>
+    <value>250, 22</value>
   </data>
   <data name="EseguiBackupDBToolStripMenuItem.Text" xml:space="preserve">
     <value>Esegui backup DB e preferenze</value>
   </data>
   <data name="RipristinaBackupDBToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 22</value>
+    <value>250, 22</value>
   </data>
   <data name="RipristinaBackupDBToolStripMenuItem.Text" xml:space="preserve">
     <value>Ripristina backup DB e preferenze</value>
   </data>
   <data name="ToolStripSeparator4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>249, 6</value>
+    <value>247, 6</value>
   </data>
   <data name="RevisioneTabelleDatiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 22</value>
+    <value>250, 22</value>
   </data>
   <data name="RevisioneTabelleDatiToolStripMenuItem.Text" xml:space="preserve">
     <value>Revisione tabelle dati...</value>
   </data>
-  <data name="RevisioneTabelleComuniEStariiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>252, 22</value>
+  <data name="ApriCartellaDatabaseToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 22</value>
   </data>
-  <data name="RevisioneTabelleComuniEStariiToolStripMenuItem.Text" xml:space="preserve">
-    <value>Revisione tabella Comuni e Stati...</value>
+  <data name="ApriCartellaDatabaseToolStripMenuItem.Text" xml:space="preserve">
+    <value>Apri cartella database...</value>
   </data>
   <data name="StrumentiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>80, 20</value>
@@ -393,42 +393,6 @@
   <data name="TableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="FlowLayoutPanel1" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="FlowLayoutPanel2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="&gt;&gt;labelInfoOS.Name" xml:space="preserve">
-    <value>labelInfoOS</value>
-  </data>
-  <data name="&gt;&gt;labelInfoOS.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;labelInfoOS.Parent" xml:space="preserve">
-    <value>FlowLayoutPanel3</value>
-  </data>
-  <data name="&gt;&gt;labelInfoOS.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="FlowLayoutPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Top</value>
-  </data>
-  <data name="FlowLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 24</value>
-  </data>
-  <data name="FlowLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1008, 53</value>
-  </data>
-  <data name="FlowLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
-    <value>29</value>
-  </data>
-  <data name="&gt;&gt;FlowLayoutPanel3.Name" xml:space="preserve">
-    <value>FlowLayoutPanel3</value>
-  </data>
-  <data name="&gt;&gt;FlowLayoutPanel3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FlowLayoutPanel3.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;FlowLayoutPanel3.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="labelInfoOS.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -464,6 +428,30 @@
   </data>
   <data name="&gt;&gt;labelInfoOS.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="FlowLayoutPanel3.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="FlowLayoutPanel3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 24</value>
+  </data>
+  <data name="FlowLayoutPanel3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1008, 53</value>
+  </data>
+  <data name="FlowLayoutPanel3.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="&gt;&gt;FlowLayoutPanel3.Name" xml:space="preserve">
+    <value>FlowLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;FlowLayoutPanel3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FlowLayoutPanel3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;FlowLayoutPanel3.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
   <data name="ButtonRubrica.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 28pt</value>
@@ -945,27 +933,6 @@
   <metadata name="DbAlegatoADataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>383, 56</value>
   </metadata>
-  <data name="VerticalLabel2.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 17pt</value>
-  </data>
-  <data name="VerticalLabel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 0</value>
-  </data>
-  <data name="VerticalLabel2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>24, 114</value>
-  </data>
-  <data name="VerticalLabel2.TabIndex" type="System.Int32, mscorlib">
-    <value>26</value>
-  </data>
-  <data name="VerticalLabel2.Text" xml:space="preserve">
-    <value>Interventi</value>
-  </data>
-  <data name="&gt;&gt;VerticalLabel2.Name" xml:space="preserve">
-    <value>VerticalLabel2</value>
-  </data>
-  <data name="&gt;&gt;VerticalLabel2.Type" xml:space="preserve">
-    <value>OrSe.verticalLabel, OrSe, Version=2.70.4.0, Culture=neutral, PublicKeyToken=null</value>
-  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -2335,10 +2302,10 @@
   <data name="&gt;&gt;DbAlegatoADataSet1.Type" xml:space="preserve">
     <value>OrSe.dbAlegatoADataSet, dbAlegatoADataSet.Designer.vb, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
-  <data name="&gt;&gt;RevisioneTabelleComuniEStariiToolStripMenuItem.Name" xml:space="preserve">
-    <value>RevisioneTabelleComuniEStariiToolStripMenuItem</value>
+  <data name="&gt;&gt;ApriCartellaDatabaseToolStripMenuItem.Name" xml:space="preserve">
+    <value>ApriCartellaDatabaseToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;RevisioneTabelleComuniEStariiToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;ApriCartellaDatabaseToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

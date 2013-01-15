@@ -22,29 +22,29 @@ Partial Class op85
     'Non modificarla nell'editor del codice.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.btnAnteprimaOp85 = New System.Windows.Forms.Button
-        Me.lbComandiDestinatari = New System.Windows.Forms.ListBox
-        Me.tbProt = New System.Windows.Forms.TextBox
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.tbProtInf = New System.Windows.Forms.TextBox
-        Me.tbComandiDestinatari = New System.Windows.Forms.TextBox
-        Me.BtnAggiungi = New System.Windows.Forms.Button
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView
-        Me.idControllo = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.generalita = New System.Windows.Forms.DataGridViewTextBoxColumn
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
+        Me.components = New System.ComponentModel.Container()
+        Me.btnAnteprimaOp85 = New System.Windows.Forms.Button()
+        Me.lbComandiDestinatari = New System.Windows.Forms.ListBox()
+        Me.tbProt = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.tbProtInf = New System.Windows.Forms.TextBox()
+        Me.tbComandiDestinatari = New System.Windows.Forms.TextBox()
+        Me.BtnAggiungi = New System.Windows.Forms.Button()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.idControllo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.generalita = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
+        Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter()
         Me.ModelliMezzoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter
+        Me.ModelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter()
         Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.AllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.cbNote = New System.Windows.Forms.ComboBox
+        Me.AllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.cbNote = New System.Windows.Forms.ComboBox()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,7 +76,7 @@ Partial Class op85
         '
         'tbProt
         '
-        Me.tbProt.Location = New System.Drawing.Point(122, 23)
+        Me.tbProt.Location = New System.Drawing.Point(122, 45)
         Me.tbProt.Name = "tbProt"
         Me.tbProt.Size = New System.Drawing.Size(100, 20)
         Me.tbProt.TabIndex = 47
@@ -84,7 +84,7 @@ Partial Class op85
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(6, 26)
+        Me.Label4.Location = New System.Drawing.Point(6, 48)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(81, 13)
         Me.Label4.TabIndex = 48
@@ -93,7 +93,7 @@ Partial Class op85
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 47)
+        Me.Label5.Location = New System.Drawing.Point(6, 22)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(109, 13)
         Me.Label5.TabIndex = 50
@@ -101,7 +101,7 @@ Partial Class op85
         '
         'tbProtInf
         '
-        Me.tbProtInf.Location = New System.Drawing.Point(122, 44)
+        Me.tbProtInf.Location = New System.Drawing.Point(122, 19)
         Me.tbProtInf.Name = "tbProtInf"
         Me.tbProtInf.Size = New System.Drawing.Size(100, 20)
         Me.tbProtInf.TabIndex = 49

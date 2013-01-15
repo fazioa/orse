@@ -185,7 +185,7 @@ Public Class FIntervento
 
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
-        If (MsgBox("Chiudere la finetra? Tutte le modifiche verrano perse. Sei sicuro?", MsgBoxStyle.YesNo, "Chiudi Finestra") = MsgBoxResult.Yes) Then
+        If (MsgBox("Chiudere la finetra? Tutte le modifiche effettuate dopo il salvataggio automatico (se impostato) verrano perse. Sei sicuro?", MsgBoxStyle.YesNo, "Chiudi Finestra") = MsgBoxResult.Yes) Then
             Me.Close()
 
         End If

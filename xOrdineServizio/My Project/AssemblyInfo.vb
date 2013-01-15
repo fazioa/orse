@@ -11,10 +11,10 @@ Imports System.Runtime.InteropServices
 ' Rivedere i valori degli attributi dell'assembly
 
 <Assembly: AssemblyTitle("OrSe")> 
-<Assembly: AssemblyDescription("Software per la pattuglia  - Inserimento interventi e soggetti identificati. Stampa report interventi ed allegatoA")> 
+<Assembly: AssemblyDescription("Software per la pattuglia  - Inserimento interventi, informazioni e soggetti identificati. Stampa report interventi, allegatoA, modelli OP85 e verbali di sopralluogo.")> 
 <Assembly: AssemblyCompany("Antonino Fazio")> 
 <Assembly: AssemblyProduct("OrSe")> 
-<Assembly: AssemblyCopyright("Copyright ©  2008-2012")> 
+<Assembly: AssemblyCopyright("Copyright ©  2008-2013")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(True)> 
@@ -33,7 +33,7 @@ Imports System.Runtime.InteropServices
 ' utilizzando l'asterisco (*) come descritto di seguito:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.70.4.0")> 
-<Assembly: AssemblyFileVersion("3.2")> 
+<Assembly: AssemblyVersion("2.80.0.0")> 
+<Assembly: AssemblyFileVersion("3.3")> 
 
 <Assembly: NeutralResourcesLanguageAttribute("it")> 

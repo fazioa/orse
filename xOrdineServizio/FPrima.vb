@@ -388,8 +388,9 @@ Public Class FPrima
 
 
    
-    Private Sub RevisioneTabelleComuniEStariiToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles RevisioneTabelleComuniEStariiToolStripMenuItem.Click
-        ActionsLibrary.doApriFormRevisioneTabellaComunieStati()
+   
+    Private Sub ApriCartellaDatabaseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ApriCartellaDatabaseToolStripMenuItem.Click
+        System.Diagnostics.Process.Start(My.Settings.pathCartellaScrivibile)
     End Sub
 End Class
 

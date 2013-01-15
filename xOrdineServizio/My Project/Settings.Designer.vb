@@ -158,7 +158,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("2.70")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("2.80")>  _
         Public Property versioneDB() As String
             Get
                 Return CType(Me("versioneDB"),String)
@@ -397,6 +397,18 @@ Namespace My
             End Get
             Set
                 Me("comandoSecondaRiga") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Inserimento soggetto")>  _
+        Public Property nomeFinestraSoggetto() As String
+            Get
+                Return CType(Me("nomeFinestraSoggetto"),String)
+            End Get
+            Set
+                Me("nomeFinestraSoggetto") = value
             End Set
         End Property
     End Class
