@@ -20560,17 +20560,19 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT id, cognome, nome, datanascita, cittanascita, residenzaindirizzo, cittares"& _ 
-                "idenza, documento, precedenti FROM QPersona WHERE cognome LIKE '%'& ? &'%' AND n"& _ 
-                "ome LIKE '%'& ? &'%'  "
+            Me._commandCollection(1).CommandText = "SELECT        ID, cognome, nome, datanascita, cittanascita, residenzaindirizzo, c"& _ 
+                "ittaresidenza, documento, precedenti"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QPersona"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (co"& _ 
+                "gnome LIKE '%' & ? & '%' OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         cognome IS NULL) AND (nome"& _ 
+                " LIKE '%' & ? & '%' OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         nome IS NULL)"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cognome", Global.System.Data.OleDb.OleDbType.WChar, 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cognome", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("nome", Global.System.Data.OleDb.OleDbType.WChar, 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nome", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT id,cognome, nome, datanascita, cittanascita, residenzaindirizzo, cittaresi"& _ 
-                "denza, documento, precedenti FROM QPersona WHERE cognome LIKE '%'& ? &'%' AND no"& _ 
-                "me LIKE '%'& ? &'%'  AND pio=True"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(2).CommandText = "SELECT        ID, cognome, nome, datanascita, cittanascita, residenzaindirizzo, c"& _ 
+                "ittaresidenza, documento, precedenti"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QPersona"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (co"& _ 
+                "gnome LIKE '%' & ? & '%' OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         cognome IS NULL) AND (nome"& _ 
+                " LIKE '%' & ? & '%' OR"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         nome IS NULL) AND (pio = True)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("cognome", Global.System.Data.OleDb.OleDbType.WChar, 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "cognome", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("nome", Global.System.Data.OleDb.OleDbType.WChar, 50, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "nome", Global.System.Data.DataRowVersion.Current, false, Nothing))

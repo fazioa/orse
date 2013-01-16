@@ -16,6 +16,7 @@ Public Class FSoggetto
         DbDataSet = DataSet
         InitializeComponent()
         UserControlInit()
+
         xiOrdine = iOrdine
         accomp = accompagnatore
 
@@ -32,7 +33,8 @@ Public Class FSoggetto
         End If
 
         bNuovoSoggetto = True
-
+        Dim drv As DataRowView = AllegatoABindingSource.Current
+        drv.Item("positivoSDI") = PositivoSDIComboBox.Items(0)
     End Sub
     Private Sub UserControlInit()
         '       ComboBoxModelliMezzo.setDataSource(MezzoBindingSource)
@@ -112,7 +114,7 @@ Public Class FSoggetto
             'il cursore si posiziona su questo oggetto
             ComboBoxModelliMezzo.Focus()
 
-            PositivoSDIComboBox.SelectedText = "--"
+
             'caso PASSEGGERO
             If (xiOrdine > 0) Then
                 ComboBoxModelliMezzo.Visible = False
@@ -149,12 +151,12 @@ Public Class FSoggetto
         bFlagBloccoCheckPersona = False
 
         'la caption del form è formato da cognome e nome
-        Dim sCaption As String = tbCognome.Text & " " & tbNome.Text
-        If (sCaption.Trim.Length = 0) Then
-            Me.Text = "Inserimento soggetto"
-        Else
-            Me.Text = sCaption
-        End If
+        '  Dim sCaption As String = tbCognome.Text & " " & tbNome.Text
+        ' If (sCaption.Trim.Length = 0) Then
+        Me.Text = My.Settings.nomeFinestraSoggetto
+        'Else
+        'Me.Text = sCaption
+        'End If
 
     End Sub
 
@@ -204,9 +206,10 @@ Public Class FSoggetto
             End If
             drv.EndEdit()
             'update modifiche riga allegato A
-            Me.AllegatoABindingSource.EndEdit()
+            '  Me.AllegatoABindingSource.EndEdit()
             Me.AllegatoATableAdapter.Update(Me.DbDataSet.allegatoA)
             Me.Close()
+
         Catch ex As Exception
             log.xlogWriteEntry("Errore inserimento soggetto. " & ex.Message, TraceEventType.Error)
             MsgBox("Errore inserimento soggetto. " & ex.Message, MsgBoxStyle.Critical, "Errore")
@@ -268,6 +271,7 @@ Public Class FSoggetto
 
     End Sub
 
+    Dim bVisualizzato = False
     Private Sub checkPersona()
         Dim dNascita As Date
         'se la data non è valida, allora imposta data a Nothing
@@ -283,6 +287,11 @@ Public Class FSoggetto
         If (i > 0) Then
             bPIOSel.BackgroundImage = My.Resources.pulsanteSoleVerde
             bPIOSel.Enabled = True
+            If Not bVisualizzato Then
+                bVisualizzato = True
+                InfoScreen.soggettoGiaPresente()
+
+            End If
         Else
             bPIOSel.BackgroundImage = My.Resources.pulsanteSoleGrigio
         End If

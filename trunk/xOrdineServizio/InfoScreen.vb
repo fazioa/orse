@@ -39,7 +39,9 @@ Public Class InfoScreen
         MsgBox("Errore nel ripristino del file. Attenzione, il file scelto è quello in uso.", MsgBoxStyle.Information, "Ripristino Backup DB")
     End Sub
 
-
+    Public Shared Sub soggettoGiaPresente()
+        MsgBox("ATTENZIONE: Il soggetto che stai inserendo è già stato controllato in passato. Clicca sul pulsante verde per recuperare tutti i dati, altrimenti continua per inserirlo come nuovo soggetto (es: omonimia)", MsgBoxStyle.Information, "Soggetto già in memoria")
+    End Sub
 
 
 End Class
