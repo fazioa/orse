@@ -549,28 +549,41 @@ Public Class ActionsLibrary
             If (fDialog.ShowDialog() = DialogResult.OK) Then
                 Dim os As New OrSe.FillTreeOS
 
-
                 'AllegatoA
                 Dim writer As New XmlSerializer(GetType(dbAlegatoADataSet.QAllegatoADataTable))
                 Dim file As New StreamWriter("ordiniServizioAllegatoAData.OrseXML")
                 Dim d As New dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter
-                d.FillByDataRange(db.QAllegatoA, dInizio, dFine)
+                Try
+                    'metto sotto try perchè se non ci sono record solleva eccezione
+                    d.FillByDataRange(db.QAllegatoA, dInizio, dFine)
+                Catch ex As Exception
+
+                End Try
                 writer.Serialize(file, db.QAllegatoA)
                 file.Close()
-
 
                 'Informazioni
                 writer = New XmlSerializer(GetType(dbAlegatoADataSet.QInterventiDataTable))
                 file = New StreamWriter("ordiniServizioInformazioniData.OrseXML")
                 Dim d2 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
-                d2.FillByDataRange(db.QInterventi, paragrafoOS.informazioni, dInizio, dFine)
+                Try
+                    'metto sotto try perchè se non ci sono record solleva eccezione
+                    d2.FillByDataRange(db.QInterventi, paragrafoOS.informazioni, dInizio, dFine)
+                Catch ex As Exception
+
+                End Try
                 writer.Serialize(file, db.QInterventi)
                 file.Close()
 
                 'Interventi
                 file = New StreamWriter("ordiniServizioInterventiData.OrseXML")
                 Dim d3 As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
-                d3.FillByDataRange(db.QInterventi, paragrafoOS.interventi, dInizio, dFine)
+                Try
+                    'metto sotto try perchè se non ci sono record solleva eccezione
+                    d3.FillByDataRange(db.QInterventi, paragrafoOS.interventi, dInizio, dFine)
+                Catch ex As Exception
+
+                End Try
                 writer.Serialize(file, db.QInterventi)
                 file.Close()
 
@@ -578,7 +591,12 @@ Public Class ActionsLibrary
                 writer = New XmlSerializer(GetType(dbAlegatoADataSet.QSopralluogoDataTable))
                 file = New StreamWriter("ordiniServizioSopralluogoData.OrseXML")
                 Dim d4 As New dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
-                d4.FillByDataRange(db.QSopralluogo, dInizio, dFine)
+                Try
+                    'metto sotto try perchè se non ci sono record solleva eccezione
+                    d4.FillByDataRange(db.QSopralluogo, dInizio, dFine)
+                Catch ex As Exception
+
+                End Try
                 writer.Serialize(file, db.QSopralluogo)
                 file.Close()
 
@@ -586,10 +604,14 @@ Public Class ActionsLibrary
                 writer = New XmlSerializer(GetType(dbAlegatoADataSet.QRubricaDataTable))
                 file = New StreamWriter("ordiniServizioRubricaData.OrseXML")
                 Dim d5 As New dbAlegatoADataSetTableAdapters.QRubricaTableAdapter
-                d5.FillByDataRange(db.QRubrica, dInizio, dFine)
+                Try
+                    'metto sotto try perchè se non ci sono record solleva eccezione
+                    d5.FillByDataRange(db.QRubrica, dInizio, dFine)
+                Catch ex As Exception
+
+                End Try
                 writer.Serialize(file, db.QRubrica)
                 file.Close()
-
 
                 Try
                     Using zip As Ionic.Zip.ZipFile = New Ionic.Zip.ZipFile
@@ -769,7 +791,7 @@ Public Class ActionsLibrary
         Else
             'inserisco il controllo
             log.xlogWriteEntry("Inserimento controllo, idLuogo: " & idLuogo & ", data: " & d & "idOS:" & idOS, TraceEventType.Critical)
-            t.Insert(d, idLuogo, idOS)
+            t.Insert(d, idOS, idLuogo)
             idControllo = t.MaxID()
             log.xlogWriteEntry("Inserimento controllo, idControllo: " & idControllo, TraceEventType.Critical)
             Return idControllo
