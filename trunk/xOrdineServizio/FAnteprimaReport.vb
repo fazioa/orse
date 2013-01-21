@@ -15,7 +15,7 @@ Public Class FanteprimaReport
     Dim cr As New ReportDocument()
 
     Public Sub New(ByVal tOS As Integer, ByVal sNomeOS As String, ByVal tipo As tipoReport)
-        ' Chiamata richiesta da Progettazione Windows Form.
+        ' Chiamata richiesta<supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0"/> da Progettazione Windows Form.
         InitializeComponent()
         feActions.setStandardFormSize(Me)
         ' Aggiungere le eventuali istruzioni di inizializzazione dopo la chiamata a InitializeComponent().
@@ -33,6 +33,13 @@ Public Class FanteprimaReport
 
     Private Sub FanteprimaReport_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Dim reportPath As String = ""
+        Dim sCartella As String = "\Resources\automazione\"
+        Dim sPath As String = My.Settings.pathCartellaScrivibile & sCartella
+
+        'Dim sPath As String = Application.StartupPath & sCartella
+        'Dim sCartella As String = "\Resources\"
+
+
         Dim sOS As String = ""
         Dim esitoSDI As tipoEsitoSDI = New tipoEsitoSDI()
 
@@ -40,28 +47,33 @@ Public Class FanteprimaReport
             'settaggi per report INTERVENTI
             'sOS = "{interventi.ordineservizio} like ""*" & tOrdineServizio & "*"""
             sOS = ""
-            reportPath = Application.StartupPath & "\Resources\reportInterventi.rpt"
+            reportPath = sPath & "reportInterventi.rpt"
+            MsgBox(reportPath, MsgBoxStyle.Information, "REPORT")
+
             QInterventiTableAdapter.FillByOSOrderByDataInizio_Paragrafo(DbAlegatoADataSet.QInterventi, iOrdineServizio, paragrafoOS.interventi)
             ' QInterventiTableAdapter.FillByOSOrderByDataInizio(DbAlegatoADataSet.QInterventi, iOrdineServizio)
         ElseIf (_tipo = tipoReport.informazioni) Then
-            reportPath = Application.StartupPath & "\Resources\reportInterventi.rpt"
+            reportPath = sPath & "reportInterventi.rpt"
             QInterventiTableAdapter.FillByOSOrderByDataInizio_Paragrafo(DbAlegatoADataSet.QInterventi, iOrdineServizio, paragrafoOS.informazioni)
             'QInterventiTableAdapter.FillByOSOrderByDataInizio(DbAlegatoADataSet.QInterventi, iOrdineServizio)
         ElseIf (_tipo = tipoReport.allegatoA) Then
             'settaggi per report ALLEGATO A
             sOS = "{QAllegatoA.idOS} = " & iOrdineServizio
-            reportPath = Application.StartupPath & "\Resources\reportAllegatoA.rpt"
+            reportPath = sPath & "reportAllegatoA.rpt"
+            ' MsgBox(reportPath, MsgBoxStyle.Information, "PATH Report")
             QAllegatoATableAdapter.Fill(DbAlegatoADataSet.QAllegatoA)
+            ' MsgBox("fill ok", MsgBoxStyle.Information, "PATH Report")
         Else
             'settaggi per report OP85
             sOS = "{QAllegatoA.ordine} =0"
-            reportPath = Application.StartupPath & "\Resources\reportOP85.rpt"
+            reportPath = sPath & "reportOP85.rpt"
             QAllegatoATableAdapter.FillByIdControllo(DbAlegatoADataSet.QAllegatoA, tiIDControllo)
         End If
 
 
         'carico il file report
         cr.Load(reportPath)
+        ' MsgBox("load  ok", MsgBoxStyle.Information, "PATH Report")
         cr.SetDataSource(Me.DbAlegatoADataSet)
 
         'imposto report e subreport subreport per il mod. OP85
