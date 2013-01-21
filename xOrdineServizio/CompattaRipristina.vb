@@ -1,7 +1,7 @@
 Public Class CompattaRipristina
     Public Sub DoAction()
 
-        Dim pathDB As String = Application.StartupPath
+        Dim pathDB As String = My.Settings.pathCartellaScrivibile
 
         Dim jro As JRO.JetEngine
         jro = New JRO.JetEngine

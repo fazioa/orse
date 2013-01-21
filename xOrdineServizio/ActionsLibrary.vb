@@ -368,7 +368,7 @@ Public Class ActionsLibrary
             Dim strDocumentName As String = ""
             oWord.Visible = True
 
-            Dim sPath As String = Application.StartupPath & "\Resources\automazione\"
+            Dim sPath As String = My.Settings.pathCartellaScrivibile & "\Resources\automazione\"
 
             'strDocumentName = "op85_" & sParteNomeFile & ".doc"
             Try
@@ -406,7 +406,7 @@ Public Class ActionsLibrary
             Dim strDocumentName As String = ""
             oWord.Visible = True
 
-            Dim sPath As String = Application.StartupPath & "\Resources\automazione\"
+            Dim sPath As String = My.Settings.pathCartellaScrivibile & "\Resources\automazione\"
 
             ' strDocumentName = "verbaleSopralluogo.doc"
             Try

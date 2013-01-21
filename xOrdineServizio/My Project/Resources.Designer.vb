@@ -137,20 +137,6 @@ Namespace My.Resources
             End Get
         End Property
         
-        Friend ReadOnly Property reportAllegatoA() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("reportAllegatoA", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
-        
-        Friend ReadOnly Property reportInterventi() As Byte()
-            Get
-                Dim obj As Object = ResourceManager.GetObject("reportInterventi", resourceCulture)
-                Return CType(obj,Byte())
-            End Get
-        End Property
-        
         Friend ReadOnly Property repubblica() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("repubblica", resourceCulture)
