@@ -108,10 +108,13 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -207,6 +210,12 @@
     <Compile Include="FProgressionBar.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="FReport.Designer.vb">
+      <DependentUpon>FReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="FRevisioneTabelleDati.Designer.vb">
       <DependentUpon>FRevisioneTabelleDati.vb</DependentUpon>
     </Compile>
@@ -263,7 +272,6 @@
     <Compile Include="FXOrseLog.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>
       <DependentUpon>Application.myapp</DependentUpon>
@@ -292,16 +300,16 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Resources\automazione\reportAllegatoA.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>reportAllegatoA.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="Resources\automazione\reportInterventi.vb">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
       <DependentUpon>reportInterventi.rpt</DependentUpon>
       <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
     </Compile>
     <Compile Include="serializzazioneHashTable.vb" />
     <Compile Include="Settings.vb" />
@@ -363,6 +371,9 @@
       <DependentUpon>FPrima.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FReport.resx">
+      <DependentUpon>FReport.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FRevisioneTabelleDati.resx">
       <DependentUpon>FRevisioneTabelleDati.vb</DependentUpon>
     </EmbeddedResource>
@@ -395,21 +406,12 @@
     <None Include="Ionic.Zip.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <EmbeddedResource Include="Report1.rdlc" />
-    <Content Include="Resources\automazione\reportAllegatoA.rpt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>reportAllegatoA.vb</LastGenOutput>
-    </Content>
-    <Content Include="Resources\automazione\reportInterventi.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>reportInterventi.vb</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="OP85.resx">
       <SubType>Designer</SubType>
       <DependentUpon>OP85.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Resources\automazione\reportAllegatoA.rdlc" />
+    <EmbeddedResource Include="Resources\automazione\reportInterventi.rdlc" />
     <EmbeddedResource Include="SplashScreenOrse.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SplashScreenOrse.vb</DependentUpon>
@@ -505,12 +507,6 @@
     <None Include="app.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <Content Include="Resources\automazione\op85.dot">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Resources\automazione\verbaleSopralluogo.dot">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
     <EmbeddedResource Include="Resources\btnPrima\rubrica.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
@@ -573,7 +569,18 @@
     <Folder Include="bin\Debug\" />
     <Folder Include="DataSrc\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\automazione\op85.dot" />
+    <Content Include="Resources\automazione\reportAllegatoA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reportAllegatoA.vb</LastGenOutput>
+    </Content>
+    <Content Include="Resources\automazione\reportInterventi.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reportInterventi.vb</LastGenOutput>
+    </Content>
+    <Content Include="Resources\automazione\verbaleSopralluogo.dot" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -160,9 +160,14 @@ Public Class ActionsLibrary
 
 
     Public Sub doApriFormAnteprima(ByVal tos As String, ByVal sNomeOS As String, ByVal tipo As tipoReport)
+        ' Dim form As System.Windows.Forms.Form
+        ' form = New FanteprimaReport(tos, sNomeOS, tipo)
+        ' form.Visible = True
+
         Dim form As System.Windows.Forms.Form
-        form = New FanteprimaReport(tos, sNomeOS, tipo)
+        form = New FReport(tos, sNomeOS, tipo)
         form.Visible = True
+
     End Sub
 
 
