@@ -148,7 +148,11 @@
     </Style>
   </Body>
   <ReportParameters>
-    <ReportParameter Name="regione">
+    <ReportParameter Name="gruppoFirmaRiga1">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="gruppoFirmaRiga2">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
@@ -268,11 +272,42 @@ all'ordine di servizio</Value>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>ALLEGATO ALL'ORDINE DI SERVIZIO N.{1nomeOS} DEL {2dataOS}</Value>
+                  <Value>ALLEGATO ALL'ORDINE DI SERVIZIO Nr.</Value>
                   <Style>
                     <FontStyle>Normal</FontStyle>
                     <FontSize>9pt</FontSize>
                     <FontWeight>Normal</FontWeight>
+                    <TextDecoration>None</TextDecoration>
+                    <Color>#000000</Color>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=Fields!nomeOS.Value</Value>
+                  <Style>
+                    <FontStyle>Normal</FontStyle>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Normal</FontWeight>
+                    <TextDecoration>None</TextDecoration>
+                    <Color>#000000</Color>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value> DEL </Value>
+                  <Style>
+                    <FontStyle>Normal</FontStyle>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Normal</FontWeight>
+                    <TextDecoration>None</TextDecoration>
+                    <Color>#000000</Color>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value>=Fields!dataOS.Value</Value>
+                  <Style>
+                    <FontStyle>Normal</FontStyle>
+                    <FontSize>9pt</FontSize>
+                    <FontWeight>Normal</FontWeight>
+                    <Format>d MMMM yyyy</Format>
                     <TextDecoration>None</TextDecoration>
                     <Color>#000000</Color>
                   </Style>
@@ -305,6 +340,111 @@ all'ordine di servizio</Value>
         </Border>
       </Style>
     </PageHeader>
+    <PageFooter>
+      <Height>2.54cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="Textbox67">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Visto:</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox67</rd:DefaultName>
+          <Top>0.17639cm</Top>
+          <Left>7.5474cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="gruppoFirmaRiga1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!gruppoFirmaRiga1.Value</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>gruppoFirmaRiga1</rd:DefaultName>
+          <Top>0.81167cm</Top>
+          <Left>7.5474cm</Left>
+          <Height>0.6cm</Height>
+          <Width>7.87104cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="gruppoFirmaRiga2">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Parameters!gruppoFirmaRiga2.Value</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>gruppoFirmaRiga2</rd:DefaultName>
+          <Top>1.41167cm</Top>
+          <Left>7.5474cm</Left>
+          <Height>0.6cm</Height>
+          <Width>7.87104cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
     <LeftMargin>2cm</LeftMargin>

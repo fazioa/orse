@@ -1,4 +1,5 @@
-﻿
+﻿Imports Microsoft.Reporting.WinForms
+
 Public Class FReport
     Dim iOrdineServizio As Integer
     Dim sOrdineServizio As String
@@ -17,9 +18,7 @@ Public Class FReport
         Dim sCartella As String = "\Resources\automazione\"
         Dim sPath As String = My.Settings.pathCartellaScrivibile & sCartella
 
-        'Dim sPath As String = Application.StartupPath & sCartella
-        'Dim sCartella As String = "\Resources\"
-
+        Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
 
         Dim sOS As String = ""
         Dim esitoSDI As tipoEsitoSDI = New tipoEsitoSDI()
@@ -28,30 +27,30 @@ Public Class FReport
             'settaggi per report INTERVENTI
             'sOS = "{interventi.ordineservizio} like ""*" & tOrdineServizio & "*"""
             sOS = ""
-            reportPath = sPath & "reportInterventi.rpt"
-            MsgBox(reportPath, MsgBoxStyle.Information, "REPORT")
+            reportPath = sPath & "reportInterventi.rdlc"
+            QInterventiTableAdapter.FillByOSOrderByDataInizio_Paragrafo(DbAlegatoADataSet.QInterventi, iOrdineServizio, paragrafoOS.interventi)
 
-            QInterventiTableAdapter.FillByOSOrderByDataInizio_Paragrafo(dbAlegatoADataSet.QInterventi, iOrdineServizio, paragrafoOS.interventi)
-            ' QInterventiTableAdapter.FillByOSOrderByDataInizio(DbAlegatoADataSet.QInterventi, iOrdineServizio)
+            ReportDataSource1.Value = Me.QInterventiBindingSource
         ElseIf (_tipo = tipoReport.informazioni) Then
-            reportPath = sPath & "reportInterventi.rpt"
-            QInterventiTableAdapter.FillByOSOrderByDataInizio_Paragrafo(dbAlegatoADataSet.QInterventi, iOrdineServizio, paragrafoOS.informazioni)
-            'QInterventiTableAdapter.FillByOSOrderByDataInizio(DbAlegatoADataSet.QInterventi, iOrdineServizio)
+            reportPath = sPath & "reportInterventi.rdlc"
+            QInterventiTableAdapter.FillByOSOrderByDataInizio_Paragrafo(DbAlegatoADataSet.QInterventi, iOrdineServizio, paragrafoOS.informazioni)
+
+            ReportDataSource1.Value = Me.QInterventiBindingSource
+
         ElseIf (_tipo = tipoReport.allegatoA) Then
             'settaggi per report ALLEGATO A
             sOS = "{QAllegatoA.idOS} = " & iOrdineServizio
-            reportPath = sPath & "reportAllegatoA.rpt"
+            reportPath = sPath & "reportAllegatoA.rdlc"
             ' MsgBox(reportPath, MsgBoxStyle.Information, "PATH Report")
-            QAllegatoATableAdapter.Fill(dbAlegatoADataSet.QAllegatoA)
-            ' MsgBox("fill ok", MsgBoxStyle.Information, "PATH Report")
-        Else
-            'settaggi per report OP85
-            sOS = "{QAllegatoA.ordine} =0"
-            reportPath = sPath & "reportOP85.rpt"
-            QAllegatoATableAdapter.FillByIdControllo(dbAlegatoADataSet.QAllegatoA, tiIDControllo)
+            QAllegatoATableAdapter.Fill(DbAlegatoADataSet.QAllegatoA)
+
+            ReportDataSource1.Value = Me.QAllegatoABindingSource
         End If
 
-        Me.ReportViewer1.LocalReport.ReportEmbeddedResource = reportPath
+        ReportDataSource1.Name = "DataSet1"
+        Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
+        'setta il path del report.
+        Me.ReportViewer1.LocalReport.ReportPath = reportPath
 
         'imposto il subreport per l'AllegatoA
         'If (_tipo = tipoReport.allegatoA) Then
@@ -63,39 +62,50 @@ Public Class FReport
         'End If
 
         'imposto i parametri da passare al report
-        'If (My.MySettings.Default.ComandanteTitolare) Then
-        '    cr.SetParameterValue("gruppoFirmaRiga1", My.MySettings.Default.GruppoFirmaRiga1)
-        '    cr.SetParameterValue("gruppoFirmaRiga2", My.MySettings.Default.GruppoFirmaRiga2)
-        'Else
-        '    cr.SetParameterValue("gruppoFirmaRiga1", My.MySettings.Default.GruppoFirmaInterinaleRiga1)
-        '    cr.SetParameterValue("gruppoFirmaRiga2", My.MySettings.Default.GruppoFirmaInterinaleRiga2)
-        'End If
+        Dim rPar As ReportParameter = New ReportParameter
+        Dim rParCollection As ReportParameterCollection = New ReportParameterCollection
 
-        'If (_tipo = tipoReport.interventi Or _tipo = tipoReport.informazioni Or _tipo = tipoReport.op85) Then
-        '    cr.SetParameterValue("regione", My.MySettings.Default.regione)
-        '    cr.SetParameterValue("comando", My.MySettings.Default.comando)
-        '    cr.SetParameterValue("comando2", My.MySettings.Default.comandoSecondaRiga)
-        '    If (_tipo = tipoReport.op85) Then
-        '        cr.SetParameterValue("comune", My.MySettings.Default.comune)
-        '        cr.SetParameterValue("protocollo", parametri.protocollo)
-        '        cr.SetParameterValue("protocolloInformatico", parametri.protocolloInformatico)
 
-        '        ================ COMANDI DESTINATARI
-        '        Dim sArray As String() = parametri.ComandiDestinatari.ToArray
-        '        cr.SetParameterValue("citta", sArray)
-        '        ================ 
-        '        ================ NOTE
-        '        cr.SetParameterValue("note", parametri.sNote.ToString)
-        '        ================ 
-        '    End If
-        'End If
+        If (My.MySettings.Default.ComandanteTitolare) Then
+
+            rPar = New ReportParameter("gruppoFirmaRiga1", My.MySettings.Default.GruppoFirmaRiga1)
+            rParCollection.Add(rPar)
+
+            rPar = New ReportParameter("gruppoFirmaRiga2", My.MySettings.Default.GruppoFirmaRiga2)
+            rParCollection.Add(rPar)
+
+        Else
+            rPar = New ReportParameter("gruppoFirmaRiga1", My.MySettings.Default.GruppoFirmaInterinaleRiga1)
+            rParCollection.Add(rPar)
+
+            rPar = New ReportParameter("gruppoFirmaRiga2", My.MySettings.Default.GruppoFirmaInterinaleRiga2)
+            rParCollection.Add(rPar)
+        End If
+
+
+        If (_tipo = tipoReport.interventi Or _tipo = tipoReport.informazioni Or _tipo = tipoReport.op85) Then
+
+            rPar = New ReportParameter("regione", My.MySettings.Default.regione)
+            rParCollection.Add(rPar)
+
+            rPar = New ReportParameter("comando", My.MySettings.Default.comando)
+            rParCollection.Add(rPar)
+
+            rPar = New ReportParameter("comando2", My.MySettings.Default.comandoSecondaRiga)
+            rParCollection.Add(rPar)
+
+        End If
 
         'passo la descrizione del paragrafo: 9 Interventi o 6 Informazioni
-        'If (_tipo = tipoReport.interventi) Then
-        '    cr.SetParameterValue("descrizioneParagrafo", My.MySettings.Default.descrizioneParagrafoInterventi)
-        'ElseIf (_tipo = tipoReport.informazioni) Then
-        '    cr.SetParameterValue("descrizioneParagrafo", My.MySettings.Default.descrizioneParagrafoInformazioni)
-        'End If
+        If (_tipo = tipoReport.interventi) Then
+            rPar = New ReportParameter("descrizioneParagrafo", My.MySettings.Default.descrizioneParagrafoInterventi)
+            rParCollection.Add(rPar)
+
+        ElseIf (_tipo = tipoReport.informazioni) Then
+            rPar = New ReportParameter("descrizioneParagrafo", My.MySettings.Default.descrizioneParagrafoInformazioni)
+            rParCollection.Add(rPar)
+        End If
+
 
         '---mainreport selection formula
         'cr.RecordSelectionFormula() = sOS
@@ -106,7 +116,7 @@ Public Class FReport
         'CrystalReportViewer.ReportSource = cr
 
 
-
+        Me.ReportViewer1.LocalReport.SetParameters(rParCollection)
         Me.ReportViewer1.RefreshReport()
 
 
