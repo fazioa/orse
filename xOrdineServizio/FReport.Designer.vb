@@ -37,11 +37,20 @@ Partial Class FReport
         '
         'ReportViewer1
         '
+        Me.ReportViewer1.AutoSize = True
+        Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
-        Me.ReportViewer1.ProcessingMode = Microsoft.Reporting.WinForms.ProcessingMode.Remote
         Me.ReportViewer1.ServerReport.ReportServerUrl = New System.Uri("", System.UriKind.Relative)
-        Me.ReportViewer1.Size = New System.Drawing.Size(563, 305)
+        Me.ReportViewer1.ShowBackButton = False
+        Me.ReportViewer1.ShowDocumentMapButton = False
+        Me.ReportViewer1.ShowFindControls = False
+        Me.ReportViewer1.ShowPageNavigationControls = False
+        Me.ReportViewer1.ShowPromptAreaButton = False
+        Me.ReportViewer1.ShowRefreshButton = False
+        Me.ReportViewer1.ShowStopButton = False
+        Me.ReportViewer1.ShowZoomControl = False
+        Me.ReportViewer1.Size = New System.Drawing.Size(804, 464)
         Me.ReportViewer1.TabIndex = 0
         '
         'DbAlegatoADataSet
@@ -98,6 +107,7 @@ Partial Class FReport
         CType(Me.QInterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents ReportViewer1 As Microsoft.Reporting.WinForms.ReportViewer
