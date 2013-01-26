@@ -918,44 +918,50 @@ Public Class ActionsLibrary
 
     'la funzione inserisce un intervento/informazione in base ai dati indicati nell'hastable a
     Private Function inserimentoInterventiInformazioni(ByVal a As System.Collections.Hashtable, ByVal idOS As Integer)
+        Dim dataOraInizio, dataOraFine As DateTime
+        Try
 
-        If Not (a.Item("dataOraInizio") = Nothing Or a.Item("dataOraFine") = Nothing) Then
+            If Not (a.Item("dataOraInizio") = Nothing Or a.Item("dataOraFine") = Nothing) Then
 
-            Dim dQI As New dbAlegatoADataSet.QInterventiDataTable
-            Dim tQInterventi As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
+                Dim dQI As New dbAlegatoADataSet.QInterventiDataTable
+                Dim tQInterventi As New dbAlegatoADataSetTableAdapters.QInterventiTableAdapter
 
-            'se dataorainizio e fine sono valorizzati allora proseguo. FAccio questo perchè alcuni inserimenti in passato sono stati fatti male, ed a volte dataorainizio è nullo
-            '  If Not (a.Item("dataOraInizio") = Nothing Or a.Item("dataOraFine") = Nothing Or a.Item("iParagrafo") = Nothing) Then
-            Dim dataOraInizio As DateTime = a.Item("dataOraInizio")
-            Dim dataOraFine As DateTime = a.Item("dataOraFine")
+                'se dataorainizio e fine sono valorizzati allora proseguo. FAccio questo perchè alcuni inserimenti in passato sono stati fatti male, ed a volte dataorainizio è nullo
+                '  If Not (a.Item("dataOraInizio") = Nothing Or a.Item("dataOraFine") = Nothing Or a.Item("iParagrafo") = Nothing) Then
+                dataOraInizio = a.Item("dataOraInizio")
+                dataOraFine = a.Item("dataOraFine")
 
-            Dim tipointervento As String = a.Item("tipointervento")
-            Dim resoconto As String = a.Item("resoconto")
-            Dim iParagrafo As Integer = a.Item("iParagrafo")
-
-
-            'controllo doppione
-            Dim c As Integer = -1
+                Dim tipointervento As String = IIf(a.Item("tipointervento") = Nothing, "", a.Item("tipointervento"))
+                Dim resoconto As String = IIf(a.Item("resoconto") = Nothing, "", a.Item("resoconto"))
+                Dim iParagrafo As Integer = a.Item("iParagrafo")
 
 
-            c = tQInterventi.FillRicercaDoppione(dQI, resoconto, idOS)
+                'controllo doppione
+                Dim c As Integer = -1
 
-            If (c <= 0) Then
-                Dim i As Integer
-                log.xlogWriteEntry("Inserimento intervento/informazione. idOS:" & idOS & ", inizio: " & dataOraInizio & ", fine:" & dataOraFine, TraceEventType.Critical)
-                Dim d As New dbAlegatoADataSet.interventiDataTable
-                Dim tInterventi As New dbAlegatoADataSetTableAdapters.interventiTableAdapter
 
-                i = tInterventi.Insert(dataOraInizio, dataOraFine, tipointervento, resoconto, idOS, iParagrafo)
-                Return i
+                c = tQInterventi.FillRicercaDoppione(dQI, resoconto, idOS)
+
+                If (c <= 0) Then
+                    Dim i As Integer
+                    log.xlogWriteEntry("Inserimento intervento/informazione. idOS:" & idOS & ", inizio: " & dataOraInizio & ", fine:" & dataOraFine, TraceEventType.Critical)
+                    Dim d As New dbAlegatoADataSet.interventiDataTable
+                    Dim tInterventi As New dbAlegatoADataSetTableAdapters.interventiTableAdapter
+
+                    i = tInterventi.Insert(dataOraInizio, dataOraFine, tipointervento, resoconto, idOS, iParagrafo)
+                    Return i
+                Else
+                    log.xlogWriteEntry("Inserimento intervento/informazione IGNORATO, perchè già presente. idOS:" & idOS & ", inizio: " & dataOraInizio & ", fine:" & dataOraFine, TraceEventType.Critical)
+                    Return -1
+                End If
             Else
-                log.xlogWriteEntry("Inserimento intervento/informazione IGNORATO, perchè già presente. idOS:" & idOS & ", inizio: " & dataOraInizio & ", fine:" & dataOraFine, TraceEventType.Critical)
-                Return -1
+                'se dataOraInizio o dataOraFine è nullo allora ignoro l'inserimento
+                log.xlogWriteEntry("Incongruenza dati Intervento/Informazione. La data/ora di inizio o fine è nulla. L'inserimento viene ignorato.", TraceEventType.Critical)
             End If
-        Else
-            'se dataOraInizio o dataOraFine è nullo allora ignoro l'inserimento
-            log.xlogWriteEntry("Incongruenza dati Intervento/Informazione. La data/ora di inizio o fine è nulla. L'inserimento viene ignorato.", TraceEventType.Critical)
-        End If
+        Catch ex As Exception
+            log.xlogWriteEntry("Inserimento intervento/informazione IGNORATO a causa di errore. idOS:" & idOS & ", inizio: " & dataOraInizio & ", fine:" & dataOraFine & ". Errore: " & ex.Message, TraceEventType.Critical)
+
+        End Try
         Return -1
     End Function
 
@@ -983,51 +989,61 @@ Public Class ActionsLibrary
     End Function
 
     Public Function inserimentoSopralluogo(ByVal a As System.Collections.Hashtable, ByVal idOS As Integer) As Integer
-        If Not (a.Item("oraRedazione") = Nothing Or a.Item("oraRichiesta") = Nothing) Then
+        Dim dataOraRichiesta As DateTime
+        Try
 
-            Dim dQS As New dbAlegatoADataSet.QSopralluogoDataTable
-            Dim tQSopralluogo As New dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
+            If Not (a.Item("oraRedazione") = Nothing Or a.Item("oraRichiesta") = Nothing) Then
 
-            'se oraRedazione e oraRichiesta sono valorizzati allora proseguo. 
+                Dim dQS As New dbAlegatoADataSet.QSopralluogoDataTable
+                Dim tQSopralluogo As New dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter
 
-            Dim dataOraRichiesta As DateTime = a.Item("oraRedazione")
-            Dim dataOraRedazione As DateTime = a.Item("oraRichiesta")
+                'se oraRedazione e oraRichiesta sono valorizzati allora proseguo. 
 
-            Dim sTipoReato As String = a.Item("tipoReato")
-            Dim sLuogo_citta As String = a.Item("luogo_citta")
-            Dim sVia As String = a.Item("via")
-            Dim sContatti_con As String = a.Item("contatti_con")
-            Dim sResoconto As String = a.Item("resoconto")
+                dataOraRichiesta = IIf(a.Item("oraRedazione") = Nothing, "", a.Item("oraRedazione"))
+                Dim dataOraRedazione As DateTime = IIf(a.Item("oraRichiesta") = Nothing, "", a.Item("oraRichiesta"))
 
-
-            'controllo doppione
-            Dim c As Integer = -1
-
-            'cerco il doppione solo confrontando idOS e oraRichiesa
-            'c = tQSopralluogo.FillByRicercaDoppione(dQS, idOS, "#" & dataOraRichiesta.ToString & "#")
-            c = tQSopralluogo.FillByRicercaDoppione(dQS, idOS, dataOraRichiesta)
+                Dim sTipoReato As String = IIf(a.Item("tipoReato") = Nothing, "", a.Item("tipoReato"))
+                Dim sLuogo_citta As String = IIf(a.Item("luogo_citta") = Nothing, "", a.Item("luogo_citta"))
+                Dim sVia As String = IIf(a.Item("via") = Nothing, "", a.Item("via"))
+                Dim sContatti_con As String = IIf(a.Item("contatti_con") = Nothing, "", a.Item("contatti_con"))
+                Dim sResoconto As String = IIf(a.Item("resoconto") = Nothing, "", a.Item("resoconto"))
 
 
-            If (c <= 0) Then
-                Dim i As Integer
-                log.xlogWriteEntry("Inserimento sopralluogo. idOS:" & idOS & ", dataOraRichiesta: " & dataOraRichiesta, TraceEventType.Critical)
-                Dim d As New dbAlegatoADataSet.QSopralluogoDataTable
-                Dim tSopralluogo As New dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
+                'controllo doppione
+                Dim c As Integer = -1
 
-                i = tSopralluogo.Insert(idOS, sTipoReato, dataOraRichiesta, sLuogo_citta, sVia, sContatti_con, sResoconto, dataOraRedazione)
-                Return i
+                'cerco il doppione solo confrontando idOS e oraRichiesa
+                'c = tQSopralluogo.FillByRicercaDoppione(dQS, idOS, "#" & dataOraRichiesta.ToString & "#")
+                c = tQSopralluogo.FillByRicercaDoppione(dQS, idOS, dataOraRichiesta)
+
+
+                If (c <= 0) Then
+                    Dim i As Integer
+                    log.xlogWriteEntry("Inserimento sopralluogo. idOS:" & idOS & ", dataOraRichiesta: " & dataOraRichiesta, TraceEventType.Critical)
+                    Dim d As New dbAlegatoADataSet.QSopralluogoDataTable
+                    Dim tSopralluogo As New dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
+
+                    i = tSopralluogo.Insert(idOS, sTipoReato, dataOraRichiesta, sLuogo_citta, sVia, sContatti_con, sResoconto, dataOraRedazione)
+                    Return i
+                Else
+                    log.xlogWriteEntry("Inserimento sopralluogo IGNORATO, perchè già presente. idOS:" & idOS & ", inizio: " & dataOraRichiesta, TraceEventType.Critical)
+                    Return -1
+                End If
             Else
-                log.xlogWriteEntry("Inserimento sopralluogo IGNORATO, perchè già presente. idOS:" & idOS & ", inizio: " & dataOraRichiesta, TraceEventType.Critical)
-                Return -1
+                'se dataOraInizio o dataOraFine è nullo allora ignoro l'inserimento
+                log.xlogWriteEntry("Incongruenza dati sopralluogo. L'inserimento viene ignorato.", TraceEventType.Critical)
             End If
-        Else
-            'se dataOraInizio o dataOraFine è nullo allora ignoro l'inserimento
-            log.xlogWriteEntry("Incongruenza dati sopralluogo. L'inserimento viene ignorato.", TraceEventType.Critical)
-        End If
+        Catch ex As Exception
+            log.xlogWriteEntry("Inserimento sopralluogo IGNORATO a causa di errore. idOS:" & idOS & ", inizio: " & dataOraRichiesta & ". Errore: " & ex.Message, TraceEventType.Critical)
+
+        End Try
         Return -1
     End Function
 
     Public Function inserimentoRubrica(ByVal a As System.Collections.Hashtable, ByVal idOS As Integer) As Integer
+        Try
+
+        
         If Not (a.Item("testo") = Nothing) Then
 
             Dim dR As New dbAlegatoADataSet.rubricaDataTable
@@ -1055,7 +1071,11 @@ Public Class ActionsLibrary
         Else
             'se ci sono errori allora ignoro l'inserimento
             log.xlogWriteEntry("Incongruenza dati rubrica. L'inserimento viene ignorato.", TraceEventType.Critical)
-        End If
+            End If
+        Catch ex As Exception
+            log.xlogWriteEntry("Inserimento voce rubrica IGNORATO a causa di errore. idOS:" & idOS & ". Errore: " & ex.Message, TraceEventType.Critical)
+
+        End Try
         Return -1
     End Function
 

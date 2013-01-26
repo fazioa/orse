@@ -231,7 +231,9 @@ Public Class FVedi
     End Sub
 
     Private Sub DataGridViewAllegatoA_UserDeletingRow(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowCancelEventArgs) Handles DataGridViewAllegatoA.UserDeletingRow
-        Dim sOS, sCognome, sNome As String
+        Dim sOS As String = ""
+        Dim sCognome As String = ""
+        Dim sNome As String = ""
         sOS = DataGridViewAllegatoA.Item(DataGridViewAllegatoA.Columns("nomeOS").Index(), DataGridViewAllegatoA.SelectedRows(0).Index()).Value()
         Try
             sCognome = DataGridViewAllegatoA.Item(DataGridViewAllegatoA.Columns("cognome").Index(), DataGridViewAllegatoA.SelectedRows(0).Index()).Value()

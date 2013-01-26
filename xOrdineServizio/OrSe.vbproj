@@ -52,7 +52,7 @@
     <ApplicationRevision>19</ApplicationRevision>
     <ApplicationVersion>1.2.0.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <BootstrapperEnabled>false</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -96,10 +96,6 @@
     <Reference Include="Accessibility">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Ionic.Zip.dll</HintPath>
@@ -108,18 +104,15 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
-    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Import Include="CrystalDecisions.CrystalReports" />
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -177,12 +170,6 @@
       <DependentUpon>DInserimentoLuogoControllo.vb</DependentUpon>
     </Compile>
     <Compile Include="DInserimentoLuogoControllo.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FAnteprimaReport.Designer.vb">
-      <DependentUpon>FAnteprimaReport.vb</DependentUpon>
-    </Compile>
-    <Compile Include="FAnteprimaReport.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FElencosoggetti.Designer.vb">
@@ -300,18 +287,6 @@
     <Compile Include="OP85.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Resources\automazione\reportAllegatoA.vb">
-      <DependentUpon>reportAllegatoA.rpt</DependentUpon>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
-    <Compile Include="Resources\automazione\reportInterventi.vb">
-      <DependentUpon>reportInterventi.rpt</DependentUpon>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
     <Compile Include="serializzazioneHashTable.vb" />
     <Compile Include="Settings.vb" />
     <Compile Include="InfoScreen.vb" />
@@ -351,10 +326,6 @@
     <EmbeddedResource Include="FDownloadLink.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FDownloadLink.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FAnteprimaReport.resx">
-      <SubType>Designer</SubType>
-      <DependentUpon>FAnteprimaReport.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FElencosoggetti.resx">
       <SubType>Designer</SubType>
@@ -411,8 +382,12 @@
       <SubType>Designer</SubType>
       <DependentUpon>OP85.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\automazione\reportAllegatoA.rdlc" />
-    <EmbeddedResource Include="Resources\automazione\reportInterventi.rdlc" />
+    <Content Include="Resources\automazione\reportAllegatoA.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\automazione\reportInterventi.rdlc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="SplashScreenOrse.resx">
       <SubType>Designer</SubType>
       <DependentUpon>SplashScreenOrse.vb</DependentUpon>
@@ -572,14 +547,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\automazione\op85.dot" />
-    <Content Include="Resources\automazione\reportAllegatoA.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>reportAllegatoA.vb</LastGenOutput>
-    </Content>
-    <Content Include="Resources\automazione\reportInterventi.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>reportInterventi.vb</LastGenOutput>
-    </Content>
     <Content Include="Resources\automazione\verbaleSopralluogo.dot" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
