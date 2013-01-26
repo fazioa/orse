@@ -42,6 +42,7 @@ Partial Class FPrima
         Me.RipristinaBackupDBToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.RevisioneTabelleDatiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ApriCartellaDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SessioneToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.LogoutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -72,7 +73,6 @@ Partial Class FPrima
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrdineServizioTableAdapter1 = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
         Me.DbAlegatoADataSet1 = New OrSe.dbAlegatoADataSet()
-        Me.ApriCartellaDatabaseToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.barramenu.SuspendLayout()
@@ -199,6 +199,11 @@ Partial Class FPrima
         '
         Me.RevisioneTabelleDatiToolStripMenuItem.Name = "RevisioneTabelleDatiToolStripMenuItem"
         resources.ApplyResources(Me.RevisioneTabelleDatiToolStripMenuItem, "RevisioneTabelleDatiToolStripMenuItem")
+        '
+        'ApriCartellaDatabaseToolStripMenuItem
+        '
+        Me.ApriCartellaDatabaseToolStripMenuItem.Name = "ApriCartellaDatabaseToolStripMenuItem"
+        resources.ApplyResources(Me.ApriCartellaDatabaseToolStripMenuItem, "ApriCartellaDatabaseToolStripMenuItem")
         '
         'SessioneToolStripMenuItem
         '
@@ -381,11 +386,6 @@ Partial Class FPrima
         '
         Me.DbAlegatoADataSet1.DataSetName = "dbAlegatoADataSet"
         Me.DbAlegatoADataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'ApriCartellaDatabaseToolStripMenuItem
-        '
-        Me.ApriCartellaDatabaseToolStripMenuItem.Name = "ApriCartellaDatabaseToolStripMenuItem"
-        resources.ApplyResources(Me.ApriCartellaDatabaseToolStripMenuItem, "ApriCartellaDatabaseToolStripMenuItem")
         '
         'FPrima
         '
