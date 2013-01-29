@@ -39,13 +39,19 @@ Partial Class FReport
         '
         Me.ReportViewer1.AutoSize = True
         Me.ReportViewer1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.ReportViewer1.DocumentMapCollapsed = True
+        Me.ReportViewer1.IsDocumentMapWidthFixed = True
         Me.ReportViewer1.Location = New System.Drawing.Point(0, 0)
         Me.ReportViewer1.Name = "ReportViewer1"
+        Me.ReportViewer1.PromptAreaCollapsed = True
         Me.ReportViewer1.ServerReport.ReportServerUrl = New System.Uri("", System.UriKind.Relative)
         Me.ReportViewer1.ShowBackButton = False
+        Me.ReportViewer1.ShowContextMenu = False
+        Me.ReportViewer1.ShowCredentialPrompts = False
         Me.ReportViewer1.ShowDocumentMapButton = False
         Me.ReportViewer1.ShowFindControls = False
         Me.ReportViewer1.ShowPageNavigationControls = False
+        Me.ReportViewer1.ShowParameterPrompts = False
         Me.ReportViewer1.ShowPromptAreaButton = False
         Me.ReportViewer1.ShowRefreshButton = False
         Me.ReportViewer1.ShowStopButton = False

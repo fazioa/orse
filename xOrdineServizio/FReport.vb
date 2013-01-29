@@ -12,8 +12,7 @@ Public Class FReport
 
 
     Private Sub FReport_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DbAlegatoADataSet.QInterventi' table. You can move, or remove it, as needed.
-        Me.QInterventiTableAdapter.Fill(Me.DbAlegatoADataSet.QInterventi)
+       
         Dim reportPath As String = ""
         Dim sCartella As String = "\Resources\automazione\"
         Dim sPath As String = My.Settings.pathCartellaScrivibile & sCartella
@@ -42,7 +41,7 @@ Public Class FReport
             sOS = "{QAllegatoA.idOS} = " & iOrdineServizio
             reportPath = sPath & "reportAllegatoA.rdlc"
             ' MsgBox(reportPath, MsgBoxStyle.Information, "PATH Report")
-            QAllegatoATableAdapter.Fill(DbAlegatoADataSet.QAllegatoA)
+            QAllegatoATableAdapter.FillByOS(DbAlegatoADataSet.QAllegatoA, iOrdineServizio)
 
             ReportDataSource1.Value = Me.QAllegatoABindingSource
         End If
