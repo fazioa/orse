@@ -83,40 +83,55 @@ Public Class FReport
 
 
         If (_tipo = tipoReport.interventi Or _tipo = tipoReport.informazioni Or _tipo = tipoReport.op85) Then
-
-            rPar = New ReportParameter("regione", My.MySettings.Default.regione)
+            Dim sParVal As String = " "
+            'IL REPORT NON CARICA SE MANCA UN PARAMETRO, ALLORA MI ASSICURO CHE TUTTI CONTENGANO ALMENO UNO SPAZIO. E' IL CASO DELLE STAZION
+            If My.MySettings.Default.regione = "" Or My.MySettings.Default.regione = Nothing Then
+                sParVal = " "
+            Else
+                sParVal = My.MySettings.Default.regione
+            End If
+            rPar = New ReportParameter("regione", sParVal)
             rParCollection.Add(rPar)
 
-            rPar = New ReportParameter("comando", My.MySettings.Default.comando)
+            If My.MySettings.Default.comando = "" Or My.MySettings.Default.comando = Nothing Then
+                sParVal = " "
+            Else
+                sParVal = My.MySettings.Default.comando
+            End If
+            rPar = New ReportParameter("comando", sParVal)
             rParCollection.Add(rPar)
-
-            rPar = New ReportParameter("comando2", My.MySettings.Default.comandoSecondaRiga)
+            If My.MySettings.Default.comandoSecondaRiga = "" Or My.MySettings.Default.comandoSecondaRiga = Nothing Then
+                sParVal = " "
+            Else
+                sParVal = My.MySettings.Default.comandoSecondaRiga
+            End If
+            rPar = New ReportParameter("comando2", sParVal)
             rParCollection.Add(rPar)
 
         End If
 
-        'passo la descrizione del paragrafo: 9 Interventi o 6 Informazioni
-        If (_tipo = tipoReport.interventi) Then
-            rPar = New ReportParameter("descrizioneParagrafo", My.MySettings.Default.descrizioneParagrafoInterventi)
-            rParCollection.Add(rPar)
+            'passo la descrizione del paragrafo: 9 Interventi o 6 Informazioni
+            If (_tipo = tipoReport.interventi) Then
+                rPar = New ReportParameter("descrizioneParagrafo", My.MySettings.Default.descrizioneParagrafoInterventi)
+                rParCollection.Add(rPar)
 
-        ElseIf (_tipo = tipoReport.informazioni) Then
-            rPar = New ReportParameter("descrizioneParagrafo", My.MySettings.Default.descrizioneParagrafoInformazioni)
-            rParCollection.Add(rPar)
-        End If
-
-
-        '---mainreport selection formula
-        'cr.RecordSelectionFormula() = sOS
-
-        '     CrystalReportViewer.SelectionFormula = sOS
-        'CrystalReportViewer.Refresh()
-
-        'CrystalReportViewer.ReportSource = cr
+            ElseIf (_tipo = tipoReport.informazioni) Then
+                rPar = New ReportParameter("descrizioneParagrafo", My.MySettings.Default.descrizioneParagrafoInformazioni)
+                rParCollection.Add(rPar)
+            End If
 
 
-        Me.ReportViewer1.LocalReport.SetParameters(rParCollection)
-        Me.ReportViewer1.RefreshReport()
+            '---mainreport selection formula
+            'cr.RecordSelectionFormula() = sOS
+
+            '     CrystalReportViewer.SelectionFormula = sOS
+            'CrystalReportViewer.Refresh()
+
+            'CrystalReportViewer.ReportSource = cr
+
+
+            Me.ReportViewer1.LocalReport.SetParameters(rParCollection)
+            Me.ReportViewer1.RefreshReport()
 
 
     End Sub
