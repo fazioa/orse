@@ -124,6 +124,12 @@
   <data name="PreferenzeToolStripMenuItem1.Text" xml:space="preserve">
     <value>Preferenze</value>
   </data>
+  <data name="StampaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>68, 20</value>
+  </data>
+  <data name="StampaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Stampa...</value>
+  </data>
   <data name="ToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>150, 22</value>
   </data>
@@ -154,11 +160,11 @@
   <data name="SopralluogoToolStripMenuItem.Text" xml:space="preserve">
     <value>Sopralluogo...</value>
   </data>
-  <data name="StampaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>68, 20</value>
+  <data name="StrumentiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 20</value>
   </data>
-  <data name="StampaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Stampa...</value>
+  <data name="StrumentiToolStripMenuItem.Text" xml:space="preserve">
+    <value>Strumenti...</value>
   </data>
   <data name="CercaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>250, 22</value>
@@ -245,11 +251,11 @@
   <data name="ApriCartellaDatabaseToolStripMenuItem.Text" xml:space="preserve">
     <value>Apri cartella database...</value>
   </data>
-  <data name="StrumentiToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>80, 20</value>
+  <data name="SessioneToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
   </data>
-  <data name="StrumentiToolStripMenuItem.Text" xml:space="preserve">
-    <value>Strumenti...</value>
+  <data name="SessioneToolStripMenuItem.Text" xml:space="preserve">
+    <value>Sessione...</value>
   </data>
   <data name="LogoutToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>121, 22</value>
@@ -257,11 +263,11 @@
   <data name="LogoutToolStripMenuItem1.Text" xml:space="preserve">
     <value>Logout...</value>
   </data>
-  <data name="SessioneToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 20</value>
+  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>44, 20</value>
   </data>
-  <data name="SessioneToolStripMenuItem.Text" xml:space="preserve">
-    <value>Sessione...</value>
+  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
+    <value>Help</value>
   </data>
   <data name="VersioneToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>135, 22</value>
@@ -269,23 +275,17 @@
   <data name="VersioneToolStripMenuItem.Text" xml:space="preserve">
     <value>About OrSe</value>
   </data>
-  <data name="HelpToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>44, 20</value>
+  <data name="PreferenzeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 20</value>
   </data>
-  <data name="HelpToolStripMenuItem.Text" xml:space="preserve">
-    <value>Help</value>
+  <data name="PreferenzeToolStripMenuItem.Text" xml:space="preserve">
+    <value>Preferenze</value>
   </data>
   <data name="OpzioniToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>124, 22</value>
   </data>
   <data name="OpzioniToolStripMenuItem.Text" xml:space="preserve">
     <value>Opzioni...</value>
-  </data>
-  <data name="PreferenzeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>72, 20</value>
-  </data>
-  <data name="PreferenzeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Preferenze</value>
   </data>
   <data name="FlowLayoutPanel2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -393,30 +393,6 @@
   <data name="TableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="FlowLayoutPanel1" Row="2" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="FlowLayoutPanel2" Row="1" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,100" /&gt;&lt;Rows Styles="AutoSize,0,AutoSize,0,AutoSize,0,Absolute,20" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
-  <data name="labelInfoOS.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="labelInfoOS.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 28pt</value>
-  </data>
-  <data name="labelInfoOS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="labelInfoOS.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 6</value>
-  </data>
-  <data name="labelInfoOS.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>3, 6, 3, 3</value>
-  </data>
-  <data name="labelInfoOS.Size" type="System.Drawing.Size, System.Drawing">
-    <value>134, 44</value>
-  </data>
-  <data name="labelInfoOS.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="labelInfoOS.Text" xml:space="preserve">
-    <value>Label1</value>
-  </data>
   <data name="&gt;&gt;labelInfoOS.Name" xml:space="preserve">
     <value>labelInfoOS</value>
   </data>
@@ -452,6 +428,42 @@
   </data>
   <data name="&gt;&gt;FlowLayoutPanel3.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="labelInfoOS.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="labelInfoOS.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 28pt</value>
+  </data>
+  <data name="labelInfoOS.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="labelInfoOS.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 6</value>
+  </data>
+  <data name="labelInfoOS.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 6, 3, 3</value>
+  </data>
+  <data name="labelInfoOS.Size" type="System.Drawing.Size, System.Drawing">
+    <value>134, 44</value>
+  </data>
+  <data name="labelInfoOS.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="labelInfoOS.Text" xml:space="preserve">
+    <value>Label1</value>
+  </data>
+  <data name="&gt;&gt;labelInfoOS.Name" xml:space="preserve">
+    <value>labelInfoOS</value>
+  </data>
+  <data name="&gt;&gt;labelInfoOS.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;labelInfoOS.Parent" xml:space="preserve">
+    <value>FlowLayoutPanel3</value>
+  </data>
+  <data name="&gt;&gt;labelInfoOS.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="ButtonRubrica.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 28pt</value>
@@ -738,6 +750,54 @@
   <data name="FlowLayoutPanelEsterno.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="&gt;&gt;btnRubrica.Name" xml:space="preserve">
+    <value>btnRubrica</value>
+  </data>
+  <data name="&gt;&gt;btnRubrica.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnRubrica.Parent" xml:space="preserve">
+    <value>FlowLayoutPanelEsterno</value>
+  </data>
+  <data name="&gt;&gt;btnRubrica.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;Button1.Name" xml:space="preserve">
+    <value>Button1</value>
+  </data>
+  <data name="&gt;&gt;Button1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;Button1.Parent" xml:space="preserve">
+    <value>FlowLayoutPanelEsterno</value>
+  </data>
+  <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="FlowLayoutPanelEsterno.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="FlowLayoutPanelEsterno.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 77</value>
+  </data>
+  <data name="FlowLayoutPanelEsterno.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1008, 435</value>
+  </data>
+  <data name="FlowLayoutPanelEsterno.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;FlowLayoutPanelEsterno.Name" xml:space="preserve">
+    <value>FlowLayoutPanelEsterno</value>
+  </data>
+  <data name="&gt;&gt;FlowLayoutPanelEsterno.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;FlowLayoutPanelEsterno.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;FlowLayoutPanelEsterno.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btnRubrica.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 28pt</value>
   </data>
@@ -858,30 +918,6 @@
   <data name="&gt;&gt;Button1.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="FlowLayoutPanelEsterno.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Fill</value>
-  </data>
-  <data name="FlowLayoutPanelEsterno.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 77</value>
-  </data>
-  <data name="FlowLayoutPanelEsterno.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1008, 435</value>
-  </data>
-  <data name="FlowLayoutPanelEsterno.TabIndex" type="System.Int32, mscorlib">
-    <value>28</value>
-  </data>
-  <data name="&gt;&gt;FlowLayoutPanelEsterno.Name" xml:space="preserve">
-    <value>FlowLayoutPanelEsterno</value>
-  </data>
-  <data name="&gt;&gt;FlowLayoutPanelEsterno.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;FlowLayoutPanelEsterno.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;FlowLayoutPanelEsterno.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>412, 17</value>
   </metadata>
@@ -908,6 +944,9 @@
   </metadata>
   <metadata name="DbAlegatoADataSet1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>383, 56</value>
+  </metadata>
+  <metadata name="BackgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>761, 56</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -2283,6 +2322,12 @@
   </data>
   <data name="&gt;&gt;DbAlegatoADataSet1.Type" xml:space="preserve">
     <value>OrSe.dbAlegatoADataSet, dbAlegatoADataSet.Designer.vb, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="&gt;&gt;BackgroundWorker1.Name" xml:space="preserve">
+    <value>BackgroundWorker1</value>
+  </data>
+  <data name="&gt;&gt;BackgroundWorker1.Type" xml:space="preserve">
+    <value>System.ComponentModel.BackgroundWorker, System, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FPrima</value>

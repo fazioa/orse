@@ -130,7 +130,8 @@ Public Class FReport
             'CrystalReportViewer.ReportSource = cr
 
 
-            Me.ReportViewer1.LocalReport.SetParameters(rParCollection)
+        Me.ReportViewer1.LocalReport.SetParameters(rParCollection)
+        Me.ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
             Me.ReportViewer1.RefreshReport()
 
 

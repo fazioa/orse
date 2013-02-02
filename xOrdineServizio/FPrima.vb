@@ -1,5 +1,5 @@
 Imports System.Diagnostics
-Imports System.Threading
+'Imports System.Threading
 Imports System.UnhandledExceptionEventArgs
 Imports System.IO
 Imports System.Security.AccessControl
@@ -391,6 +391,10 @@ Public Class FPrima
    
     Private Sub ApriCartellaDatabaseToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ApriCartellaDatabaseToolStripMenuItem.Click
         System.Diagnostics.Process.Start(My.Settings.pathCartellaScrivibile)
+    End Sub
+
+    Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+
     End Sub
 End Class
 

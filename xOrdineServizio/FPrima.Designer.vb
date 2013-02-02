@@ -73,6 +73,7 @@ Partial Class FPrima
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrdineServizioTableAdapter1 = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
         Me.DbAlegatoADataSet1 = New OrSe.dbAlegatoADataSet()
+        Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.barramenu.SuspendLayout()
@@ -387,6 +388,9 @@ Partial Class FPrima
         Me.DbAlegatoADataSet1.DataSetName = "dbAlegatoADataSet"
         Me.DbAlegatoADataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
+        'BackgroundWorker1
+        '
+        '
         'FPrima
         '
         resources.ApplyResources(Me, "$this")
@@ -503,5 +507,6 @@ Partial Class FPrima
     Friend WithEvents OrdineServizioTableAdapter1 As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
     Friend WithEvents DbAlegatoADataSet1 As OrSe.dbAlegatoADataSet
     Friend WithEvents ApriCartellaDatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
 
 End Class
