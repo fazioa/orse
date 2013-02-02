@@ -663,8 +663,8 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>4.76342cm</Top>
         <Left>0.2117cm</Left>
-        <Height>0.83785cm</Height>
-        <Width>27.43232cm</Width>
+        <Height>0.83784cm</Height>
+        <Width>27.4323cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -688,7 +688,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox67</rd:DefaultName>
-        <Top>7.11877cm</Top>
+        <Top>7.24577cm</Top>
         <Left>18.99951cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -1552,7 +1552,9 @@ all'ordine di servizio</Value>
                           <TextRuns>
                             <TextRun>
                               <Value>Positivi SDI</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -1581,8 +1583,10 @@ all'ordine di servizio</Value>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>precedenti</Value>
-                              <Style />
+                              <Value>Precedenti</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />

@@ -55,7 +55,6 @@ Partial Class FReport
         Me.ReportViewer1.ShowPromptAreaButton = False
         Me.ReportViewer1.ShowRefreshButton = False
         Me.ReportViewer1.ShowStopButton = False
-        Me.ReportViewer1.ShowZoomControl = False
         Me.ReportViewer1.Size = New System.Drawing.Size(804, 464)
         Me.ReportViewer1.TabIndex = 0
         '

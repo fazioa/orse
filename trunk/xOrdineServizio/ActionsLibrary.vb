@@ -3,8 +3,9 @@ Imports System.Runtime.InteropServices
 
 Imports OrSe
 Imports System.Security.AccessControl
-Imports System.XML.Serialization
+Imports System.Xml.Serialization
 Imports System.IO
+Imports System.ComponentModel
 
 Public Enum tipoDato
     allegatoA = 1
@@ -123,6 +124,8 @@ End Class
 
 
 Public Class ActionsLibrary
+
+
     Dim db As dbAlegatoADataSet
     Dim log As New XOrseLog
     'indica lo stato dell'applicazione. In caso di cancellazione del DB indica all'applicaizone di uscire dall'ordine di servizio corrente
@@ -427,7 +430,7 @@ Public Class ActionsLibrary
                 oWord.Documents.Add(sPath & "verbaleSopralluogo.dot")
                 '    End If
             Catch ex As Exception
-               log.xlogWriteEntry("Word - Errore:" & ex.Message, TraceEventType.Critical)
+                log.xlogWriteEntry("Word - Errore:" & ex.Message, TraceEventType.Critical)
             End Try
             oWord.Caption = "Verbale di sopralluogo"
             oDoc = Nothing
@@ -520,7 +523,7 @@ Public Class ActionsLibrary
         End If
     End Function
 
-    Function troncaStringa(ByVal s As String, ByVal l As Integer) As String
+    Shared Function troncaStringa(ByVal s As String, ByVal l As Integer) As String
         If (s.Length > l) Then
             Return s.Substring(0, l) & "..."
         End If
@@ -688,7 +691,10 @@ Public Class ActionsLibrary
             End Try
         End If
     End Sub
+
+    Public Shared progrBar As New FProgressionBar()
     Private Sub inserisci(ByVal t As tipoDato, ByVal nomeFile As String)
+
         Try
             Dim Obj As Xml.XmlDocument
             Dim orseNodeList As Xml.XmlNodeList = Nothing
@@ -717,12 +723,12 @@ Public Class ActionsLibrary
             Dim a As New System.Collections.Hashtable
 
             'PROGRESS BAR
+            progrBar.Show()
 
-            Dim pb As New FProgressionBar()
-            pb.Show()
-            pb.Maximum(orseNodeList.Count)
+            progrBar.Maximum(orseNodeList.Count)
 
             For Each orseNode In orseNodeList
+                Application.DoEvents()
                 For Each campo In orseNode.ChildNodes()
                     Try
                         a.Add(campo.Name, campo.InnerText)
@@ -733,7 +739,7 @@ Public Class ActionsLibrary
 
                 Next
                 'se l'op non esiste allora viene inserito, altrimento la funz restituisce l'id
-                pb.PerformStep()
+
 
                 Dim idOperatori = inserimentoOperatori(a.Item("operatori").ToString())
                 'passo anche l'ID operatori così se l'OS non esiste già allora lo inserisco. (in questo caso serve l'idOperatori)
@@ -741,33 +747,44 @@ Public Class ActionsLibrary
 
                 Select Case t
                     Case tipoDato.allegatoA
-                        If (Not (a.Item("luogo") Is Nothing Or a.Item("dataora") Is Nothing)) Then
-                            'se luogo o data sono vuoti allora c'è un'incongruenza sui dati. Ignori l'inserimento.
-                            'E' capitato che alcuni inserimenti eseguiti in presenza di bug mancasso il luogo del controllo
-                            idControllo = inserimentoControllo(a.Item("dataora"), a.Item("luogo"), idOS)
-                            Dim idPersona = inserimentoPersone(a, idOS, idControllo)
-                            If (idPersona > 0) Then inserimentoVoceAllegatoA(a, idControllo, idPersona)
-                        Else
-                            log.xlogWriteEntry("Incongruenza dati. Viene ignorato il seguente inserimento: luogo=" & a.Item("luogo") & ", dataora: " & a.Item("dataora") & ". Persona: " & a.Item("cognome") & ", nome: " & a.Item("nome"), TraceEventType.Critical)
-                        End If
+                        Try
+                            If (Not (a.Item("luogo") Is Nothing Or a.Item("dataora") Is Nothing)) Then
+                                'se luogo o data sono vuoti allora c'è un'incongruenza sui dati. Ignori l'inserimento.
+                                'E' capitato che alcuni inserimenti eseguiti in presenza di bug mancasso il luogo del controllo
+                                idControllo = inserimentoControllo(a.Item("dataora"), a.Item("luogo"), idOS)
+                                progrBar.PerformStep("Inserimento controllo : " & a.Item("dataora") & " - " & a.Item("cognome") & " " & a.Item("nome"))
+                                Dim idPersona = inserimentoPersone(a, idOS, idControllo)
+                                If (idPersona > 0) Then inserimentoVoceAllegatoA(a, idControllo, idPersona)
+                            Else
+                                log.xlogWriteEntry("Incongruenza dati. Viene ignorato il seguente inserimento: luogo=" & a.Item("luogo") & ", dataora: " & a.Item("dataora") & ". Persona: " & a.Item("cognome") & ", nome: " & a.Item("nome"), TraceEventType.Critical)
+                            End If
+                        Catch ex As Exception
+                            log.xlogWriteEntry("Inserimentob controllo IGNORATO a causa di errore. idOS:" & idOS & ", luogo: " & a.Item("luogo") & ", data/ora:" & a.Item("dataora") & ". Errore: " & ex.Message, TraceEventType.Critical)
+
+                        End Try
                     Case tipoDato.informazioni
+                        progrBar.PerformStep("Inserimento Informazioni: " & a.Item("dataOraInizio") & " - " & a.Item("tipointervento"))
                         inserimentoInterventiInformazioni(a, idOS)
                     Case tipoDato.interventi
+                        progrBar.PerformStep("Inserimento Interventi: " & a.Item("dataOraInizio") & " - " & a.Item("tipointervento"))
                         inserimentoInterventiInformazioni(a, idOS)
                     Case tipoDato.sopralluoghi
+                        progrBar.PerformStep("Inserimento Sopralluoghi: " & a.Item("oraRedazione") & a.Item("tipoReato"))
                         inserimentoSopralluogo(a, idOS)
                     Case tipoDato.rubrica
+                        progrBar.PerformStep("Inserimento Rubrica: " & ActionsLibrary.troncaStringa(a.Item("testo"), 20))
                         inserimentoRubrica(a, idOS)
                 End Select
                 a.Clear()
-            Next
-            pb.Dispose()
 
+            Next
+            progrBar.Hide()
         Catch ex As Exception
             Throw New eccezione(ex, "Errore nell'importazione dei dati XML")
         End Try
 
     End Sub
+
 
     Private Function inserimentoControllo(ByVal d As Date, ByVal sLuogo As String, ByVal idOS As Integer)
         Dim dControllo As New dbAlegatoADataSet.controlloDataTable
@@ -779,7 +796,7 @@ Public Class ActionsLibrary
         'se sLuogo è nothing si solleva un eccezione. Allora se è nothing posto la stringa a ""
         If (sLuogo = Nothing) Then sLuogo = ""
         'se il luogo non esiste allora lo inserisco, e poi ne prendo l'ID
-        tLuogo.FillByName(dLuogo, sLuogo)
+        tLuogo.FillByNAme(dLuogo, sLuogo)
         If (dLuogo.Count <= 0) Then
             log.xlogWriteEntry("Inserimento luogo controllo:" & sLuogo & ", id:" & idLuogo, TraceEventType.Critical)
             tLuogo.Insert(sLuogo)
@@ -1043,34 +1060,34 @@ Public Class ActionsLibrary
     Public Function inserimentoRubrica(ByVal a As System.Collections.Hashtable, ByVal idOS As Integer) As Integer
         Try
 
-        
-        If Not (a.Item("testo") = Nothing) Then
 
-            Dim dR As New dbAlegatoADataSet.rubricaDataTable
-            Dim tRubrica As New dbAlegatoADataSetTableAdapters.rubricaTableAdapter
+            If Not (a.Item("testo") = Nothing) Then
 
-            Dim sTesto As String = a.Item("testo")
+                Dim dR As New dbAlegatoADataSet.rubricaDataTable
+                Dim tRubrica As New dbAlegatoADataSetTableAdapters.rubricaTableAdapter
 
-            'controllo doppione
-            Dim c As Integer = -1
+                Dim sTesto As String = a.Item("testo")
 
-            'cerco il doppione solo confrontando idOS e oraRichiesa
-            c = tRubrica.FillByRicercaDoppione(dR, idOS, sTesto)
+                'controllo doppione
+                Dim c As Integer = -1
+
+                'cerco il doppione solo confrontando idOS e oraRichiesa
+                c = tRubrica.FillByRicercaDoppione(dR, idOS, sTesto)
 
 
-            If (c <= 0) Then
-                Dim i As Integer
-                log.xlogWriteEntry("Inserimento voce rubrica. idOS:" & idOS, TraceEventType.Critical)
-                Dim tSopralluogo As New dbAlegatoADataSetTableAdapters.rubricaTableAdapter
-                i = tSopralluogo.Insert(idOS, sTesto)
-                Return i
+                If (c <= 0) Then
+                    Dim i As Integer
+                    log.xlogWriteEntry("Inserimento voce rubrica. idOS:" & idOS, TraceEventType.Critical)
+                    Dim tSopralluogo As New dbAlegatoADataSetTableAdapters.rubricaTableAdapter
+                    i = tSopralluogo.Insert(idOS, sTesto)
+                    Return i
+                Else
+                    log.xlogWriteEntry("Inserimento voce rubrica IGNORATO, perchè già presente. idOS:" & idOS, TraceEventType.Critical)
+                    Return -1
+                End If
             Else
-                log.xlogWriteEntry("Inserimento voce rubrica IGNORATO, perchè già presente. idOS:" & idOS, TraceEventType.Critical)
-                Return -1
-            End If
-        Else
-            'se ci sono errori allora ignoro l'inserimento
-            log.xlogWriteEntry("Incongruenza dati rubrica. L'inserimento viene ignorato.", TraceEventType.Critical)
+                'se ci sono errori allora ignoro l'inserimento
+                log.xlogWriteEntry("Incongruenza dati rubrica. L'inserimento viene ignorato.", TraceEventType.Critical)
             End If
         Catch ex As Exception
             log.xlogWriteEntry("Inserimento voce rubrica IGNORATO a causa di errore. idOS:" & idOS & ". Errore: " & ex.Message, TraceEventType.Critical)
@@ -1142,13 +1159,13 @@ Public Class ActionsLibrary
 
     Private Sub cancellaTabellaSopralluogo()
         Dim tabellaSopralluogo As dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter = New dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter()
-        tabellaSopralluogo.Deleteall()
+        tabellaSopralluogo.DeleteAll()
         tabellaSopralluogo.Update(db)
     End Sub
 
     Private Sub cancellaTabellaRubrica()
         Dim tabellaRubrica As dbAlegatoADataSetTableAdapters.rubricaTableAdapter = New dbAlegatoADataSetTableAdapters.rubricaTableAdapter()
-        tabellaRubrica.Deleteall()
+        tabellaRubrica.DeleteAll()
         tabellaRubrica.Update(db)
     End Sub
 
@@ -1221,7 +1238,7 @@ Public Class ActionsLibrary
     Sub doDBBackup()
         Dim updateSW As UpdateSoftware = New UpdateSoftware
         updateSW.eseguiBackup()
-        
+
     End Sub
 
     Sub doRipristinaDBBackup()
@@ -1359,7 +1376,8 @@ Public Class ActionsLibrary
         f.Show()
     End Sub
 
-   
+
+
 End Class
 
 

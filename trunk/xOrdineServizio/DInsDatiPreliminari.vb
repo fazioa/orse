@@ -113,7 +113,7 @@ Public Class DInsDatiPreliminari
             drv = iteratore.Current
             FillTreeOS(drv.Item("id"), drv.Item("nome") & " del " & FormatDateTime(drv.Item("data"), DateFormat.ShortDate) & " - " & drv.Item("operatori"))
             bEsc = iteratore.MoveNext()
-            pb.PerformStep()
+            pb.PerformStep("Caricamento dati")
         End While
         pb.Dispose()
         Return 0
