@@ -43,7 +43,9 @@
         'query per cancellare voci non utilizzate
 
         Dim iNrMezziEliminati = feActions.esegueSQL("DELETE * FROM modelliMezzo as m WHERE id NOT IN (SELECT idMezzo FROM allegatoA where idmezzo = m.id)")
-        Dim iNrLuoghiEliminati = feActions.esegueSQL("DELETE * FROM luoghicontrollo as m WHERE id NOT IN (SELECT idLuogo FROM controllo WHERE idLuogo=m.id )")
+        Dim iNrLuoghiEliminati = feActions.esegueSQL("DELETE * FROM luoghicontrollo as m WHERE id IN (SELECT idLuogo FROM controllo as C WHERE (idLuogo=m.id AND ID NOT IN (SELECT idControllo FROM allegatoA, controllo WHERE idControllo=controllo.ID)))")
+        iNrLuoghiEliminati = iNrLuoghiEliminati + feActions.esegueSQL("DELETE * FROM luoghicontrollo as m WHERE id NOT IN (SELECT idLuogo FROM controllo as C WHERE (idLuogo=m.id OR ID NOT IN (SELECT idControllo FROM allegatoA, controllo WHERE idControllo=controllo.ID)))")
+
         Dim iNrOperatoriEliminati = feActions.esegueSQL("DELETE * FROM operatore as m WHERE id NOT IN (SELECT idOperatori FROM ordineServizio WHERE idOperatori=m.id)")
         'aggiorna vista
         MessageBox.Show("Mezzi: " & iNrMezziEliminati & vbCrLf & "Luoghi: " & iNrLuoghiEliminati & vbCrLf & "Operatori: " & iNrOperatoriEliminati, "Voci eliminate")
@@ -176,6 +178,15 @@
     End Sub
 
     Private Sub LuoghicontrolloDataGridView_CellValueChanged(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LuoghicontrolloDataGridView.CellValueChanged
+        Dim dgv As DataGridView = sender
+        Try
+
+        Dim v As String = dgv.CurrentCell.Value
+        dgv.CurrentCell.Value = dgv.CurrentCell.Value.ToString.Trim
+        Catch ex As Exception
+
+        End Try
+
         Me.Validate()
         Me.LuoghicontrolloBindingSource.EndEdit()
         Me.LuoghicontrolloTableAdapter.Update(Me.DbAlegatoADataSet.luoghicontrollo)
@@ -184,6 +195,16 @@
     End Sub
 
     Private Sub ModelliMezzoDataGridView_CellValueChanged(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles ModelliMezzoDataGridView.CellValueChanged
+
+        Dim dgv As DataGridView = sender
+        Try
+
+            Dim v As String = dgv.CurrentCell.Value
+            dgv.CurrentCell.Value = dgv.CurrentCell.Value.ToString.Trim
+        Catch ex As Exception
+
+        End Try
+
         Me.Validate()
         Me.ModelliMezzoBindingSource.EndEdit()
         Me.ModelliMezzoTableAdapter.Update(Me.DbAlegatoADataSet.modelliMezzo)
@@ -223,6 +244,16 @@
     End Sub
 
     Private Sub OperatoreDataGridView_CellValueChanged(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles OperatoreDataGridView.CellValueChanged
+        Dim dgv As DataGridView = sender
+        Try
+
+            Dim v As String = dgv.CurrentCell.Value
+            dgv.CurrentCell.Value = dgv.CurrentCell.Value.ToString.Trim
+        Catch ex As Exception
+
+        End Try
+
+
         Me.Validate()
         Me.OperatoreBindingSource.EndEdit()
         Me.OperatoreTableAdapter.Update(Me.DbAlegatoADataSet.operatore)

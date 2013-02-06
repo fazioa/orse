@@ -1738,7 +1738,7 @@ all'ordine di servizio</Value>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
-  <Width>11.13346in</Width>
+  <Width>11.01888in</Width>
   <Page>
     <PageHeader>
       <Height>0.34489cm</Height>
@@ -1775,9 +1775,9 @@ all'ordine di servizio</Value>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>0.60796cm</Top>
-          <Left>20.41737cm</Left>
+          <Left>19.78237cm</Left>
           <Height>0.38833cm</Height>
-          <Width>7.86162cm</Width>
+          <Width>7.86163cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
