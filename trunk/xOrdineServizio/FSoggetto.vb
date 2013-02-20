@@ -314,6 +314,8 @@ Public Class FSoggetto
 
 
         If (idPersona >= 0) Then
+            'in allegato A il soggetto di int.op. che inserisco corrisponde ad un nuovo soggetto. (altrimenti compaiono a video tutti i dati ma poi, se siamo in modalità modifica, con "Salva e Chiudi" non viene memorizzata la persona
+            bNuovoSoggetto = True
             'se viene selezionata una persona di int.operativo allora rimuovo la riga inserita prima e posiziono il binding
             bPersonaInteresseOperativo = True
             Me.PersonaTableAdapter.FillByID(DbDataSet.persona, idPersona)
