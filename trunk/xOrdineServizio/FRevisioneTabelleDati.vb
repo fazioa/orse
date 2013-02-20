@@ -97,11 +97,14 @@
                 While (bFlag)
                     sSQL = sSQL & " idLuogo= " & LuoghicontrolloDataGridView.SelectedRows(i).Cells.Item("idLuogo").Value
                     sSQLDel = sSQLDel & " id= " & LuoghicontrolloDataGridView.SelectedRows(i).Cells.Item("idLuogo").Value
+                    LuoghicontrolloDataGridView.Rows.RemoveAt(LuoghicontrolloDataGridView.SelectedRows(i).Index)
+
                     i += 1
                     If i >= LuoghicontrolloDataGridView.SelectedRows.Count Then
                         bFlag = False
                     Else
                         sTmp = " OR "
+                        'aggiunge OR
                         sSQL = sSQL & sTmp
                         sSQLDel = sSQLDel & sTmp
                     End If
@@ -121,6 +124,7 @@
                 While (bFlag)
                     sSQL = sSQL & " idMezzo= " & ModelliMezzoDataGridView.SelectedRows(i).Cells.Item("idMezzo").Value
                     sSQLDel = sSQLDel & " id= " & ModelliMezzoDataGridView.SelectedRows(i).Cells.Item("idMezzo").Value
+                    ModelliMezzoDataGridView.Rows.RemoveAt(ModelliMezzoDataGridView.SelectedRows(i).Index)
                     i += 1
                     If i >= ModelliMezzoDataGridView.SelectedRows.Count Then
                         bFlag = False
@@ -146,6 +150,7 @@
                 While (bFlag)
                     sSQL = sSQL & " idOperatori= " & OperatoreDataGridView.SelectedRows(i).Cells.Item("idOperatore").Value
                     sSQLDel = sSQLDel & " id= " & OperatoreDataGridView.SelectedRows(i).Cells.Item("idOperatore").Value
+                    OperatoreDataGridView.Rows.RemoveAt(OperatoreDataGridView.SelectedRows(i).Index)
                     i += 1
                     If i >= OperatoreDataGridView.SelectedRows.Count Then
                         bFlag = False
@@ -174,7 +179,8 @@
         End If
 
 
-        updateDataGridView()
+        'updateDataGridView()
+
     End Sub
 
     Private Sub LuoghicontrolloDataGridView_CellValueChanged(sender As System.Object, e As System.Windows.Forms.DataGridViewCellEventArgs) Handles LuoghicontrolloDataGridView.CellValueChanged
@@ -262,4 +268,29 @@
     End Sub
 
    
+    Private Sub DataGridView_CellPainting(sender As System.Object, e As System.Windows.Forms.DataGridViewCellPaintingEventArgs) Handles LuoghicontrolloDataGridView.CellPainting, OperatoreDataGridView.CellPainting, ModelliMezzoDataGridView.CellPainting
+        
+
+        'colora Righe AllegatoA Raggruppandole per appartenenza allo stesso controllo
+
+        Dim dgv As DataGridView = sender
+        
+        Dim bFlag As Boolean = True
+
+        If (dgv.RowCount > 0) Then
+
+            For i As Integer = 1 To dgv.RowCount - 1
+                '---CAMBIO LO STILE RIGA IN BASE AL flag
+                'se il controllo cambia allora cambio stile
+
+                If (bFlag) Then
+                    dgv.Rows(i).DefaultCellStyle.BackColor = Color.Lavender
+                Else
+                    dgv.Rows(i).DefaultCellStyle.BackColor = Color.FloralWhite 'DEFAULT
+                End If
+                bFlag = Not bFlag
+            Next
+        End If
+
+    End Sub
 End Class

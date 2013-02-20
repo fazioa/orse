@@ -103,6 +103,7 @@ Partial Class FRevisioneTabelleDati
         Me.idLuogo.DataPropertyName = "id"
         Me.idLuogo.HeaderText = "id"
         Me.idLuogo.Name = "idLuogo"
+        Me.idLuogo.Visible = False
         '
         'luogo
         '
@@ -151,6 +152,7 @@ Partial Class FRevisioneTabelleDati
         Me.idMezzo.DataPropertyName = "id"
         Me.idMezzo.HeaderText = "id"
         Me.idMezzo.Name = "idMezzo"
+        Me.idMezzo.Visible = False
         '
         'mezzo
         '
@@ -192,6 +194,7 @@ Partial Class FRevisioneTabelleDati
         Me.idOperatore.DataPropertyName = "id"
         Me.idOperatore.HeaderText = "id"
         Me.idOperatore.Name = "idOperatore"
+        Me.idOperatore.Visible = False
         '
         'operatori
         '
@@ -285,14 +288,14 @@ Partial Class FRevisioneTabelleDati
     Friend WithEvents FlowLayoutPanel1 As System.Windows.Forms.FlowLayoutPanel
     Friend WithEvents btnEliminaVoci As System.Windows.Forms.Button
     Friend WithEvents btnUnisci As System.Windows.Forms.Button
-    Friend WithEvents idLuogo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents luogo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents idMezzo As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents mezzo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents OperatoreBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents OperatoreTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.operatoreTableAdapter
     Friend WithEvents OperatoreDataGridView As System.Windows.Forms.DataGridView
+    Friend WithEvents idLuogo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents luogo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents idMezzo As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents mezzo As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents idOperatore As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents operatori As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
