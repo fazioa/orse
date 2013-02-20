@@ -319,10 +319,10 @@ Public Class FSoggetto
             Me.PersonaTableAdapter.FillByID(DbDataSet.persona, idPersona)
             PersonaBindingSource.MoveFirst()
             Dim i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idLuogoNascita")
-            If (Not i Is DBNull.Value) Then Me.QComuneTableAdapter.FillById(Me.DbDataSet.QComune, i)
+            If (Not i Is DBNull.Value) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet.QComune, Integer.Parse(i))
 
             i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idResidenzaComune")
-            If (Not i Is DBNull.Value) Then Me.QComuneTableAdapter.FillById(Me.DbDataSet2.QComune, i)
+            If (Not i Is DBNull.Value) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet2.QComune, Integer.Parse(i))
 
 
 
