@@ -383,7 +383,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!cognome.Value &amp; " " &amp; Fields!nome.Value</Value>
+                              <Value>=UCase(Fields!cognome.Value) &amp; " " &amp; Fields!nome.Value</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -820,13 +820,14 @@
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.3175cm</Top>
         <Left>0.33964cm</Left>
-        <Height>0.6cm</Height>
+        <Height>0.6091cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>Solid</Style>
           </Border>
+          <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -1493,6 +1494,9 @@ all'ordine di servizio</Value>
           <Border>
             <Style>Solid</Style>
           </Border>
+          <RightBorder>
+            <Style>None</Style>
+          </RightBorder>
           <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
