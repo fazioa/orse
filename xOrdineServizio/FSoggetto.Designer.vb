@@ -34,6 +34,7 @@ Partial Class FSoggetto
         Dim PrecedentiLabel As System.Windows.Forms.Label
         Dim NOTELabel As System.Windows.Forms.Label
         Dim Label1 As System.Windows.Forms.Label
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FSoggetto))
         Me.ColoreLabel = New System.Windows.Forms.Label()
         Me.tbColore = New System.Windows.Forms.TextBox()
         Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -849,6 +850,7 @@ Partial Class FSoggetto
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.GroupBoxDatiAnagrafici)
         Me.DoubleBuffered = True
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.KeyPreview = True
         Me.Name = "FSoggetto"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

@@ -23,6 +23,7 @@ Partial Class FReport
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FReport))
         Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.QInterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -106,6 +107,7 @@ Partial Class FReport
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(804, 464)
         Me.Controls.Add(Me.ReportViewer1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FReport"
         Me.Text = "FReport"
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()

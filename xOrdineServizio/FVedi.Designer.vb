@@ -20,14 +20,15 @@ Partial Class FVedi
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle19 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle20 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle21 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle22 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle23 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle24 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FVedi))
         Me.TabControl = New System.Windows.Forms.TabControl()
         Me.TabPage1 = New System.Windows.Forms.TabPage()
         Me.DataGridViewAllegatoA = New System.Windows.Forms.DataGridView()
@@ -75,6 +76,9 @@ Partial Class FVedi
         Me.SopralluogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.TabPageRubrica = New System.Windows.Forms.TabPage()
         Me.DataGridViewRubrica = New System.Windows.Forms.DataGridView()
+        Me.sTesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idRubr = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.idOS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.RubricaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridViewTextBoxColumn15 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn16 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -85,9 +89,6 @@ Partial Class FVedi
         Me.AllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter()
         Me.SopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter()
         Me.RubricaTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.rubricaTableAdapter()
-        Me.sTesto = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idRubr = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.idOS = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TabControl.SuspendLayout()
         Me.TabPage1.SuspendLayout()
         CType(Me.DataGridViewAllegatoA, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -168,9 +169,9 @@ Partial Class FVedi
         '
         Me.cOra.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         Me.cOra.DataPropertyName = "dataora"
-        DataGridViewCellStyle17.Format = "g"
-        DataGridViewCellStyle17.NullValue = Nothing
-        Me.cOra.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle1.Format = "g"
+        DataGridViewCellStyle1.NullValue = Nothing
+        Me.cOra.DefaultCellStyle = DataGridViewCellStyle1
         Me.cOra.HeaderText = "Data e ora"
         Me.cOra.Name = "cOra"
         Me.cOra.ReadOnly = True
@@ -180,8 +181,8 @@ Partial Class FVedi
         '
         Me.cognome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.cognome.DataPropertyName = "cognome"
-        DataGridViewCellStyle18.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cognome.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.cognome.DefaultCellStyle = DataGridViewCellStyle2
         Me.cognome.HeaderText = "Cognome"
         Me.cognome.Name = "cognome"
         Me.cognome.ReadOnly = True
@@ -190,8 +191,8 @@ Partial Class FVedi
         '
         Me.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
         Me.nome.DataPropertyName = "nome"
-        DataGridViewCellStyle19.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nome.DefaultCellStyle = DataGridViewCellStyle19
+        DataGridViewCellStyle3.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.nome.DefaultCellStyle = DataGridViewCellStyle3
         Me.nome.HeaderText = "Nome"
         Me.nome.Name = "nome"
         Me.nome.ReadOnly = True
@@ -200,9 +201,9 @@ Partial Class FVedi
         '
         Me.DataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         Me.DataGridViewTextBoxColumn13.DataPropertyName = "datanascita"
-        DataGridViewCellStyle20.Format = "d"
-        DataGridViewCellStyle20.NullValue = Nothing
-        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle20
+        DataGridViewCellStyle4.Format = "d"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.DataGridViewTextBoxColumn13.DefaultCellStyle = DataGridViewCellStyle4
         Me.DataGridViewTextBoxColumn13.HeaderText = "Data Nascita"
         Me.DataGridViewTextBoxColumn13.Name = "DataGridViewTextBoxColumn13"
         Me.DataGridViewTextBoxColumn13.ReadOnly = True
@@ -222,8 +223,8 @@ Partial Class FVedi
         '
         Me.DataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         Me.DataGridViewTextBoxColumn7.DataPropertyName = "mezzo"
-        DataGridViewCellStyle21.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle21
+        DataGridViewCellStyle5.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn7.DefaultCellStyle = DataGridViewCellStyle5
         Me.DataGridViewTextBoxColumn7.FillWeight = 70.0!
         Me.DataGridViewTextBoxColumn7.HeaderText = "Mezzo"
         Me.DataGridViewTextBoxColumn7.Name = "DataGridViewTextBoxColumn7"
@@ -234,8 +235,8 @@ Partial Class FVedi
         '
         Me.DataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells
         Me.DataGridViewTextBoxColumn10.DataPropertyName = "targa"
-        DataGridViewCellStyle22.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle22
+        DataGridViewCellStyle6.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DataGridViewTextBoxColumn10.DefaultCellStyle = DataGridViewCellStyle6
         Me.DataGridViewTextBoxColumn10.HeaderText = "Targa"
         Me.DataGridViewTextBoxColumn10.Name = "DataGridViewTextBoxColumn10"
         Me.DataGridViewTextBoxColumn10.ReadOnly = True
@@ -325,9 +326,9 @@ Partial Class FVedi
         '
         Me.dataOraFine.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
         Me.dataOraFine.DataPropertyName = "dataOraFine"
-        DataGridViewCellStyle23.Format = "t"
-        DataGridViewCellStyle23.NullValue = Nothing
-        Me.dataOraFine.DefaultCellStyle = DataGridViewCellStyle23
+        DataGridViewCellStyle7.Format = "t"
+        DataGridViewCellStyle7.NullValue = Nothing
+        Me.dataOraFine.DefaultCellStyle = DataGridViewCellStyle7
         Me.dataOraFine.HeaderText = "Fine"
         Me.dataOraFine.Name = "dataOraFine"
         Me.dataOraFine.ReadOnly = True
@@ -408,9 +409,9 @@ Partial Class FVedi
         '
         Me.dataoraFineInfo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader
         Me.dataoraFineInfo.DataPropertyName = "dataOraFine"
-        DataGridViewCellStyle24.Format = "t"
-        DataGridViewCellStyle24.NullValue = Nothing
-        Me.dataoraFineInfo.DefaultCellStyle = DataGridViewCellStyle24
+        DataGridViewCellStyle8.Format = "t"
+        DataGridViewCellStyle8.NullValue = Nothing
+        Me.dataoraFineInfo.DefaultCellStyle = DataGridViewCellStyle8
         Me.dataoraFineInfo.HeaderText = "Fine"
         Me.dataoraFineInfo.Name = "dataoraFineInfo"
         Me.dataoraFineInfo.ReadOnly = True
@@ -574,6 +575,30 @@ Partial Class FVedi
         Me.DataGridViewRubrica.Size = New System.Drawing.Size(1170, 613)
         Me.DataGridViewRubrica.TabIndex = 0
         '
+        'sTesto
+        '
+        Me.sTesto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
+        Me.sTesto.DataPropertyName = "testo"
+        Me.sTesto.HeaderText = "testo"
+        Me.sTesto.Name = "sTesto"
+        Me.sTesto.ReadOnly = True
+        '
+        'idRubr
+        '
+        Me.idRubr.DataPropertyName = "idRubrica"
+        Me.idRubr.HeaderText = "idRubrica"
+        Me.idRubr.Name = "idRubr"
+        Me.idRubr.ReadOnly = True
+        Me.idRubr.Visible = False
+        '
+        'idOS
+        '
+        Me.idOS.DataPropertyName = "idOS"
+        Me.idOS.HeaderText = "idOS"
+        Me.idOS.Name = "idOS"
+        Me.idOS.ReadOnly = True
+        Me.idOS.Visible = False
+        '
         'RubricaBindingSource
         '
         Me.RubricaBindingSource.DataMember = "rubrica"
@@ -623,36 +648,13 @@ Partial Class FVedi
         '
         Me.RubricaTableAdapter.ClearBeforeFill = True
         '
-        'sTesto
-        '
-        Me.sTesto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill
-        Me.sTesto.DataPropertyName = "testo"
-        Me.sTesto.HeaderText = "testo"
-        Me.sTesto.Name = "sTesto"
-        Me.sTesto.ReadOnly = True
-        '
-        'idRubr
-        '
-        Me.idRubr.DataPropertyName = "idRubrica"
-        Me.idRubr.HeaderText = "idRubrica"
-        Me.idRubr.Name = "idRubr"
-        Me.idRubr.ReadOnly = True
-        Me.idRubr.Visible = False
-        '
-        'idOS
-        '
-        Me.idOS.DataPropertyName = "idOS"
-        Me.idOS.HeaderText = "idOS"
-        Me.idOS.Name = "idOS"
-        Me.idOS.ReadOnly = True
-        Me.idOS.Visible = False
-        '
         'FVedi
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1184, 662)
         Me.Controls.Add(Me.TabControl)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FVedi"
         Me.Text = "OrSe - Vedi inserimenti effettuati"
         Me.TabControl.ResumeLayout(False)
