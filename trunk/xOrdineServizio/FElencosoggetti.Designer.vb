@@ -25,6 +25,7 @@ Partial Class FElencosoggetti
         Me.components = New System.ComponentModel.Container()
         Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FElencosoggetti))
         Me.tbNome = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -97,7 +98,7 @@ Partial Class FElencosoggetti
         Me.QPersonaDataGridView.AllowUserToAddRows = False
         Me.QPersonaDataGridView.AllowUserToDeleteRows = False
         Me.QPersonaDataGridView.Anchor = CType(((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.QPersonaDataGridView.AutoGenerateColumns = False
         Me.QPersonaDataGridView.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn3, Me.DataGridViewTextBoxColumn4, Me.ID, Me.DataGridViewTextBoxColumn5, Me.DataGridViewTextBoxColumn6, Me.DataGridViewTextBoxColumn12})
         Me.QPersonaDataGridView.DataSource = Me.QPersonaBindingSource
@@ -232,8 +233,8 @@ Partial Class FElencosoggetti
         'FlowLayoutPanel2
         '
         Me.FlowLayoutPanel2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.FlowLayoutPanel2.Controls.Add(Me.gbFiltri)
         Me.FlowLayoutPanel2.Controls.Add(Me.QPersonaDataGridView)
         Me.FlowLayoutPanel2.Controls.Add(Me.FlowLayoutPanel3)
@@ -289,6 +290,7 @@ Partial Class FElencosoggetti
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.tbNome)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FElencosoggetti"

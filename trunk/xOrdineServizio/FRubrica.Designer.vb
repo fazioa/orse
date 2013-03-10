@@ -20,6 +20,7 @@ Partial Class FRubrica
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FRubrica))
         Me.btnChiudi = New System.Windows.Forms.Button()
         Me.btnSalvaChiudi = New System.Windows.Forms.Button()
         Me.tbRubrica = New System.Windows.Forms.TextBox()
@@ -116,6 +117,7 @@ Partial Class FRubrica
         Me.Controls.Add(Me.tbRubrica)
         Me.Controls.Add(Me.btnChiudi)
         Me.Controls.Add(Me.btnSalvaChiudi)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FRubrica"
         Me.Text = "Inserimento voce rubrica"
         CType(Me.RubricaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()

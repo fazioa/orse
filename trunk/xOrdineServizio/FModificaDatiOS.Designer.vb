@@ -19,24 +19,25 @@ Partial Class FModificaDatiOS
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
+        Me.components = New System.ComponentModel.Container()
         Dim NomeLabel As System.Windows.Forms.Label
         Dim DataLabel As System.Windows.Forms.Label
         Dim IdOperatoriLabel As System.Windows.Forms.Label
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.OK_Button = New System.Windows.Forms.Button
-        Me.Cancel_Button = New System.Windows.Forms.Button
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FModificaDatiOS))
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.OK_Button = New System.Windows.Forms.Button()
+        Me.Cancel_Button = New System.Windows.Forms.Button()
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
-        Me.DataDateTimePicker = New System.Windows.Forms.DateTimePicker
+        Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
+        Me.DataDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.OperatoreBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.OperatoreTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.operatoreTableAdapter
-        Me.OperatoriComboBox = New System.Windows.Forms.ComboBox
-        Me.OSMaskedTextBox = New System.Windows.Forms.MaskedTextBox
-        NomeLabel = New System.Windows.Forms.Label
-        DataLabel = New System.Windows.Forms.Label
-        IdOperatoriLabel = New System.Windows.Forms.Label
+        Me.OperatoreTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.operatoreTableAdapter()
+        Me.OperatoriComboBox = New System.Windows.Forms.ComboBox()
+        Me.OSMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
+        NomeLabel = New System.Windows.Forms.Label()
+        DataLabel = New System.Windows.Forms.Label()
+        IdOperatoriLabel = New System.Windows.Forms.Label()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -174,6 +175,7 @@ Partial Class FModificaDatiOS
         Me.Controls.Add(IdOperatoriLabel)
         Me.Controls.Add(Me.TableLayoutPanel1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "FModificaDatiOS"

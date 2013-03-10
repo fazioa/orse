@@ -19,37 +19,38 @@ Partial Class FSopralluogo
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.TextBoxTipoAltro = New System.Windows.Forms.TextBox
-        Me.RadioButtonTipoAltro = New System.Windows.Forms.RadioButton
-        Me.RadioButtonTipoFurtoAbitazione = New System.Windows.Forms.RadioButton
-        Me.DateTimePickerOraVerbale = New System.Windows.Forms.DateTimePicker
+        Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FSopralluogo))
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.TextBoxTipoAltro = New System.Windows.Forms.TextBox()
+        Me.RadioButtonTipoAltro = New System.Windows.Forms.RadioButton()
+        Me.RadioButtonTipoFurtoAbitazione = New System.Windows.Forms.RadioButton()
+        Me.DateTimePickerOraVerbale = New System.Windows.Forms.DateTimePicker()
         Me.SopralluogoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.TextBoxLuogo = New System.Windows.Forms.TextBox
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.Label3 = New System.Windows.Forms.Label
-        Me.TextBoxVia = New System.Windows.Forms.TextBox
-        Me.Label4 = New System.Windows.Forms.Label
-        Me.TextBoxContatti = New System.Windows.Forms.TextBox
-        Me.Label5 = New System.Windows.Forms.Label
-        Me.DateTimePickerOraRichiesta = New System.Windows.Forms.DateTimePicker
-        Me.Label6 = New System.Windows.Forms.Label
-        Me.RichTextBoxPromemoria = New System.Windows.Forms.RichTextBox
-        Me.GroupBox2 = New System.Windows.Forms.GroupBox
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox
-        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel
-        Me.btnAnnulla = New System.Windows.Forms.Button
-        Me.btnSalvaChiudi = New System.Windows.Forms.Button
-        Me.ButtonGeneraReport = New System.Windows.Forms.Button
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.TextBoxLuogo = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.TextBoxVia = New System.Windows.Forms.TextBox()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBoxContatti = New System.Windows.Forms.TextBox()
+        Me.Label5 = New System.Windows.Forms.Label()
+        Me.DateTimePickerOraRichiesta = New System.Windows.Forms.DateTimePicker()
+        Me.Label6 = New System.Windows.Forms.Label()
+        Me.RichTextBoxPromemoria = New System.Windows.Forms.RichTextBox()
+        Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.btnAnnulla = New System.Windows.Forms.Button()
+        Me.btnSalvaChiudi = New System.Windows.Forms.Button()
+        Me.ButtonGeneraReport = New System.Windows.Forms.Button()
         Me.TimerSalvataggioAutomatico = New System.Windows.Forms.Timer(Me.components)
-        Me.TextBoxResoconto = New System.Windows.Forms.TextBox
-        Me.ListBoxFrasi = New System.Windows.Forms.ListBox
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox
-        Me.GroupBox5 = New System.Windows.Forms.GroupBox
-        Me.SopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
+        Me.TextBoxResoconto = New System.Windows.Forms.TextBox()
+        Me.ListBoxFrasi = New System.Windows.Forms.ListBox()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox5 = New System.Windows.Forms.GroupBox()
+        Me.SopralluogoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter()
         Me.GroupBox1.SuspendLayout()
         CType(Me.SopralluogoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,7 +77,7 @@ Partial Class FSopralluogo
         'TextBoxTipoAltro
         '
         Me.TextBoxTipoAltro.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxTipoAltro.Location = New System.Drawing.Point(85, 67)
         Me.TextBoxTipoAltro.MaxLength = 50
         Me.TextBoxTipoAltro.Name = "TextBoxTipoAltro"
@@ -108,7 +109,7 @@ Partial Class FSopralluogo
         'DateTimePickerOraVerbale
         '
         Me.DateTimePickerOraVerbale.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DateTimePickerOraVerbale.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.DateTimePickerOraVerbale.CustomFormat = "HH.mm"
         Me.DateTimePickerOraVerbale.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SopralluogoBindingSource, "oraRedazione", True))
@@ -142,7 +143,7 @@ Partial Class FSopralluogo
         'TextBoxLuogo
         '
         Me.TextBoxLuogo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxLuogo.CausesValidation = False
         Me.TextBoxLuogo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "luogo_citta", True))
         Me.TextBoxLuogo.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -175,7 +176,7 @@ Partial Class FSopralluogo
         'TextBoxVia
         '
         Me.TextBoxVia.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxVia.CausesValidation = False
         Me.TextBoxVia.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "via", True))
         Me.TextBoxVia.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -198,7 +199,7 @@ Partial Class FSopralluogo
         'TextBoxContatti
         '
         Me.TextBoxContatti.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxContatti.CausesValidation = False
         Me.TextBoxContatti.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "contatti_con", True))
         Me.TextBoxContatti.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -221,7 +222,7 @@ Partial Class FSopralluogo
         'DateTimePickerOraRichiesta
         '
         Me.DateTimePickerOraRichiesta.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DateTimePickerOraRichiesta.CalendarFont = New System.Drawing.Font("Microsoft Sans Serif", 16.0!)
         Me.DateTimePickerOraRichiesta.CustomFormat = "HH.mm"
         Me.DateTimePickerOraRichiesta.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SopralluogoBindingSource, "oraRichiesta", True))
@@ -253,8 +254,8 @@ Partial Class FSopralluogo
         Me.RichTextBoxPromemoria.Size = New System.Drawing.Size(276, 98)
         Me.RichTextBoxPromemoria.TabIndex = 13
         Me.RichTextBoxPromemoria.Text = "descrizione del luogo - descrizione refurtiva - ammontare del danno  subito - ora" & _
-            " presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini?" & _
-            " - coperto da assicurazione?"
+    " presunta del fatto - eventuali sospetti - trovati elementi utili alle indagini?" & _
+    " - coperto da assicurazione?"
         '
         'GroupBox2
         '
@@ -328,8 +329,8 @@ Partial Class FSopralluogo
         '
         Me.TextBoxResoconto.AllowDrop = True
         Me.TextBoxResoconto.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-                    Or System.Windows.Forms.AnchorStyles.Left) _
-                    Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.TextBoxResoconto.CausesValidation = False
         Me.TextBoxResoconto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SopralluogoBindingSource, "resoconto", True))
         Me.TextBoxResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!)
@@ -392,6 +393,7 @@ Partial Class FSopralluogo
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.TextBoxLuogo)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FSopralluogo"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Sopralluogo"

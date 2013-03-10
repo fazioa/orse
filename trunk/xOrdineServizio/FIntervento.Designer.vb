@@ -23,6 +23,7 @@ Partial Class FIntervento
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(FIntervento))
         Me.GroupBoxOraIntervento = New System.Windows.Forms.GroupBox()
         Me.DateTimePickerOraInizio = New System.Windows.Forms.DateTimePicker()
         Me.InterventiBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -286,6 +287,7 @@ Partial Class FIntervento
         Me.Controls.Add(Me.tbTipoServizio)
         Me.Controls.Add(Me.GroupBoxOraFine)
         Me.Controls.Add(Me.GroupBoxOraIntervento)
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "FIntervento"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "FIntervento"
