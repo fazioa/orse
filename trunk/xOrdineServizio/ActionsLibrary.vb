@@ -60,6 +60,7 @@ Public Class parametriOP85
 
 End Class
 Public Class parametriControllo_e_OS
+    Implements ICloneable
     'classe che può contenere diverse info, da passare come parametro
     Public idOS As Integer
     Public nomeOS As String
@@ -71,6 +72,9 @@ Public Class parametriControllo_e_OS
     Public idOperatore As Integer
     Public nomeOperatore As String
 
+    Public Function Clone() As Object Implements System.ICloneable.Clone
+        Return Me.MemberwiseClone
+    End Function
 End Class
 
 Public Class parametriPersona
@@ -195,7 +199,7 @@ Public Class ActionsLibrary
     End Function
 
     'inserimento passeggero
-    Public Sub doApriFormAllegatoA(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS, ByVal iOrdine As Integer, ByVal accompagnatore As tipoAccompagnatore)
+    Public Sub doApriFormAllegatoA(ByRef DataSet As dbAlegatoADataSet, ByVal parametri As parametriControllo_e_OS, ByVal iOrdine As Integer, ByVal accompagnatore As tipoAccompagnatore)
 
         log.xlogWriteEntry("Inserimento Controllo e Allegato A - ", TraceEventType.Information)
         db = DataSet
@@ -208,7 +212,7 @@ Public Class ActionsLibrary
     End Sub
 
     'caso di nuovo controllo
-    Public Sub doApriFormAllegatoA(ByVal DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS)
+    Public Sub doApriFormAllegatoA(ByVal DataSet As dbAlegatoADataSet, ByVal parametri As parametriControllo_e_OS)
         db = DataSet
         log.xlogWriteEntry("Inserimento Controllo e Allegato A", TraceEventType.Information)
 
@@ -220,7 +224,7 @@ Public Class ActionsLibrary
         If (myform.DialogResult = DialogResult.OK) Then
             'caso di inserimento nuova persona
             'recupero i dati inseriti nel form di inserimento dei dati del controllo
-            form = New FSoggetto(db, myform.DialogResultClass(), 0, Nothing)
+            form = New FSoggetto(db, myform.getDialogResultClass(), 0, Nothing)
             form.Visible = True
         End If
     End Sub
@@ -739,11 +743,16 @@ Public Class ActionsLibrary
 
                 Next
                 'se l'op non esiste allora viene inserito, altrimento la funz restituisce l'id
+                Dim idOperatori
+                Dim idOS
+                Try
+                    idOperatori = inserimentoOperatori(a.Item("operatori").ToString())
+                    'passo anche l'ID operatori così se l'OS non esiste già allora lo inserisco. (in questo caso serve l'idOperatori)
+                    idOS = inserimentoOS(a.Item("nomeOS").ToString(), a.Item("dataOS"), idOperatori)
+                Catch ex As Exception
 
+                End Try
 
-                Dim idOperatori = inserimentoOperatori(a.Item("operatori").ToString())
-                'passo anche l'ID operatori così se l'OS non esiste già allora lo inserisco. (in questo caso serve l'idOperatori)
-                Dim idOS = inserimentoOS(a.Item("nomeOS").ToString(), a.Item("dataOS"), idOperatori)
 
                 Select Case t
                     Case tipoDato.allegatoA

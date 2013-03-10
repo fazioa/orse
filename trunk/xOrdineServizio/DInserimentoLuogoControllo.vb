@@ -9,7 +9,7 @@ Public Class DInserimentoLuogoControllo
     Dim bFlagModalitaModifica As Boolean = False
 
 
-    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS, ByVal bModifica As Boolean)
+    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByVal parametri As parametriControllo_e_OS, ByVal bModifica As Boolean)
         Me.parametri = parametri
         db = DataSet
         InitializeComponent()
@@ -98,7 +98,7 @@ Public Class DInserimentoLuogoControllo
         Me.Close()
     End Sub
 
-    Public Function DialogResultClass()
+    Public Function getDialogResultClass()
         Return parametri
     End Function
 

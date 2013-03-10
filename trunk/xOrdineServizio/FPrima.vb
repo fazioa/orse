@@ -157,7 +157,7 @@ Public Class FPrima
 
     Private Sub btnAlegatoA_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAlegatoA.Click
         ' Dim timestamp As System.DateTime = System.DateTime.Now.ToString
-        feActions.doApriFormAllegatoA(DbAlegatoADataSet1, parametri)
+        feActions.doApriFormAllegatoA(DbAlegatoADataSet1, parametri.Clone)
     End Sub
 
     Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs)

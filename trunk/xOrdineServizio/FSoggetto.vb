@@ -1,5 +1,5 @@
 Public Class FSoggetto
-    Dim parametri As New parametriControllo_e_OS
+    Dim parametri As parametriControllo_e_OS
     Dim log As New XOrseLog
     Dim xiOrdine As Integer
     Dim bNuovoSoggetto As Boolean = False
@@ -10,7 +10,7 @@ Public Class FSoggetto
     Dim bPersonaInteresseOperativo As Boolean = False  'utilizzata per segnalare che non si sta inserendo una nuova persona ma una di inter.operativo
 
     'nuovo soggetto
-    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS, ByVal iOrdine As Integer, ByVal accompagnatore As tipoAccompagnatore)
+    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByVal parametri As parametriControllo_e_OS, ByVal iOrdine As Integer, ByVal accompagnatore As tipoAccompagnatore)
         Me.parametri = parametri
         ' Chiamata richiesta da Progettazione Windows Form.
         DbDataSet = DataSet
@@ -59,7 +59,7 @@ Public Class FSoggetto
     End Sub
 
     'modifica soggetto
-    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByRef parametri As parametriControllo_e_OS, ByVal n As Integer)
+    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByVal parametri As parametriControllo_e_OS, ByVal n As Integer)
         DbDataSet = DataSet
         InitializeComponent()
         feActions.setStandardFormSize(Me)
@@ -69,7 +69,7 @@ Public Class FSoggetto
         Me.parametri = parametri
 
         'fill della tabella alegatoA e della persona del dataset
-        Me.AllegatoATableAdapter.FillById(Me.DbDataSet.allegatoA, n)
+        Me.AllegatoATableAdapter.FillByID(Me.DbDataSet.allegatoA, n)
 
         Dim i = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idPersona")
         Me.PersonaTableAdapter.FillByID(Me.DbDataSet.persona, i)
@@ -226,12 +226,12 @@ Public Class FSoggetto
         '   Me.PersonaBindingSource.EndEdit()
         'Me.AllegatoABindingSource.EndEdit()
 
-        feActions.doApriFormAllegatoA(DbDataSet, parametri, 1, tipoAccompagnatore.passeggero)
+        feActions.doApriFormAllegatoA(DbDataSet, parametri.Clone, 1, tipoAccompagnatore.passeggero)
     End Sub
 
 
     Private Sub btnAPiedi_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAPiedi.Click
-        feActions.doApriFormAllegatoA(DbDataSet, parametri, 1, tipoAccompagnatore.a_piedi)
+        feActions.doApriFormAllegatoA(DbDataSet, parametri.Clone, 1, tipoAccompagnatore.a_piedi)
     End Sub
 
     Private Sub FSoggetto_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown

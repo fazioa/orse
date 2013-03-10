@@ -427,6 +427,11 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_3F2BF3EC936B9866D516DAED07D0E320"
+                    {
+                    "Name" = "8:Microsoft.ReportViewer.WinForms.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Microsoft.ReportViewer.WinForms.dll"
             "TargetName" = "8:"
@@ -504,6 +509,11 @@
             "AssemblyAsmDisplayName" = "8:Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_658D90785395B384622E7DFA7452B5D7"
+                    {
+                    "Name" = "8:Ionic.Zip.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Ionic.Zip.dll"
             "TargetName" = "8:"
@@ -530,6 +540,11 @@
             "AssemblyAsmDisplayName" = "8:Interop.JRO, Version=2.6.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_AD693D8C88AA050E70A7B55E2FE4A835"
+                    {
+                    "Name" = "8:Interop.JRO.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Interop.JRO.dll"
             "TargetName" = "8:"
@@ -556,6 +571,11 @@
             "AssemblyAsmDisplayName" = "8:Interop.ADODB, Version=2.8.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
+                    "_BA4D11A4972975F402ED34B54F153260"
+                    {
+                    "Name" = "8:Interop.ADODB.DLL"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Interop.ADODB.DLL"
             "TargetName" = "8:"
@@ -602,6 +622,11 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_D1DD1889DDBD7F6994AE232A11763BEB"
+                    {
+                    "Name" = "8:Microsoft.ReportViewer.Common.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Microsoft.ReportViewer.Common.dll"
             "TargetName" = "8:"
@@ -679,6 +704,11 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
+                    "_E2E873BE4D8145577122252BA692B3C1"
+                    {
+                    "Name" = "8:Microsoft.VisualBasic.PowerPacks.Vs.dll"
+                    "Attributes" = "3:512"
+                    }
                 }
             "SourcePath" = "8:Microsoft.VisualBasic.PowerPacks.Vs.dll"
             "TargetName" = "8:"
@@ -838,15 +868,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OrSe"
-        "ProductCode" = "8:{20C55E4E-34E9-4DDA-B9C5-6E86C0E9F1B1}"
-        "PackageCode" = "8:{D33EAD2D-9E5F-4AFE-9F6A-37D2E8B5E196}"
+        "ProductCode" = "8:{C0C9576C-F961-4FE3-A381-D26881B7B8EC}"
+        "PackageCode" = "8:{1B694768-C720-4390-8287-62DB63B5FFC2}"
         "UpgradeCode" = "8:{5FC8B42E-4289-4055-9212-CA9E1810F993}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.79.7"
+        "ProductVersion" = "8:1.79.8"
         "Manufacturer" = "8:Orse"
         "ARPHELPTELEPHONE" = "8:3313658556"
         "ARPHELPLINK" = "8:www.xorse.it/orse"
