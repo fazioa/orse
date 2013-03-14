@@ -6061,7 +6061,7 @@ Partial Public Class dbAlegatoADataSet
         
         Private columnidOS As Global.System.Data.DataColumn
         
-        Private columndataOD As Global.System.Data.DataColumn
+        Private columndataOS As Global.System.Data.DataColumn
         
         Private columniParagrafo As Global.System.Data.DataColumn
         
@@ -6160,9 +6160,9 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property dataODColumn() As Global.System.Data.DataColumn
+        Public ReadOnly Property dataOSColumn() As Global.System.Data.DataColumn
             Get
-                Return Me.columndataOD
+                Return Me.columndataOS
             End Get
         End Property
         
@@ -6219,9 +6219,9 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddQInterventiRow(ByVal dataOraInizio As Date, ByVal dataOraFine As Date, ByVal tipointervento As String, ByVal resoconto As String, ByVal nomeOS As String, ByVal dataOD As Date, ByVal iParagrafo As Short, ByVal operatori As String) As QInterventiRow
+        Public Overloads Function AddQInterventiRow(ByVal dataOraInizio As Date, ByVal dataOraFine As Date, ByVal tipointervento As String, ByVal resoconto As String, ByVal nomeOS As String, ByVal dataOS As Date, ByVal iParagrafo As Short, ByVal operatori As String) As QInterventiRow
             Dim rowQInterventiRow As QInterventiRow = CType(Me.NewRow,QInterventiRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, dataOraInizio, dataOraFine, tipointervento, resoconto, nomeOS, Nothing, dataOD, iParagrafo, operatori}
+            Dim columnValuesArray() As Object = New Object() {Nothing, dataOraInizio, dataOraFine, tipointervento, resoconto, nomeOS, Nothing, dataOS, iParagrafo, operatori}
             rowQInterventiRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowQInterventiRow)
             Return rowQInterventiRow
@@ -6251,7 +6251,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnresoconto = MyBase.Columns("resoconto")
             Me.columnnomeOS = MyBase.Columns("nomeOS")
             Me.columnidOS = MyBase.Columns("idOS")
-            Me.columndataOD = MyBase.Columns("dataOD")
+            Me.columndataOS = MyBase.Columns("dataOS")
             Me.columniParagrafo = MyBase.Columns("iParagrafo")
             Me.columnoperatori = MyBase.Columns("operatori")
         End Sub
@@ -6273,8 +6273,8 @@ Partial Public Class dbAlegatoADataSet
             MyBase.Columns.Add(Me.columnnomeOS)
             Me.columnidOS = New Global.System.Data.DataColumn("idOS", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidOS)
-            Me.columndataOD = New Global.System.Data.DataColumn("dataOD", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columndataOD)
+            Me.columndataOS = New Global.System.Data.DataColumn("dataOS", GetType(Date), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columndataOS)
             Me.columniParagrafo = New Global.System.Data.DataColumn("iParagrafo", GetType(Short), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columniParagrafo)
             Me.columnoperatori = New Global.System.Data.DataColumn("operatori", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -10713,16 +10713,16 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property dataOD() As Date
+        Public Property dataOS() As Date
             Get
                 Try 
-                    Return CType(Me(Me.tableQInterventi.dataODColumn),Date)
+                    Return CType(Me(Me.tableQInterventi.dataOSColumn),Date)
                 Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'dataOD' in table 'QInterventi' is DBNull.", e)
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'dataOS' in table 'QInterventi' is DBNull.", e)
                 End Try
             End Get
             Set
-                Me(Me.tableQInterventi.dataODColumn) = value
+                Me(Me.tableQInterventi.dataOSColumn) = value
             End Set
         End Property
         
@@ -10842,14 +10842,14 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsdataODNull() As Boolean
-            Return Me.IsNull(Me.tableQInterventi.dataODColumn)
+        Public Function IsdataOSNull() As Boolean
+            Return Me.IsNull(Me.tableQInterventi.dataOSColumn)
         End Function
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetdataODNull()
-            Me(Me.tableQInterventi.dataODColumn) = Global.System.Convert.DBNull
+        Public Sub SetdataOSNull()
+            Me(Me.tableQInterventi.dataOSColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -19963,7 +19963,7 @@ Namespace dbAlegatoADataSetTableAdapters
             tableMapping.ColumnMappings.Add("resoconto", "resoconto")
             tableMapping.ColumnMappings.Add("nomeOS", "nomeOS")
             tableMapping.ColumnMappings.Add("idOS", "idOS")
-            tableMapping.ColumnMappings.Add("dataOD", "dataOD")
+            tableMapping.ColumnMappings.Add("dataOS", "dataOS")
             tableMapping.ColumnMappings.Add("iParagrafo", "iParagrafo")
             tableMapping.ColumnMappings.Add("operatori", "operatori")
             Me._adapter.TableMappings.Add(tableMapping)
@@ -19983,19 +19983,19 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT id, dataOraInizio, dataOraFine, tipointervento, resoconto, nomeOS, idOS, d"& _ 
-                "ataOD, iParagrafo, operatori FROM QInterventi"
+                "ataOS, iParagrafo, operatori FROM QInterventi"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT id, dataOraInizio, dataOraFine, tipointervento, resoconto, nomeOS, idOS, d"& _ 
-                "ataOD, iParagrafo , operatori FROM QInterventi"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE dataOraInizio &"" ""& dataOr"& _ 
-                "aFine &"" ""&  tipointervento &"" ""&  resoconto &"" ""&  nomeOS &"" ""&  dataOD &"" ""&op"& _ 
+                "ataOS, iParagrafo , operatori FROM QInterventi"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE dataOraInizio &"" ""& dataOr"& _ 
+                "aFine &"" ""&  tipointervento &"" ""&  resoconto &"" ""&  nomeOS &"" ""&  dataOS &"" ""&op"& _ 
                 "eratori  like '%'& ? &'%'"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param1", Global.System.Data.OleDb.OleDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(2).Connection = Me.Connection
-            Me._commandCollection(2).CommandText = "SELECT dataOD, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, tipoi"& _ 
+            Me._commandCollection(2).CommandText = "SELECT dataOS, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, tipoi"& _ 
                 "ntervento, nomeOS, operatori FROM QInterventi WHERE (dataOraInizio LIKE ? & '%')"& _ 
                 " AND (iParagrafo = ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
@@ -20003,16 +20003,15 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("iParagrafo", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "iParagrafo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT     id, dataOraInizio, dataOraFine, tipointervento, resoconto, idOS, dataO"& _ 
-                "S, iParagrafo, nomeOD, operatori FROM         QInterventi"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (iParagrafo"& _ 
-                " =?) AND (dataOD BETWEEN ? AND ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(3).CommandText = "SELECT        *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QInterventi"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (iParagrafo = ?) AND ("& _ 
+                "dataOS BETWEEN ? AND ?)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("iParagrafo", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "iParagrafo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataOD", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataOD", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataOD1", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataOD", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param2", Global.System.Data.OleDb.OleDbType.[Variant], 1024, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param3", Global.System.Data.OleDb.OleDbType.[Variant], 1024, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
-            Me._commandCollection(4).CommandText = "SELECT dataOD, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, tipoi"& _ 
+            Me._commandCollection(4).CommandText = "SELECT dataOS, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, tipoi"& _ 
                 "ntervento, nomeOS, operatori FROM QInterventi WHERE (idOS = ?) AND (iParagrafo ="& _ 
                 " ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
@@ -20020,14 +20019,14 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("iParagrafo", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "iParagrafo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(5).Connection = Me.Connection
-            Me._commandCollection(5).CommandText = "SELECT     dataOD, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, t"& _ 
+            Me._commandCollection(5).CommandText = "SELECT     dataOS, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, t"& _ 
                 "ipointervento, nomeOS, operatori"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         QInterventi"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (idOS = ?)"& _ 
                 ""&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY dataOraInizio"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(6) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT     dataOD, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, t"& _ 
+            Me._commandCollection(6).CommandText = "SELECT     dataOS, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, t"& _ 
                 "ipointervento, nomeOS, operatori"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM         QInterventi"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE     (idOS =?) "& _ 
                 "AND (iParagrafo =?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY dataOraInizio"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
@@ -20111,22 +20110,22 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByDataRange(ByVal dataTable As dbAlegatoADataSet.QInterventiDataTable, ByVal iParagrafo As Global.System.Nullable(Of Short), ByVal dataOD As Global.System.Nullable(Of Date), ByVal dataOD1 As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function FillByDataRange(ByVal dataTable As dbAlegatoADataSet.QInterventiDataTable, ByVal iParagrafo As Global.System.Nullable(Of Short), ByVal Param2 As Object, ByVal Param3 As Object) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (iParagrafo.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(iParagrafo.Value,Short)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (dataOD.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(dataOD.Value,Date)
+            If (Param2 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Param2")
             Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Param2,Object)
             End If
-            If (dataOD1.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(dataOD1.Value,Date)
+            If (Param3 Is Nothing) Then
+                Throw New Global.System.ArgumentNullException("Param3")
             Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Param3,Object)
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear

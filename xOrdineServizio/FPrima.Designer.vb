@@ -74,6 +74,7 @@ Partial Class FPrima
         Me.OrdineServizioTableAdapter1 = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
         Me.DbAlegatoADataSet1 = New OrSe.dbAlegatoADataSet()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.barramenu.SuspendLayout()
@@ -265,7 +266,9 @@ Partial Class FPrima
         'labelInfoOS
         '
         resources.ApplyResources(Me.labelInfoOS, "labelInfoOS")
+        Me.labelInfoOS.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.labelInfoOS.Name = "labelInfoOS"
+        Me.ToolTip1.SetToolTip(Me.labelInfoOS, resources.GetString("labelInfoOS.ToolTip"))
         '
         'ButtonRubrica
         '
@@ -508,5 +511,6 @@ Partial Class FPrima
     Friend WithEvents DbAlegatoADataSet1 As OrSe.dbAlegatoADataSet
     Friend WithEvents ApriCartellaDatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
+    Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
 
 End Class

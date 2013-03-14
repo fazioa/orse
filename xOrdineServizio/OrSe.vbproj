@@ -132,6 +132,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="dbAlegatoADataSet.vb">
+      <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DBCommand.vb" />
     <Compile Include="CompattaRipristina.vb" />
     <Compile Include="DEccezione.Designer.vb">
