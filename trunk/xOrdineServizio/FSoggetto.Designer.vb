@@ -400,6 +400,7 @@ Partial Class FSoggetto
         Me.tbNote.Size = New System.Drawing.Size(346, 91)
         Me.tbNote.TabIndex = 150
         Me.tbNote.Text = " "
+        Me.ToolTip.SetToolTip(Me.tbNote, "Le informazioni inserite in questo campo non verranno inserite in Allegato A.")
         '
         'btnSalvaChiudi
         '
@@ -425,12 +426,14 @@ Partial Class FSoggetto
         '
         Me.labelOS.AutoSize = True
         Me.labelOS.CausesValidation = False
+        Me.labelOS.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.labelOS.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.labelOS.Location = New System.Drawing.Point(375, 9)
         Me.labelOS.Name = "labelOS"
         Me.labelOS.Size = New System.Drawing.Size(77, 24)
         Me.labelOS.TabIndex = 147
         Me.labelOS.Text = "labelOS"
+        Me.ToolTip.SetToolTip(Me.labelOS, "Doppio click per modificare.")
         '
         'Label5
         '
@@ -450,6 +453,7 @@ Partial Class FSoggetto
         Me.btnPasseggero.Size = New System.Drawing.Size(172, 53)
         Me.btnPasseggero.TabIndex = 200
         Me.btnPasseggero.Text = "&Passeggero..."
+        Me.ToolTip.SetToolTip(Me.btnPasseggero, "Inserisce un passeggero")
         Me.btnPasseggero.UseVisualStyleBackColor = True
         '
         'PositivoSDIComboBox
@@ -462,6 +466,7 @@ Partial Class FSoggetto
         Me.PositivoSDIComboBox.Name = "PositivoSDIComboBox"
         Me.PositivoSDIComboBox.Size = New System.Drawing.Size(47, 21)
         Me.PositivoSDIComboBox.TabIndex = 130
+        Me.ToolTip.SetToolTip(Me.PositivoSDIComboBox, resources.GetString("PositivoSDIComboBox.ToolTip"))
         '
         'GroupBox1
         '
@@ -492,6 +497,7 @@ Partial Class FSoggetto
         Me.btnAPiedi.Size = New System.Drawing.Size(172, 53)
         Me.btnAPiedi.TabIndex = 201
         Me.btnAPiedi.Text = "A p&iedi..."
+        Me.ToolTip.SetToolTip(Me.btnAPiedi, "Inserisce un accompagnatore a piedi")
         Me.btnAPiedi.UseVisualStyleBackColor = True
         '
         'GroupBox2
@@ -780,23 +786,27 @@ Partial Class FSoggetto
         '
         Me.LabelControllo.AutoSize = True
         Me.LabelControllo.CausesValidation = False
+        Me.LabelControllo.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.LabelControllo.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.LabelControllo.Location = New System.Drawing.Point(376, 33)
         Me.LabelControllo.Name = "LabelControllo"
         Me.LabelControllo.Size = New System.Drawing.Size(99, 17)
         Me.LabelControllo.TabIndex = 163
         Me.LabelControllo.Text = "LabelControllo"
+        Me.ToolTip.SetToolTip(Me.LabelControllo, "Doppio click per modificare.")
         '
         'LabelOperatori
         '
         Me.LabelOperatori.AutoSize = True
         Me.LabelOperatori.CausesValidation = False
+        Me.LabelOperatori.Cursor = System.Windows.Forms.Cursors.IBeam
         Me.LabelOperatori.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!)
         Me.LabelOperatori.Location = New System.Drawing.Point(376, 50)
         Me.LabelOperatori.Name = "LabelOperatori"
         Me.LabelOperatori.Size = New System.Drawing.Size(103, 17)
         Me.LabelOperatori.TabIndex = 164
         Me.LabelOperatori.Text = "LabelOperatori"
+        Me.ToolTip.SetToolTip(Me.LabelOperatori, "Doppio click per modificare.")
         '
         'modelliMezzoTableAdapter
         '

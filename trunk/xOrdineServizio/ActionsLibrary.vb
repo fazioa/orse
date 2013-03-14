@@ -568,7 +568,7 @@ Public Class ActionsLibrary
                 Try
                     'metto sotto try perchè se non ci sono record solleva eccezione
                     d.FillByDataRange(db.QAllegatoA, dInizio, dFine)
-                Catch ex As Exception
+                Catch ex As OdbcException
 
                 End Try
                 writer.Serialize(file, db.QAllegatoA)
@@ -581,7 +581,7 @@ Public Class ActionsLibrary
                 Try
                     'metto sotto try perchè se non ci sono record solleva eccezione
                     d2.FillByDataRange(db.QInterventi, paragrafoOS.informazioni, dInizio, dFine)
-                Catch ex As Exception
+                Catch ex As OdbcException
 
                 End Try
                 writer.Serialize(file, db.QInterventi)
@@ -593,7 +593,7 @@ Public Class ActionsLibrary
                 Try
                     'metto sotto try perchè se non ci sono record solleva eccezione
                     d3.FillByDataRange(db.QInterventi, paragrafoOS.interventi, dInizio, dFine)
-                Catch ex As Exception
+                Catch ex As OdbcException
 
                 End Try
                 writer.Serialize(file, db.QInterventi)
@@ -606,7 +606,7 @@ Public Class ActionsLibrary
                 Try
                     'metto sotto try perchè se non ci sono record solleva eccezione
                     d4.FillByDataRange(db.QSopralluogo, dInizio, dFine)
-                Catch ex As Exception
+                Catch ex As OdbcException
 
                 End Try
                 writer.Serialize(file, db.QSopralluogo)
@@ -619,7 +619,7 @@ Public Class ActionsLibrary
                 Try
                     'metto sotto try perchè se non ci sono record solleva eccezione
                     d5.FillByDataRange(db.QRubrica, dInizio, dFine)
-                Catch ex As Exception
+                Catch ex As OdbcException
 
                 End Try
                 writer.Serialize(file, db.QRubrica)
