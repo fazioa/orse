@@ -7,7 +7,7 @@ Public Class FRicerca
         Dim dgv As DataGridView = sender
         If e.ColumnIndex = dgv.Columns("cDettaglioInterventi").Index() Then
             'non passo il dataset fillato perchè nel datagrid uso una query e non la tabella di cui avrò bisogno nel form
-            feActions.doApriDettaglioIntervento(interventiDataGrid, e, "iddgvInterventi")
+            feActions.doApriDettaglioIntervento(interventiDataGrid, e, "iddgvInterventi", parametri)
         End If
     End Sub
 
@@ -15,7 +15,7 @@ Public Class FRicerca
         Dim dgv As DataGridView = sender
         If e.ColumnIndex = dgv.Columns("cDettaglioInformazioni").Index() Then
             'non passo il dataset fillato perchè nel datagrid uso una query e non la tabella di cui avrò bisogno nel form
-            feActions.doApriDettaglioIntervento(InformazioniDataGrid, e, "iddgvInformazioni")
+            feActions.doApriDettaglioIntervento(InformazioniDataGrid, e, "iddgvInformazioni", parametri)
         End If
     End Sub
 

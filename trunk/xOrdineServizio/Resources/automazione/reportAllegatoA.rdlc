@@ -724,7 +724,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox67</rd:DefaultName>
-        <Top>7.24577cm</Top>
+        <Top>6.09515cm</Top>
         <Left>18.99951cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -756,7 +756,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>gruppoFirmaRiga1</rd:DefaultName>
-        <Top>7.75405cm</Top>
+        <Top>6.60343cm</Top>
         <Left>18.99951cm</Left>
         <Height>0.6cm</Height>
         <Width>7.87104cm</Width>
@@ -788,7 +788,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>gruppoFirmaRiga2</rd:DefaultName>
-        <Top>8.35405cm</Top>
+        <Top>7.20343cm</Top>
         <Left>18.99951cm</Left>
         <Height>0.6cm</Height>
         <Width>7.87104cm</Width>
@@ -1767,7 +1767,7 @@ all'ordine di servizio</Value>
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>3.52522in</Height>
+    <Height>3.2648in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -1797,7 +1797,7 @@ all'ordine di servizio</Value>
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.99629cm</Height>
+      <Height>0.96812cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1820,7 +1820,7 @@ all'ordine di servizio</Value>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.35396cm</Top>
+          <Top>0.14111cm</Top>
           <Left>19.78237cm</Left>
           <Height>0.38833cm</Height>
           <Width>7.86163cm</Width>
@@ -1846,7 +1846,7 @@ all'ordine di servizio</Value>
     <LeftMargin>1cm</LeftMargin>
     <RightMargin>1cm</RightMargin>
     <TopMargin>2cm</TopMargin>
-    <BottomMargin>1.5cm</BottomMargin>
+    <BottomMargin>1.7cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

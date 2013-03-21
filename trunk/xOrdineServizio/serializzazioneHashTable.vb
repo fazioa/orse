@@ -2,7 +2,7 @@ Imports System.IO
 Imports System.Runtime.Serialization.Formatters.Binary
 <Serializable()> Public Class serializzazioneHashTable
     Dim log As New XOrseLog
-
+    Dim i As New InfoScreen
     Public Sub salvaHashTable(ByVal preferenze As Hashtable, path As String)
 
         '   Dim path As String = Application.StartupPath
@@ -39,9 +39,11 @@ Imports System.Runtime.Serialization.Formatters.Binary
             Dim serializer As New BinaryFormatter()
 
             log.xlogWriteEntry("Ripristino Backup Preferenze --> " & sPath, TraceEventType.Information)
+            i.ripristinoFilePreferenze()
             Return serializer.Deserialize(myFileStream)
         Else
             log.xlogWriteEntry("Ripristino Backup Preferenze --> Non possibile, file assente: " & sPath, TraceEventType.Information)
+            i.erroreRipristinoFilePreferenzeNoFile()
         End If
         'sono qui se il file non esiste
         Return Nothing
