@@ -245,10 +245,10 @@
     <Compile Include="FSopralluogo.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FSopralluogoListaStampa.Designer.vb">
-      <DependentUpon>FSopralluogoListaStampa.vb</DependentUpon>
+    <Compile Include="FSopralluogoAnnotazioneListaStampa.Designer.vb">
+      <DependentUpon>FSopralluogoAnnotazioneListaStampa.vb</DependentUpon>
     </Compile>
-    <Compile Include="FSopralluogoListaStampa.vb">
+    <Compile Include="FSopralluogoAnnotazioneListaStampa.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FVedi.Designer.vb">
@@ -285,10 +285,10 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ApplicazionePatch.vb" />
-    <Compile Include="OP85.Designer.vb">
-      <DependentUpon>OP85.vb</DependentUpon>
+    <Compile Include="FOP85.Designer.vb">
+      <DependentUpon>FOP85.vb</DependentUpon>
     </Compile>
-    <Compile Include="OP85.vb">
+    <Compile Include="FOP85.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="serializzazioneHashTable.vb" />
@@ -315,6 +315,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\dbAlegatoA.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="DInsDatiPreliminari.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DInsDatiPreliminari.vb</DependentUpon>
@@ -382,9 +385,9 @@
     <None Include="Ionic.Zip.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <EmbeddedResource Include="OP85.resx">
+    <EmbeddedResource Include="FOP85.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>OP85.vb</DependentUpon>
+      <DependentUpon>FOP85.vb</DependentUpon>
     </EmbeddedResource>
     <Content Include="Resources\automazione\reportAllegatoA.rdlc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -469,9 +472,9 @@
       <SubType>Designer</SubType>
       <DependentUpon>FSopralluogo.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FSopralluogoListaStampa.resx">
+    <EmbeddedResource Include="FSopralluogoAnnotazioneListaStampa.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>FSopralluogoListaStampa.vb</DependentUpon>
+      <DependentUpon>FSopralluogoAnnotazioneListaStampa.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FVedi.resx">
       <SubType>Designer</SubType>
@@ -490,6 +493,7 @@
     <EmbeddedResource Include="Resources\btnPrima\rubrica.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
+    <None Include="Resources\automazione\annotazionePG.dot" />
     <None Include="Resources\repubblica.png" />
     <None Include="Resources\logo_finale.jpg" />
     <EmbeddedResource Include="Resources\btnReport\printAllegatoA.png">

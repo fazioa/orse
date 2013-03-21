@@ -143,11 +143,11 @@ Public Class FPrima
 
     Private Sub btnIntervento_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnIntervento.Click
         log_.xlogWriteEntry("Apertura intervento", TraceEventType.Information)
-        feActions.doApriFormInterventoInformazioni(parametri.idOS, paragrafoOS.interventi)
+        feActions.doApriFormInterventoInformazioni(parametri, paragrafoOS.interventi)
     End Sub
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnInformazioni.Click
         log_.xlogWriteEntry("Apertura informazioni", TraceEventType.Information)
-        feActions.doApriFormInterventoInformazioni(parametri.idOS, paragrafoOS.informazioni)
+        feActions.doApriFormInterventoInformazioni(parametri, paragrafoOS.informazioni)
     End Sub
 
     Private Sub abilitaPulsanteOP85(ByVal b As Boolean)
@@ -193,7 +193,7 @@ Public Class FPrima
         Dim a As System.Windows.Forms.AccessibleObject = dgv.Rows(e.RowIndex).AccessibilityObject
         If (pMousecoord.Y <= a.Bounds.Bottom - My.Settings.altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLiberi) Then
             'modifica cella. controllo le coordinate per filtrare i click sulla riga di divisione delle celle
-            feActions.doApriDettaglioIntervento(sender, e, nomeColonnaId)
+            feActions.doApriDettaglioIntervento(sender, e, nomeColonnaId, parametri)
         End If
     End Sub
 
@@ -240,7 +240,7 @@ Public Class FPrima
 
     Private Sub OP85ToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OP85ToolStripMenuItem.Click
         Dim form As System.Windows.Forms.Form
-        form = New op85(parametri)
+        form = New FOP85(parametri)
         form.Visible = True
     End Sub
 
@@ -358,7 +358,7 @@ Public Class FPrima
 
     Private Sub SopralluogoToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SopralluogoToolStripMenuItem.Click
         Dim form As System.Windows.Forms.Form
-        form = New FSopralluogoListaStampa(parametri)
+        form = New FSopralluogoAnnotazioneListaStampa(parametri)
         form.Visible = True
     End Sub
 
@@ -394,6 +394,10 @@ Public Class FPrima
     End Sub
 
     Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
+
+    End Sub
+
+    Private Sub StampaToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles StampaToolStripMenuItem.Click
 
     End Sub
 End Class

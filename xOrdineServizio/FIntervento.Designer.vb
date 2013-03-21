@@ -48,6 +48,7 @@ Partial Class FIntervento
         Me.InterventiTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter()
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrdineServizioTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
+        Me.Button2 = New System.Windows.Forms.Button()
         Me.GroupBoxOraIntervento.SuspendLayout()
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,7 +77,7 @@ Partial Class FIntervento
         Me.DateTimePickerOraInizio.Location = New System.Drawing.Point(12, 50)
         Me.DateTimePickerOraInizio.Name = "DateTimePickerOraInizio"
         Me.DateTimePickerOraInizio.Size = New System.Drawing.Size(144, 49)
-        Me.DateTimePickerOraInizio.TabIndex = 24
+        Me.DateTimePickerOraInizio.TabIndex = 0
         '
         'InterventiBindingSource
         '
@@ -146,6 +147,8 @@ Partial Class FIntervento
         '
         'tbTipoServizio
         '
+        Me.tbTipoServizio.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbTipoServizio.CausesValidation = False
         Me.tbTipoServizio.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.InterventiBindingSource, "tipointervento", True))
         Me.tbTipoServizio.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -177,8 +180,9 @@ Partial Class FIntervento
         '
         'tbResoconto
         '
-        Me.tbResoconto.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.tbResoconto.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.tbResoconto.CausesValidation = False
         Me.tbResoconto.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.InterventiBindingSource, "resoconto", True))
         Me.tbResoconto.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
@@ -191,12 +195,13 @@ Partial Class FIntervento
         '
         'btnChiudi
         '
+        Me.btnChiudi.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnChiudi.CausesValidation = False
         Me.btnChiudi.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnChiudi.Location = New System.Drawing.Point(821, 381)
         Me.btnChiudi.Name = "btnChiudi"
         Me.btnChiudi.Size = New System.Drawing.Size(199, 109)
-        Me.btnChiudi.TabIndex = 4
+        Me.btnChiudi.TabIndex = 3
         Me.btnChiudi.Text = "&Salva e Chiudi"
         Me.btnChiudi.UseVisualStyleBackColor = True
         '
@@ -243,12 +248,13 @@ Partial Class FIntervento
         '
         'Button1
         '
+        Me.Button1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.Button1.CausesValidation = False
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 26.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Button1.Location = New System.Drawing.Point(821, 319)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(199, 56)
-        Me.Button1.TabIndex = 24
+        Me.Button1.TabIndex = 4
         Me.Button1.Text = "&Chiudi"
         Me.Button1.UseVisualStyleBackColor = True
         '
@@ -269,11 +275,24 @@ Partial Class FIntervento
         '
         Me.OrdineServizioTableAdapter.ClearBeforeFill = True
         '
+        'Button2
+        '
+        Me.Button2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Button2.CausesValidation = False
+        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.0!)
+        Me.Button2.Location = New System.Drawing.Point(821, 291)
+        Me.Button2.Name = "Button2"
+        Me.Button2.Size = New System.Drawing.Size(199, 22)
+        Me.Button2.TabIndex = 5
+        Me.Button2.Text = "Genera annotazione di PG"
+        Me.Button2.UseVisualStyleBackColor = True
+        '
         'FIntervento
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1032, 502)
+        Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.LabelData)
@@ -326,4 +345,5 @@ Partial Class FIntervento
     Friend WithEvents OrdineServizioTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents TimerSalvataggioAutomatico As System.Windows.Forms.Timer
+    Friend WithEvents Button2 As System.Windows.Forms.Button
 End Class

@@ -9,17 +9,22 @@ Public Class FIntervento
     Dim xlTipo As paragrafoOS
     Dim log As New XOrseLog
     Dim xidIntervento As Integer
+    Dim xOperatori As String
     'modifica
     ' Public Sub New(ByVal idOS As Integer, ByVal tipo As paragrafoOS)
     ''      sharedNew(Nothing, Nothing, idOS, tipo)
     ' End Sub
 
     'nuovo inserimento
-    Public Sub New(ByVal dInizio As Date, ByVal dFine As Date, ByVal idOS As Integer, ByVal tipo As paragrafoOS)
-        sharedNew(dInizio, dFine, idOS, tipo)
+    Public Sub New(ByVal dInizio As Date, ByVal dFine As Date, parametri As parametriControllo_e_OS, ByVal tipo As paragrafoOS)
+
+        sharedNew(dInizio, dFine, parametri, tipo)
     End Sub
 
-    Private Sub sharedNew(ByVal dInizio As Date, ByVal dFine As Date, ByVal idOS As Integer, ByVal tipo As paragrafoOS)
+    Private Sub sharedNew(ByVal dInizio As Date, ByVal dFine As Date, parametri As parametriControllo_e_OS, ByVal tipo As paragrafoOS)
+        Dim idOS As Integer = parametri.idOS
+        xOperatori = parametri.nomeOperatore
+
         xlTipo = tipo
         dlInizio = dInizio
         dlFine = dFine
@@ -56,11 +61,13 @@ Public Class FIntervento
         tbTipoServizio.MaxLength = DbAlegatoADataSet.interventi.tipointerventoColumn.MaxLength
         tbResoconto.MaxLength = DbAlegatoADataSet.interventi.resocontoColumn.MaxLength
     End Sub
+
     'Modifica. Coincidevano le firme. Aggiungo z solo per differenziarle, non ho voglia di escogitare altro
-    Public Sub New(ByVal id As Integer, ByVal z As Boolean)
+    Public Sub New(ByVal id As Integer, parametri As parametriControllo_e_OS, ByVal z As Boolean)
         myInitializeComponent()
         feActions.setStandardFormSize(Me)
         xidIntervento = id
+        xOperatori = parametri.nomeOperatore
         feActions = New OrSe.ActionsLibrary()
         Me.InterventiTableAdapter.FillByID(DbAlegatoADataSet.interventi, id)
 
@@ -227,4 +234,7 @@ Public Class FIntervento
     End Sub
 
 
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles Button2.Click
+        feActions.wordInizializzaEcompilaAnnotazionePG(InterventiBindingSource, xOperatori)
+    End Sub
 End Class

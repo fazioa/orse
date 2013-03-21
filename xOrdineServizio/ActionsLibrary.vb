@@ -21,6 +21,7 @@ Public Enum tipoReport
     interventi = 2
     op85 = 3
     informazioni = 4
+    sopralluogo = 5
 End Enum
 
 Public Enum paragrafoOS
@@ -28,6 +29,8 @@ Public Enum paragrafoOS
     informazioni = 6
 
 End Enum
+
+
 
 Public Enum tipoAccompagnatore
     passeggero = 1
@@ -144,14 +147,15 @@ Public Class ActionsLibrary
     End Function
 
     'apro form intervento
-    Public Sub doApriFormInterventoInformazioni(ByVal idOS As Integer, ByVal tipo As paragrafoOS)
-        doApriFormInterventoInformazioni(Nothing, Nothing, idOS, tipo)
+    Public Sub doApriFormInterventoInformazioni(ByVal parametri As parametriControllo_e_OS, ByVal tipo As paragrafoOS)
+
+        doApriFormInterventoInformazioni(Nothing, Nothing, parametri, tipo)
     End Sub
 
 
-    Public Sub doApriFormInterventoInformazioni(ByVal dInizio As Date, ByVal dFine As Date, ByVal idOS As Integer, ByVal tipo As paragrafoOS)
+    Public Sub doApriFormInterventoInformazioni(ByVal dInizio As Date, ByVal dFine As Date, parametri As parametriControllo_e_OS, ByVal tipo As paragrafoOS)
         Dim form As System.Windows.Forms.Form
-        form = New FIntervento(dInizio, dFine, idOS, tipo)
+        form = New FIntervento(dInizio, dFine, parametri, tipo)
         form.Visible = True
     End Sub
 
@@ -303,11 +307,11 @@ Public Class ActionsLibrary
         form.Show()
     End Sub
 
-    Public Sub doApriDettaglioIntervento(ByVal dgv As DataGridView, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs, ByVal nomeColonnaId As String)
+    Public Sub doApriDettaglioIntervento(ByVal dgv As DataGridView, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs, ByVal nomeColonnaId As String, parametri As parametriControllo_e_OS)
         log.xlogWriteEntry("Apertura form dettaglio intervento/Informazione", TraceEventType.Information)
         Dim form As System.Windows.Forms.Form
         'il parametro boolean non serve a niente, messo solo per differenziare le firme del costruttore
-        form = New FIntervento(dgv.Rows(e.RowIndex).Cells(nomeColonnaId).Value, True)
+        form = New FIntervento(dgv.Rows(e.RowIndex).Cells(nomeColonnaId).Value, parametri, True)
         form.Show()
     End Sub
 
@@ -409,9 +413,11 @@ Public Class ActionsLibrary
 
 
     End Function
-    Private Function wordInizializzaDocumentoVerbaleSopralluogo()
+
+
+    Private Function wordInizializzaDocumentoVerbale(selModello As tipoReport)
         Try
-            log.xlogWriteEntry("Word - Inizializza verbale sopralluogo", TraceEventType.Critical)
+            log.xlogWriteEntry("Word - Inizializza verbale ", TraceEventType.Critical)
 
             Dim oWord As Microsoft.Office.Interop.Word.Application = CreateObject("Word.Application")
             Dim oDoc As Microsoft.Office.Interop.Word.Application
@@ -431,12 +437,23 @@ Public Class ActionsLibrary
                 '    Else
                 'Se il file esiste allora fare qualcosa, magari aprire la maschera per la scelta del percorso
                 'oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=sPath & strDocumentName)
-                oWord.Documents.Add(sPath & "verbaleSopralluogo.dot")
+
+                Select Case selModello
+                    Case tipoReport.sopralluogo
+                        oWord.Documents.Add(sPath & "verbaleSopralluogo.dot")
+                        oWord.Caption = "Verbale di sopralluogo"
+                    Case tipoReport.interventi
+                        oWord.Documents.Add(sPath & "annotazionePG.dot")
+                        oWord.Caption = "Annotazione di polizia giudiziaria"
+
+                End Select
+
+
                 '    End If
             Catch ex As Exception
                 log.xlogWriteEntry("Word - Errore:" & ex.Message, TraceEventType.Critical)
             End Try
-            oWord.Caption = "Verbale di sopralluogo"
+
             oDoc = Nothing
             Return oWord
         Catch ex As Exception
@@ -448,7 +465,7 @@ Public Class ActionsLibrary
     End Function
 
     Public Sub wordInizializzaEcompilaVerbaleSopralluogo(ByVal sopralluogoBindingSource As BindingSource, ByVal nomiOperatori As String)
-        Dim oWord As Microsoft.Office.Interop.Word.Application = wordInizializzaDocumentoVerbaleSopralluogo()
+        Dim oWord As Microsoft.Office.Interop.Word.Application = wordInizializzaDocumentoVerbale(tipoReport.sopralluogo)
 
         wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
 
@@ -474,7 +491,7 @@ Public Class ActionsLibrary
 
         wordScriviSegnalibro(oWord, "contatti", leggiCampoDB(sopralluogoBindingSource, "contatti_con"))
         wordScriviSegnalibro(oWord, "resoconto", leggiCampoDB(sopralluogoBindingSource, "resoconto"))
-
+        wordAttivaDocumento(oWord)
     End Sub
 
     Public Sub wordAttivaDocumento(ByVal oWord As Microsoft.Office.Interop.Word.Application)
@@ -1383,6 +1400,35 @@ Public Class ActionsLibrary
     Shared Sub doApriFormRevisioneTabelle()
         Dim f As New FRevisioneTabelleDati
         f.Show()
+    End Sub
+
+    Sub wordInizializzaEcompilaAnnotazionePG(bindingSource As BindingSource, nomeOperatori As String)
+        Dim oWord As Microsoft.Office.Interop.Word.Application = wordInizializzaDocumentoVerbale(tipoReport.interventi)
+
+        wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
+
+        wordScriviSegnalibro(oWord, "comando", My.Settings.comando)
+        wordScriviSegnalibro(oWord, "comando2", My.Settings.comandoSecondaRiga)
+        wordScriviSegnalibro(oWord, "comando_2", My.Settings.comando)
+        wordScriviSegnalibro(oWord, "comando2_2", My.Settings.comandoSecondaRiga)
+
+        wordScriviSegnalibro(oWord, "operatori", nomeOperatori.Trim)
+
+        Dim d As Date = leggiCampoDB(bindingSource, "dataOraInizio")
+        wordScriviSegnalibro(oWord, "dataIntervento", FormatDateTime(d, DateFormat.ShortDate))
+        wordScriviSegnalibro(oWord, "oraIntervento", d.ToShortTimeString)
+
+        wordScriviSegnalibro(oWord, "dataIntervento2", FormatDateTime(d, DateFormat.ShortDate))
+        wordScriviSegnalibro(oWord, "oraIntervento2", d.ToShortTimeString)
+
+        d = leggiCampoDB(bindingSource, "dataOraFine")
+        wordScriviSegnalibro(oWord, "oraFineIntervento", d.ToShortTimeString)
+
+        wordScriviSegnalibro(oWord, "tipoIntervento", leggiCampoDB(bindingSource, "tipoIntervento"))
+        wordScriviSegnalibro(oWord, "tipoIntervento2", leggiCampoDB(bindingSource, "tipoIntervento"))
+        wordScriviSegnalibro(oWord, "resoconto", leggiCampoDB(bindingSource, "resoconto"))
+
+        wordAttivaDocumento(oWord)
     End Sub
 
 

@@ -43,5 +43,14 @@ Public Class InfoScreen
         MsgBox("ATTENZIONE: Il soggetto che stai inserendo è già stato controllato in passato. Clicca sul pulsante verde per recuperare tutti i dati, altrimenti continua per inserirlo come nuovo soggetto (es: omonimia)", MsgBoxStyle.Information, "Soggetto già in memoria")
     End Sub
 
+    Sub ripristinoFilePreferenze()
+        MsgBox("Ripristino Backup Preferenze", MsgBoxStyle.Information, "Preferenze")
+    End Sub
+
+    Sub erroreRipristinoFilePreferenzeNoFile()
+        MsgBox("  Ripristino Backup Preferenze --> Non possibile, file assente", MsgBoxStyle.Information, "Preferenze")
+    End Sub
+
+
 
 End Class

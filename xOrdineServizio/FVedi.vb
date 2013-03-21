@@ -86,7 +86,7 @@ Public Class FVedi
             dFine = FormatDateTime(dgv.Item("dataoraInizio", iRiga + 1).Value, DateFormat.GeneralDate)
             log.xlogWriteEntry("Apertura 'intervento' su intervallo libero: " & dInizio.ToString & " - " & dFine.ToString, TraceEventType.Information)
             'inizio e fine sono relativi devono essere invertiti, perchè devono rappresentare inizio e fine del nuovo intervento
-            feActions.doApriFormInterventoInformazioni(dInizio, dFine, iId, paragrafoOS.interventi)
+            feActions.doApriFormInterventoInformazioni(dInizio, dFine, parametri, paragrafoOS.interventi)
         End If
     End Sub
     Private Sub informazioniDataGrid_RowDividerDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowDividerDoubleClickEventArgs) Handles DataGridViewInformazioni.RowDividerDoubleClick
@@ -98,7 +98,7 @@ Public Class FVedi
             dInizio = FormatDateTime(dgv.Item("dataoraInizio", iRiga + 1).Value, DateFormat.GeneralDate)
             log.xlogWriteEntry("Apertura 'informazioni' su intervallo libero: " & dInizio.ToString & " - " & dFine.ToString, TraceEventType.Information)
             'inizio e fine sono relativi devono essere invertiti, perchè devono rappresentare inizio e fine del nuovo intervento
-            feActions.doApriFormInterventoInformazioni(dFine, dInizio, iId, paragrafoOS.informazioni)
+            feActions.doApriFormInterventoInformazioni(dFine, dInizio, parametri, paragrafoOS.informazioni)
         End If
     End Sub
 
@@ -110,7 +110,7 @@ Public Class FVedi
             Dim a As System.Windows.Forms.AccessibleObject = dgv.Rows(e.RowIndex).AccessibilityObject
             If (pMousecoord.Y <= a.Bounds.Bottom - My.Settings.altezzaRigaDivisioneRigheDataGrigInterventi_IntervalliLiberi) Then
                 '  modifica cella. controllo le coordinate per filtrare i click sulla riga di divisione delle celle
-                feActions.doApriDettaglioIntervento(sender, e, nomeColonnaId)
+                feActions.doApriDettaglioIntervento(sender, e, nomeColonnaId, parametri)
             End If
         Catch ex As Exception
 

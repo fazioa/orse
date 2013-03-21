@@ -40,8 +40,8 @@
           <DataField>idOS</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="dataOD">
-          <DataField>dataOD</DataField>
+        <Field Name="dataOS">
+          <DataField>dataOS</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
         <Field Name="iParagrafo">
@@ -304,7 +304,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>5.45952cm</Top>
         <Height>1.58542cm</Height>
-        <Width>16.81903cm</Width>
+        <Width>16.81902cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -534,7 +534,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>=Fields!dataOD.Value</Value>
+                <Value>=Fields!dataOS.Value</Value>
                 <Style>
                   <FontSize>12pt</FontSize>
                   <Format>d MMMM yyyy</Format>
