@@ -100,5 +100,8 @@
     <Setting Name="nomeFinestraSoggetto" Type="System.String" Scope="User">
       <Value Profile="(Default)">Inserimento soggetto</Value>
     </Setting>
+    <Setting Name="revisioneTabelle" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

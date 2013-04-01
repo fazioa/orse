@@ -201,6 +201,7 @@ Partial Class FPrima
         '
         Me.RevisioneTabelleDatiToolStripMenuItem.Name = "RevisioneTabelleDatiToolStripMenuItem"
         resources.ApplyResources(Me.RevisioneTabelleDatiToolStripMenuItem, "RevisioneTabelleDatiToolStripMenuItem")
+        Me.RevisioneTabelleDatiToolStripMenuItem.Visible = Global.OrSe.My.MySettings.Default.revisioneTabelle
         '
         'ApriCartellaDatabaseToolStripMenuItem
         '
