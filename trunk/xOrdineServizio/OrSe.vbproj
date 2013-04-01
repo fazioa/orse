@@ -407,7 +407,6 @@
     <None Include="dbAlegatoADataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
-      <LastGenOutput>dbAlegatoADataSet.Designer.vb</LastGenOutput>
     </None>
     <None Include="dbAlegatoADataSet.xss">
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>

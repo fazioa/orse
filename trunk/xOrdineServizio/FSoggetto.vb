@@ -35,6 +35,7 @@ Public Class FSoggetto
         bNuovoSoggetto = True
         Dim drv As DataRowView = AllegatoABindingSource.Current
         drv.Item("positivoSDI") = PositivoSDIComboBox.Items(0)
+
     End Sub
     Private Sub UserControlInit()
         '       ComboBoxModelliMezzo.setDataSource(MezzoBindingSource)
@@ -53,8 +54,6 @@ Public Class FSoggetto
         tbDocumento.MaxLength = DbDataSet.persona.documentoColumn.MaxLength
         tbPrecedenti.MaxLength = DbDataSet.persona.precedentiColumn.MaxLength
         tbNote.MaxLength = DbDataSet.allegatoA.NOTEColumn.MaxLength
-
-
 
     End Sub
 
