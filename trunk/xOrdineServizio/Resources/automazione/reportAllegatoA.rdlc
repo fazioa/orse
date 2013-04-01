@@ -697,7 +697,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>4.76342cm</Top>
+        <Top>4.35067cm</Top>
         <Left>0.2117cm</Left>
         <Height>0.83784cm</Height>
         <Width>27.4323cm</Width>
@@ -724,7 +724,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox67</rd:DefaultName>
-        <Top>6.09515cm</Top>
+        <Top>5.7459cm</Top>
         <Left>18.99951cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -756,7 +756,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>gruppoFirmaRiga1</rd:DefaultName>
-        <Top>6.60343cm</Top>
+        <Top>6.25418cm</Top>
         <Left>18.99951cm</Left>
         <Height>0.6cm</Height>
         <Width>7.87104cm</Width>
@@ -788,7 +788,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>gruppoFirmaRiga2</rd:DefaultName>
-        <Top>7.20343cm</Top>
+        <Top>6.85418cm</Top>
         <Left>18.99951cm</Left>
         <Height>0.6cm</Height>
         <Width>7.87104cm</Width>
@@ -814,14 +814,16 @@
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.3175cm</Top>
         <Left>0.33964cm</Left>
         <Height>0.6091cm</Height>
-        <Width>2.5cm</Width>
+        <Width>1.26969cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -858,9 +860,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>1.09333cm</Top>
-        <Left>5.30908cm</Left>
+        <Left>9.12549cm</Left>
         <Height>0.6cm</Height>
-        <Width>16.39124cm</Width>
+        <Width>9.73697cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -879,7 +881,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Allegato A
+                <Value>Allegato "A"
 all'ordine di servizio</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
@@ -960,9 +962,9 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.82386cm</Top>
+        <Top>1.99319cm</Top>
         <Left>0.2117cm</Left>
-        <Height>0.57564cm</Height>
+        <Height>0.63684cm</Height>
         <Width>27.43232cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
@@ -982,7 +984,20 @@ all'ordine di servizio</Value>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>LOCALITA' DI CONTROLLO</Value>
+                <Value>LOCALITA' </Value>
+                <Style>
+                  <FontSize>8pt</FontSize>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>DI CONTROLLO</Value>
                 <Style>
                   <FontSize>8pt</FontSize>
                 </Style>
@@ -994,7 +1009,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.04278cm</Top>
+        <Top>2.63003cm</Top>
         <Left>0.2117cm</Left>
         <Height>1.72064cm</Height>
         <Width>3.48639cm</Width>
@@ -1029,7 +1044,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.04278cm</Top>
+        <Top>2.63003cm</Top>
         <Left>3.69808cm</Left>
         <Height>1.72065cm</Height>
         <Width>1.03866cm</Width>
@@ -1070,9 +1085,9 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.03424cm</Top>
+        <Top>2.63003cm</Top>
         <Left>4.73675cm</Left>
-        <Height>1.1471cm</Height>
+        <Height>1.13856cm</Height>
         <Width>5.39628cm</Width>
         <ZIndex>10</ZIndex>
         <Style>
@@ -1105,9 +1120,9 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.03424cm</Top>
+        <Top>2.63003cm</Top>
         <Left>10.13302cm</Left>
-        <Height>0.58208cm</Height>
+        <Height>0.57354cm</Height>
         <Width>14.75285cm</Width>
         <ZIndex>11</ZIndex>
         <Style>
@@ -1139,7 +1154,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.61633cm</Top>
+        <Top>3.20358cm</Top>
         <Left>10.13302cm</Left>
         <Height>1.1471cm</Height>
         <Width>3.60129cm</Width>
@@ -1174,7 +1189,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.61633cm</Top>
+        <Top>3.20358cm</Top>
         <Left>13.7343cm</Left>
         <Height>0.565cm</Height>
         <Width>3.70779cm</Width>
@@ -1208,7 +1223,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>4.18134cm</Top>
+        <Top>3.76859cm</Top>
         <Left>13.7343cm</Left>
         <Height>0.58208cm</Height>
         <Width>1.90453cm</Width>
@@ -1242,7 +1257,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>4.18134cm</Top>
+        <Top>3.76859cm</Top>
         <Left>15.63883cm</Left>
         <Height>0.58208cm</Height>
         <Width>1.80327cm</Width>
@@ -1276,7 +1291,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.61633cm</Top>
+        <Top>3.20358cm</Top>
         <Left>17.4421cm</Left>
         <Height>1.1471cm</Height>
         <Width>4.45049cm</Width>
@@ -1311,7 +1326,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.61633cm</Top>
+        <Top>3.20358cm</Top>
         <Left>21.89259cm</Left>
         <Height>1.14709cm</Height>
         <Width>2.99328cm</Width>
@@ -1346,9 +1361,9 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.03424cm</Top>
+        <Top>2.63003cm</Top>
         <Left>24.88587cm</Left>
-        <Height>0.58208cm</Height>
+        <Height>0.57354cm</Height>
         <Width>2.75815cm</Width>
         <ZIndex>18</ZIndex>
         <Style>
@@ -1380,7 +1395,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.61633cm</Top>
+        <Top>3.20358cm</Top>
         <Left>24.88587cm</Left>
         <Height>1.14709cm</Height>
         <Width>0.82902cm</Width>
@@ -1415,7 +1430,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.61633cm</Top>
+        <Top>3.20358cm</Top>
         <Left>25.71489cm</Left>
         <Height>1.14709cm</Height>
         <Width>0.95901cm</Width>
@@ -1450,7 +1465,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>3.61633cm</Top>
+        <Top>3.20357cm</Top>
         <Left>26.6739cm</Left>
         <Height>1.1471cm</Height>
         <Width>0.97013cm</Width>
@@ -1485,7 +1500,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>4.18133cm</Top>
+        <Top>3.76858cm</Top>
         <Left>4.73674cm</Left>
         <Height>0.58209cm</Height>
         <Width>2.1005cm</Width>
@@ -1523,7 +1538,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>4.18133cm</Top>
+        <Top>3.76858cm</Top>
         <Left>6.83725cm</Left>
         <Height>0.58209cm</Height>
         <Width>1.46018cm</Width>
@@ -1558,7 +1573,7 @@ all'ordine di servizio</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox75</rd:DefaultName>
-        <Top>4.18133cm</Top>
+        <Top>3.76858cm</Top>
         <Left>8.29742cm</Left>
         <Height>0.58209cm</Height>
         <Width>1.8356cm</Width>
@@ -1755,7 +1770,7 @@ all'ordine di servizio</Value>
             </FilterValues>
           </Filter>
         </Filters>
-        <Top>6.09544cm</Top>
+        <Top>5.74619cm</Top>
         <Left>0.2117cm</Left>
         <Height>1.2cm</Height>
         <Width>17.23037cm</Width>
@@ -1767,7 +1782,7 @@ all'ordine di servizio</Value>
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>3.2648in</Height>
+    <Height>3.16063in</Height>
     <Style>
       <Border>
         <Style>None</Style>
@@ -1786,16 +1801,6 @@ all'ordine di servizio</Value>
   </ReportParameters>
   <Width>11.01888in</Width>
   <Page>
-    <PageHeader>
-      <Height>0.34489cm</Height>
-      <PrintOnFirstPage>true</PrintOnFirstPage>
-      <PrintOnLastPage>true</PrintOnLastPage>
-      <Style>
-        <Border>
-          <Style>None</Style>
-        </Border>
-      </Style>
-    </PageHeader>
     <PageFooter>
       <Height>0.96812cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
@@ -1834,6 +1839,66 @@ all'ordine di servizio</Value>
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox3">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>1 Indicare SI se sono state elevate contravvenzioni al Codice della Strada.</Value>
+                  <Style>
+                    <FontSize>5pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>2 Indicare SI o NO in relazione all'esito (positivo o negativo) dell'interrogazione della Banca Dati.</Value>
+                  <Style>
+                    <FontSize>5pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>3 Indicare P se sottoposto a perquisizione ai sensi art.4 Legge 22.5.1975, n.152.</Value>
+                  <Style>
+                    <FontSize>5pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox2</rd:DefaultName>
+          <Top>0.03528cm</Top>
+          <Left>0.3175cm</Left>
+          <Height>0.77409cm</Height>
+          <Width>8.7083cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
       </ReportItems>
       <Style>
         <Border>
@@ -1843,10 +1908,10 @@ all'ordine di servizio</Value>
     </PageFooter>
     <PageHeight>21cm</PageHeight>
     <PageWidth>29.7cm</PageWidth>
-    <LeftMargin>1cm</LeftMargin>
+    <LeftMargin>0.5cm</LeftMargin>
     <RightMargin>1cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>1.7cm</BottomMargin>
+    <TopMargin>0.5cm</TopMargin>
+    <BottomMargin>0.5cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>

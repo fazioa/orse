@@ -493,7 +493,7 @@
     <EmbeddedResource Include="Resources\btnPrima\rubrica.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <None Include="Resources\automazione\annotazionePG.dot" />
+    <Content Include="Resources\automazione\annotazionePG.dot" />
     <None Include="Resources\repubblica.png" />
     <None Include="Resources\logo_finale.jpg" />
     <EmbeddedResource Include="Resources\btnReport\printAllegatoA.png">
