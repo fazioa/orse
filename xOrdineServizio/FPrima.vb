@@ -3,8 +3,7 @@ Imports System.Diagnostics
 Imports System.UnhandledExceptionEventArgs
 Imports System.IO
 Imports System.Security.AccessControl
-Imports CookComputing
-Imports CookComputing.XmlRpc
+
 
 
 Public Class FPrima
@@ -396,46 +395,11 @@ Public Class FPrima
         System.Diagnostics.Process.Start(My.Settings.pathCartellaScrivibile)
     End Sub
 
-    Private Sub BackgroundWorker1_DoWork(sender As System.Object, e As System.ComponentModel.DoWorkEventArgs) Handles BackgroundWorker1.DoWork
 
+    Private Sub ContattiToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ContattiToolStripMenuItem.Click
+        feActions.doApriFormContatti()
     End Sub
 
-    Private Sub StampaToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles StampaToolStripMenuItem.Click
-
-    End Sub
-
-
-    Public Structure blogInfo
-        Public title As String
-        Public description As String
-    End Structure
-
-    Public Interface IgetCatList
-        <CookComputing.XmlRpc.XmlRpcMethod("metaWeblog.newPost")> _
-        Function NewPage(ByVal blogId As Integer, ByVal strUserName As String, ByVal strPassword As String, ByVal content As blogInfo, ByVal publish As Integer) As String
-    End Interface
-
-
-    Public clientProtocol As XmlRpcClientProtocol
-    Public categories As IgetCatList
-    Private Sub Button2_Click_1(sender As System.Object, e As System.EventArgs) Handles btnPost.Click
-        Dim newBlogPost As blogInfo = Nothing
-        newBlogPost.title = "Test"
-        newBlogPost.description = "Testo del Post"
-        categories = CType(XmlRpcProxyGen.Create(GetType(IgetCatList)), IgetCatList)
-        clientProtocol = CType(categories, XmlRpcClientProtocol)
-        clientProtocol.Url = "http://www.xorse.it/orse/xmlrpc.php"
-        Dim result As String = Nothing
-        result = ""
-        Try
-            result = categories.NewPage(1, "tonino", "ttony", newBlogPost, 1)
-            MessageBox.Show("Posted to Blog successfullly! Post ID : " & result)
-            'txtPost.Text = ""
-            'txtTitle.Text = ""
-        Catch ex As Exception
-            MessageBox.Show(ex.Message)
-        End Try
-    End Sub
 End Class
 
 

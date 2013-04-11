@@ -7,6 +7,8 @@ Imports System.Xml.Serialization
 Imports System.IO
 Imports System.ComponentModel
 
+Imports CookComputing.XmlRpc
+
 Public Enum tipoDato
     allegatoA = 1
     interventi = 2
@@ -1431,7 +1433,57 @@ Public Class ActionsLibrary
         wordAttivaDocumento(oWord)
     End Sub
 
+    Sub doApriFormContatti()
+        log.xlogWriteEntry("Apertura form Contatti", TraceEventType.Information)
+        Dim form As System.Windows.Forms.Form
+        form = New FContatti()
+        form.Show()
+    End Sub
 
+
+    Public Structure blogInfo
+        Public title As String
+        Public description As String
+        Public categories() As String 'array di stringhe che contengono nomi categorie. L'articolo non viene pubblicato se la cat.non è presente
+        Public post_status As String 'post_status'    => [ 'draft' | 'publish' | 'pending'| 'future' | 'private' | custom registered status ] //Set the status of the new post.
+    End Structure
+
+
+
+    Public Interface IgetCatList
+        <CookComputing.XmlRpc.XmlRpcMethod("metaWeblog.newPost")> _
+        Function NewPost(ByVal blogId As Integer, ByVal strUserName As String, ByVal strPassword As String, ByVal content As blogInfo, ByVal publish As Boolean) As String
+    End Interface
+
+
+    Public clientProtocol As XmlRpcClientProtocol
+    Public categories As IgetCatList
+    Shared Function newBlogPostSend(sTitolo As String, sMessaggio As String, arrayCategorie() As String) As String
+        Dim clientProtocol As XmlRpcClientProtocol
+        Dim categories As IgetCatList
+        Dim newBlogPost As blogInfo = Nothing
+        newBlogPost.title = sTitolo
+        newBlogPost.post_status = "private"
+        newBlogPost.description = sMessaggio
+        'Dim cats() As String = {"Download"}
+        newBlogPost.categories = arrayCategorie
+
+
+        categories = CType(XmlRpcProxyGen.Create(GetType(IgetCatList)), IgetCatList)
+        clientProtocol = CType(categories, XmlRpcClientProtocol)
+
+        clientProtocol.Url = "http://www.xorse.it/orse/xmlrpc.php"
+        Dim result As String = Nothing
+        result = ""
+        Try
+            result = categories.NewPost(1, "tonino", "ttony", newBlogPost, False)
+            'se >0 ok
+            Return result
+
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Function
 
 End Class
 
