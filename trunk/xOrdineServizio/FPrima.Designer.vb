@@ -47,6 +47,7 @@ Partial Class FPrima
         Me.LogoutToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VersioneToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ContattiToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PreferenzeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.OpzioniToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FlowLayoutPanel2 = New System.Windows.Forms.FlowLayoutPanel()
@@ -221,7 +222,7 @@ Partial Class FPrima
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VersioneToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.VersioneToolStripMenuItem, Me.ContattiToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         resources.ApplyResources(Me.HelpToolStripMenuItem, "HelpToolStripMenuItem")
         '
@@ -229,6 +230,11 @@ Partial Class FPrima
         '
         Me.VersioneToolStripMenuItem.Name = "VersioneToolStripMenuItem"
         resources.ApplyResources(Me.VersioneToolStripMenuItem, "VersioneToolStripMenuItem")
+        '
+        'ContattiToolStripMenuItem
+        '
+        Me.ContattiToolStripMenuItem.Name = "ContattiToolStripMenuItem"
+        resources.ApplyResources(Me.ContattiToolStripMenuItem, "ContattiToolStripMenuItem")
         '
         'PreferenzeToolStripMenuItem
         '
@@ -392,9 +398,6 @@ Partial Class FPrima
         Me.DbAlegatoADataSet1.DataSetName = "dbAlegatoADataSet"
         Me.DbAlegatoADataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'BackgroundWorker1
-        '
-        '
         'FPrima
         '
         resources.ApplyResources(Me, "$this")
@@ -513,5 +516,6 @@ Partial Class FPrima
     Friend WithEvents ApriCartellaDatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
+    Friend WithEvents ContattiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

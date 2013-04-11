@@ -96,6 +96,10 @@
     <Reference Include="Accessibility">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
+    <Reference Include="CookComputing.XmlRpcV2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\CookComputing.XmlRpcV2.dll</HintPath>
+    </Reference>
     <Reference Include="Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\Ionic.Zip.dll</HintPath>
@@ -155,6 +159,12 @@
       <DependentUpon>FAbout.vb</DependentUpon>
     </Compile>
     <Compile Include="FAbout.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FContatti.Designer.vb">
+      <DependentUpon>FContatti.vb</DependentUpon>
+    </Compile>
+    <Compile Include="FContatti.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FDataRange.Designer.vb">
@@ -315,9 +325,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Resources\dbAlegatoA.mdb">
+    <None Include="CookComputing.XmlRpcV2.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <EmbeddedResource Include="DInsDatiPreliminari.resx">
       <SubType>Designer</SubType>
       <DependentUpon>DInsDatiPreliminari.vb</DependentUpon>
@@ -329,6 +339,9 @@
     <EmbeddedResource Include="FAbout.resx">
       <SubType>Designer</SubType>
       <DependentUpon>FAbout.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FContatti.resx">
+      <DependentUpon>FContatti.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FDownloadLink.resx">
       <SubType>Designer</SubType>
