@@ -90,6 +90,7 @@ Public Class FSoggetto
 
         parametri.idControllo = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idControllo")
         labelOSWrite(parametri.idControllo)
+
     End Sub
 
     Private Sub labelOSWrite(ByVal iId As Integer)
@@ -112,7 +113,6 @@ Public Class FSoggetto
             'valore di default per PositivoSDIComboBox
             'il cursore si posiziona su questo oggetto
             ComboBoxModelliMezzo.Focus()
-
 
             'caso PASSEGGERO
             If (xiOrdine > 0) Then
@@ -152,7 +152,8 @@ Public Class FSoggetto
         'la caption del form è formato da cognome e nome
         '  Dim sCaption As String = tbCognome.Text & " " & tbNome.Text
         ' If (sCaption.Trim.Length = 0) Then
-        Me.Text = My.Settings.nomeFinestraSoggetto
+        ' Me.Text = My.Settings.nomeFinestraSoggetto
+        updateCaption()
         'Else
         'Me.Text = sCaption
         'End If
@@ -419,14 +420,18 @@ Public Class FSoggetto
         tbTarga.Text = tbTarga.Text.ToUpper()
     End Sub
 
-    Private Sub textboxUpCase_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbCognome.Leave, tbNome.Leave, tbIndirizzo.Leave, tbDocumento.Leave
+    Private Sub textbox_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles tbCognome.Leave, tbNome.Leave, tbIndirizzo.Leave, tbDocumento.Leave
         Dim tb As TextBox = sender
         tb.Text() = tb.Text().Trim()
 
         'Aggiorno il Caption del Form
-        Me.Text = tbCognome.Text & " " & tbNome.Text & " - " & My.Settings.nomeFinestraSoggetto.ToString
+        updateCaption()
+
     End Sub
 
+    Sub updateCaption()
+        Me.Text = tbCognome.Text & " " & tbNome.Text & " - " & My.Settings.nomeFinestraSoggetto.ToString
+    End Sub
     '  Private Sub ComboBoxModelliMezzo_Leave(ByVal sender As System.Object, ByVal e As System.EventArgs)
     '   inserimentovalore(sender)
     ' End Sub
@@ -470,7 +475,7 @@ Public Class FSoggetto
     Private Sub aggiornoDataUltimoUsoComune(ByVal id As Integer)
         Dim log As New XOrseLog
         If (id > 0) Then
-            If (Me.PrioritaComuneTableAdapter.FillbyId(Me.DbDataSet.prioritaComune, id) > 0) Then
+            If (Me.PrioritaComuneTableAdapter.FillByID(Me.DbDataSet.prioritaComune, id) > 0) Then
                 Try
                     Dim objconn As New OleDb.OleDbConnection(My.Settings.dbAlegatoAConnectionString)
                     Dim objcomm As New OleDb.OleDbCommand("UPDATE prioritaComune SET dataOraUltimoUso=" & ActionsLibrary.getTimeStamp() & " WHERE idComune= " & id, objconn)

@@ -74,7 +74,7 @@ Public Class FRicerca
         End If
     End Sub
 
-    Private Sub DataGridView3_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView3.CellClick
+    Private Sub DataGridView3_CellClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles rubricaDataGrid.CellClick
         Dim dgv As DataGridView = sender
         Dim coord As System.Drawing.Point = dgv.CurrentCellAddress
         If coord.X = dgv.Columns("cDettaglioRubrica").Index() Then
@@ -82,4 +82,17 @@ Public Class FRicerca
         End If
     End Sub
 
+   
+
+
+    'Private Sub DataGrid_Paint(sender As System.Object, e As System.Windows.Forms.PaintEventArgs) Handles rubricaDataGrid.Paint, interventiDataGrid.Paint, QAllegatoADataGridView.Paint, InformazioniDataGrid.Paint, SopralluogoDataGrid.Paint
+    '    Dim dgv As DataGridView = sender
+
+    '    dgv.BorderStyle = BorderStyle.None
+    '    dgv.ColumnHeadersHeight = 16
+    '    Dim cellStyle As DataGridViewCellStyle = New DataGridViewCellStyle()
+    '    cellStyle.Font = New System.Drawing.Font("Microsoft Sans Serif", 6.0!)
+
+    '    dgv.ColumnHeadersDefaultCellStyle = cellStyle
+    'End Sub
 End Class

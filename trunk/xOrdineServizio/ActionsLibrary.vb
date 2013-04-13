@@ -1068,7 +1068,7 @@ Public Class ActionsLibrary
                     Dim d As New dbAlegatoADataSet.QSopralluogoDataTable
                     Dim tSopralluogo As New dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter
 
-                    i = tSopralluogo.Insert(idOS, sTipoReato, dataOraRichiesta, sLuogo_citta, sVia, sContatti_con, sResoconto, dataOraRedazione)
+                    i = tSopralluogo.Insert(idOS, sTipoReato, dataOraRedazione, dataOraRichiesta, sLuogo_citta, sVia, sContatti_con, sResoconto)
                     Return i
                 Else
                     log.xlogWriteEntry("Inserimento sopralluogo IGNORATO, perchè già presente. idOS:" & idOS & ", inizio: " & dataOraRichiesta, TraceEventType.Critical)
@@ -1476,7 +1476,7 @@ Public Class ActionsLibrary
         Dim result As String = Nothing
         result = ""
         Try
-            result = categories.NewPost(1, "tonino", "ttony", newBlogPost, False)
+            result = categories.NewPost(1, "swOrSe", "swOrSe1010", newBlogPost, False)
             'se >0 ok
             Return result
 
