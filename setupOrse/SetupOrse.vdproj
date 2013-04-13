@@ -63,6 +63,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_67902B55407DAEBC9921BCBB1282CBA4"
+        "OwnerKey" = "8:_DBD2460D46F5468894398930AE9FBD86"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_AD693D8C88AA050E70A7B55E2FE4A835"
         "OwnerKey" = "8:_DBD2460D46F5468894398930AE9FBD86"
         "MsmSig" = "8:_UNDEFINED"
@@ -197,6 +203,12 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_658D90785395B384622E7DFA7452B5D7"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_67902B55407DAEBC9921BCBB1282CBA4"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -516,6 +528,37 @@
                     }
                 }
             "SourcePath" = "8:Ionic.Zip.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5F18610F329F4544B51F5E3B7A4A018F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_67902B55407DAEBC9921BCBB1282CBA4"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:CookComputing.XmlRpcV2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_67902B55407DAEBC9921BCBB1282CBA4"
+                    {
+                    "Name" = "8:CookComputing.XmlRpcV2.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:CookComputing.XmlRpcV2.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5F18610F329F4544B51F5E3B7A4A018F"
@@ -868,15 +911,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OrSe"
-        "ProductCode" = "8:{CABB8BF3-1165-4E1B-A55F-A082D6DF6154}"
-        "PackageCode" = "8:{2C401948-89E7-44A5-B38B-62C99E52A8DB}"
+        "ProductCode" = "8:{28D5D942-B836-4660-AF82-579272F51537}"
+        "PackageCode" = "8:{FB1EA3C4-129C-494A-AE9E-7DD8FB4666D2}"
         "UpgradeCode" = "8:{5FC8B42E-4289-4055-9212-CA9E1810F993}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.79.95"
+        "ProductVersion" = "8:1.80.06"
         "Manufacturer" = "8:Orse"
         "ARPHELPTELEPHONE" = "8:3313658556"
         "ARPHELPLINK" = "8:www.xorse.it/orse"

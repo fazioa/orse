@@ -724,7 +724,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox67</rd:DefaultName>
-        <Top>5.7459cm</Top>
+        <Top>7.0159cm</Top>
         <Left>18.99951cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
@@ -756,7 +756,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>gruppoFirmaRiga1</rd:DefaultName>
-        <Top>6.25418cm</Top>
+        <Top>7.52418cm</Top>
         <Left>18.99951cm</Left>
         <Height>0.6cm</Height>
         <Width>7.87104cm</Width>
@@ -788,7 +788,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>gruppoFirmaRiga2</rd:DefaultName>
-        <Top>6.85418cm</Top>
+        <Top>8.12418cm</Top>
         <Left>18.99951cm</Left>
         <Height>0.6cm</Height>
         <Width>7.87104cm</Width>
@@ -1782,7 +1782,7 @@ all'ordine di servizio</Value>
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>3.16063in</Height>
+    <Height>3.43472in</Height>
     <Style>
       <Border>
         <Style>None</Style>
