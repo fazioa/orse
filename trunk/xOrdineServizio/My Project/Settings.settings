@@ -36,7 +36,7 @@
       <Value Profile="(Default)">http://www.xorse.it/listing/orse</Value>
     </Setting>
     <Setting Name="linkDownloadNuovaVersione" Type="System.String" Scope="User">
-      <Value Profile="(Default)">http://www.xorse.it/orse/wp-content/plugins/download-monitor/download.php?id=5</Value>
+      <Value Profile="(Default)">http://www.xorse.it/orse/</Value>
     </Setting>
     <Setting Name="descrizioneParagrafoInterventi" Type="System.String" Scope="User">
       <Value Profile="(Default)">Paragrafo 9 - Interventi</Value>

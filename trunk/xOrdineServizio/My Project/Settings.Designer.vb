@@ -182,7 +182,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("http://www.xorse.it/orse/wp-content/plugins/download-monitor/download.php?id=5")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("http://www.xorse.it/orse/")>  _
         Public Property linkDownloadNuovaVersione() As String
             Get
                 Return CType(Me("linkDownloadNuovaVersione"),String)

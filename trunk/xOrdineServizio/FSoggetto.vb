@@ -126,7 +126,7 @@ Public Class FSoggetto
                 Else
                     s = "passeggero"
                 End If
-                If (modelliMezzoTableAdapter.FillByMezzo(DbDataSet.modelliMezzo, s) <= 0) Then
+                If (modelliMezzoTableAdapter.FillByMezzo_StringaEsatta(DbDataSet.modelliMezzo, s) <= 0) Then
                     Me.modelliMezzoTableAdapter.Insert(s)
                     'rifaccio il fill, per evitare di avere un risultato nullo nella ricerca del valore appena inserito
                     modelliMezzoTableAdapter.FillByMezzo(DbDataSet.modelliMezzo, s)
@@ -321,10 +321,10 @@ Public Class FSoggetto
             Me.PersonaTableAdapter.FillByID(DbDataSet.persona, idPersona)
             PersonaBindingSource.MoveFirst()
             Dim i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idLuogoNascita")
-            If (Not i Is DBNull.Value) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet.QComune, Integer.Parse(i))
+            If (Not (i Is DBNull.Value Or i Is Nothing)) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet.QComune, Integer.Parse(i))
 
             i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idResidenzaComune")
-            If (Not i Is DBNull.Value) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet2.QComune, Integer.Parse(i))
+            If (Not (i Is DBNull.Value Or i Is Nothing)) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet2.QComune, Integer.Parse(i))
 
 
 

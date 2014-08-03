@@ -48,8 +48,13 @@ Public Class FElencosoggetti
     End Sub
 
     Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAdd.Click
-        iResult = QPersonaDataGridView.CurrentRow.Cells("ID").Value
-        Me.DialogResult = Windows.Forms.DialogResult.OK
+        Try
+            iResult = QPersonaDataGridView.CurrentRow.Cells("ID").Value
+            Me.DialogResult = Windows.Forms.DialogResult.OK
+        Catch ex As Exception
+            Me.DialogResult = Windows.Forms.DialogResult.Abort
+        End Try
+
     End Sub
     'metodo che restituisce il risultato della maschera
     Public Function getResult()

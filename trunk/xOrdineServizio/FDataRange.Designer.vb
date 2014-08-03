@@ -19,21 +19,23 @@ Partial Class FDataRange
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel
-        Me.OK_Button = New System.Windows.Forms.Button
-        Me.Cancel_Button = New System.Windows.Forms.Button
-        Me.DateTimePickerInizio = New System.Windows.Forms.DateTimePicker
-        Me.DateTimePickerFine = New System.Windows.Forms.DateTimePicker
-        Me.Label1 = New System.Windows.Forms.Label
-        Me.Inizio = New System.Windows.Forms.Label
-        Me.Label2 = New System.Windows.Forms.Label
-        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox
-        Me.RadioButtonUltimoMese = New System.Windows.Forms.RadioButton
-        Me.RadioButton2 = New System.Windows.Forms.RadioButton
-        Me.RadioButton1 = New System.Windows.Forms.RadioButton
+        Me.TableLayoutPanel1 = New System.Windows.Forms.TableLayoutPanel()
+        Me.OK_Button = New System.Windows.Forms.Button()
+        Me.Cancel_Button = New System.Windows.Forms.Button()
+        Me.DateTimePickerInizio = New System.Windows.Forms.DateTimePicker()
+        Me.DateTimePickerFine = New System.Windows.Forms.DateTimePicker()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.Inizio = New System.Windows.Forms.Label()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.RichTextBox1 = New System.Windows.Forms.RichTextBox()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.RadioButtonUltimoMese = New System.Windows.Forms.RadioButton()
+        Me.RadioButton2 = New System.Windows.Forms.RadioButton()
+        Me.RadioButton1 = New System.Windows.Forms.RadioButton()
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -44,7 +46,7 @@ Partial Class FDataRange
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Cancel_Button, 1, 0)
-        Me.TableLayoutPanel1.Location = New System.Drawing.Point(186, 326)
+        Me.TableLayoutPanel1.Location = New System.Drawing.Point(274, 261)
         Me.TableLayoutPanel1.Name = "TableLayoutPanel1"
         Me.TableLayoutPanel1.RowCount = 1
         Me.TableLayoutPanel1.RowStyles.Add(New System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50.0!))
@@ -119,14 +121,15 @@ Partial Class FDataRange
         '
         'RichTextBox1
         '
+        Me.RichTextBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
         Me.RichTextBox1.BackColor = System.Drawing.SystemColors.Control
         Me.RichTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.RichTextBox1.Location = New System.Drawing.Point(17, 272)
+        Me.RichTextBox1.Location = New System.Drawing.Point(17, 254)
         Me.RichTextBox1.Name = "RichTextBox1"
-        Me.RichTextBox1.Size = New System.Drawing.Size(303, 48)
+        Me.RichTextBox1.Size = New System.Drawing.Size(234, 48)
         Me.RichTextBox1.TabIndex = 7
         Me.RichTextBox1.Text = "Scegliere il periodo desiderato. In automatico sono state impostate le date limit" & _
-            "e disponibili. Premere OK per esportare i dati."
+    "e disponibili. Premere OK per esportare i dati."
         '
         'GroupBox1
         '
@@ -172,13 +175,18 @@ Partial Class FDataRange
         Me.RadioButton1.Text = "Prima data disponibile"
         Me.RadioButton1.UseVisualStyleBackColor = True
         '
+        'DbAlegatoADataSet
+        '
+        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'FDataRange
         '
         Me.AcceptButton = Me.OK_Button
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
-        Me.ClientSize = New System.Drawing.Size(344, 367)
+        Me.ClientSize = New System.Drawing.Size(432, 302)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.RichTextBox1)
         Me.Controls.Add(Me.Label2)
@@ -197,6 +205,7 @@ Partial Class FDataRange
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -214,5 +223,6 @@ Partial Class FDataRange
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButtonUltimoMese As System.Windows.Forms.RadioButton
+    Friend WithEvents DbAlegatoADataSet As OrSe.dbAlegatoADataSet
 
 End Class

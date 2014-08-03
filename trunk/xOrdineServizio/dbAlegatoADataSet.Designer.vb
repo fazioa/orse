@@ -1256,6 +1256,8 @@ Partial Public Class dbAlegatoADataSet
             Me.columnid.Unique = true
             Me.columncolore.MaxLength = 50
             Me.columntarga.MaxLength = 50
+            Me.columncontravvenzioni.DefaultValue = CType(false,Boolean)
+            Me.columnperquisizione.DefaultValue = CType(false,Boolean)
             Me.columnpositivoSDI.MaxLength = 2
             Me.columnNOTE.MaxLength = 536870910
         End Sub
@@ -1842,6 +1844,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnID.AutoIncrementStep = -1
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
+            Me.columndataora.DateTimeMode = Global.System.Data.DataSetDateTime.Local
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -2187,6 +2190,8 @@ Partial Public Class dbAlegatoADataSet
             Me.columnid.AutoIncrementStep = -1
             Me.columnid.AllowDBNull = false
             Me.columnid.Unique = true
+            Me.columndataOraInizio.DateTimeMode = Global.System.Data.DataSetDateTime.Local
+            Me.columndataOraFine.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columntipointervento.MaxLength = 536870910
             Me.columnresoconto.MaxLength = 536870910
         End Sub
@@ -3344,6 +3349,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnID.AllowDBNull = false
             Me.columnID.Unique = true
             Me.columnnome.MaxLength = 50
+            Me.columndata.DateTimeMode = Global.System.Data.DataSetDateTime.Local
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -3727,6 +3733,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnID.Unique = true
             Me.columncognome.MaxLength = 50
             Me.columnnome.MaxLength = 50
+            Me.columndatanascita.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columnresidenzaindirizzo.MaxLength = 50
             Me.columndocumento.MaxLength = 50
             Me.columnprecedenti.MaxLength = 536870910
@@ -4684,6 +4691,8 @@ Partial Public Class dbAlegatoADataSet
             Me.columnidSopralluogo.AllowDBNull = false
             Me.columnidSopralluogo.Unique = true
             Me.columntipoReato.MaxLength = 50
+            Me.columnoraRedazione.DateTimeMode = Global.System.Data.DataSetDateTime.Local
+            Me.columnoraRichiesta.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columnluogo_citta.MaxLength = 50
             Me.columnvia.MaxLength = 150
             Me.columncontatti_con.MaxLength = 200
@@ -5616,6 +5625,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columntarga.MaxLength = 50
             Me.columnpositivoSDI.MaxLength = 2
             Me.columnNOTE.MaxLength = 536870910
+            Me.columndataora.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columnluogo.MaxLength = 150
             Me.columnmezzo.MaxLength = 50
             Me.columnoperatori.MaxLength = 255
@@ -5627,6 +5637,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columncittanascita.MaxLength = 255
             Me.columncittaresidenza.MaxLength = 255
             Me.columnnomeOS.MaxLength = 50
+            Me.columndataOS.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columnidOS.AutoIncrement = true
             Me.columnidOS.AutoIncrementSeed = -1
             Me.columnidOS.AutoIncrementStep = -1
@@ -6282,12 +6293,15 @@ Partial Public Class dbAlegatoADataSet
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
             Me.columnid.AutoIncrementStep = -1
+            Me.columndataOraInizio.DateTimeMode = Global.System.Data.DataSetDateTime.Local
+            Me.columndataOraFine.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columntipointervento.MaxLength = 536870910
             Me.columnresoconto.MaxLength = 536870910
             Me.columnnomeOS.MaxLength = 50
             Me.columnidOS.AutoIncrement = true
             Me.columnidOS.AutoIncrementSeed = -1
             Me.columnidOS.AutoIncrementStep = -1
+            Me.columndataOS.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columnoperatori.MaxLength = 255
         End Sub
         
@@ -6584,6 +6598,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnID.AutoIncrementSeed = -1
             Me.columnID.AutoIncrementStep = -1
             Me.columnnome.MaxLength = 50
+            Me.columndata.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columnoperatori.MaxLength = 255
         End Sub
         
@@ -6959,6 +6974,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnID.AutoIncrementStep = -1
             Me.columncognome.MaxLength = 50
             Me.columnnome.MaxLength = 50
+            Me.columndatanascita.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columncittanascita.MaxLength = 255
             Me.columnresidenzaindirizzo.MaxLength = 50
             Me.columncittaresidenza.MaxLength = 255
@@ -7295,6 +7311,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columntesto = New Global.System.Data.DataColumn("testo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columntesto)
             Me.columnnomeOS.MaxLength = 50
+            Me.columndataOS.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
             Me.columnID.AutoIncrementStep = -1
@@ -7712,6 +7729,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnresoconto = New Global.System.Data.DataColumn("resoconto", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnresoconto)
             Me.columnnomeOS.MaxLength = 50
+            Me.columndataOS.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columnID.AutoIncrement = true
             Me.columnID.AutoIncrementSeed = -1
             Me.columnID.AutoIncrementStep = -1
@@ -7720,6 +7738,8 @@ Partial Public Class dbAlegatoADataSet
             Me.columnidSopralluogo.AutoIncrementSeed = -1
             Me.columnidSopralluogo.AutoIncrementStep = -1
             Me.columntipoReato.MaxLength = 50
+            Me.columnoraRedazione.DateTimeMode = Global.System.Data.DataSetDateTime.Local
+            Me.columnoraRichiesta.DateTimeMode = Global.System.Data.DataSetDateTime.Local
             Me.columnluogo_citta.MaxLength = 50
             Me.columnvia.MaxLength = 150
             Me.columncontatti_con.MaxLength = 200
@@ -15452,7 +15472,7 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByMezzo_stringaEsatta(ByVal dataTable As dbAlegatoADataSet.modelliMezzoDataTable, ByVal mezzo As String) As Integer
+        Public Overloads Overridable Function FillByMezzo_StringaEsatta(ByVal dataTable As dbAlegatoADataSet.modelliMezzoDataTable, ByVal mezzo As String) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(4)
             If (mezzo Is Nothing) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
@@ -19351,11 +19371,11 @@ Namespace dbAlegatoADataSetTableAdapters
                 "venzioni, perquisizione, positivoSDI, [NOTE], dataora, idLuogo, luogo, mezzo, op"& _ 
                 "eratori, cognome, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         nome, datanascita, residenzaindiriz"& _ 
                 "zo, documento, precedenti, idLuogoNascita, cittanascita, cittaresidenza, nomeOS,"& _ 
-                " dataOS, idOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QAllegatoA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (dataora >?) AND (dataor"& _ 
-                "a < ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY dataora, ordine"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                " dataOS, idOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QAllegatoA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (dataOS  >?) AND (dataOS"& _ 
+                " < ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY dataora, ordine"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataora", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataora", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataora1", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataora", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataOS", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataOS1", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT dataora, luogo, ordine, mezzo, targa, cognome, nome, datanascita, residenz"& _ 
@@ -19470,15 +19490,15 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByDataRange(ByVal dataTable As dbAlegatoADataSet.QAllegatoADataTable, ByVal dataora As Global.System.Nullable(Of Date), ByVal dataora1 As Global.System.Nullable(Of Date)) As Integer
+        Public Overloads Overridable Function FillByDataRange(ByVal dataTable As dbAlegatoADataSet.QAllegatoADataTable, ByVal dataOS As Global.System.Nullable(Of Date), ByVal dataOS1 As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
-            If (dataora.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(0).Value = CType(dataora.Value,Date)
+            If (dataOS.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(dataOS.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (dataora1.HasValue = true) Then
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(dataora1.Value,Date)
+            If (dataOS1.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(dataOS1.Value,Date)
             Else
                 Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
@@ -20003,12 +20023,13 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("iParagrafo", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "iParagrafo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT        *"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QInterventi"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (iParagrafo = ?) AND ("& _ 
-                "dataOS BETWEEN ? AND ?)"
+            Me._commandCollection(3).CommandText = "SELECT        id, dataOraInizio, dataOraFine, tipointervento, resoconto, nomeOS, "& _ 
+                "idOS, dataOS, iParagrafo, operatori"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QInterventi"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        ("& _ 
+                "iParagrafo = ?) AND (dataOS > ?) AND (dataOS < ?)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("iParagrafo", Global.System.Data.OleDb.OleDbType.SmallInt, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "iParagrafo", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param2", Global.System.Data.OleDb.OleDbType.[Variant], 1024, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param3", Global.System.Data.OleDb.OleDbType.[Variant], 1024, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataOS", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataOS1", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataOS", Global.System.Data.DataRowVersion.Current, true, Nothing))
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT dataOS, dataOraFine, dataOraInizio, iParagrafo, id, idOS, resoconto, tipoi"& _ 
@@ -20110,22 +20131,22 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
-        Public Overloads Overridable Function FillByDataRange(ByVal dataTable As dbAlegatoADataSet.QInterventiDataTable, ByVal iParagrafo As Global.System.Nullable(Of Short), ByVal Param2 As Object, ByVal Param3 As Object) As Integer
+        Public Overloads Overridable Function FillByDataRange(ByVal dataTable As dbAlegatoADataSet.QInterventiDataTable, ByVal iParagrafo As Global.System.Nullable(Of Short), ByVal dataOS As Global.System.Nullable(Of Date), ByVal dataOS1 As Global.System.Nullable(Of Date)) As Integer
             Me.Adapter.SelectCommand = Me.CommandCollection(3)
             If (iParagrafo.HasValue = true) Then
                 Me.Adapter.SelectCommand.Parameters(0).Value = CType(iParagrafo.Value,Short)
             Else
                 Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
             End If
-            If (Param2 Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Param2")
+            If (dataOS.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(1).Value = CType(dataOS.Value,Date)
             Else
-                Me.Adapter.SelectCommand.Parameters(1).Value = CType(Param2,Object)
+                Me.Adapter.SelectCommand.Parameters(1).Value = Global.System.DBNull.Value
             End If
-            If (Param3 Is Nothing) Then
-                Throw New Global.System.ArgumentNullException("Param3")
+            If (dataOS1.HasValue = true) Then
+                Me.Adapter.SelectCommand.Parameters(2).Value = CType(dataOS1.Value,Date)
             Else
-                Me.Adapter.SelectCommand.Parameters(2).Value = CType(Param3,Object)
+                Me.Adapter.SelectCommand.Parameters(2).Value = Global.System.DBNull.Value
             End If
             If (Me.ClearBeforeFill = true) Then
                 dataTable.Clear

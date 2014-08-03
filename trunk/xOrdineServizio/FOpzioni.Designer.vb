@@ -27,15 +27,20 @@ Partial Class FOpzioni
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
+        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox11 = New System.Windows.Forms.GroupBox()
         Me.Label18 = New System.Windows.Forms.Label()
+        Me.TextBox10 = New System.Windows.Forms.TextBox()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.TextBox3 = New System.Windows.Forms.TextBox()
+        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel1 = New System.Windows.Forms.FlowLayoutPanel()
@@ -45,17 +50,24 @@ Partial Class FOpzioni
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label10 = New System.Windows.Forms.Label()
         Me.RadioButtonTitolare = New System.Windows.Forms.RadioButton()
+        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.TextBox6 = New System.Windows.Forms.TextBox()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.Label15 = New System.Windows.Forms.Label()
+        Me.TextBox7 = New System.Windows.Forms.TextBox()
         Me.Label13 = New System.Windows.Forms.Label()
+        Me.TextBox8 = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.TextBox9 = New System.Windows.Forms.TextBox()
         Me.GroupBox10 = New System.Windows.Forms.GroupBox()
+        Me.CheckBoxAbilitaFunzioneRevizioneTabelle = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxSegnalazioneErrori = New System.Windows.Forms.CheckBox()
+        Me.CheckBoxMaximized = New System.Windows.Forms.CheckBox()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.CheckBoxSalvataggioAutomatico = New System.Windows.Forms.CheckBox()
         Me.tbIntervalloSalvataggioAutomatico = New System.Windows.Forms.MaskedTextBox()
@@ -63,18 +75,6 @@ Partial Class FOpzioni
         Me.TabPageIntestazioni = New System.Windows.Forms.TabPage()
         Me.TabPageFirma = New System.Windows.Forms.TabPage()
         Me.TabPageVarie = New System.Windows.Forms.TabPage()
-        Me.TextBox10 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.TextBox7 = New System.Windows.Forms.TextBox()
-        Me.TextBox8 = New System.Windows.Forms.TextBox()
-        Me.CheckBoxAbilitaFunzioneRevizioneTabelle = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxSegnalazioneErrori = New System.Windows.Forms.CheckBox()
-        Me.CheckBoxMaximized = New System.Windows.Forms.CheckBox()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -187,6 +187,24 @@ Partial Class FOpzioni
         Me.Label4.TabIndex = 7
         Me.Label4.Text = "IL COMANDANTE int."
         '
+        'TextBox2
+        '
+        Me.TextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaInterinaleRiga2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox2.Location = New System.Drawing.Point(85, 46)
+        Me.TextBox2.Name = "TextBox2"
+        Me.TextBox2.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox2.TabIndex = 3
+        Me.TextBox2.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaInterinaleRiga2
+        '
+        'TextBox1
+        '
+        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaInterinaleRiga1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox1.Location = New System.Drawing.Point(85, 19)
+        Me.TextBox1.Name = "TextBox1"
+        Me.TextBox1.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox1.TabIndex = 2
+        Me.TextBox1.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaInterinaleRiga1
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -244,6 +262,15 @@ Partial Class FOpzioni
         Me.Label18.TabIndex = 8
         Me.Label18.Text = "Nucleo Operativo e Radiomobile"
         '
+        'TextBox10
+        '
+        Me.TextBox10.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "comandoSecondaRiga", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox10.Location = New System.Drawing.Point(85, 72)
+        Me.TextBox10.Name = "TextBox10"
+        Me.TextBox10.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox10.TabIndex = 5
+        Me.TextBox10.Text = Global.OrSe.My.MySettings.Default.comandoSecondaRiga
+        '
         'Label17
         '
         Me.Label17.AutoSize = True
@@ -277,11 +304,29 @@ Partial Class FOpzioni
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(19, 16)
+        Me.Label6.Location = New System.Drawing.Point(21, 16)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(181, 13)
+        Me.Label6.Size = New System.Drawing.Size(179, 13)
         Me.Label6.TabIndex = 7
-        Me.Label6.Text = "REGIONE CARABINIERI TOSCANA"
+        Me.Label6.Text = "LEGIONE CARABINIERI TOSCANA"
+        '
+        'TextBox3
+        '
+        Me.TextBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "comando", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox3.Location = New System.Drawing.Point(85, 46)
+        Me.TextBox3.Name = "TextBox3"
+        Me.TextBox3.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox3.TabIndex = 3
+        Me.TextBox3.Text = Global.OrSe.My.MySettings.Default.comando
+        '
+        'TextBox4
+        '
+        Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "regione", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox4.Location = New System.Drawing.Point(85, 19)
+        Me.TextBox4.Name = "TextBox4"
+        Me.TextBox4.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox4.TabIndex = 2
+        Me.TextBox4.Text = Global.OrSe.My.MySettings.Default.regione
         '
         'Label7
         '
@@ -378,6 +423,24 @@ Partial Class FOpzioni
         Me.RadioButtonTitolare.Text = "Titolare"
         Me.RadioButtonTitolare.UseVisualStyleBackColor = True
         '
+        'TextBox5
+        '
+        Me.TextBox5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaRiga2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox5.Location = New System.Drawing.Point(85, 46)
+        Me.TextBox5.Name = "TextBox5"
+        Me.TextBox5.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox5.TabIndex = 3
+        Me.TextBox5.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaRiga2
+        '
+        'TextBox6
+        '
+        Me.TextBox6.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaRiga1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox6.Location = New System.Drawing.Point(85, 19)
+        Me.TextBox6.Name = "TextBox6"
+        Me.TextBox6.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox6.TabIndex = 2
+        Me.TextBox6.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaRiga1
+        '
         'Label11
         '
         Me.Label11.AutoSize = True
@@ -430,6 +493,15 @@ Partial Class FOpzioni
         Me.Label15.TabIndex = 7
         Me.Label15.Text = "Nr. 12/3 di Prot.llo --> Inserire 12/"
         '
+        'TextBox7
+        '
+        Me.TextBox7.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "protocolloOP85", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox7.Location = New System.Drawing.Point(115, 46)
+        Me.TextBox7.Name = "TextBox7"
+        Me.TextBox7.Size = New System.Drawing.Size(253, 20)
+        Me.TextBox7.TabIndex = 4
+        Me.TextBox7.Text = Global.OrSe.My.MySettings.Default.protocolloOP85
+        '
         'Label13
         '
         Me.Label13.AutoSize = True
@@ -438,6 +510,15 @@ Partial Class FOpzioni
         Me.Label13.Size = New System.Drawing.Size(86, 13)
         Me.Label13.TabIndex = 3
         Me.Label13.Text = "Prot.Arma OP85:"
+        '
+        'TextBox8
+        '
+        Me.TextBox8.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "comune", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.TextBox8.Location = New System.Drawing.Point(85, 19)
+        Me.TextBox8.Name = "TextBox8"
+        Me.TextBox8.Size = New System.Drawing.Size(283, 20)
+        Me.TextBox8.TabIndex = 2
+        Me.TextBox8.Text = Global.OrSe.My.MySettings.Default.comune
         '
         'Label16
         '
@@ -493,6 +574,44 @@ Partial Class FOpzioni
         Me.GroupBox10.TabIndex = 6
         Me.GroupBox10.TabStop = False
         Me.GroupBox10.Text = "Opzioni generali"
+        '
+        'CheckBoxAbilitaFunzioneRevizioneTabelle
+        '
+        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.AutoSize = True
+        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.Checked = Global.OrSe.My.MySettings.Default.revisioneTabelle
+        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.OrSe.My.MySettings.Default, "revisioneTabelle", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.Location = New System.Drawing.Point(12, 87)
+        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.Name = "CheckBoxAbilitaFunzioneRevizioneTabelle"
+        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.Size = New System.Drawing.Size(292, 17)
+        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.TabIndex = 10
+        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.Text = "Abilita funzione ""revisione tabelle"" (dopo, riavviare OrSe)"
+        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.UseVisualStyleBackColor = True
+        '
+        'CheckBoxSegnalazioneErrori
+        '
+        Me.CheckBoxSegnalazioneErrori.AutoSize = True
+        Me.CheckBoxSegnalazioneErrori.Checked = Global.OrSe.My.MySettings.Default.segnalazioneErroreConScreenshot
+        Me.CheckBoxSegnalazioneErrori.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBoxSegnalazioneErrori.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.OrSe.My.MySettings.Default, "segnalazioneErroreConScreenshot", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CheckBoxSegnalazioneErrori.Location = New System.Drawing.Point(12, 65)
+        Me.CheckBoxSegnalazioneErrori.Name = "CheckBoxSegnalazioneErrori"
+        Me.CheckBoxSegnalazioneErrori.Size = New System.Drawing.Size(112, 17)
+        Me.CheckBoxSegnalazioneErrori.TabIndex = 9
+        Me.CheckBoxSegnalazioneErrori.Text = "Segnalazioni errori"
+        Me.CheckBoxSegnalazioneErrori.UseVisualStyleBackColor = True
+        '
+        'CheckBoxMaximized
+        '
+        Me.CheckBoxMaximized.AutoSize = True
+        Me.CheckBoxMaximized.Checked = Global.OrSe.My.MySettings.Default.maximizeForm
+        Me.CheckBoxMaximized.CheckState = System.Windows.Forms.CheckState.Checked
+        Me.CheckBoxMaximized.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.OrSe.My.MySettings.Default, "maximizeForm", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
+        Me.CheckBoxMaximized.Location = New System.Drawing.Point(12, 42)
+        Me.CheckBoxMaximized.Name = "CheckBoxMaximized"
+        Me.CheckBoxMaximized.Size = New System.Drawing.Size(139, 17)
+        Me.CheckBoxMaximized.TabIndex = 8
+        Me.CheckBoxMaximized.Text = "Finestre a tutto schermo"
+        Me.CheckBoxMaximized.UseVisualStyleBackColor = True
         '
         'Label14
         '
@@ -569,125 +688,6 @@ Partial Class FOpzioni
         Me.TabPageVarie.TabIndex = 2
         Me.TabPageVarie.Text = "Varie"
         Me.TabPageVarie.UseVisualStyleBackColor = True
-        '
-        'TextBox10
-        '
-        Me.TextBox10.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "comandoSecondaRiga", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox10.Location = New System.Drawing.Point(85, 72)
-        Me.TextBox10.Name = "TextBox10"
-        Me.TextBox10.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox10.TabIndex = 5
-        Me.TextBox10.Text = Global.OrSe.My.MySettings.Default.comandoSecondaRiga
-        '
-        'TextBox3
-        '
-        Me.TextBox3.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "comando", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox3.Location = New System.Drawing.Point(85, 46)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox3.TabIndex = 3
-        Me.TextBox3.Text = Global.OrSe.My.MySettings.Default.comando
-        '
-        'TextBox4
-        '
-        Me.TextBox4.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "regione", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox4.Location = New System.Drawing.Point(85, 19)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox4.TabIndex = 2
-        Me.TextBox4.Text = Global.OrSe.My.MySettings.Default.regione
-        '
-        'TextBox2
-        '
-        Me.TextBox2.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaInterinaleRiga2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox2.Location = New System.Drawing.Point(85, 46)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox2.TabIndex = 3
-        Me.TextBox2.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaInterinaleRiga2
-        '
-        'TextBox1
-        '
-        Me.TextBox1.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaInterinaleRiga1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox1.Location = New System.Drawing.Point(85, 19)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox1.TabIndex = 2
-        Me.TextBox1.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaInterinaleRiga1
-        '
-        'TextBox5
-        '
-        Me.TextBox5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaRiga2", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox5.Location = New System.Drawing.Point(85, 46)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox5.TabIndex = 3
-        Me.TextBox5.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaRiga2
-        '
-        'TextBox6
-        '
-        Me.TextBox6.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "GruppoFirmaRiga1", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox6.Location = New System.Drawing.Point(85, 19)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox6.TabIndex = 2
-        Me.TextBox6.Text = Global.OrSe.My.MySettings.Default.GruppoFirmaRiga1
-        '
-        'TextBox7
-        '
-        Me.TextBox7.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "protocolloOP85", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox7.Location = New System.Drawing.Point(115, 46)
-        Me.TextBox7.Name = "TextBox7"
-        Me.TextBox7.Size = New System.Drawing.Size(253, 20)
-        Me.TextBox7.TabIndex = 4
-        Me.TextBox7.Text = Global.OrSe.My.MySettings.Default.protocolloOP85
-        '
-        'TextBox8
-        '
-        Me.TextBox8.DataBindings.Add(New System.Windows.Forms.Binding("Text", Global.OrSe.My.MySettings.Default, "comune", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.TextBox8.Location = New System.Drawing.Point(85, 19)
-        Me.TextBox8.Name = "TextBox8"
-        Me.TextBox8.Size = New System.Drawing.Size(283, 20)
-        Me.TextBox8.TabIndex = 2
-        Me.TextBox8.Text = Global.OrSe.My.MySettings.Default.comune
-        '
-        'CheckBoxAbilitaFunzioneRevizioneTabelle
-        '
-        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.AutoSize = True
-        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.Checked = Global.OrSe.My.MySettings.Default.revisioneTabelle
-        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.OrSe.My.MySettings.Default, "revisioneTabelle", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.Location = New System.Drawing.Point(12, 87)
-        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.Name = "CheckBoxAbilitaFunzioneRevizioneTabelle"
-        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.Size = New System.Drawing.Size(292, 17)
-        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.TabIndex = 10
-        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.Text = "Abilita funzione ""revisione tabelle"" (dopo, riavviare OrSe)"
-        Me.CheckBoxAbilitaFunzioneRevizioneTabelle.UseVisualStyleBackColor = True
-        '
-        'CheckBoxSegnalazioneErrori
-        '
-        Me.CheckBoxSegnalazioneErrori.AutoSize = True
-        Me.CheckBoxSegnalazioneErrori.Checked = Global.OrSe.My.MySettings.Default.segnalazioneErroreConScreenshot
-        Me.CheckBoxSegnalazioneErrori.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBoxSegnalazioneErrori.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.OrSe.My.MySettings.Default, "segnalazioneErroreConScreenshot", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.CheckBoxSegnalazioneErrori.Location = New System.Drawing.Point(12, 65)
-        Me.CheckBoxSegnalazioneErrori.Name = "CheckBoxSegnalazioneErrori"
-        Me.CheckBoxSegnalazioneErrori.Size = New System.Drawing.Size(112, 17)
-        Me.CheckBoxSegnalazioneErrori.TabIndex = 9
-        Me.CheckBoxSegnalazioneErrori.Text = "Segnalazioni errori"
-        Me.CheckBoxSegnalazioneErrori.UseVisualStyleBackColor = True
-        '
-        'CheckBoxMaximized
-        '
-        Me.CheckBoxMaximized.AutoSize = True
-        Me.CheckBoxMaximized.Checked = Global.OrSe.My.MySettings.Default.maximizeForm
-        Me.CheckBoxMaximized.CheckState = System.Windows.Forms.CheckState.Checked
-        Me.CheckBoxMaximized.DataBindings.Add(New System.Windows.Forms.Binding("Checked", Global.OrSe.My.MySettings.Default, "maximizeForm", True, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged))
-        Me.CheckBoxMaximized.Location = New System.Drawing.Point(12, 42)
-        Me.CheckBoxMaximized.Name = "CheckBoxMaximized"
-        Me.CheckBoxMaximized.Size = New System.Drawing.Size(139, 17)
-        Me.CheckBoxMaximized.TabIndex = 8
-        Me.CheckBoxMaximized.Text = "Finestre a tutto schermo"
-        Me.CheckBoxMaximized.UseVisualStyleBackColor = True
         '
         'FOpzioni
         '

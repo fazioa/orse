@@ -93,7 +93,7 @@ Public Class FPrima
     Private Sub Form1_myInit()
         'posizioni il cursore sull'ordine di servizio corrente
 
-        Dim nIdOS = OrdineServizioTableAdapter1.FillByID(DbAlegatoADataSet1.ordineServizio, parametri.idOS)
+        Dim nIdOS = OrdineServizioTableAdapter1.FillByID(DbAlegatoADataSet.ordineServizio, parametri.idOS)
         If nIdOS = 1 Then log_.xlogWriteEntry("Ordine di servizio id nr." & parametri.idOS & " selezionato (" & parametri.nomeOS & " del " & parametri.dataOS & ")", TraceEventType.Information)
         labelInfoOS.Text = "Ordine di servizio: " + parametri.nomeOS + " del " + FormatDateTime(parametri.dataOS, DateFormat.ShortDate)
         feActions.setStandardFormSize(Me)
@@ -124,7 +124,7 @@ Public Class FPrima
 
     Private Sub caricaFinestraDatiOS()
 
-        Dim myform As New DInsDatiPreliminari(DbAlegatoADataSet1, parametri)
+        Dim myform As New DInsDatiPreliminari(DbAlegatoADataSet, parametri)
         log_.xlogWriteEntry("Visualizza form per ins. dati preliminari", TraceEventType.Information)
         myform.ShowDialog()
         While (myform.DialogResult() = Windows.Forms.DialogResult.Cancel)
@@ -159,7 +159,7 @@ Public Class FPrima
 
     Private Sub btnAlegatoA_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAlegatoA.Click
         ' Dim timestamp As System.DateTime = System.DateTime.Now.ToString
-        feActions.doApriFormAllegatoA(DbAlegatoADataSet1, parametri.Clone)
+        feActions.doApriFormAllegatoA(DbAlegatoADataSet, parametri.Clone)
     End Sub
 
     Private Sub genericoDataGridView_CellPainting(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellPaintingEventArgs)
@@ -171,7 +171,7 @@ Public Class FPrima
         Dim v As Integer = dgv.CurrentRow.Cells("cID").Value
         parametri.nomeLuogoControllo = dgv.CurrentRow.Cells("cLuogoControllo").Value
         parametri.dataoraControllo = dgv.CurrentRow.Cells("cOra").Value
-        feActions.doApriDettaglioSoggetto(DbAlegatoADataSet1, parametri, v)
+        feActions.doApriDettaglioSoggetto(DbAlegatoADataSet, parametri, v)
     End Sub
     Private Sub SoggettiDataGridView_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
         Dim dgv As DataGridView = sender
@@ -253,8 +253,8 @@ Public Class FPrima
 
     Private Sub logout()
         log_.xlogWriteEntry("Logout", TraceEventType.Information)
-        DbAlegatoADataSet1.QInterventi.Clear()
-        DbAlegatoADataSet1.QAllegatoA.Clear()
+        DbAlegatoADataSet.QInterventi.Clear()
+        DbAlegatoADataSet.QAllegatoA.Clear()
         caricaFinestraDatiOS()
     End Sub
 

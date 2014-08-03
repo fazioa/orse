@@ -54,10 +54,6 @@ Public Class FDataRange
         Return d
     End Function
 
-    Private Sub RichTextBox1_TextChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RichTextBox1.TextChanged
-
-    End Sub
-
 
     Private Sub RadioButtonPrimaDataDisp_CheckStateChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton1.CheckedChanged
         Dim cb As RadioButton = sender
@@ -93,4 +89,6 @@ Public Class FDataRange
 
         End If
     End Sub
+
+
 End Class

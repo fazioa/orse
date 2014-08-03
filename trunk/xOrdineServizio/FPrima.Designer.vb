@@ -73,7 +73,7 @@ Partial Class FPrima
         Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrdineServizioBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.OrdineServizioTableAdapter1 = New OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter()
-        Me.DbAlegatoADataSet1 = New OrSe.dbAlegatoADataSet()
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.TableLayoutPanel2.SuspendLayout()
@@ -86,7 +86,7 @@ Partial Class FPrima
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbAlegatoADataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PreferenzeToolStripMenuItem1
@@ -393,10 +393,10 @@ Partial Class FPrima
         '
         Me.OrdineServizioTableAdapter1.ClearBeforeFill = True
         '
-        'DbAlegatoADataSet1
+        'DbAlegatoADataSet
         '
-        Me.DbAlegatoADataSet1.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'FPrima
         '
@@ -422,7 +422,7 @@ Partial Class FPrima
         CType(Me.InterventiBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbAlegatoADataSet1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -512,7 +512,7 @@ Partial Class FPrima
     Friend WithEvents ToolStripSeparator4 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents RevisioneTabelleDatiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents OrdineServizioTableAdapter1 As OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter
-    Friend WithEvents DbAlegatoADataSet1 As OrSe.dbAlegatoADataSet
+    Friend WithEvents DbAlegatoADataSet As OrSe.dbAlegatoADataSet
     Friend WithEvents ApriCartellaDatabaseToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
