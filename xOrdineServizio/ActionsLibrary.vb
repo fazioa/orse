@@ -563,11 +563,11 @@ Public Class ActionsLibrary
 
 
             dInizio = dataRange.getStartDateResult()
-            dFine = dataRange.getEndDateResult
+            dFine = dataRange.getEndDateResult()
             'trasformo le date per eseguire la ricerca dalla mezzanotte della data di part alla mezzanotte della data di fine
 
-            dInizio = New Date(dInizio.Year, dInizio.Month, dInizio.Day, 0, 0, 0)
-            dFine = New Date(dFine.Year, dFine.Month, dFine.Day, 23, 59, 59)
+            'dInizio = New Date(dInizio.Year, dInizio.Month, dInizio.Day, 0, 0, 0)
+            'dFine = New Date(dFine.Year, dFine.Month, dFine.Day, 23, 59, 59)
 
 
 

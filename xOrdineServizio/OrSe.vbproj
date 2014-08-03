@@ -69,6 +69,7 @@
     <WarningLevel>1</WarningLevel>
     <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
     <Optimize>true</Optimize>
+    <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>None</DebugType>
@@ -132,9 +133,7 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="dbAlegatoADataSet.Designer.vb">
-      <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
+      <DependentUpon>dbAlegatoADataSet.vb</DependentUpon>
     </Compile>
     <Compile Include="dbAlegatoADataSet.vb">
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
@@ -418,8 +417,8 @@
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
     </None>
     <None Include="dbAlegatoADataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>dbAlegatoADataSet1.Designer.vb</LastGenOutput>
     </None>
     <None Include="dbAlegatoADataSet.xss">
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
@@ -562,8 +561,8 @@
     </COMReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="bin\DataSrc\" />
     <Folder Include="bin\Debug\" />
-    <Folder Include="DataSrc\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\automazione\op85.dot" />

@@ -3,7 +3,7 @@ Imports System.Windows.Forms
 Public Class FOpzioni
 
     Private Sub OK_Button_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles OK_Button.Click
-        'salvataggio automatico
+        'salvataggio automatico interventi
         If (CheckBoxSalvataggioAutomatico.Checked = False) Then
             My.Settings.intervalloSalvataggioAutomatico = -1
         Else
