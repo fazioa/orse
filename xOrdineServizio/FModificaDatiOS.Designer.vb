@@ -155,7 +155,6 @@ Partial Class FModificaDatiOS
         '
         Me.OSMaskedTextBox.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.DbAlegatoADataSet, "ordineServizio.nome", True))
         Me.OSMaskedTextBox.Location = New System.Drawing.Point(77, 12)
-        Me.OSMaskedTextBox.Mask = "OS 00/00"
         Me.OSMaskedTextBox.Name = "OSMaskedTextBox"
         Me.OSMaskedTextBox.Size = New System.Drawing.Size(64, 20)
         Me.OSMaskedTextBox.TabIndex = 32

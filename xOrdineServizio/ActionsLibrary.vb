@@ -390,17 +390,8 @@ Public Class ActionsLibrary
 
             'strDocumentName = "op85_" & sParteNomeFile & ".doc"
             Try
-                'If Dir(sPath & strDocumentName) = "" Then
-                '  Dim n As String = sPath & strDocumentName
-                '  log.xlogWriteEntry("Word - Utilizza modello .dot - Scrive file word" & n, TraceEventType.Critical)
-
-                ' oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=n)
                 oWord.Documents.Add(sPath & "op85.dot")
-                '    Else
-                '        'Se il file esiste allora fare qualcosa, magari aprire la maschera per la scelta del percorso
-                '        'oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=sPath & strDocumentName)
-                '        oWord.Documents.Add(sPath & "op85.dot")
-                ' End If
+
             Catch ex As Exception
                 log.xlogWriteEntry("Word - Errore:" & ex.Message, TraceEventType.Critical)
                 'oWord.Documents.Add(sPath & "op85.dot")
@@ -408,12 +399,10 @@ Public Class ActionsLibrary
             oWord.Caption = "OP85 - Persone di interesse operativo notate sul territorio"
             oDoc = Nothing
             Return oWord
-        Catch ex As Exception
-            log.xlogWriteException(ex, TraceEventType.Error, "Word - Inizializza documento OP85 - Errore")
+        Catch ex As COMException
+            MsgBox("La copia Microsoft Office potrebbe non essere registrato ed attiva", MsgBoxStyle.Critical, "Errore")
             Return Nothing
         End Try
-
-
     End Function
 
 
@@ -430,16 +419,6 @@ Public Class ActionsLibrary
 
             ' strDocumentName = "verbaleSopralluogo.doc"
             Try
-                '      If Dir(sPath & strDocumentName) = "" Then
-                'Dim n As String = sPath & strDocumentName
-                '      log.xlogWriteEntry("Word - Utilizza modello .dot - Scrive file word" & n, TraceEventType.Critical)
-
-                'oWord.Documents.Add(sPath & "verbaleSopralluogo.dot").SaveAs(FileName:=n)
-
-                '    Else
-                'Se il file esiste allora fare qualcosa, magari aprire la maschera per la scelta del percorso
-                'oWord.Documents.Add(sPath & "op85.dot").SaveAs(FileName:=sPath & strDocumentName)
-
                 Select Case selModello
                     Case tipoReport.sopralluogo
                         oWord.Documents.Add(sPath & "verbaleSopralluogo.dot")
@@ -447,11 +426,8 @@ Public Class ActionsLibrary
                     Case tipoReport.interventi
                         oWord.Documents.Add(sPath & "annotazionePG.dot")
                         oWord.Caption = "Annotazione di polizia giudiziaria"
-
                 End Select
 
-
-                '    End If
             Catch ex As Exception
                 log.xlogWriteEntry("Word - Errore:" & ex.Message, TraceEventType.Critical)
             End Try
@@ -462,38 +438,41 @@ Public Class ActionsLibrary
             log.xlogWriteException(ex, TraceEventType.Error, "Word - Inizializza verbale di sopralluogo - Errore")
             Return Nothing
         End Try
-
-
     End Function
 
     Public Sub wordInizializzaEcompilaVerbaleSopralluogo(ByVal sopralluogoBindingSource As BindingSource, ByVal nomiOperatori As String)
-        Dim oWord As Microsoft.Office.Interop.Word.Application = wordInizializzaDocumentoVerbale(tipoReport.sopralluogo)
+        Try
+            Dim oWord As Microsoft.Office.Interop.Word.Application = wordInizializzaDocumentoVerbale(tipoReport.sopralluogo)
 
-        wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
+            wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
 
-        wordScriviSegnalibro(oWord, "comando", My.Settings.comando)
-        wordScriviSegnalibro(oWord, "comando2", My.Settings.comandoSecondaRiga)
-        wordScriviSegnalibro(oWord, "tipoReato", leggiCampoDB(sopralluogoBindingSource, "tipoReato"))
-        wordScriviSegnalibro(oWord, "luogo", leggiCampoDB(sopralluogoBindingSource, "luogo_citta"))
-        wordScriviSegnalibro(oWord, "via", leggiCampoDB(sopralluogoBindingSource, "via"))
-        'il segnalibro non permette che esistano più istanze sullo stesso documento. Quindi devo duplicarlo, quando serve scrivere due volte le stesse informazioni.
-        wordScriviSegnalibro(oWord, "luogo2", leggiCampoDB(sopralluogoBindingSource, "luogo_citta"))
-        wordScriviSegnalibro(oWord, "via2", leggiCampoDB(sopralluogoBindingSource, "via"))
+            wordScriviSegnalibro(oWord, "comando", My.Settings.comando)
+            wordScriviSegnalibro(oWord, "comando2", My.Settings.comandoSecondaRiga)
+            wordScriviSegnalibro(oWord, "tipoReato", leggiCampoDB(sopralluogoBindingSource, "tipoReato"))
+            wordScriviSegnalibro(oWord, "luogo", leggiCampoDB(sopralluogoBindingSource, "luogo_citta"))
+            wordScriviSegnalibro(oWord, "via", leggiCampoDB(sopralluogoBindingSource, "via"))
+            'il segnalibro non permette che esistano più istanze sullo stesso documento. Quindi devo duplicarlo, quando serve scrivere due volte le stesse informazioni.
+            wordScriviSegnalibro(oWord, "luogo2", leggiCampoDB(sopralluogoBindingSource, "luogo_citta"))
+            wordScriviSegnalibro(oWord, "via2", leggiCampoDB(sopralluogoBindingSource, "via"))
 
-        Dim d As Date = leggiCampoDB(sopralluogoBindingSource, "oraRedazione")
-        wordScriviSegnalibro(oWord, "dataRedazione", FormatDateTime(d, DateFormat.ShortDate))
-        wordScriviSegnalibro(oWord, "oraRedazione", d.ToShortTimeString)
+            Dim d As Date = leggiCampoDB(sopralluogoBindingSource, "oraRedazione")
+            wordScriviSegnalibro(oWord, "dataRedazione", FormatDateTime(d, DateFormat.ShortDate))
+            wordScriviSegnalibro(oWord, "oraRedazione", d.ToShortTimeString)
 
-        d = leggiCampoDB(sopralluogoBindingSource, "oraRichiesta")
-        wordScriviSegnalibro(oWord, "dataRichiesta", FormatDateTime(d, DateFormat.ShortDate))
+            d = leggiCampoDB(sopralluogoBindingSource, "oraRichiesta")
+            wordScriviSegnalibro(oWord, "dataRichiesta", FormatDateTime(d, DateFormat.ShortDate))
 
-        wordScriviSegnalibro(oWord, "oraRichiesta", d.ToShortTimeString)
+            wordScriviSegnalibro(oWord, "oraRichiesta", d.ToShortTimeString)
 
-        wordScriviSegnalibro(oWord, "nomiOperatori", nomiOperatori)
+            wordScriviSegnalibro(oWord, "nomiOperatori", nomiOperatori)
 
-        wordScriviSegnalibro(oWord, "contatti", leggiCampoDB(sopralluogoBindingSource, "contatti_con"))
-        wordScriviSegnalibro(oWord, "resoconto", leggiCampoDB(sopralluogoBindingSource, "resoconto"))
-        wordAttivaDocumento(oWord)
+            wordScriviSegnalibro(oWord, "contatti", leggiCampoDB(sopralluogoBindingSource, "contatti_con"))
+            wordScriviSegnalibro(oWord, "resoconto", leggiCampoDB(sopralluogoBindingSource, "resoconto"))
+            wordAttivaDocumento(oWord)
+
+        Catch ex As COMException
+            MsgBox("La copia Microsoft Office potrebbe non essere registrata ed attiva", MsgBoxStyle.Critical, "Errore")
+        End Try
     End Sub
 
     Public Sub wordAttivaDocumento(ByVal oWord As Microsoft.Office.Interop.Word.Application)
@@ -1405,32 +1384,36 @@ Public Class ActionsLibrary
     End Sub
 
     Sub wordInizializzaEcompilaAnnotazionePG(bindingSource As BindingSource, nomeOperatori As String)
-        Dim oWord As Microsoft.Office.Interop.Word.Application = wordInizializzaDocumentoVerbale(tipoReport.interventi)
+        Try
+            Dim oWord As Microsoft.Office.Interop.Word.Application = wordInizializzaDocumentoVerbale(tipoReport.interventi)
 
-        wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
+            wordScriviSegnalibro(oWord, "regione", My.Settings.regione)
 
-        wordScriviSegnalibro(oWord, "comando", My.Settings.comando)
-        wordScriviSegnalibro(oWord, "comando2", My.Settings.comandoSecondaRiga)
-        wordScriviSegnalibro(oWord, "comando_2", My.Settings.comando)
-        wordScriviSegnalibro(oWord, "comando2_2", My.Settings.comandoSecondaRiga)
+            wordScriviSegnalibro(oWord, "comando", My.Settings.comando)
+            wordScriviSegnalibro(oWord, "comando2", My.Settings.comandoSecondaRiga)
+            wordScriviSegnalibro(oWord, "comando_2", My.Settings.comando)
+            wordScriviSegnalibro(oWord, "comando2_2", My.Settings.comandoSecondaRiga)
 
-        wordScriviSegnalibro(oWord, "operatori", nomeOperatori.Trim)
+            wordScriviSegnalibro(oWord, "operatori", nomeOperatori.Trim)
 
-        Dim d As Date = leggiCampoDB(bindingSource, "dataOraInizio")
-        wordScriviSegnalibro(oWord, "dataIntervento", FormatDateTime(d, DateFormat.ShortDate))
-        wordScriviSegnalibro(oWord, "oraIntervento", d.ToShortTimeString)
+            Dim d As Date = leggiCampoDB(bindingSource, "dataOraInizio")
+            wordScriviSegnalibro(oWord, "dataIntervento", FormatDateTime(d, DateFormat.ShortDate))
+            wordScriviSegnalibro(oWord, "oraIntervento", d.ToShortTimeString)
 
-        wordScriviSegnalibro(oWord, "dataIntervento2", FormatDateTime(d, DateFormat.ShortDate))
-        wordScriviSegnalibro(oWord, "oraIntervento2", d.ToShortTimeString)
+            wordScriviSegnalibro(oWord, "dataIntervento2", FormatDateTime(d, DateFormat.ShortDate))
+            wordScriviSegnalibro(oWord, "oraIntervento2", d.ToShortTimeString)
 
-        d = leggiCampoDB(bindingSource, "dataOraFine")
-        wordScriviSegnalibro(oWord, "oraFineIntervento", d.ToShortTimeString)
+            d = leggiCampoDB(bindingSource, "dataOraFine")
+            wordScriviSegnalibro(oWord, "oraFineIntervento", d.ToShortTimeString)
 
-        wordScriviSegnalibro(oWord, "tipoIntervento", leggiCampoDB(bindingSource, "tipoIntervento"))
-        wordScriviSegnalibro(oWord, "tipoIntervento2", leggiCampoDB(bindingSource, "tipoIntervento"))
-        wordScriviSegnalibro(oWord, "resoconto", leggiCampoDB(bindingSource, "resoconto"))
+            wordScriviSegnalibro(oWord, "tipoIntervento", leggiCampoDB(bindingSource, "tipoIntervento"))
+            wordScriviSegnalibro(oWord, "tipoIntervento2", leggiCampoDB(bindingSource, "tipoIntervento"))
+            wordScriviSegnalibro(oWord, "resoconto", leggiCampoDB(bindingSource, "resoconto"))
 
-        wordAttivaDocumento(oWord)
+            wordAttivaDocumento(oWord)
+        Catch ex As COMException
+            MsgBox("La copia Microsoft Office potrebbe non essere registrata ed attiva", MsgBoxStyle.Critical, "Errore")
+        End Try
     End Sub
 
     Sub doApriFormContatti()

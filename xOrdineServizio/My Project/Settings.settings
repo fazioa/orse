@@ -6,7 +6,7 @@
       <Value Profile="(Default)">IL COMANDANTE</Value>
     </Setting>
     <Setting Name="GruppoFirmaRiga2" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
-      <Value Profile="(Default)">(Mar.Ca.Xxxxx Xxxxx)</Value>
+      <Value Profile="(Default)">(Luog. Xxxxx Xxxxx)</Value>
     </Setting>
     <Setting Name="comando" GenerateDefaultValueInCode="false" Type="System.String" Scope="User">
       <Value Profile="(Default)">Stazione Carabinieri di Xxxxxxxxxx</Value>

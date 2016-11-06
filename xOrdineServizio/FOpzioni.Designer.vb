@@ -163,7 +163,7 @@ Partial Class FOpzioni
         Me.GroupBox2.Controls.Add(Me.Label4)
         Me.GroupBox2.Location = New System.Drawing.Point(374, 12)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(119, 54)
+        Me.GroupBox2.Size = New System.Drawing.Size(128, 54)
         Me.GroupBox2.TabIndex = 2
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "esempio"
@@ -171,17 +171,17 @@ Partial Class FOpzioni
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(6, 29)
+        Me.Label5.Location = New System.Drawing.Point(4, 31)
         Me.Label5.Name = "Label5"
         Me.Label5.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.Label5.Size = New System.Drawing.Size(107, 13)
+        Me.Label5.Size = New System.Drawing.Size(120, 13)
         Me.Label5.TabIndex = 8
-        Me.Label5.Text = "(Mar. Antonino Fazio)"
+        Me.Label5.Text = "(Mar. Antonino Frasassi)"
         '
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(3, 16)
+        Me.Label4.Location = New System.Drawing.Point(8, 18)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(112, 13)
         Me.Label4.TabIndex = 7
@@ -389,7 +389,7 @@ Partial Class FOpzioni
         Me.GroupBox6.Controls.Add(Me.Label10)
         Me.GroupBox6.Location = New System.Drawing.Point(374, 12)
         Me.GroupBox6.Name = "GroupBox6"
-        Me.GroupBox6.Size = New System.Drawing.Size(119, 54)
+        Me.GroupBox6.Size = New System.Drawing.Size(134, 54)
         Me.GroupBox6.TabIndex = 2
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "esempio"
@@ -397,16 +397,16 @@ Partial Class FOpzioni
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(6, 29)
+        Me.Label9.Location = New System.Drawing.Point(7, 31)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(104, 13)
+        Me.Label9.Size = New System.Drawing.Size(121, 13)
         Me.Label9.TabIndex = 8
-        Me.Label9.Text = "(Mar.Ca.Orazio Arria)"
+        Me.Label9.Text = "(Luog. Giacomo Rosani)"
         '
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(11, 16)
+        Me.Label10.Location = New System.Drawing.Point(20, 18)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(95, 13)
         Me.Label10.TabIndex = 7
