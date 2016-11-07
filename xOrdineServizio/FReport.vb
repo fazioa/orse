@@ -12,8 +12,8 @@ Public Class FReport
 
 
     Private Sub FReport_Load(sender As System.Object, e As System.EventArgs) Handles MyBase.Load
-       
-        Dim reportPath As String = ""
+        Try
+            Dim reportPath As String = ""
         Dim sCartella As String = "\Resources\automazione\"
         Dim sPath As String = My.Settings.pathCartellaScrivibile & sCartella
 
@@ -50,15 +50,6 @@ Public Class FReport
         Me.ReportViewer1.LocalReport.DataSources.Add(ReportDataSource1)
         'setta il path del report.
         Me.ReportViewer1.LocalReport.ReportPath = reportPath
-
-        'imposto il subreport per l'AllegatoA
-        'If (_tipo = tipoReport.allegatoA) Then
-        '    Dim sQuerysubReport = sOS + " AND {QAllegatoA.positivoSDI}=" + """" + esitoSDI.si + """"
-        '    Me.ReportViewer1.LocalReport.LoadSubreportDefinition(
-
-        '    cr.Subreports("subreportAllegatoAPrecedenti").SetDataSource(Me.DbAlegatoADataSet)
-        '    cr.Subreports("subreportAllegatoAPrecedenti").RecordSelectionFormula() = sQuerysubReport
-        'End If
 
         'imposto i parametri da passare al report
         Dim rPar As ReportParameter = New ReportParameter
@@ -120,21 +111,13 @@ Public Class FReport
                 rParCollection.Add(rPar)
             End If
 
-
-            '---mainreport selection formula
-            'cr.RecordSelectionFormula() = sOS
-
-            '     CrystalReportViewer.SelectionFormula = sOS
-            'CrystalReportViewer.Refresh()
-
-            'CrystalReportViewer.ReportSource = cr
-
-
         Me.ReportViewer1.LocalReport.SetParameters(rParCollection)
         Me.ReportViewer1.SetDisplayMode(DisplayMode.PrintLayout)
             Me.ReportViewer1.RefreshReport()
 
-
+        Catch ex As Exception
+            MsgBox("Windows Report deve essere installato. Eseguire nuovamente l'installazione di OrSe ed acconsentire al download ed installazione di Windows Report", MsgBoxStyle.Critical, "Errore")
+        End Try
     End Sub
 
     Public Sub New(ByVal tOS As Integer, ByVal sNomeOS As String, ByVal tipo As tipoReport)
