@@ -911,15 +911,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OrSe"
-        "ProductCode" = "8:{E53E470C-D6FA-4982-B5F9-8FD636073A92}"
-        "PackageCode" = "8:{1F80C360-9820-407D-8CBC-6BDFEB8B4EC6}"
-        "UpgradeCode" = "8:{5FC8B42E-4289-4055-9212-CA9E1810F993}"
+        "ProductCode" = "8:{05E6566A-8CB4-4772-AA57-14ADA8227CEA}"
+        "PackageCode" = "8:{2AD21F03-B4A8-4A0B-A43F-B438A8E6054A}"
+        "UpgradeCode" = "8:{0C7D90CF-3CC8-4A31-BC3D-DC885A69B70D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.81.00"
+        "ProductVersion" = "8:1.81.05"
         "Manufacturer" = "8:Orse"
         "ARPHELPTELEPHONE" = "8:3313658556"
         "ARPHELPLINK" = "8:www.xorse.it/orse"
@@ -1517,7 +1517,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DBD2460D46F5468894398930AE9FBD86"
             {
-            "SourcePath" = "8:..\\xOrdineServizio\\obj\\Release\\OrSe.exe"
+            "SourcePath" = "8:..\\xOrdineServizio\\obj\\Debug\\OrSe.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5F18610F329F4544B51F5E3B7A4A018F"

@@ -68,20 +68,25 @@ Public Class ApplicazionePatch
 
     Public Sub aggiornaversioneVersioneDB(ByVal versione As Double)
         Select Case versione
-            Case -1
-                patch1_creaTabellaVersione()
-                patch2_aggiornamentoMaxsizeCampoLuogoControllo()
-            Case Is < 2.6
-                patch2_aggiornamentoMaxsizeCampoLuogoControllo() '2.20
-                patch3_creazionetabellasopralluogo() '2.40
-                patch4_creazionetabellaRubrica() '2.60
-            Case Is < 2.7
-                patch5_IntegritaReferenzialeOperatori_dataAccessoOperatore()
-                ' Configuration.ConfigurationSettings
-                ' My.Settings.de()
-                '   +patch1
-            Case Is < 2.8
-                MsgBox("ATTENZIONE: Questa versione non prevede l'aggiornamento del database, che quindi non potrà essere utilizzato. Cancellarlo ed eseguire nuovamente l'installazione. Continuando, l'applicazione potrebbe non funzionare correttamente. Per mantenere i dati già raccolti usare le funzioni di esportazione ed importazione", MsgBoxStyle.Critical, "DATABASE NON AGGIORNATO")
+            '   Case -1
+            '    patch1_creaTabellaVersione()
+            ' patch2_aggiornamentoMaxsizeCampoLuogoControllo()
+            'Case Is < 2.6
+            '     patch2_aggiornamentoMaxsizeCampoLuogoControllo() '2.20
+            '     patch3_creazionetabellasopralluogo() '2.40
+            '      patch4_creazionetabellaRubrica() '2.60
+            '  Case Is < 2.7
+            '      patch5_IntegritaReferenzialeOperatori_dataAccessoOperatore()
+            ' Configuration.ConfigurationSettings
+            ' My.Settings.de()
+            '   +patch1
+            '            Case Is < 2.8
+            '               MsgBox("ATTENZIONE: Questa versione non prevede l'aggiornamento del database, che quindi non potrà essere utilizzato. Cancellarlo ed eseguire nuovamente l'installazione. Continuando, l'applicazione potrebbe non funzionare correttamente. Per mantenere i dati già raccolti usare le funzioni di esportazione ed importazione", MsgBoxStyle.Critical, "DATABASE NON AGGIORNATO")
+            Case Is < 2.9
+                patch2_aggiornamentoMaxsizeIndirizzo_e_documento()
+                MsgBox("ATTENZIONE: Database aggiornato. I campo soggetto.residenza e soggetto.documento sono stati ampliati a 200 caratteri")
+                MsgBox("ATTENZIONE: Continuando ad utilizzare il database corrente non sarà disponibile l'elenco aggiornato ISTAT 2016 dei Comuni italiano. Eseguire l'esportazione dei dati e la cancellazione manuale del database. Poi riavviare OrSe", MsgBoxStyle.Critical, "Comuni - ISTAT 2016")
+
         End Select
     End Sub
     Private Sub aggiornaNumeroVersione(ByVal sNuovoNumeroVersione As String, sAbout As String)
@@ -90,4 +95,12 @@ Public Class ApplicazionePatch
         Dim tabellaVersione As dbAlegatoADataSetTableAdapters.versioneTableAdapter = New dbAlegatoADataSetTableAdapters.versioneTableAdapter
         tabellaVersione.Insert(sNuovoNumeroVersione, sAbout)
     End Sub
+
+    Private Sub patch2_aggiornamentoMaxsizeIndirizzo_e_documento()
+        'esegue update del campo luogo controllo, passando da 50 caratteri massimi a 150, inserisce il numero versione DB 2.10
+        feActions.esegueSQL("ALTER TABLE persona ALTER COLUMN residenzaindirizzo TEXT(200);")
+        feActions.esegueSQL("ALTER TABLE persona ALTER COLUMN documento TEXT(200);")
+        aggiornaNumeroVersione("2.90", "nov 2016 - Aggiornata tabella comune con dati ISTAT. Aumentata dimensione campi soggetto.indirizzo e soggetto.documento")
+    End Sub
+
 End Class

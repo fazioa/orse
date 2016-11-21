@@ -347,7 +347,7 @@ Partial Class FSoggetto
         Me.tbDocumento.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "documento", True))
         Me.tbDocumento.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbDocumento.Location = New System.Drawing.Point(172, 13)
-        Me.tbDocumento.MaxLength = 50
+        Me.tbDocumento.MaxLength = 200
         Me.tbDocumento.Name = "tbDocumento"
         Me.tbDocumento.Size = New System.Drawing.Size(270, 41)
         Me.tbDocumento.TabIndex = 100
@@ -566,7 +566,7 @@ Partial Class FSoggetto
         Me.tbIndirizzo.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.PersonaBindingSource, "residenzaindirizzo", True))
         Me.tbIndirizzo.Font = New System.Drawing.Font("Microsoft Sans Serif", 22.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.tbIndirizzo.Location = New System.Drawing.Point(520, 12)
-        Me.tbIndirizzo.MaxLength = 50
+        Me.tbIndirizzo.MaxLength = 200
         Me.tbIndirizzo.Name = "tbIndirizzo"
         Me.tbIndirizzo.Size = New System.Drawing.Size(277, 41)
         Me.tbIndirizzo.TabIndex = 90
