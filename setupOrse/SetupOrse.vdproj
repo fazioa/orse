@@ -39,14 +39,14 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_17DA732F18794D058246452104DFFD96"
-        "OwnerKey" = "8:_F5506A0399AFE2BA47250E5C9483A837"
+        "MsmKey" = "8:_0CEBB2232203CA3EA514DFE8904D99EA"
+        "OwnerKey" = "8:_970C2E1C52967562CC4E3BD326703E21"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_278985D58C1C09FF271E5C68FF9D1BA3"
-        "OwnerKey" = "8:_DBD2460D46F5468894398930AE9FBD86"
+        "MsmKey" = "8:_17DA732F18794D058246452104DFFD96"
+        "OwnerKey" = "8:_F5506A0399AFE2BA47250E5C9483A837"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -69,8 +69,14 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_970C2E1C52967562CC4E3BD326703E21"
+        "OwnerKey" = "8:_DBD2460D46F5468894398930AE9FBD86"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_BC9B04ABC04CA754636E000F94056116"
-        "OwnerKey" = "8:_278985D58C1C09FF271E5C68FF9D1BA3"
+        "OwnerKey" = "8:_970C2E1C52967562CC4E3BD326703E21"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -95,12 +101,6 @@
         {
         "MsmKey" = "8:_DBD2460D46F5468894398930AE9FBD86"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_DCB7784C58051126E74747DFA0762F41"
-        "OwnerKey" = "8:_278985D58C1C09FF271E5C68FF9D1BA3"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -142,13 +142,25 @@
         "Entry"
         {
         "MsmKey" = "8:_FEBF6228444B8B5F6C8D5C4A7548BD71"
-        "OwnerKey" = "8:_DCB7784C58051126E74747DFA0762F41"
+        "OwnerKey" = "8:_0CEBB2232203CA3EA514DFE8904D99EA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_DBD2460D46F5468894398930AE9FBD86"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_970C2E1C52967562CC4E3BD326703E21"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0CEBB2232203CA3EA514DFE8904D99EA"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -185,18 +197,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0510C267B54890C85A9BD52A09BC14F9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_278985D58C1C09FF271E5C68FF9D1BA3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DCB7784C58051126E74747DFA0762F41"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -432,20 +432,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_17DA732F18794D058246452104DFFD96"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0CEBB2232203CA3EA514DFE8904D99EA"
             {
             "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:TRUE"
-            "AssemblyAsmDisplayName" = "8:stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Interop.ADODB, Version=2.8.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_17DA732F18794D058246452104DFFD96"
+                    "_0CEBB2232203CA3EA514DFE8904D99EA"
                     {
-                    "Name" = "8:stdole.dll"
+                    "Name" = "8:Interop.ADODB.DLL"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:stdole.dll"
+            "SourcePath" = "8:Interop.ADODB.DLL"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5F18610F329F4544B51F5E3B7A4A018F"
@@ -463,20 +463,20 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_278985D58C1C09FF271E5C68FF9D1BA3"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_17DA732F18794D058246452104DFFD96"
             {
             "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.JRO, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyIsInGAC" = "11:TRUE"
+            "AssemblyAsmDisplayName" = "8:stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_278985D58C1C09FF271E5C68FF9D1BA3"
+                    "_17DA732F18794D058246452104DFFD96"
                     {
-                    "Name" = "8:Interop.JRO.dll"
+                    "Name" = "8:stdole.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:Interop.JRO.dll"
+            "SourcePath" = "8:stdole.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5F18610F329F4544B51F5E3B7A4A018F"
@@ -576,6 +576,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_970C2E1C52967562CC4E3BD326703E21"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:Interop.JRO, Version=2.6.0.0, Culture=neutral, processorArchitecture=x86"
+                "ScatterAssemblies"
+                {
+                    "_970C2E1C52967562CC4E3BD326703E21"
+                    {
+                    "Name" = "8:Interop.JRO.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:Interop.JRO.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_5F18610F329F4544B51F5E3B7A4A018F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BC9B04ABC04CA754636E000F94056116"
             {
             "SourcePath" = "8:msjro.dll"
@@ -641,37 +672,6 @@
                     }
                 }
             "SourcePath" = "8:Microsoft.ReportViewer.Common.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_5F18610F329F4544B51F5E3B7A4A018F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DCB7784C58051126E74747DFA0762F41"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.ADODB, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_DCB7784C58051126E74747DFA0762F41"
-                    {
-                    "Name" = "8:Interop.ADODB.DLL"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:Interop.ADODB.DLL"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5F18610F329F4544B51F5E3B7A4A018F"
@@ -911,15 +911,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OrSe"
-        "ProductCode" = "8:{05E6566A-8CB4-4772-AA57-14ADA8227CEA}"
-        "PackageCode" = "8:{2AD21F03-B4A8-4A0B-A43F-B438A8E6054A}"
+        "ProductCode" = "8:{BB58CBE4-CD0E-4A98-8D56-B68F351151EF}"
+        "PackageCode" = "8:{4135B36E-AD0D-4108-9BEF-AC18BB331291}"
         "UpgradeCode" = "8:{0C7D90CF-3CC8-4A31-BC3D-DC885A69B70D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.81.05"
+        "ProductVersion" = "8:1.82.00"
         "Manufacturer" = "8:Orse"
         "ARPHELPTELEPHONE" = "8:3313658556"
         "ARPHELPLINK" = "8:www.xorse.it/orse"
