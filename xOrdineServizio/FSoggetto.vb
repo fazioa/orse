@@ -88,6 +88,10 @@ Public Class FSoggetto
         i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idResidenzaComune")
         If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet2.QComune, Integer.Parse(i))
 
+        i = feActions.leggiCampoDB(Me.QAllegatoABindingSource, "perquisizione")
+        '  If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.TipoPerquisizioneTableAdapter.
+
+
         parametri.idControllo = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idControllo")
         labelOSWrite(parametri.idControllo)
 
@@ -555,4 +559,6 @@ Public Class FSoggetto
             labelOSWrite(parametri.idControllo)
         End If
     End Sub
+
+
 End Class
