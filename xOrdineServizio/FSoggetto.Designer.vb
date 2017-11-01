@@ -45,7 +45,6 @@ Partial Class FSoggetto
         Me.tbNome = New System.Windows.Forms.TextBox()
         Me.tbDocumento = New System.Windows.Forms.TextBox()
         Me.ContravvenzioniCheckBox = New System.Windows.Forms.CheckBox()
-        Me.PerquisizioneCheckBox = New System.Windows.Forms.CheckBox()
         Me.tbPrecedenti = New System.Windows.Forms.TextBox()
         Me.tbNote = New System.Windows.Forms.TextBox()
         Me.btnSalvaChiudi = New System.Windows.Forms.Button()
@@ -72,9 +71,12 @@ Partial Class FSoggetto
         Me.ComboBoxModelliMezzo = New OrSe.UserControlComboBox()
         Me.MezzoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
+        Me.TipoPerquisizioneBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.perquisizioneComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.cbPip = New System.Windows.Forms.CheckBox()
@@ -121,6 +123,8 @@ Partial Class FSoggetto
         Me.GroupBoxMezzo.SuspendLayout()
         CType(Me.MezzoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
+        CType(Me.TipoPerquisizioneBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.Panel1.SuspendLayout()
@@ -364,14 +368,6 @@ Partial Class FSoggetto
         Me.ContravvenzioniCheckBox.TabIndex = 110
         Me.ContravvenzioniCheckBox.UseCompatibleTextRendering = True
         '
-        'PerquisizioneCheckBox
-        '
-        Me.PerquisizioneCheckBox.DataBindings.Add(New System.Windows.Forms.Binding("CheckState", Me.AllegatoABindingSource, "perquisizione", True))
-        Me.PerquisizioneCheckBox.Location = New System.Drawing.Point(259, 8)
-        Me.PerquisizioneCheckBox.Name = "PerquisizioneCheckBox"
-        Me.PerquisizioneCheckBox.Size = New System.Drawing.Size(18, 22)
-        Me.PerquisizioneCheckBox.TabIndex = 120
-        '
         'tbPrecedenti
         '
         Me.tbPrecedenti.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
@@ -400,7 +396,9 @@ Partial Class FSoggetto
         Me.tbNote.Size = New System.Drawing.Size(346, 91)
         Me.tbNote.TabIndex = 150
         Me.tbNote.Text = " "
-        Me.ToolTip.SetToolTip(Me.tbNote, "Le informazioni inserite in questo campo non verranno inserite in Allegato A.")
+        Me.ToolTip.SetToolTip(Me.tbNote, "Qui è possibile inserire informazioni varie, come riferimetni a numeri di fascico" & _
+        "li oppure codici identificativi. Le informazioni inserite in questo campo non ve" & _
+        "rranno inserite in Allegato A.")
         '
         'btnSalvaChiudi
         '
@@ -622,6 +620,19 @@ Partial Class FSoggetto
         '
         Me.ComuneNascitaBindingSource.DataMember = "QComune"
         Me.ComuneNascitaBindingSource.DataSource = Me.DbDataSet
+
+        '
+        'ComboBoxModelliMezzo
+        '
+        Me.ComboBoxModelliMezzo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ComboBoxModelliMezzo.AutoValidate = System.Windows.Forms.AutoValidate.Disable
+        Me.ComboBoxModelliMezzo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.ComboBoxModelliMezzo.CausesValidation = False
+        Me.ComboBoxModelliMezzo.Location = New System.Drawing.Point(111, 11)
+        Me.ComboBoxModelliMezzo.Name = "ComboBoxModelliMezzo"
+        Me.ComboBoxModelliMezzo.Size = New System.Drawing.Size(209, 42)
+        Me.ComboBoxModelliMezzo.TabIndex = 0
         '
         'GroupBoxMezzo
         '
@@ -639,18 +650,6 @@ Partial Class FSoggetto
         Me.GroupBoxMezzo.TabIndex = 0
         Me.GroupBoxMezzo.TabStop = False
         Me.GroupBoxMezzo.Text = "Mezzo"
-        '
-        'ComboBoxModelliMezzo
-        '
-        Me.ComboBoxModelliMezzo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBoxModelliMezzo.AutoValidate = System.Windows.Forms.AutoValidate.Disable
-        Me.ComboBoxModelliMezzo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ComboBoxModelliMezzo.CausesValidation = False
-        Me.ComboBoxModelliMezzo.Location = New System.Drawing.Point(111, 11)
-        Me.ComboBoxModelliMezzo.Name = "ComboBoxModelliMezzo"
-        Me.ComboBoxModelliMezzo.Size = New System.Drawing.Size(209, 42)
-        Me.ComboBoxModelliMezzo.TabIndex = 0
         '
         'MezzoBindingSource
         '
@@ -671,6 +670,16 @@ Partial Class FSoggetto
         Me.GroupBox6.TabIndex = 4
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Interesse Operativo"
+        '
+        'TipoPerquisizioneBindingSource
+        '
+        Me.TipoPerquisizioneBindingSource.DataSource = Me.DbAlegatoADataSet
+        Me.TipoPerquisizioneBindingSource.Position = 0
+        '
+        'DbAlegatoADataSet
+        '
+        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
+        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox7
         '
@@ -703,14 +712,24 @@ Partial Class FSoggetto
         '
         Me.Panel1.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.Controls.Add(Me.perquisizioneComboBox)
         Me.Panel1.Controls.Add(ContravvenzioniLabel)
-        Me.Panel1.Controls.Add(Me.PerquisizioneCheckBox)
         Me.Panel1.Controls.Add(PerquisizioneLabel)
         Me.Panel1.Controls.Add(Me.ContravvenzioniCheckBox)
         Me.Panel1.Location = New System.Drawing.Point(12, 376)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(448, 34)
         Me.Panel1.TabIndex = 5
+        '
+        'perquisizioneComboBox
+        '
+        Me.perquisizioneComboBox.DataSource = Me.AllegatoABindingSource
+        Me.perquisizioneComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
+        Me.perquisizioneComboBox.FormattingEnabled = True
+        Me.perquisizioneComboBox.Location = New System.Drawing.Point(256, 9)
+        Me.perquisizioneComboBox.Name = "perquisizioneComboBox"
+        Me.perquisizioneComboBox.Size = New System.Drawing.Size(184, 21)
+        Me.perquisizioneComboBox.TabIndex = 121
         '
         'GroupBox9
         '
@@ -884,6 +903,8 @@ Partial Class FSoggetto
         CType(Me.MezzoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
+        CType(Me.TipoPerquisizioneBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
@@ -906,7 +927,6 @@ Partial Class FSoggetto
     Friend WithEvents tbNome As System.Windows.Forms.TextBox
     Friend WithEvents tbDocumento As System.Windows.Forms.TextBox
     Friend WithEvents ContravvenzioniCheckBox As System.Windows.Forms.CheckBox
-    Friend WithEvents PerquisizioneCheckBox As System.Windows.Forms.CheckBox
     Friend WithEvents tbPrecedenti As System.Windows.Forms.TextBox
     Friend WithEvents tbNote As System.Windows.Forms.TextBox
     Friend WithEvents MezzoBindingSource As System.Windows.Forms.BindingSource
@@ -955,4 +975,7 @@ Partial Class FSoggetto
     Friend WithEvents QAllegatoABindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents DataNascitaMaskedTextBox As System.Windows.Forms.MaskedTextBox
     Friend WithEvents ComboBoxModelliMezzo As OrSe.UserControlComboBox
+    Friend WithEvents perquisizioneComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents DbAlegatoADataSet As OrSe.dbAlegatoADataSet
+    Friend WithEvents TipoPerquisizioneBindingSource As System.Windows.Forms.BindingSource
 End Class

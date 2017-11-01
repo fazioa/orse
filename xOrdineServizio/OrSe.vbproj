@@ -134,9 +134,8 @@
   <ItemGroup>
     <Compile Include="ApplicationEvents.vb" />
     <Compile Include="dbAlegatoADataSet.Designer.vb">
-      <DependentUpon>dbAlegatoADataSet.vb</DependentUpon>
-    </Compile>
-    <Compile Include="dbAlegatoADataSet.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="DBCommand.vb" />
@@ -419,7 +418,8 @@
     </None>
     <None Include="dbAlegatoADataSet.xsd">
       <SubType>Designer</SubType>
-      <LastGenOutput>dbAlegatoADataSet1.Designer.vb</LastGenOutput>
+      <LastGenOutput>dbAlegatoADataSet.Designer.vb</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
     </None>
     <None Include="dbAlegatoADataSet.xss">
       <DependentUpon>dbAlegatoADataSet.xsd</DependentUpon>
