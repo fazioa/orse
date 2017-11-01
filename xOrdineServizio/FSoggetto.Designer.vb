@@ -38,7 +38,7 @@ Partial Class FSoggetto
         Me.ColoreLabel = New System.Windows.Forms.Label()
         Me.tbColore = New System.Windows.Forms.TextBox()
         Me.AllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbDataSet = New OrSe.dbAlegatoADataSet()
+        Me.DbDataSetComuneNascita = New OrSe.dbAlegatoADataSet()
         Me.tbTarga = New System.Windows.Forms.TextBox()
         Me.tbCognome = New System.Windows.Forms.TextBox()
         Me.PersonaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
@@ -61,7 +61,7 @@ Partial Class FSoggetto
         Me.GroupBoxResidenza = New System.Windows.Forms.GroupBox()
         Me.ComboBoxComuneResidenza = New System.Windows.Forms.ComboBox()
         Me.ComuneResidenzaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbDataSet2 = New OrSe.dbAlegatoADataSet()
+        Me.DbDataSetComuneResidenza = New OrSe.dbAlegatoADataSet()
         Me.tbIndirizzo = New System.Windows.Forms.TextBox()
         Me.GroupBoxDatiAnagrafici = New System.Windows.Forms.GroupBox()
         Me.DataNascitaMaskedTextBox = New System.Windows.Forms.MaskedTextBox()
@@ -69,14 +69,13 @@ Partial Class FSoggetto
         Me.ComuneNascitaBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBoxMezzo = New System.Windows.Forms.GroupBox()
         Me.ComboBoxModelliMezzo = New OrSe.UserControlComboBox()
-        Me.MezzoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.GroupBox6 = New System.Windows.Forms.GroupBox()
-        Me.TipoPerquisizioneBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.GroupBox7 = New System.Windows.Forms.GroupBox()
         Me.GroupBox8 = New System.Windows.Forms.GroupBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.perquisizioneComboBox = New System.Windows.Forms.ComboBox()
+        Me.TipoPerquisizioneBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbDataSetTipoPerquisizione = New OrSe.dbAlegatoADataSet()
         Me.GroupBox9 = New System.Windows.Forms.GroupBox()
         Me.FlowLayoutPanel3 = New System.Windows.Forms.FlowLayoutPanel()
         Me.cbPip = New System.Windows.Forms.CheckBox()
@@ -86,6 +85,8 @@ Partial Class FSoggetto
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.LabelControllo = New System.Windows.Forms.Label()
         Me.LabelOperatori = New System.Windows.Forms.Label()
+        Me.MezzoBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.modelliMezzoTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter()
         Me.AllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter()
         Me.PersonaTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.personaTableAdapter()
@@ -94,6 +95,7 @@ Partial Class FSoggetto
         Me.PrioritaComuneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.prioritaComuneTableAdapter()
         Me.QAllegatoATableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter()
         Me.QAllegatoABindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.TipoPerquisizioneTableAdapter = New OrSe.dbAlegatoADataSetTableAdapters.tipoPerquisizioneTableAdapter()
         IdMezzoLabel = New System.Windows.Forms.Label()
         TargaLabel = New System.Windows.Forms.Label()
         CognomeLabel = New System.Windows.Forms.Label()
@@ -109,7 +111,7 @@ Partial Class FSoggetto
         NOTELabel = New System.Windows.Forms.Label()
         Label1 = New System.Windows.Forms.Label()
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbDataSetComuneNascita, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PersonaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.FlowLayoutPanel1.SuspendLayout()
@@ -117,20 +119,21 @@ Partial Class FSoggetto
         Me.FlowLayoutPanel2.SuspendLayout()
         Me.GroupBoxResidenza.SuspendLayout()
         CType(Me.ComuneResidenzaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbDataSet2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbDataSetComuneResidenza, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxDatiAnagrafici.SuspendLayout()
         CType(Me.ComuneNascitaBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBoxMezzo.SuspendLayout()
-        CType(Me.MezzoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox6.SuspendLayout()
-        CType(Me.TipoPerquisizioneBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox7.SuspendLayout()
         Me.GroupBox8.SuspendLayout()
         Me.Panel1.SuspendLayout()
+        CType(Me.TipoPerquisizioneBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbDataSetTipoPerquisizione, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox9.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.FlowLayoutPanel4.SuspendLayout()
+        CType(Me.MezzoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -300,12 +303,12 @@ Partial Class FSoggetto
         'AllegatoABindingSource
         '
         Me.AllegatoABindingSource.DataMember = "allegatoA"
-        Me.AllegatoABindingSource.DataSource = Me.DbDataSet
+        Me.AllegatoABindingSource.DataSource = Me.DbDataSetComuneNascita
         '
-        'DbDataSet
+        'DbDataSetComuneNascita
         '
-        Me.DbDataSet.DataSetName = "DbAlegatoADataSet"
-        Me.DbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.DbDataSetComuneNascita.DataSetName = "DbAlegatoADataSet"
+        Me.DbDataSetComuneNascita.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'tbTarga
         '
@@ -330,7 +333,7 @@ Partial Class FSoggetto
         'PersonaBindingSource
         '
         Me.PersonaBindingSource.DataMember = "persona"
-        Me.PersonaBindingSource.DataSource = Me.DbDataSet
+        Me.PersonaBindingSource.DataSource = Me.DbDataSetComuneNascita
         '
         'tbNome
         '
@@ -550,12 +553,12 @@ Partial Class FSoggetto
         'ComuneResidenzaBindingSource
         '
         Me.ComuneResidenzaBindingSource.DataMember = "QComune"
-        Me.ComuneResidenzaBindingSource.DataSource = Me.DbDataSet2
+        Me.ComuneResidenzaBindingSource.DataSource = Me.DbDataSetComuneResidenza
         '
-        'DbDataSet2
+        'DbDataSetComuneResidenza
         '
-        Me.DbDataSet2.DataSetName = "DbDataSet2"
-        Me.DbDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        Me.DbDataSetComuneResidenza.DataSetName = "DbAlegatoADataSet"
+        Me.DbDataSetComuneResidenza.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'tbIndirizzo
         '
@@ -619,20 +622,7 @@ Partial Class FSoggetto
         'ComuneNascitaBindingSource
         '
         Me.ComuneNascitaBindingSource.DataMember = "QComune"
-        Me.ComuneNascitaBindingSource.DataSource = Me.DbDataSet
-
-        '
-        'ComboBoxModelliMezzo
-        '
-        Me.ComboBoxModelliMezzo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.ComboBoxModelliMezzo.AutoValidate = System.Windows.Forms.AutoValidate.Disable
-        Me.ComboBoxModelliMezzo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.ComboBoxModelliMezzo.CausesValidation = False
-        Me.ComboBoxModelliMezzo.Location = New System.Drawing.Point(111, 11)
-        Me.ComboBoxModelliMezzo.Name = "ComboBoxModelliMezzo"
-        Me.ComboBoxModelliMezzo.Size = New System.Drawing.Size(209, 42)
-        Me.ComboBoxModelliMezzo.TabIndex = 0
+        Me.ComuneNascitaBindingSource.DataSource = Me.DbDataSetComuneNascita
         '
         'GroupBoxMezzo
         '
@@ -651,10 +641,17 @@ Partial Class FSoggetto
         Me.GroupBoxMezzo.TabStop = False
         Me.GroupBoxMezzo.Text = "Mezzo"
         '
-        'MezzoBindingSource
+        'ComboBoxModelliMezzo
         '
-        Me.MezzoBindingSource.DataMember = "modelliMezzo"
-        Me.MezzoBindingSource.DataSource = Me.DbDataSet
+        Me.ComboBoxModelliMezzo.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ComboBoxModelliMezzo.AutoValidate = System.Windows.Forms.AutoValidate.Disable
+        Me.ComboBoxModelliMezzo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.ComboBoxModelliMezzo.CausesValidation = False
+        Me.ComboBoxModelliMezzo.Location = New System.Drawing.Point(111, 11)
+        Me.ComboBoxModelliMezzo.Name = "ComboBoxModelliMezzo"
+        Me.ComboBoxModelliMezzo.Size = New System.Drawing.Size(209, 42)
+        Me.ComboBoxModelliMezzo.TabIndex = 0
         '
         'GroupBox6
         '
@@ -670,16 +667,6 @@ Partial Class FSoggetto
         Me.GroupBox6.TabIndex = 4
         Me.GroupBox6.TabStop = False
         Me.GroupBox6.Text = "Interesse Operativo"
-        '
-        'TipoPerquisizioneBindingSource
-        '
-        Me.TipoPerquisizioneBindingSource.DataSource = Me.DbAlegatoADataSet
-        Me.TipoPerquisizioneBindingSource.Position = 0
-        '
-        'DbAlegatoADataSet
-        '
-        Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
-        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox7
         '
@@ -723,13 +710,25 @@ Partial Class FSoggetto
         '
         'perquisizioneComboBox
         '
-        Me.perquisizioneComboBox.DataSource = Me.AllegatoABindingSource
+        Me.perquisizioneComboBox.DataBindings.Add(New System.Windows.Forms.Binding("SelectedValue", Me.AllegatoABindingSource, "perquisizione", True))
+        Me.perquisizioneComboBox.DataSource = Me.TipoPerquisizioneBindingSource
+        Me.perquisizioneComboBox.DisplayMember = "tipo"
         Me.perquisizioneComboBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!)
-        Me.perquisizioneComboBox.FormattingEnabled = True
         Me.perquisizioneComboBox.Location = New System.Drawing.Point(256, 9)
         Me.perquisizioneComboBox.Name = "perquisizioneComboBox"
         Me.perquisizioneComboBox.Size = New System.Drawing.Size(184, 21)
         Me.perquisizioneComboBox.TabIndex = 121
+        Me.perquisizioneComboBox.ValueMember = "idCarattere"
+        '
+        'TipoPerquisizioneBindingSource
+        '
+        Me.TipoPerquisizioneBindingSource.DataMember = "tipoPerquisizione"
+        Me.TipoPerquisizioneBindingSource.DataSource = Me.DbDataSetTipoPerquisizione
+        '
+        'DbDataSetTipoPerquisizione
+        '
+        Me.DbDataSetTipoPerquisizione.DataSetName = "DbAlegatoADataSet"
+        Me.DbDataSetTipoPerquisizione.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'GroupBox9
         '
@@ -827,6 +826,16 @@ Partial Class FSoggetto
         Me.LabelOperatori.Text = "LabelOperatori"
         Me.ToolTip.SetToolTip(Me.LabelOperatori, "Doppio click per modificare.")
         '
+        'MezzoBindingSource
+        '
+        Me.MezzoBindingSource.DataMember = "modelliMezzo"
+        Me.MezzoBindingSource.DataSource = Me.DbDataSetComuneNascita
+        '
+        'DbAlegatoADataSet
+        '
+        Me.DbAlegatoADataSet.DataSetName = "DbAlegatoADataSet"
+        Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
         'modelliMezzoTableAdapter
         '
         Me.modelliMezzoTableAdapter.ClearBeforeFill = True
@@ -858,7 +867,11 @@ Partial Class FSoggetto
         'QAllegatoABindingSource
         '
         Me.QAllegatoABindingSource.DataMember = "QAllegatoA"
-        Me.QAllegatoABindingSource.DataSource = Me.DbDataSet
+        Me.QAllegatoABindingSource.DataSource = Me.DbDataSetComuneNascita
+        '
+        'TipoPerquisizioneTableAdapter
+        '
+        Me.TipoPerquisizioneTableAdapter.ClearBeforeFill = True
         '
         'FSoggetto
         '
@@ -885,7 +898,7 @@ Partial Class FSoggetto
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Soggetti"
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbDataSetComuneNascita, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PersonaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.FlowLayoutPanel1.ResumeLayout(False)
@@ -894,32 +907,33 @@ Partial Class FSoggetto
         Me.GroupBoxResidenza.ResumeLayout(False)
         Me.GroupBoxResidenza.PerformLayout()
         CType(Me.ComuneResidenzaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbDataSet2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbDataSetComuneResidenza, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxDatiAnagrafici.ResumeLayout(False)
         Me.GroupBoxDatiAnagrafici.PerformLayout()
         CType(Me.ComuneNascitaBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBoxMezzo.ResumeLayout(False)
         Me.GroupBoxMezzo.PerformLayout()
-        CType(Me.MezzoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox6.ResumeLayout(False)
         Me.GroupBox6.PerformLayout()
-        CType(Me.TipoPerquisizioneBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox7.ResumeLayout(False)
         Me.GroupBox7.PerformLayout()
         Me.GroupBox8.ResumeLayout(False)
         Me.GroupBox8.PerformLayout()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()
+        CType(Me.TipoPerquisizioneBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbDataSetTipoPerquisizione, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox9.ResumeLayout(False)
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.FlowLayoutPanel4.ResumeLayout(False)
+        CType(Me.MezzoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents DbDataSet As OrSe.dbAlegatoADataSet
+    Friend WithEvents DbDataSetComuneNascita As OrSe.dbAlegatoADataSet
     Friend WithEvents AllegatoABindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents tbColore As System.Windows.Forms.TextBox
     Friend WithEvents tbTarga As System.Windows.Forms.TextBox
@@ -963,7 +977,7 @@ Partial Class FSoggetto
     Friend WithEvents ToolTip As System.Windows.Forms.ToolTip
     Friend WithEvents Panel1 As System.Windows.Forms.Panel
     Friend WithEvents LabelControllo As System.Windows.Forms.Label
-    Friend WithEvents DbDataSet2 As OrSe.dbAlegatoADataSet
+    Friend WithEvents DbDataSetComuneResidenza As OrSe.dbAlegatoADataSet
     Friend WithEvents ComboBoxComuneNascita As System.Windows.Forms.ComboBox
     Friend WithEvents ComboBoxComuneResidenza As System.Windows.Forms.ComboBox
     Friend WithEvents ComuneResidenzaBindingSource As System.Windows.Forms.BindingSource
@@ -978,4 +992,6 @@ Partial Class FSoggetto
     Friend WithEvents perquisizioneComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents DbAlegatoADataSet As OrSe.dbAlegatoADataSet
     Friend WithEvents TipoPerquisizioneBindingSource As System.Windows.Forms.BindingSource
+    Friend WithEvents TipoPerquisizioneTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.tipoPerquisizioneTableAdapter
+    Friend WithEvents DbDataSetTipoPerquisizione As OrSe.dbAlegatoADataSet
 End Class

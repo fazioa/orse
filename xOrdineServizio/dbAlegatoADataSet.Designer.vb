@@ -65,6 +65,8 @@ Partial Public Class dbAlegatoADataSet
     
     Private tableQSopralluogo As QSopralluogoDataTable
     
+    Private tabletipoPerquisizione As tipoPerquisizioneDataTable
+    
     Private relationluoghicontrollocontrollo As Global.System.Data.DataRelation
     
     Private relationordineServiziocontrollo As Global.System.Data.DataRelation
@@ -80,6 +82,8 @@ Partial Public Class dbAlegatoADataSet
     Private relationmezzoallegatoA As Global.System.Data.DataRelation
     
     Private relationcontrolloallegatoA As Global.System.Data.DataRelation
+    
+    Private relationtipoPerquisizione_allegatoA As Global.System.Data.DataRelation
     
     Private _schemaSerializationMode As Global.System.Data.SchemaSerializationMode = Global.System.Data.SchemaSerializationMode.IncludeSchema
     
@@ -169,6 +173,9 @@ Partial Public Class dbAlegatoADataSet
             End If
             If (Not (ds.Tables("QSopralluogo")) Is Nothing) Then
                 MyBase.Tables.Add(New QSopralluogoDataTable(ds.Tables("QSopralluogo")))
+            End If
+            If (Not (ds.Tables("tipoPerquisizione")) Is Nothing) Then
+                MyBase.Tables.Add(New tipoPerquisizioneDataTable(ds.Tables("tipoPerquisizione")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -389,6 +396,16 @@ Partial Public Class dbAlegatoADataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+     Global.System.ComponentModel.Browsable(false),  _
+     Global.System.ComponentModel.DesignerSerializationVisibility(Global.System.ComponentModel.DesignerSerializationVisibility.Content)>  _
+    Public ReadOnly Property tipoPerquisizione() As tipoPerquisizioneDataTable
+        Get
+            Return Me.tabletipoPerquisizione
+        End Get
+    End Property
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
      Global.System.ComponentModel.BrowsableAttribute(true),  _
      Global.System.ComponentModel.DesignerSerializationVisibilityAttribute(Global.System.ComponentModel.DesignerSerializationVisibility.Visible)>  _
     Public Overrides Property SchemaSerializationMode() As Global.System.Data.SchemaSerializationMode
@@ -513,6 +530,9 @@ Partial Public Class dbAlegatoADataSet
             End If
             If (Not (ds.Tables("QSopralluogo")) Is Nothing) Then
                 MyBase.Tables.Add(New QSopralluogoDataTable(ds.Tables("QSopralluogo")))
+            End If
+            If (Not (ds.Tables("tipoPerquisizione")) Is Nothing) Then
+                MyBase.Tables.Add(New tipoPerquisizioneDataTable(ds.Tables("tipoPerquisizione")))
             End If
             Me.DataSetName = ds.DataSetName
             Me.Prefix = ds.Prefix
@@ -666,6 +686,12 @@ Partial Public Class dbAlegatoADataSet
                 Me.tableQSopralluogo.InitVars
             End If
         End If
+        Me.tabletipoPerquisizione = CType(MyBase.Tables("tipoPerquisizione"),tipoPerquisizioneDataTable)
+        If (initTable = true) Then
+            If (Not (Me.tabletipoPerquisizione) Is Nothing) Then
+                Me.tabletipoPerquisizione.InitVars
+            End If
+        End If
         Me.relationluoghicontrollocontrollo = Me.Relations("luoghicontrollocontrollo")
         Me.relationordineServiziocontrollo = Me.Relations("ordineServiziocontrollo")
         Me.relationordineServiziointerventi = Me.Relations("ordineServiziointerventi")
@@ -674,6 +700,7 @@ Partial Public Class dbAlegatoADataSet
         Me.relationpersonaallegatoA = Me.Relations("personaallegatoA")
         Me.relationmezzoallegatoA = Me.Relations("mezzoallegatoA")
         Me.relationcontrolloallegatoA = Me.Relations("controlloallegatoA")
+        Me.relationtipoPerquisizione_allegatoA = Me.Relations("tipoPerquisizione_allegatoA")
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -724,6 +751,8 @@ Partial Public Class dbAlegatoADataSet
         MyBase.Tables.Add(Me.tableQRubrica)
         Me.tableQSopralluogo = New QSopralluogoDataTable()
         MyBase.Tables.Add(Me.tableQSopralluogo)
+        Me.tabletipoPerquisizione = New tipoPerquisizioneDataTable()
+        MyBase.Tables.Add(Me.tabletipoPerquisizione)
         Me.relationluoghicontrollocontrollo = New Global.System.Data.DataRelation("luoghicontrollocontrollo", New Global.System.Data.DataColumn() {Me.tableluoghicontrollo.idColumn}, New Global.System.Data.DataColumn() {Me.tablecontrollo.idLuogoColumn}, false)
         Me.Relations.Add(Me.relationluoghicontrollocontrollo)
         Me.relationordineServiziocontrollo = New Global.System.Data.DataRelation("ordineServiziocontrollo", New Global.System.Data.DataColumn() {Me.tableordineServizio.IDColumn}, New Global.System.Data.DataColumn() {Me.tablecontrollo.idOsColumn}, false)
@@ -740,6 +769,8 @@ Partial Public Class dbAlegatoADataSet
         Me.Relations.Add(Me.relationmezzoallegatoA)
         Me.relationcontrolloallegatoA = New Global.System.Data.DataRelation("controlloallegatoA", New Global.System.Data.DataColumn() {Me.tablecontrollo.IDColumn}, New Global.System.Data.DataColumn() {Me.tableallegatoA.idControlloColumn}, false)
         Me.Relations.Add(Me.relationcontrolloallegatoA)
+        Me.relationtipoPerquisizione_allegatoA = New Global.System.Data.DataRelation("tipoPerquisizione_allegatoA", New Global.System.Data.DataColumn() {Me.tabletipoPerquisizione.idCarattereColumn}, New Global.System.Data.DataColumn() {Me.tableallegatoA.perquisizioneColumn}, false)
+        Me.Relations.Add(Me.relationtipoPerquisizione_allegatoA)
     End Sub
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -864,6 +895,12 @@ Partial Public Class dbAlegatoADataSet
     
     <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
      Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Private Function ShouldSerializetipoPerquisizione() As Boolean
+        Return false
+    End Function
+    
+    <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Private Sub SchemaChanged(ByVal sender As Object, ByVal e As Global.System.ComponentModel.CollectionChangeEventArgs)
         If (e.Action = Global.System.ComponentModel.CollectionChangeAction.Remove) Then
             Me.InitVars
@@ -980,6 +1017,9 @@ Partial Public Class dbAlegatoADataSet
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
     Public Delegate Sub QSopralluogoRowChangeEventHandler(ByVal sender As Object, ByVal e As QSopralluogoRowChangeEvent)
     
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Delegate Sub tipoPerquisizioneRowChangeEventHandler(ByVal sender As Object, ByVal e As tipoPerquisizioneRowChangeEvent)
+    
     '''<summary>
     '''Represents the strongly named DataTable class.
     '''</summary>
@@ -1004,11 +1044,11 @@ Partial Public Class dbAlegatoADataSet
         
         Private columncontravvenzioni As Global.System.Data.DataColumn
         
-        Private columnperquisizione As Global.System.Data.DataColumn
-        
         Private columnpositivoSDI As Global.System.Data.DataColumn
         
         Private columnNOTE As Global.System.Data.DataColumn
+        
+        Private columnperquisizione As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -1111,14 +1151,6 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property perquisizioneColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnperquisizione
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public ReadOnly Property positivoSDIColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnpositivoSDI
@@ -1130,6 +1162,14 @@ Partial Public Class dbAlegatoADataSet
         Public ReadOnly Property NOTEColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columnNOTE
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property perquisizioneColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnperquisizione
             End Get
         End Property
         
@@ -1170,9 +1210,9 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddallegatoARow(ByVal parentcontrolloRowBycontrolloallegatoA As controlloRow, ByVal ordine As Integer, ByVal parentmodelliMezzoRowBymezzoallegatoA As modelliMezzoRow, ByVal colore As String, ByVal targa As String, ByVal parentpersonaRowBypersonaallegatoA As personaRow, ByVal contravvenzioni As Boolean, ByVal perquisizione As Boolean, ByVal positivoSDI As String, ByVal NOTE As String) As allegatoARow
+        Public Overloads Function AddallegatoARow(ByVal parentcontrolloRowBycontrolloallegatoA As controlloRow, ByVal ordine As Integer, ByVal parentmodelliMezzoRowBymezzoallegatoA As modelliMezzoRow, ByVal colore As String, ByVal targa As String, ByVal parentpersonaRowBypersonaallegatoA As personaRow, ByVal contravvenzioni As Boolean, ByVal positivoSDI As String, ByVal NOTE As String, ByVal parenttipoPerquisizioneRowBytipoPerquisizione_allegatoA As tipoPerquisizioneRow) As allegatoARow
             Dim rowallegatoARow As allegatoARow = CType(Me.NewRow,allegatoARow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, ordine, Nothing, colore, targa, Nothing, contravvenzioni, perquisizione, positivoSDI, NOTE}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Nothing, ordine, Nothing, colore, targa, Nothing, contravvenzioni, positivoSDI, NOTE, Nothing}
             If (Not (parentcontrolloRowBycontrolloallegatoA) Is Nothing) Then
                 columnValuesArray(1) = parentcontrolloRowBycontrolloallegatoA(0)
             End If
@@ -1181,6 +1221,9 @@ Partial Public Class dbAlegatoADataSet
             End If
             If (Not (parentpersonaRowBypersonaallegatoA) Is Nothing) Then
                 columnValuesArray(6) = parentpersonaRowBypersonaallegatoA(0)
+            End If
+            If (Not (parenttipoPerquisizioneRowBytipoPerquisizione_allegatoA) Is Nothing) Then
+                columnValuesArray(10) = parenttipoPerquisizioneRowBytipoPerquisizione_allegatoA(0)
             End If
             rowallegatoARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowallegatoARow)
@@ -1218,9 +1261,9 @@ Partial Public Class dbAlegatoADataSet
             Me.columntarga = MyBase.Columns("targa")
             Me.columnidPersona = MyBase.Columns("idPersona")
             Me.columncontravvenzioni = MyBase.Columns("contravvenzioni")
-            Me.columnperquisizione = MyBase.Columns("perquisizione")
             Me.columnpositivoSDI = MyBase.Columns("positivoSDI")
             Me.columnNOTE = MyBase.Columns("NOTE")
+            Me.columnperquisizione = MyBase.Columns("perquisizione")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -1242,12 +1285,12 @@ Partial Public Class dbAlegatoADataSet
             MyBase.Columns.Add(Me.columnidPersona)
             Me.columncontravvenzioni = New Global.System.Data.DataColumn("contravvenzioni", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncontravvenzioni)
-            Me.columnperquisizione = New Global.System.Data.DataColumn("perquisizione", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnperquisizione)
             Me.columnpositivoSDI = New Global.System.Data.DataColumn("positivoSDI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpositivoSDI)
             Me.columnNOTE = New Global.System.Data.DataColumn("NOTE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnNOTE)
+            Me.columnperquisizione = New Global.System.Data.DataColumn("perquisizione", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnperquisizione)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
@@ -1257,9 +1300,9 @@ Partial Public Class dbAlegatoADataSet
             Me.columncolore.MaxLength = 50
             Me.columntarga.MaxLength = 50
             Me.columncontravvenzioni.DefaultValue = CType(false,Boolean)
-            Me.columnperquisizione.DefaultValue = CType(false,Boolean)
             Me.columnpositivoSDI.MaxLength = 2
             Me.columnNOTE.MaxLength = 536870910
+            Me.columnperquisizione.MaxLength = 1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5142,8 +5185,6 @@ Partial Public Class dbAlegatoADataSet
         
         Private columncontravvenzioni As Global.System.Data.DataColumn
         
-        Private columnperquisizione As Global.System.Data.DataColumn
-        
         Private columnpositivoSDI As Global.System.Data.DataColumn
         
         Private columnNOTE As Global.System.Data.DataColumn
@@ -5181,6 +5222,8 @@ Partial Public Class dbAlegatoADataSet
         Private columndataOS As Global.System.Data.DataColumn
         
         Private columnidOS As Global.System.Data.DataColumn
+        
+        Private columnperquisizione As Global.System.Data.DataColumn
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -5278,14 +5321,6 @@ Partial Public Class dbAlegatoADataSet
         Public ReadOnly Property contravvenzioniColumn() As Global.System.Data.DataColumn
             Get
                 Return Me.columncontravvenzioni
-            End Get
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public ReadOnly Property perquisizioneColumn() As Global.System.Data.DataColumn
-            Get
-                Return Me.columnperquisizione
             End Get
         End Property
         
@@ -5442,6 +5477,14 @@ Partial Public Class dbAlegatoADataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property perquisizioneColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnperquisizione
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5486,7 +5529,6 @@ Partial Public Class dbAlegatoADataSet
                     ByVal targa As String,  _
                     ByVal idPersona As Integer,  _
                     ByVal contravvenzioni As Boolean,  _
-                    ByVal perquisizione As Boolean,  _
                     ByVal positivoSDI As String,  _
                     ByVal NOTE As String,  _
                     ByVal dataora As Date,  _
@@ -5504,9 +5546,10 @@ Partial Public Class dbAlegatoADataSet
                     ByVal cittanascita As String,  _
                     ByVal cittaresidenza As String,  _
                     ByVal nomeOS As String,  _
-                    ByVal dataOS As Date) As QAllegatoARow
+                    ByVal dataOS As Date,  _
+                    ByVal perquisizione As String) As QAllegatoARow
             Dim rowQAllegatoARow As QAllegatoARow = CType(Me.NewRow,QAllegatoARow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzioni, perquisizione, positivoSDI, NOTE, dataora, idLuogo, luogo, mezzo, operatori, cognome, nome, datanascita, residenzaindirizzo, documento, precedenti, idLuogoNascita, cittanascita, cittaresidenza, nomeOS, dataOS, Nothing}
+            Dim columnValuesArray() As Object = New Object() {Nothing, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzioni, positivoSDI, NOTE, dataora, idLuogo, luogo, mezzo, operatori, cognome, nome, datanascita, residenzaindirizzo, documento, precedenti, idLuogoNascita, cittanascita, cittaresidenza, nomeOS, dataOS, Nothing, perquisizione}
             rowQAllegatoARow.ItemArray = columnValuesArray
             Me.Rows.Add(rowQAllegatoARow)
             Return rowQAllegatoARow
@@ -5537,7 +5580,6 @@ Partial Public Class dbAlegatoADataSet
             Me.columntarga = MyBase.Columns("targa")
             Me.columnidPersona = MyBase.Columns("idPersona")
             Me.columncontravvenzioni = MyBase.Columns("contravvenzioni")
-            Me.columnperquisizione = MyBase.Columns("perquisizione")
             Me.columnpositivoSDI = MyBase.Columns("positivoSDI")
             Me.columnNOTE = MyBase.Columns("NOTE")
             Me.columndataora = MyBase.Columns("dataora")
@@ -5557,6 +5599,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnnomeOS = MyBase.Columns("nomeOS")
             Me.columndataOS = MyBase.Columns("dataOS")
             Me.columnidOS = MyBase.Columns("idOS")
+            Me.columnperquisizione = MyBase.Columns("perquisizione")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5578,8 +5621,6 @@ Partial Public Class dbAlegatoADataSet
             MyBase.Columns.Add(Me.columnidPersona)
             Me.columncontravvenzioni = New Global.System.Data.DataColumn("contravvenzioni", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columncontravvenzioni)
-            Me.columnperquisizione = New Global.System.Data.DataColumn("perquisizione", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
-            MyBase.Columns.Add(Me.columnperquisizione)
             Me.columnpositivoSDI = New Global.System.Data.DataColumn("positivoSDI", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnpositivoSDI)
             Me.columnNOTE = New Global.System.Data.DataColumn("NOTE", GetType(String), Nothing, Global.System.Data.MappingType.Element)
@@ -5618,6 +5659,8 @@ Partial Public Class dbAlegatoADataSet
             MyBase.Columns.Add(Me.columndataOS)
             Me.columnidOS = New Global.System.Data.DataColumn("idOS", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnidOS)
+            Me.columnperquisizione = New Global.System.Data.DataColumn("perquisizione", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnperquisizione)
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
             Me.columnid.AutoIncrementStep = -1
@@ -5641,6 +5684,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnidOS.AutoIncrement = true
             Me.columnidOS.AutoIncrementSeed = -1
             Me.columnidOS.AutoIncrementStep = -1
+            Me.columnperquisizione.MaxLength = 1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -7874,6 +7918,282 @@ Partial Public Class dbAlegatoADataSet
     End Class
     
     '''<summary>
+    '''Represents the strongly named DataTable class.
+    '''</summary>
+    <Global.System.Serializable(),  _
+     Global.System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")>  _
+    Partial Public Class tipoPerquisizioneDataTable
+        Inherits Global.System.Data.TypedTableBase(Of tipoPerquisizioneRow)
+        
+        Private columnidCarattere As Global.System.Data.DataColumn
+        
+        Private columntipo As Global.System.Data.DataColumn
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.TableName = "tipoPerquisizione"
+            Me.BeginInit
+            Me.InitClass
+            Me.EndInit
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal table As Global.System.Data.DataTable)
+            MyBase.New
+            Me.TableName = table.TableName
+            If (table.CaseSensitive <> table.DataSet.CaseSensitive) Then
+                Me.CaseSensitive = table.CaseSensitive
+            End If
+            If (table.Locale.ToString <> table.DataSet.Locale.ToString) Then
+                Me.Locale = table.Locale
+            End If
+            If (table.Namespace <> table.DataSet.Namespace) Then
+                Me.Namespace = table.Namespace
+            End If
+            Me.Prefix = table.Prefix
+            Me.MinimumCapacity = table.MinimumCapacity
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Sub New(ByVal info As Global.System.Runtime.Serialization.SerializationInfo, ByVal context As Global.System.Runtime.Serialization.StreamingContext)
+            MyBase.New(info, context)
+            Me.InitVars
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property idCarattereColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnidCarattere
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property tipoColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columntipo
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Browsable(false)>  _
+        Public ReadOnly Property Count() As Integer
+            Get
+                Return Me.Rows.Count
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Default ReadOnly Property Item(ByVal index As Integer) As tipoPerquisizioneRow
+            Get
+                Return CType(Me.Rows(index),tipoPerquisizioneRow)
+            End Get
+        End Property
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event tipoPerquisizioneRowChanging As tipoPerquisizioneRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event tipoPerquisizioneRowChanged As tipoPerquisizioneRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event tipoPerquisizioneRowDeleting As tipoPerquisizioneRowChangeEventHandler
+        
+        <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Event tipoPerquisizioneRowDeleted As tipoPerquisizioneRowChangeEventHandler
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Sub AddtipoPerquisizioneRow(ByVal row As tipoPerquisizioneRow)
+            Me.Rows.Add(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overloads Function AddtipoPerquisizioneRow(ByVal idCarattere As String, ByVal tipo As String) As tipoPerquisizioneRow
+            Dim rowtipoPerquisizioneRow As tipoPerquisizioneRow = CType(Me.NewRow,tipoPerquisizioneRow)
+            Dim columnValuesArray() As Object = New Object() {idCarattere, tipo}
+            rowtipoPerquisizioneRow.ItemArray = columnValuesArray
+            Me.Rows.Add(rowtipoPerquisizioneRow)
+            Return rowtipoPerquisizioneRow
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function FindByidCarattere(ByVal idCarattere As String) As tipoPerquisizioneRow
+            Return CType(Me.Rows.Find(New Object() {idCarattere}),tipoPerquisizioneRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Overrides Function Clone() As Global.System.Data.DataTable
+            Dim cln As tipoPerquisizioneDataTable = CType(MyBase.Clone,tipoPerquisizioneDataTable)
+            cln.InitVars
+            Return cln
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function CreateInstance() As Global.System.Data.DataTable
+            Return New tipoPerquisizioneDataTable()
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub InitVars()
+            Me.columnidCarattere = MyBase.Columns("idCarattere")
+            Me.columntipo = MyBase.Columns("tipo")
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitClass()
+            Me.columnidCarattere = New Global.System.Data.DataColumn("idCarattere", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnidCarattere)
+            Me.columntipo = New Global.System.Data.DataColumn("tipo", GetType(String), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columntipo)
+            Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnidCarattere}, true))
+            Me.columnidCarattere.AllowDBNull = false
+            Me.columnidCarattere.Unique = true
+            Me.columnidCarattere.MaxLength = 1
+            Me.columntipo.MaxLength = 20
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function NewtipoPerquisizioneRow() As tipoPerquisizioneRow
+            Return CType(Me.NewRow,tipoPerquisizioneRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function NewRowFromBuilder(ByVal builder As Global.System.Data.DataRowBuilder) As Global.System.Data.DataRow
+            Return New tipoPerquisizioneRow(builder)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Function GetRowType() As Global.System.Type
+            Return GetType(tipoPerquisizioneRow)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanged(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanged(e)
+            If (Not (Me.tipoPerquisizioneRowChangedEvent) Is Nothing) Then
+                RaiseEvent tipoPerquisizioneRowChanged(Me, New tipoPerquisizioneRowChangeEvent(CType(e.Row,tipoPerquisizioneRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowChanging(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowChanging(e)
+            If (Not (Me.tipoPerquisizioneRowChangingEvent) Is Nothing) Then
+                RaiseEvent tipoPerquisizioneRowChanging(Me, New tipoPerquisizioneRowChangeEvent(CType(e.Row,tipoPerquisizioneRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleted(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleted(e)
+            If (Not (Me.tipoPerquisizioneRowDeletedEvent) Is Nothing) Then
+                RaiseEvent tipoPerquisizioneRowDeleted(Me, New tipoPerquisizioneRowChangeEvent(CType(e.Row,tipoPerquisizioneRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Overrides Sub OnRowDeleting(ByVal e As Global.System.Data.DataRowChangeEventArgs)
+            MyBase.OnRowDeleting(e)
+            If (Not (Me.tipoPerquisizioneRowDeletingEvent) Is Nothing) Then
+                RaiseEvent tipoPerquisizioneRowDeleting(Me, New tipoPerquisizioneRowChangeEvent(CType(e.Row,tipoPerquisizioneRow), e.Action))
+            End If
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub RemovetipoPerquisizioneRow(ByVal row As tipoPerquisizioneRow)
+            Me.Rows.Remove(row)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Shared Function GetTypedTableSchema(ByVal xs As Global.System.Xml.Schema.XmlSchemaSet) As Global.System.Xml.Schema.XmlSchemaComplexType
+            Dim type As Global.System.Xml.Schema.XmlSchemaComplexType = New Global.System.Xml.Schema.XmlSchemaComplexType()
+            Dim sequence As Global.System.Xml.Schema.XmlSchemaSequence = New Global.System.Xml.Schema.XmlSchemaSequence()
+            Dim ds As dbAlegatoADataSet = New dbAlegatoADataSet()
+            Dim any1 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any1.Namespace = "http://www.w3.org/2001/XMLSchema"
+            any1.MinOccurs = New Decimal(0)
+            any1.MaxOccurs = Decimal.MaxValue
+            any1.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any1)
+            Dim any2 As Global.System.Xml.Schema.XmlSchemaAny = New Global.System.Xml.Schema.XmlSchemaAny()
+            any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1"
+            any2.MinOccurs = New Decimal(1)
+            any2.ProcessContents = Global.System.Xml.Schema.XmlSchemaContentProcessing.Lax
+            sequence.Items.Add(any2)
+            Dim attribute1 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute1.Name = "namespace"
+            attribute1.FixedValue = ds.Namespace
+            type.Attributes.Add(attribute1)
+            Dim attribute2 As Global.System.Xml.Schema.XmlSchemaAttribute = New Global.System.Xml.Schema.XmlSchemaAttribute()
+            attribute2.Name = "tableTypeName"
+            attribute2.FixedValue = "tipoPerquisizioneDataTable"
+            type.Attributes.Add(attribute2)
+            type.Particle = sequence
+            Dim dsSchema As Global.System.Xml.Schema.XmlSchema = ds.GetSchemaSerializable
+            If xs.Contains(dsSchema.TargetNamespace) Then
+                Dim s1 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Dim s2 As Global.System.IO.MemoryStream = New Global.System.IO.MemoryStream()
+                Try 
+                    Dim schema As Global.System.Xml.Schema.XmlSchema = Nothing
+                    dsSchema.Write(s1)
+                    Dim schemas As Global.System.Collections.IEnumerator = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator
+                    Do While schemas.MoveNext
+                        schema = CType(schemas.Current,Global.System.Xml.Schema.XmlSchema)
+                        s2.SetLength(0)
+                        schema.Write(s2)
+                        If (s1.Length = s2.Length) Then
+                            s1.Position = 0
+                            s2.Position = 0
+                            
+                            Do While ((s1.Position <> s1.Length)  _
+                                        AndAlso (s1.ReadByte = s2.ReadByte))
+                                
+                                
+                            Loop
+                            If (s1.Position = s1.Length) Then
+                                Return type
+                            End If
+                        End If
+                        
+                    Loop
+                Finally
+                    If (Not (s1) Is Nothing) Then
+                        s1.Close
+                    End If
+                    If (Not (s2) Is Nothing) Then
+                        s2.Close
+                    End If
+                End Try
+            End If
+            xs.Add(dsSchema)
+            Return type
+        End Function
+    End Class
+    
+    '''<summary>
     '''Represents strongly named DataRow class.
     '''</summary>
     Partial Public Class allegatoARow
@@ -8006,21 +8326,6 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property perquisizione() As Boolean
-            Get
-                Try 
-                    Return CType(Me(Me.tableallegatoA.perquisizioneColumn),Boolean)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'perquisizione' in table 'allegatoA' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableallegatoA.perquisizioneColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property positivoSDI() As String
             Get
                 Try 
@@ -8046,6 +8351,21 @@ Partial Public Class dbAlegatoADataSet
             End Get
             Set
                 Me(Me.tableallegatoA.NOTEColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property perquisizione() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableallegatoA.perquisizioneColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'perquisizione' in table 'allegatoA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableallegatoA.perquisizioneColumn) = value
             End Set
         End Property
         
@@ -8079,6 +8399,17 @@ Partial Public Class dbAlegatoADataSet
             End Get
             Set
                 Me.SetParentRow(value, Me.Table.ParentRelations("controlloallegatoA"))
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property tipoPerquisizioneRow() As tipoPerquisizioneRow
+            Get
+                Return CType(Me.GetParentRow(Me.Table.ParentRelations("tipoPerquisizione_allegatoA")),tipoPerquisizioneRow)
+            End Get
+            Set
+                Me.SetParentRow(value, Me.Table.ParentRelations("tipoPerquisizione_allegatoA"))
             End Set
         End Property
         
@@ -8168,18 +8499,6 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsperquisizioneNull() As Boolean
-            Return Me.IsNull(Me.tableallegatoA.perquisizioneColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetperquisizioneNull()
-            Me(Me.tableallegatoA.perquisizioneColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IspositivoSDINull() As Boolean
             Return Me.IsNull(Me.tableallegatoA.positivoSDIColumn)
         End Function
@@ -8200,6 +8519,18 @@ Partial Public Class dbAlegatoADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetNOTENull()
             Me(Me.tableallegatoA.NOTEColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsperquisizioneNull() As Boolean
+            Return Me.IsNull(Me.tableallegatoA.perquisizioneColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetperquisizioneNull()
+            Me(Me.tableallegatoA.perquisizioneColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -9879,21 +10210,6 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Property perquisizione() As Boolean
-            Get
-                Try 
-                    Return CType(Me(Me.tableQAllegatoA.perquisizioneColumn),Boolean)
-                Catch e As Global.System.InvalidCastException
-                    Throw New Global.System.Data.StrongTypingException("The value for column 'perquisizione' in table 'QAllegatoA' is DBNull.", e)
-                End Try
-            End Get
-            Set
-                Me(Me.tableQAllegatoA.perquisizioneColumn) = value
-            End Set
-        End Property
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property positivoSDI() As String
             Get
                 Try 
@@ -10179,6 +10495,21 @@ Partial Public Class dbAlegatoADataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property perquisizione() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tableQAllegatoA.perquisizioneColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'perquisizione' in table 'QAllegatoA' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tableQAllegatoA.perquisizioneColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsidNull() As Boolean
             Return Me.IsNull(Me.tableQAllegatoA.idColumn)
         End Function
@@ -10271,18 +10602,6 @@ Partial Public Class dbAlegatoADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetcontravvenzioniNull()
             Me(Me.tableQAllegatoA.contravvenzioniColumn) = Global.System.Convert.DBNull
-        End Sub
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Function IsperquisizioneNull() As Boolean
-            Return Me.IsNull(Me.tableQAllegatoA.perquisizioneColumn)
-        End Function
-        
-        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Sub SetperquisizioneNull()
-            Me(Me.tableQAllegatoA.perquisizioneColumn) = Global.System.Convert.DBNull
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10511,6 +10830,18 @@ Partial Public Class dbAlegatoADataSet
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub SetidOSNull()
             Me(Me.tableQAllegatoA.idOSColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IsperquisizioneNull() As Boolean
+            Return Me.IsNull(Me.tableQAllegatoA.perquisizioneColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SetperquisizioneNull()
+            Me(Me.tableQAllegatoA.perquisizioneColumn) = Global.System.Convert.DBNull
         End Sub
     End Class
     
@@ -11880,6 +12211,70 @@ Partial Public Class dbAlegatoADataSet
     End Class
     
     '''<summary>
+    '''Represents strongly named DataRow class.
+    '''</summary>
+    Partial Public Class tipoPerquisizioneRow
+        Inherits Global.System.Data.DataRow
+        
+        Private tabletipoPerquisizione As tipoPerquisizioneDataTable
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Sub New(ByVal rb As Global.System.Data.DataRowBuilder)
+            MyBase.New(rb)
+            Me.tabletipoPerquisizione = CType(Me.Table,tipoPerquisizioneDataTable)
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property idCarattere() As String
+            Get
+                Return CType(Me(Me.tabletipoPerquisizione.idCarattereColumn),String)
+            End Get
+            Set
+                Me(Me.tabletipoPerquisizione.idCarattereColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property tipo() As String
+            Get
+                Try 
+                    Return CType(Me(Me.tabletipoPerquisizione.tipoColumn),String)
+                Catch e As Global.System.InvalidCastException
+                    Throw New Global.System.Data.StrongTypingException("The value for column 'tipo' in table 'tipoPerquisizione' is DBNull.", e)
+                End Try
+            End Get
+            Set
+                Me(Me.tabletipoPerquisizione.tipoColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function IstipoNull() As Boolean
+            Return Me.IsNull(Me.tabletipoPerquisizione.tipoColumn)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub SettipoNull()
+            Me(Me.tabletipoPerquisizione.tipoColumn) = Global.System.Convert.DBNull
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Function GetallegatoARows() As allegatoARow()
+            If (Me.Table.ChildRelations("tipoPerquisizione_allegatoA") Is Nothing) Then
+                Return New allegatoARow(-1) {}
+            Else
+                Return CType(MyBase.GetChildRows(Me.Table.ChildRelations("tipoPerquisizione_allegatoA")),allegatoARow())
+            End If
+        End Function
+    End Class
+    
+    '''<summary>
     '''Row event argument class
     '''</summary>
     <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
@@ -12598,6 +12993,42 @@ Partial Public Class dbAlegatoADataSet
             End Get
         End Property
     End Class
+    
+    '''<summary>
+    '''Row event argument class
+    '''</summary>
+    <Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+    Public Class tipoPerquisizioneRowChangeEvent
+        Inherits Global.System.EventArgs
+        
+        Private eventRow As tipoPerquisizioneRow
+        
+        Private eventAction As Global.System.Data.DataRowAction
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New(ByVal row As tipoPerquisizioneRow, ByVal action As Global.System.Data.DataRowAction)
+            MyBase.New
+            Me.eventRow = row
+            Me.eventAction = action
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Row() As tipoPerquisizioneRow
+            Get
+                Return Me.eventRow
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property Action() As Global.System.Data.DataRowAction
+            Get
+                Return Me.eventAction
+            End Get
+        End Property
+    End Class
 End Class
 
 Namespace dbAlegatoADataSetTableAdapters
@@ -12737,9 +13168,9 @@ Namespace dbAlegatoADataSetTableAdapters
             tableMapping.ColumnMappings.Add("targa", "targa")
             tableMapping.ColumnMappings.Add("idPersona", "idPersona")
             tableMapping.ColumnMappings.Add("contravvenzioni", "contravvenzioni")
-            tableMapping.ColumnMappings.Add("perquisizione", "perquisizione")
             tableMapping.ColumnMappings.Add("positivoSDI", "positivoSDI")
             tableMapping.ColumnMappings.Add("NOTE", "NOTE")
+            tableMapping.ColumnMappings.Add("perquisizione", "perquisizione")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
@@ -12748,9 +13179,9 @@ Namespace dbAlegatoADataSetTableAdapters
                 " ((? = 1 AND `idMezzo` IS NULL) OR (`idMezzo` = ?)) AND ((? = 1 AND `colore` IS "& _ 
                 "NULL) OR (`colore` = ?)) AND ((? = 1 AND `targa` IS NULL) OR (`targa` = ?)) AND "& _ 
                 "((? = 1 AND `idPersona` IS NULL) OR (`idPersona` = ?)) AND ((? = 1 AND `contravv"& _ 
-                "enzioni` IS NULL) OR (`contravvenzioni` = ?)) AND ((? = 1 AND `perquisizione` IS"& _ 
-                " NULL) OR (`perquisizione` = ?)) AND ((? = 1 AND `positivoSDI` IS NULL) OR (`pos"& _ 
-                "itivoSDI` = ?)))"
+                "enzioni` IS NULL) OR (`contravvenzioni` = ?)) AND ((? = 1 AND `positivoSDI` IS N"& _ 
+                "ULL) OR (`positivoSDI` = ?)) AND ((? = 1 AND `perquisizione` IS NULL) OR (`perqu"& _ 
+                "isizione` = ?)))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_idControllo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idControllo", Global.System.Data.DataRowVersion.Original, true, Nothing))
@@ -12767,14 +13198,14 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_idPersona", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idPersona", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_contravvenzioni", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "contravvenzioni", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_contravvenzioni", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "contravvenzioni", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_perquisizione", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_perquisizione", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_positivoSDI", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "positivoSDI", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_positivoSDI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "positivoSDI", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_perquisizione", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_perquisizione", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
             Me._adapter.InsertCommand.CommandText = "INSERT INTO `allegatoA` (`idControllo`, `ordine`, `idMezzo`, `colore`, `targa`, `"& _ 
-                "idPersona`, `contravvenzioni`, `perquisizione`, `positivoSDI`, `NOTE`) VALUES (?"& _ 
+                "idPersona`, `contravvenzioni`, `positivoSDI`, `NOTE`, `perquisizione`) VALUES (?"& _ 
                 ", ?, ?, ?, ?, ?, ?, ?, ?, ?)"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idControllo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idControllo", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -12784,21 +13215,21 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("targa", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "targa", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idPersona", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idPersona", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("contravvenzioni", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "contravvenzioni", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("perquisizione", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("positivoSDI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "positivoSDI", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("NOTE", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("perquisizione", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
             Me._adapter.UpdateCommand.CommandText = "UPDATE `allegatoA` SET `idControllo` = ?, `ordine` = ?, `idMezzo` = ?, `colore` ="& _ 
-                " ?, `targa` = ?, `idPersona` = ?, `contravvenzioni` = ?, `perquisizione` = ?, `p"& _ 
-                "ositivoSDI` = ?, `NOTE` = ? WHERE ((`id` = ?) AND ((? = 1 AND `idControllo` IS N"& _ 
+                " ?, `targa` = ?, `idPersona` = ?, `contravvenzioni` = ?, `positivoSDI` = ?, `NOT"& _ 
+                "E` = ?, `perquisizione` = ? WHERE ((`id` = ?) AND ((? = 1 AND `idControllo` IS N"& _ 
                 "ULL) OR (`idControllo` = ?)) AND ((? = 1 AND `ordine` IS NULL) OR (`ordine` = ?)"& _ 
                 ") AND ((? = 1 AND `idMezzo` IS NULL) OR (`idMezzo` = ?)) AND ((? = 1 AND `colore"& _ 
                 "` IS NULL) OR (`colore` = ?)) AND ((? = 1 AND `targa` IS NULL) OR (`targa` = ?))"& _ 
                 " AND ((? = 1 AND `idPersona` IS NULL) OR (`idPersona` = ?)) AND ((? = 1 AND `con"& _ 
-                "travvenzioni` IS NULL) OR (`contravvenzioni` = ?)) AND ((? = 1 AND `perquisizion"& _ 
-                "e` IS NULL) OR (`perquisizione` = ?)) AND ((? = 1 AND `positivoSDI` IS NULL) OR "& _ 
-                "(`positivoSDI` = ?)))"
+                "travvenzioni` IS NULL) OR (`contravvenzioni` = ?)) AND ((? = 1 AND `positivoSDI`"& _ 
+                " IS NULL) OR (`positivoSDI` = ?)) AND ((? = 1 AND `perquisizione` IS NULL) OR (`"& _ 
+                "perquisizione` = ?)))"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idControllo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idControllo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("ordine", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "ordine", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -12807,9 +13238,9 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("targa", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "targa", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idPersona", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idPersona", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("contravvenzioni", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "contravvenzioni", Global.System.Data.DataRowVersion.Current, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("perquisizione", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("positivoSDI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "positivoSDI", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("NOTE", Global.System.Data.OleDb.OleDbType.LongVarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "NOTE", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("perquisizione", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_idControllo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idControllo", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_idControllo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idControllo", Global.System.Data.DataRowVersion.Original, false, Nothing))
@@ -12825,10 +13256,10 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_idPersona", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idPersona", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_contravvenzioni", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "contravvenzioni", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_contravvenzioni", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "contravvenzioni", Global.System.Data.DataRowVersion.Original, false, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_perquisizione", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Original, true, Nothing))
-            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_perquisizione", Global.System.Data.OleDb.OleDbType.[Boolean], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Original, false, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_positivoSDI", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "positivoSDI", Global.System.Data.DataRowVersion.Original, true, Nothing))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_positivoSDI", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "positivoSDI", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_perquisizione", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_perquisizione", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "perquisizione", Global.System.Data.DataRowVersion.Original, false, Nothing))
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12845,7 +13276,7 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT id, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzion"& _ 
-                "i, perquisizione, positivoSDI, [NOTE] FROM allegatoA"
+                "i, positivoSDI, [NOTE], perquisizione FROM allegatoA"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
@@ -12854,12 +13285,14 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT id, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzion"& _ 
-                "i, perquisizione, positivoSDI, [NOTE] FROM allegatoA WHERE id=?"
+                "i, positivoSDI, [NOTE], perquisizione FROM allegatoA WHERE (id = ?)"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT * FROM allegatoA WHERE idControllo=? AND idPersona=?"
+            Me._commandCollection(3).CommandText = "SELECT id, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzion"& _ 
+                "i, positivoSDI, [NOTE], perquisizione FROM allegatoA WHERE (idControllo = ?) AND"& _ 
+                " (idPersona = ?)"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idControllo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idControllo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idPersona", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idPersona", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -12958,7 +13391,7 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_id As Integer, ByVal Original_idControllo As Global.System.Nullable(Of Integer), ByVal Original_ordine As Global.System.Nullable(Of Integer), ByVal Original_idMezzo As Global.System.Nullable(Of Integer), ByVal Original_colore As String, ByVal Original_targa As String, ByVal Original_idPersona As Global.System.Nullable(Of Integer), ByVal Original_contravvenzioni As Global.System.Nullable(Of Boolean), ByVal Original_perquisizione As Global.System.Nullable(Of Boolean), ByVal Original_positivoSDI As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_id As Integer, ByVal Original_idControllo As Global.System.Nullable(Of Integer), ByVal Original_ordine As Global.System.Nullable(Of Integer), ByVal Original_idMezzo As Global.System.Nullable(Of Integer), ByVal Original_colore As String, ByVal Original_targa As String, ByVal Original_idPersona As Global.System.Nullable(Of Integer), ByVal Original_contravvenzioni As Boolean, ByVal Original_positivoSDI As String, ByVal Original_perquisizione As String) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id,Integer)
             If (Original_idControllo.HasValue = true) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
@@ -13002,26 +13435,21 @@ Namespace dbAlegatoADataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(11).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(12).Value = Global.System.DBNull.Value
             End If
-            If (Original_contravvenzioni.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_contravvenzioni.Value,Boolean)
-            Else
-                Me.Adapter.DeleteCommand.Parameters(13).Value = CType(1,Object)
-                Me.Adapter.DeleteCommand.Parameters(14).Value = Global.System.DBNull.Value
-            End If
-            If (Original_perquisizione.HasValue = true) Then
-                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_perquisizione.Value,Boolean)
-            Else
+            Me.Adapter.DeleteCommand.Parameters(13).Value = CType(0,Object)
+            Me.Adapter.DeleteCommand.Parameters(14).Value = CType(Original_contravvenzioni,Boolean)
+            If (Original_positivoSDI Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(15).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(16).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(15).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(16).Value = CType(Original_positivoSDI,String)
             End If
-            If (Original_positivoSDI Is Nothing) Then
+            If (Original_perquisizione Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(1,Object)
                 Me.Adapter.DeleteCommand.Parameters(18).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.DeleteCommand.Parameters(17).Value = CType(0,Object)
-                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_positivoSDI,String)
+                Me.Adapter.DeleteCommand.Parameters(18).Value = CType(Original_perquisizione,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -13042,7 +13470,7 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal idControllo As Global.System.Nullable(Of Integer), ByVal ordine As Global.System.Nullable(Of Integer), ByVal idMezzo As Global.System.Nullable(Of Integer), ByVal colore As String, ByVal targa As String, ByVal idPersona As Global.System.Nullable(Of Integer), ByVal contravvenzioni As Global.System.Nullable(Of Boolean), ByVal perquisizione As Global.System.Nullable(Of Boolean), ByVal positivoSDI As String, ByVal NOTE As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal idControllo As Global.System.Nullable(Of Integer), ByVal ordine As Global.System.Nullable(Of Integer), ByVal idMezzo As Global.System.Nullable(Of Integer), ByVal colore As String, ByVal targa As String, ByVal idPersona As Global.System.Nullable(Of Integer), ByVal contravvenzioni As Boolean, ByVal positivoSDI As String, ByVal NOTE As String, ByVal perquisizione As String) As Integer
             If (idControllo.HasValue = true) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = CType(idControllo.Value,Integer)
             Else
@@ -13073,25 +13501,21 @@ Namespace dbAlegatoADataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (contravvenzioni.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(6).Value = CType(contravvenzioni.Value,Boolean)
-            Else
-                Me.Adapter.InsertCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (perquisizione.HasValue = true) Then
-                Me.Adapter.InsertCommand.Parameters(7).Value = CType(perquisizione.Value,Boolean)
-            Else
-                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.InsertCommand.Parameters(6).Value = CType(contravvenzioni,Boolean)
             If (positivoSDI Is Nothing) Then
-                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.InsertCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(8).Value = CType(positivoSDI,String)
+                Me.Adapter.InsertCommand.Parameters(7).Value = CType(positivoSDI,String)
             End If
             If (NOTE Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(8).Value = CType(NOTE,String)
+            End If
+            If (perquisizione Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.InsertCommand.Parameters(9).Value = CType(NOTE,String)
+                Me.Adapter.InsertCommand.Parameters(9).Value = CType(perquisizione,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -13119,10 +13543,10 @@ Namespace dbAlegatoADataSetTableAdapters
                     ByVal colore As String,  _
                     ByVal targa As String,  _
                     ByVal idPersona As Global.System.Nullable(Of Integer),  _
-                    ByVal contravvenzioni As Global.System.Nullable(Of Boolean),  _
-                    ByVal perquisizione As Global.System.Nullable(Of Boolean),  _
+                    ByVal contravvenzioni As Boolean,  _
                     ByVal positivoSDI As String,  _
                     ByVal NOTE As String,  _
+                    ByVal perquisizione As String,  _
                     ByVal Original_id As Integer,  _
                     ByVal Original_idControllo As Global.System.Nullable(Of Integer),  _
                     ByVal Original_ordine As Global.System.Nullable(Of Integer),  _
@@ -13130,9 +13554,9 @@ Namespace dbAlegatoADataSetTableAdapters
                     ByVal Original_colore As String,  _
                     ByVal Original_targa As String,  _
                     ByVal Original_idPersona As Global.System.Nullable(Of Integer),  _
-                    ByVal Original_contravvenzioni As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_perquisizione As Global.System.Nullable(Of Boolean),  _
-                    ByVal Original_positivoSDI As String) As Integer
+                    ByVal Original_contravvenzioni As Boolean,  _
+                    ByVal Original_positivoSDI As String,  _
+                    ByVal Original_perquisizione As String) As Integer
             If (idControllo.HasValue = true) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = CType(idControllo.Value,Integer)
             Else
@@ -13163,25 +13587,21 @@ Namespace dbAlegatoADataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
             End If
-            If (contravvenzioni.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(contravvenzioni.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
-            End If
-            If (perquisizione.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(perquisizione.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
-            End If
+            Me.Adapter.UpdateCommand.Parameters(6).Value = CType(contravvenzioni,Boolean)
             If (positivoSDI Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(positivoSDI,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(positivoSDI,String)
             End If
             If (NOTE Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(NOTE,String)
+            End If
+            If (perquisizione Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(NOTE,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(perquisizione,String)
             End If
             Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_id,Integer)
             If (Original_idControllo.HasValue = true) Then
@@ -13226,26 +13646,21 @@ Namespace dbAlegatoADataSetTableAdapters
                 Me.Adapter.UpdateCommand.Parameters(21).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(22).Value = Global.System.DBNull.Value
             End If
-            If (Original_contravvenzioni.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_contravvenzioni.Value,Boolean)
-            Else
-                Me.Adapter.UpdateCommand.Parameters(23).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(24).Value = Global.System.DBNull.Value
-            End If
-            If (Original_perquisizione.HasValue = true) Then
-                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_perquisizione.Value,Boolean)
-            Else
+            Me.Adapter.UpdateCommand.Parameters(23).Value = CType(0,Object)
+            Me.Adapter.UpdateCommand.Parameters(24).Value = CType(Original_contravvenzioni,Boolean)
+            If (Original_positivoSDI Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(25).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(26).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(25).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(26).Value = CType(Original_positivoSDI,String)
             End If
-            If (Original_positivoSDI Is Nothing) Then
+            If (Original_perquisizione Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(27).Value = CType(1,Object)
                 Me.Adapter.UpdateCommand.Parameters(28).Value = Global.System.DBNull.Value
             Else
                 Me.Adapter.UpdateCommand.Parameters(27).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_positivoSDI,String)
+                Me.Adapter.UpdateCommand.Parameters(28).Value = CType(Original_perquisizione,String)
             End If
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
@@ -19303,7 +19718,6 @@ Namespace dbAlegatoADataSetTableAdapters
             tableMapping.ColumnMappings.Add("targa", "targa")
             tableMapping.ColumnMappings.Add("idPersona", "idPersona")
             tableMapping.ColumnMappings.Add("contravvenzioni", "contravvenzioni")
-            tableMapping.ColumnMappings.Add("perquisizione", "perquisizione")
             tableMapping.ColumnMappings.Add("positivoSDI", "positivoSDI")
             tableMapping.ColumnMappings.Add("NOTE", "NOTE")
             tableMapping.ColumnMappings.Add("dataora", "dataora")
@@ -19323,6 +19737,7 @@ Namespace dbAlegatoADataSetTableAdapters
             tableMapping.ColumnMappings.Add("nomeOS", "nomeOS")
             tableMapping.ColumnMappings.Add("dataOS", "dataOS")
             tableMapping.ColumnMappings.Add("idOS", "idOS")
+            tableMapping.ColumnMappings.Add("perquisizione", "perquisizione")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -19340,79 +19755,77 @@ Namespace dbAlegatoADataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT id, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzion"& _ 
-                "i, perquisizione, positivoSDI, [NOTE], dataora, idLuogo, luogo, mezzo, operatori"& _ 
-                ", cognome, nome, datanascita, residenzaindirizzo, documento, precedenti, idLuogo"& _ 
-                "Nascita, cittanascita, cittaresidenza, nomeOS, dataOS, idOS FROM QAllegatoA"
+                "i, positivoSDI, [NOTE], dataora, idLuogo, luogo, mezzo, operatori, cognome, nome"& _ 
+                ", datanascita, residenzaindirizzo, documento, precedenti, idLuogoNascita, cittan"& _ 
+                "ascita, cittaresidenza, nomeOS, dataOS, idOS, perquisizione FROM QAllegatoA"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(1).Connection = Me.Connection
             Me._commandCollection(1).CommandText = "SELECT dataora, luogo, ordine, mezzo, targa, cognome, nome, datanascita, residenz"& _ 
-                "aindirizzo, documento, positivoSDI, precedenti, contravvenzioni, perquisizione, "& _ 
-                "operatori, id, idControllo, idPersona, NOTE, cittanascita, cittaresidenza, color"& _ 
-                "e, idLuogo, idLuogoNascita, idMezzo, dataOS, nomeOS, idOS FROM QAllegatoA WHERE "& _ 
-                "nomeOS & "" "" & dataOS& "" "" &luogo & "" "" & mezzo & "" "" & colore & "" "" & targa & """& _ 
-                " "" & cognome & "" "" & nome & "" "" & datanascita & "" "" & cittanascita & "" "" & citta"& _ 
-                "residenza & "" "" & residenzaindirizzo & "" "" & documento & "" "" & precedenti & "" "" "& _ 
-                "& note& "" "" & operatori Like '%'& ? &'%' ORDER BY dataora"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                "aindirizzo, documento, positivoSDI, precedenti, contravvenzioni, operatori, id, "& _ 
+                "idControllo, idPersona, [NOTE], cittanascita, cittaresidenza, colore, idLuogo, i"& _ 
+                "dLuogoNascita, idMezzo, dataOS, nomeOS, idOS, perquisizione FROM QAllegatoA WHER"& _ 
+                "E (nomeOS & ' ' & dataOS & ' ' & luogo & ' ' & mezzo & ' ' & colore & ' ' & targ"& _ 
+                "a & ' ' & cognome & ' ' & nome & ' ' & datanascita & ' ' & cittanascita & ' ' & "& _ 
+                "cittaresidenza & ' ' & residenzaindirizzo & ' ' & documento & ' ' & precedenti &"& _ 
+                " ' ' & [NOTE] & ' ' & operatori LIKE '%' & ? & '%') ORDER BY dataora"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Param1", Global.System.Data.OleDb.OleDbType.VarChar, 1024, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(2) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(2).Connection = Me.Connection
             Me._commandCollection(2).CommandText = "SELECT [NOTE], cittanascita, cittaresidenza, cognome, colore, contravvenzioni, da"& _ 
                 "tanascita, dataora, documento, id, idControllo, idLuogo, idLuogoNascita, idMezzo"& _ 
-                ", idPersona, luogo, mezzo, nome, operatori, ordine, perquisizione, positivoSDI, "& _ 
-                "precedenti, residenzaindirizzo, targa, dataOS, nomeOS, idOS FROM QAllegatoA WHER"& _ 
-                "E (dataora LIKE ? & '%') ORDER BY dataora, ordine"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                ", idPersona, luogo, mezzo, nome, operatori, ordine, positivoSDI, precedenti, res"& _ 
+                "idenzaindirizzo, targa, dataOS, nomeOS, idOS, perquisizione FROM QAllegatoA WHER"& _ 
+                "E (dataora LIKE ? & '%') ORDER BY dataora, ordine"
             Me._commandCollection(2).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(2).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataora", Global.System.Data.OleDb.OleDbType.[Date], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataora", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(3).Connection = Me.Connection
-            Me._commandCollection(3).CommandText = "SELECT        id, idControllo, ordine, idMezzo, colore, targa, idPersona, contrav"& _ 
-                "venzioni, perquisizione, positivoSDI, [NOTE], dataora, idLuogo, luogo, mezzo, op"& _ 
-                "eratori, cognome, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         nome, datanascita, residenzaindiriz"& _ 
-                "zo, documento, precedenti, idLuogoNascita, cittanascita, cittaresidenza, nomeOS,"& _ 
-                " dataOS, idOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QAllegatoA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (dataOS  >?) AND (dataOS"& _ 
-                " < ?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY dataora, ordine"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(3).CommandText = "SELECT id, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzion"& _ 
+                "i, positivoSDI, [NOTE], dataora, idLuogo, luogo, mezzo, operatori, cognome, nome"& _ 
+                ", datanascita, residenzaindirizzo, documento, precedenti, idLuogoNascita, cittan"& _ 
+                "ascita, cittaresidenza, nomeOS, dataOS, idOS, perquisizione FROM QAllegatoA WHER"& _ 
+                "E (dataOS > ?) AND (dataOS < ?) ORDER BY dataora, ordine"
             Me._commandCollection(3).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataOS", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(3).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("dataOS1", Global.System.Data.OleDb.OleDbType.DBTimeStamp, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "dataOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(4) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(4).Connection = Me.Connection
             Me._commandCollection(4).CommandText = "SELECT dataora, luogo, ordine, mezzo, targa, cognome, nome, datanascita, residenz"& _ 
-                "aindirizzo, documento, positivoSDI, precedenti, contravvenzioni, perquisizione, "& _ 
-                "operatori, id, idControllo, idPersona, [NOTE], cittanascita, cittaresidenza, col"& _ 
-                "ore, idLuogo, idLuogoNascita, idMezzo, dataOS, nomeOS, idOS FROM QAllegatoA  WHE"& _ 
-                "RE id=? ORDER BY dataora, ordine"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                "aindirizzo, documento, positivoSDI, precedenti, contravvenzioni, operatori, id, "& _ 
+                "idControllo, idPersona, [NOTE], cittanascita, cittaresidenza, colore, idLuogo, i"& _ 
+                "dLuogoNascita, idMezzo, dataOS, nomeOS, idOS, perquisizione FROM QAllegatoA WHER"& _ 
+                "E (id = ?) ORDER BY dataora, ordine"
             Me._commandCollection(4).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(4).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("id", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "id", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(5) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(5).Connection = Me.Connection
             Me._commandCollection(5).CommandText = "SELECT dataora, luogo, ordine, mezzo, targa, cognome, nome, datanascita, residenz"& _ 
-                "aindirizzo, documento, positivoSDI, precedenti, contravvenzioni, perquisizione, "& _ 
-                "operatori, id, idControllo, idPersona, [NOTE], cittanascita, cittaresidenza, col"& _ 
-                "ore, idLuogo, idLuogoNascita, idMezzo, dataOS, nomeOS, idOS FROM QAllegatoA WHER"& _ 
-                "E (idControllo = ?) ORDER BY dataora, ordine"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                "aindirizzo, documento, positivoSDI, precedenti, contravvenzioni, operatori, id, "& _ 
+                "idControllo, idPersona, [NOTE], cittanascita, cittaresidenza, colore, idLuogo, i"& _ 
+                "dLuogoNascita, idMezzo, dataOS, nomeOS, idOS, perquisizione FROM QAllegatoA WHER"& _ 
+                "E (idControllo = ?) ORDER BY dataora, ordine"
             Me._commandCollection(5).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(5).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idControllo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idControllo", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(6) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(6).Connection = Me.Connection
-            Me._commandCollection(6).CommandText = "SELECT        cittanascita, cittaresidenza, cognome, colore, contravvenzioni, dat"& _ 
-                "anascita, dataora, documento, id, idControllo, idLuogo, idLuogoNascita, idMezzo,"& _ 
-                " idPersona, "&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"                         luogo, mezzo, nome, operatori, ordine, pe"& _ 
-                "rquisizione, positivoSDI, precedenti, residenzaindirizzo, targa, dataOS, nomeOS,"& _ 
-                " [NOTE], idOS"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            QAllegatoA"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (idOS =?)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY data"& _ 
-                "ora, ordine"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+            Me._commandCollection(6).CommandText = "SELECT cittanascita, cittaresidenza, cognome, colore, contravvenzioni, datanascit"& _ 
+                "a, dataora, documento, id, idControllo, idLuogo, idLuogoNascita, idMezzo, idPers"& _ 
+                "ona, luogo, mezzo, nome, operatori, ordine, positivoSDI, precedenti, residenzain"& _ 
+                "dirizzo, targa, dataOS, nomeOS, [NOTE], idOS, perquisizione FROM QAllegatoA WHER"& _ 
+                "E (idOS = ?) ORDER BY dataora, ordine"
             Me._commandCollection(6).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(6).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idOS", Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(7) = New Global.System.Data.OleDb.OleDbCommand()
             Me._commandCollection(7).Connection = Me.Connection
             Me._commandCollection(7).CommandText = "SELECT id, idControllo, ordine, idMezzo, colore, targa, idPersona, contravvenzion"& _ 
-                "i, perquisizione, positivoSDI, [NOTE], dataora, idLuogo, luogo, mezzo, operatori"& _ 
-                ", cognome, nome, datanascita, residenzaindirizzo, documento, precedenti, idLuogo"& _ 
-                "Nascita, cittanascita, cittaresidenza, dataOS, nomeOS, idOS FROM QAllegatoA WHER"& _ 
-                "E (idOs = pIDOS) AND (idControllo IN (SELECT DISTINCT idControllo FROM QAllegato"& _ 
-                "A QAllegatoA_1 WHERE (idOs = pIDOS ) AND (positivoSDI = ?))) ORDER BY dataora DE"& _ 
-                "SC, ordine"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)
+                "i, positivoSDI, [NOTE], dataora, idLuogo, luogo, mezzo, operatori, cognome, nome"& _ 
+                ", datanascita, residenzaindirizzo, documento, precedenti, idLuogoNascita, cittan"& _ 
+                "ascita, cittaresidenza, dataOS, nomeOS, idOS, perquisizione FROM QAllegatoA WHER"& _ 
+                "E (idOS = pIDOS) AND (idControllo IN (SELECT DISTINCT idControllo FROM QAllegato"& _ 
+                "A QAllegatoA_1 WHERE (idOS = pIDOS) AND (positivoSDI = ?))) ORDER BY dataora DES"& _ 
+                "C, ordine"
             Me._commandCollection(7).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("pIDOS", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), Nothing, Global.System.Data.DataRowVersion.Current, false, Nothing))
             Me._commandCollection(7).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("positivoSDI", Global.System.Data.OleDb.OleDbType.WChar, 2, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "positivoSDI", Global.System.Data.DataRowVersion.Current, false, Nothing))
@@ -21179,6 +21592,383 @@ Namespace dbAlegatoADataSetTableAdapters
     End Class
     
     '''<summary>
+    '''Represents the connection and commands used to retrieve and save data.
+    '''</summary>
+    <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
+     Global.System.ComponentModel.ToolboxItem(true),  _
+     Global.System.ComponentModel.DataObjectAttribute(true),  _
+     Global.System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner"& _ 
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"),  _
+     Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+    Partial Public Class tipoPerquisizioneTableAdapter
+        Inherits Global.System.ComponentModel.Component
+        
+        Private WithEvents _adapter As Global.System.Data.OleDb.OleDbDataAdapter
+        
+        Private _connection As Global.System.Data.OleDb.OleDbConnection
+        
+        Private _transaction As Global.System.Data.OleDb.OleDbTransaction
+        
+        Private _commandCollection() As Global.System.Data.OleDb.OleDbCommand
+        
+        Private _clearBeforeFill As Boolean
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Sub New()
+            MyBase.New
+            Me.ClearBeforeFill = true
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected Friend ReadOnly Property Adapter() As Global.System.Data.OleDb.OleDbDataAdapter
+            Get
+                If (Me._adapter Is Nothing) Then
+                    Me.InitAdapter
+                End If
+                Return Me._adapter
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Connection() As Global.System.Data.OleDb.OleDbConnection
+            Get
+                If (Me._connection Is Nothing) Then
+                    Me.InitConnection
+                End If
+                Return Me._connection
+            End Get
+            Set
+                Me._connection = value
+                If (Not (Me.Adapter.InsertCommand) Is Nothing) Then
+                    Me.Adapter.InsertCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.DeleteCommand) Is Nothing) Then
+                    Me.Adapter.DeleteCommand.Connection = value
+                End If
+                If (Not (Me.Adapter.UpdateCommand) Is Nothing) Then
+                    Me.Adapter.UpdateCommand.Connection = value
+                End If
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    If (Not (Me.CommandCollection(i)) Is Nothing) Then
+                        CType(Me.CommandCollection(i),Global.System.Data.OleDb.OleDbCommand).Connection = value
+                    End If
+                    i = (i + 1)
+                Loop
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Friend Property Transaction() As Global.System.Data.OleDb.OleDbTransaction
+            Get
+                Return Me._transaction
+            End Get
+            Set
+                Me._transaction = value
+                Dim i As Integer = 0
+                Do While (i < Me.CommandCollection.Length)
+                    Me.CommandCollection(i).Transaction = Me._transaction
+                    i = (i + 1)
+                Loop
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.DeleteCommand) Is Nothing)) Then
+                    Me.Adapter.DeleteCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.InsertCommand) Is Nothing)) Then
+                    Me.Adapter.InsertCommand.Transaction = Me._transaction
+                End If
+                If ((Not (Me.Adapter) Is Nothing)  _
+                            AndAlso (Not (Me.Adapter.UpdateCommand) Is Nothing)) Then
+                    Me.Adapter.UpdateCommand.Transaction = Me._transaction
+                End If
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Protected ReadOnly Property CommandCollection() As Global.System.Data.OleDb.OleDbCommand()
+            Get
+                If (Me._commandCollection Is Nothing) Then
+                    Me.InitCommandCollection
+                End If
+                Return Me._commandCollection
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property ClearBeforeFill() As Boolean
+            Get
+                Return Me._clearBeforeFill
+            End Get
+            Set
+                Me._clearBeforeFill = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitAdapter()
+            Me._adapter = New Global.System.Data.OleDb.OleDbDataAdapter()
+            Dim tableMapping As Global.System.Data.Common.DataTableMapping = New Global.System.Data.Common.DataTableMapping()
+            tableMapping.SourceTable = "Table"
+            tableMapping.DataSetTable = "tipoPerquisizione"
+            tableMapping.ColumnMappings.Add("idCarattere", "idCarattere")
+            tableMapping.ColumnMappings.Add("tipo", "tipo")
+            Me._adapter.TableMappings.Add(tableMapping)
+            Me._adapter.DeleteCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.DeleteCommand.Connection = Me.Connection
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM `tipoPerquisizione` WHERE ((`idCarattere` = ?) AND ((? = 1 AND `tipo`"& _ 
+                " IS NULL) OR (`tipo` = ?)))"
+            Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_idCarattere", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idCarattere", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_tipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tipo", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_tipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.InsertCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.InsertCommand.Connection = Me.Connection
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO `tipoPerquisizione` (`idCarattere`, `tipo`) VALUES (?, ?)"
+            Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idCarattere", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idCarattere", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand = New Global.System.Data.OleDb.OleDbCommand()
+            Me._adapter.UpdateCommand.Connection = Me.Connection
+            Me._adapter.UpdateCommand.CommandText = "UPDATE `tipoPerquisizione` SET `idCarattere` = ?, `tipo` = ? WHERE ((`idCarattere"& _ 
+                "` = ?) AND ((? = 1 AND `tipo` IS NULL) OR (`tipo` = ?)))"
+            Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idCarattere", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idCarattere", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("tipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tipo", Global.System.Data.DataRowVersion.Current, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_idCarattere", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idCarattere", Global.System.Data.DataRowVersion.Original, false, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("IsNull_tipo", Global.System.Data.OleDb.OleDbType.[Integer], 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tipo", Global.System.Data.DataRowVersion.Original, true, Nothing))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("Original_tipo", Global.System.Data.OleDb.OleDbType.VarWChar, 0, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "tipo", Global.System.Data.DataRowVersion.Original, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitConnection()
+            Me._connection = New Global.System.Data.OleDb.OleDbConnection()
+            Me._connection.ConnectionString = Global.OrSe.My.MySettings.Default.dbAlegatoAConnectionString
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Private Sub InitCommandCollection()
+            Me._commandCollection = New Global.System.Data.OleDb.OleDbCommand(1) {}
+            Me._commandCollection(0) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(0).Connection = Me.Connection
+            Me._commandCollection(0).CommandText = "SELECT idCarattere, tipo FROM tipoPerquisizione"
+            Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1) = New Global.System.Data.OleDb.OleDbCommand()
+            Me._commandCollection(1).Connection = Me.Connection
+            Me._commandCollection(1).CommandText = "SELECT idCarattere, tipo FROM tipoPerquisizione WHERE idCarattere=?"
+            Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
+            Me._commandCollection(1).Parameters.Add(New Global.System.Data.OleDb.OleDbParameter("idCarattere", Global.System.Data.OleDb.OleDbType.WChar, 1, Global.System.Data.ParameterDirection.Input, CType(0,Byte), CType(0,Byte), "idCarattere", Global.System.Data.DataRowVersion.Current, false, Nothing))
+        End Sub
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, true)>  _
+        Public Overloads Overridable Function Fill(ByVal dataTable As dbAlegatoADataSet.tipoPerquisizioneDataTable) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], true)>  _
+        Public Overloads Overridable Function GetData() As dbAlegatoADataSet.tipoPerquisizioneDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(0)
+            Dim dataTable As dbAlegatoADataSet.tipoPerquisizioneDataTable = New dbAlegatoADataSet.tipoPerquisizioneDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Fill, false)>  _
+        Public Overloads Overridable Function FillById(ByVal dataTable As dbAlegatoADataSet.tipoPerquisizioneDataTable, ByVal idCarattere As String) As Integer
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (idCarattere Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(idCarattere,String)
+            End If
+            If (Me.ClearBeforeFill = true) Then
+                dataTable.Clear
+            End If
+            Dim returnValue As Integer = Me.Adapter.Fill(dataTable)
+            Return returnValue
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.[Select], false)>  _
+        Public Overloads Overridable Function GetDataBy(ByVal idCarattere As String) As dbAlegatoADataSet.tipoPerquisizioneDataTable
+            Me.Adapter.SelectCommand = Me.CommandCollection(1)
+            If (idCarattere Is Nothing) Then
+                Me.Adapter.SelectCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.SelectCommand.Parameters(0).Value = CType(idCarattere,String)
+            End If
+            Dim dataTable As dbAlegatoADataSet.tipoPerquisizioneDataTable = New dbAlegatoADataSet.tipoPerquisizioneDataTable()
+            Me.Adapter.Fill(dataTable)
+            Return dataTable
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataTable As dbAlegatoADataSet.tipoPerquisizioneDataTable) As Integer
+            Return Me.Adapter.Update(dataTable)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataSet As dbAlegatoADataSet) As Integer
+            Return Me.Adapter.Update(dataSet, "tipoPerquisizione")
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRow As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(New Global.System.Data.DataRow() {dataRow})
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")>  _
+        Public Overloads Overridable Function Update(ByVal dataRows() As Global.System.Data.DataRow) As Integer
+            Return Me.Adapter.Update(dataRows)
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
+        Public Overloads Overridable Function Delete(ByVal Original_idCarattere As String, ByVal Original_tipo As String) As Integer
+            If (Original_idCarattere Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_idCarattere,String)
+            End If
+            If (Original_tipo Is Nothing) Then
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.DeleteCommand.Parameters(1).Value = CType(0,Object)
+                Me.Adapter.DeleteCommand.Parameters(2).Value = CType(Original_tipo,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
+            If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.DeleteCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.DeleteCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.DeleteCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
+        Public Overloads Overridable Function Insert(ByVal idCarattere As String, ByVal tipo As String) As Integer
+            If (idCarattere Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(0).Value = CType(idCarattere,String)
+            End If
+            If (tipo Is Nothing) Then
+                Me.Adapter.InsertCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.InsertCommand.Parameters(1).Value = CType(tipo,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
+            If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.InsertCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.InsertCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.InsertCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal idCarattere As String, ByVal tipo As String, ByVal Original_idCarattere As String, ByVal Original_tipo As String) As Integer
+            If (idCarattere Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(0).Value = CType(idCarattere,String)
+            End If
+            If (tipo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(1).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(1).Value = CType(tipo,String)
+            End If
+            If (Original_idCarattere Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(2).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(2).Value = CType(Original_idCarattere,String)
+            End If
+            If (Original_tipo Is Nothing) Then
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = Global.System.DBNull.Value
+            Else
+                Me.Adapter.UpdateCommand.Parameters(3).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_tipo,String)
+            End If
+            Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
+            If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
+                        <> Global.System.Data.ConnectionState.Open) Then
+                Me.Adapter.UpdateCommand.Connection.Open
+            End If
+            Try 
+                Dim returnValue As Integer = Me.Adapter.UpdateCommand.ExecuteNonQuery
+                Return returnValue
+            Finally
+                If (previousConnectionState = Global.System.Data.ConnectionState.Closed) Then
+                    Me.Adapter.UpdateCommand.Connection.Close
+                End If
+            End Try
+        End Function
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
+         Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
+        Public Overloads Overridable Function Update(ByVal tipo As String, ByVal Original_idCarattere As String, ByVal Original_tipo As String) As Integer
+            Return Me.Update(Original_idCarattere, tipo, Original_idCarattere, Original_tipo)
+        End Function
+    End Class
+    
+    '''<summary>
     '''TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     '''</summary>
     <Global.System.ComponentModel.DesignerCategoryAttribute("code"),  _
@@ -21216,6 +22006,8 @@ Namespace dbAlegatoADataSetTableAdapters
         Private _sopralluogoTableAdapter As sopralluogoTableAdapter
         
         Private _versioneTableAdapter As versioneTableAdapter
+        
+        Private _tipoPerquisizioneTableAdapter As tipoPerquisizioneTableAdapter
         
         Private _backupDataSetBeforeUpdate As Boolean
         
@@ -21415,6 +22207,20 @@ Namespace dbAlegatoADataSetTableAdapters
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
+         Global.System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso"& _ 
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3"& _ 
+            "a", "System.Drawing.Design.UITypeEditor")>  _
+        Public Property tipoPerquisizioneTableAdapter() As tipoPerquisizioneTableAdapter
+            Get
+                Return Me._tipoPerquisizioneTableAdapter
+            End Get
+            Set
+                Me._tipoPerquisizioneTableAdapter = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Property BackupDataSetBeforeUpdate() As Boolean
             Get
@@ -21485,6 +22291,10 @@ Namespace dbAlegatoADataSetTableAdapters
                             AndAlso (Not (Me._versioneTableAdapter.Connection) Is Nothing)) Then
                     Return Me._versioneTableAdapter.Connection
                 End If
+                If ((Not (Me._tipoPerquisizioneTableAdapter) Is Nothing)  _
+                            AndAlso (Not (Me._tipoPerquisizioneTableAdapter.Connection) Is Nothing)) Then
+                    Return Me._tipoPerquisizioneTableAdapter.Connection
+                End If
                 Return Nothing
             End Get
             Set
@@ -21537,6 +22347,9 @@ Namespace dbAlegatoADataSetTableAdapters
                 If (Not (Me._versioneTableAdapter) Is Nothing) Then
                     count = (count + 1)
                 End If
+                If (Not (Me._tipoPerquisizioneTableAdapter) Is Nothing) Then
+                    count = (count + 1)
+                End If
                 Return count
             End Get
         End Property
@@ -21575,6 +22388,15 @@ Namespace dbAlegatoADataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
+            If (Not (Me._personaTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.persona.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._personaTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
             If (Not (Me._comuneTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.comune.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
@@ -21584,12 +22406,12 @@ Namespace dbAlegatoADataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._personaTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.persona.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+            If (Not (Me._tipoPerquisizioneTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.tipoPerquisizione.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._personaTableAdapter.Update(updatedRows))
+                    result = (result + Me._tipoPerquisizioneTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -21647,21 +22469,21 @@ Namespace dbAlegatoADataSetTableAdapters
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
-            If (Not (Me._versioneTableAdapter) Is Nothing) Then
-                Dim updatedRows() As Global.System.Data.DataRow = dataSet.versione.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
-                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
-                If ((Not (updatedRows) Is Nothing)  _
-                            AndAlso (0 < updatedRows.Length)) Then
-                    result = (result + Me._versioneTableAdapter.Update(updatedRows))
-                    allChangedRows.AddRange(updatedRows)
-                End If
-            End If
             If (Not (Me._sopralluogoTableAdapter) Is Nothing) Then
                 Dim updatedRows() As Global.System.Data.DataRow = dataSet.sopralluogo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
                 updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
                 If ((Not (updatedRows) Is Nothing)  _
                             AndAlso (0 < updatedRows.Length)) Then
                     result = (result + Me._sopralluogoTableAdapter.Update(updatedRows))
+                    allChangedRows.AddRange(updatedRows)
+                End If
+            End If
+            If (Not (Me._versioneTableAdapter) Is Nothing) Then
+                Dim updatedRows() As Global.System.Data.DataRow = dataSet.versione.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.ModifiedCurrent)
+                updatedRows = Me.GetRealUpdatedRows(updatedRows, allAddedRows)
+                If ((Not (updatedRows) Is Nothing)  _
+                            AndAlso (0 < updatedRows.Length)) Then
+                    result = (result + Me._versioneTableAdapter.Update(updatedRows))
                     allChangedRows.AddRange(updatedRows)
                 End If
             End If
@@ -21699,6 +22521,14 @@ Namespace dbAlegatoADataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
+            If (Not (Me._personaTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.persona.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._personaTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
             If (Not (Me._comuneTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.comune.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
@@ -21707,11 +22537,11 @@ Namespace dbAlegatoADataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._personaTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.persona.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+            If (Not (Me._tipoPerquisizioneTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.tipoPerquisizione.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._personaTableAdapter.Update(addedRows))
+                    result = (result + Me._tipoPerquisizioneTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -21763,19 +22593,19 @@ Namespace dbAlegatoADataSetTableAdapters
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
-            If (Not (Me._versioneTableAdapter) Is Nothing) Then
-                Dim addedRows() As Global.System.Data.DataRow = dataSet.versione.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
-                If ((Not (addedRows) Is Nothing)  _
-                            AndAlso (0 < addedRows.Length)) Then
-                    result = (result + Me._versioneTableAdapter.Update(addedRows))
-                    allAddedRows.AddRange(addedRows)
-                End If
-            End If
             If (Not (Me._sopralluogoTableAdapter) Is Nothing) Then
                 Dim addedRows() As Global.System.Data.DataRow = dataSet.sopralluogo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
                 If ((Not (addedRows) Is Nothing)  _
                             AndAlso (0 < addedRows.Length)) Then
                     result = (result + Me._sopralluogoTableAdapter.Update(addedRows))
+                    allAddedRows.AddRange(addedRows)
+                End If
+            End If
+            If (Not (Me._versioneTableAdapter) Is Nothing) Then
+                Dim addedRows() As Global.System.Data.DataRow = dataSet.versione.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Added)
+                If ((Not (addedRows) Is Nothing)  _
+                            AndAlso (0 < addedRows.Length)) Then
+                    result = (result + Me._versioneTableAdapter.Update(addedRows))
                     allAddedRows.AddRange(addedRows)
                 End If
             End If
@@ -21789,19 +22619,19 @@ Namespace dbAlegatoADataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Function UpdateDeletedRows(ByVal dataSet As dbAlegatoADataSet, ByVal allChangedRows As Global.System.Collections.Generic.List(Of Global.System.Data.DataRow)) As Integer
             Dim result As Integer = 0
-            If (Not (Me._sopralluogoTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.sopralluogo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
-                If ((Not (deletedRows) Is Nothing)  _
-                            AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._sopralluogoTableAdapter.Update(deletedRows))
-                    allChangedRows.AddRange(deletedRows)
-                End If
-            End If
             If (Not (Me._versioneTableAdapter) Is Nothing) Then
                 Dim deletedRows() As Global.System.Data.DataRow = dataSet.versione.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._versioneTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._sopralluogoTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.sopralluogo.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._sopralluogoTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -21853,11 +22683,11 @@ Namespace dbAlegatoADataSetTableAdapters
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
-            If (Not (Me._personaTableAdapter) Is Nothing) Then
-                Dim deletedRows() As Global.System.Data.DataRow = dataSet.persona.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+            If (Not (Me._tipoPerquisizioneTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.tipoPerquisizione.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
-                    result = (result + Me._personaTableAdapter.Update(deletedRows))
+                    result = (result + Me._tipoPerquisizioneTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -21866,6 +22696,14 @@ Namespace dbAlegatoADataSetTableAdapters
                 If ((Not (deletedRows) Is Nothing)  _
                             AndAlso (0 < deletedRows.Length)) Then
                     result = (result + Me._comuneTableAdapter.Update(deletedRows))
+                    allChangedRows.AddRange(deletedRows)
+                End If
+            End If
+            If (Not (Me._personaTableAdapter) Is Nothing) Then
+                Dim deletedRows() As Global.System.Data.DataRow = dataSet.persona.Select(Nothing, Nothing, Global.System.Data.DataViewRowState.Deleted)
+                If ((Not (deletedRows) Is Nothing)  _
+                            AndAlso (0 < deletedRows.Length)) Then
+                    result = (result + Me._personaTableAdapter.Update(deletedRows))
                     allChangedRows.AddRange(deletedRows)
                 End If
             End If
@@ -21996,6 +22834,11 @@ Namespace dbAlegatoADataSetTableAdapters
             End If
             If ((Not (Me._versioneTableAdapter) Is Nothing)  _
                         AndAlso (Me.MatchTableAdapterConnection(Me._versioneTableAdapter.Connection) = false)) Then
+                Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
+                        "tring.")
+            End If
+            If ((Not (Me._tipoPerquisizioneTableAdapter) Is Nothing)  _
+                        AndAlso (Me.MatchTableAdapterConnection(Me._tipoPerquisizioneTableAdapter.Connection) = false)) Then
                 Throw New Global.System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s"& _ 
                         "tring.")
             End If
@@ -22148,6 +22991,15 @@ Namespace dbAlegatoADataSetTableAdapters
                         adaptersWithAcceptChangesDuringUpdate.Add(Me._versioneTableAdapter.Adapter)
                     End If
                 End If
+                If (Not (Me._tipoPerquisizioneTableAdapter) Is Nothing) Then
+                    revertConnections.Add(Me._tipoPerquisizioneTableAdapter, Me._tipoPerquisizioneTableAdapter.Connection)
+                    Me._tipoPerquisizioneTableAdapter.Connection = CType(workConnection,Global.System.Data.OleDb.OleDbConnection)
+                    Me._tipoPerquisizioneTableAdapter.Transaction = CType(workTransaction,Global.System.Data.OleDb.OleDbTransaction)
+                    If Me._tipoPerquisizioneTableAdapter.Adapter.AcceptChangesDuringUpdate Then
+                        Me._tipoPerquisizioneTableAdapter.Adapter.AcceptChangesDuringUpdate = false
+                        adaptersWithAcceptChangesDuringUpdate.Add(Me._tipoPerquisizioneTableAdapter.Adapter)
+                    End If
+                End If
                 '
                 '---- Perform updates -----------
                 '
@@ -22259,6 +23111,10 @@ Namespace dbAlegatoADataSetTableAdapters
                 If (Not (Me._versioneTableAdapter) Is Nothing) Then
                     Me._versioneTableAdapter.Connection = CType(revertConnections(Me._versioneTableAdapter),Global.System.Data.OleDb.OleDbConnection)
                     Me._versioneTableAdapter.Transaction = Nothing
+                End If
+                If (Not (Me._tipoPerquisizioneTableAdapter) Is Nothing) Then
+                    Me._tipoPerquisizioneTableAdapter.Connection = CType(revertConnections(Me._tipoPerquisizioneTableAdapter),Global.System.Data.OleDb.OleDbConnection)
+                    Me._tipoPerquisizioneTableAdapter.Transaction = Nothing
                 End If
                 If (0 < adaptersWithAcceptChangesDuringUpdate.Count) Then
                     Dim adapters((adaptersWithAcceptChangesDuringUpdate.Count) - 1) As Global.System.Data.Common.DataAdapter

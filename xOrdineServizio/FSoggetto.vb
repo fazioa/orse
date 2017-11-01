@@ -13,7 +13,7 @@ Public Class FSoggetto
     Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByVal parametri As parametriControllo_e_OS, ByVal iOrdine As Integer, ByVal accompagnatore As tipoAccompagnatore)
         Me.parametri = parametri
         ' Chiamata richiesta da Progettazione Windows Form.
-        DbDataSet = DataSet
+        DbDataSetComuneNascita = DataSet
         InitializeComponent()
         UserControlInit()
 
@@ -22,6 +22,9 @@ Public Class FSoggetto
 
         AllegatoABindingSource.AddNew()
         PersonaBindingSource.AddNew()
+
+        Me.TipoPerquisizioneTableAdapter.Fill(Me.DbDataSetTipoPerquisizione.tipoPerquisizione)
+        perquisizioneComboBox.SelectedIndex = "0"
 
         'scrivo ID del controllo
         If (parametri.idControllo <> Nothing) Then
@@ -46,20 +49,20 @@ Public Class FSoggetto
         ComboBoxModelliMezzo.setTabella(UserControlComboBox.tabellaEnum.ModelliMezzo)
         ComboBoxModelliMezzo.MaxLength(50) 'imposto la lunghezza massima del campo. E' uguale a quella del DB
 
-        tbTarga.MaxLength = DbDataSet.modelliMezzo.mezzoColumn.MaxLength
-        tbColore.MaxLength = DbDataSet.allegatoA.coloreColumn.MaxLength
-        tbCognome.MaxLength = DbDataSet.persona.cognomeColumn.MaxLength
-        tbNome.MaxLength = DbDataSet.persona.nomeColumn.MaxLength
-        tbIndirizzo.MaxLength = DbDataSet.persona.residenzaindirizzoColumn.MaxLength
-        tbDocumento.MaxLength = DbDataSet.persona.documentoColumn.MaxLength
-        tbPrecedenti.MaxLength = DbDataSet.persona.precedentiColumn.MaxLength
-        tbNote.MaxLength = DbDataSet.allegatoA.NOTEColumn.MaxLength
+        tbTarga.MaxLength = DbDataSetComuneNascita.modelliMezzo.mezzoColumn.MaxLength
+        tbColore.MaxLength = DbDataSetComuneNascita.allegatoA.coloreColumn.MaxLength
+        tbCognome.MaxLength = DbDataSetComuneNascita.persona.cognomeColumn.MaxLength
+        tbNome.MaxLength = DbDataSetComuneNascita.persona.nomeColumn.MaxLength
+        tbIndirizzo.MaxLength = DbDataSetComuneNascita.persona.residenzaindirizzoColumn.MaxLength
+        tbDocumento.MaxLength = DbDataSetComuneNascita.persona.documentoColumn.MaxLength
+        tbPrecedenti.MaxLength = DbDataSetComuneNascita.persona.precedentiColumn.MaxLength
+        tbNote.MaxLength = DbDataSetComuneNascita.allegatoA.NOTEColumn.MaxLength
 
     End Sub
 
     'modifica soggetto
     Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByVal parametri As parametriControllo_e_OS, ByVal n As Integer)
-        DbDataSet = DataSet
+        DbDataSetComuneNascita = DataSet
         InitializeComponent()
         feActions.setStandardFormSize(Me)
         'inizializza lo user controll con i parametri richiesti
@@ -67,11 +70,11 @@ Public Class FSoggetto
 
         Me.parametri = parametri
 
-        'fill della tabella alegatoA e della persona del dataset
-        Me.AllegatoATableAdapter.FillByID(Me.DbDataSet.allegatoA, n)
+        'fill della tabella alegatoA e degli altri dataset
+        Me.AllegatoATableAdapter.FillByID(Me.DbDataSetComuneNascita.allegatoA, n)
 
         Dim i = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idPersona")
-        Me.PersonaTableAdapter.FillByID(Me.DbDataSet.persona, i)
+        Me.PersonaTableAdapter.FillByID(Me.DbDataSetComuneNascita.persona, i)
 
         i = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idMezzo")
         If (Not i Is DBNull.Value) Then
@@ -79,14 +82,19 @@ Public Class FSoggetto
             ComboBoxModelliMezzo.setSelectedID(i)
         End If
 
-
-
         i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idLuogoNascita")
-
-        If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet.QComune, Integer.Parse(i))
+        If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSetComuneNascita.QComune, Integer.Parse(i))
 
         i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idResidenzaComune")
-        If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet2.QComune, Integer.Parse(i))
+        If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSetComuneResidenza.QComune, Integer.Parse(i))
+
+        Dim idPerquisizione = feActions.leggiCampoDB(Me.AllegatoABindingSource, "perquisizione")
+        Me.TipoPerquisizioneTableAdapter.Fill(Me.DbDataSetTipoPerquisizione.tipoPerquisizione)
+
+        If (Not idPerquisizione Is DBNull.Value And Not idPerquisizione Is Nothing) Then
+            perquisizioneComboBox.SelectedText = idPerquisizione
+        End If
+
 
         parametri.idControllo = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idControllo")
         labelOSWrite(parametri.idControllo)
@@ -95,7 +103,7 @@ Public Class FSoggetto
 
     Private Sub labelOSWrite(ByVal iId As Integer)
         'se il fill restituisce 0 vuol dire che sto inserendo un nuovo controllo, quindi ho già tutti i par necessati nella classe parametri
-        If (QAllegatoATableAdapter.FillByIdControllo(Me.DbDataSet.QAllegatoA, iId) > 0) Then
+        If (QAllegatoATableAdapter.FillByIdControllo(Me.DbDataSetComuneNascita.QAllegatoA, iId) > 0) Then
             parametri.dataOS = feActions.leggiCampoDB(Me.QAllegatoABindingSource, "dataOS")
             parametri.nomeOS = feActions.leggiCampoDB(Me.QAllegatoABindingSource, "nomeOS")
             parametri.nomeOperatore = feActions.leggiCampoDB(Me.QAllegatoABindingSource, "operatori")
@@ -108,6 +116,8 @@ Public Class FSoggetto
     End Sub
 
     Private Sub FSoggetto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        'TODO: This line of code loads data into the 'DbAlegatoADataSet.tipoPerquisizione' table. You can move, or remove it, as needed.
+        Me.TipoPerquisizioneTableAdapter.Fill(Me.DbAlegatoADataSet.tipoPerquisizione)
         If bNuovoSoggetto Then
             'esegue qui se è un nuovo soggetto
             'valore di default per PositivoSDIComboBox
@@ -126,13 +136,13 @@ Public Class FSoggetto
                 Else
                     s = "passeggero"
                 End If
-                If (modelliMezzoTableAdapter.FillByMezzo_StringaEsatta(DbDataSet.modelliMezzo, s) <= 0) Then
+                If (modelliMezzoTableAdapter.FillByMezzo_StringaEsatta(DbDataSetComuneNascita.modelliMezzo, s) <= 0) Then
                     Me.modelliMezzoTableAdapter.Insert(s)
                     'rifaccio il fill, per evitare di avere un risultato nullo nella ricerca del valore appena inserito
-                    modelliMezzoTableAdapter.FillByMezzo(DbDataSet.modelliMezzo, s)
+                    modelliMezzoTableAdapter.FillByMezzo(DbDataSetComuneNascita.modelliMezzo, s)
                 End If
 
-                
+
                 'recupero l'id del mezzo e lo metto in bindig. Faccio così perchè la textbox è invisibile
 
                 Dim drv As DataRowView = AllegatoABindingSource.Current()
@@ -163,7 +173,7 @@ Public Class FSoggetto
 
 
     Private Sub ComuneDataGridView_RowsRemoved(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewRowsRemovedEventArgs)
-        Me.ComuneTableAdapter.Update(Me.DbDataSet.comune)
+        Me.ComuneTableAdapter.Update(Me.DbDataSetComuneNascita.comune)
 
     End Sub
 
@@ -172,9 +182,9 @@ Public Class FSoggetto
         Try
             Me.Validate()
             'creazione persona
-        
+
             Me.PersonaBindingSource.EndEdit()
-            Me.PersonaTableAdapter.Update(Me.DbDataSet.persona)
+            Me.PersonaTableAdapter.Update(Me.DbDataSetComuneNascita.persona)
 
             Dim drv As DataRowView = Me.AllegatoABindingSource.Current()
             If (bNuovoSoggetto) Then
@@ -207,7 +217,7 @@ Public Class FSoggetto
             drv.EndEdit()
             'update modifiche riga allegato A
             '  Me.AllegatoABindingSource.EndEdit()
-            Me.AllegatoATableAdapter.Update(Me.DbDataSet.allegatoA)
+            Me.AllegatoATableAdapter.Update(Me.DbDataSetComuneNascita.allegatoA)
             Me.Close()
 
         Catch ex As Exception
@@ -226,12 +236,12 @@ Public Class FSoggetto
         '   Me.PersonaBindingSource.EndEdit()
         'Me.AllegatoABindingSource.EndEdit()
 
-        feActions.doApriFormAllegatoA(DbDataSet, parametri.Clone, 1, tipoAccompagnatore.passeggero)
+        feActions.doApriFormAllegatoA(DbDataSetComuneNascita, parametri.Clone, 1, tipoAccompagnatore.passeggero)
     End Sub
 
 
     Private Sub btnAPiedi_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAPiedi.Click
-        feActions.doApriFormAllegatoA(DbDataSet, parametri.Clone, 1, tipoAccompagnatore.a_piedi)
+        feActions.doApriFormAllegatoA(DbDataSetComuneNascita, parametri.Clone, 1, tipoAccompagnatore.a_piedi)
     End Sub
 
     Private Sub FSoggetto_KeyDown(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles MyBase.KeyDown
@@ -318,13 +328,13 @@ Public Class FSoggetto
             bNuovoSoggetto = True
             'se viene selezionata una persona di int.operativo allora rimuovo la riga inserita prima e posiziono il binding
             bPersonaInteresseOperativo = True
-            Me.PersonaTableAdapter.FillByID(DbDataSet.persona, idPersona)
+            Me.PersonaTableAdapter.FillByID(DbDataSetComuneNascita.persona, idPersona)
             PersonaBindingSource.MoveFirst()
             Dim i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idLuogoNascita")
-            If (Not (i Is DBNull.Value Or i Is Nothing)) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet.QComune, Integer.Parse(i))
+            If (Not (i Is DBNull.Value Or i Is Nothing)) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSetComuneNascita.QComune, Integer.Parse(i))
 
             i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idResidenzaComune")
-            If (Not (i Is DBNull.Value Or i Is Nothing)) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet2.QComune, Integer.Parse(i))
+            If (Not (i Is DBNull.Value Or i Is Nothing)) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSetComuneResidenza.QComune, Integer.Parse(i))
 
 
 
@@ -345,13 +355,13 @@ Public Class FSoggetto
 
     Private Sub bPIOSel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles bPIOSel.Click
         'lettura dell'id persona esistente in base ai parametri indicati
-        Me.PersonaTableAdapter.FillByDati(DbDataSet.persona, tbCognome.Text(), tbNome.Text(), ComboBoxComuneNascita.SelectedValue, DataNascitaMaskedTextBox.Text)
+        Me.PersonaTableAdapter.FillByDati(DbDataSetComuneNascita.persona, tbCognome.Text(), tbNome.Text(), ComboBoxComuneNascita.SelectedValue, DataNascitaMaskedTextBox.Text)
 
         PersonaBindingSource.MoveFirst()
 
         Dim i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idResidenzaComune")
 
-        If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSet2.QComune, Integer.Parse(i))
+        If (Not i Is DBNull.Value And Not i Is Nothing) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSetComuneResidenza.QComune, Integer.Parse(i))
 
         bPersonaInteresseOperativo = True
         'non mi occorre fare altre operazioni. Il binding della persona è già posizionato sull'elemento che mi interessa
@@ -384,12 +394,12 @@ Public Class FSoggetto
 
     Private Sub ComboBoxComuneNascita_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles ComboBoxComuneNascita.KeyUp
         Dim cb As ComboBox = sender
-        EventoKeyUpComboComune(DbDataSet, cb)
+        EventoKeyUpComboComune(DbDataSetComuneNascita, cb)
     End Sub
 
     Private Sub ComboBoxComuneResidenza_KeyUp(ByVal sender As System.Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles ComboBoxComuneResidenza.KeyUp
         Dim cb As ComboBox = sender
-        EventoKeyUpComboComune(DbDataSet2, cb)
+        EventoKeyUpComboComune(DbDataSetComuneResidenza, cb)
 
     End Sub
     Sub EventoKeyUpComboComune(ByVal dataset As dbAlegatoADataSet, ByVal cb As ComboBox)
@@ -475,7 +485,7 @@ Public Class FSoggetto
     Private Sub aggiornoDataUltimoUsoComune(ByVal id As Integer)
         Dim log As New XOrseLog
         If (id > 0) Then
-            If (Me.PrioritaComuneTableAdapter.FillByID(Me.DbDataSet.prioritaComune, id) > 0) Then
+            If (Me.PrioritaComuneTableAdapter.FillByID(Me.DbDataSetComuneNascita.prioritaComune, id) > 0) Then
                 Try
                     Dim objconn As New OleDb.OleDbConnection(My.Settings.dbAlegatoAConnectionString)
                     Dim objcomm As New OleDb.OleDbCommand("UPDATE prioritaComune SET dataOraUltimoUso=" & ActionsLibrary.getTimeStamp() & " WHERE idComune= " & id, objconn)
@@ -548,11 +558,13 @@ Public Class FSoggetto
         log.xlogWriteEntry("Apertura form modifica dati controllo", TraceEventType.Information)
         'db = db
         Dim form As System.Windows.Forms.Form
-        form = New DInserimentoLuogoControllo(DbDataSet, parametri, True)
+        form = New DInserimentoLuogoControllo(DbDataSetComuneNascita, parametri, True)
         form.ShowDialog()
         If form.DialogResult = Windows.Forms.DialogResult.OK Then
             'aggiorno le informazioni sul controllo 
             labelOSWrite(parametri.idControllo)
         End If
     End Sub
+
+
 End Class
