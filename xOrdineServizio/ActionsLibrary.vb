@@ -891,7 +891,7 @@ Public Class ActionsLibrary
             Dim sColore As String = IIf(a.Item("colore") = Nothing, "", a.Item("colore"))
             Dim sTarga As String = IIf(a.Item("targa") = Nothing, "", a.Item("targa"))
             Dim bContravvenzioni As Boolean = IIf(a.Item("contravvenzioni") = Nothing, False, a.Item("contravvenzioni"))
-            Dim bPerquisizioni As Boolean = IIf(a.Item("perquisizioni") = Nothing, False, a.Item("perquisizioni"))
+            Dim bPerquisizioni As String = IIf(a.Item("perquisizioni") = Nothing, False, a.Item("perquisizioni"))
             Dim sPositivoSDI As String = IIf(a.Item("positivoSDI") = Nothing, "", a.Item("positivoSDI"))
             Dim sNote As String = IIf(a.Item("note") = Nothing, "", a.Item("note"))
 
