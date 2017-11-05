@@ -252,7 +252,7 @@
     <value>Strumenti...</value>
   </data>
   <data name="LogoutToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="LogoutToolStripMenuItem1.Text" xml:space="preserve">
     <value>Logout...</value>
@@ -549,6 +549,12 @@
   <metadata name="barramenu.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>501, 17</value>
   </metadata>
+  <data name="CamToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 20</value>
+  </data>
+  <data name="CamToolStripMenuItem.Text" xml:space="preserve">
+    <value>cam</value>
+  </data>
   <data name="barramenu.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -2297,13 +2303,13 @@
     <value>OrdineServizioTableAdapter1</value>
   </data>
   <data name="&gt;&gt;OrdineServizioTableAdapter1.Type" xml:space="preserve">
-    <value>OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter, OrSe, Version=2.80.4.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter, dbAlegatoADataSet.Designer.vb, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;DbAlegatoADataSet.Name" xml:space="preserve">
     <value>DbAlegatoADataSet</value>
   </data>
   <data name="&gt;&gt;DbAlegatoADataSet.Type" xml:space="preserve">
-    <value>OrSe.dbAlegatoADataSet, OrSe, Version=2.80.4.1, Culture=neutral, PublicKeyToken=null</value>
+    <value>OrSe.dbAlegatoADataSet, dbAlegatoADataSet.Designer.vb, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null</value>
   </data>
   <data name="&gt;&gt;BackgroundWorker1.Name" xml:space="preserve">
     <value>BackgroundWorker1</value>
@@ -2316,6 +2322,12 @@
   </data>
   <data name="&gt;&gt;ToolTip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;CamToolStripMenuItem.Name" xml:space="preserve">
+    <value>CamToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;CamToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>FPrima</value>

@@ -76,6 +76,7 @@ Partial Class FPrima
         Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.CamToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.barramenu.SuspendLayout()
@@ -287,7 +288,7 @@ Partial Class FPrima
         'barramenu
         '
         Me.barramenu.GripStyle = System.Windows.Forms.ToolStripGripStyle.Visible
-        Me.barramenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferenzeToolStripMenuItem1, Me.StampaToolStripMenuItem, Me.StrumentiToolStripMenuItem, Me.SessioneToolStripMenuItem, Me.HelpToolStripMenuItem})
+        Me.barramenu.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferenzeToolStripMenuItem1, Me.StampaToolStripMenuItem, Me.StrumentiToolStripMenuItem, Me.SessioneToolStripMenuItem, Me.HelpToolStripMenuItem, Me.CamToolStripMenuItem})
         resources.ApplyResources(Me.barramenu, "barramenu")
         Me.barramenu.Name = "barramenu"
         '
@@ -397,6 +398,11 @@ Partial Class FPrima
         '
         Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
         Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
+        '
+        'CamToolStripMenuItem
+        '
+        Me.CamToolStripMenuItem.Name = "CamToolStripMenuItem"
+        resources.ApplyResources(Me.CamToolStripMenuItem, "CamToolStripMenuItem")
         '
         'FPrima
         '
@@ -517,5 +523,6 @@ Partial Class FPrima
     Friend WithEvents BackgroundWorker1 As System.ComponentModel.BackgroundWorker
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents ContattiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents CamToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 
 End Class

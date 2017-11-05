@@ -400,6 +400,10 @@ Public Class FPrima
         feActions.doApriFormContatti()
     End Sub
 
+    Private Sub CamToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CamToolStripMenuItem.Click
+        Dim f = New cam()
+        f.Show()
+    End Sub
 End Class
 
 

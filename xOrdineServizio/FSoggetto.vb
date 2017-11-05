@@ -1,3 +1,5 @@
+Imports System.IO
+
 Public Class FSoggetto
     Dim parametri As parametriControllo_e_OS
     Dim log As New XOrseLog
@@ -116,7 +118,7 @@ Public Class FSoggetto
     End Sub
 
     Private Sub FSoggetto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DbAlegatoADataSet.tipoPerquisizione' table. You can move, or remove it, as needed.
+
         Me.TipoPerquisizioneTableAdapter.Fill(Me.DbAlegatoADataSet.tipoPerquisizione)
         If bNuovoSoggetto Then
             'esegue qui se è un nuovo soggetto
@@ -186,7 +188,7 @@ Public Class FSoggetto
             Me.PersonaBindingSource.EndEdit()
             Me.PersonaTableAdapter.Update(Me.DbDataSetComuneNascita.persona)
 
-            Dim drv As DataRowView = Me.AllegatoABindingSource.Current()
+            Dim datarowAllegatoA As DataRowView = Me.AllegatoABindingSource.Current()
             If (bNuovoSoggetto) Then
 
                 'se ho inserito una persona in i.o. allora non devo recuperare l'id dell'ultima persona inserita
@@ -200,21 +202,21 @@ Public Class FSoggetto
                     idpersona = dataRowPersona.Item("id")
                 End If
 
-                drv.Item("idpersona") = idpersona
+                datarowAllegatoA.Item("idpersona") = idpersona
                 'memorizzo l'id del controllo nella riga dell'allegatoA
 
-                If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
+                If (ComboBoxModelliMezzo.getSelectedID > 0) Then datarowAllegatoA.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
 
-                drv.Item("idControllo") = parametri.idControllo
+                datarowAllegatoA.Item("idControllo") = parametri.idControllo
 
                 'memorizzo l'ordine di inserimento della persona nel controllo
-                drv.Item("ordine") = Me.xiOrdine
+                datarowAllegatoA.Item("ordine") = Me.xiOrdine
             Else
                 'c'è un bug che non riesco a risolvere. Inspiegabilmente sparisce il mezzo. Lo scrivo forzatamente
-                If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
+                If (ComboBoxModelliMezzo.getSelectedID > 0) Then datarowAllegatoA.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
 
             End If
-            drv.EndEdit()
+            datarowAllegatoA.EndEdit()
             'update modifiche riga allegato A
             '  Me.AllegatoABindingSource.EndEdit()
             Me.AllegatoATableAdapter.Update(Me.DbDataSetComuneNascita.allegatoA)
@@ -567,4 +569,51 @@ Public Class FSoggetto
     End Sub
 
 
+    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles ButtonFileFotografie.Click
+        Dim fDialog As OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        fDialog.Title = "Aggiungi fotografie"
+        fDialog.Filter = "Orse Files|*.bmp|*.jpg|*.png"
+        fDialog.Multiselect = True
+
+        If (fDialog.ShowDialog() = DialogResult.OK) Then
+            Dim sFileName As String
+
+            For Each sFileName In fDialog.FileNames
+                
+                FlowLayoutPanelFotografie.Controls.Add(getThumb(sFileName, FlowLayoutPanelFotografie.Width()))
+
+            Next
+
+        End If
+    End Sub
+
+    Private Function getThumb(sFileName As String, width As Integer) As PictureBox
+        Dim pic As New PictureBox()
+        Dim img As Image = Bitmap.FromFile(sFileName)
+        Dim widthImage As Integer = img.Width()
+        Dim heightImage As Integer = img.Height()
+
+
+        Dim ratio As Single = 0
+        'If widthImage < heightImage Then
+        ratio = CSng(widthImage) / CSng(heightImage)
+        widthImage = width
+        heightImage = Convert.ToInt32(Math.Round(CSng(widthImage) / ratio))
+        '   Else
+        '   ratio = CSng(heightImage) / CSng(widthImage)
+        '   heightImage = height
+        '  widthImage = Convert.ToInt32(Math.Round(CSng(heightImage) / ratio))
+        ' End If
+        pic.Image = img.GetThumbnailImage(widthImage, heightImage, Nothing, IntPtr.Zero)
+        pic.Width = widthImage
+        pic.Height = heightImage
+
+        Return pic
+
+    End Function
+
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles ButtonAcquisizioneFoto.Click
+        Dim f = New cam()
+        f.Show()
+    End Sub
 End Class
