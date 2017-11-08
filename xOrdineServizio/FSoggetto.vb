@@ -568,52 +568,30 @@ Public Class FSoggetto
         End If
     End Sub
 
-
-    Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles ButtonFileFotografie.Click
-        Dim fDialog As OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
-        fDialog.Title = "Aggiungi fotografie"
-        fDialog.Filter = "Orse Files|*.bmp|*.jpg|*.png"
-        fDialog.Multiselect = True
-
-        If (fDialog.ShowDialog() = DialogResult.OK) Then
-            Dim sFileName As String
-
-            For Each sFileName In fDialog.FileNames
-                
-                FlowLayoutPanelFotografie.Controls.Add(getThumb(sFileName, FlowLayoutPanelFotografie.Width()))
-
-            Next
-
-        End If
-    End Sub
-
-    Private Function getThumb(sFileName As String, width As Integer) As PictureBox
-        Dim pic As New PictureBox()
-        Dim img As Image = Bitmap.FromFile(sFileName)
-        Dim widthImage As Integer = img.Width()
-        Dim heightImage As Integer = img.Height()
-
-
-        Dim ratio As Single = 0
-        'If widthImage < heightImage Then
-        ratio = CSng(widthImage) / CSng(heightImage)
-        widthImage = width
-        heightImage = Convert.ToInt32(Math.Round(CSng(widthImage) / ratio))
-        '   Else
-        '   ratio = CSng(heightImage) / CSng(widthImage)
-        '   heightImage = height
-        '  widthImage = Convert.ToInt32(Math.Round(CSng(heightImage) / ratio))
-        ' End If
-        pic.Image = img.GetThumbnailImage(widthImage, heightImage, Nothing, IntPtr.Zero)
-        pic.Width = widthImage
-        pic.Height = heightImage
-
-        Return pic
-
-    End Function
-
     Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles ButtonAcquisizioneFoto.Click
         Dim f = New cam()
         f.Show()
+    End Sub
+
+    Private Sub ButtonFileFotografie_Click(sender As System.Object, e As System.EventArgs) Handles ButtonFileFotografie.Click
+        Dim fDialog As OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        fDialog.Title = "Aggiungi fotografie"
+        fDialog.Filter = "Images|*.jpg"
+        fDialog.Multiselect = True
+        Dim sFileName As String
+        Dim userControlImg As userControlImmagini
+        If (fDialog.ShowDialog() = DialogResult.OK) Then
+            Dim sCognomeNomeData = tbCognome.Text & "_" & tbNome.Text & "_" & DataNascitaMaskedTextBox.Text.Replace("/", "_")
+            For i As Integer = 0 To fDialog.FileNames.Length - 1
+                sFileName = fDialog.FileNames.GetValue(i)
+                Try
+                    userControlImg = New userControlImmagini(Bitmap.FromFile(sFileName), sFileName, sCognomeNomeData, FlowLayoutPanelFotografie.Width)
+                    FlowLayoutPanelFotografie.Controls.Add(userControlImg)
+                Catch ex As Exception
+                    MsgBox("Raggiunto il numero massimo di fotografie in un unico inserimento. Sono state inserite " & i & " fotografie.")
+                    i = fDialog.FileNames.Length
+                End Try
+            Next
+        End If
     End Sub
 End Class

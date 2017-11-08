@@ -103,5 +103,8 @@
     <Setting Name="revisioneTabelle" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
+    <Setting Name="pathCartellaFotografie" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\fotografie</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

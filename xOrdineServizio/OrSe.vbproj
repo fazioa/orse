@@ -317,10 +317,16 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UpdateSoftware.vb" />
-    <Compile Include="UserControl1.Designer.vb">
-      <DependentUpon>UserControl1.vb</DependentUpon>
+    <Compile Include="UserControlMezzo.Designer.vb">
+      <DependentUpon>UserControlMezzo.vb</DependentUpon>
     </Compile>
-    <Compile Include="UserControl1.vb">
+    <Compile Include="UserControlMezzo.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="userControlImmagini.designer.vb">
+      <DependentUpon>userControlImmagini.vb</DependentUpon>
+    </Compile>
+    <Compile Include="userControlImmagini.vb">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="verticalLabel.Designer.vb">
@@ -331,6 +337,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="userControlImmagini.resx">
+      <DependentUpon>userControlImmagini.vb</DependentUpon>
+    </EmbeddedResource>
     <None Include="CookComputing.XmlRpcV2.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -552,9 +561,9 @@
     <EmbeddedResource Include="Resources\btnReport\printOP85.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="UserControl1.resx">
+    <EmbeddedResource Include="UserControlMezzo.resx">
       <SubType>Designer</SubType>
-      <DependentUpon>UserControl1.vb</DependentUpon>
+      <DependentUpon>UserControlMezzo.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

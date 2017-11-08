@@ -423,6 +423,18 @@ Namespace My
                 Me("revisioneTabelle") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("\fotografie")>  _
+        Public Property pathCartellaFotografie() As String
+            Get
+                Return CType(Me("pathCartellaFotografie"),String)
+            End Get
+            Set
+                Me("pathCartellaFotografie") = value
+            End Set
+        End Property
     End Class
 End Namespace
 
