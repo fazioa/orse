@@ -154,67 +154,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_970C2E1C52967562CC4E3BD326703E21"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0CEBB2232203CA3EA514DFE8904D99EA"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F5506A0399AFE2BA47250E5C9483A837"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E170B30FC4569D20D7792D1247D31E46"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6176231CC45DC277B6D59B1BFAB11136"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_17DA732F18794D058246452104DFFD96"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0B7894E042524903A44C502CDE404AC8"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0510C267B54890C85A9BD52A09BC14F9"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0967BE91C6DBA0FB7E56A8F471ADAA64"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C9B9A45BA5116DEFF42C65450F22C474"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_E2E873BE4D8145577122252BA692B3C1"
+        "OwnerKey" = "8:_D1DD1889DDBD7F6994AE232A11763BEB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -226,7 +166,67 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_D1DD1889DDBD7F6994AE232A11763BEB"
+        "OwnerKey" = "8:_E2E873BE4D8145577122252BA692B3C1"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_C9B9A45BA5116DEFF42C65450F22C474"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0967BE91C6DBA0FB7E56A8F471ADAA64"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0510C267B54890C85A9BD52A09BC14F9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0B7894E042524903A44C502CDE404AC8"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_17DA732F18794D058246452104DFFD96"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6176231CC45DC277B6D59B1BFAB11136"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_E170B30FC4569D20D7792D1247D31E46"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F5506A0399AFE2BA47250E5C9483A837"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0CEBB2232203CA3EA514DFE8904D99EA"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_970C2E1C52967562CC4E3BD326703E21"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -377,11 +377,6 @@
             "AssemblyAsmDisplayName" = "8:Ionic.Zip, Version=1.9.1.5, Culture=neutral, PublicKeyToken=edbe51ad942a3f5c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_0967BE91C6DBA0FB7E56A8F471ADAA64"
-                    {
-                    "Name" = "8:Ionic.Zip.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Ionic.Zip.dll"
             "TargetName" = "8:"
@@ -439,11 +434,6 @@
             "AssemblyAsmDisplayName" = "8:Interop.ADODB, Version=2.8.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_0CEBB2232203CA3EA514DFE8904D99EA"
-                    {
-                    "Name" = "8:Interop.ADODB.DLL"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Interop.ADODB.DLL"
             "TargetName" = "8:"
@@ -501,11 +491,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3F2BF3EC936B9866D516DAED07D0E320"
-                    {
-                    "Name" = "8:Microsoft.ReportViewer.WinForms.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.ReportViewer.WinForms.dll"
             "TargetName" = "8:"
@@ -583,11 +568,6 @@
             "AssemblyAsmDisplayName" = "8:Interop.JRO, Version=2.6.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
-                    "_970C2E1C52967562CC4E3BD326703E21"
-                    {
-                    "Name" = "8:Interop.JRO.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Interop.JRO.dll"
             "TargetName" = "8:"
@@ -634,11 +614,6 @@
             "AssemblyAsmDisplayName" = "8:CookComputing.XmlRpcV2, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_C9B9A45BA5116DEFF42C65450F22C474"
-                    {
-                    "Name" = "8:CookComputing.XmlRpcV2.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CookComputing.XmlRpcV2.dll"
             "TargetName" = "8:"
@@ -665,11 +640,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_D1DD1889DDBD7F6994AE232A11763BEB"
-                    {
-                    "Name" = "8:Microsoft.ReportViewer.Common.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.ReportViewer.Common.dll"
             "TargetName" = "8:"
@@ -747,11 +717,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_E2E873BE4D8145577122252BA692B3C1"
-                    {
-                    "Name" = "8:Microsoft.VisualBasic.PowerPacks.Vs.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.VisualBasic.PowerPacks.Vs.dll"
             "TargetName" = "8:"
@@ -911,15 +876,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OrSe"
-        "ProductCode" = "8:{BB58CBE4-CD0E-4A98-8D56-B68F351151EF}"
-        "PackageCode" = "8:{4135B36E-AD0D-4108-9BEF-AC18BB331291}"
+        "ProductCode" = "8:{D36D0837-2784-4634-B562-676889E99BBB}"
+        "PackageCode" = "8:{2AC0579A-CCAE-4077-95AC-7C2945C0041D}"
         "UpgradeCode" = "8:{0C7D90CF-3CC8-4A31-BC3D-DC885A69B70D}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:TRUE"
-        "ProductVersion" = "8:1.82.00"
+        "ProductVersion" = "8:1.83.00"
         "Manufacturer" = "8:Orse"
         "ARPHELPTELEPHONE" = "8:3313658556"
         "ARPHELPLINK" = "8:www.xorse.it/orse"

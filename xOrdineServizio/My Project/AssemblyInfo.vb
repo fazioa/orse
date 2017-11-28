@@ -14,7 +14,7 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyDescription("Software per la pattuglia  - Inserimento interventi, informazioni e soggetti identificati. Stampa report interventi, allegatoA, modelli OP85 e verbali di sopralluogo.")> 
 <Assembly: AssemblyCompany("Antonino Fazio")> 
 <Assembly: AssemblyProduct("OrSe")> 
-<Assembly: AssemblyCopyright("Copyright ©  2008-2016")> 
+<Assembly: AssemblyCopyright("Copyright ©  2008-2017")> 
 <Assembly: AssemblyTrademark("")> 
 
 <Assembly: ComVisible(True)> 
@@ -33,7 +33,7 @@ Imports System.Runtime.InteropServices
 ' utilizzando l'asterisco (*) come descritto di seguito:
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
-<Assembly: AssemblyVersion("2.82.00.00")> 
+<Assembly: AssemblyVersion("2.9.00.00")> 
 <Assembly: AssemblyFileVersion("3.15")> 
 
 <Assembly: NeutralResourcesLanguageAttribute("it")> 
