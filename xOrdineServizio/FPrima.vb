@@ -35,7 +35,7 @@ Public Class FPrima
         Dim a As String = System.Reflection.MethodBase.GetCurrentMethod().Name
 
         'SOLLEVO ECCEZIONE PER TEST
-        ' Throw New Exception("operazione non valida.")
+        '        Throw New Exception("operazione non valida.")
 
         'elimino il file dbAlegatoA2, nel caso sia presente
         Try

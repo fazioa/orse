@@ -5684,7 +5684,7 @@ Partial Public Class dbAlegatoADataSet
             Me.columnidOS.AutoIncrement = true
             Me.columnidOS.AutoIncrementSeed = -1
             Me.columnidOS.AutoIncrementStep = -1
-            Me.columnperquisizione.MaxLength = 1
+            Me.columnperquisizione.MaxLength = 2
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

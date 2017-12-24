@@ -721,7 +721,6 @@ Public Class ActionsLibrary
                     orseNodeList = Obj.GetElementsByTagName("QRubrica")
             End Select
 
-            'leggo tutti i dati del libro
             Dim a As New System.Collections.Hashtable
 
             'PROGRESS BAR
@@ -766,7 +765,7 @@ Public Class ActionsLibrary
                                 log.xlogWriteEntry("Incongruenza dati. Viene ignorato il seguente inserimento: luogo=" & a.Item("luogo") & ", dataora: " & a.Item("dataora") & ". Persona: " & a.Item("cognome") & ", nome: " & a.Item("nome"), TraceEventType.Critical)
                             End If
                         Catch ex As Exception
-                            log.xlogWriteEntry("Inserimentob controllo IGNORATO a causa di errore. idOS:" & idOS & ", luogo: " & a.Item("luogo") & ", data/ora:" & a.Item("dataora") & ". Errore: " & ex.Message, TraceEventType.Critical)
+                            log.xlogWriteEntry("Inserimento controllo IGNORATO a causa di errore. idOS:" & idOS & ", luogo: " & a.Item("luogo") & ", data/ora:" & a.Item("dataora") & ". Errore: " & ex.Message, TraceEventType.Critical)
 
                         End Try
                     Case tipoDato.informazioni

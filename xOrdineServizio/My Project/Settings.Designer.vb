@@ -158,7 +158,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("3.00")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("3.1")>  _
         Public Property versioneDB() As String
             Get
                 Return CType(Me("versioneDB"),String)

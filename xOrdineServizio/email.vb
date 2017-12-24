@@ -15,6 +15,7 @@ Public Class email
         Try
             With x
                 .EnableSsl = True
+                .UseDefaultCredentials = False
                 .Credentials = New Net.NetworkCredential("xorsedebug@gmail.com", "xorsedebug00")
             End With
 
