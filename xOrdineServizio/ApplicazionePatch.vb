@@ -86,8 +86,10 @@ Public Class ApplicazionePatch
                 patch2_aggiornamentoMaxsizeIndirizzo_e_documento()
                 MsgBox("ATTENZIONE: Database aggiornato. Il campo soggetto.residenza e soggetto.documento sono stati ampliati a 200 caratteri")
                 MsgBox("ATTENZIONE: Continuando ad utilizzare il database corrente non sarà disponibile l'elenco aggiornato ISTAT 2016 dei Comuni italiano. Eseguire l'esportazione dei dati e la cancellazione manuale del database. Poi riavviare OrSe", MsgBoxStyle.Critical, "Comuni - ISTAT 2016")
+                aggiornaversioneVersioneDB(2.9)
             Case Is < 3.1
                 patch_aggiornamentoFormatoCampoPerquisizione()
+                aggiornaversioneVersioneDB(3.1)
         End Select
     End Sub
     Private Sub aggiornaNumeroVersione(ByVal sNuovoNumeroVersione As String, sAbout As String)
