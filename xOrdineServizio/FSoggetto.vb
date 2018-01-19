@@ -585,7 +585,7 @@ Public Class FSoggetto
             For i As Integer = 0 To fDialog.FileNames.Length - 1
                 sFileName = fDialog.FileNames.GetValue(i)
                 Try
-                    userControlImg = New userControlImmagini(Bitmap.FromFile(sFileName), sFileName, sCognomeNomeData, FlowLayoutPanelFotografie.Width)
+                    userControlImg = New userControlImmagini(sFileName, sCognomeNomeData, FlowLayoutPanelFotografie.Width)
                     FlowLayoutPanelFotografie.Controls.Add(userControlImg)
                 Catch ex As Exception
                     MsgBox("Raggiunto il numero massimo di fotografie in un unico inserimento. Sono state inserite " & i & " fotografie.")

@@ -9,8 +9,9 @@ Public Class userControlImmagini
     Public Property sFilePath As String
     Private _imageTmb As Image
 
-    Sub New(image As Image, _sFilePath As String, sCognomeNomeData As String, width As Integer)
+    Sub New(_sFilePath As String, sCognomeNomeData As String, width As Integer)
         InitializeComponent()
+        Dim image As Image = Bitmap.FromFile(_sFilePath)
         Dim widthImage As Integer = image.Width()
         Dim heightImage As Integer = image.Height()
 
@@ -32,12 +33,20 @@ Public Class userControlImmagini
 
     End Sub
 
-    INSERIRE CANCELLAZIONE FOTO E MEMORIZZAZIONE SU DATABASE
+
 
     Private Sub salvaFile(_sFilePath As String, _sCognomeNomeData As String)
         _sCognomeNomeData = _sCognomeNomeData.Replace(" ", "_")
-        My.Computer.FileSystem.CopyFile(_sFilePath, My.Settings.pathCartellaScrivibile & My.Settings.pathCartellaFotografie & "\" & _sCognomeNomeData & "\" & Path.GetFileName(_sFilePath))
-        sFilePath = _sFilePath
+        sFilePath = My.Settings.pathCartellaScrivibile & My.Settings.pathCartellaFotografie & "\" & _sCognomeNomeData & "\" & Path.GetFileName(_sFilePath)
+        My.Computer.FileSystem.CopyFile(_sFilePath, sFilePath, True)
+
+        Solo il path delle fotografie deve essere memorizzato
+        Al momento del salvataggio il link deve essere memorizzato sul DB ed i file salvati
+
+        Label cartella deve essere il numero IDPersona
+        InitializeComponent file interni = timestamps + cognome + nome
+
+
     End Sub
 
     Private Sub clickFoto(sLink As String)
