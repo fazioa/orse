@@ -1,3 +1,7 @@
+#If CONFIG = "Debug" Then
+#Const DEBUG = True
+#End If
+
 Imports System.Runtime.InteropServices
 'Classe che definisce le azioni da effettuare in seguito ad un comando dato da uno dei form
 
@@ -890,13 +894,25 @@ Public Class ActionsLibrary
             Dim sColore As String = IIf(a.Item("colore") = Nothing, "", a.Item("colore"))
             Dim sTarga As String = IIf(a.Item("targa") = Nothing, "", a.Item("targa"))
             Dim bContravvenzioni As Boolean = IIf(a.Item("contravvenzioni") = Nothing, False, a.Item("contravvenzioni"))
-            Dim bPerquisizioni As String = IIf(a.Item("perquisizioni") = Nothing, False, a.Item("perquisizioni"))
+
+            Dim sPerquisizioni As String = IIf(a.Item("perquisizione") = Nothing, "0", a.Item("perquisizione"))
+            'se sto importando dei record provenienti da un DB precedente alla versione 3.0 (quando il campo perquisizione era booleano) allora tutti i valori differenti da quelli stabiliti (0, A, B, C ,D) vengono azzerati
+            Select Case sPerquisizioni
+                Case "0"
+                Case "A"
+                Case "B"
+                Case "C"
+                Case "D"
+                Case Else
+                    sPerquisizioni = "0"
+            End Select
+
             Dim sPositivoSDI As String = IIf(a.Item("positivoSDI") = Nothing, "", a.Item("positivoSDI"))
             Dim sNote As String = IIf(a.Item("note") = Nothing, "", a.Item("note"))
 
             log.xlogWriteEntry("Inserimento riga allegatoA, idControllo:" & idControllo & ", mezzo:" & a.Item("mezzo") & " " & sTarga, TraceEventType.Critical)
             Dim idMezzo As Integer = mezzoToID(a.Item("mezzo"))
-            Return t.Insert(idControllo, iOrdine, idMezzo, sColore, sTarga, idPersona, bContravvenzioni, bPerquisizioni, sPositivoSDI, sNote)
+            Return t.Insert(idControllo, iOrdine, idMezzo, sColore, sTarga, idPersona, bContravvenzioni, sPositivoSDI, sNote, sPerquisizioni)
         Else
             log.xlogWriteEntry("Inserimento riga allegatoA - IGNORATA - idPersona=" & idPersona & " - idControllo= " & idControllo, TraceEventType.Critical)
             Return ds.Item(0).id

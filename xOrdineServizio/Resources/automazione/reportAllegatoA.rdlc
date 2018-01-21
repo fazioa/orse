@@ -646,7 +646,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIf(Fields!perquisizione.Value="0","",Fields!perquisizione.Value)</Value>
+                              <Value>=IIf(Fields!perquisizione.Value="0","--",Fields!perquisizione.Value)</Value>
                               <Style>
                                 <FontSize>8pt</FontSize>
                               </Style>
@@ -738,7 +738,7 @@
         <Top>4.35064cm</Top>
         <Left>0.00005cm</Left>
         <Height>0.83784cm</Height>
-        <Width>26.93841cm</Width>
+        <Width>26.93838cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1871,7 +1871,7 @@ all'ordine di servizio</Value>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
   </ReportParameters>
-  <Width>269.38517mm</Width>
+  <Width>269.38522mm</Width>
   <Page>
     <PageFooter>
       <Height>1.17748cm</Height>

@@ -1,3 +1,7 @@
+#If CONFIG = "Debug" Then
+#Const DEBUG = True
+#End If
+
 Imports System.Diagnostics
 'Imports System.Threading
 Imports System.UnhandledExceptionEventArgs
