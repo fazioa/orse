@@ -57,7 +57,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_58ECA3E2B2164324A9487C09876F3DA3"
+        "MsmKey" = "8:_4C7F17EF5CF149719803A93BC25E272C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -154,18 +154,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_278985D58C1C09FF271E5C68FF9D1BA3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DCB7784C58051126E74747DFA0762F41"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_F5506A0399AFE2BA47250E5C9483A837"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -197,6 +185,18 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0510C267B54890C85A9BD52A09BC14F9"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_278985D58C1C09FF271E5C68FF9D1BA3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DCB7784C58051126E74747DFA0762F41"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -467,7 +467,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.JRO, Version=2.6.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Interop.JRO, Version=2.6.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_278985D58C1C09FF271E5C68FF9D1BA3"
@@ -525,7 +525,7 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_58ECA3E2B2164324A9487C09876F3DA3"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4C7F17EF5CF149719803A93BC25E272C"
             {
             "SourcePath" = "8:..\\xOrdineServizio\\dbAlegatoA._db"
             "TargetName" = "8:dbAlegatoA._db"
@@ -662,7 +662,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:Interop.ADODB, Version=2.8.0.0, Culture=neutral, processorArchitecture=MSIL"
+            "AssemblyAsmDisplayName" = "8:Interop.ADODB, Version=2.8.0.0, Culture=neutral, processorArchitecture=x86"
                 "ScatterAssemblies"
                 {
                     "_DCB7784C58051126E74747DFA0762F41"
@@ -911,9 +911,9 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OrSe"
-        "ProductCode" = "8:{D1A6FC6F-9022-48D5-AADB-7920A0FDD920}"
-        "PackageCode" = "8:{110559CA-E1DA-4DD3-983E-7BBF8BA003D3}"
-        "UpgradeCode" = "8:{2312C9A6-AE9A-4EC3-BC8F-D77AB86B5F5A}"
+        "ProductCode" = "8:{B9332D7C-DB8B-4A2E-9B5C-3D8CF3D289C9}"
+        "PackageCode" = "8:{A432B724-04E9-4EDD-850C-653F7DBCBF2C}"
+        "UpgradeCode" = "8:{C5BAD5E2-1B3F-4809-A13C-82BE46E52EB5}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
@@ -1517,7 +1517,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_DBD2460D46F5468894398930AE9FBD86"
             {
-            "SourcePath" = "8:..\\xOrdineServizio\\obj\\Debug\\OrSe.exe"
+            "SourcePath" = "8:..\\xOrdineServizio\\obj\\Release\\OrSe.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_5F18610F329F4544B51F5E3B7A4A018F"
