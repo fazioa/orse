@@ -1,0 +1,649 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+OrSe
+</name>
+</assembly>
+<members>
+<member name="T:OrSe.My.Resources.Resources">
+<summary>
+  Classe di risorse fortemente tipizzata per la ricerca di stringhe localizzate e così via.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.ResourceManager">
+<summary>
+  Restituisce l'istanza di ResourceManager nella cache utilizzata da questa classe.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.Culture">
+<summary>
+  Esegue l'override della proprietà CurrentUICulture del thread corrente per tutte le
+  ricerche di risorse eseguite utilizzando questa classe di risorse fortemente tipizzata.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.db_addBlu">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.db_addVerde">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.DBFind">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.logo_finale">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.PDF">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.printAllegatoA">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.printInterventi">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.printOP85">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.printOP85_disabilitato">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.pulsanteSoleGrigio">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.pulsanteSoleVerde">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.repubblica">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.rubricaPng">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.sagomaOFF">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.sagomaON">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="P:OrSe.My.Resources.Resources.WORD">
+<summary>
+  Cerca una risorsa localizzata di tipo System.Drawing.Bitmap.
+</summary>
+</member>
+<member name="T:OrSe.capture">
+ <summary>
+ Modulo per la gestione dei messaggi alla avicap32.dll
+ </summary>
+</member>
+<member name="M:OrSe.capture.SetWindowPos(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+ <summary>
+ La funzione cambia la dimensione, posizione, 
+ e l'ordine della finestra e se in primo piano.
+ </summary>
+ <param name="hwnd">Handle della finestra</param>
+ <param name="hWndInsertAfter">Handle della finestra precede in ordine quella selezionata</param>
+ <param name="x">Coordinata X</param>
+ <param name="y">Coordinata Y</param>
+ <param name="cx">Dimensioni in larghezza</param>
+ <param name="cy">Dimensioni in Altezza</param>
+ <param name="wFlags">Specifica le opzioni aggiuntive</param>
+ <returns>Se ha avuto successo ritorna un valore non zero</returns>
+</member>
+<member name="M:OrSe.capture.DestroyWindow(System.Int32)">
+ <summary>
+ Metodo che distrugge una finestra
+ </summary>
+ <param name="hndw">Handle della finestra</param>
+ <returns>True o false a seconda dell'esito dell'operazione</returns>
+</member>
+<member name="M:OrSe.capture.capCreateCaptureWindowA(System.String@,System.Int32,System.Int32,System.Int32,System.Int32,System.Int16,System.Int32,System.Int32)">
+ <summary>
+ Metodo che dirige il flusso alla finestra di preview
+ </summary>
+ <param name="lpszWindowName"></param>
+ <param name="dwStyle"></param>
+ <param name="x"></param>
+ <param name="y"></param>
+ <param name="nWidth"></param>
+ <param name="nHeight"></param>
+ <param name="hWndParent"></param>
+ <param name="nID"></param>
+ <returns></returns>
+</member>
+<member name="M:OrSe.capture.capGetDriverDescriptionA(System.Int16,System.String@,System.Int32,System.String@,System.Int32)">
+ <summary>
+ Funzione che ritorna l'esistenza o no di un driver
+ </summary>
+ <param name="wDriver">Numero del driver</param>
+ <param name="lpszName">Nome del driver</param>
+ <param name="cbName"></param>
+ <param name="lpszVer">Versione del driver</param>
+ <param name="cbVer"></param>
+ <returns>True se esiste un device, False se non esiste il device</returns>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.allegatoADataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.comuneDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.controlloDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.interventiDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.luoghicontrolloDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.modelliMezzoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.operatoreDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.ordineServizioDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.personaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.prioritaComuneDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.rubricaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.sopralluogoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.versioneDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QAllegatoADataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QComuneDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QInterventiDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QOrdineServizioDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QPersonaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QRubricaDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QSopralluogoDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.tipoPerquisizioneDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.allegatoARow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.comuneRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.controlloRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.interventiRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.luoghicontrolloRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.modelliMezzoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.operatoreRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.ordineServizioRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.personaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.prioritaComuneRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.rubricaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.sopralluogoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.versioneRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QAllegatoARow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QComuneRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QInterventiRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QOrdineServizioRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QPersonaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QRubricaRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QSopralluogoRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.tipoPerquisizioneRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.allegatoARowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.comuneRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.controlloRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.interventiRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.luoghicontrolloRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.modelliMezzoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.operatoreRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.ordineServizioRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.personaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.prioritaComuneRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.rubricaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.sopralluogoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.versioneRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QAllegatoARowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QComuneRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QInterventiRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QOrdineServizioRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QPersonaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QRubricaRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.QSopralluogoRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSet.tipoPerquisizioneRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.allegatoATableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.comuneTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.controlloTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.interventiTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.luoghicontrolloTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.modelliMezzoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.operatoreTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.ordineServizioTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.personaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.prioritaComuneTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.rubricaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.sopralluogoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.versioneTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.QAllegatoATableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.QComuneTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.QInterventiTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.QOrdineServizioTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.QPersonaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.QRubricaTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.QSopralluogoTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.tipoPerquisizioneTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:OrSe.dbAlegatoADataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(OrSe.dbAlegatoADataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:OrSe.dbAlegatoADataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(OrSe.dbAlegatoADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:OrSe.dbAlegatoADataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(OrSe.dbAlegatoADataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:OrSe.dbAlegatoADataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:OrSe.dbAlegatoADataSetTableAdapters.TableAdapterManager.UpdateAll(OrSe.dbAlegatoADataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:OrSe.dbAlegatoADataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="M:OrSe.emailStore.load">
+ <summary>
+ Carica il file dati lista segnalazioni. Carica in memoria il tipo Stack(Of emailObj)
+ </summary>
+</member>
+<member name="M:OrSe.emailStore.push(System.String,System.Drawing.Image)">
+ <summary>
+ inserisce una nuova segnalazione in lista. Esegue automaticamente load e save
+ </summary>
+ <param name="sTesto"></param>
+ <param name="img"></param>
+ <remarks></remarks>
+</member>
+<member name="M:OrSe.emailStore.pop">
+ <summary>
+ Preleva una segnalazione dalla lista
+ </summary>
+ <returns>emailObj</returns>
+ <remarks></remarks>
+</member>
+<member name="M:OrSe.ActionsLibrary.setStandardFormSize(System.Windows.Forms.Form)">
+ <summary>
+ Imposta le dimensioni del form in base alle preferenze generali
+ </summary>
+ <param name="f"></param>
+ <remarks></remarks>
+</member>
+</members>
+</doc>
