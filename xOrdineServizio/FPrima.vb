@@ -1,7 +1,3 @@
-#If CONFIG = "Debug" Then
-#Const DEBUG = True
-#End If
-
 Imports System.Diagnostics
 'Imports System.Threading
 Imports System.UnhandledExceptionEventArgs
@@ -39,7 +35,7 @@ Public Class FPrima
         Dim a As String = System.Reflection.MethodBase.GetCurrentMethod().Name
 
         'SOLLEVO ECCEZIONE PER TEST
-        '        Throw New Exception("operazione non valida.")
+        ' Throw New Exception("operazione non valida.")
 
         'elimino il file dbAlegatoA2, nel caso sia presente
         Try
@@ -404,6 +400,10 @@ Public Class FPrima
         feActions.doApriFormContatti()
     End Sub
 
+    Private Sub CamToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CamToolStripMenuItem.Click
+        '  Dim f = New cam()
+        '   f.Show()
+    End Sub
 End Class
 
 

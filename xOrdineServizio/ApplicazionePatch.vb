@@ -35,7 +35,7 @@ Public Class ApplicazionePatch
         'creo la tabella per la rubrica
         'esegue update del campo luogo controllo, passando da 50 caratteri massimi a 150, inserisce il numero versione DB 2.10
         Try
-            feActions.esegueSQL("ALTER TABLE operatore ADD COLUMN dataOraUltimoUso TEXT(20);")
+            feActions.esegueSQL("ALTER TABLE operatore ADD COLUMN dataOraUltimoUso TEXT(20)")
         Catch ex As Exception
             log.xlogWriteException(ex, TraceEventType.Critical, "Errore nell'aggiornamento del database")
         End Try
@@ -86,10 +86,8 @@ Public Class ApplicazionePatch
                 patch2_aggiornamentoMaxsizeIndirizzo_e_documento()
                 MsgBox("ATTENZIONE: Database aggiornato. Il campo soggetto.residenza e soggetto.documento sono stati ampliati a 200 caratteri")
                 MsgBox("ATTENZIONE: Continuando ad utilizzare il database corrente non sarà disponibile l'elenco aggiornato ISTAT 2016 dei Comuni italiano. Eseguire l'esportazione dei dati e la cancellazione manuale del database. Poi riavviare OrSe", MsgBoxStyle.Critical, "Comuni - ISTAT 2016")
-                aggiornaversioneVersioneDB(2.9)
-            Case Is < 3.1
+            Case Is < 3.0
                 patch_aggiornamentoFormatoCampoPerquisizione()
-                aggiornaversioneVersioneDB(3.1)
         End Select
     End Sub
     Private Sub aggiornaNumeroVersione(ByVal sNuovoNumeroVersione As String, sAbout As String)
@@ -108,17 +106,16 @@ Public Class ApplicazionePatch
 
     Private Sub patch_aggiornamentoFormatoCampoPerquisizione()
         'esegue update del campo allegatoA.perquisizione
-        feActions.esegueSQL("ALTER TABLE allegatoA ALTER COLUMN perquisizione TEXT(2);")
-        feActions.esegueSQL("CREATE TABLE tipoPerquisizione (idCarattere TEXT(2) CONSTRAINT ChiavePrimariaConstraint PRIMARY KEY, tipo TEXT(20));")
-        feActions.esegueSQL("ALTER TABLE tipoPerquisizione ALTER COLUMN idCarattere TEXT(2);")
-        feActions.esegueSQL("ALTER TABLE allegatoA ADD CONSTRAINT PK_integritaRefenzialeTipoPerquisizione FOREIGN KEY (perquisizione) REFERENCES tipoPerquisizione(idCarattere);")
+        feActions.esegueSQL("ALTER TABLE allegatoA ALTER COLUMN perquisizione TEXT(1)")
+        feActions.esegueSQL("CREATE TABLE tipoPerquisizione (idCarattere TEXT(1) CONSTRAINT ChiavePrimariaConstraint PRIMARY KEY, tipo TEXT(20))")
+        feActions.esegueSQL("ALTER TABLE allegatoA ADD CONSTRAINT PK_integritaRefenzialeTipoPerquisizione FOREIGN KEY (perquisizione) REFERENCES tipoPerquisizione(idCarattere)")
 
-        feActions.esegueSQL("INSERT INTO tipoPerquisizione (idCarattere, tipo) VALUES (""0"", """");")
-        feActions.esegueSQL("INSERT INTO tipoPerquisizione (idCarattere, tipo) VALUES (""A"", ""art.4 Legge 152/75"");")
-        feActions.esegueSQL("INSERT INTO tipoPerquisizione (idCarattere, tipo) VALUES (""B"", ""art.103 DPR 309/90"");")
-        feActions.esegueSQL("INSERT INTO tipoPerquisizione (idCarattere, tipo) VALUES (""C"", ""art.41 TULPS"");")
-        feActions.esegueSQL("INSERT INTO tipoPerquisizione (idCarattere, tipo) VALUES (""D"", ""art.352 CPP"");")
-        aggiornaNumeroVersione("3.10", "nov 2017 - Aggiornato Report Allegato A - Il campo perquisizione passa dal formato boolean a text(1)")
+        feActions.esegueSQL("INSERT INTO tipoPerquisizione (idCarattere, tipo) VALUES (""0"", """")")
+        feActions.esegueSQL("INSERT INTO tipoPerquisizione (idCarattere, tipo) VALUES (""A"", ""art.4 Legge 152/75"")")
+        feActions.esegueSQL("INSERT INTO tipoPerquisizione (idCarattere, tipo) VALUES (""B"", ""art.103 DPR 309/90"")")
+        feActions.esegueSQL("INSERT INTO tipoPerquisizione (idCarattere, tipo) VALUES (""C"", ""art.41 TULPS"")")
+        feActions.esegueSQL("INSERT INTO tipoPerquisizione (idCarattere, tipo) VALUES (""D"", ""art.352 CPP"")")
+        aggiornaNumeroVersione("3.00", "nov 2017 - Aggiornato Report Allegato A - Il campo perquisizione passa dal formato boolean a text(1)")
     End Sub
 
 End Class

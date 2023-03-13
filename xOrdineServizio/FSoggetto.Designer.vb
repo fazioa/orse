@@ -82,6 +82,10 @@ Partial Class FSoggetto
         Me.btnAddPIO = New System.Windows.Forms.Button()
         Me.bPIOSel = New System.Windows.Forms.Button()
         Me.FlowLayoutPanel4 = New System.Windows.Forms.FlowLayoutPanel()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.FlowLayoutPanelFotografie = New System.Windows.Forms.FlowLayoutPanel()
+        Me.ButtonFileFotografie = New System.Windows.Forms.Button()
+        Me.ButtonAcquisizioneFoto = New System.Windows.Forms.Button()
         Me.ToolTip = New System.Windows.Forms.ToolTip(Me.components)
         Me.LabelControllo = New System.Windows.Forms.Label()
         Me.LabelOperatori = New System.Windows.Forms.Label()
@@ -132,6 +136,7 @@ Partial Class FSoggetto
         Me.GroupBox9.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.FlowLayoutPanel4.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         CType(Me.MezzoBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -473,7 +478,7 @@ Partial Class FSoggetto
         '
         Me.GroupBox1.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox1.Controls.Add(Me.FlowLayoutPanel1)
-        Me.GroupBox1.Location = New System.Drawing.Point(3, 210)
+        Me.GroupBox1.Location = New System.Drawing.Point(3, 3)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(190, 139)
         Me.GroupBox1.TabIndex = 153
@@ -505,7 +510,7 @@ Partial Class FSoggetto
         '
         Me.GroupBox2.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.GroupBox2.Controls.Add(Me.FlowLayoutPanel2)
-        Me.GroupBox2.Location = New System.Drawing.Point(3, 355)
+        Me.GroupBox2.Location = New System.Drawing.Point(3, 148)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(190, 174)
         Me.GroupBox2.TabIndex = 154
@@ -791,14 +796,63 @@ Partial Class FSoggetto
         '
         'FlowLayoutPanel4
         '
+        Me.FlowLayoutPanel4.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FlowLayoutPanel4.AutoSize = True
         Me.FlowLayoutPanel4.Controls.Add(Me.GroupBox2)
         Me.FlowLayoutPanel4.Controls.Add(Me.GroupBox1)
-        Me.FlowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Right
         Me.FlowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.BottomUp
-        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(819, 0)
+        Me.FlowLayoutPanel4.Location = New System.Drawing.Point(828, 207)
         Me.FlowLayoutPanel4.Name = "FlowLayoutPanel4"
-        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(205, 532)
+        Me.FlowLayoutPanel4.Size = New System.Drawing.Size(196, 325)
         Me.FlowLayoutPanel4.TabIndex = 160
+        '
+        'GroupBox3
+        '
+        Me.GroupBox3.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.GroupBox3.Controls.Add(Me.FlowLayoutPanelFotografie)
+        Me.GroupBox3.Controls.Add(Me.ButtonFileFotografie)
+        Me.GroupBox3.Controls.Add(Me.ButtonAcquisizioneFoto)
+        Me.GroupBox3.Location = New System.Drawing.Point(828, 5)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(193, 200)
+        Me.GroupBox3.TabIndex = 154
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Fotografie"
+        '
+        'FlowLayoutPanelFotografie
+        '
+        Me.FlowLayoutPanelFotografie.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.FlowLayoutPanelFotografie.AutoScroll = True
+        Me.FlowLayoutPanelFotografie.Location = New System.Drawing.Point(9, 137)
+        Me.FlowLayoutPanelFotografie.Name = "FlowLayoutPanelFotografie"
+        Me.FlowLayoutPanelFotografie.Size = New System.Drawing.Size(178, 57)
+        Me.FlowLayoutPanelFotografie.TabIndex = 165
+        '
+        'ButtonFileFotografie
+        '
+        Me.ButtonFileFotografie.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonFileFotografie.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
+        Me.ButtonFileFotografie.Location = New System.Drawing.Point(9, 19)
+        Me.ButtonFileFotografie.Name = "ButtonFileFotografie"
+        Me.ButtonFileFotografie.Size = New System.Drawing.Size(175, 53)
+        Me.ButtonFileFotografie.TabIndex = 200
+        Me.ButtonFileFotografie.Text = "&Aggiungi..."
+        Me.ToolTip.SetToolTip(Me.ButtonFileFotografie, "Inserisce un file")
+        Me.ButtonFileFotografie.UseVisualStyleBackColor = True
+        '
+        'ButtonAcquisizioneFoto
+        '
+        Me.ButtonAcquisizioneFoto.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.ButtonAcquisizioneFoto.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!)
+        Me.ButtonAcquisizioneFoto.Location = New System.Drawing.Point(9, 78)
+        Me.ButtonAcquisizioneFoto.Name = "ButtonAcquisizioneFoto"
+        Me.ButtonAcquisizioneFoto.Size = New System.Drawing.Size(175, 53)
+        Me.ButtonAcquisizioneFoto.TabIndex = 201
+        Me.ButtonAcquisizioneFoto.Text = "&Acquisisci..."
+        Me.ToolTip.SetToolTip(Me.ButtonAcquisizioneFoto, "Acuisisce un'immagine da scanner o webcan")
+        Me.ButtonAcquisizioneFoto.UseVisualStyleBackColor = True
         '
         'LabelControllo
         '
@@ -880,6 +934,7 @@ Partial Class FSoggetto
         Me.ClientSize = New System.Drawing.Size(1024, 532)
         Me.Controls.Add(Me.LabelOperatori)
         Me.Controls.Add(Me.GroupBox9)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.LabelControllo)
         Me.Controls.Add(Me.FlowLayoutPanel4)
         Me.Controls.Add(Me.Panel1)
@@ -926,6 +981,7 @@ Partial Class FSoggetto
         Me.GroupBox9.ResumeLayout(False)
         Me.FlowLayoutPanel3.ResumeLayout(False)
         Me.FlowLayoutPanel4.ResumeLayout(False)
+        Me.GroupBox3.ResumeLayout(False)
         CType(Me.MezzoBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.QAllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -994,4 +1050,8 @@ Partial Class FSoggetto
     Friend WithEvents TipoPerquisizioneBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents TipoPerquisizioneTableAdapter As OrSe.dbAlegatoADataSetTableAdapters.tipoPerquisizioneTableAdapter
     Friend WithEvents DbDataSetTipoPerquisizione As OrSe.dbAlegatoADataSet
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents ButtonFileFotografie As System.Windows.Forms.Button
+    Friend WithEvents ButtonAcquisizioneFoto As System.Windows.Forms.Button
+    Friend WithEvents FlowLayoutPanelFotografie As System.Windows.Forms.FlowLayoutPanel
 End Class

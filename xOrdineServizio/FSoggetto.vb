@@ -1,3 +1,5 @@
+Imports System.IO
+
 Public Class FSoggetto
     Dim parametri As parametriControllo_e_OS
     Dim log As New XOrseLog
@@ -116,7 +118,7 @@ Public Class FSoggetto
     End Sub
 
     Private Sub FSoggetto_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        'TODO: This line of code loads data into the 'DbAlegatoADataSet.tipoPerquisizione' table. You can move, or remove it, as needed.
+
         Me.TipoPerquisizioneTableAdapter.Fill(Me.DbAlegatoADataSet.tipoPerquisizione)
         If bNuovoSoggetto Then
             'esegue qui se è un nuovo soggetto
@@ -186,7 +188,7 @@ Public Class FSoggetto
             Me.PersonaBindingSource.EndEdit()
             Me.PersonaTableAdapter.Update(Me.DbDataSetComuneNascita.persona)
 
-            Dim drv As DataRowView = Me.AllegatoABindingSource.Current()
+            Dim datarowAllegatoA As DataRowView = Me.AllegatoABindingSource.Current()
             If (bNuovoSoggetto) Then
 
                 'se ho inserito una persona in i.o. allora non devo recuperare l'id dell'ultima persona inserita
@@ -200,21 +202,21 @@ Public Class FSoggetto
                     idpersona = dataRowPersona.Item("id")
                 End If
 
-                drv.Item("idpersona") = idpersona
+                datarowAllegatoA.Item("idpersona") = idpersona
                 'memorizzo l'id del controllo nella riga dell'allegatoA
 
-                If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
+                If (ComboBoxModelliMezzo.getSelectedID > 0) Then datarowAllegatoA.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
 
-                drv.Item("idControllo") = parametri.idControllo
+                datarowAllegatoA.Item("idControllo") = parametri.idControllo
 
                 'memorizzo l'ordine di inserimento della persona nel controllo
-                drv.Item("ordine") = Me.xiOrdine
+                datarowAllegatoA.Item("ordine") = Me.xiOrdine
             Else
                 'c'è un bug che non riesco a risolvere. Inspiegabilmente sparisce il mezzo. Lo scrivo forzatamente
-                If (ComboBoxModelliMezzo.getSelectedID > 0) Then drv.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
+                If (ComboBoxModelliMezzo.getSelectedID > 0) Then datarowAllegatoA.Item("idmezzo") = ComboBoxModelliMezzo.getSelectedID
 
             End If
-            drv.EndEdit()
+            datarowAllegatoA.EndEdit()
             'update modifiche riga allegato A
             '  Me.AllegatoABindingSource.EndEdit()
             Me.AllegatoATableAdapter.Update(Me.DbDataSetComuneNascita.allegatoA)
@@ -566,5 +568,30 @@ Public Class FSoggetto
         End If
     End Sub
 
+    Private Sub Button2_Click(sender As System.Object, e As System.EventArgs) Handles ButtonAcquisizioneFoto.Click
+        'Dim f = New cam()
+        ' f.Show()
+    End Sub
 
+    Private Sub ButtonFileFotografie_Click(sender As System.Object, e As System.EventArgs) Handles ButtonFileFotografie.Click
+        Dim fDialog As OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
+        fDialog.Title = "Aggiungi fotografie"
+        fDialog.Filter = "Images|*.jpg"
+        fDialog.Multiselect = True
+        Dim sFileName As String
+        Dim userControlImg As userControlImmagini
+        If (fDialog.ShowDialog() = DialogResult.OK) Then
+            Dim sCognomeNomeData = tbCognome.Text & "_" & tbNome.Text & "_" & DataNascitaMaskedTextBox.Text.Replace("/", "_")
+            For i As Integer = 0 To fDialog.FileNames.Length - 1
+                sFileName = fDialog.FileNames.GetValue(i)
+                Try
+                    userControlImg = New userControlImmagini(sFileName, sCognomeNomeData, FlowLayoutPanelFotografie.Width)
+                    FlowLayoutPanelFotografie.Controls.Add(userControlImg)
+                Catch ex As Exception
+                    MsgBox("Raggiunto il numero massimo di fotografie in un unico inserimento. Sono state inserite " & i & " fotografie.")
+                    i = fDialog.FileNames.Length
+                End Try
+            Next
+        End If
+    End Sub
 End Class

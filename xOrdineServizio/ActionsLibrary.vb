@@ -1,7 +1,3 @@
-#If CONFIG = "Debug" Then
-#Const DEBUG = True
-#End If
-
 Imports System.Runtime.InteropServices
 'Classe che definisce le azioni da effettuare in seguito ad un comando dato da uno dei form
 
@@ -725,6 +721,7 @@ Public Class ActionsLibrary
                     orseNodeList = Obj.GetElementsByTagName("QRubrica")
             End Select
 
+            'leggo tutti i dati del libro
             Dim a As New System.Collections.Hashtable
 
             'PROGRESS BAR
@@ -769,7 +766,7 @@ Public Class ActionsLibrary
                                 log.xlogWriteEntry("Incongruenza dati. Viene ignorato il seguente inserimento: luogo=" & a.Item("luogo") & ", dataora: " & a.Item("dataora") & ". Persona: " & a.Item("cognome") & ", nome: " & a.Item("nome"), TraceEventType.Critical)
                             End If
                         Catch ex As Exception
-                            log.xlogWriteEntry("Inserimento controllo IGNORATO a causa di errore. idOS:" & idOS & ", luogo: " & a.Item("luogo") & ", data/ora:" & a.Item("dataora") & ". Errore: " & ex.Message, TraceEventType.Critical)
+                            log.xlogWriteEntry("Inserimentob controllo IGNORATO a causa di errore. idOS:" & idOS & ", luogo: " & a.Item("luogo") & ", data/ora:" & a.Item("dataora") & ". Errore: " & ex.Message, TraceEventType.Critical)
 
                         End Try
                     Case tipoDato.informazioni
@@ -894,25 +891,13 @@ Public Class ActionsLibrary
             Dim sColore As String = IIf(a.Item("colore") = Nothing, "", a.Item("colore"))
             Dim sTarga As String = IIf(a.Item("targa") = Nothing, "", a.Item("targa"))
             Dim bContravvenzioni As Boolean = IIf(a.Item("contravvenzioni") = Nothing, False, a.Item("contravvenzioni"))
-
-            Dim sPerquisizioni As String = IIf(a.Item("perquisizione") = Nothing, "0", a.Item("perquisizione"))
-            'se sto importando dei record provenienti da un DB precedente alla versione 3.0 (quando il campo perquisizione era booleano) allora tutti i valori differenti da quelli stabiliti (0, A, B, C ,D) vengono azzerati
-            Select Case sPerquisizioni
-                Case "0"
-                Case "A"
-                Case "B"
-                Case "C"
-                Case "D"
-                Case Else
-                    sPerquisizioni = "0"
-            End Select
-
+            Dim bPerquisizioni As String = IIf(a.Item("perquisizioni") = Nothing, False, a.Item("perquisizioni"))
             Dim sPositivoSDI As String = IIf(a.Item("positivoSDI") = Nothing, "", a.Item("positivoSDI"))
             Dim sNote As String = IIf(a.Item("note") = Nothing, "", a.Item("note"))
 
             log.xlogWriteEntry("Inserimento riga allegatoA, idControllo:" & idControllo & ", mezzo:" & a.Item("mezzo") & " " & sTarga, TraceEventType.Critical)
             Dim idMezzo As Integer = mezzoToID(a.Item("mezzo"))
-            Return t.Insert(idControllo, iOrdine, idMezzo, sColore, sTarga, idPersona, bContravvenzioni, sPositivoSDI, sNote, sPerquisizioni)
+            Return t.Insert(idControllo, iOrdine, idMezzo, sColore, sTarga, idPersona, bContravvenzioni, bPerquisizioni, sPositivoSDI, sNote)
         Else
             log.xlogWriteEntry("Inserimento riga allegatoA - IGNORATA - idPersona=" & idPersona & " - idControllo= " & idControllo, TraceEventType.Critical)
             Return ds.Item(0).id
