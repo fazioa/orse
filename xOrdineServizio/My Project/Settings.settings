@@ -106,5 +106,8 @@
     <Setting Name="pathCartellaFotografie" Type="System.String" Scope="User">
       <Value Profile="(Default)">\fotografie</Value>
     </Setting>
+    <Setting Name="pathTempFotografie" Type="System.String" Scope="User">
+      <Value Profile="(Default)">\fotografieTemp</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

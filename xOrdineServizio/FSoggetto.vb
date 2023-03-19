@@ -1,4 +1,5 @@
 Imports System.IO
+Imports System.Linq.Expressions
 
 Public Class FSoggetto
     Dim parametri As parametriControllo_e_OS
@@ -182,6 +183,7 @@ Public Class FSoggetto
 
     Private Sub btnSalvaChiudi_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvaChiudi.Click
         Try
+            Dim idpersona As Integer
             Me.Validate()
             'creazione persona
 
@@ -192,7 +194,7 @@ Public Class FSoggetto
             If (bNuovoSoggetto) Then
 
                 'se ho inserito una persona in i.o. allora non devo recuperare l'id dell'ultima persona inserita
-                Dim idpersona As Integer
+
                 If (Not bPersonaInteresseOperativo) Then
                     'recupero l'id persona. E' l'ultima persona inserita
                     idpersona = Me.PersonaTableAdapter.MaxID()
@@ -222,6 +224,19 @@ Public Class FSoggetto
             Me.AllegatoATableAdapter.Update(Me.DbDataSetComuneNascita.allegatoA)
             Me.Close()
 
+            'copia fotografie dalla cartella temporanea in una cartella col nome di idPersonaù
+            Dim sFilePathDest = My.Settings.pathCartellaScrivibile & My.Settings.pathCartellaFotografie & "\" & idpersona
+            Dim sFilePath = My.Settings.pathCartellaScrivibile & My.Settings.pathTempFotografie
+
+            'sposta tutti i file contenuti
+            Dim listaFile = My.Computer.FileSystem.GetFiles(sFilePath)
+            Dim element = Nothing
+            For Each element In listaFile
+                My.Computer.FileSystem.MoveFile(element, sFilePathDest & "\" & Path.GetFileName(element), True)
+                log.xlogWriteEntry("Spostamento File", "Spostamento file " & Path.GetFileName(element).Trim & " to " & sFilePathDest)
+                vedere perché solleva eccezione
+            Next
+
         Catch ex As Exception
             log.xlogWriteEntry("Errore inserimento soggetto. " & ex.Message, TraceEventType.Error)
             MsgBox("Errore inserimento soggetto. " & ex.Message, MsgBoxStyle.Critical, "Errore")
@@ -230,6 +245,13 @@ Public Class FSoggetto
 
 
     Private Sub btnAnnulla_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnAnnulla.Click
+        Dim sFilePath = My.Settings.pathCartellaScrivibile & My.Settings.pathTempFotografie
+        If My.Computer.FileSystem.DirectoryExists(sFilePath) Then
+            My.Computer.FileSystem.DeleteDirectory(sFilePath, FileIO.DeleteDirectoryOption.DeleteAllContents)
+            log.xlogWriteEntry("Cancellati file nella directory " & sFilePath, TraceEventType.Information)
+        End If
+
+
         Me.Close()
     End Sub
 
@@ -581,11 +603,15 @@ Public Class FSoggetto
         Dim sFileName As String
         Dim userControlImg As userControlImmagini
         If (fDialog.ShowDialog() = DialogResult.OK) Then
-            Dim sCognomeNomeData = tbCognome.Text & "_" & tbNome.Text & "_" & DataNascitaMaskedTextBox.Text.Replace("/", "_")
+
+            'Dim sCognomeNomeData = tbCognome.Text & "_" & tbNome.Text & "_" & DataNascitaMaskedTextBox.Text.Replace("/", "_")
+
+
+
             For i As Integer = 0 To fDialog.FileNames.Length - 1
                 sFileName = fDialog.FileNames.GetValue(i)
                 Try
-                    userControlImg = New userControlImmagini(sFileName, sCognomeNomeData, FlowLayoutPanelFotografie.Width)
+                    userControlImg = New userControlImmagini(sFileName, FlowLayoutPanelFotografie.Width)
                     FlowLayoutPanelFotografie.Controls.Add(userControlImg)
                 Catch ex As Exception
                     MsgBox("Raggiunto il numero massimo di fotografie in un unico inserimento. Sono state inserite " & i & " fotografie.")

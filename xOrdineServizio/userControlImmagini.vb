@@ -1,15 +1,10 @@
 ﻿Imports System.IO
-Imports System.Drawing.Imaging
-Imports System.Text
-Imports System.Net.Mime.MediaTypeNames.Image
-
-
-
 Public Class userControlImmagini
     Public Property sFilePath As String
     Private _imageTmb As Image
 
-    Sub New(_sFilePath As String, sCognomeNomeData As String, width As Integer)
+
+    Sub New(_sFilePath As String, width As Integer)
         InitializeComponent()
         Dim image As Image = Bitmap.FromFile(_sFilePath)
         Dim widthImage As Integer = image.Width()
@@ -27,17 +22,19 @@ Public Class userControlImmagini
         Me.Height = heightImage
         Me.Width = widthImage
 
+
         sFilePath = _sFilePath
-        salvaFile(_sFilePath, sCognomeNomeData)
+        salvaFile(_sFilePath)
         PictureBox1.Image = _imageTmb
 
     End Sub
 
 
 
-    Private Sub salvaFile(_sFilePath As String, _sCognomeNomeData As String)
-        _sCognomeNomeData = _sCognomeNomeData.Replace(" ", "_")
-        sFilePath = My.Settings.pathCartellaScrivibile & My.Settings.pathCartellaFotografie & "\" & _sCognomeNomeData & "\" & Path.GetFileName(_sFilePath)
+    Private Sub salvaFile(_sFilePath As String)
+        '_sCognomeNomeData = _sCognomeNomeData.Replace(" ", "_")
+        'sFilePath = My.Settings.pathCartellaScrivibile & My.Settings.pathCartellaFotografie & "\" & _idPersona & "\" & Path.GetFileName(_sFilePath)
+        sFilePath = My.Settings.pathCartellaScrivibile & My.Settings.pathTempFotografie & "\" & Path.GetFileName(_sFilePath)
         My.Computer.FileSystem.CopyFile(_sFilePath, sFilePath, True)
 
         '  Solo il path delle fotografie deve essere memorizzato
