@@ -1468,6 +1468,22 @@ Public Class ActionsLibrary
         End Try
     End Function
 
+
+    Friend Sub caricaImmaginiSoggetto(flowLayoutPanelFotografie As FlowLayoutPanel, nId As Integer)
+        'se sono presenti nella cartella del soggetto allora carica le immagini dalla directory all'interno del form del soggetto
+        'le immagini vengono salvate in una cartella predefinita, all'interno di sottocartelle che hanno il numero ID del soggetto
+        Dim sPathPhoto As String = My.Settings.pathCartellaScrivibile & My.Settings.pathCartellaFotografie & "\" & nId
+
+        Dim userControlImg As userControlImmagini
+        If My.Computer.FileSystem.DirectoryExists(sPathPhoto) Then
+            For Each sFoundFile As String In My.Computer.FileSystem.GetFiles(sPathPhoto)
+                userControlImg = New userControlImmagini(sFoundFile, flowLayoutPanelFotografie.Width, False)
+                flowLayoutPanelFotografie.Controls.Add(userControlImg)
+            Next
+        End If
+
+
+    End Sub
 End Class
 
 

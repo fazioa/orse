@@ -4,7 +4,11 @@ Public Class userControlImmagini
     Private _imageTmb As Image
 
 
-    Sub New(_sFilePath As String, width As Integer)
+    Sub New(_sFilePath As String, width As Integer, bCopiaFile As Boolean)
+        'bCopiaFile As Boolean
+        'true -->  copia il file nella cartella temporanea delle foto 
+        'false --> carica l'immagine in memoria senza salvarla nella cartella temporanea delle foto 
+
         InitializeComponent()
         Dim image As Image = Bitmap.FromFile(_sFilePath)
         Dim widthImage As Integer = image.Width()
@@ -23,8 +27,12 @@ Public Class userControlImmagini
         Me.Width = widthImage
 
 
-        sFilePath = _sFilePath
-        salvaFile(_sFilePath)
+        If bCopiaFile Then
+            sFilePath = _sFilePath
+            salvaFile(_sFilePath)
+        End If
+
+
         PictureBox1.Image = _imageTmb
 
     End Sub
@@ -32,8 +40,6 @@ Public Class userControlImmagini
 
 
     Private Sub salvaFile(_sFilePath As String)
-        '_sCognomeNomeData = _sCognomeNomeData.Replace(" ", "_")
-        'sFilePath = My.Settings.pathCartellaScrivibile & My.Settings.pathCartellaFotografie & "\" & _idPersona & "\" & Path.GetFileName(_sFilePath)
         sFilePath = My.Settings.pathCartellaScrivibile & My.Settings.pathTempFotografie & "\" & Path.GetFileName(_sFilePath)
         My.Computer.FileSystem.CopyFile(_sFilePath, sFilePath, True)
 

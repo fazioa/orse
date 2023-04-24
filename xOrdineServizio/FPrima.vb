@@ -3,8 +3,9 @@ Imports System.Diagnostics
 Imports System.UnhandledExceptionEventArgs
 Imports System.IO
 Imports System.Security.AccessControl
-
-
+Imports System.CodeDom
+Imports System.Text.RegularExpressions
+Imports Emgu.CV
 
 Public Class FPrima
 
@@ -168,10 +169,10 @@ Public Class FPrima
 
 
     Private Sub apriDettaglioSoggetto(ByRef dgv As DataGridView)
-        Dim v As Integer = dgv.CurrentRow.Cells("cID").Value
+        Dim cId As Integer = dgv.CurrentRow.Cells("cID").Value
         parametri.nomeLuogoControllo = dgv.CurrentRow.Cells("cLuogoControllo").Value
         parametri.dataoraControllo = dgv.CurrentRow.Cells("cOra").Value
-        feActions.doApriDettaglioSoggetto(DbAlegatoADataSet, parametri, v)
+        feActions.doApriDettaglioSoggetto(DbAlegatoADataSet, parametri, cId)
     End Sub
     Private Sub SoggettiDataGridView_CellDoubleClick(ByVal sender As System.Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs)
         Dim dgv As DataGridView = sender
@@ -403,7 +404,18 @@ Public Class FPrima
     Private Sub CamToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles CamToolStripMenuItem.Click
         '  Dim f = New cam()
         '   f.Show()
+
+
+        ' Dim _capture As New capture()
+
+
+        '  PictureBox1.Image = _capture.QueryFrame.ToBitmap
+
+
     End Sub
+
+
+
 End Class
 
 

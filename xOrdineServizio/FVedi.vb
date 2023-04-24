@@ -134,10 +134,10 @@ Public Class FVedi
     End Sub
 
     Private Sub apriDettaglioSoggetto(ByRef dgv As DataGridView)
-        Dim v As Integer = dgv.CurrentRow.Cells("cID").Value
+        Dim cId As Integer = dgv.CurrentRow.Cells("cID").Value
         parametri.nomeLuogoControllo = dgv.CurrentRow.Cells("cLuogoControllo").Value
         parametri.dataoraControllo = dgv.CurrentRow.Cells("cOra").Value
-        feActions.doApriDettaglioSoggetto(DbAlegatoADataSet, parametri, v)
+        feActions.doApriDettaglioSoggetto(DbAlegatoADataSet, parametri, cId)
     End Sub
 
     Private Sub apriDettaglioSopralluogo(ByRef dgv As DataGridView)

@@ -245,7 +245,7 @@ Public Class UserControlComboBox
         frm.visibleMy(False)
     End Sub
 
-    Dim loc As Point
+    Dim loc As Drawing.Point
     Private Sub Timer1_Tick(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Timer1.Tick
 
         If (Me.PointToScreen(Me.Location) <> loc) Then

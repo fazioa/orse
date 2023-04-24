@@ -341,16 +341,6 @@ Namespace My
             End Set
         End Property
         
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\dbAlegatoA.mdb")>  _
-        Public ReadOnly Property dbAlegatoAConnectionString() As String
-            Get
-                Return CType(Me("dbAlegatoAConnectionString"),String)
-            End Get
-        End Property
-        
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.Configuration.DefaultSettingValueAttribute("Dsn=MS Access Database;dbq=C:\Users\tonix\Desktop\OrSeVB2010\xOrdineServizio\dbAl"& _ 
@@ -446,6 +436,16 @@ Namespace My
             Set
                 Me("pathTempFotografie") = value
             End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|\dbAlegatoA.mdb")>  _
+        Public ReadOnly Property dbAlegatoAConnectionString() As String
+            Get
+                Return CType(Me("dbAlegatoAConnectionString"),String)
+            End Get
         End Property
     End Class
 End Namespace

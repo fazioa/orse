@@ -57,6 +57,7 @@ Partial Class FPrima
         Me.labelInfoOS = New System.Windows.Forms.Label()
         Me.ButtonRubrica = New System.Windows.Forms.Button()
         Me.barramenu = New System.Windows.Forms.MenuStrip()
+        Me.CamToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.BtnVedi = New System.Windows.Forms.Button()
         Me.btnSopralluogo = New System.Windows.Forms.Button()
         Me.btnInformazioni = New System.Windows.Forms.Button()
@@ -76,7 +77,7 @@ Partial Class FPrima
         Me.DbAlegatoADataSet = New OrSe.dbAlegatoADataSet()
         Me.BackgroundWorker1 = New System.ComponentModel.BackgroundWorker()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.CamToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TableLayoutPanel2.SuspendLayout()
         Me.FlowLayoutPanel3.SuspendLayout()
         Me.barramenu.SuspendLayout()
@@ -88,6 +89,7 @@ Partial Class FPrima
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PreferenzeToolStripMenuItem1
@@ -292,6 +294,11 @@ Partial Class FPrima
         resources.ApplyResources(Me.barramenu, "barramenu")
         Me.barramenu.Name = "barramenu"
         '
+        'CamToolStripMenuItem
+        '
+        Me.CamToolStripMenuItem.Name = "CamToolStripMenuItem"
+        resources.ApplyResources(Me.CamToolStripMenuItem, "CamToolStripMenuItem")
+        '
         'BtnVedi
         '
         Me.BtnVedi.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
@@ -399,15 +406,17 @@ Partial Class FPrima
         Me.DbAlegatoADataSet.DataSetName = "dbAlegatoADataSet"
         Me.DbAlegatoADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
-        'CamToolStripMenuItem
+        'PictureBox1
         '
-        Me.CamToolStripMenuItem.Name = "CamToolStripMenuItem"
-        resources.ApplyResources(Me.CamToolStripMenuItem, "CamToolStripMenuItem")
+        resources.ApplyResources(Me.PictureBox1, "PictureBox1")
+        Me.PictureBox1.Name = "PictureBox1"
+        Me.PictureBox1.TabStop = False
         '
         'FPrima
         '
         resources.ApplyResources(Me, "$this")
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.FlowLayoutPanelEsterno)
         Me.Controls.Add(Me.FlowLayoutPanel3)
         Me.Controls.Add(Me.TableLayoutPanel2)
@@ -429,6 +438,7 @@ Partial Class FPrima
         CType(Me.AllegatoABindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.OrdineServizioBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DbAlegatoADataSet, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -524,5 +534,5 @@ Partial Class FPrima
     Friend WithEvents ToolTip1 As System.Windows.Forms.ToolTip
     Friend WithEvents ContattiToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CamToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-
+    Friend WithEvents PictureBox1 As PictureBox
 End Class

@@ -1,5 +1,5 @@
 Imports System.IO
-Imports System.Linq.Expressions
+Imports System.Security.Cryptography
 
 Public Class FSoggetto
     Dim parametri As parametriControllo_e_OS
@@ -64,7 +64,7 @@ Public Class FSoggetto
     End Sub
 
     'modifica soggetto
-    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByVal parametri As parametriControllo_e_OS, ByVal n As Integer)
+    Public Sub New(ByRef DataSet As dbAlegatoADataSet, ByVal parametri As parametriControllo_e_OS, ByVal nId As Integer)
         DbDataSetComuneNascita = DataSet
         InitializeComponent()
         feActions.setStandardFormSize(Me)
@@ -74,12 +74,12 @@ Public Class FSoggetto
         Me.parametri = parametri
 
         'fill della tabella alegatoA e degli altri dataset
-        Me.AllegatoATableAdapter.FillByID(Me.DbDataSetComuneNascita.allegatoA, n)
+        Me.AllegatoATableAdapter.FillByID(Me.DbDataSetComuneNascita.allegatoA, nId)
 
-        Dim i = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idPersona")
-        Me.PersonaTableAdapter.FillByID(Me.DbDataSetComuneNascita.persona, i)
+        Dim _idPersona = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idPersona")
+        Me.PersonaTableAdapter.FillByID(Me.DbDataSetComuneNascita.persona, _idPersona)
 
-        i = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idMezzo")
+        Dim i = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idMezzo")
         If (Not i Is DBNull.Value) Then
             ' Me.modelliMezzoTableAdapter.FillById(Me.DbDataSet.modelliMezzo, i)
             ComboBoxModelliMezzo.setSelectedID(i)
@@ -102,6 +102,7 @@ Public Class FSoggetto
         parametri.idControllo = feActions.leggiCampoDB(Me.AllegatoABindingSource, "idControllo")
         labelOSWrite(parametri.idControllo)
 
+        feActions.caricaImmaginiSoggetto(FlowLayoutPanelFotografie, _idPersona)
     End Sub
 
     Private Sub labelOSWrite(ByVal iId As Integer)
@@ -184,6 +185,11 @@ Public Class FSoggetto
     Private Sub btnSalvaChiudi_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnSalvaChiudi.Click
         Try
             Dim idpersona As Integer
+            Dim dataRowPersona As DataRowView
+            dataRowPersona = PersonaBindingSource.Current()
+            idpersona = dataRowPersona.Item("id")
+
+
             Me.Validate()
             'creazione persona
 
@@ -198,10 +204,6 @@ Public Class FSoggetto
                 If (Not bPersonaInteresseOperativo) Then
                     'recupero l'id persona. E' l'ultima persona inserita
                     idpersona = Me.PersonaTableAdapter.MaxID()
-                Else
-                    Dim dataRowPersona As DataRowView
-                    dataRowPersona = PersonaBindingSource.Current()
-                    idpersona = dataRowPersona.Item("id")
                 End If
 
                 datarowAllegatoA.Item("idpersona") = idpersona
@@ -224,23 +226,24 @@ Public Class FSoggetto
             Me.AllegatoATableAdapter.Update(Me.DbDataSetComuneNascita.allegatoA)
             Me.Close()
 
-            'copia fotografie dalla cartella temporanea in una cartella col nome di idPersonaù
-            Dim sFilePathDest = My.Settings.pathCartellaScrivibile & My.Settings.pathCartellaFotografie & "\" & idpersona
-            Dim sFilePath = My.Settings.pathCartellaScrivibile & My.Settings.pathTempFotografie
+            'copia fotografie dalla cartella temporanea in una cartella col nome di idPersona
+            Dim sFilePathDest As String = My.Settings.pathCartellaScrivibile & My.Settings.pathCartellaFotografie & "\" & idpersona
+            Dim sFilePath As String = My.Settings.pathCartellaScrivibile & My.Settings.pathTempFotografie
 
-            'sposta tutti i file contenuti
-            Dim listaFile = My.Computer.FileSystem.GetFiles(sFilePath)
-            Dim element = Nothing
-            For Each element In listaFile
-                My.Computer.FileSystem.MoveFile(element, sFilePathDest & "\" & Path.GetFileName(element), True)
-                log.xlogWriteEntry("Spostamento File", "Spostamento file " & Path.GetFileName(element).Trim & " to " & sFilePathDest)
-                vedere perché solleva eccezione
-            Next
-
+            'sposta tutti i file contenuti dalla cartella temporanea
+            If My.Computer.FileSystem.DirectoryExists(sFilePath) Then
+                Dim listaFile = My.Computer.FileSystem.GetFiles(sFilePath)
+                Dim element = Nothing
+                For Each element In listaFile
+                    My.Computer.FileSystem.MoveFile(element, sFilePathDest & "\" & Path.GetFileName(element), True)
+                    log.xlogWriteEntry("Spostamento file " & Path.GetFileName(element) & " to " & sFilePathDest, TraceEventType.Information)
+                Next
+            End If
         Catch ex As Exception
             log.xlogWriteEntry("Errore inserimento soggetto. " & ex.Message, TraceEventType.Error)
             MsgBox("Errore inserimento soggetto. " & ex.Message, MsgBoxStyle.Critical, "Errore")
         End Try
+
     End Sub
 
 
@@ -348,6 +351,12 @@ Public Class FSoggetto
 
 
         If (idPersona >= 0) Then
+            'disabilito i textbox delle generalità
+            tbCognome.Enabled = False
+            tbNome.Enabled = False
+            DataNascitaMaskedTextBox.Enabled = False
+            ComboBoxComuneNascita.Enabled = False
+
             'in allegato A il soggetto di int.op. che inserisco corrisponde ad un nuovo soggetto. (altrimenti compaiono a video tutti i dati ma poi, se siamo in modalità modifica, con "Salva e Chiudi" non viene memorizzata la persona
             bNuovoSoggetto = True
             'se viene selezionata una persona di int.operativo allora rimuovo la riga inserita prima e posiziono il binding
@@ -360,8 +369,7 @@ Public Class FSoggetto
             i = feActions.leggiCampoDB(Me.PersonaBindingSource, "idResidenzaComune")
             If (Not (i Is DBNull.Value Or i Is Nothing)) Then Me.QComuneTableAdapter.FillByID(Me.DbDataSetComuneResidenza.QComune, Integer.Parse(i))
 
-
-
+            feActions.caricaImmaginiSoggetto(FlowLayoutPanelFotografie, idPersona)
         End If
     End Sub
 
@@ -595,7 +603,7 @@ Public Class FSoggetto
         ' f.Show()
     End Sub
 
-    Private Sub ButtonFileFotografie_Click(sender As System.Object, e As System.EventArgs) Handles ButtonFileFotografie.Click
+    Private Sub ButtonAggiungiFotografie_Click(sender As System.Object, e As System.EventArgs) Handles ButtonFileFotografie.Click
         Dim fDialog As OpenFileDialog = New System.Windows.Forms.OpenFileDialog()
         fDialog.Title = "Aggiungi fotografie"
         fDialog.Filter = "Images|*.jpg"
@@ -606,12 +614,10 @@ Public Class FSoggetto
 
             'Dim sCognomeNomeData = tbCognome.Text & "_" & tbNome.Text & "_" & DataNascitaMaskedTextBox.Text.Replace("/", "_")
 
-
-
             For i As Integer = 0 To fDialog.FileNames.Length - 1
                 sFileName = fDialog.FileNames.GetValue(i)
                 Try
-                    userControlImg = New userControlImmagini(sFileName, FlowLayoutPanelFotografie.Width)
+                    userControlImg = New userControlImmagini(sFileName, FlowLayoutPanelFotografie.Width, True)
                     FlowLayoutPanelFotografie.Controls.Add(userControlImg)
                 Catch ex As Exception
                     MsgBox("Raggiunto il numero massimo di fotografie in un unico inserimento. Sono state inserite " & i & " fotografie.")

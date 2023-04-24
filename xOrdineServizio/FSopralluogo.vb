@@ -1,3 +1,5 @@
+Imports Point = System.Drawing.Point
+
 Public Class FSopralluogo
     Dim log As New XOrseLog
     Dim feActions As New OrSe.ActionsLibrary
@@ -29,7 +31,7 @@ Public Class FSopralluogo
                 drv.Item("oraRedazione") = DateTimePickerOraVerbale.Value
                 drv.Item("oraRichiesta") = DateTimePickerOraRichiesta.Value
             End If
-          
+
 
             Me.Validate()
             Me.SopralluogoBindingSource.EndEdit()
@@ -59,7 +61,7 @@ Public Class FSopralluogo
 
 
 
-    
+
     End Sub
 
 
@@ -68,7 +70,7 @@ Public Class FSopralluogo
         'TODO: This line of code loads data into the 'DbAlegatoADataSet.sopralluogo' table. You can move, or remove it, as needed.
         If (idSopralluogo >= 0) Then
             log.xlogWriteEntry("Apertura form sopralluogo per modifica", TraceEventType.Information)
-            Me.SopralluogoTableAdapter.FillById(Me.DbAlegatoADataSet.sopralluogo, idSopralluogo)
+            Me.SopralluogoTableAdapter.FillByID(Me.DbAlegatoADataSet.sopralluogo, idSopralluogo)
 
             Dim tipoR As String = feActions.leggiCampoDB(SopralluogoBindingSource, "tipoReato")
 
@@ -134,7 +136,7 @@ Public Class FSopralluogo
         Try
             log.xlogWriteEntry("Word - Preparazione per generazione verbale di sopralluogo", TraceEventType.Critical)
             feActions.wordInizializzaEcompilaVerbaleSopralluogo(SopralluogoBindingSource, nomiOperatori)
-        
+
 
         Catch
 
